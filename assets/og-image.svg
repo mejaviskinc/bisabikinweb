@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#f7f3eb"/>
+  <rect x="80" y="80" width="120" height="120" rx="28" fill="#ead3aa"/>
+  <text x="140" y="158" text-anchor="middle" font-family="Arial, sans-serif" font-size="70" font-weight="700" fill="#111">{}</text>
+  <text x="240" y="145" font-family="Arial, sans-serif" font-size="72" font-weight="700" fill="#111">BisaBikinWeb</text>
+  <text x="240" y="195" font-family="Arial, sans-serif" font-size="32" fill="#333">Build Your Digital Presence</text>
+  <text x="80" y="340" font-family="Arial, sans-serif" font-size="58" font-weight="700" fill="#111">Website Profesional untuk Bisnis</text>
+  <text x="80" y="410" font-family="Arial, sans-serif" font-size="58" font-weight="700" fill="#111">yang Mau Naik Level.</text>
+  <text x="80" y="520" font-family="Arial, sans-serif" font-size="30" fill="#555">bisabikinweb.site</text>
+</svg>
