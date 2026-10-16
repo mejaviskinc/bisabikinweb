@@ -1,2 +1,3 @@
 .netlify/
 .DS_Store
+# Trigger Netlify deploy after GitHub connection
