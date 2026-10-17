@@ -28,7 +28,7 @@ async function readDashboard(uid:string){
  let orderRows:any[]=[];
  if(ids.length)orderRows=await db('bbweb_orders?select=id,order_no,customer_name,customer_phone,shipping_address,status,payment_status,created_at,paid_at&id=in.('+ids.join(',')+')');
  const orderMap=new Map((Array.isArray(orderRows)?orderRows:[]).map((o:any)=>[o.id,o]));
- const orderItems=(Array.isArray(items)?items:[]).map((x:any)=>{const o:any=orderMap.get(x.order_id)||{};const paid=o.payment_status==='paid'||x.payment_status==='paid';return {...x,order:{id:o.id,order_no:o.order_no||'—',status:o.status||'—',payment_status:o.payment_status||x.payment_status,created_at:o.created_at||x.created_at,paid_at:o.paid_at||null,customer_name:paid?o.customer_name:null,customer_phone:paid?o.customer_phone:null,shipping_address:paid?o.shipping_address:null}};});
+ const orderItems=(Array.isArray(items)?items:[]).map((x:any)=>{const o:any=orderMap.get(x.order_id)||{};const paid=o.payment_status==='paid';return {...x,payment_status:o.payment_status||x.payment_status,order:{id:o.id,order_no:o.order_no||'—',status:o.status||'—',payment_status:o.payment_status||x.payment_status,created_at:o.created_at||x.created_at,paid_at:o.paid_at||null,customer_name:paid?o.customer_name:null,customer_phone:paid?o.customer_phone:null,shipping_address:paid?o.shipping_address:null}};});
  const ledgerRows=Array.isArray(ledger)?ledger:[],withdrawRows=Array.isArray(withdrawals)?withdrawals:[];
  const availableCredits=ledgerRows.filter((x:any)=>x.status==='available').reduce((s:number,x:any)=>s+Number(x.amount||0),0);
  const reservedWithdrawals=withdrawRows.filter((x:any)=>['pending','approved','processing','paid'].includes(x.status)).reduce((s:number,x:any)=>s+Number(x.amount||0),0);
@@ -79,11 +79,20 @@ Deno.serve(async(req:Request)=>{
    if(action==='admin_update_withdrawal'){
     const id=clean(input?.withdrawal_id,64),next=clean(input?.status,20),reference=clean(input?.payout_reference,160),note=clean(input?.admin_note,1000);
     if(!/^[0-9a-f-]{36}$/i.test(id)||!['approved','processing','paid','rejected'].includes(next))return reply({error:'Status pencairan tidak valid.'},400,origin);
-    const rows=await db('bbweb_seller_withdrawals?select=id,status,amount&id=eq.'+encodeURIComponent(id)+'&limit=1'.replace(' ',''));
+    const rows=await db('bbweb_seller_withdrawals?select=id,status,amount,seller_id&id=eq.'+encodeURIComponent(id)+'&limit=1');
     const current=rows?.[0];if(!current)return reply({error:'Permintaan withdraw tidak ditemukan.'},404,origin);
     const allowed:Record<string,string[]>={pending:['approved','rejected'],approved:['processing','paid','rejected'],processing:['paid','rejected'],paid:[],rejected:[]};
     if(!(allowed[current.status]||[]).includes(next))return reply({error:'Perubahan status tersebut tidak diizinkan.'},409,origin);
     if(next==='paid'&&reference.length<3)return reply({error:'Nomor referensi transfer wajib diisi sebelum menandai lunas.'},400,origin);
+    if(next==='paid'){
+      const [ledgerRows,otherWithdrawals]=await Promise.all([
+        db('bbweb_seller_ledger?select=amount&seller_id=eq.'+encodeURIComponent(current.seller_id)+'&status=eq.available'),
+        db('bbweb_seller_withdrawals?select=amount&seller_id=eq.'+encodeURIComponent(current.seller_id)+'&status=in.(pending,approved,processing,paid)&id=neq.'+encodeURIComponent(id))
+      ]);
+      const availableCredits=(Array.isArray(ledgerRows)?ledgerRows:[]).reduce((sum:number,row:any)=>sum+Number(row.amount||0),0);
+      const reservedOther=(Array.isArray(otherWithdrawals)?otherWithdrawals:[]).reduce((sum:number,row:any)=>sum+Number(row.amount||0),0);
+      if(availableCredits-reservedOther<Number(current.amount))return reply({error:'Saldo tersedia berubah atau tidak cukup setelah penyesuaian/refund. Jangan transfer; tolak atau tinjau ulang permintaan ini.'},409,origin);
+    }
     if(next==='rejected'&&note.length<3)return reply({error:'Catatan penolakan wajib diisi.'},400,origin);
     const patch:any={status:next,admin_note:note,updated_at:new Date().toISOString()};
     if(next==='approved')patch.approved_at=new Date().toISOString();if(next==='paid'){patch.paid_at=new Date().toISOString();patch.payout_reference=reference;}
