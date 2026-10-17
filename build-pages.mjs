@@ -54,7 +54,7 @@ const website={
 function protectHtml(html){
  const hashes=[...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)].filter(m=>m[1].trim()).map(m=>"'sha256-"+createHash('sha256').update(m[1]).digest('base64')+"'");
  const policy=["default-src 'none'","base-uri 'none'","object-src 'none'","script-src 'self' "+hashes.join(' '),"script-src-attr 'none'","style-src 'self' 'unsafe-inline'","img-src 'self' data:","font-src 'self' data:","connect-src 'self'","frame-src https://mejaviskincare.co.id https://www.mejaviskincare.co.id","media-src 'self'","form-action 'none'","upgrade-insecure-requests"].join('; ');
- return html.replace('<head>','<head><meta http-equiv="Content-Security-Policy" content="'+policy+'"/><meta name="referrer" content="strict-origin-when-cross-origin"/>');
+ return html.replace('<head>','<head><meta http-equiv="Content-Security-Policy" content="'+policy+'"/><meta name="referrer" content="no-referrer"/>');
 }
 const template=await readFile('site-dist/index.html','utf8');
 for(const [path,[name,description]] of Object.entries(pages)){
