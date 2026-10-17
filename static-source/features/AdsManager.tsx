@@ -14,6 +14,7 @@ export default function AdsManager(){
   const [email,setEmail]=useState('bisabikinw3b@gmail.com');
   const [password,setPassword]=useState('');
   const [ad,setAd]=useState<AdSettings>(defaultAd);
+  const [pendingDeleteUrls,setPendingDeleteUrls]=useState<string[]>([]);
   const [message,setMessage]=useState('');
   const [error,setError]=useState('');
 
@@ -25,21 +26,20 @@ export default function AdsManager(){
     return isAdActive(ad)?'Tayang':'Belum siap';
   },[ad]);
 
-  async function load(current:AdminSession){const next=await adminLoadAd(current);setAd(next)}
+  async function load(current:AdminSession){const next=await adminLoadAd(current);setAd(next);setPendingDeleteUrls([])}
   useEffect(()=>{let active=true;(async()=>{const current=await getSession();if(!active)return;if(current){try{await assertAdmin(current);if(!active)return;setSession(current);await load(current)}catch(err:any){await signOut(current);if(active)setError(err.message||'Sesi admin tidak valid.')}}if(active)setBooting(false)})();return()=>{active=false}},[]);
 
   async function login(e:any){e.preventDefault();setBusy(true);setError('');setMessage('');try{const current=await signIn(email,password);await assertAdmin(current);setSession(current);await load(current);setPassword('')}catch(err:any){setError(err.message||'Login gagal.')}finally{setBusy(false)}}
   async function logout(){await signOut(session);setSession(null);setPassword('');setMessage('')}
   async function refresh(){if(!session)return;setBusy(true);setError('');try{await load(session);setMessage('Data iklan diperbarui.')}catch(err:any){setError(err.message||'Gagal memuat iklan.')}finally{setBusy(false)}}
-  async function save(e:any){e.preventDefault();if(!session)return;setBusy(true);setError('');setMessage('');try{const next=await adminSaveAd(session,ad);setAd(next);setMessage('Iklan berhasil disimpan dan akan dibaca website publik.')}catch(err:any){setError(err.message||'Gagal menyimpan iklan.')}finally{setBusy(false)}}
+  async function save(e:any){e.preventDefault();if(!session)return;setBusy(true);setError('');setMessage('');try{const next=await adminSaveAd(session,ad);setAd(next);const stale=[...new Set(pendingDeleteUrls)].filter(url=>url&&url!==next.ad_image_url);for(const url of stale){try{await adminDeleteArticleImage(session,url)}catch{}}setPendingDeleteUrls([]);setMessage('Iklan berhasil disimpan dan akan dibaca website publik.')}catch(err:any){setError(err.message||'Gagal menyimpan iklan.')}finally{setBusy(false)}}
   async function uploadPhoto(e:any){
     const input=e.currentTarget as HTMLInputElement;const file=input.files?.[0];if(!file||!session)return;
     setBusy(true);setError('');setMessage('');
-    try{const url=await adminUploadArticleImage(session,file,'ads');setAd(current=>({...current,ad_image_url:url}));setMessage('Foto iklan berhasil diupload. Klik “Simpan Iklan” untuk menerapkannya ke website.')}catch(err:any){setError(err.message||'Gagal mengupload foto iklan.')}finally{input.value='';setBusy(false)}
+    try{const previous=ad.ad_image_url;const url=await adminUploadArticleImage(session,file,'ads');if(previous&&previous!==url)setPendingDeleteUrls(current=>[...current,previous]);setAd(current=>({...current,ad_image_url:url}));setMessage('Foto iklan berhasil diupload. Klik “Simpan Iklan” untuk menerapkannya ke website.')}catch(err:any){setError(err.message||'Gagal mengupload foto iklan.')}finally{input.value='';setBusy(false)}
   }
-  async function removePhoto(){
-    if(!ad.ad_image_url)return;const currentUrl=ad.ad_image_url;setAd(current=>({...current,ad_image_url:''}));setError('');setMessage('Foto dihapus dari draft iklan. Klik “Simpan Iklan” untuk menerapkan perubahan.');
-    if(session){try{await adminDeleteArticleImage(session,currentUrl)}catch{}}
+  function removePhoto(){
+    if(!ad.ad_image_url)return;const currentUrl=ad.ad_image_url;setPendingDeleteUrls(current=>[...current,currentUrl]);setAd(current=>({...current,ad_image_url:''}));setError('');setMessage('Foto dihapus dari draft iklan. Klik “Simpan Iklan” untuk menerapkan perubahan.')
   }
 
   if(booting)return <section className="ads-admin ads-auth"><div className="ads-loading">Memuat Ads Manager…</div></section>;
