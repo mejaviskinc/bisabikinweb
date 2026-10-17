@@ -8,4 +8,4 @@ Node.js 22 atau lebih baru. Jalankan `npm install` lalu `npm run build`. Hasil s
 
 Konten di `static-source/lib/data.ts`; visual di `static-source/components/Visuals.tsx`; gaya di `static-source/styles.css`.
 
-Konsultasi publik memakai draf WhatsApp; pesan baru terkirim setelah pengguna menekan Kirim. Merch belum tersedia untuk transaksi publik. Admin, akun, checkout, dan pelacakan tetap diarahkan ke aplikasi backend yang terpisah dan memiliki akses sendiri. GitHub Pages tidak menyimpan inquiry atau menjalankan database.
+Konsultasi publik memakai draf WhatsApp; pesan baru terkirim setelah pengguna menekan Kirim. Checkout dan pelacakan merchandise tetap di domain utama agar keranjang browser terbaca pada seluruh alur. Pembuatan order dan pembayaran diproses oleh Supabase Edge Functions dan Midtrans; fungsi pembayaran membutuhkan secret MIDTRANS_SERVER_KEY di Supabase dan secret tersebut tidak boleh dimasukkan ke frontend. Halaman Admin dan akun tetap diarahkan ke aplikasi backend terpisah. GitHub Pages sendiri tidak menyimpan order atau menjalankan database.
