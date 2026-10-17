@@ -133,3 +133,9 @@ export async function adminDeleteArticleImage(session:AdminSession,url:string){
   const response=await fetch(`${SUPABASE_URL}/storage/v1/object/${ARTICLE_BUCKET}/${encodeStoragePath(path)}`,{method:'DELETE',headers:{apikey:SUPABASE_KEY,Authorization:'Bearer '+live.access_token}});
   if(!response.ok&&response.status!==404){let message='Gagal menghapus gambar.';try{const data=await response.json();message=data?.message||data?.error||message}catch{}throw new Error(message)}
 }
+
+export async function paymentGatewayAdminApi(session:AdminSession,payload:any){
+  const live=await liveSession(session);
+  await assertAdmin(live);
+  return request('/functions/v1/bbweb-payment-admin',{method:'POST',body:payload,token:live.access_token});
+}
