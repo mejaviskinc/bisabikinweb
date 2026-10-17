@@ -21,3 +21,8 @@
 .order-summary .checkout-grand-total{border-top:1px solid var(--line);font-size:14px;font-weight:600}
 .order-summary .checkout-grand-total strong{font-size:16px}
 @media(max-width:650px){.checkout-payment-options{grid-template-columns:1fr}.shipping-option{grid-template-columns:18px minmax(0,1fr);align-items:start}.shipping-option>strong{grid-column:2}.checkout-rate-button{width:100%;justify-content:center}.checkout-choice-block{margin:22px 0;padding-top:20px}}
+
+
+.checkout-payment-select{display:block;width:100%;margin-top:8px;padding:14px 15px;border:1px solid var(--line,rgba(255,255,255,.16));border-radius:10px;background:var(--panel,rgba(255,255,255,.03));color:var(--text,inherit);font:inherit;font-size:12px}
+.checkout-payment-select option{background:#171717;color:#fff}
+.checkout-payment-help{display:block;font-size:10px;line-height:1.6;color:var(--muted,#a0a0a0);margin-top:8px}
