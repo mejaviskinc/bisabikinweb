@@ -60,6 +60,15 @@ BEGIN
           ELSE ' · dibalik karena refund'
         END, 500)
     WHERE order_id = NEW.id AND status IN ('pending','available');
+
+    UPDATE public.bbweb_seller_withdrawals
+    SET status = 'rejected',
+        rejected_at = now(),
+        updated_at = now(),
+        admin_note = left(trim(coalesce(admin_note,'') || ' Ditolak otomatis karena refund/penyesuaian saldo; ajukan ulang setelah rekonsiliasi.'),1000)
+    WHERE seller_id IN (
+      SELECT DISTINCT seller_id FROM public.bbweb_seller_order_items WHERE order_id = NEW.id
+    ) AND status IN ('pending','approved');
   END IF;
 
   IF NEW.status = 'completed' AND NEW.payment_status = 'paid' THEN
