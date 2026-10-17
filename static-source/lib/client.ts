@@ -11,6 +11,7 @@ async function functionPost(path:string,data:any):Promise<any>{
 }
 
 export async function merchCheckout(data:any){return functionPost('bbweb-merch-checkout',data)}
+export async function merchShippingRates(data:any){return functionPost('bbweb-merch-checkout',{...data,action:'shipping_rates'})}
 export async function merchOrderStatus(orderNo:string,token:string){return functionPost('bbweb-payment-status',{order_no:orderNo,token})}
 export async function api(path:string,data?:any):Promise<any>{if(path==='event')return {ok:true};throw new Error('Fitur ini tersedia melalui tim Bisabikinweb. Hubungi WhatsApp 0882003740969.')}
 export function event(_name:string){}
