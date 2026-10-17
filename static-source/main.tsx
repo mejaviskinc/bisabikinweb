@@ -3,6 +3,8 @@ import {createRoot,hydrateRoot} from 'react-dom/client';
 import Studio from './features/Studio';
 import Admin from './features/Admin';
 import AdsManager from './features/AdsManager';
+import SellerDashboard from './features/SellerDashboard';
+import SellerAdmin from './features/SellerAdmin';
 import {defaults} from './lib/data';
 import {loadPublicContent} from './lib/supabase';
 import {isAdActive,loadPublicAd,safeAdHref,safeAdImages,type AdSettings} from './lib/ads';
@@ -13,6 +15,7 @@ import './features/article-images.css';
 import './features/ads.css';
 import './features/ads-carousel.css';
 import './features/admin-ads-menu.css';
+import './features/seller.css';
 
 const path=location.pathname.replace(/\/+$/,'')||'/';
 function merchVariants(products:any[]){return (products||[]).filter(p=>Number.isSafeInteger(Number(p.price))&&Number(p.price)>0&&Number.isInteger(Number(p.stock))&&Number(p.stock)>0).map(p=>({id:p.id,product_id:p.id,size:'Standard',color:p.color||'Default',price:Number(p.price),stock:Number(p.stock),active:true}))}
@@ -119,16 +122,24 @@ function AdminWithAdsMenu(){
   useEffect(()=>{
     const install=()=>{
       const nav=document.querySelector<HTMLElement>('.admin-nav');
-      if(!nav||nav.querySelector('[data-admin-ads-menu]'))return false;
+      if(!nav)return false;
       const labels=nav.querySelectorAll<HTMLElement>('.admin-nav-label');
       const systemLabel=labels.length>1?labels[1]:null;
-      const link=document.createElement('a');link.href='/admin/iklan';link.className='admin-ads-menu';link.dataset.adminAdsMenu='true';
-      const icon=document.createElement('span');icon.className='admin-ads-menu-icon';icon.textContent='AD';
-      const text=document.createElement('span');text.textContent='Iklan';
-      const arrow=document.createElement('span');arrow.className='admin-ads-menu-arrow';arrow.textContent='↗';
-      link.append(icon,text,arrow);
-      if(systemLabel)nav.insertBefore(link,systemLabel);else nav.appendChild(link);
-      return true;
+      if(!nav.querySelector('[data-admin-ads-menu]')){
+        const link=document.createElement('a');link.href='/admin/iklan';link.className='admin-ads-menu';link.dataset.adminAdsMenu='true';
+        const icon=document.createElement('span');icon.className='admin-ads-menu-icon';icon.textContent='AD';
+        const text=document.createElement('span');text.textContent='Iklan';
+        const arrow=document.createElement('span');arrow.className='admin-ads-menu-arrow';arrow.textContent='↗';
+        link.append(icon,text,arrow);if(systemLabel)nav.insertBefore(link,systemLabel);else nav.appendChild(link);
+      }
+      if(!nav.querySelector('[data-admin-sellers-menu]')){
+        const link=document.createElement('a');link.href='/admin/sellers';link.className='admin-ads-menu';link.dataset.adminSellersMenu='true';
+        const icon=document.createElement('span');icon.className='admin-ads-menu-icon';icon.textContent='SLR';
+        const text=document.createElement('span');text.textContent='Sellers & Withdraw';
+        const arrow=document.createElement('span');arrow.className='admin-ads-menu-arrow';arrow.textContent='↗';
+        link.append(icon,text,arrow);if(systemLabel)nav.insertBefore(link,systemLabel);else nav.appendChild(link);
+      }
+      return Boolean(nav.querySelector('[data-admin-ads-menu]')&&nav.querySelector('[data-admin-sellers-menu]'));
     };
     if(install())return;
     const observer=new MutationObserver(()=>{if(install())observer.disconnect()});observer.observe(document.getElementById('root')||document.body,{childList:true,subtree:true});
@@ -137,6 +148,6 @@ function AdminWithAdsMenu(){
   return <Admin/>;
 }
 
-const app=path.startsWith('/admin/iklan')?<AdsManager/>:path.startsWith('/admin')?<AdminWithAdsMenu/>:<PublicClient/>;
+const app=path==='/seller'?<SellerDashboard/>:path.startsWith('/admin/sellers')?<SellerAdmin/>:path.startsWith('/admin/iklan')?<AdsManager/>:path.startsWith('/admin')?<AdminWithAdsMenu/>:<PublicClient/>;
 const root=document.getElementById('root')!;
-if(path.startsWith('/admin'))createRoot(root).render(app);else hydrateRoot(root,app);
+if(path.startsWith('/admin')||path==='/seller')createRoot(root).render(app);else hydrateRoot(root,app);
