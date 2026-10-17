@@ -7,11 +7,13 @@ function clean(v:unknown,max:number){return String(v??'').trim().replace(/[\u000
 function rand(bytes=4){const b=new Uint8Array(bytes);crypto.getRandomValues(b);return [...b].map(x=>x.toString(16).padStart(2,'0')).join('').toUpperCase();}
 function slug(v:string){return v.toLowerCase().normalize('NFKD').replace(/[\u0300-\u036f]/g,'').replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'').slice(0,52)||'product';}
 function mask(v:string){return '•'.repeat(Math.max(4,v.length-4))+v.slice(-4);}
+function optionalHttps(v:unknown){const raw=clean(v,250);if(!raw)return '';try{const u=new URL(raw);return u.protocol==='https:'&&u.hostname?u.toString().slice(0,250):null;}catch{return null;}}
+const SELLER_CATEGORIES=['Fashion','Aksesoris','Kecantikan','Makanan & Minuman','Kerajinan','Elektronik','Produk Digital','Rumah Tangga','Lainnya'];
 async function db(path:string,options:RequestInit={}){const url=Deno.env.get('SUPABASE_URL')||'',key=secretKey();if(!url||!key)throw new Error('Server database credentials unavailable');const h=new Headers(options.headers||{});h.set('apikey',key);h.set('Authorization','Bearer '+key);h.set('Accept','application/json');if(options.body!==undefined)h.set('Content-Type','application/json');const r=await fetch(url+'/rest/v1/'+path,{...options,headers:h});const t=await r.text();let p:any=null;if(t){try{p=JSON.parse(t)}catch{p=t}}if(!r.ok)throw new Error(typeof p==='string'?p:(p?.message||p?.details||p?.hint||'Database request failed'));return p;}
 async function rpc(name:string,body:any={}){return db('rpc/'+name,{method:'POST',headers:{Prefer:'return=representation'},body:JSON.stringify(body)});}
 async function authenticate(req:Request){const auth=req.headers.get('authorization')||'';const token=auth.match(/^Bearer\s+(.+)$/i)?.[1];if(!token)throw Object.assign(new Error('Silakan masuk kembali.'),{status:401});const url=Deno.env.get('SUPABASE_URL')||'';const r=await fetch(url+'/auth/v1/user',{headers:{apikey:SUPABASE_PUBLIC_KEY,Authorization:'Bearer '+token,Accept:'application/json'},signal:AbortSignal.timeout(8000)});if(!r.ok)throw Object.assign(new Error('Sesi login tidak valid atau sudah kedaluwarsa.'),{status:401});const user=await r.json();if(!user?.id||!user?.email)throw Object.assign(new Error('Akun tidak valid.'),{status:401});return user;}
 async function requireAdmin(user:any){const rows=await db('bbweb_admin_allowlist?select=email,label&email=eq.'+encodeURIComponent(String(user.email).toLowerCase())+'&limit=1');if(!Array.isArray(rows)||!rows.length)throw Object.assign(new Error('Akses admin ditolak.'),{status:403});return rows[0];}
-async function profile(uid:string){const rows=await db('bbweb_sellers?select=id,email,store_name,owner_name,phone,description,status,commission_rate,created_at,updated_at&id=eq.'+encodeURIComponent(uid)+'&limit=1');return Array.isArray(rows)?rows[0]||null:null;}
+async function profile(uid:string){const rows=await db('bbweb_sellers?select=id,application_no,email,store_name,owner_name,phone,description,business_category,city,store_address,website_url,social_url,terms_accepted_at,email_verified_at,review_note,reviewed_at,reviewed_by,status,commission_rate,created_at,updated_at&id=eq.'+encodeURIComponent(uid)+'&limit=1');return Array.isArray(rows)?rows[0]||null:null;}
 async function requireSeller(uid:string,active=false){const p=await profile(uid);if(!p)throw Object.assign(new Error('Lengkapi pendaftaran toko terlebih dahulu.'),{status:409,code:'SELLER_PROFILE_REQUIRED'});if(active&&p.status!=='active')throw Object.assign(new Error(p.status==='pending'?'Toko masih menunggu persetujuan admin.':'Akun seller belum aktif.'),{status:403,code:'SELLER_NOT_ACTIVE'});return p;}
 function userMessage(error:any){const raw=String(error?.message||'');if(raw.includes('WITHDRAWAL_BELOW_MINIMUM'))return 'Nominal withdraw di bawah minimum yang berlaku.';if(raw.includes('INSUFFICIENT_AVAILABLE_BALANCE'))return 'Saldo tersedia tidak mencukupi.';if(raw.includes('PAYOUT_ACCOUNT_REQUIRED'))return 'Simpan rekening pencairan terlebih dahulu.';if(raw.includes('SELLER_NOT_ACTIVE'))return 'Toko harus disetujui admin sebelum melakukan aksi ini.';if(raw.includes('INVALID_WITHDRAWAL_AMOUNT'))return 'Nominal withdraw tidak valid.';if(raw.includes('PRODUCT_UNAVAILABLE')||raw.includes('PRODUCT_NOT_FOR_SALE'))return 'Produk tidak tersedia untuk dijual.';if(raw.includes('INVALID_STOCK_DELTA'))return 'Perubahan stok tidak valid.';if(raw.includes('STOCK_OUT_OF_RANGE'))return 'Stok tidak boleh kurang dari nol atau melebihi 10.000.';if(raw.includes('PRODUCT_NOT_FOUND'))return 'Produk tidak ditemukan atau bukan milik toko Anda.';if(raw.includes('duplicate key'))return 'Data tersebut sudah digunakan.';if(raw.includes('row-level security')||raw.includes('permission denied'))return 'Akses data ditolak oleh aturan keamanan.';return error?.status?raw:'Permintaan belum dapat diproses. Periksa data lalu coba lagi.';}
 async function readDashboard(uid:string){
@@ -44,16 +46,19 @@ Deno.serve(async(req:Request)=>{
  try{
   const user=await authenticate(req);let input:any;try{input=await req.json()}catch{return reply({error:'Payload JSON tidak valid.'},400,origin)}const action=clean(input?.action,60);
   if(action==='register'){
-   const storeName=clean(input?.store_name,120),ownerName=clean(input?.owner_name,120),phone=clean(input?.phone,40),description=clean(input?.description,1500);
-   if(storeName.length<2||ownerName.length<2||phone.replace(/\D/g,'').length<8)return reply({error:'Nama toko, nama pemilik, dan nomor WhatsApp wajib valid.'},400,origin);
-   await db('bbweb_sellers?on_conflict=id',{method:'POST',headers:{Prefer:'resolution=ignore-duplicates,return=minimal'},body:JSON.stringify({id:user.id,email:String(user.email).toLowerCase(),store_name:storeName,owner_name:ownerName,phone,description,status:'pending',commission_rate:0})});
+   const storeName=clean(input?.store_name,120),ownerName=clean(input?.owner_name,120),phone=clean(input?.phone,40),description=clean(input?.description,1500),category=clean(input?.business_category,60),city=clean(input?.city,100),address=clean(input?.store_address,250),website=optionalHttps(input?.website_url),social=optionalHttps(input?.social_url);
+   if(storeName.length<2||ownerName.length<2||phone.replace(/\D/g,'').length<8||city.length<2||address.length<5)return reply({error:'Nama toko, nama pemilik, WhatsApp, kota, dan alamat toko wajib dilengkapi.'},400,origin);
+   if(!SELLER_CATEGORIES.includes(category))return reply({error:'Kategori usaha tidak valid.'},400,origin);
+   if(website===null||social===null)return reply({error:'Website dan media sosial harus berupa URL HTTPS yang valid.'},400,origin);
+   if(input?.terms_accepted!==true)return reply({error:'Persetujuan syarat seller wajib dicentang.'},400,origin);
+   await db('bbweb_sellers?on_conflict=id',{method:'POST',headers:{Prefer:'resolution=ignore-duplicates,return=minimal'},body:JSON.stringify({id:user.id,email:String(user.email).toLowerCase(),store_name:storeName,owner_name:ownerName,phone,description,business_category:category,city,store_address:address,website_url:website,social_url:social,terms_accepted_at:new Date().toISOString(),email_verified_at:user.email_confirmed_at||user.confirmed_at||null,status:'pending',commission_rate:0})});
    return reply({ok:true,profile:await profile(user.id)},200,origin);
   }
   if(action.startsWith('admin_')){
    await requireAdmin(user);
    if(action==='admin_dashboard'){
     const [sellers,withdrawals,products,settings]=await Promise.all([
-     db('bbweb_sellers?select=id,email,store_name,owner_name,phone,description,status,commission_rate,created_at,updated_at&order=created_at.desc&limit=500'),
+     db('bbweb_sellers?select=id,application_no,email,store_name,owner_name,phone,description,business_category,city,store_address,website_url,social_url,terms_accepted_at,email_verified_at,review_note,reviewed_at,reviewed_by,status,commission_rate,created_at,updated_at&order=created_at.desc&limit=500'),
      db('bbweb_seller_withdrawals?select=*&order=requested_at.desc&limit=500'),
      db('bbweb_merchandise?select=id,sku,name,seller_id,price,stock,is_active,seller_review_status,seller_review_note,created_at&seller_id=not.is.null&seller_review_status=eq.pending&order=created_at.asc&limit=500'),
      db('bbweb_seller_settings?select=minimum_withdrawal&id=eq.1&limit=1')
@@ -61,9 +66,12 @@ Deno.serve(async(req:Request)=>{
     return reply({ok:true,sellers:Array.isArray(sellers)?sellers:[],withdrawals:Array.isArray(withdrawals)?withdrawals:[],products:Array.isArray(products)?products:[],minimum_withdrawal:Number(settings?.[0]?.minimum_withdrawal||50000)},200,origin);
    }
    if(action==='admin_update_seller'){
-    const sellerId=clean(input?.seller_id,64),status=clean(input?.status,20),rate=Number(input?.commission_rate);
+    const sellerId=clean(input?.seller_id,64),status=clean(input?.status,20),rate=Number(input?.commission_rate),reviewNote=clean(input?.review_note,1000);
     if(!/^[0-9a-f-]{36}$/i.test(sellerId)||!['active','suspended','rejected','pending'].includes(status)||!Number.isFinite(rate)||rate<0||rate>50)return reply({error:'Status atau komisi tidak valid.'},400,origin);
-    await db('bbweb_sellers?id=eq.'+encodeURIComponent(sellerId),{method:'PATCH',headers:{Prefer:'return=minimal'},body:JSON.stringify({status,commission_rate:rate,updated_at:new Date().toISOString()})});
+    if(['rejected','suspended'].includes(status)&&reviewNote.length<3)return reply({error:'Catatan penolakan atau penangguhan wajib diisi.'},400,origin);
+    const sellerPatch:any={status,commission_rate:rate,updated_at:new Date().toISOString()};
+    if(['active','suspended','rejected'].includes(status)){sellerPatch.review_note=reviewNote;sellerPatch.reviewed_at=new Date().toISOString();sellerPatch.reviewed_by=String(user.email).toLowerCase();}
+    await db('bbweb_sellers?id=eq.'+encodeURIComponent(sellerId),{method:'PATCH',headers:{Prefer:'return=minimal'},body:JSON.stringify(sellerPatch)});
     if(status==='suspended'||status==='rejected')await db('bbweb_merchandise?seller_id=eq.'+encodeURIComponent(sellerId),{method:'PATCH',headers:{Prefer:'return=minimal'},body:JSON.stringify({is_active:false})});
     if(status==='active')await db('bbweb_merchandise?seller_id=eq.'+encodeURIComponent(sellerId)+'&seller_review_status=eq.approved',{method:'PATCH',headers:{Prefer:'return=minimal'},body:JSON.stringify({is_active:true})});
     return reply({ok:true},200,origin);
@@ -109,9 +117,11 @@ Deno.serve(async(req:Request)=>{
   }
   if(action==='dashboard')return reply(await readDashboard(user.id),200,origin);
   if(action==='save_profile'){
-   const p=await requireSeller(user.id);const storeName=clean(input?.store_name,120),ownerName=clean(input?.owner_name,120),phone=clean(input?.phone,40),description=clean(input?.description,1500);
-   if(storeName.length<2||ownerName.length<2||phone.replace(/\D/g,'').length<8)return reply({error:'Nama toko, nama pemilik, dan nomor WhatsApp wajib valid.'},400,origin);
-   await db('bbweb_sellers?id=eq.'+encodeURIComponent(user.id),{method:'PATCH',headers:{Prefer:'return=minimal'},body:JSON.stringify({store_name:storeName,owner_name:ownerName,phone,description,updated_at:new Date().toISOString()})});
+   const p=await requireSeller(user.id);const storeName=clean(input?.store_name,120),ownerName=clean(input?.owner_name,120),phone=clean(input?.phone,40),description=clean(input?.description,1500),category=clean(input?.business_category,60),city=clean(input?.city,100),address=clean(input?.store_address,250),website=optionalHttps(input?.website_url),social=optionalHttps(input?.social_url);
+   if(storeName.length<2||ownerName.length<2||phone.replace(/\D/g,'').length<8||city.length<2||address.length<5)return reply({error:'Nama toko, nama pemilik, WhatsApp, kota, dan alamat toko wajib dilengkapi.'},400,origin);
+   if(!SELLER_CATEGORIES.includes(category))return reply({error:'Kategori usaha tidak valid.'},400,origin);
+   if(website===null||social===null)return reply({error:'Website dan media sosial harus berupa URL HTTPS yang valid.'},400,origin);
+   await db('bbweb_sellers?id=eq.'+encodeURIComponent(user.id),{method:'PATCH',headers:{Prefer:'return=minimal'},body:JSON.stringify({store_name:storeName,owner_name:ownerName,phone,description,business_category:category,city,store_address:address,website_url:website,social_url:social,updated_at:new Date().toISOString()})});
    return reply({ok:true,profile:await profile(user.id)},200,origin);
   }
   if(action==='save_payout_account'){
