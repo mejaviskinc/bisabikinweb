@@ -5,7 +5,7 @@ import Admin from './features/Admin';
 import AdsManager from './features/AdsManager';
 import {defaults} from './lib/data';
 import {loadPublicContent} from './lib/supabase';
-import {isAdActive,loadPublicAd,safeAdHref,safeAdImage,type AdSettings} from './lib/ads';
+import {isAdActive,loadPublicAd,safeAdHref,safeAdImages,type AdSettings} from './lib/ads';
 import './styles.css';
 import './features/admin.css';
 import './features/admin-modules.css';
@@ -65,16 +65,50 @@ function PublicClient(){
     const existing=document.querySelector('.bbweb-ad-host');existing?.remove();
     if(path!=='/'||!isAdActive(ad))return;
     const hero=document.querySelector('.hero');if(!hero||!ad)return;
-    const host=document.createElement('section');host.className='bbweb-ad-host';host.setAttribute('aria-label','Iklan');
-    const card=document.createElement('div');const image=safeAdImage(ad.ad_image_url);card.className='bbweb-ad-card'+(image?' has-image':'');
-    if(image){const media=document.createElement('div');media.className='bbweb-ad-media';const img=document.createElement('img');img.src=image;img.alt=ad.ad_title||'Iklan';img.loading='lazy';img.decoding='async';media.appendChild(img);card.appendChild(media)}
-    const copy=document.createElement('div');copy.className='bbweb-ad-copy';
-    const label=document.createElement('span');label.className='bbweb-ad-label';label.textContent=ad.ad_label||'IKLAN';copy.appendChild(label);
-    const title=document.createElement('h3');title.textContent=ad.ad_title;copy.appendChild(title);
-    if(ad.ad_description){const desc=document.createElement('p');desc.textContent=ad.ad_description;copy.appendChild(desc)}
-    const href=safeAdHref(ad.ad_url);if(href&&ad.ad_cta){const link=document.createElement('a');link.className='bbweb-ad-cta';link.href=href;link.textContent=ad.ad_cta+' ↗';if(href.startsWith('https://')){link.target='_blank';link.rel='sponsored noopener noreferrer'}copy.appendChild(link)}
-    card.appendChild(copy);host.appendChild(card);hero.insertAdjacentElement('afterend',host);
-    return()=>host.remove();
+    const images=safeAdImages(ad.ad_images?.length?ad.ad_images:(ad.ad_image_url?[ad.ad_image_url]:[]));
+    const slides=images.length?images:[''];
+    const href=safeAdHref(ad.ad_url);
+    const host=document.createElement('section');host.className='bbweb-ad-host';host.setAttribute('aria-label','Iklan dan promosi');
+    const carousel=document.createElement('div');carousel.className='bbweb-ad-carousel';
+    const viewport=document.createElement('div');viewport.className='bbweb-ad-viewport';viewport.tabIndex=0;viewport.setAttribute('aria-roledescription','carousel');
+    const track=document.createElement('div');track.className='bbweb-ad-track';
+
+    function makeCopy(){
+      const copy=document.createElement('div');copy.className='bbweb-ad-copy';
+      const label=document.createElement('span');label.className='bbweb-ad-label';label.textContent=ad!.ad_label||'IKLAN';copy.appendChild(label);
+      if(ad!.ad_title){const title=document.createElement('h3');title.textContent=ad!.ad_title;copy.appendChild(title)}
+      if(ad!.ad_description){const desc=document.createElement('p');desc.textContent=ad!.ad_description;copy.appendChild(desc)}
+      if(href&&ad!.ad_cta){const link=document.createElement('a');link.className='bbweb-ad-cta';link.href=href;link.textContent=ad!.ad_cta+' ↗';if(href.startsWith('https://')){link.target='_blank';link.rel='sponsored noopener noreferrer'}copy.appendChild(link)}
+      return copy;
+    }
+
+    slides.forEach((image,index)=>{
+      const slide=document.createElement('article');slide.className='bbweb-ad-slide';slide.setAttribute('aria-label',`Iklan ${index+1} dari ${slides.length}`);slide.style.scrollSnapAlign='start';
+      if(image){const img=document.createElement('img');img.src=image;img.alt=ad.ad_title||`Iklan ${index+1}`;img.loading=index===0?'eager':'lazy';img.decoding='async';slide.appendChild(img)}
+      const shade=document.createElement('div');shade.className='bbweb-ad-shade';slide.appendChild(shade);slide.appendChild(makeCopy());track.appendChild(slide);
+    });
+    viewport.appendChild(track);carousel.appendChild(viewport);
+
+    let index=0;let timer=0;let raf=0;
+    const dots:HTMLButtonElement[]=[];
+    function syncDots(){dots.forEach((dot,i)=>{dot.classList.toggle('active',i===index);dot.setAttribute('aria-current',i===index?'true':'false')})}
+    function goTo(next:number,behavior:ScrollBehavior='smooth'){index=(next+slides.length)%slides.length;viewport.scrollTo({left:index*viewport.clientWidth,behavior});syncDots()}
+    function stopAuto(){if(timer){window.clearInterval(timer);timer=0}}
+    function startAuto(){if(slides.length<2)return;stopAuto();timer=window.setInterval(()=>goTo(index+1),5000)}
+
+    if(slides.length>1){
+      const prev=document.createElement('button');prev.type='button';prev.className='bbweb-ad-arrow prev';prev.setAttribute('aria-label','Iklan sebelumnya');prev.textContent='‹';prev.addEventListener('click',()=>{goTo(index-1);startAuto()});
+      const next=document.createElement('button');next.type='button';next.className='bbweb-ad-arrow next';next.setAttribute('aria-label','Iklan berikutnya');next.textContent='›';next.addEventListener('click',()=>{goTo(index+1);startAuto()});
+      const dotWrap=document.createElement('div');dotWrap.className='bbweb-ad-dots';
+      slides.forEach((_,i)=>{const dot=document.createElement('button');dot.type='button';dot.setAttribute('aria-label',`Buka iklan ${i+1}`);dot.addEventListener('click',()=>{goTo(i);startAuto()});dotWrap.appendChild(dot);dots.push(dot)});
+      carousel.append(prev,next,dotWrap);syncDots();startAuto();
+      viewport.addEventListener('scroll',()=>{cancelAnimationFrame(raf);raf=requestAnimationFrame(()=>{const nextIndex=Math.round(viewport.scrollLeft/Math.max(1,viewport.clientWidth));if(nextIndex!==index&&nextIndex>=0&&nextIndex<slides.length){index=nextIndex;syncDots()}})},{passive:true});
+      carousel.addEventListener('mouseenter',stopAuto);carousel.addEventListener('mouseleave',startAuto);carousel.addEventListener('focusin',stopAuto);carousel.addEventListener('focusout',startAuto);viewport.addEventListener('touchstart',stopAuto,{passive:true});viewport.addEventListener('touchend',startAuto,{passive:true});
+    }
+
+    host.appendChild(carousel);hero.insertAdjacentElement('afterend',host);
+    const onResize=()=>goTo(index,'auto');window.addEventListener('resize',onResize);
+    return()=>{stopAuto();cancelAnimationFrame(raf);window.removeEventListener('resize',onResize);host.remove()};
   },[ad,version]);
 
   return <Studio key={version} initial={data} initialVariants={merchVariants(data.products)} path={path} user={null} isAdmin={false}/>;
