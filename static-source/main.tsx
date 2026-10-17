@@ -78,6 +78,28 @@ function PublicClient(){
   return <Studio key={version} initial={data} initialVariants={[]} path={path} user={null} isAdmin={false}/>;
 }
 
-const app=path.startsWith('/admin/iklan')?<AdsManager/>:path.startsWith('/admin')?<><Admin/><a className="admin-ads-shortcut" href="/admin/iklan">Kelola Iklan</a></>:<PublicClient/>;
+function AdminWithAdsMenu(){
+  useEffect(()=>{
+    const install=()=>{
+      const nav=document.querySelector<HTMLElement>('.admin-nav');
+      if(!nav||nav.querySelector('[data-admin-ads-menu]'))return false;
+      const labels=nav.querySelectorAll<HTMLElement>('.admin-nav-label');
+      const systemLabel=labels.length>1?labels[1]:null;
+      const link=document.createElement('a');link.href='/admin/iklan';link.className='admin-ads-menu';link.dataset.adminAdsMenu='true';
+      const icon=document.createElement('span');icon.className='admin-ads-menu-icon';icon.textContent='AD';
+      const text=document.createElement('span');text.textContent='Iklan';
+      const arrow=document.createElement('span');arrow.className='admin-ads-menu-arrow';arrow.textContent='↗';
+      link.append(icon,text,arrow);
+      if(systemLabel)nav.insertBefore(link,systemLabel);else nav.appendChild(link);
+      return true;
+    };
+    if(install())return;
+    const observer=new MutationObserver(()=>{if(install())observer.disconnect()});observer.observe(document.getElementById('root')||document.body,{childList:true,subtree:true});
+    return()=>observer.disconnect();
+  },[]);
+  return <Admin/>;
+}
+
+const app=path.startsWith('/admin/iklan')?<AdsManager/>:path.startsWith('/admin')?<AdminWithAdsMenu/>:<PublicClient/>;
 const root=document.getElementById('root')!;
 if(path.startsWith('/admin'))createRoot(root).render(app);else hydrateRoot(root,app);
