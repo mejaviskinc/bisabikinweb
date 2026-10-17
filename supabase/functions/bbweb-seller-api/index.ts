@@ -68,6 +68,11 @@ Deno.serve(async(req:Request)=>{
    if(action==='admin_update_seller'){
     const sellerId=clean(input?.seller_id,64),status=clean(input?.status,20),rate=Number(input?.commission_rate),reviewNote=clean(input?.review_note,1000);
     if(!/^[0-9a-f-]{36}$/i.test(sellerId)||!['active','suspended','rejected','pending'].includes(status)||!Number.isFinite(rate)||rate<0||rate>50)return reply({error:'Status atau komisi tidak valid.'},400,origin);
+    if(status==='active'){
+     const applicantRows=await db('bbweb_sellers?select=id,email_verified_at&id=eq.'+encodeURIComponent(sellerId)+'&limit=1');
+     if(!applicantRows?.[0])return reply({error:'Pendaftaran seller tidak ditemukan.'},404,origin);
+     if(!applicantRows[0].email_verified_at)return reply({error:'Email seller belum terverifikasi. Minta seller menyelesaikan verifikasi email sebelum aktivasi.'},409,origin);
+    }
     if(['rejected','suspended'].includes(status)&&reviewNote.length<3)return reply({error:'Catatan penolakan atau penangguhan wajib diisi.'},400,origin);
     const sellerPatch:any={status,commission_rate:rate,updated_at:new Date().toISOString()};
     if(['active','suspended','rejected'].includes(status)){sellerPatch.review_note=reviewNote;sellerPatch.reviewed_at=new Date().toISOString();sellerPatch.reviewed_by=String(user.email).toLowerCase();}
