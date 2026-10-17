@@ -17,8 +17,8 @@ const blankProject={id:'',name:'',domain:'',category:'Company Profile',tag:'BUSI
 const emptySettings={whatsapp:'62882003740969',email:'bisabikinw3b@gmail.com',instagram:'',tiktok:'',threads:'',linkedin:'',announcement:'',hero_label:'INDEPENDENT DIGITAL STUDIO · INDONESIA',headline:'',description:''};
 const leadStatuses=['new','contacted','proposal','won','lost','spam'];
 const statusLabel:any={new:'Baru',contacted:'Dihubungi',proposal:'Proposal',won:'Won',lost:'Lost',spam:'Spam'};
-const orderStatuses=['new','processing','ready','shipped','completed','cancelled'];
-const paymentStatuses=['unpaid','pending','paid','refunded','failed'];
+const orderStatuses=['new','waiting_payment','paid','payment_error','processing','ready','packed','shipped','completed','cancelled','expired','refunded','partial_refund'];
+const paymentStatuses=['unpaid','pending','authorized','paid','failed','cancelled','expired','payment_error','payment_not_configured','unknown','refunded','partial_refund'];
 
 type Page='overview'|'orders'|'merchandise'|'inventory'|'portfolio'|'leads'|'services'|'pricing'|'articles'|'testimonials'|'coupons'|'customers'|'analytics'|'settings';
 type Field={key:string;label:string;type?:'text'|'number'|'textarea'|'select'|'checkbox'|'array'|'datetime';options?:string[];wide?:boolean;required?:boolean;placeholder?:string};
