@@ -24,10 +24,11 @@ const pages={
   '/refund':['Kebijakan Pengembalian','Ketentuan pengembalian Bisabikinweb.'],
   '/shipping':['Informasi Pengiriman','Informasi pengiriman merch Bisabikinweb.'],
   '/cart':['Keranjang','Tinjau wishlist dan produk Anda.'],
-  '/admin':['Admin Bisabikinweb','Panel admin Bisabikinweb untuk lead, portfolio, dan pengaturan website.']
+  '/admin':['Admin Bisabikinweb','Panel admin Bisabikinweb untuk lead, portfolio, dan pengaturan website.'],
+  '/admin/iklan':['Ads Manager Bisabikinweb','Panel admin untuk mengatur iklan homepage Bisabikinweb.']
 };
 for(const [kind,prefix] of [['services','jasa'],['portfolio','portfolio'],['products','merch'],['articles','artikel']])for(const p of defaults[kind])pages['/'+prefix+'/'+p.id]=[p.title||p.name,p.summary||p.description];
-const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
 const jsonLd=value=>JSON.stringify(value).replace(/</g,'\\u003c');
 const organization={
   '@context':'https://schema.org','@type':'Organization','@id':origin+'/#organization',name:brand,url:origin+'/',logo:{'@type':'ImageObject',url:logo},image:logo,email,telephone:phone,
@@ -44,7 +45,7 @@ const template=await readFile('site-dist/index.html','utf8');
 for(const [path,[name,description]] of Object.entries(pages)){
  const title=name+' | '+brand,url=origin+(path==='/'?'/':path+'/');
  const isService=path==='/'||path==='/jasa'||path==='/harga'||path.startsWith('/jasa/');
- const noindex=path==='/cart'||path==='/admin';
+ const noindex=path==='/cart'||path.startsWith('/admin');
  const schemas=[organization,website];
  if(isService)schemas.push({'@context':'https://schema.org','@type':'Service','@id':url+'#service',name:path==='/'?'Jasa Pembuatan Website':name,description,url,provider:{'@id':origin+'/#organization'},areaServed:[{'@type':'City','name':'Yogyakarta'},{'@type':'Country','name':'Indonesia'}],serviceType:'Website development and web design'});
  const structured=schemas.map(s=>'<script type="application/ld+json">'+jsonLd(s)+'</script>').join('');
@@ -56,6 +57,6 @@ for(const path of ['account','checkout','track-order']){const target='https://bi
 await writeFile('site-dist/404.html',protectHtml(template.replace('<!--SEO-->','<title>Halaman Tidak Ditemukan | Bisabikinweb</title><meta name="robots" content="noindex,nofollow"/>').replace('<!--APP-->',render('/404'))));
 await writeFile('site-dist/robots.txt',`User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /account/\nDisallow: /checkout/\nDisallow: /track-order/\nDisallow: /cart/\n\nSitemap: ${origin}/sitemap.xml\n`);
 const lastmod=new Date().toISOString().slice(0,10);
-await writeFile('site-dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+Object.keys(pages).filter(x=>x!='/cart'&&x!='/admin').map(x=>`  <url><loc>${origin}${x==='/'?'/':x+'/'}</loc><lastmod>${lastmod}</lastmod></url>`).join('\n')+'\n</urlset>\n');
+await writeFile('site-dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+Object.keys(pages).filter(x=>x!='/cart'&&!x.startsWith('/admin')).map(x=>`  <url><loc>${origin}${x==='/'?'/':x+'/'}</loc><lastmod>${lastmod}</lastmod></url>`).join('\n')+'\n</urlset>\n');
 await writeFile('site-dist/.nojekyll','');await writeFile('site-dist/CNAME','bisabikinweb.site\n');
 console.log('Prerendered',Object.keys(pages).length,'pages with SEO metadata and structured data.');
