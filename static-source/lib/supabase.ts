@@ -114,8 +114,8 @@ export async function submitLead(input:any){
     message:String(input.message||'').trim().slice(0,3000),
     status:'new',source:'website'
   };
-  const rows=await request('/rest/v1/bbweb_leads',{method:'POST',body:payload,prefer:'return=representation'});
-  return Array.isArray(rows)?rows[0]:rows;
+  await request('/rest/v1/bbweb_leads',{method:'POST',body:payload,prefer:'return=minimal'});
+  return {ok:true};
 }
 
 async function adminRequest(session:AdminSession,path:string,options:RequestOptions={}){
