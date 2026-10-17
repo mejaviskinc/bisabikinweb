@@ -9,6 +9,8 @@ export type AdminSession={
   user:any;
 };
 
+export type AdminCollection='orders'|'merchandise'|'services'|'pricing'|'articles'|'testimonials'|'coupons'|'customers';
+
 type RequestOptions={
   method?:string;
   body?:any;
@@ -84,19 +86,29 @@ export async function assertAdmin(session:AdminSession){
 
 export async function loadPublicContent(){
   try{
-    const [settingsRows,portfolioRows]=await Promise.all([
+    const [settingsRows,portfolioRows,serviceRows,pricingRows,merchRows,articleRows,testimonialRows]=await Promise.all([
       request('/rest/v1/bbweb_site_settings?select=whatsapp,email,instagram,tiktok,threads,linkedin,announcement,hero_label,headline,description&id=eq.1&limit=1'),
-      request('/rest/v1/bbweb_portfolio?select=id,name,domain,category,tag,description,live,theme,technology,features,sort_order,is_active&is_active=eq.true&order=sort_order.asc')
+      request('/rest/v1/bbweb_portfolio?select=id,name,domain,category,tag,description,live,theme,technology,features,sort_order,is_active&is_active=eq.true&order=sort_order.asc'),
+      request('/rest/v1/bbweb_services?select=id,name,icon,tag,description,features,sort_order&is_active=eq.true&order=sort_order.asc'),
+      request('/rest/v1/bbweb_pricing?select=id,name,price,maintenance,description,features,featured,sort_order&is_active=eq.true&order=sort_order.asc'),
+      request('/rest/v1/bbweb_merchandise?select=id,name,collection,type,color,print,description,price,badge,material,care,shipping,returns,stock,sort_order&is_active=eq.true&order=sort_order.asc'),
+      request('/rest/v1/bbweb_articles?select=id,title,category,read_time,summary,body,sort_order&is_active=eq.true&status=eq.published&order=sort_order.asc'),
+      request('/rest/v1/bbweb_testimonials?select=id,name,business,quote,rating,sort_order&is_active=eq.true&order=sort_order.asc')
     ]);
     const row=Array.isArray(settingsRows)?settingsRows[0]:null;
+    const testimonials=Array.isArray(testimonialRows)?testimonialRows.map((t:any)=>({id:t.id,name:t.name,business:t.business||'',quote:t.quote,rating:t.rating||5})):[];
     const settings=row?{
-      whatsapp:row.whatsapp||'',email:row.email||'',instagram:row.instagram||'',tiktok:row.tiktok||'',threads:row.threads||'',linkedin:row.linkedin||'',announcement:row.announcement||'',heroLabel:row.hero_label||'',headline:row.headline||'',description:row.description||''
+      whatsapp:row.whatsapp||'',email:row.email||'',instagram:row.instagram||'',tiktok:row.tiktok||'',threads:row.threads||'',linkedin:row.linkedin||'',announcement:row.announcement||'',heroLabel:row.hero_label||'',headline:row.headline||'',description:row.description||'',testimonials
     }:null;
     const portfolio=Array.isArray(portfolioRows)?portfolioRows.map((p:any)=>({
       id:p.id,name:p.name,domain:p.domain||'',category:p.category||'Company Profile',year:'—',tag:p.tag||'BUSINESS / WEBSITE',description:p.description||'',theme:p.theme||'trade',technology:p.technology||'Website',problem:'Informasi bisnis membutuhkan tempat yang mudah diakses secara online.',goal:'Memudahkan pengunjung mengenal brand dan menemukan informasi bisnis.',solution:p.description||'',features:Array.isArray(p.features)?p.features:[],result:'Kunjungi website resmi untuk melihat tampilan dan informasi terkini.',live:p.live||''
     })):null;
-    return {settings,portfolio};
-  }catch{return {settings:null,portfolio:null}}
+    const services=Array.isArray(serviceRows)?serviceRows.map((s:any)=>({id:s.id,name:s.name,icon:s.icon||'↗',tag:s.tag||'',description:s.description||'',features:Array.isArray(s.features)?s.features:[]})):null;
+    const pricing=Array.isArray(pricingRows)?pricingRows.map((p:any)=>({id:p.id,name:p.name,price:p.price===null?null:Number(p.price),maintenance:p.maintenance===null?null:Number(p.maintenance),desc:p.description||'',features:Array.isArray(p.features)?p.features:[],featured:Boolean(p.featured)})):null;
+    const products=Array.isArray(merchRows)?merchRows.map((p:any)=>({id:p.id,name:p.name,collection:p.collection||'CORE',type:p.type||'item',color:p.color||'',print:p.print||'',description:p.description||'',price:p.price===null?null:Number(p.price),badge:p.badge||'',material:p.material||'',care:p.care||'',shipping:p.shipping||'',returns:p.returns||'',stock:Number(p.stock||0)})):null;
+    const articles=Array.isArray(articleRows)?articleRows.map((a:any)=>({id:a.id,title:a.title,category:a.category||'Business',read:a.read_time||'3 menit',summary:a.summary||'',body:Array.isArray(a.body)?a.body:[]})):null;
+    return {settings,portfolio,services,pricing,products,articles};
+  }catch{return {settings:null,portfolio:null,services:null,pricing:null,products:null,articles:null}}
 }
 
 export async function submitLead(input:any){
@@ -160,4 +172,62 @@ export function adminSaveSettings(session:AdminSession,settings:any){
     whatsapp:String(settings.whatsapp||'').trim(),email:String(settings.email||'').trim(),instagram:String(settings.instagram||'').trim(),tiktok:String(settings.tiktok||'').trim(),threads:String(settings.threads||'').trim(),linkedin:String(settings.linkedin||'').trim(),announcement:String(settings.announcement||'').trim(),hero_label:String(settings.hero_label||'').trim(),headline:String(settings.headline||'').trim(),description:String(settings.description||'').trim(),updated_at:new Date().toISOString()
   };
   return adminRequest(session,'bbweb_site_settings?id=eq.1',{method:'PATCH',body:payload,prefer:'return=representation'});
+}
+
+const COLLECTION_TABLE:Record<AdminCollection,string>={
+  orders:'bbweb_orders',merchandise:'bbweb_merchandise',services:'bbweb_services',pricing:'bbweb_pricing',articles:'bbweb_articles',testimonials:'bbweb_testimonials',coupons:'bbweb_coupons',customers:'bbweb_customers'
+};
+
+const COLLECTION_ORDER:Record<AdminCollection,string>={
+  orders:'created_at.desc',merchandise:'sort_order.asc',services:'sort_order.asc',pricing:'sort_order.asc',articles:'sort_order.asc',testimonials:'sort_order.asc',coupons:'created_at.desc',customers:'created_at.desc'
+};
+
+export function adminListCollection(session:AdminSession,collection:AdminCollection){
+  const table=COLLECTION_TABLE[collection];
+  return adminRequest(session,`${table}?select=*&order=${COLLECTION_ORDER[collection]}&limit=500`);
+}
+
+function n(value:any,fallback=0){const x=Number(value);return Number.isFinite(x)?x:fallback}
+function s(value:any,max=5000){return String(value??'').trim().slice(0,max)}
+function arr(value:any){return Array.isArray(value)?value.map(x=>String(x).trim()).filter(Boolean):[]}
+
+function collectionPayload(collection:AdminCollection,item:any){
+  const now=new Date().toISOString();
+  if(collection==='orders'){
+    const payload:any={customer_id:item.customer_id||null,customer_name:s(item.customer_name,120),customer_email:s(item.customer_email,254),customer_phone:s(item.customer_phone,40),items:Array.isArray(item.items)?item.items:[],subtotal:n(item.subtotal),discount:n(item.discount),total:n(item.total),status:s(item.status||'new',30),payment_status:s(item.payment_status||'unpaid',30),notes:s(item.notes,3000),updated_at:now};
+    if(item.id)payload.id=item.id;if(item.order_no)payload.order_no=s(item.order_no,80);return payload;
+  }
+  if(collection==='merchandise')return {id:s(item.id,120).toLowerCase(),sku:s(item.sku,120),name:s(item.name,200),collection:s(item.collection||'CORE',100),type:s(item.type||'item',80),color:s(item.color,80),print:s(item.print,1000),description:s(item.description,5000),price:item.price===''||item.price===null||item.price===undefined?null:n(item.price),badge:s(item.badge,100),material:s(item.material,1000),care:s(item.care,1500),shipping:s(item.shipping,1500),returns:s(item.returns,1500),stock:Math.max(0,Math.round(n(item.stock))),low_stock_threshold:Math.max(0,Math.round(n(item.low_stock_threshold,5))),is_active:Boolean(item.is_active),sort_order:Math.round(n(item.sort_order,100)),updated_at:now};
+  if(collection==='services')return {id:s(item.id,120).toLowerCase(),name:s(item.name,200),icon:s(item.icon||'↗',20),tag:s(item.tag,120),description:s(item.description,3000),features:arr(item.features),is_active:Boolean(item.is_active),sort_order:Math.round(n(item.sort_order,100)),updated_at:now};
+  if(collection==='pricing')return {id:s(item.id,120).toLowerCase(),name:s(item.name,200),price:item.price===''||item.price===null||item.price===undefined?null:n(item.price),maintenance:item.maintenance===''||item.maintenance===null||item.maintenance===undefined?null:n(item.maintenance),description:s(item.description,3000),features:arr(item.features),featured:Boolean(item.featured),is_active:Boolean(item.is_active),sort_order:Math.round(n(item.sort_order,100)),updated_at:now};
+  if(collection==='articles')return {id:s(item.id,160).toLowerCase(),title:s(item.title,300),category:s(item.category||'Business',100),read_time:s(item.read_time||'3 menit',50),summary:s(item.summary,3000),body:arr(item.body),status:s(item.status||'draft',30),is_active:Boolean(item.is_active),sort_order:Math.round(n(item.sort_order,100)),published_at:item.status==='published'?(item.published_at||now):null,updated_at:now};
+  if(collection==='testimonials'){const payload:any={name:s(item.name,160),business:s(item.business,200),quote:s(item.quote,3000),rating:Math.min(5,Math.max(1,Math.round(n(item.rating,5)))),is_active:Boolean(item.is_active),sort_order:Math.round(n(item.sort_order,100)),updated_at:now};if(item.id)payload.id=item.id;return payload}
+  if(collection==='coupons')return {code:s(item.code,80).toUpperCase().replace(/[^A-Z0-9_-]/g,''),description:s(item.description,1000),discount_type:s(item.discount_type||'percent',20),discount_value:n(item.discount_value),min_order:n(item.min_order),max_uses:item.max_uses===''||item.max_uses===null||item.max_uses===undefined?null:Math.max(0,Math.round(n(item.max_uses))),used_count:Math.max(0,Math.round(n(item.used_count))),starts_at:item.starts_at||null,ends_at:item.ends_at||null,is_active:Boolean(item.is_active),updated_at:now};
+  const payload:any={name:s(item.name,120),email:s(item.email,254),phone:s(item.phone,40),company:s(item.company,160),status:s(item.status||'active',30),notes:s(item.notes,3000),updated_at:now};if(item.id)payload.id=item.id;return payload;
+}
+
+export function adminSaveCollection(session:AdminSession,collection:AdminCollection,item:any){
+  const table=COLLECTION_TABLE[collection];
+  const payload=collectionPayload(collection,item);
+  const key=collection==='coupons'?'code':'id';
+  const hasKey=Boolean(payload[key]);
+  const path=hasKey?`${table}?on_conflict=${key}`:table;
+  const prefer=hasKey?'resolution=merge-duplicates,return=representation':'return=representation';
+  return adminRequest(session,path,{method:'POST',body:payload,prefer});
+}
+
+export function adminDeleteCollection(session:AdminSession,collection:AdminCollection,item:any){
+  const table=COLLECTION_TABLE[collection];
+  const key=collection==='coupons'?'code':'id';
+  const value=item?.[key];
+  if(!value)throw new Error('Data tidak memiliki ID yang valid.');
+  return adminRequest(session,`${table}?${key}=eq.${encodeURIComponent(String(value))}`,{method:'DELETE',prefer:'return=representation'});
+}
+
+export function adminPatchCollection(session:AdminSession,collection:AdminCollection,item:any,patch:any){
+  const table=COLLECTION_TABLE[collection];
+  const key=collection==='coupons'?'code':'id';
+  const value=item?.[key];
+  if(!value)throw new Error('Data tidak memiliki ID yang valid.');
+  return adminRequest(session,`${table}?${key}=eq.${encodeURIComponent(String(value))}`,{method:'PATCH',body:{...patch,updated_at:new Date().toISOString()},prefer:'return=representation'});
 }
