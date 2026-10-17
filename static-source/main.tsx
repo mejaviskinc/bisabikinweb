@@ -14,6 +14,7 @@ import './features/ads.css';
 import './features/admin-ads-menu.css';
 
 const path=location.pathname.replace(/\/+$/,'')||'/';
+function merchVariants(products:any[]){return (products||[]).filter(p=>Number.isSafeInteger(Number(p.price))&&Number(p.price)>0&&Number.isInteger(Number(p.stock))&&Number(p.stock)>0).map(p=>({id:p.id,product_id:p.id,size:'Standard',color:p.color||'Default',price:Number(p.price),stock:Number(p.stock),active:true}))}
 
 function PublicClient(){
   const [data,setData]=useState(defaults);
@@ -76,7 +77,7 @@ function PublicClient(){
     return()=>host.remove();
   },[ad,version]);
 
-  return <Studio key={version} initial={data} initialVariants={[]} path={path} user={null} isAdmin={false}/>;
+  return <Studio key={version} initial={data} initialVariants={merchVariants(data.products)} path={path} user={null} isAdmin={false}/>;
 }
 
 function AdminWithAdsMenu(){
