@@ -1,7 +1,20 @@
 'use client';
 import {useEffect,useMemo,useState} from 'react';
-import {ArrowUpRight,LogOut,Plus,RefreshCw,Save,Trash2} from 'lucide-react';
-import './admin.css';
+import {
+  ArrowUpRight,
+  BriefcaseBusiness,
+  Globe2,
+  Inbox,
+  LayoutDashboard,
+  LogOut,
+  Menu,
+  Plus,
+  RefreshCw,
+  Save,
+  Settings,
+  Trash2,
+  X
+} from 'lucide-react';
 import type {AdminSession} from '../lib/supabase';
 import {
   adminDeleteLead,
@@ -31,6 +44,10 @@ const emptySettings={
   headline:'',description:''
 };
 
+const leadStatuses=['new','contacted','proposal','won','lost','spam'];
+const statusLabel:any={new:'Baru',contacted:'Dihubungi',proposal:'Proposal',won:'Won',lost:'Lost',spam:'Spam'};
+type Page='overview'|'leads'|'portfolio'|'settings';
+
 export default function Admin(){
   const [session,setSession]=useState<AdminSession|null>(null);
   const [booting,setBooting]=useState(true);
@@ -39,7 +56,8 @@ export default function Admin(){
   const [password,setPassword]=useState('');
   const [message,setMessage]=useState('');
   const [error,setError]=useState('');
-  const [tab,setTab]=useState<'leads'|'portfolio'|'settings'>('leads');
+  const [page,setPage]=useState<Page>('overview');
+  const [menuOpen,setMenuOpen]=useState(false);
   const [leads,setLeads]=useState<any[]>([]);
   const [portfolio,setPortfolio]=useState<any[]>([]);
   const [settings,setSettings]=useState<any>(emptySettings);
@@ -52,6 +70,14 @@ export default function Admin(){
     proposal:leads.filter(x=>x.status==='proposal').length,
     won:leads.filter(x=>x.status==='won').length
   }),[leads]);
+
+  const pageTitle={overview:'Overview',leads:'Leads',portfolio:'Portfolio',settings:'Pengaturan Website'}[page];
+  const pageDescription={
+    overview:'Ringkasan aktivitas Bisabikinweb dan data terbaru.',
+    leads:'Kelola inquiry dan progres calon customer dari form website.',
+    portfolio:'Atur project yang tampil di halaman portfolio publik.',
+    settings:'Ubah kontak, headline, announcement, dan social link website.'
+  }[page];
 
   async function loadDashboard(s:AdminSession){
     const [leadRows,projectRows,siteSettings]=await Promise.all([
@@ -83,13 +109,15 @@ export default function Admin(){
     return()=>{active=false};
   },[]);
 
+  function navigate(next:Page){setPage(next);setMenuOpen(false);setError('');setMessage('')}
+
   async function handleAuth(e:any){
     e.preventDefault();
     setBusy(true);setError('');setMessage('');
     try{
       if(mode==='signup'){
         await signUp(email,password);
-        setMessage('Akun dibuat. Jika Supabase mengirim email konfirmasi, konfirmasi dulu lalu kembali untuk login.');
+        setMessage('Akun dibuat. Jika ada email konfirmasi Supabase, konfirmasi dulu lalu kembali untuk login.');
         setMode('login');setPassword('');
         return;
       }
@@ -97,16 +125,13 @@ export default function Admin(){
       await assertAdmin(next);
       setSession(next);
       await loadDashboard(next);
-    }catch(err:any){
-      setError(err.message||'Login gagal.');
-    }finally{
-      setBusy(false);
-    }
+    }catch(err:any){setError(err.message||'Login gagal.')}
+    finally{setBusy(false)}
   }
 
   async function handleLogout(){
     await signOut(session);
-    setSession(null);setPassword('');setMessage('');setError('');
+    setSession(null);setPassword('');setMessage('');setError('');setMenuOpen(false);
   }
 
   async function handleRefresh(){
@@ -161,113 +186,102 @@ export default function Admin(){
     e.preventDefault();
     if(!session)return;
     setBusy(true);setError('');setMessage('');
-    try{
-      await adminSaveSettings(session,settings);
-      setMessage('Pengaturan website tersimpan.');
-    }catch(err:any){setError(err.message||'Gagal menyimpan pengaturan.')}
+    try{await adminSaveSettings(session,settings);setMessage('Pengaturan website tersimpan.')}
+    catch(err:any){setError(err.message||'Gagal menyimpan pengaturan.')}
     finally{setBusy(false)}
   }
 
-  if(booting){
-    return <section className="admin-page"><div className="admin-loading">Memuat admin Bisabikinweb…</div></section>;
+  function LeadRows({items,compact=false}:{items:any[],compact?:boolean}){
+    return <>
+      <div className="admin-lead-desktop">
+        <div className="admin-table-wrap">
+          <table className="admin-table">
+            <thead><tr><th>Customer</th><th>Kebutuhan</th><th>{compact?'Masuk':'Pesan'}</th><th>Status</th><th>Aksi</th></tr></thead>
+            <tbody>{items.map(lead=><tr key={lead.id}>
+              <td><strong>{lead.name||'Tanpa nama'}</strong><small>{lead.company||'-'} · {lead.phone||'-'}<br/>{lead.email||'-'}</small></td>
+              <td><strong>{lead.website_type||'-'}</strong><small>{lead.budget||'-'} · {lead.deadline||'Tanpa deadline'}</small></td>
+              <td className="admin-lead-message">{compact?new Date(lead.created_at).toLocaleDateString('id-ID'):(lead.message||lead.features||'-')}</td>
+              <td><select value={lead.status||'new'} onChange={e=>handleLeadStatus(lead.id,e.target.value)}>{leadStatuses.map(status=><option key={status} value={status}>{statusLabel[status]}</option>)}</select></td>
+              <td><button className="admin-icon-btn danger" aria-label="Hapus lead" onClick={()=>handleLeadDelete(lead.id)}><Trash2 size={16}/></button></td>
+            </tr>)}</tbody>
+          </table>
+        </div>
+      </div>
+      <div className="admin-lead-mobile">{items.map(lead=><article className="admin-lead-card" key={lead.id}>
+        <div className="admin-lead-card-top"><div><strong>{lead.name||'Tanpa nama'}</strong><span>{lead.website_type||'Inquiry website'}</span></div><span className={`admin-status ${lead.status||'new'}`}>{statusLabel[lead.status||'new']}</span></div>
+        <div className="admin-lead-card-meta"><span>{lead.phone||'-'}</span><span>{lead.email||'-'}</span><span>{lead.budget||'-'}</span></div>
+        {!compact&&<p>{lead.message||lead.features||'Tidak ada pesan.'}</p>}
+        <div className="admin-lead-card-actions"><select value={lead.status||'new'} onChange={e=>handleLeadStatus(lead.id,e.target.value)}>{leadStatuses.map(status=><option key={status} value={status}>{statusLabel[status]}</option>)}</select><button className="admin-icon-btn danger" onClick={()=>handleLeadDelete(lead.id)}><Trash2 size={16}/></button></div>
+      </article>)}</div>
+      {!items.length&&<div className="admin-empty">Belum ada lead.</div>}
+    </>;
   }
 
-  if(!session){
-    return <section className="admin-page">
-      <div className="admin-login-wrap">
-        <div className="admin-login">
-          <div className="admin-brand">
-            <span className="admin-brand-mark">{'{ }'}</span>
-            <div><strong>Bisabikinweb Admin</strong><small>Supabase-secured dashboard</small></div>
-          </div>
-          <h1>{mode==='login'?'Masuk admin.':'Buat akun admin.'}</h1>
-          <p>Akses hanya diberikan ke email owner yang sudah masuk allowlist database.</p>
-          {error&&<div className="admin-error">{error}</div>}
-          {message&&<div className="admin-success">{message}</div>}
-          <form className="admin-form" onSubmit={handleAuth}>
-            <label>Email<input type="email" required value={email} onChange={e=>setEmail(e.target.value)} autoComplete="email"/></label>
-            <label>Password<input type="password" required minLength={8} value={password} onChange={e=>setPassword(e.target.value)} autoComplete={mode==='login'?'current-password':'new-password'}/></label>
-            <button className="admin-btn primary" disabled={busy}>
-              {busy?'Memproses…':mode==='login'?'Login':'Buat akun'} <ArrowUpRight size={16}/>
-            </button>
-          </form>
-          <div className="admin-login-switch">
-            <span>{mode==='login'?'Belum pernah membuat akun?':'Sudah punya akun?'}</span>
-            <button type="button" onClick={()=>{setMode(mode==='login'?'signup':'login');setError('');setMessage('')}}>
-              {mode==='login'?'Buat akun admin pertama':'Kembali ke login'}
-            </button>
-          </div>
-          <div className="admin-note">Email admin yang diizinkan saat ini: <b>bisabikinw3b@gmail.com</b>. Akun lain tetap tidak dapat membaca data admin karena dibatasi RLS.</div>
-        </div>
+  if(booting)return <section className="admin-page admin-auth-page"><div className="admin-loading"><span className="admin-loader"/>Memuat Bisabikinweb Admin…</div></section>;
+
+  if(!session)return <section className="admin-page admin-auth-page">
+    <div className="admin-login-wrap"><div className="admin-login">
+      <div className="admin-brand"><span className="admin-brand-mark">B</span><div><strong>Bisabikinweb</strong><small>Admin Studio</small></div></div>
+      <div className="admin-login-heading"><span>SECURE ADMIN</span><h1>{mode==='login'?'Welcome back.':'Create admin.'}</h1><p>Masuk untuk mengelola lead, portfolio, dan konten utama website.</p></div>
+      {error&&<div className="admin-alert error">{error}</div>}
+      {message&&<div className="admin-alert success">{message}</div>}
+      <form className="admin-form" onSubmit={handleAuth}>
+        <label>Email<input type="email" required value={email} onChange={e=>setEmail(e.target.value)} autoComplete="email"/></label>
+        <label>Password<input type="password" required minLength={8} value={password} onChange={e=>setPassword(e.target.value)} autoComplete={mode==='login'?'current-password':'new-password'}/></label>
+        <button className="admin-btn primary wide-btn" disabled={busy}>{busy?'Memproses…':mode==='login'?'Masuk ke dashboard':'Buat akun admin'}<ArrowUpRight size={16}/></button>
+      </form>
+      <div className="admin-login-switch"><span>{mode==='login'?'Belum punya akun admin?':'Sudah punya akun?'}</span><button type="button" onClick={()=>{setMode(mode==='login'?'signup':'login');setError('');setMessage('')}}>{mode==='login'?'Buat akun pertama':'Kembali ke login'}</button></div>
+      <div className="admin-note">Akses admin dibatasi oleh Supabase RLS untuk <b>bisabikinw3b@gmail.com</b>.</div>
+    </div></div>
+  </section>;
+
+  const recentLeads=leads.slice(0,5);
+
+  return <section className="admin-page admin-app">
+    <button className={`admin-overlay ${menuOpen?'show':''}`} aria-label="Tutup menu" onClick={()=>setMenuOpen(false)}/>
+    <aside className={`admin-sidebar ${menuOpen?'open':''}`}>
+      <div className="admin-sidebar-head"><a className="admin-logo" href="/admin/"><span>B</span><div><strong>Bisabikinweb</strong><small>Admin Studio</small></div></a><button className="admin-mobile-close" onClick={()=>setMenuOpen(false)}><X size={19}/></button></div>
+      <nav className="admin-nav" aria-label="Admin navigation">
+        <span className="admin-nav-label">WORKSPACE</span>
+        <button className={page==='overview'?'active':''} onClick={()=>navigate('overview')}><LayoutDashboard size={18}/><span>Overview</span></button>
+        <button className={page==='leads'?'active':''} onClick={()=>navigate('leads')}><Inbox size={18}/><span>Leads</span>{stats.new>0&&<b>{stats.new}</b>}</button>
+        <button className={page==='portfolio'?'active':''} onClick={()=>navigate('portfolio')}><BriefcaseBusiness size={18}/><span>Portfolio</span></button>
+        <button className={page==='settings'?'active':''} onClick={()=>navigate('settings')}><Settings size={18}/><span>Website Settings</span></button>
+      </nav>
+      <div className="admin-sidebar-bottom">
+        <a className="admin-view-site" href="/" target="_blank" rel="noreferrer"><Globe2 size={17}/><span>Lihat website</span><ArrowUpRight size={14}/></a>
+        <div className="admin-user-card"><div className="admin-avatar">B</div><div><strong>Owner</strong><small>{session.user?.email}</small></div><button aria-label="Logout" onClick={handleLogout}><LogOut size={17}/></button></div>
       </div>
-    </section>;
-  }
+    </aside>
 
-  return <section className="admin-page">
-    <div className="admin-shell">
-      <div className="admin-topbar">
-        <div>
-          <small className="eyebrow">BISABIKINWEB / ADMIN</small>
-          <h1>Studio dashboard.</h1>
-          <p>{session.user?.email}</p>
-        </div>
-        <div className="admin-actions">
-          <a className="admin-btn" href="/" target="_blank" rel="noreferrer">Lihat website <ArrowUpRight size={15}/></a>
-          <button className="admin-btn" onClick={handleRefresh} disabled={busy}><RefreshCw size={15}/>Refresh</button>
-          <button className="admin-btn danger" onClick={handleLogout}><LogOut size={15}/>Logout</button>
-        </div>
-      </div>
+    <main className="admin-main">
+      <header className="admin-header">
+        <div className="admin-header-left"><button className="admin-menu-btn" onClick={()=>setMenuOpen(true)}><Menu size={20}/></button><div><span>ADMIN / {page.toUpperCase()}</span><h1>{pageTitle}</h1><p>{pageDescription}</p></div></div>
+        <div className="admin-header-actions"><button className="admin-btn" onClick={handleRefresh} disabled={busy}><RefreshCw size={15}/><span>Refresh</span></button><a className="admin-btn primary" href="/" target="_blank" rel="noreferrer">Live site<ArrowUpRight size={15}/></a></div>
+      </header>
 
-      {error&&<div className="admin-error">{error}</div>}
-      {message&&<div className="admin-success">{message}</div>}
+      <div className="admin-content">
+        {error&&<div className="admin-alert error">{error}</div>}
+        {message&&<div className="admin-alert success">{message}</div>}
 
-      <div className="admin-tabs">
-        <button className={tab==='leads'?'active':''} onClick={()=>setTab('leads')}>Leads</button>
-        <button className={tab==='portfolio'?'active':''} onClick={()=>setTab('portfolio')}>Portfolio</button>
-        <button className={tab==='settings'?'active':''} onClick={()=>setTab('settings')}>Pengaturan Website</button>
-      </div>
-
-      {tab==='leads'&&<>
-        <div className="admin-stats">
-          <div className="admin-stat"><strong>{stats.all}</strong><span>Total lead</span></div>
-          <div className="admin-stat"><strong>{stats.new}</strong><span>Baru</span></div>
-          <div className="admin-stat"><strong>{stats.proposal}</strong><span>Proposal</span></div>
-          <div className="admin-stat"><strong>{stats.won}</strong><span>Won</span></div>
-        </div>
-        <div className="admin-panel">
-          <div className="admin-panel-head">
-            <div><h2>Inquiry website</h2><p>Lead dari form konsultasi tersimpan di Supabase sebelum diarahkan ke WhatsApp.</p></div>
+        {page==='overview'&&<>
+          <div className="admin-stats">
+            <button onClick={()=>navigate('leads')} className="admin-stat"><span>Total Leads</span><strong>{stats.all}</strong><small>Semua inquiry website</small></button>
+            <button onClick={()=>navigate('leads')} className="admin-stat"><span>Lead Baru</span><strong>{stats.new}</strong><small>Butuh follow-up</small></button>
+            <button onClick={()=>navigate('leads')} className="admin-stat"><span>Proposal</span><strong>{stats.proposal}</strong><small>Sedang diproses</small></button>
+            <button onClick={()=>navigate('portfolio')} className="admin-stat"><span>Portfolio</span><strong>{portfolio.filter(x=>x.is_active).length}</strong><small>Project aktif</small></button>
           </div>
-          <div className="admin-table-wrap">
-            <table className="admin-table">
-              <thead><tr><th>Tanggal</th><th>Customer</th><th>Kebutuhan</th><th>Pesan</th><th>Status</th><th>Aksi</th></tr></thead>
-              <tbody>{leads.map(lead=><tr key={lead.id}>
-                <td>{new Date(lead.created_at).toLocaleString('id-ID')}</td>
-                <td><strong>{lead.name}</strong><small>{lead.company||'-'} · {lead.phone}<br/>{lead.email}</small></td>
-                <td><strong>{lead.website_type||'-'}</strong><small>{lead.budget||'-'}<br/>{lead.deadline||'Tanpa deadline'}</small></td>
-                <td className="admin-lead-message">{lead.message||lead.features||'-'}</td>
-                <td><select value={lead.status} onChange={e=>handleLeadStatus(lead.id,e.target.value)}>{['new','contacted','proposal','won','lost','spam'].map(status=><option key={status} value={status}>{status}</option>)}</select></td>
-                <td><button className="admin-mini-btn" aria-label="Hapus lead" onClick={()=>handleLeadDelete(lead.id)}><Trash2 size={16}/></button></td>
-              </tr>)}</tbody>
-            </table>
-            {!leads.length&&<div className="admin-empty">Belum ada lead.</div>}
+          <div className="admin-overview-grid">
+            <section className="admin-panel admin-recent-panel"><div className="admin-panel-head"><div><span className="admin-section-kicker">RECENT ACTIVITY</span><h2>Lead terbaru</h2><p>Inquiry terbaru yang masuk dari website.</p></div><button className="admin-text-btn" onClick={()=>navigate('leads')}>Lihat semua <ArrowUpRight size={14}/></button></div><LeadRows items={recentLeads} compact/></section>
+            <aside className="admin-panel admin-quick-panel"><span className="admin-section-kicker">QUICK ACTIONS</span><h2>Kelola website</h2><p>Akses bagian yang paling sering digunakan.</p><button onClick={()=>navigate('portfolio')}><BriefcaseBusiness size={18}/><div><strong>Tambah portfolio</strong><small>Update project website</small></div><ArrowUpRight size={15}/></button><button onClick={()=>navigate('settings')}><Settings size={18}/><div><strong>Edit website</strong><small>Kontak & headline</small></div><ArrowUpRight size={15}/></button><a href="/" target="_blank" rel="noreferrer"><Globe2 size={18}/><div><strong>Buka live site</strong><small>bisabikinweb.site</small></div><ArrowUpRight size={15}/></a></aside>
           </div>
-        </div>
-      </>}
+        </>}
 
-      {tab==='portfolio'&&<div className="admin-grid">
-        <div className="admin-panel admin-list">
-          <div className="admin-panel-head">
-            <div><h2>Portfolio</h2><p>{portfolio.length} project</p></div>
-            <button className="admin-btn primary" onClick={()=>{setProject({...blankProject});setMessage('')}}><Plus size={15}/>Baru</button>
-          </div>
-          {portfolio.map(item=><button key={item.id} className={project.id===item.id?'active':''} onClick={()=>{setProject({...item,features:Array.isArray(item.features)?item.features:[]});setMessage('')}}>
-            <strong>{item.name}</strong><small>{item.domain||item.live} · {item.is_active?'Aktif':'Draft'}</small>
-          </button>)}
-        </div>
-        <div className="admin-panel">
-          <div className="admin-panel-head"><div><h2>{project.id?'Edit project':'Project baru'}</h2><p>Perubahan tampil di website publik setelah disimpan.</p></div></div>
-          <form className="admin-form admin-form-grid" onSubmit={handleProjectSave}>
+        {page==='leads'&&<section className="admin-panel"><div className="admin-panel-head"><div><span className="admin-section-kicker">CUSTOMER INQUIRY</span><h2>Semua leads</h2><p>Data tersimpan di Supabase sebelum customer diarahkan ke WhatsApp.</p></div><span className="admin-count-pill">{leads.length} lead</span></div><LeadRows items={leads}/></section>}
+
+        {page==='portfolio'&&<div className="admin-portfolio-layout">
+          <section className="admin-panel admin-project-list"><div className="admin-panel-head"><div><span className="admin-section-kicker">PROJECTS</span><h2>Portfolio</h2><p>{portfolio.length} project tersimpan</p></div><button className="admin-btn primary" onClick={()=>{setProject({...blankProject});setMessage('')}}><Plus size={15}/>Project baru</button></div><div className="admin-project-items">{portfolio.map(item=><button key={item.id} className={project.id===item.id?'active':''} onClick={()=>{setProject({...item,features:Array.isArray(item.features)?item.features:[]});setMessage('')}}><span className={`admin-project-dot ${item.is_active?'live':'draft'}`}/><div><strong>{item.name}</strong><small>{item.domain||item.live}</small></div><span>{item.is_active?'Live':'Draft'}</span></button>)}</div></section>
+          <section className="admin-panel admin-editor"><div className="admin-panel-head"><div><span className="admin-section-kicker">EDITOR</span><h2>{project.id?'Edit project':'Project baru'}</h2><p>Simpan untuk memperbarui portfolio publik.</p></div></div><form className="admin-form admin-form-grid" onSubmit={handleProjectSave}>
             <label>ID / slug<input required pattern="[a-z0-9-]+" value={project.id} onChange={e=>setProject({...project,id:e.target.value.toLowerCase().replace(/[^a-z0-9-]/g,'-')})}/></label>
             <label>Nama project<input required value={project.name} onChange={e=>setProject({...project,name:e.target.value})}/></label>
             <label>Domain<input value={project.domain} onChange={e=>setProject({...project,domain:e.target.value})}/></label>
@@ -278,18 +292,12 @@ export default function Admin(){
             <label>Urutan<input type="number" value={project.sort_order} onChange={e=>setProject({...project,sort_order:Number(e.target.value)})}/></label>
             <label className="wide">Deskripsi<textarea value={project.description} onChange={e=>setProject({...project,description:e.target.value})}/></label>
             <label className="wide">Fitur, pisahkan koma<input value={(project.features||[]).join(', ')} onChange={e=>setProject({...project,features:e.target.value.split(',').map(x=>x.trim()).filter(Boolean)})}/></label>
-            <label className="admin-check wide"><input type="checkbox" checked={Boolean(project.is_active)} onChange={e=>setProject({...project,is_active:e.target.checked})}/>Tampilkan di website</label>
-            <div className="admin-form-footer wide">
-              <button className="admin-btn primary" disabled={busy}><Save size={15}/>Simpan project</button>
-              {project.id&&portfolio.some(item=>item.id===project.id)&&<button type="button" className="admin-btn danger" onClick={handleProjectDelete}><Trash2 size={15}/>Hapus</button>}
-            </div>
-          </form>
-        </div>
-      </div>}
+            <label className="admin-check wide"><input type="checkbox" checked={Boolean(project.is_active)} onChange={e=>setProject({...project,is_active:e.target.checked})}/><span>Tampilkan project di website</span></label>
+            <div className="admin-form-footer wide"><button className="admin-btn primary" disabled={busy}><Save size={15}/>Simpan project</button>{project.id&&portfolio.some(item=>item.id===project.id)&&<button type="button" className="admin-btn danger" onClick={handleProjectDelete}><Trash2 size={15}/>Hapus project</button>}</div>
+          </form></section>
+        </div>}
 
-      {tab==='settings'&&<div className="admin-panel">
-        <div className="admin-panel-head"><div><h2>Pengaturan website</h2><p>Kontak, headline, announcement, dan social links.</p></div></div>
-        <form className="admin-form admin-form-grid" onSubmit={handleSettingsSave}>
+        {page==='settings'&&<section className="admin-panel admin-settings-panel"><div className="admin-panel-head"><div><span className="admin-section-kicker">PUBLIC WEBSITE</span><h2>Website settings</h2><p>Konten utama ini langsung dipakai website publik.</p></div></div><form className="admin-form admin-form-grid" onSubmit={handleSettingsSave}>
           <label>WhatsApp<input value={settings.whatsapp||''} onChange={e=>setSettings({...settings,whatsapp:e.target.value})}/></label>
           <label>Email<input type="email" value={settings.email||''} onChange={e=>setSettings({...settings,email:e.target.value})}/></label>
           <label>Instagram<input value={settings.instagram||''} onChange={e=>setSettings({...settings,instagram:e.target.value})}/></label>
@@ -298,11 +306,11 @@ export default function Admin(){
           <label>LinkedIn<input value={settings.linkedin||''} onChange={e=>setSettings({...settings,linkedin:e.target.value})}/></label>
           <label className="wide">Announcement<input value={settings.announcement||''} onChange={e=>setSettings({...settings,announcement:e.target.value})}/></label>
           <label className="wide">Hero label<input value={settings.hero_label||''} onChange={e=>setSettings({...settings,hero_label:e.target.value})}/></label>
-          <label className="wide">Headline<input value={settings.headline||''} onChange={e=>setSettings({...settings,headline:e.target.value})}/></label>
+          <label className="wide">Headline<textarea value={settings.headline||''} onChange={e=>setSettings({...settings,headline:e.target.value})}/></label>
           <label className="wide">Deskripsi<textarea value={settings.description||''} onChange={e=>setSettings({...settings,description:e.target.value})}/></label>
-          <div className="admin-form-footer wide"><button className="admin-btn primary" disabled={busy}><Save size={15}/>Simpan pengaturan</button></div>
-        </form>
-      </div>}
-    </div>
+          <div className="admin-form-footer wide"><span className="admin-form-hint">Perubahan akan dibaca website publik dari Supabase.</span><button className="admin-btn primary" disabled={busy}><Save size={15}/>Simpan perubahan</button></div>
+        </form></section>}
+      </div>
+    </main>
   </section>;
 }
