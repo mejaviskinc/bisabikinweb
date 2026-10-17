@@ -5,6 +5,7 @@ import Admin from './features/Admin';
 import {defaults} from './lib/data';
 import {loadPublicContent} from './lib/supabase';
 import './styles.css';
+import './features/admin.css';
 
 const path=location.pathname.replace(/\/+$/,'')||'/';
 
