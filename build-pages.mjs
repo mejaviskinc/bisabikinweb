@@ -6,7 +6,7 @@ await build({configFile});
 await build({configFile,publicDir:false,build:{ssr:'render.tsx',outDir:'../.pages-ssr',emptyOutDir:true}});
 const {render,defaults}=await import('./.pages-ssr/render.js');
 const origin='https://bisabikinweb.site';
-const brand='Bisabikinweb';
+const brand='BisaBikinWeb.id';
 const logo=origin+'/brand/bisabikinweb-logo-compact.svg';
 const phone='+62882003740969';
 const email='bisabikinw3b@gmail.com';
@@ -35,7 +35,7 @@ const organization={
   description:'Jasa pembuatan website profesional untuk UMKM, bisnis, personal brand, toko online, dan perusahaan.',
   contactPoint:{'@type':'ContactPoint',telephone:phone,email,contactType:'customer service',areaServed:'ID',availableLanguage:['id','en']}
 };
-const website={'@context':'https://schema.org','@type':'WebSite','@id':origin+'/#website',url:origin+'/',name:brand,alternateName:'Bisa Bikin Web',inLanguage:'id-ID',publisher:{'@id':origin+'/#organization'}};
+const website={'@context':'https://schema.org','@type':'WebSite','@id':origin+'/#website',url:origin+'/',name:brand,alternateName:'BisaBikinWeb',inLanguage:'id-ID',publisher:{'@id':origin+'/#organization'}};
 function protectHtml(html){
  const hashes=[...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)].filter(m=>m[1].trim()).map(m=>"'sha256-"+createHash('sha256').update(m[1]).digest('base64')+"'");
  const policy=["default-src 'none'","base-uri 'none'","object-src 'none'","script-src 'self' "+hashes.join(' '),"script-src-attr 'none'","style-src 'self' 'unsafe-inline'","img-src 'self' data: https://iyhwephcrxeqwiemhppw.supabase.co","font-src 'self' data:","connect-src 'self' https://iyhwephcrxeqwiemhppw.supabase.co","frame-src https://berbeda.co.id https://www.berbeda.co.id https://karpenter.co.id https://www.karpenter.co.id https://mejaviskincare.co.id https://www.mejaviskincare.co.id","media-src 'self'","form-action 'none'","upgrade-insecure-requests"].join('; ');
