@@ -81,17 +81,17 @@ Deno.serve(async(req:Request)=>{
     if(!/^[0-9a-f-]{36}$/i.test(id)||!['approved','processing','paid','rejected'].includes(next))return reply({error:'Status pencairan tidak valid.'},400,origin);
     const rows=await db('bbweb_seller_withdrawals?select=id,status,amount,seller_id&id=eq.'+encodeURIComponent(id)+'&limit=1');
     const current=rows?.[0];if(!current)return reply({error:'Permintaan withdraw tidak ditemukan.'},404,origin);
-    const allowed:Record<string,string[]>={pending:['approved','rejected'],approved:['processing','paid','rejected'],processing:['paid','rejected'],paid:[],rejected:[]};
+    const allowed:Record<string,string[]>={pending:['approved','rejected'],approved:['processing','rejected'],processing:['paid','rejected'],paid:[],rejected:[]};
     if(!(allowed[current.status]||[]).includes(next))return reply({error:'Perubahan status tersebut tidak diizinkan.'},409,origin);
     if(next==='paid'&&reference.length<3)return reply({error:'Nomor referensi transfer wajib diisi sebelum menandai lunas.'},400,origin);
-    if(next==='paid'){
+    if(next==='processing'){
       const [ledgerRows,otherWithdrawals]=await Promise.all([
         db('bbweb_seller_ledger?select=amount&seller_id=eq.'+encodeURIComponent(current.seller_id)+'&status=eq.available'),
         db('bbweb_seller_withdrawals?select=amount&seller_id=eq.'+encodeURIComponent(current.seller_id)+'&status=in.(pending,approved,processing,paid)&id=neq.'+encodeURIComponent(id))
       ]);
       const availableCredits=(Array.isArray(ledgerRows)?ledgerRows:[]).reduce((sum:number,row:any)=>sum+Number(row.amount||0),0);
       const reservedOther=(Array.isArray(otherWithdrawals)?otherWithdrawals:[]).reduce((sum:number,row:any)=>sum+Number(row.amount||0),0);
-      if(availableCredits-reservedOther<Number(current.amount))return reply({error:'Saldo tersedia berubah atau tidak cukup setelah penyesuaian/refund. Jangan transfer; tolak atau tinjau ulang permintaan ini.'},409,origin);
+      if(availableCredits-reservedOther<Number(current.amount))return reply({error:'Saldo tersedia berubah atau tidak cukup. Jangan mulai transfer; tinjau ulang atau tolak permintaan ini.'},409,origin);
     }
     if(next==='rejected'&&note.length<3)return reply({error:'Catatan penolakan wajib diisi.'},400,origin);
     const patch:any={status:next,admin_note:note,updated_at:new Date().toISOString()};
