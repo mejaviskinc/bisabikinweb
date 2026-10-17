@@ -1,3 +1,5 @@
-.netlify/
-.DS_Store
-# Trigger Netlify deploy after GitHub connection
+node_modules/
+.pages-ssr/
+site-dist/
+.env*
+node_modules

@@ -1,0 +1,1 @@
+export default function Admin(){return <section className="section narrow"><h1>Studio dashboard</h1><p>Buka panel pengelolaan melalui akun pemilik.</p><a className="btn primary" href="https://bisabikinweb-studio.bisabikinw3b.chatgpt.site/admin">Buka admin ↗</a></section>}
