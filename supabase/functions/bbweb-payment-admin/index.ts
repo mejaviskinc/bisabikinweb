@@ -113,7 +113,8 @@ async function refreshPayment(paymentId: string) {
   const base = environment === 'production' ? 'https://api.midtrans.com' : 'https://api.sandbox.midtrans.com';
   let response: Response;
   try {
-    response = await fetch(base + '/v2/' + encodeURIComponent(payment.merchant_order_id) + '/status', {
+    const statusIdentifier = String(payment.transaction_id || payment.merchant_order_id || '');
+    response = await fetch(base + '/v2/' + encodeURIComponent(statusIdentifier) + '/status', {
       headers: { Accept: 'application/json', Authorization: 'Basic ' + btoa(serverKey + ':') },
       signal: AbortSignal.timeout(10000)
     });
