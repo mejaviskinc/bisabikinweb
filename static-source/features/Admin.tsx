@@ -1,52 +1,87 @@
 'use client';
 import {useEffect,useMemo,useState} from 'react';
 import {
-  ArrowUpRight,
-  BriefcaseBusiness,
-  Globe2,
-  Inbox,
-  LayoutDashboard,
-  LogOut,
-  Menu,
-  Plus,
-  RefreshCw,
-  Save,
-  Settings,
-  Trash2,
-  X
+  ArrowUpRight,BarChart3,Boxes,BriefcaseBusiness,CircleDollarSign,FileText,Globe2,Inbox,
+  LayoutDashboard,LogOut,Menu,Package,Plus,RefreshCw,Save,Settings,ShoppingBag,Star,Tag,
+  Trash2,Users,Wrench,X
 } from 'lucide-react';
-import type {AdminSession} from '../lib/supabase';
+import type {AdminCollection,AdminSession} from '../lib/supabase';
 import {
-  adminDeleteLead,
-  adminDeletePortfolio,
-  adminGetSettings,
-  adminListLeads,
-  adminListPortfolio,
-  adminSavePortfolio,
-  adminSaveSettings,
-  adminUpdateLead,
-  assertAdmin,
-  getSession,
-  signIn,
-  signOut,
-  signUp
+  adminDeleteCollection,adminDeleteLead,adminDeletePortfolio,adminGetSettings,adminListCollection,
+  adminListLeads,adminListPortfolio,adminPatchCollection,adminSaveCollection,adminSavePortfolio,
+  adminSaveSettings,adminUpdateLead,assertAdmin,getSession,signIn,signOut,signUp
 } from '../lib/supabase';
 
-const blankProject={
-  id:'',name:'',domain:'',category:'Company Profile',tag:'BUSINESS / WEBSITE',
-  description:'',live:'https://',theme:'trade',technology:'Website',features:[],
-  sort_order:100,is_active:true
-};
-
-const emptySettings={
-  whatsapp:'62882003740969',email:'bisabikinw3b@gmail.com',instagram:'',tiktok:'',
-  threads:'',linkedin:'',announcement:'',hero_label:'INDEPENDENT DIGITAL STUDIO · INDONESIA',
-  headline:'',description:''
-};
-
+const blankProject={id:'',name:'',domain:'',category:'Company Profile',tag:'BUSINESS / WEBSITE',description:'',live:'https://',theme:'trade',technology:'Website',features:[],sort_order:100,is_active:true};
+const emptySettings={whatsapp:'62882003740969',email:'bisabikinw3b@gmail.com',instagram:'',tiktok:'',threads:'',linkedin:'',announcement:'',hero_label:'INDEPENDENT DIGITAL STUDIO · INDONESIA',headline:'',description:''};
 const leadStatuses=['new','contacted','proposal','won','lost','spam'];
 const statusLabel:any={new:'Baru',contacted:'Dihubungi',proposal:'Proposal',won:'Won',lost:'Lost',spam:'Spam'};
-type Page='overview'|'leads'|'portfolio'|'settings';
+const orderStatuses=['new','processing','ready','shipped','completed','cancelled'];
+const paymentStatuses=['unpaid','pending','paid','refunded','failed'];
+
+type Page='overview'|'orders'|'merchandise'|'inventory'|'portfolio'|'leads'|'services'|'pricing'|'articles'|'testimonials'|'coupons'|'customers'|'analytics'|'settings';
+type Field={key:string;label:string;type?:'text'|'number'|'textarea'|'select'|'checkbox'|'array'|'datetime';options?:string[];wide?:boolean;required?:boolean;placeholder?:string};
+type Config={collection:AdminCollection;title:string;singular:string;kicker:string;description:string;fields:Field[];primary:(x:any)=>string;secondary:(x:any)=>string};
+
+const blankCollections:Record<AdminCollection,any[]>={orders:[],merchandise:[],services:[],pricing:[],articles:[],testimonials:[],coupons:[],customers:[]};
+const blanks:Record<AdminCollection,any>={
+  orders:{customer_name:'',customer_email:'',customer_phone:'',subtotal:0,discount:0,total:0,status:'new',payment_status:'unpaid',notes:'',items:[]},
+  merchandise:{id:'',sku:'',name:'',collection:'CORE',type:'item',color:'',print:'',description:'',price:'',badge:'',material:'',care:'',shipping:'',returns:'',stock:0,low_stock_threshold:5,is_active:true,sort_order:100},
+  services:{id:'',name:'',icon:'↗',tag:'',description:'',features:[],is_active:true,sort_order:100},
+  pricing:{id:'',name:'',price:'',maintenance:'',description:'',features:[],featured:false,is_active:true,sort_order:100},
+  articles:{id:'',title:'',category:'Business',read_time:'3 menit',summary:'',body:[],status:'draft',is_active:true,sort_order:100,published_at:null},
+  testimonials:{name:'',business:'',quote:'',rating:5,is_active:true,sort_order:100},
+  coupons:{code:'',description:'',discount_type:'percent',discount_value:0,min_order:0,max_uses:'',used_count:0,starts_at:'',ends_at:'',is_active:true},
+  customers:{name:'',email:'',phone:'',company:'',status:'active',notes:''}
+};
+
+const configs:Partial<Record<Page,Config>>={
+  orders:{collection:'orders',title:'Orders',singular:'Order',kicker:'COMMERCE',description:'Kelola pesanan, pembayaran, dan progres fulfillment.',primary:x=>x.order_no||'Order baru',secondary:x=>`${x.customer_name||'Tanpa customer'} · ${money(x.total)}`,fields:[
+    {key:'customer_name',label:'Nama customer',required:true},{key:'customer_email',label:'Email'},{key:'customer_phone',label:'WhatsApp / Telepon'},
+    {key:'subtotal',label:'Subtotal',type:'number'},{key:'discount',label:'Diskon',type:'number'},{key:'total',label:'Total',type:'number',required:true},
+    {key:'status',label:'Status order',type:'select',options:orderStatuses},{key:'payment_status',label:'Status pembayaran',type:'select',options:paymentStatuses},
+    {key:'notes',label:'Catatan',type:'textarea',wide:true}
+  ]},
+  merchandise:{collection:'merchandise',title:'Merchandise',singular:'Produk',kicker:'STORE',description:'Kelola katalog merchandise yang tampil di website.',primary:x=>x.name||'Produk baru',secondary:x=>`${x.sku||'-'} · ${x.price==null?'Belum ada harga':money(x.price)}`,fields:[
+    {key:'id',label:'ID / slug',required:true},{key:'sku',label:'SKU',required:true},{key:'name',label:'Nama produk',required:true},{key:'collection',label:'Collection'},
+    {key:'type',label:'Tipe'},{key:'color',label:'Warna'},{key:'price',label:'Harga',type:'number'},{key:'badge',label:'Badge'},
+    {key:'stock',label:'Stok',type:'number'},{key:'low_stock_threshold',label:'Batas stok rendah',type:'number'},{key:'sort_order',label:'Urutan',type:'number'},
+    {key:'print',label:'Print / copy produk',type:'textarea',wide:true},{key:'description',label:'Deskripsi',type:'textarea',wide:true},
+    {key:'material',label:'Material',type:'textarea',wide:true},{key:'care',label:'Perawatan',type:'textarea',wide:true},{key:'shipping',label:'Pengiriman',type:'textarea',wide:true},{key:'returns',label:'Retur',type:'textarea',wide:true},
+    {key:'is_active',label:'Tampilkan di website',type:'checkbox',wide:true}
+  ]},
+  services:{collection:'services',title:'Services',singular:'Layanan',kicker:'WEBSITE CONTENT',description:'Kelola layanan yang ditawarkan Bisabikinweb.',primary:x=>x.name||'Layanan baru',secondary:x=>x.tag||x.id||'-',fields:[
+    {key:'id',label:'ID / slug',required:true},{key:'name',label:'Nama layanan',required:true},{key:'icon',label:'Icon'},{key:'tag',label:'Tag'},
+    {key:'description',label:'Deskripsi',type:'textarea',wide:true},{key:'features',label:'Fitur (satu per baris)',type:'array',wide:true},{key:'sort_order',label:'Urutan',type:'number'},{key:'is_active',label:'Tampilkan di website',type:'checkbox'}
+  ]},
+  pricing:{collection:'pricing',title:'Pricing',singular:'Paket',kicker:'WEBSITE CONTENT',description:'Atur paket dan harga jasa yang tampil di website.',primary:x=>x.name||'Paket baru',secondary:x=>x.price==null?'Custom / konsultasi':money(x.price),fields:[
+    {key:'id',label:'ID / slug',required:true},{key:'name',label:'Nama paket',required:true},{key:'price',label:'Harga project',type:'number'},{key:'maintenance',label:'Harga maintenance',type:'number'},
+    {key:'description',label:'Deskripsi',type:'textarea',wide:true},{key:'features',label:'Fitur (satu per baris)',type:'array',wide:true},{key:'sort_order',label:'Urutan',type:'number'},
+    {key:'featured',label:'Jadikan paket unggulan',type:'checkbox'},{key:'is_active',label:'Tampilkan di website',type:'checkbox'}
+  ]},
+  articles:{collection:'articles',title:'Articles',singular:'Artikel',kicker:'CONTENT',description:'Buat, edit, draft, dan publish artikel website.',primary:x=>x.title||'Artikel baru',secondary:x=>`${x.category||'Artikel'} · ${x.status||'draft'}`,fields:[
+    {key:'id',label:'Slug artikel',required:true},{key:'title',label:'Judul',required:true,wide:true},{key:'category',label:'Kategori'},{key:'read_time',label:'Estimasi baca'},
+    {key:'summary',label:'Teaser / ringkasan',type:'textarea',wide:true},{key:'body',label:'Isi artikel (satu paragraf per baris)',type:'array',wide:true},
+    {key:'status',label:'Status',type:'select',options:['draft','published']},{key:'sort_order',label:'Urutan',type:'number'},{key:'is_active',label:'Aktif',type:'checkbox'}
+  ]},
+  testimonials:{collection:'testimonials',title:'Testimonials',singular:'Testimonial',kicker:'SOCIAL PROOF',description:'Kelola testimonial customer yang dapat ditampilkan di website.',primary:x=>x.name||'Testimonial baru',secondary:x=>x.business||`${x.rating||5}/5`,fields:[
+    {key:'name',label:'Nama customer',required:true},{key:'business',label:'Bisnis / posisi'},{key:'rating',label:'Rating',type:'number'},
+    {key:'quote',label:'Testimonial',type:'textarea',wide:true,required:true},{key:'sort_order',label:'Urutan',type:'number'},{key:'is_active',label:'Tampilkan di website',type:'checkbox'}
+  ]},
+  coupons:{collection:'coupons',title:'Coupons',singular:'Coupon',kicker:'PROMOTION',description:'Buat kode promo untuk merchandise dan campaign.',primary:x=>x.code||'Coupon baru',secondary:x=>`${x.discount_type==='fixed'?money(x.discount_value):`${Number(x.discount_value||0)}%`} · ${x.is_active?'Aktif':'Nonaktif'}`,fields:[
+    {key:'code',label:'Kode coupon',required:true},{key:'discount_type',label:'Tipe diskon',type:'select',options:['percent','fixed']},{key:'discount_value',label:'Nilai diskon',type:'number'},
+    {key:'min_order',label:'Minimum order',type:'number'},{key:'max_uses',label:'Maksimum penggunaan',type:'number'},{key:'used_count',label:'Sudah digunakan',type:'number'},
+    {key:'starts_at',label:'Mulai',type:'datetime'},{key:'ends_at',label:'Berakhir',type:'datetime'},{key:'description',label:'Deskripsi',type:'textarea',wide:true},{key:'is_active',label:'Aktifkan coupon',type:'checkbox',wide:true}
+  ]},
+  customers:{collection:'customers',title:'Customers',singular:'Customer',kicker:'CRM',description:'Database customer untuk order, follow-up, dan relasi bisnis.',primary:x=>x.name||'Customer baru',secondary:x=>x.email||x.phone||x.company||'-',fields:[
+    {key:'name',label:'Nama customer',required:true},{key:'email',label:'Email'},{key:'phone',label:'WhatsApp / Telepon'},{key:'company',label:'Perusahaan'},
+    {key:'status',label:'Status',type:'select',options:['active','inactive','vip']},{key:'notes',label:'Catatan customer',type:'textarea',wide:true}
+  ]}
+};
+
+function money(value:any){const n=Number(value||0);return new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(Number.isFinite(n)?n:0)}
+function copyBlank(collection:AdminCollection){const base=blanks[collection];return {...base,...Object.fromEntries(Object.entries(base).map(([k,v])=>[k,Array.isArray(v)?[...v]:v]))}}
+function recordKey(collection:AdminCollection,row:any){return collection==='coupons'?row.code:row.id}
 
 export default function Admin(){
   const [session,setSession]=useState<AdminSession|null>(null);
@@ -62,255 +97,77 @@ export default function Admin(){
   const [portfolio,setPortfolio]=useState<any[]>([]);
   const [settings,setSettings]=useState<any>(emptySettings);
   const [project,setProject]=useState<any>({...blankProject});
+  const [collections,setCollections]=useState<Record<AdminCollection,any[]>>(blankCollections);
+  const [editorCollection,setEditorCollection]=useState<AdminCollection>('orders');
+  const [editor,setEditor]=useState<any>(copyBlank('orders'));
   const [busy,setBusy]=useState(false);
 
-  const stats=useMemo(()=>({
-    all:leads.length,
-    new:leads.filter(x=>x.status==='new').length,
-    proposal:leads.filter(x=>x.status==='proposal').length,
-    won:leads.filter(x=>x.status==='won').length
-  }),[leads]);
+  const stats=useMemo(()=>({all:leads.length,new:leads.filter(x=>x.status==='new').length,proposal:leads.filter(x=>x.status==='proposal').length,won:leads.filter(x=>x.status==='won').length}),[leads]);
+  const orders=collections.orders;
+  const merchandise=collections.merchandise;
+  const paidRevenue=useMemo(()=>orders.filter(x=>x.payment_status==='paid').reduce((sum,x)=>sum+Number(x.total||0),0),[orders]);
+  const lowStock=useMemo(()=>merchandise.filter(x=>Number(x.stock||0)<=Number(x.low_stock_threshold||0)),[merchandise]);
+  const averageOrder=orders.length?orders.reduce((sum,x)=>sum+Number(x.total||0),0)/orders.length:0;
+  const conversion=leads.length?Math.round((stats.won/leads.length)*100):0;
 
-  const pageTitle={overview:'Overview',leads:'Leads',portfolio:'Portfolio',settings:'Pengaturan Website'}[page];
-  const pageDescription={
-    overview:'Ringkasan aktivitas Bisabikinweb dan data terbaru.',
-    leads:'Kelola inquiry dan progres calon customer dari form website.',
-    portfolio:'Atur project yang tampil di halaman portfolio publik.',
-    settings:'Ubah kontak, headline, announcement, dan social link website.'
-  }[page];
+  const pageMeta:Record<Page,[string,string]>={
+    overview:['Overview','Ringkasan operasional Bisabikinweb dalam satu dashboard.'],orders:['Orders','Kelola order dan status pembayaran.'],merchandise:['Merchandise','Kelola katalog merchandise Bisabikinweb.'],inventory:['Inventory','Pantau dan perbarui stok merchandise.'],portfolio:['Portfolio','Atur project yang tampil di portfolio publik.'],leads:['Leads','Kelola inquiry dan progres calon customer.'],services:['Services','Kelola layanan yang tampil di website.'],pricing:['Pricing','Atur paket harga Bisabikinweb.'],articles:['Articles','Kelola artikel, draft, dan publikasi.'],testimonials:['Testimonials','Kelola social proof dari customer.'],coupons:['Coupons','Kelola kode promo dan masa aktif.'],customers:['Customers','Kelola database customer.'],analytics:['Analytics','Pantau performa leads, order, revenue, dan stok.'],settings:['Website Settings','Ubah kontak, headline, announcement, dan social link.']
+  };
 
   async function loadDashboard(s:AdminSession){
-    const [leadRows,projectRows,siteSettings]=await Promise.all([
-      adminListLeads(s),adminListPortfolio(s),adminGetSettings(s)
+    const collectionNames:AdminCollection[]=['orders','merchandise','services','pricing','articles','testimonials','coupons','customers'];
+    const [leadRows,projectRows,siteSettings,...collectionRows]=await Promise.all([
+      adminListLeads(s),adminListPortfolio(s),adminGetSettings(s),...collectionNames.map(name=>adminListCollection(s,name))
     ]);
-    setLeads(Array.isArray(leadRows)?leadRows:[]);
-    setPortfolio(Array.isArray(projectRows)?projectRows:[]);
-    if(siteSettings)setSettings(siteSettings);
+    setLeads(Array.isArray(leadRows)?leadRows:[]);setPortfolio(Array.isArray(projectRows)?projectRows:[]);if(siteSettings)setSettings(siteSettings);
+    const next={...blankCollections};collectionNames.forEach((name,i)=>{next[name]=Array.isArray(collectionRows[i])?collectionRows[i]:[]});setCollections(next);
   }
 
-  useEffect(()=>{
-    let active=true;
-    (async()=>{
-      const current=await getSession();
-      if(!active)return;
-      if(current){
-        try{
-          await assertAdmin(current);
-          if(!active)return;
-          setSession(current);
-          await loadDashboard(current);
-        }catch(err:any){
-          await signOut(current);
-          if(active)setError(err.message||'Sesi admin tidak valid.');
-        }
-      }
-      if(active)setBooting(false);
-    })();
-    return()=>{active=false};
-  },[]);
+  useEffect(()=>{let active=true;(async()=>{const current=await getSession();if(!active)return;if(current){try{await assertAdmin(current);if(!active)return;setSession(current);await loadDashboard(current)}catch(err:any){await signOut(current);if(active)setError(err.message||'Sesi admin tidak valid.')}}if(active)setBooting(false)})();return()=>{active=false}},[]);
 
-  function navigate(next:Page){setPage(next);setMenuOpen(false);setError('');setMessage('')}
+  function navigate(next:Page){setPage(next);setMenuOpen(false);setError('');setMessage('');const cfg=configs[next];if(cfg){setEditorCollection(cfg.collection);setEditor(copyBlank(cfg.collection))}}
+  async function handleAuth(e:any){e.preventDefault();setBusy(true);setError('');setMessage('');try{if(mode==='signup'){await signUp(email,password);setMessage('Akun dibuat. Jika ada email konfirmasi Supabase, konfirmasi dulu lalu login.');setMode('login');setPassword('');return}const next=await signIn(email,password);await assertAdmin(next);setSession(next);await loadDashboard(next)}catch(err:any){setError(err.message||'Login gagal.')}finally{setBusy(false)}}
+  async function handleLogout(){await signOut(session);setSession(null);setPassword('');setMessage('');setError('');setMenuOpen(false)}
+  async function handleRefresh(){if(!session)return;setBusy(true);setError('');try{await loadDashboard(session);setMessage('Data diperbarui.')}catch(err:any){setError(err.message||'Gagal memuat data.')}finally{setBusy(false)}}
+  async function handleLeadStatus(id:string,status:string){if(!session)return;try{await adminUpdateLead(session,id,status);setLeads(rows=>rows.map(row=>row.id===id?{...row,status}:row))}catch(err:any){setError(err.message||'Gagal memperbarui lead.')}}
+  async function handleLeadDelete(id:string){if(!session||!window.confirm('Hapus lead ini?'))return;try{await adminDeleteLead(session,id);setLeads(rows=>rows.filter(row=>row.id!==id))}catch(err:any){setError(err.message||'Gagal menghapus lead.')}}
+  async function handleProjectSave(e:any){e.preventDefault();if(!session)return;setBusy(true);setError('');setMessage('');try{const saved=await adminSavePortfolio(session,project);const item=Array.isArray(saved)&&saved[0]?saved[0]:project;setPortfolio(rows=>[...rows.filter(row=>row.id!==item.id),item].sort((a,b)=>a.sort_order-b.sort_order));setProject({...item,features:Array.isArray(item.features)?item.features:[]});setMessage('Project berhasil disimpan.')}catch(err:any){setError(err.message||'Gagal menyimpan project.')}finally{setBusy(false)}}
+  async function handleProjectDelete(){if(!session||!project.id||!window.confirm('Hapus project ini?'))return;try{await adminDeletePortfolio(session,project.id);setPortfolio(rows=>rows.filter(row=>row.id!==project.id));setProject({...blankProject});setMessage('Project dihapus.')}catch(err:any){setError(err.message||'Gagal menghapus project.')}}
+  async function handleSettingsSave(e:any){e.preventDefault();if(!session)return;setBusy(true);setError('');setMessage('');try{await adminSaveSettings(session,settings);setMessage('Pengaturan website tersimpan.')}catch(err:any){setError(err.message||'Gagal menyimpan pengaturan.')}finally{setBusy(false)}}
 
-  async function handleAuth(e:any){
-    e.preventDefault();
-    setBusy(true);setError('');setMessage('');
-    try{
-      if(mode==='signup'){
-        await signUp(email,password);
-        setMessage('Akun dibuat. Jika ada email konfirmasi Supabase, konfirmasi dulu lalu kembali untuk login.');
-        setMode('login');setPassword('');
-        return;
-      }
-      const next=await signIn(email,password);
-      await assertAdmin(next);
-      setSession(next);
-      await loadDashboard(next);
-    }catch(err:any){setError(err.message||'Login gagal.')}
-    finally{setBusy(false)}
-  }
+  async function handleCollectionSave(e:any){e.preventDefault();if(!session)return;setBusy(true);setError('');setMessage('');try{const saved=await adminSaveCollection(session,editorCollection,editor);const item=Array.isArray(saved)&&saved[0]?saved[0]:editor;const key=recordKey(editorCollection,item);setCollections(prev=>({...prev,[editorCollection]:[...prev[editorCollection].filter(row=>recordKey(editorCollection,row)!==key),item]}));setEditor({...item});setMessage('Data berhasil disimpan.')}catch(err:any){setError(err.message||'Gagal menyimpan data.')}finally{setBusy(false)}}
+  async function handleCollectionDelete(){if(!session||!window.confirm('Hapus data ini?'))return;try{await adminDeleteCollection(session,editorCollection,editor);const key=recordKey(editorCollection,editor);setCollections(prev=>({...prev,[editorCollection]:prev[editorCollection].filter(row=>recordKey(editorCollection,row)!==key)}));setEditor(copyBlank(editorCollection));setMessage('Data dihapus.')}catch(err:any){setError(err.message||'Gagal menghapus data.')}}
+  async function patchCollection(collection:AdminCollection,row:any,patch:any){if(!session)return;try{const saved=await adminPatchCollection(session,collection,row,patch);const item=Array.isArray(saved)&&saved[0]?saved[0]:{...row,...patch};const key=recordKey(collection,item);setCollections(prev=>({...prev,[collection]:prev[collection].map(x=>recordKey(collection,x)===key?item:x)}))}catch(err:any){setError(err.message||'Gagal memperbarui data.')}}
 
-  async function handleLogout(){
-    await signOut(session);
-    setSession(null);setPassword('');setMessage('');setError('');setMenuOpen(false);
-  }
+  function LeadRows({items,compact=false}:{items:any[],compact?:boolean}){return <>{<div className="admin-lead-desktop"><div className="admin-table-wrap"><table className="admin-table"><thead><tr><th>Customer</th><th>Kebutuhan</th><th>{compact?'Masuk':'Pesan'}</th><th>Status</th><th>Aksi</th></tr></thead><tbody>{items.map(lead=><tr key={lead.id}><td><strong>{lead.name||'Tanpa nama'}</strong><small>{lead.company||'-'} · {lead.phone||'-'}<br/>{lead.email||'-'}</small></td><td><strong>{lead.website_type||'-'}</strong><small>{lead.budget||'-'} · {lead.deadline||'Tanpa deadline'}</small></td><td className="admin-lead-message">{compact?new Date(lead.created_at).toLocaleDateString('id-ID'):(lead.message||lead.features||'-')}</td><td><select value={lead.status||'new'} onChange={e=>handleLeadStatus(lead.id,e.target.value)}>{leadStatuses.map(status=><option key={status} value={status}>{statusLabel[status]}</option>)}</select></td><td><button className="admin-icon-btn danger" aria-label="Hapus lead" onClick={()=>handleLeadDelete(lead.id)}><Trash2 size={16}/></button></td></tr>)}</tbody></table></div></div>}<div className="admin-lead-mobile">{items.map(lead=><article className="admin-lead-card" key={lead.id}><div className="admin-lead-card-top"><div><strong>{lead.name||'Tanpa nama'}</strong><span>{lead.website_type||'Inquiry website'}</span></div><span className={`admin-status ${lead.status||'new'}`}>{statusLabel[lead.status||'new']}</span></div><div className="admin-lead-card-meta"><span>{lead.phone||'-'}</span><span>{lead.email||'-'}</span><span>{lead.budget||'-'}</span></div>{!compact&&<p>{lead.message||lead.features||'Tidak ada pesan.'}</p>}<div className="admin-lead-card-actions"><select value={lead.status||'new'} onChange={e=>handleLeadStatus(lead.id,e.target.value)}>{leadStatuses.map(status=><option key={status} value={status}>{statusLabel[status]}</option>)}</select><button className="admin-icon-btn danger" onClick={()=>handleLeadDelete(lead.id)}><Trash2 size={16}/></button></div></article>)}</div>{!items.length&&<div className="admin-empty">Belum ada lead.</div>}</>}
 
-  async function handleRefresh(){
-    if(!session)return;
-    setBusy(true);setError('');
-    try{await loadDashboard(session)}
-    catch(err:any){setError(err.message||'Gagal memuat data.')}
-    finally{setBusy(false)}
-  }
+  function renderField(field:Field){const value=editor[field.key];if(field.type==='checkbox')return <label key={field.key} className={`admin-check ${field.wide?'wide':''}`}><input type="checkbox" checked={Boolean(value)} onChange={e=>setEditor({...editor,[field.key]:e.target.checked})}/><span>{field.label}</span></label>;if(field.type==='array')return <label key={field.key} className={field.wide?'wide':''}>{field.label}<textarea value={(Array.isArray(value)?value:[]).join('\n')} onChange={e=>setEditor({...editor,[field.key]:e.target.value.split('\n').map(x=>x.trim()).filter(Boolean)})}/></label>;if(field.type==='textarea')return <label key={field.key} className={field.wide?'wide':''}>{field.label}<textarea required={field.required} value={value??''} placeholder={field.placeholder} onChange={e=>setEditor({...editor,[field.key]:e.target.value})}/></label>;if(field.type==='select')return <label key={field.key} className={field.wide?'wide':''}>{field.label}<select value={value??''} onChange={e=>setEditor({...editor,[field.key]:e.target.value})}>{field.options?.map(option=><option value={option} key={option}>{option}</option>)}</select></label>;const inputType=field.type==='number'?'number':field.type==='datetime'?'datetime-local':'text';const inputValue=field.type==='datetime'&&value?String(value).slice(0,16):(value??'');return <label key={field.key} className={field.wide?'wide':''}>{field.label}<input required={field.required} type={inputType} value={inputValue} placeholder={field.placeholder} onChange={e=>{let next:any=e.target.value;if(field.type==='number')next=e.target.value===''?'':Number(e.target.value);if(field.key==='id')next=String(next).toLowerCase().replace(/[^a-z0-9-]/g,'-');if(field.key==='code')next=String(next).toUpperCase().replace(/[^A-Z0-9_-]/g,'');setEditor({...editor,[field.key]:next})}}/></label>}
 
-  async function handleLeadStatus(id:string,status:string){
-    if(!session)return;
-    try{
-      await adminUpdateLead(session,id,status);
-      setLeads(rows=>rows.map(row=>row.id===id?{...row,status}:row));
-    }catch(err:any){setError(err.message||'Gagal memperbarui lead.')}
-  }
-
-  async function handleLeadDelete(id:string){
-    if(!session||!window.confirm('Hapus lead ini?'))return;
-    try{
-      await adminDeleteLead(session,id);
-      setLeads(rows=>rows.filter(row=>row.id!==id));
-    }catch(err:any){setError(err.message||'Gagal menghapus lead.')}
-  }
-
-  async function handleProjectSave(e:any){
-    e.preventDefault();
-    if(!session)return;
-    setBusy(true);setError('');setMessage('');
-    try{
-      const saved=await adminSavePortfolio(session,project);
-      const item=Array.isArray(saved)&&saved[0]?saved[0]:project;
-      setPortfolio(rows=>[...rows.filter(row=>row.id!==item.id),item].sort((a,b)=>a.sort_order-b.sort_order));
-      setProject({...item,features:Array.isArray(item.features)?item.features:[]});
-      setMessage('Project berhasil disimpan.');
-    }catch(err:any){setError(err.message||'Gagal menyimpan project.')}
-    finally{setBusy(false)}
-  }
-
-  async function handleProjectDelete(){
-    if(!session||!project.id||!window.confirm('Hapus project ini?'))return;
-    try{
-      await adminDeletePortfolio(session,project.id);
-      setPortfolio(rows=>rows.filter(row=>row.id!==project.id));
-      setProject({...blankProject});
-      setMessage('Project dihapus.');
-    }catch(err:any){setError(err.message||'Gagal menghapus project.')}
-  }
-
-  async function handleSettingsSave(e:any){
-    e.preventDefault();
-    if(!session)return;
-    setBusy(true);setError('');setMessage('');
-    try{await adminSaveSettings(session,settings);setMessage('Pengaturan website tersimpan.')}
-    catch(err:any){setError(err.message||'Gagal menyimpan pengaturan.')}
-    finally{setBusy(false)}
-  }
-
-  function LeadRows({items,compact=false}:{items:any[],compact?:boolean}){
-    return <>
-      <div className="admin-lead-desktop">
-        <div className="admin-table-wrap">
-          <table className="admin-table">
-            <thead><tr><th>Customer</th><th>Kebutuhan</th><th>{compact?'Masuk':'Pesan'}</th><th>Status</th><th>Aksi</th></tr></thead>
-            <tbody>{items.map(lead=><tr key={lead.id}>
-              <td><strong>{lead.name||'Tanpa nama'}</strong><small>{lead.company||'-'} · {lead.phone||'-'}<br/>{lead.email||'-'}</small></td>
-              <td><strong>{lead.website_type||'-'}</strong><small>{lead.budget||'-'} · {lead.deadline||'Tanpa deadline'}</small></td>
-              <td className="admin-lead-message">{compact?new Date(lead.created_at).toLocaleDateString('id-ID'):(lead.message||lead.features||'-')}</td>
-              <td><select value={lead.status||'new'} onChange={e=>handleLeadStatus(lead.id,e.target.value)}>{leadStatuses.map(status=><option key={status} value={status}>{statusLabel[status]}</option>)}</select></td>
-              <td><button className="admin-icon-btn danger" aria-label="Hapus lead" onClick={()=>handleLeadDelete(lead.id)}><Trash2 size={16}/></button></td>
-            </tr>)}</tbody>
-          </table>
-        </div>
-      </div>
-      <div className="admin-lead-mobile">{items.map(lead=><article className="admin-lead-card" key={lead.id}>
-        <div className="admin-lead-card-top"><div><strong>{lead.name||'Tanpa nama'}</strong><span>{lead.website_type||'Inquiry website'}</span></div><span className={`admin-status ${lead.status||'new'}`}>{statusLabel[lead.status||'new']}</span></div>
-        <div className="admin-lead-card-meta"><span>{lead.phone||'-'}</span><span>{lead.email||'-'}</span><span>{lead.budget||'-'}</span></div>
-        {!compact&&<p>{lead.message||lead.features||'Tidak ada pesan.'}</p>}
-        <div className="admin-lead-card-actions"><select value={lead.status||'new'} onChange={e=>handleLeadStatus(lead.id,e.target.value)}>{leadStatuses.map(status=><option key={status} value={status}>{statusLabel[status]}</option>)}</select><button className="admin-icon-btn danger" onClick={()=>handleLeadDelete(lead.id)}><Trash2 size={16}/></button></div>
-      </article>)}</div>
-      {!items.length&&<div className="admin-empty">Belum ada lead.</div>}
-    </>;
-  }
+  function GenericManager({target}:{target:Page}){const cfg=configs[target]!;const rows=collections[cfg.collection];const currentKey=recordKey(cfg.collection,editor);return <div className="admin-module-layout"><section className="admin-panel admin-module-list"><div className="admin-panel-head"><div><span className="admin-section-kicker">{cfg.kicker}</span><h2>{cfg.title}</h2><p>{rows.length} data tersimpan</p></div><button className="admin-btn primary" onClick={()=>{setEditorCollection(cfg.collection);setEditor(copyBlank(cfg.collection));setMessage('')}}><Plus size={15}/>{cfg.singular} baru</button></div><div className="admin-module-items">{rows.map(row=>{const key=recordKey(cfg.collection,row);return <button key={String(key)} className={String(currentKey)===String(key)&&editorCollection===cfg.collection?'active':''} onClick={()=>{setEditorCollection(cfg.collection);setEditor({...row,...Object.fromEntries(Object.entries(row).filter(([,v])=>Array.isArray(v)).map(([k,v])=>[k,[...(v as any[])]]))});setMessage('')}}><div><strong>{cfg.primary(row)}</strong><small>{cfg.secondary(row)}</small></div><span>{row.is_active===false?'Off':'↗'}</span></button>})}{!rows.length&&<div className="admin-empty">Belum ada data.</div>}</div></section><section className="admin-panel admin-editor"><div className="admin-panel-head"><div><span className="admin-section-kicker">EDITOR</span><h2>{currentKey?`Edit ${cfg.singular}`:`${cfg.singular} baru`}</h2><p>{cfg.description}</p></div></div><form className="admin-form admin-form-grid" onSubmit={handleCollectionSave}>{cfg.fields.map(renderField)}<div className="admin-form-footer wide"><span className="admin-form-hint">Perubahan disimpan ke Supabase.</span><div className="admin-form-buttons"><button className="admin-btn primary" disabled={busy}><Save size={15}/>Simpan</button>{currentKey&&rows.some(r=>String(recordKey(cfg.collection,r))===String(currentKey))&&<button type="button" className="admin-btn danger" onClick={handleCollectionDelete}><Trash2 size={15}/>Hapus</button>}</div></div></form></section></div>}
 
   if(booting)return <section className="admin-page admin-auth-page"><div className="admin-loading"><span className="admin-loader"/>Memuat Bisabikinweb Admin…</div></section>;
+  if(!session)return <section className="admin-page admin-auth-page"><div className="admin-login-wrap"><div className="admin-login"><div className="admin-brand"><span className="admin-brand-mark">B</span><div><strong>Bisabikinweb</strong><small>Admin Studio</small></div></div><div className="admin-login-heading"><span>SECURE ADMIN</span><h1>{mode==='login'?'Welcome back.':'Create admin.'}</h1><p>Masuk untuk mengelola operasional, customer, konten, dan website.</p></div>{error&&<div className="admin-alert error">{error}</div>}{message&&<div className="admin-alert success">{message}</div>}<form className="admin-form" onSubmit={handleAuth}><label>Email<input type="email" required value={email} onChange={e=>setEmail(e.target.value)} autoComplete="email"/></label><label>Password<input type="password" required minLength={8} value={password} onChange={e=>setPassword(e.target.value)} autoComplete={mode==='login'?'current-password':'new-password'}/></label><button className="admin-btn primary wide-btn" disabled={busy}>{busy?'Memproses…':mode==='login'?'Masuk ke dashboard':'Buat akun admin'}<ArrowUpRight size={16}/></button></form><div className="admin-login-switch"><span>{mode==='login'?'Belum punya akun admin?':'Sudah punya akun?'}</span><button type="button" onClick={()=>{setMode(mode==='login'?'signup':'login');setError('');setMessage('')}}>{mode==='login'?'Buat akun pertama':'Kembali ke login'}</button></div><div className="admin-note">Akses admin dibatasi Supabase RLS untuk <b>bisabikinw3b@gmail.com</b>.</div></div></div></section>;
 
-  if(!session)return <section className="admin-page admin-auth-page">
-    <div className="admin-login-wrap"><div className="admin-login">
-      <div className="admin-brand"><span className="admin-brand-mark">B</span><div><strong>Bisabikinweb</strong><small>Admin Studio</small></div></div>
-      <div className="admin-login-heading"><span>SECURE ADMIN</span><h1>{mode==='login'?'Welcome back.':'Create admin.'}</h1><p>Masuk untuk mengelola lead, portfolio, dan konten utama website.</p></div>
-      {error&&<div className="admin-alert error">{error}</div>}
-      {message&&<div className="admin-alert success">{message}</div>}
-      <form className="admin-form" onSubmit={handleAuth}>
-        <label>Email<input type="email" required value={email} onChange={e=>setEmail(e.target.value)} autoComplete="email"/></label>
-        <label>Password<input type="password" required minLength={8} value={password} onChange={e=>setPassword(e.target.value)} autoComplete={mode==='login'?'current-password':'new-password'}/></label>
-        <button className="admin-btn primary wide-btn" disabled={busy}>{busy?'Memproses…':mode==='login'?'Masuk ke dashboard':'Buat akun admin'}<ArrowUpRight size={16}/></button>
-      </form>
-      <div className="admin-login-switch"><span>{mode==='login'?'Belum punya akun admin?':'Sudah punya akun?'}</span><button type="button" onClick={()=>{setMode(mode==='login'?'signup':'login');setError('');setMessage('')}}>{mode==='login'?'Buat akun pertama':'Kembali ke login'}</button></div>
-      <div className="admin-note">Akses admin dibatasi oleh Supabase RLS untuk <b>bisabikinw3b@gmail.com</b>.</div>
-    </div></div>
-  </section>;
+  const recentLeads=leads.slice(0,5);const recentOrders=orders.slice(0,5);const [pageTitle,pageDescription]=pageMeta[page];
+  const navItems:[Page,string,any][]=[['overview','Overview',LayoutDashboard],['orders','Orders',ShoppingBag],['merchandise','Merchandise',Package],['inventory','Inventory',Boxes],['portfolio','Portfolio',BriefcaseBusiness],['leads','Leads',Inbox],['services','Services',Wrench],['pricing','Pricing',CircleDollarSign],['articles','Articles',FileText],['testimonials','Testimonials',Star],['coupons','Coupons',Tag],['customers','Customers',Users],['analytics','Analytics',BarChart3]];
 
-  const recentLeads=leads.slice(0,5);
+  return <section className="admin-page admin-app"><button className={`admin-overlay ${menuOpen?'show':''}`} aria-label="Tutup menu" onClick={()=>setMenuOpen(false)}/><aside className={`admin-sidebar ${menuOpen?'open':''}`}><div className="admin-sidebar-head"><a className="admin-logo" href="/admin/"><span>B</span><div><strong>Bisabikinweb</strong><small>Admin Studio</small></div></a><button className="admin-mobile-close" onClick={()=>setMenuOpen(false)}><X size={19}/></button></div><nav className="admin-nav" aria-label="Admin navigation"><span className="admin-nav-label">WORKSPACE</span>{navItems.map(([id,label,Icon])=><button key={id} className={page===id?'active':''} onClick={()=>navigate(id)}><Icon size={18}/><span>{label}</span>{id==='leads'&&stats.new>0&&<b>{stats.new}</b>}{id==='inventory'&&lowStock.length>0&&<b>{lowStock.length}</b>}</button>)}<span className="admin-nav-label system-label">SYSTEM</span><button className={page==='settings'?'active':''} onClick={()=>navigate('settings')}><Settings size={18}/><span>Website Settings</span></button></nav><div className="admin-sidebar-bottom"><a className="admin-view-site" href="/" target="_blank" rel="noreferrer"><Globe2 size={17}/><span>Lihat website</span><ArrowUpRight size={14}/></a><div className="admin-user-card"><div className="admin-avatar">B</div><div><strong>Owner</strong><small>{session.user?.email}</small></div><button aria-label="Logout" onClick={handleLogout}><LogOut size={17}/></button></div></div></aside>
 
-  return <section className="admin-page admin-app">
-    <button className={`admin-overlay ${menuOpen?'show':''}`} aria-label="Tutup menu" onClick={()=>setMenuOpen(false)}/>
-    <aside className={`admin-sidebar ${menuOpen?'open':''}`}>
-      <div className="admin-sidebar-head"><a className="admin-logo" href="/admin/"><span>B</span><div><strong>Bisabikinweb</strong><small>Admin Studio</small></div></a><button className="admin-mobile-close" onClick={()=>setMenuOpen(false)}><X size={19}/></button></div>
-      <nav className="admin-nav" aria-label="Admin navigation">
-        <span className="admin-nav-label">WORKSPACE</span>
-        <button className={page==='overview'?'active':''} onClick={()=>navigate('overview')}><LayoutDashboard size={18}/><span>Overview</span></button>
-        <button className={page==='leads'?'active':''} onClick={()=>navigate('leads')}><Inbox size={18}/><span>Leads</span>{stats.new>0&&<b>{stats.new}</b>}</button>
-        <button className={page==='portfolio'?'active':''} onClick={()=>navigate('portfolio')}><BriefcaseBusiness size={18}/><span>Portfolio</span></button>
-        <button className={page==='settings'?'active':''} onClick={()=>navigate('settings')}><Settings size={18}/><span>Website Settings</span></button>
-      </nav>
-      <div className="admin-sidebar-bottom">
-        <a className="admin-view-site" href="/" target="_blank" rel="noreferrer"><Globe2 size={17}/><span>Lihat website</span><ArrowUpRight size={14}/></a>
-        <div className="admin-user-card"><div className="admin-avatar">B</div><div><strong>Owner</strong><small>{session.user?.email}</small></div><button aria-label="Logout" onClick={handleLogout}><LogOut size={17}/></button></div>
-      </div>
-    </aside>
+    <main className="admin-main"><header className="admin-header"><div className="admin-header-left"><button className="admin-menu-btn" onClick={()=>setMenuOpen(true)}><Menu size={20}/></button><div><span>ADMIN / {page.toUpperCase()}</span><h1>{pageTitle}</h1><p>{pageDescription}</p></div></div><div className="admin-header-actions"><button className="admin-btn" onClick={handleRefresh} disabled={busy}><RefreshCw size={15}/><span>Refresh</span></button><a className="admin-btn primary" href="/" target="_blank" rel="noreferrer">Live site<ArrowUpRight size={15}/></a></div></header><div className="admin-content">{error&&<div className="admin-alert error">{error}</div>}{message&&<div className="admin-alert success">{message}</div>}
 
-    <main className="admin-main">
-      <header className="admin-header">
-        <div className="admin-header-left"><button className="admin-menu-btn" onClick={()=>setMenuOpen(true)}><Menu size={20}/></button><div><span>ADMIN / {page.toUpperCase()}</span><h1>{pageTitle}</h1><p>{pageDescription}</p></div></div>
-        <div className="admin-header-actions"><button className="admin-btn" onClick={handleRefresh} disabled={busy}><RefreshCw size={15}/><span>Refresh</span></button><a className="admin-btn primary" href="/" target="_blank" rel="noreferrer">Live site<ArrowUpRight size={15}/></a></div>
-      </header>
+      {page==='overview'&&<><div className="admin-stats"><button onClick={()=>navigate('orders')} className="admin-stat"><span>Total Orders</span><strong>{orders.length}</strong><small>{orders.filter(x=>x.status==='new').length} order baru</small></button><button onClick={()=>navigate('analytics')} className="admin-stat"><span>Paid Revenue</span><strong className="money-stat">{money(paidRevenue)}</strong><small>Dari order berstatus paid</small></button><button onClick={()=>navigate('leads')} className="admin-stat"><span>Total Leads</span><strong>{stats.all}</strong><small>{stats.new} butuh follow-up</small></button><button onClick={()=>navigate('inventory')} className="admin-stat"><span>Low Stock</span><strong>{lowStock.length}</strong><small>{merchandise.length} merchandise</small></button></div><div className="admin-overview-grid"><section className="admin-panel admin-recent-panel"><div className="admin-panel-head"><div><span className="admin-section-kicker">RECENT ACTIVITY</span><h2>Lead terbaru</h2><p>Inquiry terbaru dari website.</p></div><button className="admin-text-btn" onClick={()=>navigate('leads')}>Lihat semua <ArrowUpRight size={14}/></button></div><LeadRows items={recentLeads} compact/></section><aside className="admin-panel admin-quick-panel"><span className="admin-section-kicker">OPERATIONS</span><h2>Quick actions</h2><p>Akses modul yang paling sering dipakai.</p><button onClick={()=>navigate('orders')}><ShoppingBag size={18}/><div><strong>Kelola orders</strong><small>{orders.length} order tersimpan</small></div><ArrowUpRight size={15}/></button><button onClick={()=>navigate('inventory')}><Boxes size={18}/><div><strong>Cek inventory</strong><small>{lowStock.length} stok rendah</small></div><ArrowUpRight size={15}/></button><button onClick={()=>navigate('articles')}><FileText size={18}/><div><strong>Publish artikel</strong><small>{collections.articles.length} artikel</small></div><ArrowUpRight size={15}/></button></aside></div>{recentOrders.length>0&&<section className="admin-panel admin-overview-orders"><div className="admin-panel-head"><div><span className="admin-section-kicker">LATEST ORDERS</span><h2>Order terbaru</h2></div><button className="admin-text-btn" onClick={()=>navigate('orders')}>Manage <ArrowUpRight size={14}/></button></div><div className="admin-simple-list">{recentOrders.map(o=><button key={o.id} onClick={()=>{navigate('orders');setEditorCollection('orders');setEditor({...o})}}><div><strong>{o.order_no}</strong><small>{o.customer_name||'Tanpa customer'}</small></div><span>{money(o.total)}</span><em>{o.status}</em></button>)}</div></section>}</>}
 
-      <div className="admin-content">
-        {error&&<div className="admin-alert error">{error}</div>}
-        {message&&<div className="admin-alert success">{message}</div>}
+      {configs[page]&&<GenericManager target={page}/>}
 
-        {page==='overview'&&<>
-          <div className="admin-stats">
-            <button onClick={()=>navigate('leads')} className="admin-stat"><span>Total Leads</span><strong>{stats.all}</strong><small>Semua inquiry website</small></button>
-            <button onClick={()=>navigate('leads')} className="admin-stat"><span>Lead Baru</span><strong>{stats.new}</strong><small>Butuh follow-up</small></button>
-            <button onClick={()=>navigate('leads')} className="admin-stat"><span>Proposal</span><strong>{stats.proposal}</strong><small>Sedang diproses</small></button>
-            <button onClick={()=>navigate('portfolio')} className="admin-stat"><span>Portfolio</span><strong>{portfolio.filter(x=>x.is_active).length}</strong><small>Project aktif</small></button>
-          </div>
-          <div className="admin-overview-grid">
-            <section className="admin-panel admin-recent-panel"><div className="admin-panel-head"><div><span className="admin-section-kicker">RECENT ACTIVITY</span><h2>Lead terbaru</h2><p>Inquiry terbaru yang masuk dari website.</p></div><button className="admin-text-btn" onClick={()=>navigate('leads')}>Lihat semua <ArrowUpRight size={14}/></button></div><LeadRows items={recentLeads} compact/></section>
-            <aside className="admin-panel admin-quick-panel"><span className="admin-section-kicker">QUICK ACTIONS</span><h2>Kelola website</h2><p>Akses bagian yang paling sering digunakan.</p><button onClick={()=>navigate('portfolio')}><BriefcaseBusiness size={18}/><div><strong>Tambah portfolio</strong><small>Update project website</small></div><ArrowUpRight size={15}/></button><button onClick={()=>navigate('settings')}><Settings size={18}/><div><strong>Edit website</strong><small>Kontak & headline</small></div><ArrowUpRight size={15}/></button><a href="/" target="_blank" rel="noreferrer"><Globe2 size={18}/><div><strong>Buka live site</strong><small>bisabikinweb.site</small></div><ArrowUpRight size={15}/></a></aside>
-          </div>
-        </>}
+      {page==='inventory'&&<section className="admin-panel"><div className="admin-panel-head"><div><span className="admin-section-kicker">STOCK CONTROL</span><h2>Inventory</h2><p>Stok terhubung langsung dengan data Merchandise.</p></div><span className="admin-count-pill">{lowStock.length} low stock</span></div><div className="admin-inventory-grid">{merchandise.map(item=>{const low=Number(item.stock||0)<=Number(item.low_stock_threshold||0);return <article key={item.id} className={`admin-inventory-card ${low?'low':''}`}><div className="admin-inventory-head"><div><strong>{item.name}</strong><small>{item.sku}</small></div><span>{low?'LOW STOCK':'OK'}</span></div><div className="admin-stock-number">{Number(item.stock||0)}<small>unit</small></div><div className="admin-stock-controls"><button onClick={()=>patchCollection('merchandise',item,{stock:Math.max(0,Number(item.stock||0)-1)})}>−</button><input type="number" min="0" value={Number(item.stock||0)} onChange={e=>setCollections(prev=>({...prev,merchandise:prev.merchandise.map(x=>x.id===item.id?{...x,stock:Number(e.target.value)}:x)}))}/><button onClick={()=>patchCollection('merchandise',item,{stock:Number(item.stock||0)+1})}>+</button><button className="save-stock" onClick={()=>patchCollection('merchandise',item,{stock:Number(item.stock||0)})}><Save size={14}/>Save</button></div><small className="admin-threshold">Low stock threshold: {item.low_stock_threshold}</small></article>})}{!merchandise.length&&<div className="admin-empty">Belum ada merchandise.</div>}</div></section>}
 
-        {page==='leads'&&<section className="admin-panel"><div className="admin-panel-head"><div><span className="admin-section-kicker">CUSTOMER INQUIRY</span><h2>Semua leads</h2><p>Data tersimpan di Supabase sebelum customer diarahkan ke WhatsApp.</p></div><span className="admin-count-pill">{leads.length} lead</span></div><LeadRows items={leads}/></section>}
+      {page==='portfolio'&&<div className="admin-portfolio-layout"><section className="admin-panel admin-project-list"><div className="admin-panel-head"><div><span className="admin-section-kicker">PROJECTS</span><h2>Portfolio</h2><p>{portfolio.length} project tersimpan</p></div><button className="admin-btn primary" onClick={()=>{setProject({...blankProject});setMessage('')}}><Plus size={15}/>Project baru</button></div><div className="admin-project-items">{portfolio.map(item=><button key={item.id} className={project.id===item.id?'active':''} onClick={()=>{setProject({...item,features:Array.isArray(item.features)?item.features:[]});setMessage('')}}><span className={`admin-project-dot ${item.is_active?'live':'draft'}`}/><div><strong>{item.name}</strong><small>{item.domain||item.live}</small></div><span>{item.is_active?'Live':'Draft'}</span></button>)}</div></section><section className="admin-panel admin-editor"><div className="admin-panel-head"><div><span className="admin-section-kicker">EDITOR</span><h2>{project.id?'Edit project':'Project baru'}</h2><p>Simpan untuk memperbarui portfolio publik.</p></div></div><form className="admin-form admin-form-grid" onSubmit={handleProjectSave}><label>ID / slug<input required pattern="[a-z0-9-]+" value={project.id} onChange={e=>setProject({...project,id:e.target.value.toLowerCase().replace(/[^a-z0-9-]/g,'-')})}/></label><label>Nama project<input required value={project.name} onChange={e=>setProject({...project,name:e.target.value})}/></label><label>Domain<input value={project.domain} onChange={e=>setProject({...project,domain:e.target.value})}/></label><label>Kategori<input value={project.category} onChange={e=>setProject({...project,category:e.target.value})}/></label><label>Tag<input value={project.tag} onChange={e=>setProject({...project,tag:e.target.value})}/></label><label>Live URL<input required type="url" value={project.live} onChange={e=>setProject({...project,live:e.target.value})}/></label><label>Tema<select value={project.theme} onChange={e=>setProject({...project,theme:e.target.value})}><option value="trade">Trade</option><option value="warehouse">Warehouse</option><option value="beauty">Beauty</option></select></label><label>Urutan<input type="number" value={project.sort_order} onChange={e=>setProject({...project,sort_order:Number(e.target.value)})}/></label><label className="wide">Deskripsi<textarea value={project.description} onChange={e=>setProject({...project,description:e.target.value})}/></label><label className="wide">Fitur, pisahkan koma<input value={(project.features||[]).join(', ')} onChange={e=>setProject({...project,features:e.target.value.split(',').map(x=>x.trim()).filter(Boolean)})}/></label><label className="admin-check wide"><input type="checkbox" checked={Boolean(project.is_active)} onChange={e=>setProject({...project,is_active:e.target.checked})}/><span>Tampilkan project di website</span></label><div className="admin-form-footer wide"><button className="admin-btn primary" disabled={busy}><Save size={15}/>Simpan project</button>{project.id&&portfolio.some(item=>item.id===project.id)&&<button type="button" className="admin-btn danger" onClick={handleProjectDelete}><Trash2 size={15}/>Hapus project</button>}</div></form></section></div>}
 
-        {page==='portfolio'&&<div className="admin-portfolio-layout">
-          <section className="admin-panel admin-project-list"><div className="admin-panel-head"><div><span className="admin-section-kicker">PROJECTS</span><h2>Portfolio</h2><p>{portfolio.length} project tersimpan</p></div><button className="admin-btn primary" onClick={()=>{setProject({...blankProject});setMessage('')}}><Plus size={15}/>Project baru</button></div><div className="admin-project-items">{portfolio.map(item=><button key={item.id} className={project.id===item.id?'active':''} onClick={()=>{setProject({...item,features:Array.isArray(item.features)?item.features:[]});setMessage('')}}><span className={`admin-project-dot ${item.is_active?'live':'draft'}`}/><div><strong>{item.name}</strong><small>{item.domain||item.live}</small></div><span>{item.is_active?'Live':'Draft'}</span></button>)}</div></section>
-          <section className="admin-panel admin-editor"><div className="admin-panel-head"><div><span className="admin-section-kicker">EDITOR</span><h2>{project.id?'Edit project':'Project baru'}</h2><p>Simpan untuk memperbarui portfolio publik.</p></div></div><form className="admin-form admin-form-grid" onSubmit={handleProjectSave}>
-            <label>ID / slug<input required pattern="[a-z0-9-]+" value={project.id} onChange={e=>setProject({...project,id:e.target.value.toLowerCase().replace(/[^a-z0-9-]/g,'-')})}/></label>
-            <label>Nama project<input required value={project.name} onChange={e=>setProject({...project,name:e.target.value})}/></label>
-            <label>Domain<input value={project.domain} onChange={e=>setProject({...project,domain:e.target.value})}/></label>
-            <label>Kategori<input value={project.category} onChange={e=>setProject({...project,category:e.target.value})}/></label>
-            <label>Tag<input value={project.tag} onChange={e=>setProject({...project,tag:e.target.value})}/></label>
-            <label>Live URL<input required type="url" value={project.live} onChange={e=>setProject({...project,live:e.target.value})}/></label>
-            <label>Tema<select value={project.theme} onChange={e=>setProject({...project,theme:e.target.value})}><option value="trade">Trade</option><option value="warehouse">Warehouse</option><option value="beauty">Beauty</option></select></label>
-            <label>Urutan<input type="number" value={project.sort_order} onChange={e=>setProject({...project,sort_order:Number(e.target.value)})}/></label>
-            <label className="wide">Deskripsi<textarea value={project.description} onChange={e=>setProject({...project,description:e.target.value})}/></label>
-            <label className="wide">Fitur, pisahkan koma<input value={(project.features||[]).join(', ')} onChange={e=>setProject({...project,features:e.target.value.split(',').map(x=>x.trim()).filter(Boolean)})}/></label>
-            <label className="admin-check wide"><input type="checkbox" checked={Boolean(project.is_active)} onChange={e=>setProject({...project,is_active:e.target.checked})}/><span>Tampilkan project di website</span></label>
-            <div className="admin-form-footer wide"><button className="admin-btn primary" disabled={busy}><Save size={15}/>Simpan project</button>{project.id&&portfolio.some(item=>item.id===project.id)&&<button type="button" className="admin-btn danger" onClick={handleProjectDelete}><Trash2 size={15}/>Hapus project</button>}</div>
-          </form></section>
-        </div>}
+      {page==='leads'&&<section className="admin-panel"><div className="admin-panel-head"><div><span className="admin-section-kicker">CUSTOMER INQUIRY</span><h2>Semua leads</h2><p>Data tersimpan di Supabase sebelum customer diarahkan ke WhatsApp.</p></div><span className="admin-count-pill">{leads.length} lead</span></div><LeadRows items={leads}/></section>}
 
-        {page==='settings'&&<section className="admin-panel admin-settings-panel"><div className="admin-panel-head"><div><span className="admin-section-kicker">PUBLIC WEBSITE</span><h2>Website settings</h2><p>Konten utama ini langsung dipakai website publik.</p></div></div><form className="admin-form admin-form-grid" onSubmit={handleSettingsSave}>
-          <label>WhatsApp<input value={settings.whatsapp||''} onChange={e=>setSettings({...settings,whatsapp:e.target.value})}/></label>
-          <label>Email<input type="email" value={settings.email||''} onChange={e=>setSettings({...settings,email:e.target.value})}/></label>
-          <label>Instagram<input value={settings.instagram||''} onChange={e=>setSettings({...settings,instagram:e.target.value})}/></label>
-          <label>TikTok<input value={settings.tiktok||''} onChange={e=>setSettings({...settings,tiktok:e.target.value})}/></label>
-          <label>Threads<input value={settings.threads||''} onChange={e=>setSettings({...settings,threads:e.target.value})}/></label>
-          <label>LinkedIn<input value={settings.linkedin||''} onChange={e=>setSettings({...settings,linkedin:e.target.value})}/></label>
-          <label className="wide">Announcement<input value={settings.announcement||''} onChange={e=>setSettings({...settings,announcement:e.target.value})}/></label>
-          <label className="wide">Hero label<input value={settings.hero_label||''} onChange={e=>setSettings({...settings,hero_label:e.target.value})}/></label>
-          <label className="wide">Headline<textarea value={settings.headline||''} onChange={e=>setSettings({...settings,headline:e.target.value})}/></label>
-          <label className="wide">Deskripsi<textarea value={settings.description||''} onChange={e=>setSettings({...settings,description:e.target.value})}/></label>
-          <div className="admin-form-footer wide"><span className="admin-form-hint">Perubahan akan dibaca website publik dari Supabase.</span><button className="admin-btn primary" disabled={busy}><Save size={15}/>Simpan perubahan</button></div>
-        </form></section>}
-      </div>
-    </main>
+      {page==='analytics'&&<><div className="admin-stats"><div className="admin-stat"><span>Paid Revenue</span><strong className="money-stat">{money(paidRevenue)}</strong><small>Revenue terkonfirmasi</small></div><div className="admin-stat"><span>Average Order</span><strong className="money-stat">{money(averageOrder)}</strong><small>Rata-rata nilai order</small></div><div className="admin-stat"><span>Lead Conversion</span><strong>{conversion}%</strong><small>{stats.won} dari {stats.all} lead won</small></div><div className="admin-stat"><span>Customers</span><strong>{collections.customers.length}</strong><small>Database customer</small></div></div><div className="admin-analytics-grid"><section className="admin-panel"><div className="admin-panel-head"><div><span className="admin-section-kicker">ORDER PIPELINE</span><h2>Status orders</h2></div></div><div className="admin-bars">{orderStatuses.map(status=>{const count=orders.filter(x=>x.status===status).length;const pct=orders.length?Math.round(count/orders.length*100):0;return <div key={status}><div><span>{status}</span><strong>{count}</strong></div><i><b style={{width:`${pct}%`}}/></i></div>})}</div></section><section className="admin-panel"><div className="admin-panel-head"><div><span className="admin-section-kicker">BUSINESS HEALTH</span><h2>Snapshot</h2></div></div><div className="admin-health-list"><div><span>Lead baru</span><strong>{stats.new}</strong></div><div><span>Proposal aktif</span><strong>{stats.proposal}</strong></div><div><span>Produk aktif</span><strong>{merchandise.filter(x=>x.is_active).length}</strong></div><div><span>Low stock</span><strong>{lowStock.length}</strong></div><div><span>Artikel published</span><strong>{collections.articles.filter(x=>x.status==='published'&&x.is_active).length}</strong></div><div><span>Coupon aktif</span><strong>{collections.coupons.filter(x=>x.is_active).length}</strong></div></div></section></div></>}
+
+      {page==='settings'&&<section className="admin-panel admin-settings-panel"><div className="admin-panel-head"><div><span className="admin-section-kicker">PUBLIC WEBSITE</span><h2>Website settings</h2><p>Konten utama ini langsung dipakai website publik.</p></div></div><form className="admin-form admin-form-grid" onSubmit={handleSettingsSave}><label>WhatsApp<input value={settings.whatsapp||''} onChange={e=>setSettings({...settings,whatsapp:e.target.value})}/></label><label>Email<input type="email" value={settings.email||''} onChange={e=>setSettings({...settings,email:e.target.value})}/></label><label>Instagram<input value={settings.instagram||''} onChange={e=>setSettings({...settings,instagram:e.target.value})}/></label><label>TikTok<input value={settings.tiktok||''} onChange={e=>setSettings({...settings,tiktok:e.target.value})}/></label><label>Threads<input value={settings.threads||''} onChange={e=>setSettings({...settings,threads:e.target.value})}/></label><label>LinkedIn<input value={settings.linkedin||''} onChange={e=>setSettings({...settings,linkedin:e.target.value})}/></label><label className="wide">Announcement<input value={settings.announcement||''} onChange={e=>setSettings({...settings,announcement:e.target.value})}/></label><label className="wide">Hero label<input value={settings.hero_label||''} onChange={e=>setSettings({...settings,hero_label:e.target.value})}/></label><label className="wide">Headline<textarea value={settings.headline||''} onChange={e=>setSettings({...settings,headline:e.target.value})}/></label><label className="wide">Deskripsi<textarea value={settings.description||''} onChange={e=>setSettings({...settings,description:e.target.value})}/></label><div className="admin-form-footer wide"><span className="admin-form-hint">Perubahan akan dibaca website publik dari Supabase.</span><button className="admin-btn primary" disabled={busy}><Save size={15}/>Simpan perubahan</button></div></form></section>}
+    </div></main>
   </section>;
 }
