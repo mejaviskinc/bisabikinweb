@@ -30,31 +30,14 @@ for(const [kind,prefix] of [['services','jasa'],['portfolio','portfolio'],['prod
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const jsonLd=value=>JSON.stringify(value).replace(/</g,'\\u003c');
 const organization={
-  '@context':'https://schema.org',
-  '@type':'Organization',
-  '@id':origin+'/#organization',
-  name:brand,
-  url:origin+'/',
-  logo:{'@type':'ImageObject',url:logo},
-  image:logo,
-  email,
-  telephone:phone,
+  '@context':'https://schema.org','@type':'Organization','@id':origin+'/#organization',name:brand,url:origin+'/',logo:{'@type':'ImageObject',url:logo},image:logo,email,telephone:phone,
   description:'Jasa pembuatan website profesional untuk UMKM, bisnis, personal brand, toko online, dan perusahaan.',
   contactPoint:{'@type':'ContactPoint',telephone:phone,email,contactType:'customer service',areaServed:'ID',availableLanguage:['id','en']}
 };
-const website={
-  '@context':'https://schema.org',
-  '@type':'WebSite',
-  '@id':origin+'/#website',
-  url:origin+'/',
-  name:brand,
-  alternateName:'Bisa Bikin Web',
-  inLanguage:'id-ID',
-  publisher:{'@id':origin+'/#organization'}
-};
+const website={'@context':'https://schema.org','@type':'WebSite','@id':origin+'/#website',url:origin+'/',name:brand,alternateName:'Bisa Bikin Web',inLanguage:'id-ID',publisher:{'@id':origin+'/#organization'}};
 function protectHtml(html){
  const hashes=[...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)].filter(m=>m[1].trim()).map(m=>"'sha256-"+createHash('sha256').update(m[1]).digest('base64')+"'");
- const policy=["default-src 'none'","base-uri 'none'","object-src 'none'","script-src 'self' "+hashes.join(' '),"script-src-attr 'none'","style-src 'self' 'unsafe-inline'","img-src 'self' data:","font-src 'self' data:","connect-src 'self' https://iyhwephcrxeqwiemhppw.supabase.co","frame-src https://berbeda.co.id https://www.berbeda.co.id https://karpenter.co.id https://www.karpenter.co.id https://mejaviskincare.co.id https://www.mejaviskincare.co.id","media-src 'self'","form-action 'none'","upgrade-insecure-requests"].join('; ');
+ const policy=["default-src 'none'","base-uri 'none'","object-src 'none'","script-src 'self' "+hashes.join(' '),"script-src-attr 'none'","style-src 'self' 'unsafe-inline'","img-src 'self' data: https://iyhwephcrxeqwiemhppw.supabase.co","font-src 'self' data:","connect-src 'self' https://iyhwephcrxeqwiemhppw.supabase.co","frame-src https://berbeda.co.id https://www.berbeda.co.id https://karpenter.co.id https://www.karpenter.co.id https://mejaviskincare.co.id https://www.mejaviskincare.co.id","media-src 'self'","form-action 'none'","upgrade-insecure-requests"].join('; ');
  return html.replace('<head>','<head><meta http-equiv="Content-Security-Policy" content="'+policy+'"/><meta name="referrer" content="no-referrer"/>');
 }
 const template=await readFile('site-dist/index.html','utf8');
@@ -63,17 +46,7 @@ for(const [path,[name,description]] of Object.entries(pages)){
  const isService=path==='/'||path==='/jasa'||path==='/harga'||path.startsWith('/jasa/');
  const noindex=path==='/cart'||path==='/admin';
  const schemas=[organization,website];
- if(isService)schemas.push({
-   '@context':'https://schema.org',
-   '@type':'Service',
-   '@id':url+'#service',
-   name:path==='/'?'Jasa Pembuatan Website':name,
-   description,
-   url,
-   provider:{'@id':origin+'/#organization'},
-   areaServed:[{'@type':'City','name':'Yogyakarta'},{'@type':'Country','name':'Indonesia'}],
-   serviceType:'Website development and web design'
- });
+ if(isService)schemas.push({'@context':'https://schema.org','@type':'Service','@id':url+'#service',name:path==='/'?'Jasa Pembuatan Website':name,description,url,provider:{'@id':origin+'/#organization'},areaServed:[{'@type':'City','name':'Yogyakarta'},{'@type':'Country','name':'Indonesia'}],serviceType:'Website development and web design'});
  const structured=schemas.map(s=>'<script type="application/ld+json">'+jsonLd(s)+'</script>').join('');
  const seo=`<title>${esc(title)}</title><meta name="description" content="${esc(description)}"/><meta name="application-name" content="${brand}"/><meta name="author" content="${brand}"/><meta name="robots" content="${noindex?'noindex,nofollow':'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}"/><meta name="googlebot" content="${noindex?'noindex,nofollow':'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}"/><link rel="canonical" href="${url}"/><link rel="sitemap" type="application/xml" href="${origin}/sitemap.xml"/><meta property="og:type" content="website"/><meta property="og:locale" content="id_ID"/><meta property="og:site_name" content="${brand}"/><meta property="og:title" content="${esc(title)}"/><meta property="og:description" content="${esc(description)}"/><meta property="og:url" content="${url}"/><meta property="og:image" content="${origin}/og.svg"/><meta property="og:image:alt" content="Bisabikinweb — jasa pembuatan website profesional"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="${esc(title)}"/><meta name="twitter:description" content="${esc(description)}"/><meta name="twitter:image" content="${origin}/og.svg"/>${structured}`;
  const html=template.replace('<!--SEO-->',seo).replace('<!--APP-->',render(path));
