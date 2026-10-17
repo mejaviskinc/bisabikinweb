@@ -30,7 +30,8 @@ const pages={
   '/admin':['Admin Bisabikinweb','Panel admin Bisabikinweb untuk lead, portfolio, dan pengaturan website.'],
   '/admin/sellers':['Seller Operations — Bisabikinweb','Panel admin untuk menyetujui seller, meninjau produk marketplace, dan mengelola permintaan withdraw.'],
   '/seller':['Seller Dashboard — Bisabikinweb','Dashboard seller untuk mengelola produk, pesanan, saldo penjualan, dan permintaan pencairan.'],
-  '/admin/iklan':['Ads Manager Bisabikinweb','Panel admin untuk mengatur iklan homepage Bisabikinweb.']
+  '/admin/iklan':['Ads Manager Bisabikinweb','Panel admin untuk mengatur iklan homepage Bisabikinweb.'],
+  '/admin/payments':['Payment Gateway — BisaBikinWeb','Dashboard transaksi Midtrans, status pembayaran, rekonsiliasi, dan monitoring checkout merchandise.']
 };
 for(const [kind,prefix] of [['services','jasa'],['portfolio','portfolio'],['products','merch'],['articles','artikel']])for(const p of defaults[kind])pages['/'+prefix+'/'+p.id]=[p.title||p.name,p.summary||p.description];
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
