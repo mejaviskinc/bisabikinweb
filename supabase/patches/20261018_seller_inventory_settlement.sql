@@ -48,6 +48,20 @@ BEGIN
     ON CONFLICT (seller_order_item_id) DO NOTHING;
   END IF;
 
+  IF NEW.payment_status IN ('refunded','partial_refund') THEN
+    UPDATE public.bbweb_seller_order_items
+    SET payment_status = NEW.payment_status, updated_at = now()
+    WHERE order_id = NEW.id AND payment_status NOT IN ('refunded','partial_refund');
+
+    UPDATE public.bbweb_seller_ledger
+    SET status = 'reversed',
+        description = left(description || CASE
+          WHEN NEW.payment_status = 'partial_refund' THEN ' · dibalik untuk rekonsiliasi refund sebagian'
+          ELSE ' · dibalik karena refund'
+        END, 500)
+    WHERE order_id = NEW.id AND status IN ('pending','available');
+  END IF;
+
   IF NEW.status = 'completed' AND NEW.payment_status = 'paid' THEN
     UPDATE public.bbweb_seller_ledger l
     SET status = 'available', available_at = coalesce(l.available_at, now())
