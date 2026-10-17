@@ -11,6 +11,7 @@ import './features/admin.css';
 import './features/admin-modules.css';
 import './features/article-images.css';
 import './features/ads.css';
+import './features/ads-carousel.css';
 import './features/admin-ads-menu.css';
 
 const path=location.pathname.replace(/\/+$/,'')||'/';
