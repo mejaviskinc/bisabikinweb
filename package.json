@@ -3,7 +3,9 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "node build-pages.mjs"
+    "build": "node build-pages.mjs",
+    "test": "node --test tests/security.test.mjs",
+    "test:output": "node tests/output-security.mjs"
   },
   "dependencies": {
     "react": "19.2.6",
@@ -11,7 +13,7 @@
     "lucide-react": "1.31.0"
   },
   "devDependencies": {
-    "vite": "8.0.13",
+    "vite": "8.3.4",
     "@vitejs/plugin-react": "6.0.2",
     "tailwindcss": "4.2.1",
     "@tailwindcss/postcss": "4.2.1"
