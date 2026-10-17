@@ -27,7 +27,7 @@ type Config={collection:AdminCollection;title:string;singular:string;kicker:stri
 const blankCollections:Record<AdminCollection,any[]>={orders:[],merchandise:[],services:[],pricing:[],articles:[],testimonials:[],coupons:[],customers:[]};
 const blanks:Record<AdminCollection,any>={
   orders:{customer_name:'',customer_email:'',customer_phone:'',subtotal:0,discount:0,total:0,status:'new',payment_status:'unpaid',notes:'',items:[]},
-  merchandise:{id:'',sku:'',name:'',collection:'CORE',type:'item',color:'',print:'',description:'',price:'',badge:'',material:'',care:'',shipping:'',returns:'',stock:0,low_stock_threshold:5,is_active:true,sort_order:100},
+  merchandise:{id:'',sku:'',name:'',collection:'CORE',type:'item',color:'',print:'',description:'',price:'',badge:'',material:'',care:'',shipping:'',returns:'',stock:0,weight_grams:500,low_stock_threshold:5,is_active:true,sort_order:100},
   services:{id:'',name:'',icon:'↗',tag:'',description:'',features:[],is_active:true,sort_order:100},
   pricing:{id:'',name:'',price:'',maintenance:'',description:'',features:[],featured:false,is_active:true,sort_order:100},
   articles:{id:'',title:'',category:'Business',read_time:'3 menit',summary:'',body:[],cover_image_url:'',status:'draft',is_active:true,sort_order:100,published_at:null},
@@ -46,7 +46,7 @@ const configs:Partial<Record<Page,Config>>={
   merchandise:{collection:'merchandise',title:'Merchandise',singular:'Produk',kicker:'STORE',description:'Kelola katalog merchandise yang tampil di website.',primary:x=>x.name||'Produk baru',secondary:x=>`${x.sku||'-'} · ${x.price==null?'Belum ada harga':money(x.price)}`,fields:[
     {key:'id',label:'ID / slug',required:true},{key:'sku',label:'SKU',required:true},{key:'name',label:'Nama produk',required:true},{key:'collection',label:'Collection'},
     {key:'type',label:'Tipe'},{key:'color',label:'Warna'},{key:'price',label:'Harga',type:'number'},{key:'badge',label:'Badge'},
-    {key:'stock',label:'Stok',type:'number'},{key:'low_stock_threshold',label:'Batas stok rendah',type:'number'},{key:'sort_order',label:'Urutan',type:'number'},
+    {key:'stock',label:'Stok',type:'number'},{key:'weight_grams',label:'Berat pengiriman (gram)',type:'number',required:true},{key:'low_stock_threshold',label:'Batas stok rendah',type:'number'},{key:'sort_order',label:'Urutan',type:'number'},
     {key:'print',label:'Print / copy produk',type:'textarea',wide:true},{key:'description',label:'Deskripsi',type:'textarea',wide:true},
     {key:'material',label:'Material',type:'textarea',wide:true},{key:'care',label:'Perawatan',type:'textarea',wide:true},{key:'shipping',label:'Pengiriman',type:'textarea',wide:true},{key:'returns',label:'Retur',type:'textarea',wide:true},
     {key:'is_active',label:'Tampilkan di website',type:'checkbox',wide:true}
