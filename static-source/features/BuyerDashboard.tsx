@@ -257,7 +257,7 @@ function EmptyOrders() {
 
 function OrderCard({ order, busyOrder, onRetry }: { order: any; busyOrder: string; onRetry: (orderNo: string) => void }) {
   const paymentStatus = order.payment_status === 'paid' ? 'paid' : (order.payment?.status || order.payment_status || 'unpaid');
-  const activePayment = order.payment?.redirect_url && ['created', 'pending', 'authorized', 'unknown'].includes(order.payment?.status);
+  const activePayment = order.payment_status !== 'paid' && order.payment?.redirect_url && ['created', 'pending', 'authorized', 'unknown'].includes(order.payment?.status);
   const terminalOrder = ['completed', 'cancelled', 'refunded', 'partial_refund'].includes(order.status);
   const canRetry = !activePayment && order.payment_status !== 'paid' && !terminalOrder && (Date.now() - new Date(order.created_at).getTime() < 2 * 60 * 60 * 1000);
   const items = Array.isArray(order.items) ? order.items : [];
