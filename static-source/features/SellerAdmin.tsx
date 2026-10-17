@@ -18,7 +18,7 @@ export default function SellerAdmin(){
  async function run(action:string,payload:any,success:string){if(!session)return;setBusy(true);setError('');setMessage('');try{await sellerApi(action,payload,session.access_token);await load(session);setMessage(success)}catch(e:any){setError(e.message||'Aksi admin gagal.')}finally{setBusy(false)}}
  async function logout(){await signOut(session);setSession(null);setData(null)}
  const sellers=data?.sellers||[],withdrawals=data?.withdrawals||[],products=data?.products||[];
- const sellerMap=useMemo(()=>new Map(sellers.map((s:any)=>[s.id,s])),[sellers]);
+ const sellerMap=useMemo(()=>new Map<string,any>(sellers.map((s:any)=>[s.id,s] as [string,any])),[sellers]);
  const pendingSellers=sellers.filter((s:any)=>s.status==='pending'),activeSellers=sellers.filter((s:any)=>s.status==='active');
  const pendingWithdrawals=withdrawals.filter((w:any)=>['pending','approved','processing'].includes(w.status));
  const tabs=[['sellers','Seller',Store],['withdrawals','Withdraw',Wallet],['products','Review Produk',Package],['settings','Pengaturan',ShieldCheck]] as const;
