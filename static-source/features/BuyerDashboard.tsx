@@ -259,7 +259,7 @@ function OrderCard({ order, busyOrder, onRetry }: { order: any; busyOrder: strin
   const paymentStatus = order.payment_status === 'paid' ? 'paid' : (order.payment?.status || order.payment_status || 'unpaid');
   const activePayment = order.payment?.redirect_url && ['created', 'pending', 'authorized', 'unknown'].includes(order.payment?.status);
   const terminalOrder = ['completed', 'cancelled', 'refunded', 'partial_refund'].includes(order.status);
-  const canRetry = !activePayment && order.payment_status !== 'paid' && !terminalOrder && order.status !== 'expired';
+  const canRetry = !activePayment && order.payment_status !== 'paid' && !terminalOrder && (Date.now() - new Date(order.created_at).getTime() < 2 * 60 * 60 * 1000);
   const items = Array.isArray(order.items) ? order.items : [];
   return <article className="buyer-order-card">
     <div className="buyer-order-head"><div><span className="eyebrow">{order.order_no}</span><small>{stamp(order.created_at)}</small></div><div className="buyer-order-badges"><span className={'buyer-pill ' + statusClass(paymentStatus)}>{paymentLabels[paymentStatus] || paymentStatus}</span><span className={'buyer-pill ' + statusClass(order.status)}>{orderLabels[order.status] || order.status}</span></div></div>
