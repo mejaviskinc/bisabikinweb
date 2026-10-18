@@ -6,4 +6,4 @@ import SellerDashboard from './features/SellerDashboard';
 import SellerAdmin from './features/SellerAdmin';
 import {defaults} from './lib/data';
 export {defaults};
-export function render(path:string){return renderToString(path.startsWith('/admin/sellers')?<SellerAdmin/>:path==='/seller'?<SellerDashboard/>:path.startsWith('/admin')?<Admin/>:<Studio initial={defaults} initialVariants={[]} path={path} user={null} isAdmin={false}/>)}
+export function render(path:string,initialData:any=defaults){return renderToString(path.startsWith('/admin/sellers')?<SellerAdmin/>:path==='/seller'?<SellerDashboard/>:path.startsWith('/admin')?<Admin/>:<Studio initial={initialData} initialVariants={[]} path={path} user={null} isAdmin={false}/>)}
