@@ -4,8 +4,8 @@ import {ArrowUpRight,Eye,Globe,ImagePlus,Link2,Plus,Save,Trash2} from 'lucide-re
 import {sellerUploadImage,type SellerSession} from '../lib/seller';
 
 const defaultConfig:any={tagline:'',headline:'',bio:'',avatar_url:'',cover_url:'',theme:'cream',accent_color:'#d7a96b',button_style:'pill',menu_items:[],links:[],show_products:true,show_articles:true,product_title:'Produk pilihan',article_title:'Artikel terbaru',layout:'centered'};
-type Props={profile:any;session:SellerSession;busy:boolean;save:(payload:any)=>Promise<any>};
-export default function SellerStorefrontEditor({profile,session,busy,save}:Props){
+type Props={profile:any;session:SellerSession;busy:boolean;products:any[];articles:any[];save:(payload:any)=>Promise<any>};
+export default function SellerStorefrontEditor({profile,session,busy,products,articles,save}:Props){
  const initial=useMemo(()=>({...defaultConfig,...(profile?.storefront_config||{}),menu_items:Array.isArray(profile?.storefront_config?.menu_items)?profile.storefront_config.menu_items:[],links:Array.isArray(profile?.storefront_config?.links)?profile.storefront_config.links:[]}),[profile?.id,profile?.updated_at,profile?.storefront_config]);
  const [form,setForm]=useState<any>(initial);
  const [slug,setSlug]=useState(String(profile?.storefront_slug||''));
@@ -77,9 +77,8 @@ export default function SellerStorefrontEditor({profile,session,busy,save}:Props
     <small>{form.tagline||profile.business_category||'YOUR BRAND / YOUR SPACE'}</small><h3>{form.headline||profile.store_name}</h3><p>{form.bio||profile.description||'Deskripsi brand akan tampil di sini.'}</p>
     {(form.menu_items||[]).length>0&&<nav>{form.menu_items.filter((x:any)=>x.label).map((item:any,i:number)=><span key={i}>{item.label}</span>)}</nav>}
     <div className="sf-preview-link-list">{previewLinks.length?previewLinks.map((item:any,i:number)=><div className="sf-preview-link" key={i}><b>{item.label}</b>{item.description&&<small>{item.description}</small>}</div>):<div className="sf-preview-link"><b>Link / CTA kamu</b><small>Tambahkan tautan untuk mulai membangun landing page.</small></div>}</div>
-    <div className="sf-preview-sections">{form.show_products&&<span>Produk pilihan · {(dataProductsCount(profile,0))}</span>}{form.show_articles&&<span>{form.article_title||'Artikel terbaru'}</span>}</div>
+    <div className="sf-preview-sections">{form.show_products&&<span>{form.product_title||'Produk pilihan'} · {products.filter((p:any)=>p.is_active&&p.seller_review_status==='approved').length} produk aktif</span>}{form.show_articles&&<span>{form.article_title||'Artikel terbaru'} · {articles.filter((a:any)=>a.is_active&&a.status==='published').length} artikel</span>}</div>
    </div><div className="sd-note"><Globe size={16}/><span>Landing page publik hanya menampilkan produk yang sudah lolos review admin dan artikel berstatus terbit.</span></div></aside>
   </div>
  </div>;
 }
-function dataProductsCount(_profile:any,_count:number){return 'otomatis';}
