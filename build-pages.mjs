@@ -13,10 +13,10 @@ async function fetchPublishedArticles(){
     const publishableKey=source.match(/const SUPABASE_KEY='([^']+)'/)?.[1];
     if(!supabaseUrl||!publishableKey)throw new Error('Konfigurasi Supabase publik tidak ditemukan');
     const endpoint=new URL('/rest/v1/bbweb_articles',supabaseUrl);
-    endpoint.searchParams.set('select','id,title,category,read_time,summary,body,cover_image_url,sort_order,status,is_active,published_at,updated_at');
+    endpoint.searchParams.set('select','id,title,category,read_time,summary,body,cover_image_url,sort_order,status,is_active,published_at,updated_at,created_at,seller_id,author_store_name,author_type');
     endpoint.searchParams.set('is_active','eq.true');
     endpoint.searchParams.set('status','eq.published');
-    endpoint.searchParams.set('order','sort_order.asc');
+    endpoint.searchParams.set('order','sort_order.asc,published_at.desc');
     const response=await fetch(endpoint,{headers:{apikey:publishableKey,Accept:'application/json'},signal:AbortSignal.timeout(10000)});
     if(!response.ok)throw new Error('Supabase merespons HTTP '+response.status);
     const rows=await response.json();
@@ -33,6 +33,10 @@ async function fetchPublishedArticles(){
       cover_image_url:String(row.cover_image_url||'').trim(),
       published_at:row.published_at||null,
       updated_at:row.updated_at||row.published_at||null,
+      created_at:row.created_at||row.published_at||null,
+      seller_id:row.seller_id||null,
+      author_store_name:String(row.author_store_name||'BisaBikinWeb').trim(),
+      author_type:row.author_type==='seller'?'seller':'editorial',
       sort_order:row.sort_order??100
     })).filter(article=>{
       if(!/^[a-z0-9][a-z0-9_-]{0,159}$/.test(article.id)||!article.title||seen.has(article.id))return false;
@@ -113,7 +117,7 @@ for(const [path,[name,description]] of Object.entries(pages)){
   if(isService)schemas.push({'@context':'https://schema.org','@type':'Service','@id':url+'#service',name:path==='/'?'Jasa Pembuatan Website':name,description:metaDescription,url,provider:{'@id':origin+'/#organization'},areaServed:[{'@type':'City','name':'Yogyakarta'},{'@type':'Country','name':'Indonesia'}],serviceType:'Website development and web design'});
   if(article){
     const words=[article.title,article.summary,...(Array.isArray(article.body)?article.body:[])].join(' ').trim().split(/\s+/).filter(Boolean).length;
-    const articleSchema={'@context':'https://schema.org','@type':'BlogPosting','@id':url+'#article',mainEntityOfPage:{'@type':'WebPage','@id':url},headline:article.title,description:metaDescription,url,author:{'@type':'Organization','@id':origin+'/#organization',name:brand},publisher:{'@id':origin+'/#organization'},inLanguage:'id-ID',articleSection:article.category,wordCount:words};
+    const articleSchema={'@context':'https://schema.org','@type':'BlogPosting','@id':url+'#article',mainEntityOfPage:{'@type':'WebPage','@id':url},headline:article.title,description:metaDescription,url,author:article.author_type==='seller'&&article.author_store_name?{'@type':'Organization',name:article.author_store_name}: {'@type':'Organization','@id':origin+'/#organization',name:brand},publisher:{'@id':origin+'/#organization'},inLanguage:'id-ID',articleSection:article.category,wordCount:words};
     if(articleImage)articleSchema.image=[articleImage];
     if(publishedAt)articleSchema.datePublished=publishedAt;
     if(modifiedAt)articleSchema.dateModified=modifiedAt;
