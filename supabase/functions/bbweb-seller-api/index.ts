@@ -19,12 +19,13 @@ function userMessage(error:any){const raw=String(error?.message||'');if(raw.incl
 async function readDashboard(uid:string){
  const p=await profile(uid);const settingsRows=await db('bbweb_seller_settings?select=minimum_withdrawal&id=eq.1&limit=1');const minimum=Number(settingsRows?.[0]?.minimum_withdrawal||50000);
  if(!p)return {ok:true,profile:null,minimum_withdrawal:minimum};
- const [products,payoutRows,items,ledger,withdrawals]=await Promise.all([
+ const [products,payoutRows,items,ledger,withdrawals,articles]=await Promise.all([
   db('bbweb_merchandise?select=id,sku,name,collection,type,color,print,description,price,badge,material,care,shipping,returns,stock,low_stock_threshold,is_active,sort_order,seller_review_status,seller_review_note,image_url,created_at,updated_at&seller_id=eq.'+encodeURIComponent(uid)+'&order=created_at.desc'),
   db('bbweb_seller_payout_accounts?select=seller_id,payout_method,provider_name,account_name,account_number_masked,updated_at&seller_id=eq.'+encodeURIComponent(uid)+'&limit=1'),
   db('bbweb_seller_order_items?select=id,order_id,seller_id,merchandise_id,sku,product_name,quantity,unit_price,gross_amount,commission_rate,commission_amount,seller_amount,payment_status,fulfillment_status,carrier,tracking_number,created_at,updated_at&seller_id=eq.'+encodeURIComponent(uid)+'&order=created_at.desc&limit=300'),
   db('bbweb_seller_ledger?select=id,order_id,seller_order_item_id,entry_type,amount,status,description,created_at,available_at&seller_id=eq.'+encodeURIComponent(uid)+'&order=created_at.desc&limit=500'),
-  db('bbweb_seller_withdrawals?select=id,amount,status,payout_method,provider_name,account_name,account_number_masked,payout_reference,admin_note,requested_at,approved_at,paid_at,rejected_at,updated_at&seller_id=eq.'+encodeURIComponent(uid)+'&order=requested_at.desc&limit=100')
+  db('bbweb_seller_withdrawals?select=id,amount,status,payout_method,provider_name,account_name,account_number_masked,payout_reference,admin_note,requested_at,approved_at,paid_at,rejected_at,updated_at&seller_id=eq.'+encodeURIComponent(uid)+'&order=requested_at.desc&limit=100'),
+  db('bbweb_articles?select=id,title,category,read_time,summary,body,cover_image_url,status,is_active,sort_order,published_at,created_at,updated_at,seller_id,author_store_name,author_type&seller_id=eq.'+encodeURIComponent(uid)+'&order=created_at.desc&limit=100')
  ]);
  const ids=[...new Set((Array.isArray(items)?items:[]).map((x:any)=>x.order_id).filter(Boolean))];
  let orderRows:any[]=[];
@@ -39,7 +40,7 @@ async function readDashboard(uid:string){
  const paidOrderItems=orderItems.filter((x:any)=>x.payment_status==='paid');
  const sales=paidOrderItems.reduce((s:number,x:any)=>s+Number(x.gross_amount||0),0);
  const openOrders=paidOrderItems.filter((x:any)=>!['shipped','completed','cancelled'].includes(x.fulfillment_status)).length;
- return {ok:true,profile:p,minimum_withdrawal:minimum,payout_account:Array.isArray(payoutRows)?payoutRows[0]||null:null,products:Array.isArray(products)?products:[],orders:orderItems,ledger:ledgerRows,withdrawals:withdrawRows,stats:{sales_gross:sales,total_earned:totalEarned,pending_balance:pendingCredits,available_balance:Math.max(0,availableCredits-reservedWithdrawals),total_withdrawn:withdrawRows.filter((x:any)=>x.status==='paid').reduce((s:number,x:any)=>s+Number(x.amount||0),0),orders_count:paidOrderItems.length,open_orders:openOrders,products_count:Array.isArray(products)?products.length:0,active_products:(Array.isArray(products)?products:[]).filter((x:any)=>x.is_active).length}};
+ return {ok:true,profile:p,minimum_withdrawal:minimum,payout_account:Array.isArray(payoutRows)?payoutRows[0]||null:null,products:Array.isArray(products)?products:[],articles:Array.isArray(articles)?articles:[],orders:orderItems,ledger:ledgerRows,withdrawals:withdrawRows,stats:{sales_gross:sales,total_earned:totalEarned,pending_balance:pendingCredits,available_balance:Math.max(0,availableCredits-reservedWithdrawals),total_withdrawn:withdrawRows.filter((x:any)=>x.status==='paid').reduce((s:number,x:any)=>s+Number(x.amount||0),0),orders_count:paidOrderItems.length,open_orders:openOrders,products_count:Array.isArray(products)?products.length:0,active_products:(Array.isArray(products)?products:[]).filter((x:any)=>x.is_active).length}};
 }
 Deno.serve(async(req:Request)=>{
  const origin=req.headers.get('origin');if(req.method==='OPTIONS')return new Response(null,{status:204,headers:cors(origin)});if(req.method!=='POST')return reply({error:'Method not allowed'},405,origin);if(!origin||!ALLOWED_ORIGINS.has(origin))return reply({error:'Origin not allowed'},403,origin);if(Number(req.headers.get('content-length')||0)>65536)return reply({error:'Payload terlalu besar.'},413,origin);
@@ -121,6 +122,42 @@ Deno.serve(async(req:Request)=>{
    return reply({error:'Aksi admin tidak dikenal.'},400,origin);
   }
   if(action==='dashboard')return reply(await readDashboard(user.id),200,origin);
+  if(action==='save_article'){
+   const seller=await requireSeller(user.id,true);
+   const articleId=clean(input?.id,160).toLowerCase();
+   const title=clean(input?.title,180);
+   const category=clean(input?.category||'UMKM',80);
+   const summary=clean(input?.summary,300);
+   const paragraphs=Array.isArray(input?.body)?input.body.map((value:any)=>clean(value,5000)).filter(Boolean).slice(0,50):[];
+   const bodyLength=paragraphs.join(' ').length;
+   let cover=clean(input?.cover_image_url,1500);
+   if(title.length<10||summary.length<20||bodyLength<100||bodyLength>20000||paragraphs.length===0)return reply({error:'Judul minimal 10 karakter, ringkasan minimal 20 karakter, dan isi artikel minimal 100 karakter.'},400,origin);
+   if(!['UMKM','E-commerce','Bisnis','Website','Teknologi','AI','Produk Digital','Marketing','Lainnya'].includes(category))return reply({error:'Kategori artikel tidak valid.'},400,origin);
+   if(cover){try{const imageUrl=new URL(cover);if(imageUrl.protocol!=='https:'||imageUrl.username||imageUrl.password)return reply({error:'Cover harus menggunakan URL HTTPS yang valid.'},400,origin);cover=imageUrl.toString();}catch{return reply({error:'URL cover tidak valid.'},400,origin)}}
+   const words=(title+' '+summary+' '+paragraphs.join(' ')).trim().split(/\s+/).filter(Boolean).length;
+   const readTime=Math.max(1,Math.ceil(words/200))+' menit';
+   const now=new Date().toISOString();
+   let finalId=articleId;
+   if(finalId){
+    const owned=await db('bbweb_articles?select=id,seller_id,published_at,sort_order&id=eq.'+encodeURIComponent(finalId)+'&seller_id=eq.'+encodeURIComponent(user.id)+'&limit=1');
+    const old=Array.isArray(owned)?owned[0]:null;
+    if(!old)return reply({error:'Artikel tidak ditemukan atau bukan milik toko Anda.'},404,origin);
+    await db('bbweb_articles?id=eq.'+encodeURIComponent(finalId)+'&seller_id=eq.'+encodeURIComponent(user.id),{method:'PATCH',headers:{Prefer:'return=minimal'},body:JSON.stringify({title,category,read_time:readTime,summary,body:paragraphs,cover_image_url:cover,status:'published',is_active:true,sort_order:Number(old.sort_order??100),published_at:old.published_at||now,author_store_name:seller.store_name,author_type:'seller',updated_at:now})});
+   }else{
+    finalId=slug(title).slice(0,75)+'-seller-'+rand(3).toLowerCase();
+    await db('bbweb_articles',{method:'POST',headers:{Prefer:'return=minimal'},body:JSON.stringify({id:finalId,title,category,read_time:readTime,summary,body:paragraphs,cover_image_url:cover,status:'published',is_active:true,sort_order:100,published_at:now,seller_id:user.id,author_store_name:seller.store_name,author_type:'seller',created_at:now,updated_at:now})});
+   }
+   return reply({ok:true,article_id:finalId,message:'Artikel diterbitkan.'},201,origin);
+  }
+  if(action==='delete_article'){
+   await requireSeller(user.id,true);
+   const id=clean(input?.article_id,160).toLowerCase();
+   if(!id)return reply({error:'Artikel tidak valid.'},400,origin);
+   const rows=await db('bbweb_articles?select=id,seller_id&id=eq.'+encodeURIComponent(id)+'&seller_id=eq.'+encodeURIComponent(user.id)+'&limit=1');
+   if(!Array.isArray(rows)||!rows.length)return reply({error:'Artikel tidak ditemukan atau bukan milik toko Anda.'},404,origin);
+   await db('bbweb_articles?id=eq.'+encodeURIComponent(id)+'&seller_id=eq.'+encodeURIComponent(user.id),{method:'PATCH',headers:{Prefer:'return=minimal'},body:JSON.stringify({is_active:false,status:'draft',updated_at:new Date().toISOString()})});
+   return reply({ok:true},200,origin);
+  }
   if(action==='save_profile'){
    const p=await requireSeller(user.id);const storeName=clean(input?.store_name,120),ownerName=clean(input?.owner_name,120),phone=clean(input?.phone,40),description=clean(input?.description,1500),category=clean(input?.business_category,60),city=clean(input?.city,100),address=clean(input?.store_address,250),website=optionalHttps(input?.website_url),social=optionalHttps(input?.social_url);
    if(storeName.length<2||ownerName.length<2||phone.replace(/\D/g,'').length<8||city.length<2||address.length<5)return reply({error:'Nama toko, nama pemilik, WhatsApp, kota, dan alamat toko wajib dilengkapi.'},400,origin);
