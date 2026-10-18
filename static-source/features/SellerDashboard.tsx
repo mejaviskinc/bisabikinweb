@@ -4,7 +4,7 @@ import {Activity,AlertCircle,Archive,ArrowDownToLine,ArrowUpRight,BarChart3,Badg
 import {sellerApi,sellerGetSession,sellerSignIn,sellerSignOut,sellerSignUp,sellerUploadImage,type SellerSession} from '../lib/seller';
 
 const idr=(value:any)=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(Number(value||0));
-const payoutProviderInput=(value:any)=>/chat[\\s_-]*gpt/i.test(String(value||''))?'':String(value||'');
+const payoutProviderInput=(value:any)=>/chat.?gpt/i.test(String(value||''))?'':String(value||'');
 const payoutProviderLabel=(value:any)=>payoutProviderInput(value).trim()||'Nama bank/e-wallet belum diatur';
 const sellerCategories=['Fashion','Aksesoris','Kecantikan','Makanan & Minuman','Kerajinan','Elektronik','Produk Digital','Rumah Tangga','Lainnya'];
 const emptyProfile={store_name:'',owner_name:'',phone:'',business_category:'Lainnya',city:'',store_address:'',website_url:'',social_url:'',description:''};
