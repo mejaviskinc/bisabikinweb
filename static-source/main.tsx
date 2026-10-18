@@ -118,7 +118,7 @@ function PublicClient(){
     return()=>{stopAuto();cancelAnimationFrame(raf);window.removeEventListener('resize',onResize);host.remove()};
   },[ad,version]);
 
-  return <Studio key={version} initial={data} initialVariants={merchVariants(data.products)} path={path} user={null} isAdmin={false}/>;
+  return <Studio key={version} initial={data} initialVariants={merchVariants(data.products)} path={path} user={null} isAdmin={false} catalogReady={version>0}/>;
 }
 
 function AdminWithAdsMenu(){
