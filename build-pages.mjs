@@ -81,7 +81,7 @@ const articleByPath=new Map(buildArticles.map(article=>['/artikel/'+article.id,a
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
 const jsonLd=value=>JSON.stringify(value).replace(/</g,'\\\\u003c');
 const buildDate=new Date().toISOString().slice(0,10);
-const plain=s=>String(s??'').replace(/<[^>]*>/g,' ').replace(/\\s+/g,' ').trim();
+const plain=s=>String(s??'').replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
 const snippet=s=>{const value=plain(s);return value.length>160?value.slice(0,157).trimEnd()+'…':value};
 const isoDate=value=>{if(!value)return null;const date=new Date(value);return Number.isNaN(date.getTime())?null:date.toISOString()};
 const dateOnly=value=>isoDate(value)?.slice(0,10)||buildDate;
@@ -112,12 +112,12 @@ for(const [path,[name,description]] of Object.entries(pages)){
   const schemas=[organization,website];
   if(isService)schemas.push({'@context':'https://schema.org','@type':'Service','@id':url+'#service',name:path==='/'?'Jasa Pembuatan Website':name,description:metaDescription,url,provider:{'@id':origin+'/#organization'},areaServed:[{'@type':'City','name':'Yogyakarta'},{'@type':'Country','name':'Indonesia'}],serviceType:'Website development and web design'});
   if(article){
-    const words=[article.title,article.summary,...(Array.isArray(article.body)?article.body:[])].join(' ').trim().split(/\\s+/).filter(Boolean).length;
+    const words=[article.title,article.summary,...(Array.isArray(article.body)?article.body:[])].join(' ').trim().split(/\s+/).filter(Boolean).length;
     const articleSchema={'@context':'https://schema.org','@type':'BlogPosting','@id':url+'#article',mainEntityOfPage:{'@type':'WebPage','@id':url},headline:article.title,description:metaDescription,url,author:{'@type':'Organization','@id':origin+'/#organization',name:brand},publisher:{'@id':origin+'/#organization'},inLanguage:'id-ID',articleSection:article.category,wordCount:words};
     if(articleImage)articleSchema.image=[articleImage];
     if(publishedAt)articleSchema.datePublished=publishedAt;
     if(modifiedAt)articleSchema.dateModified=modifiedAt;
-    const minutes=Number(String(article.read||'').match(/\\d+/)?.[0]||0);
+    const minutes=Number(String(article.read||'').match(/\d+/)?.[0]||0);
     if(minutes>0)articleSchema.timeRequired='PT'+minutes+'M';
     schemas.push(articleSchema);
   }
