@@ -1,0 +1,45 @@
+'use client';
+import React,{useEffect,useState} from 'react';
+import {ArrowLeft,ArrowUpRight,BookOpen,ExternalLink,Globe,MessageCircle,Package,Store} from 'lucide-react';
+import {loadPublicStorefront} from '../lib/seller';
+import './storefront.css';
+
+const idr=(value:any)=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(Number(value||0));
+const safeHref=(value:any)=>{const raw=String(value||'');if(/^#(about|links|products|articles)$/.test(raw))return raw;try{const u=new URL(raw);return u.protocol==='https:'&&!u.username&&!u.password?u.href:'#';}catch{return '#';}};
+const phoneLink=(phone:any,text:string)=>{const digits=String(phone||'').replace(/\D/g,'').replace(/^0/,'62');return digits?'https://wa.me/'+digits+'?text='+encodeURIComponent(text):'';};
+export default function Storefront({slug}:{slug:string}){
+ const [payload,setPayload]=useState<any>(null),[loading,setLoading]=useState(true),[error,setError]=useState('');
+ useEffect(()=>{let alive=true;setLoading(true);loadPublicStorefront(slug).then(value=>{if(alive){setPayload(value);setError('')}}).catch(e=>{if(alive)setError(e.message||'Landing page tidak dapat dimuat.')}).finally(()=>{if(alive)setLoading(false)});return()=>{alive=false}},[slug]);
+ const store=payload?.store,config=store?.config||{},products=payload?.products||[],articles=payload?.articles||[];
+ const selectedArticleId=typeof window!=='undefined'?new URLSearchParams(window.location.search).get('article'):'';
+ const selectedArticle=articles.find((a:any)=>a.id===selectedArticleId);
+ const baseUrl='https://bisabikinweb.site/toko/'+encodeURIComponent(slug)+'/';
+ useEffect(()=>{if(!store)return;document.title=(selectedArticle?.title||config.headline||store.store_name)+' | '+store.store_name+' — BisaBikinWeb';let description=document.querySelector('meta[name="description"]') as HTMLMetaElement|null;if(!description){description=document.createElement('meta');description.name='description';document.head.appendChild(description)}description.content=String(selectedArticle?.summary||config.bio||store.description||('Kunjungi '+store.store_name+' di BisaBikinWeb.')).slice(0,160);let robots=document.querySelector('meta[name="robots"]') as HTMLMetaElement|null;if(!robots){robots=document.createElement('meta');robots.name='robots';document.head.appendChild(robots)}robots.content='index,follow,max-image-preview:large';let canonical=document.querySelector('link[rel="canonical"]') as HTMLLinkElement|null;if(!canonical){canonical=document.createElement('link');canonical.rel='canonical';document.head.appendChild(canonical)}canonical.href=selectedArticle?baseUrl+'?article='+encodeURIComponent(selectedArticle.id):baseUrl;},[store,config,selectedArticle,baseUrl]);
+ if(loading)return <main className="sf-page sf-loading"><div className="sf-loading-mark">B</div><p>Memuat halaman toko…</p></main>;
+ if(error||!store)return <main className="sf-page sf-error"><a href="/"><Store size={17}/> BisaBikinWeb</a><div><Globe size={32}/><h1>Halaman toko belum tersedia</h1><p>{error||'Toko ini belum mempublikasikan landing page atau belum aktif.'}</p><a className="sf-button" href="/merch">Jelajahi marketplace <ArrowUpRight size={16}/></a></div></main>;
+ const theme=['cream','light','dark'].includes(config.theme)?config.theme:'cream';
+ const wa=phoneLink(store.phone,'Halo '+store.store_name+', saya ingin bertanya tentang produk dan layanan toko.');
+ const menu=(config.menu_items||[]).filter((item:any)=>item.label&&item.href);
+ const links=(config.links||[]).filter((item:any)=>item.label&&item.url);
+ const linkClass='sf-button '+(config.button_style==='square'?'square':config.button_style==='rounded'?'rounded':'pill');
+ return <main className={'sf-page theme-'+theme+' layout-'+(config.layout==='editorial'?'editorial':'centered')} style={{'--sf-accent':config.accent_color||'#d7a96b'} as React.CSSProperties}>
+  <header className="sf-topbar"><a href="/"><span className="sf-b-mark">B</span><span>BisaBikinWeb <small>Seller storefront</small></span></a><a href="/merch">Marketplace <ArrowUpRight size={14}/></a></header>
+  <div className="sf-shell">
+   {config.cover_url&&<div className="sf-cover"><img src={config.cover_url} alt={'Banner '+store.store_name}/></div>}
+   <section className="sf-profile" id="about">
+    {config.avatar_url?<img className="sf-avatar" src={config.avatar_url} alt={store.store_name}/>:<div className="sf-avatar sf-avatar-fallback">{String(store.store_name||'S').slice(0,1).toUpperCase()}</div>}
+    <span className="sf-tagline">{config.tagline||store.business_category||'OFFICIAL STORE'}</span>
+    <h1>{config.headline||store.store_name}</h1>
+    <p className="sf-bio">{config.bio||store.description||'Selamat datang di halaman resmi toko kami.'}</p>
+    <div className="sf-profile-actions">{wa&&<a className="sf-button primary" href={wa} target="_blank" rel="noopener noreferrer"><MessageCircle size={16}/>Hubungi toko</a>}{store.social_url&&<a className="sf-button secondary" href={safeHref(store.social_url)} target="_blank" rel="noopener noreferrer">Media sosial <ExternalLink size={14}/></a>}{store.website_url&&<a className="sf-button secondary" href={safeHref(store.website_url)} target="_blank" rel="noopener noreferrer">Website <ExternalLink size={14}/></a>}</div>
+   </section>
+   {menu.length>0&&<nav className="sf-nav" aria-label="Menu toko">{menu.map((item:any,index:number)=><a key={index} href={safeHref(item.href)} target={String(item.href).startsWith('https://')?'_blank':undefined} rel={String(item.href).startsWith('https://')?'noopener noreferrer':undefined}>{item.label}<ArrowUpRight size={13}/></a>)}</nav>}
+   {selectedArticle?<article className="sf-article-detail" id="articles"><a className="sf-back-link" href={baseUrl+'#articles'}><ArrowLeft size={15}/> Kembali ke halaman toko</a>{selectedArticle.cover_image_url&&<img className="sf-article-cover" src={selectedArticle.cover_image_url} alt={selectedArticle.title}/>}<span className="sf-tagline">{selectedArticle.category||'Artikel'} · {selectedArticle.read_time||'3 menit'}</span><h1>{selectedArticle.title}</h1><p className="sf-article-summary">{selectedArticle.summary}</p><div className="sf-article-body">{(Array.isArray(selectedArticle.body)?selectedArticle.body:[]).map((paragraph:string,index:number)=><p key={index}>{paragraph}</p>)}</div><small className="sf-article-byline">Ditulis oleh {store.store_name}</small></article>:<>
+    {links.length>0&&<section className="sf-section" id="links"><div className="sf-section-heading"><span>START HERE</span><h2>Temukan kami di sini.</h2><p>Pilih tautan yang paling sesuai dengan kebutuhan kamu.</p></div><div className="sf-link-stack">{links.map((item:any,index:number)=><a className={linkClass} href={safeHref(item.url)} key={index} target="_blank" rel="noopener noreferrer"><span><b>{item.label}</b>{item.description&&<small>{item.description}</small>}</span><ArrowUpRight size={17}/></a>)}</div></section>}
+    {config.show_products!==false&&products.length>0&&<section className="sf-section" id="products"><div className="sf-section-heading"><span>THE COLLECTION</span><h2>{config.product_title||'Produk pilihan'}</h2><p>Produk aktif dari toko ini.</p></div><div className="sf-product-grid">{products.map((p:any)=><article className="sf-product-card" key={p.id}>{p.image_url?<img src={p.image_url} alt={p.name} loading="lazy"/>:<div className="sf-product-placeholder"><Package size={25}/></div>}<div className="sf-product-copy"><span>{p.collection||'PILIHAN TOKO'}</span><h3>{p.name}</h3><p>{p.description}</p><strong>{idr(p.price)}</strong>{Number(p.stock)>0?<small>{Number(p.stock)} tersedia</small>:<small>Stok habis</small>}{wa&&<a href={phoneLink(store.phone,'Halo '+store.store_name+', saya tertarik dengan produk '+p.name+'. Apakah masih tersedia?')} target="_blank" rel="noopener noreferrer">Tanya / pesan <ArrowUpRight size={14}/></a>}</div></article>)}</div></section>}
+    {config.show_articles!==false&&articles.length>0&&<section className="sf-section" id="articles"><div className="sf-section-heading"><span>STORIES & INSIGHTS</span><h2>{config.article_title||'Artikel terbaru'}</h2><p>Artikel, cerita, dan insight yang dibuat oleh {store.store_name}.</p></div><div className="sf-article-grid">{articles.map((article:any)=><article className="sf-article-card" key={article.id}>{article.cover_image_url?<img src={article.cover_image_url} alt={article.title} loading="lazy"/>:<div className="sf-article-placeholder"><BookOpen size={23}/></div>}<div><span>{article.category||'Artikel'} · {article.read_time||'3 menit'}</span><h3>{article.title}</h3><p>{article.summary}</p><a href={baseUrl+'?article='+encodeURIComponent(article.id)+'#articles'}>Baca artikel <ArrowUpRight size={14}/></a></div></article>)}</div></section>}
+   </>}
+   <footer className="sf-footer"><div><span className="sf-b-mark">B</span><b>{store.store_name}</b><small>{store.city||'Indonesia'}</small></div><p>Powered by <a href="https://bisabikinweb.site">BisaBikinWeb</a></p><a href="/merch">Jelajahi marketplace <ArrowUpRight size={13}/></a></footer>
+  </div>
+ </main>;
+}
