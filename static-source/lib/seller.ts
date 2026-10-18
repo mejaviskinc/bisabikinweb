@@ -23,6 +23,20 @@ export async function sellerUploadArticleImage(file:File,session:SellerSession):
   return SUPABASE_URL+'/storage/v1/object/public/bbweb-seller-articles/'+encoded;
 }
 
+export async function loadPublicStorefront(slug:string):Promise<any>{
+  const response=await fetch(SUPABASE_URL+'/functions/v1/bbweb-seller-api',{
+    method:'POST',
+    headers:{'Content-Type':'application/json',apikey:SUPABASE_KEY},
+    body:JSON.stringify({action:'public_storefront',slug}),
+    credentials:'omit',
+    cache:'no-store'
+  });
+  const text=await response.text();let payload:any={};
+  if(text){try{payload=JSON.parse(text)}catch{payload={error:text}}}
+  if(!response.ok)throw new Error(payload?.error||'Landing page toko belum tersedia.');
+  return payload;
+}
+
 export async function sellerUploadImage(file:File,session:SellerSession):Promise<string>{
   const allowed=['image/jpeg','image/png','image/webp','image/avif'];
   if(!allowed.includes(file.type))throw new Error('Gunakan foto JPG, PNG, WEBP, atau AVIF.');
