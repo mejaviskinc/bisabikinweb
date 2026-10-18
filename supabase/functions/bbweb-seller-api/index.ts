@@ -13,7 +13,50 @@ async function db(path:string,options:RequestInit={}){const url=Deno.env.get('SU
 async function rpc(name:string,body:any={}){return db('rpc/'+name,{method:'POST',headers:{Prefer:'return=representation'},body:JSON.stringify(body)});}
 async function authenticate(req:Request){const auth=req.headers.get('authorization')||'';const token=auth.match(/^Bearer\s+(.+)$/i)?.[1];if(!token)throw Object.assign(new Error('Silakan masuk kembali.'),{status:401});const url=Deno.env.get('SUPABASE_URL')||'';const r=await fetch(url+'/auth/v1/user',{headers:{apikey:SUPABASE_PUBLIC_KEY,Authorization:'Bearer '+token,Accept:'application/json'},signal:AbortSignal.timeout(8000)});if(!r.ok)throw Object.assign(new Error('Sesi login tidak valid atau sudah kedaluwarsa.'),{status:401});const user=await r.json();if(!user?.id||!user?.email)throw Object.assign(new Error('Akun tidak valid.'),{status:401});return user;}
 async function requireAdmin(user:any){const rows=await db('bbweb_admin_allowlist?select=email,label&email=eq.'+encodeURIComponent(String(user.email).toLowerCase())+'&limit=1');if(!Array.isArray(rows)||!rows.length)throw Object.assign(new Error('Akses admin ditolak.'),{status:403});return rows[0];}
-async function profile(uid:string){const rows=await db('bbweb_sellers?select=id,application_no,email,store_name,owner_name,phone,description,business_category,city,store_address,website_url,social_url,terms_accepted_at,email_verified_at,review_note,reviewed_at,reviewed_by,status,commission_rate,created_at,updated_at&id=eq.'+encodeURIComponent(uid)+'&limit=1');return Array.isArray(rows)?rows[0]||null:null;}
+async function profile(uid:string){const rows=await db('bbweb_sellers?select=id,application_no,email,store_name,owner_name,phone,description,business_category,city,store_address,website_url,social_url,terms_accepted_at,email_verified_at,review_note,reviewed_at,reviewed_by,status,commission_rate,storefront_slug,storefront_config,storefront_published,created_at,updated_at&id=eq.'+encodeURIComponent(uid)+'&limit=1');return Array.isArray(rows)?rows[0]||null:null;}
+
+function validStoreHref(value:unknown){
+ const raw=clean(value,500);
+ if(/^#(about|links|products|articles)$/.test(raw))return raw;
+ try{const u=new URL(raw);return u.protocol==='https:'&&u.hostname&&!u.username&&!u.password?u.toString().slice(0,500):'';}catch{return '';}
+}
+function safeStorefrontConfig(value:any){
+ const src=value&&typeof value==='object'&&!Array.isArray(value)?value:{};
+ const theme=['cream','light','dark'].includes(clean(src.theme,20))?clean(src.theme,20):'cream';
+ const buttonStyle=['pill','rounded','square'].includes(clean(src.button_style,20))?clean(src.button_style,20):'pill';
+ const accent=clean(src.accent_color,7);
+ const menuSource=Array.isArray(src.menu_items)?src.menu_items:[];
+ const linkSource=Array.isArray(src.links)?src.links:[];
+ if(menuSource.length>8||linkSource.length>15)throw Object.assign(new Error('Maksimal 8 menu navigasi dan 15 tautan.'),{status:400});
+ const menuItems=menuSource.map((item:any)=>({label:clean(item?.label,40),href:validStoreHref(item?.href)}));
+ if(menuItems.some((item:any)=>!item.label||!item.href))throw Object.assign(new Error('Setiap menu harus memiliki nama dan tujuan HTTPS atau bagian halaman yang valid.'),{status:400});
+ const links=linkSource.map((item:any)=>({label:clean(item?.label,80),url:validStoreHref(item?.url),description:clean(item?.description,180)}));
+ if(links.some((item:any)=>!item.label||!item.url||item.url.startsWith('#')))throw Object.assign(new Error('Setiap tautan harus memiliki judul dan URL HTTPS yang valid.'),{status:400});
+ const imageUrl=(v:any)=>{const raw=clean(v,1000);if(!raw)return '';try{const u=new URL(raw);return u.protocol==='https:'&&u.hostname&&!u.username&&!u.password?u.toString().slice(0,1000):null;}catch{return null;}};
+ const avatar=imageUrl(src.avatar_url),cover=imageUrl(src.cover_url);
+ if(avatar===null||cover===null)throw Object.assign(new Error('Foto profil dan banner harus menggunakan URL HTTPS yang valid.'),{status:400});
+ if(accent&&!/^#[0-9a-fA-F]{6}$/.test(accent))throw Object.assign(new Error('Warna aksen harus berupa kode HEX seperti #D7A96B.'),{status:400});
+ return {
+  tagline:clean(src.tagline,120),headline:clean(src.headline,140),bio:clean(src.bio,700),
+  avatar_url:avatar,cover_url:cover,theme,accent_color:accent||'#d7a96b',button_style:buttonStyle,
+  menu_items:menuItems,links,
+  show_products:src.show_products!==false,show_articles:src.show_articles!==false,
+  product_title:clean(src.product_title,80)||'Produk pilihan',
+  article_title:clean(src.article_title,80)||'Artikel terbaru',
+  layout:['centered','editorial'].includes(clean(src.layout,20))?clean(src.layout,20):'centered'
+ };
+}
+async function publicStorefront(storeSlug:string){
+ const rows=await db('bbweb_sellers?select=id,storefront_slug,storefront_config,storefront_published,store_name,owner_name,phone,description,business_category,city,website_url,social_url,status&storefront_slug=eq.'+encodeURIComponent(storeSlug)+'&status=eq.active&storefront_published=eq.true&limit=1');
+ const store=Array.isArray(rows)?rows[0]:null;
+ if(!store)return null;
+ const [products,articles]=await Promise.all([
+  db('bbweb_merchandise?select=id,sku,name,description,price,badge,stock,image_url,collection,sort_order&seller_id=eq.'+encodeURIComponent(store.id)+'&is_active=eq.true&seller_review_status=eq.approved&order=sort_order.asc,created_at.desc&limit=50'),
+  db('bbweb_articles?select=id,title,category,read_time,summary,body,cover_image_url,published_at,updated_at&seller_id=eq.'+encodeURIComponent(store.id)+'&is_active=eq.true&status=eq.published&order=published_at.desc&limit=50')
+ ]);
+ return {ok:true,store:{slug:store.storefront_slug,store_name:store.store_name,owner_name:store.owner_name,phone:store.phone,description:store.description,business_category:store.business_category,city:store.city,website_url:store.website_url,social_url:store.social_url,config:safeStorefrontConfig(store.storefront_config)},products:Array.isArray(products)?products:[],articles:Array.isArray(articles)?articles:[]};
+}
+
 async function requireSeller(uid:string,active=false){const p=await profile(uid);if(!p)throw Object.assign(new Error('Lengkapi pendaftaran toko terlebih dahulu.'),{status:409,code:'SELLER_PROFILE_REQUIRED'});if(active&&p.status!=='active')throw Object.assign(new Error(p.status==='pending'?'Toko masih menunggu persetujuan admin.':'Akun seller belum aktif.'),{status:403,code:'SELLER_NOT_ACTIVE'});return p;}
 function userMessage(error:any){const raw=String(error?.message||'');if(raw.includes('WITHDRAWAL_BELOW_MINIMUM'))return 'Nominal withdraw di bawah minimum yang berlaku.';if(raw.includes('INSUFFICIENT_AVAILABLE_BALANCE'))return 'Saldo tersedia tidak mencukupi.';if(raw.includes('PAYOUT_ACCOUNT_REQUIRED'))return 'Simpan rekening pencairan terlebih dahulu.';if(raw.includes('SELLER_NOT_ACTIVE'))return 'Toko harus disetujui admin sebelum melakukan aksi ini.';if(raw.includes('INVALID_WITHDRAWAL_AMOUNT'))return 'Nominal withdraw tidak valid.';if(raw.includes('PRODUCT_UNAVAILABLE')||raw.includes('PRODUCT_NOT_FOR_SALE'))return 'Produk tidak tersedia untuk dijual.';if(raw.includes('INVALID_STOCK_DELTA'))return 'Perubahan stok tidak valid.';if(raw.includes('STOCK_OUT_OF_RANGE'))return 'Stok tidak boleh kurang dari nol atau melebihi 10.000.';if(raw.includes('PRODUCT_NOT_FOUND'))return 'Produk tidak ditemukan atau bukan milik toko Anda.';if(raw.includes('duplicate key'))return 'Data tersebut sudah digunakan.';if(raw.includes('row-level security')||raw.includes('permission denied'))return 'Akses data ditolak oleh aturan keamanan.';return error?.status?raw:'Permintaan belum dapat diproses. Periksa data lalu coba lagi.';}
 async function readDashboard(uid:string){
@@ -45,14 +88,22 @@ async function readDashboard(uid:string){
 Deno.serve(async(req:Request)=>{
  const origin=req.headers.get('origin');if(req.method==='OPTIONS')return new Response(null,{status:204,headers:cors(origin)});if(req.method!=='POST')return reply({error:'Method not allowed'},405,origin);if(!origin||!ALLOWED_ORIGINS.has(origin))return reply({error:'Origin not allowed'},403,origin);if(Number(req.headers.get('content-length')||0)>65536)return reply({error:'Payload terlalu besar.'},413,origin);
  try{
-  const user=await authenticate(req);let input:any;try{input=await req.json()}catch{return reply({error:'Payload JSON tidak valid.'},400,origin)}const action=clean(input?.action,60);
+  let input:any;try{input=await req.json()}catch{return reply({error:'Payload JSON tidak valid.'},400,origin)}const action=clean(input?.action,60);
+  if(action==='public_storefront'){
+   const storeSlug=clean(input?.slug,60).toLowerCase();
+   if(!/^[a-z0-9](?:[a-z0-9-]{0,50}[a-z0-9])?$/.test(storeSlug))return reply({error:'Alamat toko tidak valid.'},400,origin);
+   const result=await publicStorefront(storeSlug);
+   if(!result)return reply({error:'Landing page toko tidak ditemukan atau belum dipublikasikan.'},404,origin);
+   return reply(result,200,origin);
+  }
+  const user=await authenticate(req);
   if(action==='register'){
    const storeName=clean(input?.store_name,120),ownerName=clean(input?.owner_name,120),phone=clean(input?.phone,40),description=clean(input?.description,1500),category=clean(input?.business_category,60),city=clean(input?.city,100),address=clean(input?.store_address,250),website=optionalHttps(input?.website_url),social=optionalHttps(input?.social_url);
    if(storeName.length<2||ownerName.length<2||phone.replace(/\D/g,'').length<8||city.length<2||address.length<5)return reply({error:'Nama toko, nama pemilik, WhatsApp, kota, dan alamat toko wajib dilengkapi.'},400,origin);
    if(!SELLER_CATEGORIES.includes(category))return reply({error:'Kategori usaha tidak valid.'},400,origin);
    if(website===null||social===null)return reply({error:'Website dan media sosial harus berupa URL HTTPS yang valid.'},400,origin);
    if(input?.terms_accepted!==true)return reply({error:'Persetujuan syarat seller wajib dicentang.'},400,origin);
-   await db('bbweb_sellers?on_conflict=id',{method:'POST',headers:{Prefer:'resolution=ignore-duplicates,return=minimal'},body:JSON.stringify({id:user.id,email:String(user.email).toLowerCase(),store_name:storeName,owner_name:ownerName,phone,description,business_category:category,city,store_address:address,website_url:website,social_url:social,terms_accepted_at:new Date().toISOString(),email_verified_at:user.email_confirmed_at||user.confirmed_at||null,status:'pending',commission_rate:0})});
+   await db('bbweb_sellers?on_conflict=id',{method:'POST',headers:{Prefer:'resolution=ignore-duplicates,return=minimal'},body:JSON.stringify({id:user.id,email:String(user.email).toLowerCase(),store_name:storeName,owner_name:ownerName,phone,description,business_category:category,city,store_address:address,website_url:website,social_url:social,storefront_slug:slug(storeName).slice(0,42)+'-'+rand(3).toLowerCase(),storefront_published:false,terms_accepted_at:new Date().toISOString(),email_verified_at:user.email_confirmed_at||user.confirmed_at||null,status:'pending',commission_rate:0})});
    return reply({ok:true,profile:await profile(user.id)},200,origin);
   }
   if(action.startsWith('admin_')){
@@ -122,6 +173,19 @@ Deno.serve(async(req:Request)=>{
    return reply({error:'Aksi admin tidak dikenal.'},400,origin);
   }
   if(action==='dashboard')return reply(await readDashboard(user.id),200,origin);
+
+  if(action==='save_storefront'){
+   await requireSeller(user.id,true);
+   const storeSlug=clean(input?.storefront_slug,60).toLowerCase();
+   if(!/^[a-z0-9](?:[a-z0-9-]{0,50}[a-z0-9])?$/.test(storeSlug))return reply({error:'URL toko harus 1–52 karakter, huruf kecil, angka, dan tanda hubung tanpa spasi.'},400,origin);
+   const collision=await db('bbweb_sellers?select=id&storefront_slug=eq.'+encodeURIComponent(storeSlug)+'&id=neq.'+encodeURIComponent(user.id)+'&limit=1');
+   if(Array.isArray(collision)&&collision.length)return reply({error:'URL toko sudah digunakan seller lain. Coba nama yang berbeda.'},409,origin);
+   let config:any;try{config=safeStorefrontConfig(input?.storefront_config)}catch(error:any){return reply({error:String(error?.message||'Pengaturan landing page tidak valid.')},400,origin)}
+   const published=input?.storefront_published===true;
+   await db('bbweb_sellers?id=eq.'+encodeURIComponent(user.id),{method:'PATCH',headers:{Prefer:'return=minimal'},body:JSON.stringify({storefront_slug:storeSlug,storefront_config:config,storefront_published:published,updated_at:new Date().toISOString()})});
+   return reply({ok:true,profile:await profile(user.id),public_url:published?'https://bisabikinweb.site/toko/'+storeSlug+'/':null},200,origin);
+  }
+
   if(action==='save_article'){
    const seller=await requireSeller(user.id,true);
    const articleId=clean(input?.id,160).toLowerCase();
