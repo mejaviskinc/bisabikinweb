@@ -102,15 +102,9 @@ Deno.serve(async(req:Request)=>{const origin=req.headers.get('origin');if(req.me
   const paymentMethod=clean(input?.payment_method||'all',40).toLowerCase();
   const paymentChannels:Record<string,string[]>={all:[],qris:['qris'],bank_transfer:['bank_transfer'],ewallet:['gopay','shopeepay'],credit_card:['credit_card'],cstore:['cstore']};
   if(!Object.prototype.hasOwnProperty.call(paymentChannels,paymentMethod))return reply({error:'Pilihan metode pembayaran tidak valid.'},400,origin);
-  const selectedCode=clean(input?.shipping?.courier_code,30).toLowerCase();
-  const selectedService=clean(input?.shipping?.service,100);
-  const selectedCost=Math.round(Number(input?.shipping?.shipping_cost));
-  if(!selectedCode||!selectedService||!Number.isSafeInteger(selectedCost)||selectedCost<0)return reply({error:'Pilih layanan pengiriman dan hitung ulang ongkir sebelum membayar.',code:'SHIPPING_REQUIRED'},400,origin);
-  let shippingQuote:any;
-  try{shippingQuote=await calculateShipping({shipping,items});}catch(error){const code=(error as any)?.code||'SHIPPING_RATE_FAILED';const status=code==='SHIPPING_NOT_CONFIGURED'?503:code==='SHIPPING_RATE_FAILED'?502:422;return reply({error:String((error as Error)?.message||'Ongkir belum dapat diverifikasi.'),code},status,origin);}
-  const validRate=shippingQuote.rates.find((x:any)=>x.code===selectedCode&&x.service.toLowerCase()===selectedService.toLowerCase()&&x.cost===selectedCost);
-  if(!validRate)return reply({error:'Tarif pengiriman berubah atau tidak valid. Hitung ongkir kembali sebelum membayar.',code:'SHIPPING_QUOTE_EXPIRED'},409,origin);
-  const validatedShipping={...shipping,courier_code:validRate.code,courier_name:validRate.name,service:validRate.service,shipping_cost:validRate.cost,shipping_etd:validRate.etd,weight_grams:shippingQuote.weight_grams,destination_label:shippingQuote.destination?.label||''};
+  // Product checkout intentionally does not depend on the shipping API yet.
+  // The buyer pays for products first; courier and shipping fee are confirmed separately after order creation.
+  const validatedShipping={...shipping,courier_code:'manual',courier_name:'Dikonfirmasi setelah pembayaran',service:'Ongkir dikonfirmasi kemudian',shipping_cost:0,shipping_etd:'',weight_grams:0,destination_label:''};
   const accessHash=await sha256('access:'+token),checkoutHash=await sha256('checkout:'+token),requestHash=await sha256(JSON.stringify({customer,shipping:validatedShipping,items,note,payment_method:paymentMethod}));
   await rpc('bbweb_release_expired_merch_reservations',{}).catch(()=>{});
   let created:any;try{const rows=await rpc('bbweb_create_merch_order',{p_customer:customer,p_shipping:validatedShipping,p_items:items,p_access_token_hash:accessHash,p_checkout_key_hash:checkoutHash,p_request_hash:requestHash,p_note:note});created=Array.isArray(rows)?rows[0]:rows;if(!created?.order_id)throw new Error('ORDER_CREATE_FAILED');}catch(error){return reply({error:dbErrorMessage(error)},409,origin)}
