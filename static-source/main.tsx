@@ -4,6 +4,7 @@ import Studio from './features/Studio';
 import Admin from './features/Admin';
 import AdsManager from './features/AdsManager';
 import SellerDashboard from './features/SellerDashboard';
+import Storefront from './features/Storefront';
 import SellerAdmin from './features/SellerAdmin';
 import PaymentGatewayAdmin from './features/PaymentGatewayAdmin';
 import {defaults} from './lib/data';
@@ -17,6 +18,7 @@ import './features/ads.css';
 import './features/ads-carousel.css';
 import './features/admin-ads-menu.css';
 import './features/seller.css';
+import './features/storefront.css';
 import './features/buyer.css';
 import './features/payment-gateway.css';
 
@@ -158,6 +160,7 @@ function AdminWithAdsMenu(){
   return <Admin/>;
 }
 
-const app=path==='/seller'?<SellerDashboard/>:path.startsWith('/admin/sellers')?<SellerAdmin/>:path.startsWith('/admin/iklan')?<AdsManager/>:path.startsWith('/admin/payments')?<PaymentGatewayAdmin/>:path.startsWith('/admin')?<AdminWithAdsMenu/>:<PublicClient/>;
+const storefrontMatch=path.match(/^\/toko\/([a-z0-9-]+)$/i);
+const app=path==='/seller'?<SellerDashboard/>:path.startsWith('/admin/sellers')?<SellerAdmin/>:path.startsWith('/admin/iklan')?<AdsManager/>:path.startsWith('/admin/payments')?<PaymentGatewayAdmin/>:path.startsWith('/admin')?<AdminWithAdsMenu/>:storefrontMatch?<Storefront slug={storefrontMatch[1].toLowerCase()}/>:<PublicClient/>;
 const root=document.getElementById('root')!;
-if(path.startsWith('/admin')||path==='/seller')createRoot(root).render(app);else hydrateRoot(root,app);
+if(path.startsWith('/admin')||path==='/seller'||storefrontMatch)createRoot(root).render(app);else hydrateRoot(root,app);
