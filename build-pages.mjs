@@ -49,7 +49,7 @@ function protectHtml(html){
 }
 const template=await readFile('site-dist/index.html','utf8');
 for(const [path,[name,description]] of Object.entries(pages)){
- const title=name+' | '+brand,url=origin+(path==='/'?'/':path+'/');
+ const title=path==='/'?brand+' | '+name:name+' | '+brand,url=origin+(path==='/'?'/':path+'/');
  const isService=path==='/'||path==='/jasa'||path==='/harga'||path.startsWith('/jasa/');
  const noindex=path==='/cart'||path==='/checkout'||path==='/track-order'||path==='/account'||path==='/seller'||path.startsWith('/admin');
  const schemas=[organization,website];
