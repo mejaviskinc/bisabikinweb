@@ -5,6 +5,48 @@ const configFile=new URL('./vite.pages.mjs',import.meta.url).pathname;
 await build({configFile});
 await build({configFile,publicDir:false,build:{ssr:'render.tsx',outDir:'../.pages-ssr',emptyOutDir:true}});
 const {render,defaults}=await import('./.pages-ssr/render.js');
+
+async function fetchPublishedArticles(){
+  try{
+    const source=await readFile('static-source/lib/supabase.ts','utf8');
+    const supabaseUrl=source.match(/const SUPABASE_URL='([^']+)'/)?.[1];
+    const publishableKey=source.match(/const SUPABASE_KEY='([^']+)'/)?.[1];
+    if(!supabaseUrl||!publishableKey)throw new Error('Konfigurasi Supabase publik tidak ditemukan');
+    const endpoint=new URL('/rest/v1/bbweb_articles',supabaseUrl);
+    endpoint.searchParams.set('select','id,title,category,read_time,summary,body,cover_image_url,sort_order,status,is_active,published_at,updated_at');
+    endpoint.searchParams.set('is_active','eq.true');
+    endpoint.searchParams.set('status','eq.published');
+    endpoint.searchParams.set('order','sort_order.asc');
+    const response=await fetch(endpoint,{headers:{apikey:publishableKey,Accept:'application/json'},signal:AbortSignal.timeout(10000)});
+    if(!response.ok)throw new Error('Supabase merespons HTTP '+response.status);
+    const rows=await response.json();
+    if(!Array.isArray(rows))throw new Error('Data artikel Supabase bukan array');
+    const seen=new Set();
+    return rows.map(row=>({
+      id:String(row.id||'').trim().toLowerCase(),
+      title:String(row.title||'').trim(),
+      category:String(row.category||'Business').trim()||'Business',
+      read:String(row.read_time||'3 menit').trim()||'3 menit',
+      summary:String(row.summary||'').trim(),
+      body:Array.isArray(row.body)?row.body.map(p=>String(p??'').trim()).filter(Boolean):[],
+      image:String(row.cover_image_url||'').trim(),
+      cover_image_url:String(row.cover_image_url||'').trim(),
+      published_at:row.published_at||null,
+      updated_at:row.updated_at||row.published_at||null,
+      sort_order:row.sort_order??100
+    })).filter(article=>{
+      if(!/^[a-z0-9][a-z0-9_-]{0,159}$/.test(article.id)||!article.title||seen.has(article.id))return false;
+      seen.add(article.id);
+      return true;
+    });
+  }catch(error){
+    console.warn('Artikel live belum bisa dimuat saat build; memakai artikel bawaan.',error instanceof Error?error.message:String(error));
+    return null;
+  }
+}
+const liveArticles=await fetchPublishedArticles();
+const buildArticles=liveArticles?.length?liveArticles:defaults.articles;
+const buildData={...defaults,articles:buildArticles};
 const origin='https://bisabikinweb.site';
 const brand='BisaBikinWeb.id';
 const logo=origin+'/brand/bisabikinweb-logo-compact.svg';
@@ -33,9 +75,17 @@ const pages={
   '/admin/iklan':['Ads Manager Bisabikinweb','Panel admin untuk mengatur iklan homepage Bisabikinweb.'],
   '/admin/payments':['Payment Gateway — BisaBikinWeb','Dashboard transaksi Midtrans, status pembayaran, rekonsiliasi, dan monitoring checkout merchandise.']
 };
-for(const [kind,prefix] of [['services','jasa'],['portfolio','portfolio'],['products','merch'],['articles','artikel']])for(const p of defaults[kind])pages['/'+prefix+'/'+p.id]=[p.title||p.name,p.summary||p.description];
+for(const [kind,prefix] of [['services','jasa'],['portfolio','portfolio'],['products','merch']])for(const p of defaults[kind])pages['/'+prefix+'/'+p.id]=[p.title||p.name,p.summary||p.description];
+for(const article of buildArticles)pages['/artikel/'+article.id]=[article.title,article.summary||'Artikel seputar website, bisnis, dan strategi digital.'];
+const articleByPath=new Map(buildArticles.map(article=>['/artikel/'+article.id,article]));
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
-const jsonLd=value=>JSON.stringify(value).replace(/</g,'\\u003c');
+const jsonLd=value=>JSON.stringify(value).replace(/</g,'\\\\u003c');
+const buildDate=new Date().toISOString().slice(0,10);
+const plain=s=>String(s??'').replace(/<[^>]*>/g,' ').replace(/\\s+/g,' ').trim();
+const snippet=s=>{const value=plain(s);return value.length>160?value.slice(0,157).trimEnd()+'…':value};
+const isoDate=value=>{if(!value)return null;const date=new Date(value);return Number.isNaN(date.getTime())?null:date.toISOString()};
+const dateOnly=value=>isoDate(value)?.slice(0,10)||buildDate;
+const safeHttpsUrl=value=>{try{const url=new URL(String(value||''));return url.protocol==='https:'&&!url.username&&!url.password?url.href:''}catch{return ''}};
 const organization={
   '@context':'https://schema.org','@type':'Organization','@id':origin+'/#organization',name:brand,url:origin+'/',logo:{'@type':'ImageObject',url:logo},image:logo,email,telephone:phone,
   description:'Jasa pembuatan website profesional untuk UMKM, bisnis, personal brand, toko online, dan perusahaan.',
@@ -49,19 +99,43 @@ function protectHtml(html){
 }
 const template=await readFile('site-dist/index.html','utf8');
 for(const [path,[name,description]] of Object.entries(pages)){
- const title=path==='/'?brand+' | '+name:name+' | '+brand,url=origin+(path==='/'?'/':path+'/');
- const isService=path==='/'||path==='/jasa'||path==='/harga'||path.startsWith('/jasa/');
- const noindex=path==='/cart'||path==='/checkout'||path==='/track-order'||path==='/account'||path==='/seller'||path.startsWith('/admin');
- const schemas=[organization,website];
- if(isService)schemas.push({'@context':'https://schema.org','@type':'Service','@id':url+'#service',name:path==='/'?'Jasa Pembuatan Website':name,description,url,provider:{'@id':origin+'/#organization'},areaServed:[{'@type':'City','name':'Yogyakarta'},{'@type':'Country','name':'Indonesia'}],serviceType:'Website development and web design'});
- const structured=schemas.map(s=>'<script type="application/ld+json">'+jsonLd(s)+'</script>').join('');
- const seo=`<title>${esc(title)}</title><meta name="description" content="${esc(description)}"/><meta name="application-name" content="${brand}"/><meta name="author" content="${brand}"/><meta name="robots" content="${noindex?'noindex,nofollow':'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}"/><meta name="googlebot" content="${noindex?'noindex,nofollow':'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}"/><link rel="canonical" href="${url}"/><link rel="sitemap" type="application/xml" href="${origin}/sitemap.xml"/><meta property="og:type" content="website"/><meta property="og:locale" content="id_ID"/><meta property="og:site_name" content="${brand}"/><meta property="og:title" content="${esc(title)}"/><meta property="og:description" content="${esc(description)}"/><meta property="og:url" content="${url}"/><meta property="og:image" content="${origin}/og.svg"/><meta property="og:image:alt" content="Bisabikinweb — jasa pembuatan website profesional"/><meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="${esc(title)}"/><meta name="twitter:description" content="${esc(description)}"/><meta name="twitter:image" content="${origin}/og.svg"/>${structured}`;
- const html=template.replace('<!--SEO-->',seo).replace('<!--APP-->',render(path));
+  const article=articleByPath.get(path);
+  const title=article?(article.title.length<=55?article.title+' | '+brand:article.title):(path==='/'?brand+' | '+name:name+' | '+brand);
+  const url=origin+(path==='/'?'/':path+'/');
+  const isService=path==='/'||path==='/jasa'||path==='/harga'||path.startsWith('/jasa/');
+  const noindex=path==='/cart'||path==='/checkout'||path==='/track-order'||path==='/account'||path==='/seller'||path.startsWith('/admin');
+  const metaDescription=snippet(description);
+  const articleImage=safeHttpsUrl(article?.image);
+  const imageUrl=articleImage||origin+'/og.svg';
+  const publishedAt=isoDate(article?.published_at);
+  const modifiedAt=isoDate(article?.updated_at||article?.published_at);
+  const schemas=[organization,website];
+  if(isService)schemas.push({'@context':'https://schema.org','@type':'Service','@id':url+'#service',name:path==='/'?'Jasa Pembuatan Website':name,description:metaDescription,url,provider:{'@id':origin+'/#organization'},areaServed:[{'@type':'City','name':'Yogyakarta'},{'@type':'Country','name':'Indonesia'}],serviceType:'Website development and web design'});
+  if(article){
+    const words=[article.title,article.summary,...(Array.isArray(article.body)?article.body:[])].join(' ').trim().split(/\\s+/).filter(Boolean).length;
+    const articleSchema={'@context':'https://schema.org','@type':'BlogPosting','@id':url+'#article',mainEntityOfPage:{'@type':'WebPage','@id':url},headline:article.title,description:metaDescription,url,author:{'@type':'Organization','@id':origin+'/#organization',name:brand},publisher:{'@id':origin+'/#organization'},inLanguage:'id-ID',articleSection:article.category,wordCount:words};
+    if(articleImage)articleSchema.image=[articleImage];
+    if(publishedAt)articleSchema.datePublished=publishedAt;
+    if(modifiedAt)articleSchema.dateModified=modifiedAt;
+    const minutes=Number(String(article.read||'').match(/\\d+/)?.[0]||0);
+    if(minutes>0)articleSchema.timeRequired='PT'+minutes+'M';
+    schemas.push(articleSchema);
+  }
+  const structured=schemas.map(s=>'<script type="application/ld+json">'+jsonLd(s)+'</script>').join('');
+  const articleMeta=article?(publishedAt?'<meta property="article:published_time" content="'+esc(publishedAt)+'"/>':'')+(modifiedAt?'<meta property="article:modified_time" content="'+esc(modifiedAt)+'"/>':''):'';
+  const seo=`<title>${esc(title)}</title><meta name="description" content="${esc(metaDescription)}"/><meta name="application-name" content="${brand}"/><meta name="author" content="${brand}"/><meta name="robots" content="${noindex?'noindex,nofollow':'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}"/><meta name="googlebot" content="${noindex?'noindex,nofollow':'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}"/><link rel="canonical" href="${url}"/><link rel="sitemap" type="application/xml" href="${origin}/sitemap.xml"/><meta property="og:type" content="${article?'article':'website'}"/><meta property="og:locale" content="id_ID"/><meta property="og:site_name" content="${brand}"/><meta property="og:title" content="${esc(title)}"/><meta property="og:description" content="${esc(metaDescription)}"/><meta property="og:url" content="${url}"/><meta property="og:image" content="${esc(imageUrl)}"/><meta property="og:image:alt" content="${esc(article?.title||'Bisabikinweb — jasa pembuatan website profesional')}"/>${articleMeta}<meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="${esc(title)}"/><meta name="twitter:description" content="${esc(metaDescription)}"/><meta name="twitter:image" content="${esc(imageUrl)}"/>${structured}`;
+ const html=template.replace('<!--SEO-->',seo).replace('<!--APP-->',render(path,buildData));
  const dir='site-dist'+(path==='/'?'':path);await mkdir(dir,{recursive:true});await writeFile(dir+'/index.html',protectHtml(html));
 }
-await writeFile('site-dist/404.html',protectHtml(template.replace('<!--SEO-->','<title>Halaman Tidak Ditemukan | Bisabikinweb</title><meta name="robots" content="noindex,nofollow"/>').replace('<!--APP-->',render('/404'))));
+await writeFile('site-dist/404.html',protectHtml(template.replace('<!--SEO-->','<title>Halaman Tidak Ditemukan | Bisabikinweb</title><meta name="robots" content="noindex,nofollow"/>').replace('<!--APP-->',render('/404',buildData))));
 await writeFile('site-dist/robots.txt',`User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /seller/\nDisallow: /account/\nDisallow: /checkout/\nDisallow: /track-order/\nDisallow: /cart/\n\nSitemap: ${origin}/sitemap.xml\n`);
-const lastmod=new Date().toISOString().slice(0,10);
-await writeFile('site-dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+Object.keys(pages).filter(x=>!['/cart','/checkout','/track-order','/seller','/account'].includes(x)&&!x.startsWith('/admin')).map(x=>`  <url><loc>${origin}${x==='/'?'/':x+'/'}</loc><lastmod>${lastmod}</lastmod></url>`).join('\n')+'\n</urlset>\n');
+const excludedRoutes=new Set(['/cart','/checkout','/track-order','/seller','/account']);
+const sitemapEntries=Object.keys(pages).filter(path=>!excludedRoutes.has(path)&&!path.startsWith('/admin')&&!path.startsWith('/seller/')).map(path=>{
+ const article=articleByPath.get(path);
+ const loc=origin+(path==='/'?'/':path+'/');
+ const lastmod=article?dateOnly(article.updated_at||article.published_at):buildDate;
+ return `  <url><loc>${esc(loc)}</loc><lastmod>${lastmod}</lastmod></url>`;
+});
+await writeFile('site-dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+sitemapEntries.join('\n')+'\n</urlset>\n');
 await writeFile('site-dist/.nojekyll','');await writeFile('site-dist/CNAME','bisabikinweb.site\n');
-console.log('Prerendered',Object.keys(pages).length,'pages with SEO metadata and structured data.');
+console.log('Prerendered',Object.keys(pages).length,'pages with SEO metadata and structured data, including',buildArticles.length,'published articles.');
