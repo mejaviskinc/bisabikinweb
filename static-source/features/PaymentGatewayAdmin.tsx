@@ -6,7 +6,7 @@ const idr=(v:any)=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR
 const stamp=(v:any)=>{if(!v)return '—';const d=new Date(v);return Number.isNaN(d.getTime())?'—':d.toLocaleString('id-ID',{dateStyle:'medium',timeStyle:'short'});};
 const labels:Record<string,string>={created:'Dibuat',pending:'Menunggu pembayaran',authorized:'Diotorisasi',paid:'Berhasil dibayar',failed:'Gagal',cancelled:'Dibatalkan',expired:'Kedaluwarsa',payment_error:'Error pembayaran',unknown:'Belum terkonfirmasi',refunded:'Direfund',partial_refund:'Refund sebagian'};
 const methodLabels:Record<string,string>={bank_transfer:'Transfer bank / VA',echannel:'Mandiri Bill',credit_card:'Kartu kredit',gopay:'GoPay',qris:'QRIS',shopeepay:'ShopeePay',cstore:'Gerai retail',akulaku:'Akulaku'};
-const methodLabel=(value:any)=>{const key=String(value||'').toLowerCase();if(!key)return 'Belum dipilih';if(/chat[\\s_-]*gpt/i.test(key))return 'Metode pembayaran lainnya';return methodLabels[key]||'Metode pembayaran lainnya';};
+const methodLabel=(value:any)=>{const key=String(value||'').toLowerCase();if(!key)return 'Belum dipilih';if(/chat.?gpt/i.test(key))return 'Metode pembayaran lainnya';return methodLabels[key]||'Metode pembayaran lainnya';};
 const pending=(s:string)=>['created','pending','authorized','unknown'].includes(String(s||''));
 const failed=(s:string)=>['failed','cancelled','expired','payment_error'].includes(String(s||''));
 function Status({value}:{value:string}){const s=String(value||'unknown').toLowerCase();return <span className={'pg-status pg-status-'+s}><i/>{labels[s]||s.replace(/_/g,' ')}</span>}
