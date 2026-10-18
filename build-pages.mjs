@@ -79,7 +79,7 @@ for(const [kind,prefix] of [['services','jasa'],['portfolio','portfolio'],['prod
 for(const article of buildArticles)pages['/artikel/'+article.id]=[article.title,article.summary||'Artikel seputar website, bisnis, dan strategi digital.'];
 const articleByPath=new Map(buildArticles.map(article=>['/artikel/'+article.id,article]));
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
-const jsonLd=value=>JSON.stringify(value).replace(/</g,'\\\\u003c');
+const jsonLd=value=>JSON.stringify(value).replace(/</g,'\\u003c');
 const buildDate=new Date().toISOString().slice(0,10);
 const plain=s=>String(s??'').replace(/<[^>]*>/g,' ').replace(/\s+/g,' ').trim();
 const snippet=s=>{const value=plain(s);return value.length>160?value.slice(0,157).trimEnd()+'…':value};
