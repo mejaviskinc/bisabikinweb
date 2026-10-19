@@ -134,6 +134,12 @@ for(const [path,[name,description]] of Object.entries(pages)){
 await writeFile('site-dist/404.html',protectHtml(template.replace('<!--SEO-->','<title>Halaman Tidak Ditemukan | Bisabikinweb</title><meta name="robots" content="noindex,nofollow"/>').replace('<!--APP-->',render('/404',buildData))));
 const legacyNews='<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Artikel BisaBikinWeb</title><meta name="robots" content="index,follow"><link rel="canonical" href="https://bisabikinweb.site/artikel/"><meta http-equiv="refresh" content="0;url=/artikel/"></head><body><p>Artikel BisaBikinWeb dipindahkan. <a href="/artikel/">Buka semua artikel terbaru</a>.</p></body></html>';
 await writeFile('site-dist/berita.html',protectHtml(legacyNews));
+const coverPart1=await readFile('.article-image-parts/gojogja-cover-1.b64','utf8');
+const coverPart2=await readFile('.article-image-parts/gojogja-cover-2.b64','utf8');
+const coverBytes=Buffer.from(coverPart1+coverPart2,'base64');
+const coverHash=createHash('sha256').update(coverBytes).digest('hex');
+if(coverHash!=='1fbaee73e936ba6064cc24c86137184f7ae165be32d7845f5e1c5d06b64ca662')throw new Error('GoJogja collaboration cover integrity check failed');
+await writeFile('site-dist/bisabikinweb-gojogja-travel-collaboration.webp',coverBytes);
 await writeFile('site-dist/robots.txt',`User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /seller/\nDisallow: /account/\nDisallow: /checkout/\nDisallow: /track-order/\nDisallow: /cart/\n\nSitemap: ${origin}/sitemap.xml\n`);
 const excludedRoutes=new Set(['/cart','/checkout','/track-order','/seller','/account']);
 const sitemapEntries=Object.keys(pages).filter(path=>!excludedRoutes.has(path)&&!path.startsWith('/admin')&&!path.startsWith('/seller/')).map(path=>{
