@@ -132,6 +132,8 @@ for(const [path,[name,description]] of Object.entries(pages)){
  const dir='site-dist'+(path==='/'?'':path);await mkdir(dir,{recursive:true});await writeFile(dir+'/index.html',protectHtml(html));
 }
 await writeFile('site-dist/404.html',protectHtml(template.replace('<!--SEO-->','<title>Halaman Tidak Ditemukan | Bisabikinweb</title><meta name="robots" content="noindex,nofollow"/>').replace('<!--APP-->',render('/404',buildData))));
+const legacyNews='<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Artikel BisaBikinWeb</title><meta name="robots" content="index,follow"><link rel="canonical" href="https://bisabikinweb.site/artikel/"><meta http-equiv="refresh" content="0;url=/artikel/"></head><body><p>Artikel BisaBikinWeb dipindahkan. <a href="/artikel/">Buka semua artikel terbaru</a>.</p></body></html>';
+await writeFile('site-dist/berita.html',protectHtml(legacyNews));
 await writeFile('site-dist/robots.txt',`User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /seller/\nDisallow: /account/\nDisallow: /checkout/\nDisallow: /track-order/\nDisallow: /cart/\n\nSitemap: ${origin}/sitemap.xml\n`);
 const excludedRoutes=new Set(['/cart','/checkout','/track-order','/seller','/account']);
 const sitemapEntries=Object.keys(pages).filter(path=>!excludedRoutes.has(path)&&!path.startsWith('/admin')&&!path.startsWith('/seller/')).map(path=>{
