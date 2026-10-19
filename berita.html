@@ -172,7 +172,97 @@
 </main>
 <footer class="footer"><div class="wrap">© 2026 BisaBikinWeb · Berita dan rangkuman ekonomi. Sumber asli ditautkan pada setiap artikel.<br><a class="back" href="https://bisabikinweb.site/">← Kembali ke BisaBikinWeb</a></div></footer>
 <script>
-const search=document.getElementById('search');const stories=[...document.querySelectorAll('.story')];search.addEventListener('input',()=>{const q=search.value.toLowerCase().trim();stories.forEach(s=>s.classList.toggle('hidden',q&&!((s.dataset.search+' '+s.innerText).toLowerCase().includes(q))))});
+(() => {
+  const search = document.getElementById('search');
+  const list = document.getElementById('storyList');
+  const SUPABASE_URL = 'https://iyhwephcrxeqwiemhppw.supabase.co';
+  const SUPABASE_PUBLIC_KEY = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6Iml5aHdlcGhjcnhlcXdpZW1ocHB3Iiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA0OTY0MzcsImV4cCI6MjEwNjA3MjQzN30.5_X5H9RIyKP-UUeWfS3iYZk0fI5bR-rnCF6sgVRA_Io';
+
+  const normalized = value => String(value || '').toLocaleLowerCase('id').normalize('NFD').replace(/[\u0300-\u036f]/g, '').replace(/[^a-z0-9]+/g, ' ').trim();
+  const currentTitles = () => new Set([...list.querySelectorAll('.story h2')].map(h => normalized(h.textContent)));
+  const formatDate = value => {
+    if (!value) return 'Artikel terbaru';
+    const d = new Date(value);
+    return Number.isNaN(d.getTime()) ? 'Artikel terbaru' : d.toLocaleDateString('id-ID', { day: 'numeric', month: 'long', year: 'numeric', timeZone: 'Asia/Jakarta' });
+  };
+  const addText = (parent, tag, value, className) => {
+    const el = document.createElement(tag);
+    if (className) el.className = className;
+    el.textContent = value || '';
+    parent.appendChild(el);
+    return el;
+  };
+  function renderArticle(article) {
+    const card = document.createElement('article');
+    card.className = 'story';
+    card.id = 'db-' + String(article.id || Math.random().toString(36).slice(2)).replace(/[^a-zA-Z0-9_-]/g, '-');
+    card.dataset.search = [article.title, article.category, article.summary].filter(Boolean).join(' ');
+    if (article.cover_image_url) {
+      const img = document.createElement('img');
+      img.className = 'story-image';
+      img.src = article.cover_image_url;
+      img.alt = article.title || 'Gambar artikel';
+      img.loading = 'lazy';
+      img.referrerPolicy = 'no-referrer';
+      img.onerror = () => img.remove();
+      card.appendChild(img);
+    }
+    const meta = document.createElement('div');
+    meta.className = 'meta';
+    addText(meta, 'span', article.category || 'Artikel', 'tag');
+    addText(meta, 'span', formatDate(article.published_at || article.created_at));
+    if (article.read_time) addText(meta, 'span', article.read_time);
+    card.appendChild(meta);
+    addText(card, 'h2', article.title || 'Artikel BisaBikinWeb');
+    if (article.summary) addText(card, 'p', article.summary);
+    const paragraphs = Array.isArray(article.body) ? article.body : (article.body ? [String(article.body)] : []);
+    paragraphs.forEach(p => { if (String(p || '').trim()) addText(card, 'p', String(p)); });
+    list.appendChild(card);
+  }
+  function applySearch() {
+    const q = normalized(search.value);
+    list.querySelectorAll('.story').forEach(card => {
+      const haystack = normalized((card.dataset.search || '') + ' ' + card.innerText);
+      card.classList.toggle('hidden', Boolean(q) && !haystack.includes(q));
+    });
+  }
+  search.addEventListener('input', applySearch);
+
+  async function loadPublishedArticles() {
+    try {
+      const params = new URLSearchParams({
+        select: 'id,title,category,read_time,summary,body,status,is_active,published_at,created_at,cover_image_url',
+        status: 'eq.published',
+        is_active: 'eq.true',
+        order: 'published_at.desc.nullslast,created_at.desc',
+        limit: '100'
+      });
+      const response = await fetch(SUPABASE_URL + '/rest/v1/bbweb_articles?' + params.toString(), {
+        headers: { apikey: SUPABASE_PUBLIC_KEY, Authorization: 'Bearer ' + SUPABASE_PUBLIC_KEY, Accept: 'application/json' },
+        cache: 'no-store'
+      });
+      if (!response.ok) throw new Error('HTTP ' + response.status);
+      const articles = await response.json();
+      const existing = currentTitles();
+      let added = 0;
+      for (const article of articles) {
+        const titleKey = normalized(article.title);
+        if (!titleKey || existing.has(titleKey)) continue;
+        renderArticle(article);
+        existing.add(titleKey);
+        added++;
+      }
+      if (added) applySearch();
+    } catch (error) {
+      console.warn('Artikel database belum dapat dimuat:', error);
+      const note = document.createElement('p');
+      note.className = 'note';
+      note.textContent = 'Sebagian artikel terbaru belum dapat dimuat. Silakan muat ulang halaman beberapa saat lagi.';
+      list.parentElement.insertBefore(note, list);
+    }
+  }
+  loadPublishedArticles();
+})();
 </script>
 </body>
 </html>
