@@ -109,3 +109,29 @@ function initTestimonialControls(){document.querySelector('#testiPrev').addEvent
 function hideLoader(){window.addEventListener('load',()=>setTimeout(()=>document.querySelector('#loader').classList.add('hidden'),300));setTimeout(()=>document.querySelector('#loader').classList.add('hidden'),1800)}
 renderServices();renderAdvantages();renderPricing();renderPortfolioFilters();renderPortfolios();renderProcess();renderTestimonials();renderFaqs();
 document.addEventListener('DOMContentLoaded',()=>{initIcons();initNavigation();initWhatsApp();initPortfolio();initFaq();initForm();initReveal();initStats();initBackTop();initTestimonialControls();hideLoader()});
+
+/* Admin-controlled promotional popup: Website Settings > Pop-up promosi */
+(function(){
+  var URL='https://iyhwephcrxeqwiemhppw.supabase.co';
+  var KEY='sb_publishable_0QZOXv00GKp6ecUi2L-FLA_YvsQrzy3';
+  function start(){
+    fetch(URL+'/rest/v1/bbweb_site_settings?select=announcement,whatsapp&id=eq.1&limit=1',{headers:{apikey:KEY,Accept:'application/json'},cache:'no-store'})
+      .then(function(r){return r.ok?r.json():[];})
+      .then(function(rows){
+        if(!Array.isArray(rows)||!rows.length||!String(rows[0].announcement||'').trim())return;
+        try{if(Number(sessionStorage.getItem('bbweb_promo_closed_until')||0)>Date.now())return;}catch(e){}
+        window.setTimeout(function(){
+          if(document.getElementById('bbweb-promo-overlay'))return;
+          var overlay=document.createElement('div');overlay.id='bbweb-promo-overlay';overlay.setAttribute('role','dialog');overlay.setAttribute('aria-modal','true');
+          overlay.innerHTML='<div class="bbweb-promo-card"><button class="bbweb-promo-close" aria-label="Tutup promosi" type="button">&times;</button><span class="bbweb-promo-kicker">PROMO KHUSUS</span><h2>Ada penawaran menarik untuk bisnismu!</h2><p class="bbweb-promo-copy"></p><a class="bbweb-promo-cta" target="_blank" rel="noopener noreferrer">Tanya Promo via WhatsApp ↗</a><small>BisaBikinWeb · Website profesional untuk bisnismu</small></div>';
+          var style=document.createElement('style');
+          style.textContent='#bbweb-promo-overlay{position:fixed;inset:0;z-index:99999;display:flex;align-items:center;justify-content:center;padding:18px;background:rgba(15,15,15,.65);backdrop-filter:blur(5px)}.bbweb-promo-card{position:relative;box-sizing:border-box;width:min(100%,470px);padding:38px 30px 26px;background:#fbf8f1;color:#171717;border:1px solid #e4d7c0;border-radius:22px;box-shadow:0 24px 80px #0003}.bbweb-promo-close{position:absolute;right:12px;top:10px;width:38px;height:38px;border:0;border-radius:50%;background:#eee7da;font-size:27px;cursor:pointer}.bbweb-promo-kicker{display:inline-block;margin-bottom:12px;padding:7px 11px;border-radius:99px;background:#e9d5b0;color:#4d3517;font-size:11px;font-weight:800;letter-spacing:.12em}.bbweb-promo-card h2{margin:0 25px 14px 0;font-size:clamp(25px,5vw,34px);line-height:1.12;letter-spacing:-.04em}.bbweb-promo-copy{margin:0 0 22px;color:#5e5a52;font-size:15px;line-height:1.7;white-space:pre-line;overflow-wrap:anywhere}.bbweb-promo-cta{display:block;padding:15px 18px;border-radius:12px;background:#171717;color:white;text-decoration:none;text-align:center;font-weight:700;font-size:14px}.bbweb-promo-card small{display:block;margin-top:17px;color:#8a8378;font-size:11px;text-align:center}@media(max-width:480px){.bbweb-promo-card{padding:34px 22px 24px}}';
+          document.head.appendChild(style);overlay.querySelector('.bbweb-promo-copy').textContent=String(rows[0].announcement).trim();
+          var phone=String(rows[0].whatsapp||'').replace(/[^0-9]/g,'');overlay.querySelector('.bbweb-promo-cta').href=phone?'https://wa.me/'+phone+'?text='+encodeURIComponent('Halo BisaBikinWeb, saya tertarik dengan promo di website.'):'https://bisabikinweb.site/#kontak';
+          function close(){overlay.remove();try{sessionStorage.setItem('bbweb_promo_closed_until',String(Date.now()+86400000));}catch(e){}}
+          overlay.querySelector('.bbweb-promo-close').addEventListener('click',close);overlay.addEventListener('click',function(e){if(e.target===overlay)close();});document.addEventListener('keydown',function(e){if(e.key==='Escape'&&document.getElementById('bbweb-promo-overlay'))close();});document.body.appendChild(overlay);
+        },1800);
+      }).catch(function(){});
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',start,{once:true});else start();
+})();
