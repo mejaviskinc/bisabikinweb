@@ -33,12 +33,16 @@ function AnimatedHeroShowcase(){
    frame=requestAnimationFrame(()=>{
     node.style.setProperty('--hero-parallax-x',x.toFixed(1)+'px');
     node.style.setProperty('--hero-parallax-y',y.toFixed(1)+'px');
+    node.style.setProperty('--hero-parallax-neg-x',(-x).toFixed(1)+'px');
+    node.style.setProperty('--hero-parallax-neg-y',(-y).toFixed(1)+'px');
    });
   };
   const reset=()=>{
    cancelAnimationFrame(frame);
    node.style.setProperty('--hero-parallax-x','0px');
    node.style.setProperty('--hero-parallax-y','0px');
+   node.style.setProperty('--hero-parallax-neg-x','0px');
+   node.style.setProperty('--hero-parallax-neg-y','0px');
   };
   node.addEventListener('pointermove',update,{passive:true});
   node.addEventListener('pointerleave',reset);
