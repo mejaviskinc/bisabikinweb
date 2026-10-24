@@ -33,3 +33,186 @@
 /* Actual live-site screenshot (updated by the screenshot provider) */
 .portfolio-site-preview .portfolio-live-screenshot{display:block;width:100%;height:100%;object-fit:cover;object-position:top;transition:transform .5s}
 .project-card:hover .portfolio-live-screenshot{transform:scale(1.025)}
+
+
+/* Animated BisaBikinWeb hero 2026 */
+.hero-showcase{
+  --hero-parallax-x:0px;
+  --hero-parallax-y:0px;
+  isolation:isolate;
+}
+.hero-showcase::before{
+  content:"";
+  position:absolute;
+  z-index:0;
+  inset:6% 0 5%;
+  border-radius:50%;
+  background:radial-gradient(ellipse at 54% 53%,rgba(192,255,79,.14) 0%,rgba(192,255,79,.045) 35%,transparent 69%);
+  pointer-events:none;
+  animation:bbw-ambient 8s ease-in-out infinite;
+}
+.showcase-grid-overlay{
+  position:absolute;
+  inset:0;
+  z-index:0;
+  pointer-events:none;
+  opacity:.22;
+  background-image:linear-gradient(#b0cf7740 1px,transparent 1px),linear-gradient(90deg,#b0cf7740 1px,transparent 1px);
+  background-size:40px 40px;
+  mask-image:radial-gradient(ellipse at 55% 54%,black 0%,transparent 76%);
+  -webkit-mask-image:radial-gradient(ellipse at 55% 54%,black 0%,transparent 76%);
+}
+.showcase-orbit{
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  border:1px solid rgba(195,248,92,.32);
+  border-radius:50%;
+}
+.showcase-orbit-one{
+  width:104%;
+  height:62%;
+  top:22%;
+  left:-3%;
+  transform:rotate(-22deg);
+  animation:bbw-orbit-one 23s linear infinite;
+}
+.showcase-orbit-two{
+  width:82%;
+  height:88%;
+  top:6%;
+  left:12%;
+  border-color:rgba(209,182,125,.2);
+  border-style:dashed;
+  transform:rotate(38deg);
+  animation:bbw-orbit-two 34s linear infinite;
+}
+.showcase-orbit i{
+  position:absolute;
+  left:50%;
+  top:-5px;
+  width:10px;
+  height:10px;
+  border-radius:50%;
+  background:#c4f95b;
+  box-shadow:0 0 16px 3px rgba(195,248,92,.6);
+}
+.showcase-orbit-two i{
+  width:6px;
+  height:6px;
+  top:-3px;
+  background:#e6cfa0;
+  box-shadow:0 0 12px 2px #d8b76c44;
+}
+.showcase-bubble{
+  position:absolute;
+  pointer-events:none;
+  z-index:1;
+  border:1px solid #e7d4b588;
+  border-radius:50%;
+  background:radial-gradient(circle at 32% 25%,#e5e2ca,#6f7961 37%,#262b22 68%,#0d110f 89%);
+  box-shadow:10px 17px 24px #0006, -4px -6px 18px #e5d3ab22;
+}
+.showcase-bubble-one{
+  width:38px;
+  height:38px;
+  top:24px;
+  left:15%;
+  animation:bbw-bubble-one 8s ease-in-out infinite;
+}
+.showcase-bubble-two{
+  width:22px;
+  height:22px;
+  bottom:57px;
+  right:14%;
+  animation:bbw-bubble-two 6s ease-in-out infinite;
+}
+.hero-showcase .showcase-main{
+  animation:bbw-main-float 9s ease-in-out infinite;
+  backface-visibility:hidden;
+  transform-origin:50% 50%;
+}
+.hero-showcase .showcase-float{
+  animation:bbw-card-float 7s ease-in-out infinite;
+  backface-visibility:hidden;
+}
+.hero-showcase .showcase-tag{
+  animation:bbw-tag-float 5.7s ease-in-out infinite;
+}
+.hero-showcase .showcase-star{
+  animation:bbw-star-spin 27s linear infinite;
+}
+.hero-showcase .bbw-code-orbit{
+  animation:bbw-code-orbit 18s linear infinite;
+}
+.hero-showcase .bbw-big-braces{
+  animation:bbw-braces-drift 6s ease-in-out infinite;
+}
+.hero-showcase .showcase-main,
+.hero-showcase .showcase-float,
+.hero-showcase .showcase-tag{
+  will-change:transform;
+}
+@keyframes bbw-main-float{
+  0%,100%{transform:perspective(1600px) rotateY(-13deg) rotateZ(4deg) translate3d(calc(var(--hero-parallax-x) * .6),calc(var(--hero-parallax-y) * .6),0)}
+  50%{transform:perspective(1600px) rotateY(-10deg) rotateZ(2deg) translate3d(calc(var(--hero-parallax-x) * .6),calc(var(--hero-parallax-y) * .6 - 13px),0)}
+}
+@keyframes bbw-card-float{
+  0%,100%{transform:translate3d(calc(var(--hero-parallax-x) * -1),calc(var(--hero-parallax-y) * -1),0) rotate(-7deg)}
+  50%{transform:translate3d(calc(var(--hero-parallax-x) * -1),calc(var(--hero-parallax-y) * -1 - 15px),0) rotate(-4deg)}
+}
+@keyframes bbw-tag-float{
+  0%,100%{transform:translate3d(calc(var(--hero-parallax-x) * .7),calc(var(--hero-parallax-y) * .7),0) rotate(4deg)}
+  50%{transform:translate3d(calc(var(--hero-parallax-x) * .7),calc(var(--hero-parallax-y) * .7 - 9px),0) rotate(1deg)}
+}
+@keyframes bbw-star-spin{
+  from{transform:rotate(14deg)}
+  to{transform:rotate(374deg)}
+}
+@keyframes bbw-orbit-one{
+  from{transform:rotate(-22deg)}
+  to{transform:rotate(338deg)}
+}
+@keyframes bbw-orbit-two{
+  from{transform:rotate(38deg)}
+  to{transform:rotate(-322deg)}
+}
+@keyframes bbw-code-orbit{
+  from{transform:rotate(-25deg) scaleY(.75)}
+  to{transform:rotate(335deg) scaleY(.75)}
+}
+@keyframes bbw-braces-drift{
+  0%,100%{transform:rotate(-9deg) translateY(0)}
+  50%{transform:rotate(-5deg) translateY(-7px)}
+}
+@keyframes bbw-bubble-one{
+  0%,100%{transform:translate3d(0,0,0)}
+  50%{transform:translate3d(10px,-12px,0)}
+}
+@keyframes bbw-bubble-two{
+  0%,100%{transform:translate3d(0,0,0)}
+  50%{transform:translate3d(-8px,12px,0)}
+}
+@keyframes bbw-ambient{
+  0%,100%{opacity:.58;transform:scale(.97)}
+  50%{opacity:1;transform:scale(1.055)}
+}
+@media(max-width:650px){
+  .showcase-orbit-one{width:92%;left:4%}
+  .showcase-bubble-one{width:22px;height:22px;top:15px;left:12%}
+  .showcase-bubble-two{width:14px;height:14px;bottom:62px}
+  .hero-showcase .showcase-main{animation-duration:10s}
+  .hero-showcase .showcase-float{animation-duration:9s}
+}
+@media(prefers-reduced-motion:reduce){
+  .hero-showcase .showcase-main,
+  .hero-showcase .showcase-float,
+  .hero-showcase .showcase-tag,
+  .hero-showcase .showcase-star,
+  .hero-showcase .bbw-code-orbit,
+  .hero-showcase .bbw-big-braces,
+  .hero-showcase::before,
+  .hero-showcase .showcase-orbit,
+  .hero-showcase .showcase-bubble{animation:none!important;will-change:auto}
+}
