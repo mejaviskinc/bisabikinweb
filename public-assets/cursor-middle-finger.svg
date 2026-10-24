@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" viewBox="0 0 64 64" fill="none" aria-label="Kursor tangan dengan jari tengah terangkat">
+  <path d="M22 61C18 57 15 52 14 48L7 43C4 40 5 37 8 35C11 33 14 35 17 38L22 42V35C22 32 24 30 27 30V9C27 5 29 3 32 3C35 3 37 5 37 9V32C39 30 41 29 43 30C45 31 47 33 47 36C49 33 52 33 54 35C56 37 57 39 57 42V47C57 54 53 59 49 62L22 61Z" fill="#F4E0B8" stroke="#151914" stroke-width="3.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M27 30V42M37 32V42M47 36V43" stroke="#151914" stroke-width="2.3" stroke-linecap="round" opacity=".65"/>
+  <path d="M29.5 10V7.5C30.5 6 33.5 6 34.5 7.5V10" stroke="#C69465" stroke-width="1.6" stroke-linecap="round"/>
+  <path d="M24 48C31 45 37 47 42 50M25 55C31 53 37 54 43 57" stroke="#B68F62" stroke-width="1.5" stroke-linecap="round" opacity=".85"/>
+  <path d="M22 61H49" stroke="#151914" stroke-width="3.5" stroke-linecap="round"/>
+  <circle cx="51.5" cy="11.5" r="2" fill="#C8F95B"/>
+  <path d="M51.5 4.5V7M51.5 16V18.5M44.5 11.5H47M56 11.5H58.5" stroke="#C8F95B" stroke-width="1.6" stroke-linecap="round"/>
+</svg>
