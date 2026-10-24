@@ -36,7 +36,9 @@ function PublicClient(){
       const next={
         ...defaults,
         settings:{...defaults.settings,...(remote.settings||{})},
-        portfolio:remote.portfolio?.length?remote.portfolio:defaults.portfolio,
+        portfolio:remote.portfolio?.length
+          ? [...remote.portfolio, ...defaults.portfolio.filter((p:any)=>!remote.portfolio.some((r:any)=>r.id===p.id))]
+          : defaults.portfolio,
         services:remote.services?.length?remote.services:defaults.services,
         pricing:remote.pricing?.length?remote.pricing:defaults.pricing,
         products:remote.products?.length?remote.products:defaults.products,
