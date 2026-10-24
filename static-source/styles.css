@@ -39,6 +39,8 @@
 .hero-showcase{
   --hero-parallax-x:0px;
   --hero-parallax-y:0px;
+  --hero-parallax-neg-x:0px;
+  --hero-parallax-neg-y:0px;
   isolation:isolate;
 }
 .hero-showcase::before{
@@ -155,16 +157,16 @@
   will-change:transform;
 }
 @keyframes bbw-main-float{
-  0%,100%{transform:perspective(1600px) rotateY(-13deg) rotateZ(4deg) translate3d(calc(var(--hero-parallax-x) * .6),calc(var(--hero-parallax-y) * .6),0)}
-  50%{transform:perspective(1600px) rotateY(-10deg) rotateZ(2deg) translate3d(calc(var(--hero-parallax-x) * .6),calc(var(--hero-parallax-y) * .6 - 13px),0)}
+  0%,100%{transform:perspective(1600px) rotateY(-13deg) rotateZ(4deg) translate3d(var(--hero-parallax-x),var(--hero-parallax-y),0)}
+  50%{transform:perspective(1600px) rotateY(-10deg) rotateZ(2deg) translate3d(var(--hero-parallax-x),calc(var(--hero-parallax-y) - 13px),0)}
 }
 @keyframes bbw-card-float{
-  0%,100%{transform:translate3d(calc(var(--hero-parallax-x) * -1),calc(var(--hero-parallax-y) * -1),0) rotate(-7deg)}
-  50%{transform:translate3d(calc(var(--hero-parallax-x) * -1),calc(var(--hero-parallax-y) * -1 - 15px),0) rotate(-4deg)}
+  0%,100%{transform:translate3d(var(--hero-parallax-neg-x),var(--hero-parallax-neg-y),0) rotate(-7deg)}
+  50%{transform:translate3d(var(--hero-parallax-neg-x),calc(var(--hero-parallax-neg-y) - 15px),0) rotate(-4deg)}
 }
 @keyframes bbw-tag-float{
-  0%,100%{transform:translate3d(calc(var(--hero-parallax-x) * .7),calc(var(--hero-parallax-y) * .7),0) rotate(4deg)}
-  50%{transform:translate3d(calc(var(--hero-parallax-x) * .7),calc(var(--hero-parallax-y) * .7 - 9px),0) rotate(1deg)}
+  0%,100%{transform:translate3d(var(--hero-parallax-x),var(--hero-parallax-y),0) rotate(4deg)}
+  50%{transform:translate3d(var(--hero-parallax-x),calc(var(--hero-parallax-y) - 9px),0) rotate(1deg)}
 }
 @keyframes bbw-star-spin{
   from{transform:rotate(14deg)}
