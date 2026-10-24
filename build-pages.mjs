@@ -75,7 +75,7 @@ const pages={
   '/':['Jasa Pembuatan Website Jogja untuk Bisnis & UMKM','Bisabikinweb adalah jasa pembuatan website di Yogyakarta untuk UMKM, bisnis, personal brand, toko online, dan perusahaan di seluruh Indonesia. Website modern, cepat, mobile-friendly, dan siap SEO.'],
   '/jasa':['Jasa Pembuatan Website Jogja & Indonesia','Jasa pembuatan website profesional di Yogyakarta untuk landing page, company profile, toko online, portfolio, dan web application. Melayani bisnis di Jogja dan seluruh Indonesia.'],
   '/harga':['Harga Jasa Pembuatan Website','Lihat paket dan harga jasa pembuatan website Bisabikinweb mulai Rp800 ribuan untuk landing page, company profile, toko online, dan kebutuhan website bisnis.'],
-  '/portfolio':['Portfolio Jasa Pembuatan Website','Lihat portfolio website Bisabikinweb untuk Berbeda, Karpenter Indonesia, Mejavi Skin+, serta project bisnis lainnya.'],
+  '/portfolio':['Portfolio Jasa Pembuatan Website','Jelajahi portfolio website Bisabikinweb: Berbeda, Karpenter Indonesia, Mejavi Skin+, GoO Ninks, dan GoJogja Travel.'],
   '/merch':['Merch Bisabikinweb','Jelajahi konsep koleksi merch Bisabikinweb. Produk segera hadir.'],
   '/tentang':['Tentang Bisabikinweb — Web Studio Yogyakarta','Kenali Bisabikinweb, studio pembuatan website untuk bisnis dan UMKM di Yogyakarta yang melayani project dari seluruh Indonesia.'],
   '/kontak':['Konsultasi Jasa Website','Konsultasikan pembuatan website bisnis dengan Bisabikinweb melalui WhatsApp 0882003740969 atau email bisabikinw3b@gmail.com.'],
