@@ -24,8 +24,6 @@ export function MerchArt({product,large=false}:{product:any,large?:boolean}){con
   </div>
   <div className="portfolio-domain-foot"><span>{project.name}</span><span>{domain}</span></div>
  </div>;
-}{domain}</span></div>
- </div>;
 }
 
 export function BrandShowcase({compact=false}:{compact?:boolean}){return compact?<div className="bbw-panel"><div className="bbw-panel-top"><span className="bbw-braces">{'{}'}</span><b>Bisabikinweb <small>STUDIO WORKSPACE</small></b><i>↗</i></div><div className="bbw-panel-body"><small>FROM IDEA TO ONLINE</small><h3>Your next big thing.<br/>Starts here.</h3><div className="bbw-service-list">{[['01','Design with character'],['02','Build with purpose'],['03','Ready to go online']].map(([n,t])=><div key={n}><span>{n}</span><b>{t}</b><i>↗</i></div>)}</div><div className="bbw-panel-foot"><span>WEBSITE / BRAND / MERCH</span><b>Let’s build ↗</b></div></div></div>:<div className="bbw-window"><div className="bbw-window-bar"><span>● ● ●</span><span>bisabikinweb / digital studio</span><span>↗</span></div><div className="bbw-window-nav"><b><span>{'{}'}</span> BisaBikinWeb</b><small>DESIGN · DEVELOP · LAUNCH</small></div><div className="bbw-window-body"><div className="bbw-window-copy"><small>INDEPENDENT MINDS. BOLD IDEAS.</small><h3>Build Your<br/><em>Digital</em><br/>Presence.</h3><p>Good design. Real purpose.</p><span className="bbw-mock-cta">Start something great <b>↗</b></span></div><div className="bbw-code-art" aria-hidden="true"><div className="bbw-code-orbit"/><span className="bbw-big-braces">{'{}'}</span><span className="bbw-code-label">YOUR IDEAS.<br/>BUILT FOR THE WEB.</span><i>✳</i></div></div><div className="bbw-window-foot"><span>CREATE. BUILD. MAKE IT HAPPEN.</span><span>BISABIKINWEB®</span></div></div>}
