@@ -218,3 +218,20 @@
   .hero-showcase .showcase-orbit,
   .hero-showcase .showcase-bubble{animation:none!important;will-change:auto}
 }
+
+/* BisaBikinWeb custom desktop middle-finger cursor */
+@media (hover: hover) and (pointer: fine) {
+  html, body, body * {
+    cursor: url("/cursor-middle-finger.svg") 24 2, auto !important;
+  }
+
+  body :is(a, button, select, summary, label, [role="button"], [role="link"], [data-wa], input[type="button"], input[type="submit"], input[type="reset"], input[type="checkbox"], input[type="radio"], input[type="range"]),
+  body :is(a, button, summary, label, [role="button"], [role="link"], [data-wa]) * {
+    cursor: url("/cursor-middle-finger.svg") 24 2, pointer !important;
+  }
+
+  body :is(input:not([type]), input[type="text"], input[type="email"], input[type="password"], input[type="search"], input[type="number"], input[type="tel"], input[type="url"], textarea, [contenteditable], [role="textbox"]),
+  body :is([contenteditable], [role="textbox"]) * {
+    cursor: text !important;
+  }
+}
