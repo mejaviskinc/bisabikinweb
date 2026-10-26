@@ -1,0 +1,13 @@
+.digital-intro{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:70px;align-items:center;margin:45px 0 100px}
+.digital-intro .page-intro{margin:0}.digital-intro .page-intro p{max-width:560px}.digital-status{padding:36px;border:1px solid var(--line);border-radius:18px;background:var(--panel)}
+.digital-status>svg{display:block;color:var(--accent);margin-bottom:25px}.digital-status h2{font-size:32px;margin:22px 0 16px}.digital-status p{font-size:13px}
+.digital-badge{display:inline-flex;align-items:center;padding:6px 10px;border:1px solid var(--line);border-radius:100px;font-size:10px;color:var(--muted);white-space:nowrap}
+.digital-page>.section-heading{scroll-margin-top:110px}.digital-page>.section-heading>p{max-width:270px;margin:0}
+.digital-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}.digital-card{display:flex;flex-direction:column;padding:30px;border:1px solid var(--line);border-radius:14px;background:var(--panel)}
+.digital-card-top{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:30px}.digital-icon{display:grid;place-items:center;width:48px;height:48px;border-radius:12px;background:var(--soft);color:var(--accent)}
+.digital-card h3{font-size:25px;margin:8px 0 15px}.digital-card p{font-size:13px;flex:1}.digital-card .text-link{margin-top:15px;align-self:flex-start}
+.digital-note{margin-top:60px;padding:40px;border:1px solid var(--line);border-radius:14px}.digital-note h2{margin-bottom:18px}.digital-note p{max-width:600px}
+@media(min-width:901px){.site-header nav{gap:17px}.site-header nav a{white-space:nowrap}}
+@media(min-width:901px) and (max-width:1350px){.site-header{gap:16px}.site-header nav{gap:13px}.site-header .nav-cta{display:none}}
+@media(max-width:1050px){.digital-intro{gap:30px}.digital-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:650px){.digital-intro{grid-template-columns:1fr;margin:30px 0 55px;gap:30px}.digital-status{padding:26px}.digital-status h2{font-size:28px}.digital-grid{grid-template-columns:1fr}.digital-card{padding:25px}.digital-page>.section-heading>p{margin-top:20px}.digital-note{padding:26px}.digital-note .btn{white-space:normal}}

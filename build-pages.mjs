@@ -76,6 +76,7 @@ const pages={
   '/jasa':['Jasa Pembuatan Website Jogja & Indonesia','Jasa pembuatan website profesional di Yogyakarta untuk landing page, company profile, toko online, portfolio, dan web application. Melayani bisnis di Jogja dan seluruh Indonesia.'],
   '/harga':['Harga Jasa Pembuatan Website','Lihat paket dan harga jasa pembuatan website Bisabikinweb mulai Rp800 ribuan untuk landing page, company profile, toko online, dan kebutuhan website bisnis.'],
   '/portfolio':['Portfolio Jasa Pembuatan Website','Jelajahi portfolio website Bisabikinweb: Berbeda, Karpenter Indonesia, Mejavi Skin+, GoO Ninks, dan GoJogja Travel.'],
+  '/layanan-digital':['Layanan Digital — Pulsa, Paket Data, Token & Travel','Kenali rencana layanan digital BisaBikinWeb: pulsa, paket data, token listrik, voucher game, pembayaran tagihan, dan tiket pesawat serta hotel. Segera hadir.'],
   '/merch':['Merch Bisabikinweb','Jelajahi konsep koleksi merch Bisabikinweb. Produk segera hadir.'],
   '/tentang':['Tentang Bisabikinweb — Web Studio Yogyakarta','Kenali Bisabikinweb, studio pembuatan website untuk bisnis dan UMKM di Yogyakarta yang melayani project dari seluruh Indonesia.'],
   '/kontak':['Konsultasi Jasa Website','Konsultasikan pembuatan website bisnis dengan Bisabikinweb melalui WhatsApp 0882003740969 atau email bisabikinw3b@gmail.com.'],
@@ -165,4 +166,10 @@ const sitemapEntries=Object.keys(pages).filter(path=>!excludedRoutes.has(path)&&
 });
 await writeFile('site-dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+sitemapEntries.join('\n')+'\n</urlset>\n');
 await writeFile('site-dist/.nojekyll','');await writeFile('site-dist/CNAME','bisabikinweb.site\n');
+// Apply the same security policy to the retained standalone invitation demo.
+const invitationPath='site-dist/undangan-jawa-tengah/index.html';
+const invitationHtml=protectHtml(await readFile(invitationPath,'utf8'))
+  .replace("style-src 'self' 'unsafe-inline'","style-src 'self' 'unsafe-inline' https://fonts.googleapis.com")
+  .replace("font-src 'self' data:","font-src 'self' data: https://fonts.gstatic.com");
+await writeFile(invitationPath,invitationHtml);
 console.log('Prerendered',Object.keys(pages).length,'pages with SEO metadata and structured data, including',buildArticles.length,'published articles.');
