@@ -56,7 +56,7 @@ export async function loadPublicContent(){
     safeRequest('/rest/v1/bbweb_services?select=id,name,icon,tag,description,features,sort_order&is_active=eq.true&order=sort_order.asc'),
     safeRequest('/rest/v1/bbweb_pricing?select=id,name,price,maintenance,description,features,featured,sort_order&is_active=eq.true&order=sort_order.asc'),
     safeRequest('/rest/v1/bbweb_merchandise?select=id,name,collection,type,color,print,description,price,badge,material,care,shipping,returns,stock,sort_order,image_url&is_active=eq.true&order=sort_order.asc'),
-    safeRequest('/rest/v1/bbweb_articles?select=id,title,category,read_time,summary,body,cover_image_url,sort_order,author_store_name,author_type&is_active=eq.true&status=eq.published&order=sort_order.asc,published_at.desc'),
+    safeRequest('/rest/v1/bbweb_articles?select=id,title,category,read_time,summary,body,cover_image_url,sort_order,published_at,updated_at,author_store_name,author_type&is_active=eq.true&status=eq.published&order=sort_order.asc,published_at.desc'),
     safeRequest('/rest/v1/bbweb_testimonials?select=id,name,business,quote,rating,sort_order&is_active=eq.true&order=sort_order.asc')
   ]);
   const row=Array.isArray(settingsRows)?settingsRows[0]:null;
@@ -66,7 +66,7 @@ export async function loadPublicContent(){
   const services=Array.isArray(serviceRows)?serviceRows.map((s:any)=>({id:s.id,name:s.name,icon:s.icon||'↗',tag:s.tag||'',description:s.description||'',features:Array.isArray(s.features)?s.features:[]})):null;
   const pricing=Array.isArray(pricingRows)?pricingRows.map((p:any)=>({id:p.id,name:p.name,price:p.price===null?null:Number(p.price),maintenance:p.maintenance===null?null:Number(p.maintenance),desc:p.description||'',features:Array.isArray(p.features)?p.features:[],featured:Boolean(p.featured)})):null;
   const products=Array.isArray(merchRows)?merchRows.map((p:any)=>({id:p.id,name:p.name,collection:p.collection||'CORE',type:p.type||'item',color:p.color||'',print:p.print||'',description:p.description||'',price:p.price===null?null:Number(p.price),badge:p.badge||'',material:p.material||'',care:p.care||'',shipping:p.shipping||'',returns:p.returns||'',image:p.image_url||'',image_url:p.image_url||'',stock:Number(p.stock||0)})):null;
-  const articles=Array.isArray(articleRows)?articleRows.map((a:any)=>({id:a.id,title:a.title,category:a.category||'Business',read:a.read_time||'3 menit',summary:a.summary||'',body:Array.isArray(a.body)?a.body:[],image:a.cover_image_url||'',cover_image_url:a.cover_image_url||'',author_store_name:a.author_store_name||'BisaBikinWeb',author_type:a.author_type||'editorial'})):null;
+  const articles=Array.isArray(articleRows)?articleRows.map((a:any)=>({id:a.id,title:a.title,category:a.category||'Business',read:a.read_time||'3 menit',summary:a.summary||'',body:Array.isArray(a.body)?a.body:[],image:a.cover_image_url||'',cover_image_url:a.cover_image_url||'',author_store_name:a.author_store_name||'BisaBikinWeb',author_type:a.author_type||'editorial',published_at:a.published_at||null,updated_at:a.updated_at||null})):null;
   return {settings,portfolio,services,pricing,products,articles};
 }
 
