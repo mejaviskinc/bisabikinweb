@@ -1,6 +1,6 @@
 import {createHash} from 'node:crypto';
 import {build} from 'vite';
-import {isNewsArticle,makeNewsSitemap} from './static-source/lib/news.mjs';
+import {isNewsArticle,makeNewsSitemap,getFreshNewsArticles} from './static-source/lib/news.mjs';
 import {mergeEditorialPosts} from './static-source/lib/editorial-posts.mjs';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 const configFile=new URL('./vite.pages.mjs',import.meta.url).pathname;
@@ -68,6 +68,7 @@ const exportArticle={id:'website-ekspor-bisnis-internasional',title:'Website Eks
 if(!buildArticles.some(article=>article.id===exportArticle.id))buildArticles.unshift(exportArticle);
 
 const buildData={...defaults,articles:buildArticles};
+const freshNewsArticles=getFreshNewsArticles(buildArticles);
 const origin='https://bisabikinweb.site';
 const brand='BisaBikinWeb.id';
 const logo=origin+'/brand/bisabikinweb-logo-compact.svg';
@@ -160,7 +161,7 @@ const coverBytes=Buffer.from(coverPart1+coverPart2,'base64');
 const coverHash=createHash('sha256').update(coverBytes).digest('hex');
 if(coverHash!=='1fbaee73e936ba6064cc24c86137184f7ae165be32d7845f5e1c5d06b64ca662')throw new Error('GoJogja collaboration cover integrity check failed');
 await writeFile('site-dist/bisabikinweb-gojogja-travel-collaboration.webp',coverBytes);
-await writeFile('site-dist/robots.txt',`User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /seller/\nDisallow: /account/\nDisallow: /checkout/\nDisallow: /track-order/\nDisallow: /cart/\n\nSitemap: ${origin}/sitemap.xml\nSitemap: ${origin}/news-sitemap.xml\n`);
+await writeFile('site-dist/robots.txt',`User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /seller/\nDisallow: /account/\nDisallow: /checkout/\nDisallow: /track-order/\nDisallow: /cart/\n\nSitemap: ${origin}/sitemap.xml\n${freshNewsArticles.length?`Sitemap: ${origin}/news-sitemap.xml\n`:''}`);
 const excludedRoutes=new Set(['/cart','/checkout','/track-order','/seller','/account']);
 const sitemapEntries=Object.keys(pages).filter(path=>!excludedRoutes.has(path)&&!path.startsWith('/admin')&&!path.startsWith('/seller/')).map(path=>{
  const article=articleByPath.get(path);
@@ -169,7 +170,13 @@ const sitemapEntries=Object.keys(pages).filter(path=>!excludedRoutes.has(path)&&
  return `  <url><loc>${esc(loc)}</loc><lastmod>${lastmod}</lastmod></url>`;
 });
 await writeFile('site-dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+sitemapEntries.join('\n')+'\n</urlset>\n');
-await writeFile('site-dist/news-sitemap.xml',makeNewsSitemap(buildArticles,{origin,publicationName:brand}));
+// Avoid exposing an empty News sitemap. Google's parser can report missing <url> tags.
+// A future hourly build will recreate and advertise this file when genuine fresh news exists.
+if(freshNewsArticles.length){
+  await writeFile('site-dist/news-sitemap.xml',makeNewsSitemap(freshNewsArticles,{origin,publicationName:brand}));
+}else{
+  console.log('No editorial news in the past 48 hours; News Sitemap omitted.');
+}
 await writeFile('site-dist/.nojekyll','');await writeFile('site-dist/CNAME','bisabikinweb.site\n');
 // Apply the same security policy to the retained standalone invitation demo.
 const invitationPath='site-dist/undangan-jawa-tengah/index.html';

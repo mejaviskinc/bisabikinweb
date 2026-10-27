@@ -11,9 +11,12 @@ export function isFreshNewsArticle(article,now=Date.now()){
   const timestamp=new Date(article.published_at).getTime();
   return Number.isFinite(timestamp)&&timestamp<=now&&now-timestamp<=48*60*60*1000;
 }
+export function getFreshNewsArticles(articles,now=Date.now()){
+  return (Array.isArray(articles)?articles:[]).filter(article=>isFreshNewsArticle(article,now)).slice(0,1000);
+}
 const escapeXml=value=>String(value).replace(/[&<>"']/g,char=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&apos;'}[char]));
 export function makeNewsSitemap(articles,{origin,publicationName='BisaBikinWeb.id',now=Date.now()}){
-  const entries=articles.filter(article=>isFreshNewsArticle(article,now)).slice(0,1000).map(article=>{
+  const entries=getFreshNewsArticles(articles,now).map(article=>{
     const url=origin+'/artikel/'+encodeURIComponent(article.id)+'/';
     const publicationDate=new Date(article.published_at).toISOString();
     return '  <url><loc>'+escapeXml(url)+'</loc><news:news><news:publication><news:name>'+escapeXml(publicationName)+'</news:name><news:language>id</news:language></news:publication><news:publication_date>'+publicationDate+'</news:publication_date><news:title>'+escapeXml(article.title)+'</news:title></news:news></url>';
