@@ -8,6 +8,7 @@ import Storefront from './features/Storefront';
 import SellerAdmin from './features/SellerAdmin';
 import PaymentGatewayAdmin from './features/PaymentGatewayAdmin';
 import {defaults} from './lib/data';
+import {mergeEditorialPosts} from './lib/editorial-posts.mjs';
 import {loadPublicContent} from './lib/supabase';
 import {isAdActive,loadPublicAd,safeAdHref,safeAdImages,type AdSettings} from './lib/ads';
 import './styles.css';
@@ -42,7 +43,7 @@ function PublicClient(){
         services:remote.services?.length?remote.services:defaults.services,
         pricing:remote.pricing?.length?remote.pricing:defaults.pricing,
         products:remote.products?.length?remote.products:defaults.products,
-        articles:remote.articles?.length?remote.articles:defaults.articles
+        articles:mergeEditorialPosts(remote.articles?.length?remote.articles:defaults.articles)
       };
       setData(next);setAd(advert);setVersion(1);
     });

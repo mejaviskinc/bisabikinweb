@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "node build-pages.mjs",
-    "test": "node --test tests/security.test.mjs",
+    "test": "node --test tests/security.test.mjs tests/editorial-posts.test.mjs",
     "test:output": "node tests/output-security.mjs"
   },
   "dependencies": {
