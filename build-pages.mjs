@@ -1,5 +1,6 @@
 import {createHash} from 'node:crypto';
 import {build} from 'vite';
+import {isNewsArticle,makeNewsSitemap} from './static-source/lib/news.mjs';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 const configFile=new URL('./vite.pages.mjs',import.meta.url).pathname;
 await build({configFile});
@@ -81,6 +82,8 @@ const pages={
   '/tentang':['Tentang Bisabikinweb — Web Studio Yogyakarta','Kenali Bisabikinweb, studio pembuatan website untuk bisnis dan UMKM di Yogyakarta yang melayani project dari seluruh Indonesia.'],
   '/kontak':['Konsultasi Jasa Website','Konsultasikan pembuatan website bisnis dengan Bisabikinweb melalui WhatsApp 0882003740969 atau email bisabikinw3b@gmail.com.'],
   '/artikel':['Artikel Website & Bisnis Digital','Panduan SEO, website bisnis, desain web, dan strategi digital dari Bisabikinweb.'],
+  '/berita':['Berita Terbaru: Politik, Ekonomi, Bisnis & Teknologi','Berita aktual pilihan redaksi BisaBikinWeb tentang ekonomi, politik, nasional, internasional, dan teknologi.'],
+  '/redaksi':['Tentang Redaksi dan Kebijakan Berita BisaBikinWeb','Informasi transparansi publikasi berita, koreksi, dan kontak redaksi BisaBikinWeb.'],
   '/privacy':['Kebijakan Privasi','Informasi penggunaan data Bisabikinweb.'],
   '/terms':['Syarat & Ketentuan','Ketentuan layanan Bisabikinweb.'],
   '/refund':['Kebijakan Pengembalian','Ketentuan pengembalian Bisabikinweb.'],
@@ -133,7 +136,7 @@ for(const [path,[name,description]] of Object.entries(pages)){
   if(isService)schemas.push({'@context':'https://schema.org','@type':'Service','@id':url+'#service',name:path==='/'?'Jasa Pembuatan Website':name,description:metaDescription,url,provider:{'@id':origin+'/#organization'},areaServed:[{'@type':'City','name':'Yogyakarta'},{'@type':'Country','name':'Indonesia'}],serviceType:'Website development and web design'});
   if(article){
     const words=[article.title,article.summary,...(Array.isArray(article.body)?article.body:[])].join(' ').trim().split(/\s+/).filter(Boolean).length;
-    const articleSchema={'@context':'https://schema.org','@type':'BlogPosting','@id':url+'#article',mainEntityOfPage:{'@type':'WebPage','@id':url},headline:article.title,description:metaDescription,url,author:article.author_type==='seller'&&article.author_store_name?{'@type':'Organization',name:article.author_store_name}: {'@type':'Organization','@id':origin+'/#organization',name:brand},publisher:{'@id':origin+'/#organization'},inLanguage:'id-ID',articleSection:article.category,wordCount:words};
+    const articleSchema={'@context':'https://schema.org','@type':isNewsArticle(article)?'NewsArticle':'BlogPosting','@id':url+'#article',mainEntityOfPage:{'@type':'WebPage','@id':url},headline:article.title,description:metaDescription,url,author:article.author_type==='seller'&&article.author_store_name?{'@type':'Organization',name:article.author_store_name}: {'@type':'Organization','@id':origin+'/#organization',name:brand},publisher:{'@id':origin+'/#organization'},inLanguage:'id-ID',articleSection:article.category,wordCount:words};
     if(articleImage)articleSchema.image=[articleImage];
     if(publishedAt)articleSchema.datePublished=publishedAt;
     if(modifiedAt)articleSchema.dateModified=modifiedAt;
@@ -148,7 +151,7 @@ for(const [path,[name,description]] of Object.entries(pages)){
  const dir='site-dist'+(path==='/'?'':path);await mkdir(dir,{recursive:true});await writeFile(dir+'/index.html',protectHtml(html));
 }
 await writeFile('site-dist/404.html',protectHtml(template.replace('<!--SEO-->','<title>Halaman Tidak Ditemukan | Bisabikinweb</title><meta name="robots" content="noindex,nofollow"/>').replace('<!--APP-->',render('/404',buildData))));
-const legacyNews='<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Artikel BisaBikinWeb</title><meta name="robots" content="index,follow"><link rel="canonical" href="https://bisabikinweb.site/artikel/"><meta http-equiv="refresh" content="0;url=/artikel/"></head><body><p>Artikel BisaBikinWeb dipindahkan. <a href="/artikel/">Buka semua artikel terbaru</a>.</p></body></html>';
+const legacyNews='<!doctype html><html lang="id"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Berita BisaBikinWeb</title><meta name="robots" content="noindex,follow"><link rel="canonical" href="https://bisabikinweb.site/berita/"><meta http-equiv="refresh" content="0;url=/berita/"></head><body><p>Berita sudah pindah. <a href="/berita/">Buka berita terbaru</a>.</p></body></html>';
 await writeFile('site-dist/berita.html',protectHtml(legacyNews));
 const coverPart1=await readFile('.article-image-parts/gojogja-cover-1.b64','utf8');
 const coverPart2=await readFile('.article-image-parts/gojogja-cover-2.b64','utf8');
@@ -156,7 +159,7 @@ const coverBytes=Buffer.from(coverPart1+coverPart2,'base64');
 const coverHash=createHash('sha256').update(coverBytes).digest('hex');
 if(coverHash!=='1fbaee73e936ba6064cc24c86137184f7ae165be32d7845f5e1c5d06b64ca662')throw new Error('GoJogja collaboration cover integrity check failed');
 await writeFile('site-dist/bisabikinweb-gojogja-travel-collaboration.webp',coverBytes);
-await writeFile('site-dist/robots.txt',`User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /seller/\nDisallow: /account/\nDisallow: /checkout/\nDisallow: /track-order/\nDisallow: /cart/\n\nSitemap: ${origin}/sitemap.xml\n`);
+await writeFile('site-dist/robots.txt',`User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /seller/\nDisallow: /account/\nDisallow: /checkout/\nDisallow: /track-order/\nDisallow: /cart/\n\nSitemap: ${origin}/sitemap.xml\nSitemap: ${origin}/news-sitemap.xml\n`);
 const excludedRoutes=new Set(['/cart','/checkout','/track-order','/seller','/account']);
 const sitemapEntries=Object.keys(pages).filter(path=>!excludedRoutes.has(path)&&!path.startsWith('/admin')&&!path.startsWith('/seller/')).map(path=>{
  const article=articleByPath.get(path);
@@ -165,6 +168,7 @@ const sitemapEntries=Object.keys(pages).filter(path=>!excludedRoutes.has(path)&&
  return `  <url><loc>${esc(loc)}</loc><lastmod>${lastmod}</lastmod></url>`;
 });
 await writeFile('site-dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+sitemapEntries.join('\n')+'\n</urlset>\n');
+await writeFile('site-dist/news-sitemap.xml',makeNewsSitemap(buildArticles,{origin,publicationName:brand}));
 await writeFile('site-dist/.nojekyll','');await writeFile('site-dist/CNAME','bisabikinweb.site\n');
 // Apply the same security policy to the retained standalone invitation demo.
 const invitationPath='site-dist/undangan-jawa-tengah/index.html';

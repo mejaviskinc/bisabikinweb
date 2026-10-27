@@ -60,7 +60,7 @@ const configs:Partial<Record<Page,Config>>={
     {key:'description',label:'Deskripsi',type:'textarea',wide:true},{key:'features',label:'Fitur (satu per baris)',type:'array',wide:true},{key:'sort_order',label:'Urutan',type:'number'},
     {key:'featured',label:'Jadikan paket unggulan',type:'checkbox'},{key:'is_active',label:'Tampilkan di website',type:'checkbox'}
   ]},
-  articles:{collection:'articles',title:'Articles',singular:'Artikel',kicker:'CONTENT',description:'Buat, edit, tambah foto cover, draft, dan publish artikel website.',primary:x=>x.title||'Artikel baru',secondary:x=>`${x.category||'Artikel'} · ${x.status||'draft'}`,fields:[
+  articles:{collection:'articles',title:'Articles',singular:'Artikel',kicker:'CONTENT',description:'Artikel edukasi: kategori bebas. Berita redaksi: isi kategori Berita, Berita: Teknologi, Politik, Ekonomi, Nasional, atau Internasional. Hanya berita yang dipublikasikan dan aktif dengan tanggal terbit masuk News Sitemap selama 48 jam. Pastikan informasi orisinal dan terverifikasi.',primary:x=>x.title||'Artikel baru',secondary:x=>`${x.category||'Artikel'} · ${x.status||'draft'}`,fields:[
     {key:'id',label:'Slug artikel',required:true},{key:'title',label:'Judul',required:true,wide:true},{key:'category',label:'Kategori'},{key:'read_time',label:'Estimasi baca'},
     {key:'summary',label:'Teaser / ringkasan',type:'textarea',wide:true},{key:'body',label:'Isi artikel (satu paragraf per baris)',type:'array',wide:true},
     {key:'status',label:'Status',type:'select',options:['draft','published']},{key:'sort_order',label:'Urutan',type:'number'},{key:'is_active',label:'Aktif',type:'checkbox'}
