@@ -1,6 +1,7 @@
 import {createHash} from 'node:crypto';
 import {build} from 'vite';
 import {isNewsArticle,makeNewsSitemap} from './static-source/lib/news.mjs';
+import {mergeEditorialPosts} from './static-source/lib/editorial-posts.mjs';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 const configFile=new URL('./vite.pages.mjs',import.meta.url).pathname;
 await build({configFile});
@@ -50,7 +51,7 @@ async function fetchPublishedArticles(){
   }
 }
 const liveArticles=await fetchPublishedArticles();
-const buildArticles=liveArticles?.length?liveArticles:defaults.articles;
+const buildArticles=mergeEditorialPosts(liveArticles?.length?liveArticles:defaults.articles);
 // Artikel SEO baru: website ekspor untuk bisnis Indonesia.
 const exportArticle={id:'website-ekspor-bisnis-internasional',title:'Website Ekspor: Cara Bisnis Indonesia Menjangkau Buyer Internasional',category:'Bisnis dan Teknologi',read:'6 menit',summary:'Pelajari manfaat website ekspor untuk memperkenalkan produk Indonesia, membangun kepercayaan buyer internasional, dan memperluas pasar global.',body:[
 'Website ekspor adalah website bisnis yang dirancang untuk memperkenalkan perusahaan, produk, kapasitas produksi, dan informasi perdagangan kepada calon pembeli dari luar negeri. Bagi eksportir, website dapat menjadi pusat informasi resmi yang bisa diakses buyer kapan saja dan dari berbagai negara.',
