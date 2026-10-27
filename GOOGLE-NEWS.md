@@ -15,3 +15,9 @@ Sitemap berita berisi hanya artikel redaksi yang dipublikasikan dalam 48 jam ter
 Tambahkan properti `https://bisabikinweb.site/`, lalu kirim sitemap `https://bisabikinweb.site/news-sitemap.xml` di menu Sitemaps, setelah deployment. Periksa URL dan laporan indeks. Sitemap memudahkan penemuan, **tidak menjamin** indeks maupun tampil di Google News. Publisher Center tidak menyediakan pendaftaran manual untuk halaman publikasi Google News sejak 2025.
 
 Redaksi dan kontak editorial ada di `/redaksi/`. Untuk kualitas berita, sertakan sumber dalam tulisan, kredensial penulis yang benar, dan prosedur koreksi yang jelas.
+
+## Penanganan Google Search Console: "Tidak ada tag XML"
+
+Jangan mendaftarkan `news-sitemap.xml` sebelum ada berita redaksi terbaru (kurang dari 48 jam) yang layak. Saat belum ada, generator **tidak membuat file News Sitemap** dan `robots.txt` hanya mengiklankan `sitemap.xml`. Ini menghindari sitemap kosong yang oleh sebagian pemroses XML dapat dilaporkan sebagai ketiadaan elemen `<url>`.
+
+Jika sebelumnya sudah didaftarkan, hapus entri `news-sitemap.xml` dari laporan Sitemaps melalui menu tiga titik **Hapus peta situs**; sitemap utama tetap aktif. Ini tidak menghapus artikel. Publikasikan berita aktual yang orisinal, tunggu proses build selesai, periksa keberadaan file beserta tag `<news:news>`, kemudian daftarkan kembali. Jangan salah menggolongkan artikel promosi sebagai berita atau mengubah tanggal publikasi hanya agar sitemap terisi.

@@ -1,6 +1,6 @@
 import test from 'node:test';
 import assert from 'node:assert/strict';
-import {isNewsArticle,isFreshNewsArticle,makeNewsSitemap} from '../static-source/lib/news.mjs';
+import {isNewsArticle,isFreshNewsArticle,getFreshNewsArticles,makeNewsSitemap} from '../static-source/lib/news.mjs';
 
 const now=Date.parse('2026-10-27T12:00:00Z');
 const news={id:'contoh-kabar',title:'Kabar ekonomi & bisnis <Indonesia>',category:'Berita: Ekonomi',author_type:'editorial',published_at:'2026-10-27T10:00:00Z'};
@@ -23,4 +23,11 @@ test('format sitemap news aman dan tidak memuat seller atau artikel edukasi',()=
  assert.match(xml,/Kabar ekonomi &amp; bisnis &lt;Indonesia&gt;/);
  assert.match(xml,/https:\/\/bisabikinweb.site\/artikel\/contoh-kabar\//);
  assert.doesNotMatch(xml,/seller|panduan|lama/);
+});
+
+test('only eligible news articles cause a News Sitemap to be published',()=>{
+ const nonNews={id:'seo',title:'Jasa pembuatan website',category:'Bisnis dan Teknologi',published_at:'2026-10-27T10:00:00Z'};
+ assert.equal(getFreshNewsArticles([nonNews],now).length,0);
+ assert.equal(getFreshNewsArticles([news,nonNews],now).length,1);
+ assert.equal(getFreshNewsArticles([{...news,published_at:'2026-10-24T10:00:00Z'}],now).length,0);
 });
