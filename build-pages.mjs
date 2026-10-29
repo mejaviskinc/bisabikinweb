@@ -197,6 +197,11 @@ const publicEditorial=buildArticles.filter(article=>article.author_type!=='selle
  };
 }).filter(article=>/^[a-z0-9][a-z0-9_-]{0,159}$/.test(article.slug)&&article.title);
 await writeFile('site-dist/auto-artikel/content.json',JSON.stringify({schema:1,generatedAt:new Date().toISOString(),source:'GitHub Pages editorial build',targetDaily:20,articles:publicEditorial},null,2));
+// Strict site CSP with a narrowly-scoped read-only connection to the public GitHub API.
+const monitorHtml=protectHtml(await readFile('site-dist/auto-artikel/index.html','utf8'));
+const monitorGithubApi=monitorHtml.replace('connect-src \'self\' https://iyhwephcrxeqwiemhppw.supabase.co','connect-src \'self\' https://iyhwephcrxeqwiemhppw.supabase.co https://api.github.com');
+if(monitorGithubApi===monitorHtml)throw new Error('Auto Artikel CSP connection rule not found');
+await writeFile('site-dist/auto-artikel/index.html',monitorGithubApi);
 
 await writeFile('site-dist/ads.txt','google.com, pub-9568884120945028, DIRECT, f08c47fec0942fa0\n');
 await writeFile('site-dist/.nojekyll','');await writeFile('site-dist/CNAME','bisabikinweb.site\n');
