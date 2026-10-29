@@ -1,0 +1,74 @@
+<!doctype html>
+<html lang="id">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="color-scheme" content="light"><meta name="theme-color" content="#101828">
+<meta name="robots" content="noindex,nofollow">
+<title>Auto Artikel — Monitoring BisaBikinWeb</title>
+<meta name="description" content="Dashboard read-only pekerjaan publikasi dan deployment BisaBikinWeb.">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="/auto-artikel/styles.css">
+<script src="/auto-artikel/app.js" defer></script>
+</head>
+<body>
+<div class="app">
+ <aside class="sidebar">
+  <a class="brand" href="/auto-artikel/" aria-label="Beranda Auto Artikel">
+   <span class="brandmark">A<span>●</span></span><span class="brandwords"><strong>auto artikel</strong><small>by BisaBikinWeb</small></span>
+  </a>
+  <div class="nav-label">WORKSPACE</div>
+  <nav class="nav" aria-label="Navigasi dashboard">
+   <button class="nav-link current" data-view="overview"><span class="nav-icon">◫</span> Overview</button>
+   <button class="nav-link" data-view="articles"><span class="nav-icon">▤</span> Artikel & berita</button>
+   <button class="nav-link" data-view="deployment"><span class="nav-icon">⌁</span> Deployment</button>
+   <button class="nav-link" data-view="instagram"><span class="nav-icon">◎</span> Instagram</button>
+  </nav>
+  <div class="side-bottom"><span class="side-dot"></span><span>Sumber data publik &amp; snapshot terverifikasi</span></div>
+  <div class="side-foot">Monitoring read-only<br>Data sensitif tidak ditampilkan</div>
+ </aside>
+ <main class="main">
+  <header class="topbar">
+    <div><div class="eyebrow">CONTENT OPERATIONS / BISA BIKINWEB</div><h1 id="page-title">Overview</h1><p id="page-description">Pantau proses konten, publikasi dan deployment dalam satu tempat.</p></div>
+    <div class="top-actions"><div class="sync-time"><span class="pulse"></span><span id="sync-label">Menyiapkan data...</span></div><button id="refresh" class="button-dark" type="button"><span aria-hidden="true">↻</span> Sinkronkan</button></div>
+  </header>
+  <div class="notice" id="notice" role="status"><span class="notice-symbol">i</span><span>Memuat data hasil build terbaru dan riwayat GitHub...</span></div>
+  <section class="screen active" id="screen-overview">
+   <div class="section-head"><div><span class="overline">PERFORMA HARI INI</span><h2>Ringkasan publikasi</h2></div><span class="date-pill" id="today-label">—</span></div>
+   <div class="metrics">
+    <div class="metric card"><div class="metric-top"><span class="metric-icon amber">▤</span><span class="metric-caption">Target harian: 20</span></div><div class="metric-value" id="metric-today">—</div><div class="metric-name">Konten tercatat hari ini</div><div class="meter"><div id="progress-content"></div></div><p id="progress-content-text" class="subtext">Berdasarkan tanggal terbit artikel</p></div>
+    <div class="metric card"><div class="metric-top"><span class="metric-icon sky">▥</span><span class="metric-caption">Artikel keseluruhan</span></div><div class="metric-value" id="metric-total">—</div><div class="metric-name">Artikel di hasil build</div><p class="metric-extra" id="metric-news">Termasuk berita redaksi</p></div>
+    <div class="metric card"><div class="metric-top"><span class="metric-icon mint">◈</span><span class="metric-caption">Status GitHub Actions</span></div><div class="metric-value status-value" id="metric-deploy">—</div><div class="metric-name">Deployment terakhir</div><p class="metric-extra" id="metric-commit">Menunggu informasi</p></div>
+    <div class="metric card"><div class="metric-top"><span class="metric-icon pink">◎</span><span class="metric-caption">Target harian: 3 berita</span></div><div class="metric-value" id="metric-instagram">—</div><div class="metric-name">Feed berita terverifikasi</div><div class="meter"><div id="progress-instagram"></div></div><p class="subtext">Snapshot Metricool, bukan live API</p></div>
+   </div>
+   <div class="dual">
+     <div class="panel card"><div class="panel-header"><div><span class="overline">7 HARI TERAKHIR</span><h3>Aktivitas editorial</h3></div><span class="small-tag">Tanggal publikasi</span></div><div class="chart" id="week-chart" aria-label="Grafik konten tujuh hari terakhir"></div><p class="panel-note">Jumlah dihitung dari tanggal terbit di data website. Bukan bukti Google telah mengindeks halaman.</p></div>
+     <div class="panel card"><div class="panel-header"><div><span class="overline">STATUS PROSES</span><h3>Jadwal automation</h3></div><span class="small-tag muted-tag">Konfigurasi</span></div>
+      <div class="task"><span class="task-icon">▤</span><div class="task-info"><strong>Produksi konten website</strong><small>Setiap hari · 08.00 WIB</small></div><span class="task-target">20/hari</span></div>
+      <div class="task"><span class="task-icon">◎</span><div class="task-info"><strong>Feed Instagram berita</strong><small>Setiap hari · 13.00 WIB</small></div><span class="task-target">3/hari</span></div>
+      <div class="task-detail"><strong>Status eksekusi ChatGPT</strong><p>Jadwal ini merupakan konfigurasi yang diketahui saat aplikasi dibuat. ChatGPT Tasks belum mempunyai koneksi status live ke halaman ini. Untuk hasil nyata, periksa artikel, deployment dan snapshot Metricool di bawah.</p></div>
+     </div>
+   </div>
+   <div class="dual">
+     <div class="panel card"><div class="panel-header"><div><span class="overline">KONTEN TERBARU</span><h3>Publikasi terakhir</h3></div><button class="plain-link" data-view="articles">Lihat semua ↗</button></div><div id="recent-articles" class="vertical-list"></div></div>
+     <div class="panel card"><div class="panel-header"><div><span class="overline">ACTIVITY LOG</span><h3>GitHub Actions</h3></div><button class="plain-link" data-view="deployment">Riwayat ↗</button></div><div id="recent-runs" class="vertical-list"></div></div>
+   </div>
+  </section>
+  <section class="screen" id="screen-articles">
+   <div class="section-head"><div><span class="overline">EDITORIAL MANAGEMENT</span><h2>Artikel & berita</h2></div><button class="button-outline" id="export" type="button">⇩ Ekspor CSV</button></div>
+   <div class="panel card"><div class="filterbar"><label class="searchbox"><span>⌕</span><input id="search" type="search" placeholder="Cari judul, kategori, slug..." aria-label="Cari artikel"></label><select id="type-filter" aria-label="Filter tipe"><option value="all">Semua tipe</option><option value="news">Berita</option><option value="article">Artikel SEO</option></select><select id="period-filter" aria-label="Filter periode"><option value="all">Semua tanggal</option><option value="7">7 hari terakhir</option><option value="30">30 hari terakhir</option></select></div><p id="result-count" class="result-count">Memuat daftar...</p>
+    <div class="table-scroller"><table><thead><tr><th>JUDUL</th><th>KATEGORI</th><th>TANGGAL</th><th>GAMBAR</th><th>LINK</th></tr></thead><tbody id="article-rows"></tbody></table></div><div id="empty-articles" class="empty hidden">Tidak ada artikel yang cocok dengan pencarian.</div>
+   </div>
+  </section>
+  <section class="screen" id="screen-deployment">
+   <div class="section-head"><div><span class="overline">DEPLOY PIPELINE</span><h2>Riwayat deployment</h2></div><a class="button-outline" href="https://github.com/mejaviskinc/bisabikinweb/actions" target="_blank" rel="noopener noreferrer">Buka GitHub ↗</a></div>
+   <div class="panel card"><p class="panel-note stand-alone">Data diperbarui dari GitHub Actions publik saat dashboard dimuat. Status berhasil berarti workflow deploy sukses, bukan pemeriksaan manual setiap artikel, gambar, atau indeks Google.</p><div id="all-runs" class="deployment-list"></div></div>
+  </section>
+  <section class="screen" id="screen-instagram">
+   <div class="section-head"><div><span class="overline">SOCIAL MEDIA PIPELINE</span><h2>Monitoring Instagram</h2></div><a class="button-outline" href="https://app.metricool.com/" target="_blank" rel="noopener noreferrer">Buka Metricool ↗</a></div>
+   <div class="callout"><strong>Snapshot, bukan sambungan Metricool real-time.</strong><p>Data publikasi di sini diperiksa pada tanggal yang tertulis. Posting baru belum akan muncul sampai snapshot diperbarui melalui integrasi aman. Tidak ada token media sosial tersimpan di browser.</p><p class="callout-date" id="ig-check">Terakhir diverifikasi: —</p></div>
+   <div class="instagram-grid" id="instagram-posts"></div>
+  </section>
+  <footer class="footer"><span>Auto Artikel © <span id="year"></span> · BisaBikinWeb</span><span>Public monitoring · tanpa token atau API key</span></footer>
+ </main>
+</div>
+</body></html>

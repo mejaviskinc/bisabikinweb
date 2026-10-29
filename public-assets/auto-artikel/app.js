@@ -1,0 +1,57 @@
+'use strict';
+const ORIGIN='https://bisabikinweb.site';
+const REPO='mejaviskinc/bisabikinweb';
+const GITHUB='https://api.github.com/repos/'+REPO;
+const $=(s)=>document.querySelector(s);
+let articles=[],runs=[],posts=[],lastArticles=[],buildTime=null,instagramCheck=null;
+const fmtDate=(raw,full=false)=>{if(!raw)return '—';const d=new Date(raw);return Number.isNaN(d.getTime())?'—':new Intl.DateTimeFormat('id-ID',{timeZone:'Asia/Jakarta',day:'2-digit',month:full?'long':'short',year:'numeric',...(full?{}:{hour:'2-digit',minute:'2-digit'})}).format(d)};
+const jakartaDate=(d)=>{const p=new Intl.DateTimeFormat('en-US',{timeZone:'Asia/Jakarta',year:'numeric',month:'2-digit',day:'2-digit'}).formatToParts(d);const a=Object.fromEntries(p.map(x=>[x.type,x.value]));return a.year+'-'+a.month+'-'+a.day};
+const nowDay=()=>jakartaDate(new Date());
+const node=(tag,cls,text)=>{const el=document.createElement(tag);if(cls)el.className=cls;if(text!==undefined)el.textContent=String(text);return el};
+const link=(text,href,cls='')=>{const a=node('a',cls,text);a.href=href;a.target='_blank';a.rel='noopener noreferrer';return a};
+const append=(parent,...parts)=>parts.forEach(el=>parent.appendChild(el));
+const safeUrl=(raw)=>{try{const u=new URL(raw);return u.protocol==='https:'?u.href:''}catch{return ''}};
+const cleanSlug=(s)=>/^[a-z0-9][a-z0-9_-]{0,159}$/.test(s||'')?s:null;
+const articleLink=a=>ORIGIN+'/artikel/'+encodeURIComponent(a.slug)+'/';
+const news=a=>Boolean(a.news);
+const progress=(sel,n,max)=>{$(sel).style.width=Math.min(100,Math.max(0,(n/max)*100))+'%'};
+function setView(name){if(!['overview','articles','deployment','instagram'].includes(name))return;
+ document.querySelectorAll('.screen').forEach(x=>x.classList.toggle('active',x.id==='screen-'+name));
+ document.querySelectorAll('.nav-link').forEach(x=>x.classList.toggle('current',x.dataset.view===name));
+ const meta={overview:['Overview','Pantau proses konten, publikasi dan deployment dalam satu tempat.'],articles:['Artikel & berita','Cari dan periksa hasil publikasi editorial di website.'],deployment:['Deployment','Riwayat build dan penerbitan website dari GitHub Actions.'],instagram:['Instagram','Posting yang telah diverifikasi melalui snapshot Metricool.']};
+ $('#page-title').textContent=meta[name][0];$('#page-description').textContent=meta[name][1];history.replaceState(null,'','#'+name);window.scrollTo({top:0,behavior:'smooth'});
+}
+const notice=(message,type='')=>{const el=$('#notice');el.className='notice'+(type?' '+type:'');el.lastElementChild.textContent=message};
+async function json(url){const ctrl=new AbortController();const timer=setTimeout(()=>ctrl.abort(),14000);try{const res=await fetch(url,{cache:'no-store',headers:{Accept:'application/json'},signal:ctrl.signal});if(!res.ok)throw Error('HTTP '+res.status);return await res.json()}finally{clearTimeout(timer)}}
+function makeArticleRow(a){const tr=node('tr');const title=node('td');append(title,link(a.title,articleLink(a),'article-title'),node('span','article-slug',a.slug));const type=node('td');append(type,node('span','type-label',a.category||'—'));const date=node('td','',fmtDate(a.publishedAt,true));const image=node('td');const tag=node('span','source-label'+(a.sourceRecorded?' yes':''),a.sourceRecorded?'Sumber dicatat':(a.image?'Cover ada':'Belum ada'));image.appendChild(tag);const open=node('td');append(open,link('Buka ↗',articleLink(a),'external-link'));append(tr,title,type,date,image,open);return tr}
+function filtered(){const query=$('#search').value.trim().toLowerCase(),typ=$('#type-filter').value,period=$('#period-filter').value;
+ return articles.filter(a=>(!query||(a.title+' '+a.category+' '+a.slug).toLowerCase().includes(query))&&(typ==='all'||(typ==='news')===news(a))&&(period==='all'||(Date.now()-new Date(a.publishedAt).getTime()<=Number(period)*86400000&&Date.now()>=new Date(a.publishedAt).getTime()))).sort((a,b)=>Date.parse(b.publishedAt||0)-Date.parse(a.publishedAt||0))}
+function renderArticles(){lastArticles=filtered();$('#result-count').textContent=lastArticles.length+' artikel ditemukan';const body=$('#article-rows');body.replaceChildren(...lastArticles.slice(0,250).map(makeArticleRow));$('#empty-articles').classList.toggle('hidden',lastArticles.length>0)}
+function renderRecent(){const recent=$('#recent-articles');const list=[...articles].sort((a,b)=>Date.parse(b.publishedAt||0)-Date.parse(a.publishedAt||0)).slice(0,5);
+ recent.replaceChildren(...list.map(a=>{const row=node('div','list-row');const ico=node('span','list-emoji',news(a)?'◉':'▤');const info=node('div','list-main');append(info,node('strong','',a.title),node('small','',a.category+' · '+fmtDate(a.publishedAt)));append(row,ico,info,link('↗',articleLink(a),'arrow'));return row}));}
+function renderChart(){const chart=$('#week-chart');chart.replaceChildren();const today=nowDay();const days=[];
+ for(let i=6;i>=0;i--){const date=new Date();date.setHours(12,0,0,0);date.setDate(date.getDate()-i);days.push(jakartaDate(date))}
+ const counts=days.map(day=>articles.filter(a=>a.publishedAt&&jakartaDate(new Date(a.publishedAt))===day).length);const max=Math.max(...counts,1);
+ days.forEach((d,i)=>{const col=node('div','bar-col');const bar=node('div','bar'+(d===today?' today':''));bar.style.height=Math.max(3,(counts[i]/max)*98)+'px';const date=new Date(d+'T12:00:00Z');append(col,node('span','bar-count',counts[i]||''),bar,node('span','bar-label',new Intl.DateTimeFormat('id-ID',{timeZone:'UTC',day:'numeric',month:'short'}).format(date)));chart.appendChild(col)})}
+function runTag(r){return r.conclusion==='success'?'Berhasil':r.conclusion==='failure'?'Gagal':r.status==='in_progress'?'Berjalan':r.conclusion==='cancelled'?'Dibatalkan':'Menunggu'}
+function renderRun(r){const row=node('div','list-row');const info=node('div','list-main');append(info,node('strong','',r.display_title||r.name||'Workflow deployment'),node('small','',fmtDate(r.created_at)+' · '+String(r.head_sha||'').slice(0,7)));const tag=node('span','status-chip'+(r.conclusion==='failure'?' failed':r.status!=='completed'?' progress':''),runTag(r));append(row,node('span','list-emoji','⌁'),info,tag,link('↗',r.html_url||'https://github.com/'+REPO+'/actions','arrow'));return row}
+function renderRuns(){$('#recent-runs').replaceChildren(...runs.slice(0,4).map(renderRun));$('#all-runs').replaceChildren(...runs.slice(0,20).map(r=>{const item=node('div','deploy-row');const text=node('div','deploy-info');append(text,node('strong','',r.display_title||r.name||'Github Actions'),node('small','',fmtDate(r.created_at)+' · '+(r.event||'push')+' · commit '+String(r.head_sha||'').slice(0,8)));append(item,node('span','status-chip'+(r.conclusion==='failure'?' failed':r.status!=='completed'?' progress':''),runTag(r)),text,link('Lihat log ↗',r.html_url||'https://github.com/'+REPO+'/actions','external-link'));return item})))}
+function renderInstagram(){const host=$('#instagram-posts');host.replaceChildren();$('#ig-check').textContent='Terakhir diverifikasi: '+(instagramCheck?fmtDate(instagramCheck,true):'belum tersedia');if(!posts.length){host.appendChild(node('div','empty','Belum ada snapshot posting terverifikasi.'));return}
+ for(const p of posts){const card=node('article','card ig-card');if(safeUrl(p.image)){const img=node('img','ig-cover');img.src=safeUrl(p.image);img.alt=p.title||'Feed Instagram';img.loading='lazy';card.appendChild(img)}const content=node('div','ig-content');append(content,node('span','status-chip',p.status==='PUBLISHED'?'Published':'Belum terbit'),node('h3','',p.title),node('p','',(p.type==='news'?'Berita':'Edukasi')+' · '+fmtDate(p.publishedAt)));if(safeUrl(p.url))content.appendChild(link('Lihat Instagram ↗',safeUrl(p.url)));card.appendChild(content);host.appendChild(card)}}
+function renderOverview(){const today=nowDay();$('#today-label').textContent=new Intl.DateTimeFormat('id-ID',{timeZone:'Asia/Jakarta',day:'numeric',month:'long',year:'numeric'}).format(new Date());
+ const todays=articles.filter(a=>a.publishedAt&&jakartaDate(new Date(a.publishedAt))===today);const todayCount=todays.length;const todayIg=posts.filter(p=>p.type==='news'&&p.status==='PUBLISHED'&&p.publishedAt&&jakartaDate(new Date(p.publishedAt))===today).length;
+ $('#metric-today').textContent=todayCount;$('#metric-total').textContent=articles.length;$('#metric-news').textContent=articles.filter(news).length+' berita dari seluruh konten';$('#metric-instagram').textContent=todayIg+'/3';progress('#progress-content',todayCount,20);progress('#progress-instagram',todayIg,3);$('#progress-content-text').textContent=todayCount+' dari target 20 konten (berdasarkan metadata)';
+ const top=runs[0];$('#metric-deploy').textContent=top?runTag(top):'Tidak tersedia';$('#metric-commit').textContent=top?'Commit '+String(top.head_sha||'').slice(0,8)+' · '+fmtDate(top.updated_at):'Periksa GitHub Actions';
+ renderChart();renderRecent();renderRuns();renderInstagram();renderArticles()}
+async function reload(){const btn=$('#refresh');btn.disabled=true;$('#sync-label').textContent='Sinkronisasi...';
+ const q='?t='+Date.now();const results=await Promise.allSettled([json('/auto-artikel/content.json'+q),json(GITHUB+'/actions/runs?per_page=20'),json('/auto-artikel/instagram-status.json'+q)]);
+ let errs=[];if(results[0].status==='fulfilled'&&Array.isArray(results[0].value.articles)){const d=results[0].value;articles=d.articles.filter(a=>cleanSlug(a.slug));buildTime=d.generatedAt}else errs.push('Data artikel belum tersedia');
+ if(results[1].status==='fulfilled'&&Array.isArray(results[1].value.workflow_runs))runs=results[1].value.workflow_runs;else errs.push('GitHub Actions gagal dimuat (batas API/koneksi)');
+ if(results[2].status==='fulfilled'){posts=Array.isArray(results[2].value.posts)?results[2].value.posts:[];instagramCheck=results[2].value.checkedAt}else errs.push('Snapshot Instagram belum tersedia');
+ renderOverview();$('#sync-label').textContent=buildTime?'Build '+fmtDate(buildTime):'Sinkronisasi terbatas';notice(errs.length?errs.join(' · ')+'. Data lain tetap ditampilkan.':'Data artikel dari build website, riwayat live GitHub Actions, dan snapshot Instagram telah dimuat.'+(buildTime?' Build: '+fmtDate(buildTime)+'.':''),errs.length?'warn':'');btn.disabled=false}
+function exportCsv(){const rows=[['Judul','Slug','Kategori','Tipe','Terbit','Gambar','Kredit sumber','URL'],...lastArticles.map(a=>[a.title,a.slug,a.category,a.news?'Berita':'Artikel',a.publishedAt,a.image,a.sourceRecorded?'Dicatat':'Belum dicatat',articleLink(a)])];const csv=rows.map(r=>r.map(v=>'"'+String(v||'').replaceAll('"','""')+'"').join(',')).join('\r\n');const blob=new Blob(['\ufeff'+csv],{type:'text/csv;charset=utf-8'});const url=URL.createObjectURL(blob);const a=document.createElement('a');a.href=url;a.download='auto-artikel-'+nowDay()+'.csv';document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(url),2000)}
+document.querySelectorAll('[data-view]').forEach(b=>b.addEventListener('click',()=>setView(b.dataset.view)));
+['#search','#type-filter','#period-filter'].forEach(x=>$(x).addEventListener('input',renderArticles));
+$('#refresh').addEventListener('click',reload);$('#export').addEventListener('click',exportCsv);$('#year').textContent=new Date().getFullYear();
+setView(['overview','articles','deployment','instagram'].includes(location.hash.slice(1))?location.hash.slice(1):'overview');
+reload();setInterval(()=>{if(!document.hidden)reload()},300000);

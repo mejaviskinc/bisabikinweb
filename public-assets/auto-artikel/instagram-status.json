@@ -1,0 +1,23 @@
+{
+  "schema": 1,
+  "checkedAt": "2026-10-29T15:10:00+07:00",
+  "source": "Metricool brand 7727294; snapshot created from connected account, not a live API",
+  "posts": [
+    {
+      "title": "Komdigi Dorong Transparansi AI dan Algoritma",
+      "type": "news",
+      "status": "PUBLISHED",
+      "publishedAt": "2026-10-29T14:05:00+07:00",
+      "url": "https://www.instagram.com/p/DfEbofTiCIP/",
+      "image": "https://static.metricool.com/planner/202610/7727294-file-12656701674158745331.png"
+    },
+    {
+      "title": "UMKM Perlu Website untuk Naikkan Kepercayaan Konsumen",
+      "type": "education",
+      "status": "PUBLISHED",
+      "publishedAt": "2026-10-29T14:22:00+07:00",
+      "url": "https://www.instagram.com/p/DfEddrACKXc/",
+      "image": "https://static.metricool.com/planner/202610/7727294-file-6594505579641462174.png"
+    }
+  ]
+}

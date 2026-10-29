@@ -185,6 +185,19 @@ if(freshNewsArticles.length){
 }else{
   console.log('No editorial news in the past 48 hours; News Sitemap omitted.');
 }
+// Auto Artikel dashboard: public, read-only editorial metadata generated on every deploy.
+await mkdir('site-dist/auto-artikel',{recursive:true});
+const publicEditorial=buildArticles.filter(article=>article.author_type!=='seller').map(article=>{
+ const body=Array.isArray(article.body)?article.body:[];
+ return {
+  slug:String(article.id||''),title:String(article.title||''),category:String(article.category||''),
+  publishedAt:article.published_at||null,updatedAt:article.updated_at||null,
+  image:String(article.image||article.cover_image_url||''),news:isNewsArticle(article),
+  sourceRecorded:body.some(line=>/sumber gambar asli\s*:/i.test(String(line)))
+ };
+}).filter(article=>/^[a-z0-9][a-z0-9_-]{0,159}$/.test(article.slug)&&article.title);
+await writeFile('site-dist/auto-artikel/content.json',JSON.stringify({schema:1,generatedAt:new Date().toISOString(),source:'GitHub Pages editorial build',targetDaily:20,articles:publicEditorial},null,2));
+
 await writeFile('site-dist/ads.txt','google.com, pub-9568884120945028, DIRECT, f08c47fec0942fa0\n');
 await writeFile('site-dist/.nojekyll','');await writeFile('site-dist/CNAME','bisabikinweb.site\n');
 // Apply the same security policy to the retained standalone invitation demo.
