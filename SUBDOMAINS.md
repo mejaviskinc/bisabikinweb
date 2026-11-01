@@ -1,49 +1,40 @@
-# Rencana subdomain BisaBikinWeb
+# BisaBikinWeb — Subdomain di GitHub Pages
 
-## Struktur
+**Hosting aktif yang dipakai untuk subdomain: GitHub Pages (bukan Netlify).**
 
-| Hostname | Fungsi | Status |
-| --- | --- | --- |
-| bisabikinweb.site | Jasa website, portfolio, harga, konsultasi, artikel, berita, merch dan checkout | Tetap aktif |
-| app.bisabikinweb.site | Portal admin dan seller, tetap memakai autentikasi Supabase | Build terpisah disiapkan pada branch ini |
-| media.bisabikinweb.site | Artikel dan berita | Tahap kedua: migrasi SEO dan otomatisasi konten |
-| shop.bisabikinweb.site | Merchandise | Tahap berikutnya: audit checkout dan keranjang |
+## Repository
 
-Jangan pindahkan checkout atau artikel sekarang. Browser storage untuk keranjang/session tidak otomatis berpindah antar-subdomain. Konten editorial sudah memiliki canonical dan publikasi otomatis.
+| Domain | Repository GitHub |
+| --- | --- |
+| bisabikinweb.site | mejaviskinc/bisabikinweb |
+| app.bisabikinweb.site | mejaviskinc/bisabikinweb-app |
+| media.bisabikinweb.site | mejaviskinc/bisabikinweb-media |
+| shop.bisabikinweb.site | mejaviskinc/bisabikinweb-shop |
 
-## Yang sudah disiapkan
+Satu source utama digunakan untuk mengembangkan aplikasi. Ketiga repository subdomain memiliki workflow .github/workflows/deploy-pages.yml yang secara berkala checkout source dari mejaviskinc/bisabikinweb branch main, menjalankan tes dan build spesifik subdomain, lalu deploy GitHub Pages. Modifikasi aplikasi dilakukan di source utama.
 
-- Portal Admin/Seller pada subdomains/app/index.html
-- Build khusus dengan npm run build:app, membuat folder app-dist dari build utama dan hanya menyalin halaman admin, seller, dan aset tampilan
-- Tidak menyalin CNAME, sitemap, checkout, blog, atau berita website utama
-- X-Robots-Tag noindex,nofollow untuk area dashboard
-- Redirect alamat publik yang tidak relevan kembali ke website utama
-- Tes otomatis tests/app-subdomain.test.mjs
+## Aktivasi awal Pages (wajib sekali per repo)
 
-## Aktivasi di Netlify (setelah branch digabungkan)
+1. Buka GitHub repo subdomain > Settings > Pages.
+2. Di Build and deployment ubah Source menjadi **GitHub Actions**.
+3. Buka Actions > Deploy BisaBikinWeb (app/media/shop) to GitHub Pages > Run workflow. Pastikan job build dan deploy berhasil.
+4. Kembali ke Settings > Pages. Masukkan Custom domain yang sesuai (app/media/shop.bisabikinweb.site) dan Save.
+5. Di pengelola DNS domain, masukkan masing-masing CNAME:
+   - app → mejaviskinc.github.io
+   - media → mejaviskinc.github.io
+   - shop → mejaviskinc.github.io
+   Jangan menyentuh root (@), www, MX, TXT atau nameserver.
+6. Setelah sertifikat terbit, aktifkan Enforce HTTPS di Settings > Pages dan uji masing-masing domain.
 
-1. Buat site Netlify BARU, berbeda dari site utama bisabikinweb.site. Hubungkan repo GitHub mejaviskinc/bisabikinweb branch main.
-2. Build command: npm run build:app. Publish directory: app-dist. Node.js: 22. File netlify.app.toml berisi konfigurasi yang setara; untuk menggunakannya, pilih config file path netlify.app.toml. Jangan ubah pengaturan build site utama.
-3. Deploy dan baca hostname default Netlify yang benar-benar diterbitkan, contoh POLA: nama-site-baru.netlify.app. Jangan mengasumsikan target sebelum ada hasil deploy.
-4. Pada site Netlify yang baru, masuk Domain management lalu tambahkan app.bisabikinweb.site.
-5. Pada penyedia DNS aktif domain bisabikinweb.site, buat record:
-   - Type: CNAME
-   - Host/Name: app
-   - Value/Target: hostname Netlify BARU pada langkah 3, tanpa https://
-   - TTL: Auto/default
-   Jangan mengubah @, www, MX, TXT, nameserver, atau membuat wildcard *.bisabikinweb.site.
-6. Setelah HTTPS/SSL aktif, uji https://app.bisabikinweb.site/ lalu /admin/ dan /seller/. Pastikan https://bisabikinweb.site/checkout/ tetap berfungsi.
-7. Karena localStorage dipisahkan per-origin, user admin/seller perlu login sekali lagi di subdomain. Pertahankan autentikasi dan RLS Supabase.
-8. Sesudah semua tes berhasil, baru perbarui tombol Admin/Seller website utama dan redirect URL lama. Jangan menghapus halaman lama lebih dulu.
+Jika GitHub Pages belum diaktifkan pada repository, job configure-pages akan gagal dengan 'Get Pages site failed / Not Found'. Ini bukan kegagalan build source.
 
-## Pengujian
+## Migrasi bertahap dan keamanan
 
-npm ci
-npm test
-npm run build:app
+- Website utama tetap aktif untuk jasa, portfolio, artikel SEO, merch, checkout, dan link transaksi sampai semua subdomain sudah lolos verifikasi.
+- Media masih diberi noindex dan canonical alamat lama agar konten tidak terduplikasi. Setelah cutover baru pindahkan canonical, sitemap dan Search Console serta jadwal publikasi.
+- App hanya berisi admin dan seller, namun pembatasan akses tetap harus dilakukan oleh Supabase; subdomain bukan pengganti autentikasi atau RLS.
+- Shop terpisah origin sehingga localStorage keranjang/akun berbeda dari domain utama. Fungsi Supabase Checkout, Status, Customer dan Seller perlu izin CORS untuk origin baru dan harus dideploy ke **project yang dipakai live**, bukan project lain; uji order Midtrans terlebih dulu sebelum tautan belanja publik dipindahkan.
+- Dynamic /toko/:slug di GitHub Pages menggunakan 404 fallback sementara; respons HTTP 404 belum SEO-friendly dan butuh prerender slug setelah cutover.
+- Files _headers dan _redirects khusus Netlify tidak dipakai sebagai konfigurasi aktif pada GitHub Pages. Paket pages-* tidak menyertakannya.
 
-## Lanjutan
-
-Untuk media.bisabikinweb.site perlu pisahkan build editorial, canonical, redirect permanen URL lama, sitemap, Search Console, serta otomatisasi posting. Untuk shop.bisabikinweb.site perlu audit localStorage keranjang, return URL Midtrans, checkout dan tracking order.
-
-Status: perubahan branch ini belum menerbitkan subdomain; site hosting baru dan DNS CNAME tetap harus dibuat.
+Untuk detail dan perintah build lokal, lihat GITHUB-PAGES-SUBDOMAINS.md.
