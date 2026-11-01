@@ -24,7 +24,8 @@ for (const kind of ['media','shop']) {
       const entries=await readdir(out);
       for(const forbidden of ['admin','seller','auto-artikel','portfolio','CNAME','sitemap.xml'])assert.ok(!entries.includes(forbidden),forbidden);
       for(const needed of ['index.html','_headers','_redirects','assets','subdomain-navigation.js'])assert.ok(entries.includes(needed),needed);
-      assert.match(await readFile(join(out,'robots.txt'),'utf8'),/Disallow: \//);
+      assert.match(await readFile(join(out,'robots.txt'),'utf8'),/Allow: \//);
+      assert.doesNotMatch(await readFile(join(out,'robots.txt'),'utf8'),/Disallow:/);
       assert.match(await readFile(join(out,'index.html'),'utf8'),/noindex,nofollow/);
       if(kind==='media'){
         const home=await readFile(join(out,'index.html'),'utf8');

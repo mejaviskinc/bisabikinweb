@@ -24,15 +24,15 @@ for(const entry of ['assets','brand','favicon.ico','favicon.svg','apple-touch-ic
 if(kind==='media'){
   for(const entry of ['artikel','berita','redaksi'])await copyFromBuild(entry);
   // Editor dan SEO lama tetap di website utama sampai cutover resmi.
-  const robots='User-agent: *\nDisallow: /\n';
+  const robots='User-agent: *\nAllow: /\n';
   await writeFile(join(target,'robots.txt'),robots);
 }else{
   for(const entry of ['merch','cart','checkout','track-order','account'])await copyFromBuild(entry);
   // Toko seller dinamis memakai React client pada URL /toko/:slug.
   await copyFromBuild('index.html');
   await cp(join(source,'index.html'),join(target,'_spa.html'));
-  // Mencegah crawler mengindeks checkout atau toko sebelum payment + CORS diverifikasi.
-  await writeFile(join(target,'robots.txt'),'User-agent: *\nDisallow: /\n');
+  // Halaman preview memberi noindex pada HTML; robots tidak boleh memblokir crawler membacanya.
+  await writeFile(join(target,'robots.txt'),'User-agent: *\nAllow: /\n');
 }
 for(const entry of ['index.html','404.html','_headers','_redirects']){
   await cp(join(local,entry),join(target,entry));

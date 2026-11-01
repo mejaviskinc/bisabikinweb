@@ -75,21 +75,21 @@ const logo=origin+'/brand/bisabikinweb-logo-compact.svg';
 const phone='+62882003740969';
 const email='bisabikinw3b@gmail.com';
 const pages={
-  '/':['Jasa Pembuatan Website Jogja untuk Bisnis & UMKM','Bisabikinweb adalah jasa pembuatan website di Yogyakarta untuk UMKM, bisnis, personal brand, toko online, dan perusahaan di seluruh Indonesia. Website modern, cepat, mobile-friendly, dan siap SEO.'],
-  '/jasa':['Jasa Pembuatan Website Jogja & Indonesia','Jasa pembuatan website profesional di Yogyakarta untuk landing page, company profile, toko online, portfolio, dan web application. Melayani bisnis di Jogja dan seluruh Indonesia.'],
-  '/harga':['Harga Jasa Pembuatan Website','Lihat paket dan harga jasa pembuatan website Bisabikinweb mulai Rp800 ribuan untuk landing page, company profile, toko online, dan kebutuhan website bisnis.'],
-  '/portfolio':['Portfolio Jasa Pembuatan Website','Jelajahi portfolio website Bisabikinweb: Berbeda, Karpenter Indonesia, Mejavi Skin+, GoO Ninks, dan GoJogja Travel.'],
-  '/layanan-digital':['Layanan Digital — Pulsa, Paket Data, Token & Travel','Kenali rencana layanan digital BisaBikinWeb: pulsa, paket data, token listrik, voucher game, pembayaran tagihan, dan tiket pesawat serta hotel. Segera hadir.'],
-  '/merch':['Merch Bisabikinweb','Jelajahi konsep koleksi merch Bisabikinweb. Produk segera hadir.'],
-  '/tentang':['Tentang Bisabikinweb — Web Studio Yogyakarta','Kenali Bisabikinweb, studio pembuatan website untuk bisnis dan UMKM di Yogyakarta yang melayani project dari seluruh Indonesia.'],
-  '/kontak':['Konsultasi Jasa Website','Konsultasikan pembuatan website bisnis dengan Bisabikinweb melalui WhatsApp 0882003740969 atau email bisabikinw3b@gmail.com.'],
-  '/artikel':['Artikel Website & Bisnis Digital','Panduan SEO, website bisnis, desain web, dan strategi digital dari Bisabikinweb.'],
-  '/berita':['Berita Terbaru: Politik, Ekonomi, Bisnis & Teknologi','Berita aktual pilihan redaksi BisaBikinWeb tentang ekonomi, politik, nasional, internasional, dan teknologi.'],
-  '/redaksi':['Tentang Redaksi dan Kebijakan Berita BisaBikinWeb','Informasi transparansi publikasi berita, koreksi, dan kontak redaksi BisaBikinWeb.'],
-  '/privacy':['Kebijakan Privasi','Informasi penggunaan data Bisabikinweb.'],
-  '/terms':['Syarat & Ketentuan','Ketentuan layanan Bisabikinweb.'],
-  '/refund':['Kebijakan Pengembalian','Ketentuan pengembalian Bisabikinweb.'],
-  '/shipping':['Informasi Pengiriman','Informasi pengiriman merch Bisabikinweb.'],
+  '/':['Jasa Pembuatan Website Profesional di Yogyakarta','BisaBikinWeb membantu UMKM dan perusahaan membangun website bisnis profesional di Yogyakarta. Desain responsif, struktur SEO jelas, dan konsultasi langsung.'],
+  '/jasa':['Layanan Website: Landing Page, Toko Online & Web App','Pilih layanan website sesuai kebutuhan: landing page, company profile, toko online, portofolio, aplikasi web, hingga pemeliharaan. Pelajari fitur tiap layanan.'],
+  '/harga':['Paket & Harga Pembuatan Website Mulai Rp800 Ribuan','Bandingkan paket Starter, Business, Commerce, dan Custom BisaBikinWeb. Lihat fitur, pilihan biaya, serta konsultasikan ruang lingkup proyek website.'],
+  '/portfolio':['Portofolio Website Bisnis, Brand & E-Commerce','Lihat studi kasus dan karya website BisaBikinWeb untuk Berbeda, Karpenter, Mejavi Skin+, GoO Ninks, GoJogja Travel, dan berbagai kebutuhan bisnis.'],
+  '/layanan-digital':['Layanan Digital: Pulsa, Data, Token & Travel','Rencana layanan digital BisaBikinWeb meliputi pulsa, paket data, token listrik, dan kebutuhan perjalanan. Fitur masih dalam tahap persiapan.'],
+  '/merch':['Merchandise & Koleksi Apparel BisaBikinWeb','Jelajahi koleksi merchandise BisaBikinWeb, desain apparel, dan produk kreatif. Lihat pilihan produk, informasi stok, varian, serta cara pemesanan.'],
+  '/tentang':['Tentang Studio Digital BisaBikinWeb di Yogyakarta','Kenali pendekatan dan proses kerja BisaBikinWeb dalam merancang website bisnis. Dari kebutuhan UMKM hingga solusi web khusus untuk perusahaan.'],
+  '/kontak':['Kontak & Konsultasi Pembuatan Website','Hubungi tim BisaBikinWeb untuk konsultasi website melalui WhatsApp 0882003740969 atau email bisabikinw3b@gmail.com. Ceritakan kebutuhan dan anggaran proyek.'],
+  '/artikel':['Artikel SEO, Website & Strategi Bisnis Digital','Baca panduan praktis tentang SEO, pembuatan website, desain web, pemasaran digital, dan pengembangan bisnis dari tim editorial BisaBikinWeb.'],
+  '/berita':['Berita Bisnis, Ekonomi, Politik & Teknologi','Ikuti berita terkurasi BisaBikinWeb seputar ekonomi, bisnis, politik, teknologi, dan perkembangan dalam maupun luar negeri dengan rujukan sumber.'],
+  '/redaksi':['Redaksi, Sumber Berita & Kebijakan Koreksi','Ketahui standar editorial BisaBikinWeb: penggunaan sumber, verifikasi fakta, koreksi berita, hak penggunaan gambar, dan informasi kontak redaksi.'],
+  '/privacy':['Kebijakan Privasi & Penggunaan Data','Baca bagaimana BisaBikinWeb mengumpulkan, memproses, dan melindungi data saat konsultasi website, berlangganan konten, dan transaksi.'],
+  '/terms':['Syarat & Ketentuan Layanan Website','Pelajari syarat penggunaan website BisaBikinWeb, layanan digital, ketentuan pemesanan, dan tanggung jawab pengguna.'],
+  '/refund':['Ketentuan Refund & Pengembalian Pesanan','Informasi kebijakan pengembalian, pembatalan, serta penanganan permintaan refund untuk produk dan layanan BisaBikinWeb.'],
+  '/shipping':['Informasi Pengiriman Merchandise','Temukan informasi proses pengiriman merchandise BisaBikinWeb, konfirmasi alamat dan ongkir, serta pemantauan status pesanan.'],
   '/cart':['Keranjang','Tinjau wishlist dan produk Anda.'],
   '/checkout':['Checkout Merchandise','Selesaikan detail pengiriman dan lanjutkan pembayaran merchandise Bisabikinweb.'],
   '/track-order':['Lacak Pesanan Merchandise','Periksa status pembayaran dan pengiriman pesanan Bisabikinweb.'],
@@ -100,8 +100,18 @@ const pages={
   '/admin/iklan':['Ads Manager Bisabikinweb','Panel admin untuk mengatur iklan homepage Bisabikinweb.'],
   '/admin/payments':['Payment Gateway — BisaBikinWeb','Dashboard transaksi Midtrans, status pembayaran, rekonsiliasi, dan monitoring checkout merchandise.']
 };
-for(const [kind,prefix] of [['services','jasa'],['portfolio','portfolio'],['products','merch']])for(const p of defaults[kind])pages['/'+prefix+'/'+p.id]=[p.title||p.name,p.summary||p.description];
-for(const article of buildArticles)pages['/artikel/'+article.id]=[article.title,article.summary||'Artikel seputar website, bisnis, dan strategi digital.'];
+for(const [kind,prefix] of [['services','jasa'],['portfolio','portfolio'],['products','merch']]){
+ for(const p of defaults[kind]){
+  const name=String(p.name||p.title||'').trim();
+  const title=kind==='services'?'Layanan '+name:kind==='portfolio'?'Studi Kasus Website '+name:'Merchandise '+name;
+  const description=kind==='services'?name+': '+(p.description||'')+' Fitur yang tersedia: '+(p.features||[]).slice(0,3).join(', ')+'.':kind==='portfolio'?'Studi kasus '+name+'. '+(p.goal||p.description||'')+' '+(p.solution||''):'Lihat '+name+' di katalog merchandise BisaBikinWeb. '+(p.description||p.summary||'');
+  pages['/'+prefix+'/'+p.id]=[title,description];
+ }
+}
+for(const article of buildArticles){
+ const firstParagraph=Array.isArray(article.body)?article.body.find(line=>typeof line==='string'&&line.trim()&&!/^#+\\s/.test(line)):null;
+ pages['/artikel/'+article.id]=[article.title,article.summary||firstParagraph||'Baca artikel '+article.title+' dari '+(article.author_store_name||'redaksi BisaBikinWeb')+'.'];
+}
 const articleByPath=new Map(buildArticles.map(article=>['/artikel/'+article.id,article]));
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
 const jsonLd=value=>JSON.stringify(value).replace(/</g,'\\u003c');
@@ -131,20 +141,33 @@ function protectHtml(html){
 const template=await readFile('site-dist/index.html','utf8');
 for(const [path,[name,description]] of Object.entries(pages)){
   const article=articleByPath.get(path);
-  const title=article?(article.title.length<=55?article.title+' | '+brand:article.title):(path==='/'?brand+' | '+name:name+' | '+brand);
+  const title=article?(article.title.length<=55?article.title+' | '+brand:article.title):(path==='/'?brand+' | '+name:(name.toLowerCase().includes('bisabikinweb')?name:name+' | '+brand));
   const url=origin+(path==='/'?'/':path+'/');
-  const isService=path==='/'||path==='/jasa'||path==='/harga'||path.startsWith('/jasa/');
-  const noindex=path==='/cart'||path==='/checkout'||path==='/track-order'||path==='/account'||path==='/seller'||path.startsWith('/admin');
+  const isService=path.startsWith('/jasa/');
+  const noindex=path==='/cart'||path==='/checkout'||path==='/track-order'||path==='/account'||path==='/seller'||path==='/layanan-digital'||path.startsWith('/admin');
   const metaDescription=snippet(description);
   const articleImage=safeHttpsUrl(article?.image);
   const imageUrl=articleImage||origin+'/og.svg';
   const publishedAt=isoDate(article?.published_at);
   const modifiedAt=isoDate(article?.updated_at||article?.published_at);
-  const schemas=[organization,website];
-  if(isService)schemas.push({'@context':'https://schema.org','@type':'Service','@id':url+'#service',name:path==='/'?'Jasa Pembuatan Website':name,description:metaDescription,url,provider:{'@id':origin+'/#organization'},areaServed:[{'@type':'City','name':'Yogyakarta'},{'@type':'Country','name':'Indonesia'}],serviceType:'Website development and web design'});
-  if(article){
+  // Prerender adalah satu-satunya sumber JSON-LD agar tidak bentrok dengan React.
+  const schemas=[];
+  if(!noindex){
+    if(path==='/'||path==='/tentang')schemas.push(organization);
+    if(path==='/')schemas.push(website);
+    const section=article?(isNewsArticle(article)?'/berita':'/artikel'):path.startsWith('/jasa/')?'/jasa':path.startsWith('/portfolio/')?'/portfolio':path.startsWith('/merch/')?'/merch':null;
+    const crumbs=path==='/'?[]:[{name:'Beranda',url:origin+'/'}];
+    if(section)crumbs.push({name:pages[section][0],url:origin+section+'/'});
+    if(path!=='/')crumbs.push({name:section?name:pages[path][0],url});
+    const breadcrumbId=url+'#breadcrumb';
+    const pageType=['/jasa','/portfolio','/artikel','/berita','/merch'].includes(path)?'CollectionPage':'WebPage';
+    schemas.push({'@context':'https://schema.org','@type':pageType,'@id':url+'#webpage',url,name:title,description:metaDescription,inLanguage:'id-ID',isPartOf:{'@id':origin+'/#website'},publisher:{'@id':origin+'/#organization'},...(crumbs.length>1?{breadcrumb:{'@id':breadcrumbId}}:{})});
+    if(crumbs.length>1)schemas.push({'@context':'https://schema.org','@type':'BreadcrumbList','@id':breadcrumbId,itemListElement:crumbs.map((crumb,i)=>({'@type':'ListItem',position:i+1,name:crumb.name,item:crumb.url}))});
+    if(isService)schemas.push({'@context':'https://schema.org','@type':'Service','@id':url+'#service',name,description:metaDescription,url,provider:{'@id':origin+'/#organization'},areaServed:[{'@type':'City',name:'Yogyakarta'},{'@type':'Country',name:'Indonesia'}],serviceType:name});
+  }
+  if(article&&!noindex){
     const words=[article.title,article.summary,...(Array.isArray(article.body)?article.body:[])].join(' ').trim().split(/\s+/).filter(Boolean).length;
-    const articleSchema={'@context':'https://schema.org','@type':isNewsArticle(article)?'NewsArticle':'BlogPosting','@id':url+'#article',mainEntityOfPage:{'@type':'WebPage','@id':url},headline:article.title,description:metaDescription,url,author:article.author_type==='seller'&&article.author_store_name?{'@type':'Organization',name:article.author_store_name}: {'@type':'Organization','@id':origin+'/#organization',name:brand},publisher:{'@id':origin+'/#organization'},inLanguage:'id-ID',articleSection:article.category,wordCount:words};
+    const articleSchema={'@context':'https://schema.org','@type':isNewsArticle(article)?'NewsArticle':'BlogPosting','@id':url+'#article',mainEntityOfPage:{'@id':url+'#webpage'},headline:article.title,description:metaDescription,url,author:article.author_type==='seller'&&article.author_store_name?{'@type':'Organization',name:article.author_store_name}: {'@type':'Organization','@id':origin+'/#organization',name:brand},publisher:{'@id':origin+'/#organization'},inLanguage:'id-ID',articleSection:article.category,wordCount:words};
     if(articleImage)articleSchema.image=[articleImage];
     if(publishedAt)articleSchema.datePublished=publishedAt;
     if(modifiedAt)articleSchema.dateModified=modifiedAt;
@@ -153,8 +176,9 @@ for(const [path,[name,description]] of Object.entries(pages)){
     schemas.push(articleSchema);
   }
   const structured=schemas.map(s=>'<script type="application/ld+json">'+jsonLd(s)+'</script>').join('');
+  const canonicalMarkup=noindex?'':'<link rel="canonical" href="'+esc(url)+'"/><link rel="sitemap" type="application/xml" href="'+origin+'/sitemap.xml"/>';
   const articleMeta=article?(publishedAt?'<meta property="article:published_time" content="'+esc(publishedAt)+'"/>':'')+(modifiedAt?'<meta property="article:modified_time" content="'+esc(modifiedAt)+'"/>':''):'';
-  const seo=`<title>${esc(title)}</title><meta name="description" content="${esc(metaDescription)}"/><meta name="application-name" content="${brand}"/><meta name="author" content="${brand}"/><meta name="robots" content="${noindex?'noindex,nofollow':'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}"/><meta name="googlebot" content="${noindex?'noindex,nofollow':'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}"/><link rel="canonical" href="${url}"/><link rel="sitemap" type="application/xml" href="${origin}/sitemap.xml"/><meta property="og:type" content="${article?'article':'website'}"/><meta property="og:locale" content="id_ID"/><meta property="og:site_name" content="${brand}"/><meta property="og:title" content="${esc(title)}"/><meta property="og:description" content="${esc(metaDescription)}"/><meta property="og:url" content="${url}"/><meta property="og:image" content="${esc(imageUrl)}"/><meta property="og:image:alt" content="${esc(article?.title||'Bisabikinweb — jasa pembuatan website profesional')}"/>${articleMeta}<meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="${esc(title)}"/><meta name="twitter:description" content="${esc(metaDescription)}"/><meta name="twitter:image" content="${esc(imageUrl)}"/>${structured}`;
+  const seo=`<title>${esc(title)}</title><meta name="description" content="${esc(metaDescription)}"/><meta name="application-name" content="${brand}"/><meta name="author" content="${brand}"/><meta name="robots" content="${noindex?'noindex,nofollow':'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}"/><meta name="googlebot" content="${noindex?'noindex,nofollow':'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}"/>${canonicalMarkup}<meta property="og:type" content="${article?'article':'website'}"/><meta property="og:locale" content="id_ID"/><meta property="og:site_name" content="${brand}"/><meta property="og:title" content="${esc(title)}"/><meta property="og:description" content="${esc(metaDescription)}"/><meta property="og:url" content="${url}"/><meta property="og:image" content="${esc(imageUrl)}"/><meta property="og:image:alt" content="${esc(article?.title||'Bisabikinweb — jasa pembuatan website profesional')}"/>${articleMeta}<meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="${esc(title)}"/><meta name="twitter:description" content="${esc(metaDescription)}"/><meta name="twitter:image" content="${esc(imageUrl)}"/>${structured}`;
  const monetized=path==='/'||path==='/artikel'||path==='/berita'||(article&&article.author_type!=='seller');
  const adsense=monetized?'<meta name="google-adsense-account" content="'+adsenseClient+'"/><script async src="'+adsenseScriptUrl+'" crossorigin="anonymous"></script>':'';
  const html=template.replace('<!--SEO-->',seo+adsense).replace('<!--APP-->',render(path,buildData));
@@ -169,13 +193,13 @@ const coverBytes=Buffer.from(coverPart1+coverPart2,'base64');
 const coverHash=createHash('sha256').update(coverBytes).digest('hex');
 if(coverHash!=='1fbaee73e936ba6064cc24c86137184f7ae165be32d7845f5e1c5d06b64ca662')throw new Error('GoJogja collaboration cover integrity check failed');
 await writeFile('site-dist/bisabikinweb-gojogja-travel-collaboration.webp',coverBytes);
-await writeFile('site-dist/robots.txt',`User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /seller/\nDisallow: /account/\nDisallow: /checkout/\nDisallow: /track-order/\nDisallow: /cart/\n\nSitemap: ${origin}/sitemap.xml\n${freshNewsArticles.length?`Sitemap: ${origin}/news-sitemap.xml\n`:''}`);
-const excludedRoutes=new Set(['/cart','/checkout','/track-order','/seller','/account']);
+await writeFile('site-dist/robots.txt',`User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n${freshNewsArticles.length?`Sitemap: ${origin}/news-sitemap.xml\n`:''}`);
+const excludedRoutes=new Set(['/cart','/checkout','/track-order','/seller','/account','/layanan-digital']);
 const sitemapEntries=Object.keys(pages).filter(path=>!excludedRoutes.has(path)&&!path.startsWith('/admin')&&!path.startsWith('/seller/')).map(path=>{
  const article=articleByPath.get(path);
  const loc=origin+(path==='/'?'/':path+'/');
- const lastmod=article?dateOnly(article.updated_at||article.published_at):buildDate;
- return `  <url><loc>${esc(loc)}</loc><lastmod>${lastmod}</lastmod></url>`;
+ const lastmod=article?isoDate(article.updated_at||article.published_at)?.slice(0,10):null;
+ return `  <url><loc>${esc(loc)}</loc>${lastmod?'<lastmod>'+lastmod+'</lastmod>':''}</url>`;
 });
 await writeFile('site-dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+sitemapEntries.join('\n')+'\n</urlset>\n');
 // Avoid exposing an empty News sitemap. Google's parser can report missing <url> tags.
