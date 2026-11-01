@@ -27,6 +27,10 @@ for (const kind of ['media','shop']) {
       assert.match(await readFile(join(out,'robots.txt'),'utf8'),/Disallow: \//);
       assert.match(await readFile(join(out,'index.html'),'utf8'),/noindex,nofollow/);
       if(kind==='media'){
+        const home=await readFile(join(out,'index.html'),'utf8');
+        assert.match(home,/http-equiv="refresh" content="0;url=\/artikel\/"/);
+        assert.match(home,/location\.replace\('\/artikel\/'\)/);
+        assert.doesNotMatch(home,/Ideas worth|THE COLLECTION/i);
         for(const needed of ['artikel','berita','redaksi'])assert.ok(entries.includes(needed));
         for(const forbidden of ['merch','cart','checkout','track-order','account','_spa.html'])assert.ok(!entries.includes(forbidden));
         const html=await readFile(join(out,'artikel/index.html'),'utf8');
