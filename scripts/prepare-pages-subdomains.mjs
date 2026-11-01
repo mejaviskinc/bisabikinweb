@@ -19,6 +19,22 @@ for (const [kind,host] of Object.entries({
   }
   await writeFile(join(target,'CNAME'),host+'\n');
   await writeFile(join(target,'.nojekyll'),'');
+  if(kind==='app'){
+    await cp(join(root,'subdomains/navigation.js'),join(target,'subdomain-navigation.js'));
+    const prepareApp = async directory => {
+      for(const entry of await readdir(directory,{withFileTypes:true})){
+        const file=join(directory,entry.name);
+        if(entry.isDirectory()){await prepareApp(file);continue;}
+        if(!entry.isFile()||!entry.name.endsWith('.html'))continue;
+        let html=await readFile(file,'utf8');
+        html=html.replace(/<meta\s+name="robots"[^>]*>/gi,'');
+        html=html.replace(/<head([^>]*)>/i,'<head$1><meta name="robots" content="noindex,nofollow">');
+        html=html.replace(/<\/body>/i,'<script src="/subdomain-navigation.js" defer></script></body>');
+        await writeFile(file,html);
+      }
+    };
+    await prepareApp(target);
+  }
   // GitHub Pages uses 404.html for unmatched dynamic /toko/:slug routes.
   // Static path still returns 404 HTTP; must move to prerendered slugs for SEO later.
   if(kind==='shop'){
