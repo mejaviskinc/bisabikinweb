@@ -42,4 +42,21 @@ for(const forbidden of ['CNAME','sitemap.xml','news-sitemap.xml','admin','seller
   const contents=await readdir(target);
   if(contents.includes(forbidden))throw new Error('Output subdomain memiliki file terlarang: '+forbidden);
 }
+// Inject conservative noindex across secondary origins until SEO cutover is verified.
+// Do not alter their original canonical URLs (all stay on the main domain).
+async function prepareHtml(directory){
+  for(const entry of await readdir(directory,{withFileTypes:true})){
+    const file=join(directory,entry.name);
+    if(entry.isDirectory()){await prepareHtml(file);continue;}
+    if(!entry.isFile()||!entry.name.endsWith('.html'))continue;
+    let html=await readFile(file,'utf8');
+    html=html.replace(/<meta\s+name="robots"[^>]*>/gi,'');
+    html=html.replace(/<meta\s+name="googlebot"[^>]*>/gi,'');
+    html=html.replace(/<head([^>]*)>/i,'<head$1><meta name="robots" content="noindex,nofollow"><meta name="googlebot" content="noindex,nofollow">');
+    html=html.replace(/<\/body>/i,'<script src="/subdomain-navigation.js" defer></script></body>');
+    await writeFile(file,html);
+  }
+}
+await cp(join(root,'subdomains/navigation.js'),join(target,'subdomain-navigation.js'));
+await prepareHtml(target);
 console.log('Subdomain '+kind+' -> '+target);
