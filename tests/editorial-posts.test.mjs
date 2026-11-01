@@ -42,3 +42,13 @@ test('all 40 Instagram-referenced news have unique locally-hosted SVG covers',as
   assert.ok(!svg.includes('<script')&&!svg.includes('onload='));
  }
 });
+
+
+test('all 40 local news covers are shown in cards and article detail, independently of Instagram embeds', async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const ui=await readFile('static-source/features/Studio.tsx','utf8');
+ assert.match(ui,/className="article-cover" src=\{articleImage\(a\)\}/);
+ assert.match(ui,/className="article-detail-cover" src=\{articleImage\(a\)\}/);
+ assert.match(ui,/instagramPostUrl\(a\)&&<InstagramOriginal article=\{a\}\/>/);
+ assert.doesNotMatch(ui,/instagramPostUrl\(a\)\?<InstagramOriginal article=\{a\}\/>:/);
+});
