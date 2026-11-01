@@ -5,7 +5,7 @@
   const allowed = {
     'app.bisabikinweb.site': ['/', '/admin', '/seller'],
     'media.bisabikinweb.site': ['/', '/artikel', '/berita', '/redaksi'],
-    'shop.bisabikinweb.site': ['/', '/merch', '/cart', '/checkout', '/track-order', '/account']
+    'shop.bisabikinweb.site': ['/', '/merch', '/toko', '/cart', '/checkout', '/track-order', '/account']
   };
   const routes = allowed[host];
   if (!routes) return;
@@ -13,6 +13,7 @@
     const path = pathname.replace(/\/+$/, '') || '/';
     return routes.some(p => path === p || (p !== '/' && path.startsWith(p + '/')));
   };
+  // Pertahankan /toko/:slug pada domain toko agar storefront seller tidak meloncat ke host utama.
   // Never intercept external anchors or hashes. Unknown local routes still resolve on the primary website.
   document.addEventListener('click', event => {
     if (event.defaultPrevented || event.button !== 0 || event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
