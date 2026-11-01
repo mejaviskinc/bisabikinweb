@@ -22,3 +22,23 @@ test('bundled editorial article survives Supabase payload without duplicate slug
  assert.equal(merged.find(article=>article.id===override.id).title,'Edit from CMS');
  assert.equal(merged.filter(article=>article.id===override.id).length,1);
 });
+
+
+test('all 40 Instagram-referenced news have unique locally-hosted SVG covers',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const {fileURLToPath}=await import('node:url');
+ const titles=new Set();
+ const items=editorialPosts.filter(p=>p.id==='bnpb-delapan-langkah-siaga-musim-hujan-2026'||(p.sort_order>=200&&p.sort_order<240));
+ assert.equal(items.length,40);
+ for(const post of items){
+  assert.equal(isNewsArticle(post),true);
+  assert.ok(post.image.startsWith('https://bisabikinweb.site/berita-covers/'));
+  assert.ok(post.image.endsWith('/'+post.id+'.svg'));
+  assert.equal(post.cover_image_url,post.image);
+  assert.ok(!titles.has(post.title)); titles.add(post.title);
+  const rel='public-assets/'+new URL(post.image).pathname.replace(/^\\//,'');
+  const svg=await readFile(rel,'utf8');
+  assert.ok(svg.includes('<svg')&&svg.includes('Ilustrasi editorial'));
+  assert.ok(!svg.includes('<script')&&!svg.includes('onload='));
+ }
+});
