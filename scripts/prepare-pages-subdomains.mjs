@@ -45,7 +45,7 @@ for (const [kind,host] of Object.entries({
     await writeFile(join(target,'404.html'),html);
     await rm(join(target,'_spa.html'));
   }
-  for(const section of ['admin','seller','auto-artikel']){
+  for(const section of (kind==='app'?['auto-artikel']:['admin','seller','auto-artikel'])){
     if((await readdir(target)).includes(section))throw new Error(kind+' contains private page '+section);
   }
   console.log('GitHub Pages bundle pages-'+kind+' -> '+host);
