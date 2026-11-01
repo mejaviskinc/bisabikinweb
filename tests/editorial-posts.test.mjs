@@ -36,7 +36,7 @@ test('all 40 Instagram-referenced news have unique locally-hosted SVG covers',as
   assert.ok(post.image.endsWith('/'+post.id+'.svg'));
   assert.equal(post.cover_image_url,post.image);
   assert.ok(!titles.has(post.title)); titles.add(post.title);
-  const rel='public-assets/'+new URL(post.image).pathname.replace(/^\\//,'');
+  const rel='public-assets/'+new URL(post.image).pathname.slice(1);
   const svg=await readFile(rel,'utf8');
   assert.ok(svg.includes('<svg')&&svg.includes('Ilustrasi editorial'));
   assert.ok(!svg.includes('<script')&&!svg.includes('onload='));
