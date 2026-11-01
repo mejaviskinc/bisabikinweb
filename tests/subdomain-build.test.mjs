@@ -40,3 +40,10 @@ for (const kind of ['media','shop']) {
     }finally{await rm(dir,{recursive:true,force:true});}
   });
 }
+
+test('shop navigation retains storefront paths and previews remain noindex',async()=>{
+  const nav=await readFile('subdomains/navigation.js','utf8');
+  const storefront=await readFile('static-source/features/Storefront.tsx','utf8');
+  assert.match(nav,/shop\.bisabikinweb\.site[^\n]*\/toko/);
+  assert.match(storefront,/window\.location\.hostname==='shop\.bisabikinweb\.site'\?'noindex,nofollow'/);
+});
