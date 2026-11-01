@@ -75,21 +75,21 @@ const logo=origin+'/brand/bisabikinweb-logo-compact.svg';
 const phone='+62882003740969';
 const email='bisabikinw3b@gmail.com';
 const pages={
-  '/':['Jasa Pembuatan Website Jogja untuk Bisnis & UMKM','Bisabikinweb adalah jasa pembuatan website di Yogyakarta untuk UMKM, bisnis, personal brand, toko online, dan perusahaan di seluruh Indonesia. Website modern, cepat, mobile-friendly, dan siap SEO.'],
-  '/jasa':['Jasa Pembuatan Website Jogja & Indonesia','Jasa pembuatan website profesional di Yogyakarta untuk landing page, company profile, toko online, portfolio, dan web application. Melayani bisnis di Jogja dan seluruh Indonesia.'],
-  '/harga':['Harga Jasa Pembuatan Website','Lihat paket dan harga jasa pembuatan website Bisabikinweb mulai Rp800 ribuan untuk landing page, company profile, toko online, dan kebutuhan website bisnis.'],
-  '/portfolio':['Portfolio Jasa Pembuatan Website','Jelajahi portfolio website Bisabikinweb: Berbeda, Karpenter Indonesia, Mejavi Skin+, GoO Ninks, dan GoJogja Travel.'],
-  '/layanan-digital':['Layanan Digital — Pulsa, Paket Data, Token & Travel','Kenali rencana layanan digital BisaBikinWeb: pulsa, paket data, token listrik, voucher game, pembayaran tagihan, dan tiket pesawat serta hotel. Segera hadir.'],
-  '/merch':['Merch Bisabikinweb','Jelajahi konsep koleksi merch Bisabikinweb. Produk segera hadir.'],
-  '/tentang':['Tentang Bisabikinweb — Web Studio Yogyakarta','Kenali Bisabikinweb, studio pembuatan website untuk bisnis dan UMKM di Yogyakarta yang melayani project dari seluruh Indonesia.'],
-  '/kontak':['Konsultasi Jasa Website','Konsultasikan pembuatan website bisnis dengan Bisabikinweb melalui WhatsApp 0882003740969 atau email bisabikinw3b@gmail.com.'],
-  '/artikel':['Artikel Website & Bisnis Digital','Panduan SEO, website bisnis, desain web, dan strategi digital dari Bisabikinweb.'],
-  '/berita':['Berita Terbaru: Politik, Ekonomi, Bisnis & Teknologi','Berita aktual pilihan redaksi BisaBikinWeb tentang ekonomi, politik, nasional, internasional, dan teknologi.'],
-  '/redaksi':['Tentang Redaksi dan Kebijakan Berita BisaBikinWeb','Informasi transparansi publikasi berita, koreksi, dan kontak redaksi BisaBikinWeb.'],
-  '/privacy':['Kebijakan Privasi','Informasi penggunaan data Bisabikinweb.'],
-  '/terms':['Syarat & Ketentuan','Ketentuan layanan Bisabikinweb.'],
-  '/refund':['Kebijakan Pengembalian','Ketentuan pengembalian Bisabikinweb.'],
-  '/shipping':['Informasi Pengiriman','Informasi pengiriman merch Bisabikinweb.'],
+  '/':['Jasa Pembuatan Website Profesional di Yogyakarta','BisaBikinWeb membantu UMKM dan perusahaan membangun website bisnis profesional di Yogyakarta. Desain responsif, struktur SEO jelas, dan konsultasi langsung.'],
+  '/jasa':['Layanan Website: Landing Page, Toko Online & Web App','Pilih layanan website sesuai kebutuhan: landing page, company profile, toko online, portofolio, aplikasi web, hingga pemeliharaan. Pelajari fitur tiap layanan.'],
+  '/harga':['Paket & Harga Pembuatan Website Mulai Rp800 Ribuan','Bandingkan paket Starter, Business, Commerce, dan Custom BisaBikinWeb. Lihat fitur, pilihan biaya, serta konsultasikan ruang lingkup proyek website.'],
+  '/portfolio':['Portofolio Website Bisnis, Brand & E-Commerce','Lihat studi kasus dan karya website BisaBikinWeb untuk Berbeda, Karpenter, Mejavi Skin+, GoO Ninks, GoJogja Travel, dan berbagai kebutuhan bisnis.'],
+  '/layanan-digital':['Layanan Digital: Pulsa, Data, Token & Travel','Rencana layanan digital BisaBikinWeb meliputi pulsa, paket data, token listrik, dan kebutuhan perjalanan. Fitur masih dalam tahap persiapan.'],
+  '/merch':['Merchandise & Koleksi Apparel BisaBikinWeb','Jelajahi koleksi merchandise BisaBikinWeb, desain apparel, dan produk kreatif. Lihat pilihan produk, informasi stok, varian, serta cara pemesanan.'],
+  '/tentang':['Tentang Studio Digital BisaBikinWeb di Yogyakarta','Kenali pendekatan dan proses kerja BisaBikinWeb dalam merancang website bisnis. Dari kebutuhan UMKM hingga solusi web khusus untuk perusahaan.'],
+  '/kontak':['Kontak & Konsultasi Pembuatan Website','Hubungi tim BisaBikinWeb untuk konsultasi website melalui WhatsApp 0882003740969 atau email bisabikinw3b@gmail.com. Ceritakan kebutuhan dan anggaran proyek.'],
+  '/artikel':['Artikel SEO, Website & Strategi Bisnis Digital','Baca panduan praktis tentang SEO, pembuatan website, desain web, pemasaran digital, dan pengembangan bisnis dari tim editorial BisaBikinWeb.'],
+  '/berita':['Berita Bisnis, Ekonomi, Politik & Teknologi','Ikuti berita terkurasi BisaBikinWeb seputar ekonomi, bisnis, politik, teknologi, dan perkembangan dalam maupun luar negeri dengan rujukan sumber.'],
+  '/redaksi':['Redaksi, Sumber Berita & Kebijakan Koreksi','Ketahui standar editorial BisaBikinWeb: penggunaan sumber, verifikasi fakta, koreksi berita, hak penggunaan gambar, dan informasi kontak redaksi.'],
+  '/privacy':['Kebijakan Privasi & Penggunaan Data','Baca bagaimana BisaBikinWeb mengumpulkan, memproses, dan melindungi data saat konsultasi website, berlangganan konten, dan transaksi.'],
+  '/terms':['Syarat & Ketentuan Layanan Website','Pelajari syarat penggunaan website BisaBikinWeb, layanan digital, ketentuan pemesanan, dan tanggung jawab pengguna.'],
+  '/refund':['Ketentuan Refund & Pengembalian Pesanan','Informasi kebijakan pengembalian, pembatalan, serta penanganan permintaan refund untuk produk dan layanan BisaBikinWeb.'],
+  '/shipping':['Informasi Pengiriman Merchandise','Temukan informasi proses pengiriman merchandise BisaBikinWeb, konfirmasi alamat dan ongkir, serta pemantauan status pesanan.'],
   '/cart':['Keranjang','Tinjau wishlist dan produk Anda.'],
   '/checkout':['Checkout Merchandise','Selesaikan detail pengiriman dan lanjutkan pembayaran merchandise Bisabikinweb.'],
   '/track-order':['Lacak Pesanan Merchandise','Periksa status pembayaran dan pengiriman pesanan Bisabikinweb.'],
@@ -100,8 +100,18 @@ const pages={
   '/admin/iklan':['Ads Manager Bisabikinweb','Panel admin untuk mengatur iklan homepage Bisabikinweb.'],
   '/admin/payments':['Payment Gateway — BisaBikinWeb','Dashboard transaksi Midtrans, status pembayaran, rekonsiliasi, dan monitoring checkout merchandise.']
 };
-for(const [kind,prefix] of [['services','jasa'],['portfolio','portfolio'],['products','merch']])for(const p of defaults[kind])pages['/'+prefix+'/'+p.id]=[p.title||p.name,p.summary||p.description];
-for(const article of buildArticles)pages['/artikel/'+article.id]=[article.title,article.summary||'Artikel seputar website, bisnis, dan strategi digital.'];
+for(const [kind,prefix] of [['services','jasa'],['portfolio','portfolio'],['products','merch']]){
+ for(const p of defaults[kind]){
+  const name=String(p.name||p.title||'').trim();
+  const title=kind==='services'?'Layanan '+name:kind==='portfolio'?'Studi Kasus Website '+name:'Merchandise '+name;
+  const description=kind==='services'?name+': '+(p.description||'')+' Fitur yang tersedia: '+(p.features||[]).slice(0,3).join(', ')+'.':kind==='portfolio'?'Studi kasus '+name+'. '+(p.goal||p.description||'')+' '+(p.solution||''):'Lihat '+name+' di katalog merchandise BisaBikinWeb. '+(p.description||p.summary||'');
+  pages['/'+prefix+'/'+p.id]=[title,description];
+ }
+}
+for(const article of buildArticles){
+ const firstParagraph=Array.isArray(article.body)?article.body.find(line=>typeof line==='string'&&line.trim()&&!/^#+\\s/.test(line)):null;
+ pages['/artikel/'+article.id]=[article.title,article.summary||firstParagraph||'Baca artikel '+article.title+' dari '+(article.author_store_name||'redaksi BisaBikinWeb')+'.'];
+}
 const articleByPath=new Map(buildArticles.map(article=>['/artikel/'+article.id,article]));
 const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot',"'":'&#39;'}[c]));
 const jsonLd=value=>JSON.stringify(value).replace(/</g,'\\u003c');
