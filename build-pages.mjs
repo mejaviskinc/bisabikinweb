@@ -141,10 +141,10 @@ function protectHtml(html){
 const template=await readFile('site-dist/index.html','utf8');
 for(const [path,[name,description]] of Object.entries(pages)){
   const article=articleByPath.get(path);
-  const title=article?(article.title.length<=55?article.title+' | '+brand:article.title):(path==='/'?brand+' | '+name:name+' | '+brand);
+  const title=article?(article.title.length<=55?article.title+' | '+brand:article.title):(path==='/'?brand+' | '+name:(name.toLowerCase().includes('bisabikinweb')?name:name+' | '+brand));
   const url=origin+(path==='/'?'/':path+'/');
-  const isService=path==='/'||path==='/jasa'||path==='/harga'||path.startsWith('/jasa/');
-  const noindex=path==='/cart'||path==='/checkout'||path==='/track-order'||path==='/account'||path==='/seller'||path.startsWith('/admin');
+  const isService=path.startsWith('/jasa/');
+  const noindex=path==='/cart'||path==='/checkout'||path==='/track-order'||path==='/account'||path==='/seller'||path==='/layanan-digital'||path.startsWith('/admin');
   const metaDescription=snippet(description);
   const articleImage=safeHttpsUrl(article?.image);
   const imageUrl=articleImage||origin+'/og.svg';
@@ -152,9 +152,9 @@ for(const [path,[name,description]] of Object.entries(pages)){
   const modifiedAt=isoDate(article?.updated_at||article?.published_at);
   const schemas=[organization,website];
   if(isService)schemas.push({'@context':'https://schema.org','@type':'Service','@id':url+'#service',name:path==='/'?'Jasa Pembuatan Website':name,description:metaDescription,url,provider:{'@id':origin+'/#organization'},areaServed:[{'@type':'City','name':'Yogyakarta'},{'@type':'Country','name':'Indonesia'}],serviceType:'Website development and web design'});
-  if(article){
+  if(article&&!noindex){
     const words=[article.title,article.summary,...(Array.isArray(article.body)?article.body:[])].join(' ').trim().split(/\s+/).filter(Boolean).length;
-    const articleSchema={'@context':'https://schema.org','@type':isNewsArticle(article)?'NewsArticle':'BlogPosting','@id':url+'#article',mainEntityOfPage:{'@type':'WebPage','@id':url},headline:article.title,description:metaDescription,url,author:article.author_type==='seller'&&article.author_store_name?{'@type':'Organization',name:article.author_store_name}: {'@type':'Organization','@id':origin+'/#organization',name:brand},publisher:{'@id':origin+'/#organization'},inLanguage:'id-ID',articleSection:article.category,wordCount:words};
+    const articleSchema={'@context':'https://schema.org','@type':isNewsArticle(article)?'NewsArticle':'BlogPosting','@id':url+'#article',mainEntityOfPage:{'@id':url+'#webpage'},headline:article.title,description:metaDescription,url,author:article.author_type==='seller'&&article.author_store_name?{'@type':'Organization',name:article.author_store_name}: {'@type':'Organization','@id':origin+'/#organization',name:brand},publisher:{'@id':origin+'/#organization'},inLanguage:'id-ID',articleSection:article.category,wordCount:words};
     if(articleImage)articleSchema.image=[articleImage];
     if(publishedAt)articleSchema.datePublished=publishedAt;
     if(modifiedAt)articleSchema.dateModified=modifiedAt;
@@ -179,13 +179,13 @@ const coverBytes=Buffer.from(coverPart1+coverPart2,'base64');
 const coverHash=createHash('sha256').update(coverBytes).digest('hex');
 if(coverHash!=='1fbaee73e936ba6064cc24c86137184f7ae165be32d7845f5e1c5d06b64ca662')throw new Error('GoJogja collaboration cover integrity check failed');
 await writeFile('site-dist/bisabikinweb-gojogja-travel-collaboration.webp',coverBytes);
-await writeFile('site-dist/robots.txt',`User-agent: *\nAllow: /\nDisallow: /admin/\nDisallow: /seller/\nDisallow: /account/\nDisallow: /checkout/\nDisallow: /track-order/\nDisallow: /cart/\n\nSitemap: ${origin}/sitemap.xml\n${freshNewsArticles.length?`Sitemap: ${origin}/news-sitemap.xml\n`:''}`);
-const excludedRoutes=new Set(['/cart','/checkout','/track-order','/seller','/account']);
+await writeFile('site-dist/robots.txt',`User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n${freshNewsArticles.length?`Sitemap: ${origin}/news-sitemap.xml\n`:''}`);
+const excludedRoutes=new Set(['/cart','/checkout','/track-order','/seller','/account','/layanan-digital']);
 const sitemapEntries=Object.keys(pages).filter(path=>!excludedRoutes.has(path)&&!path.startsWith('/admin')&&!path.startsWith('/seller/')).map(path=>{
  const article=articleByPath.get(path);
  const loc=origin+(path==='/'?'/':path+'/');
- const lastmod=article?dateOnly(article.updated_at||article.published_at):buildDate;
- return `  <url><loc>${esc(loc)}</loc><lastmod>${lastmod}</lastmod></url>`;
+ const lastmod=article?isoDate(article.updated_at||article.published_at)?.slice(0,10):null;
+ return `  <url><loc>${esc(loc)}</loc>${lastmod?'<lastmod>'+lastmod+'</lastmod>':''}</url>`;
 });
 await writeFile('site-dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+sitemapEntries.join('\n')+'\n</urlset>\n');
 // Avoid exposing an empty News sitemap. Google's parser can report missing <url> tags.
