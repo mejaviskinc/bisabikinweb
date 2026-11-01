@@ -1,0 +1,79 @@
+name: Build three GitHub Pages subdomain packages
+on:
+  push:
+    branches: [main, feature/media-shop-subdomains]
+    paths:
+      - 'scripts/build-subdomain.mjs'
+      - 'scripts/build-app.mjs'
+      - 'scripts/prepare-pages-subdomains.mjs'
+      - 'subdomains/**'
+      - 'static-source/**'
+      - 'build-pages.mjs'
+      - 'vite.pages.mjs'
+      - 'package.json'
+      - 'package-lock.json'
+      - 'tests/subdomain-build.test.mjs'
+      - '.github/workflows/pages-subdomains.yml'
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - name: Node 22
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Test, build and isolate output
+        run: |
+          npm test
+          npm run build:all-subdomains
+          node scripts/prepare-pages-subdomains.mjs
+          for folder in pages-app pages-media pages-shop; do
+            test -f "$folder/index.html"
+            test -f "$folder/CNAME"
+            test -f "$folder/.nojekyll"
+            test ! -f "$folder/_headers"
+            test ! -f "$folder/_redirects"
+            test ! -d "$folder/admin" || test "$folder" = "pages-app"
+          done
+          test -f pages-shop/checkout/index.html
+          test -f pages-media/artikel/index.html
+          test -f pages-app/admin/index.html
+      - name: App GitHub Pages package
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: pages-app
+          path: pages-app/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7
+      - name: Media GitHub Pages package
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: pages-media
+          path: pages-media/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7
+      - name: Shop GitHub Pages package
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: pages-shop
+          path: pages-shop/
+          include-hidden-files: true
+          if-no-files-found: error
+          retention-days: 7
