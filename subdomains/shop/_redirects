@@ -1,0 +1,10 @@
+/toko/*             /_spa.html                                   200
+/jasa/*             https://bisabikinweb.site/jasa/:splat          302
+/portfolio/*        https://bisabikinweb.site/portfolio/:splat     302
+/harga              https://bisabikinweb.site/harga/               302
+/kontak             https://bisabikinweb.site/kontak/              302
+/artikel/*          https://bisabikinweb.site/artikel/:splat       302
+/berita/*           https://bisabikinweb.site/berita/:splat        302
+/redaksi            https://bisabikinweb.site/redaksi/             302
+/admin/*            https://bisabikinweb.site/admin/:splat         302
+/seller             https://bisabikinweb.site/seller/              302
