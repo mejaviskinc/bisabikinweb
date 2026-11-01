@@ -49,3 +49,10 @@ jobs:
           test ! -d app-dist/artikel
           test ! -d app-dist/checkout
           test ! -f app-dist/sitemap.xml
+      - name: Save deploy-ready app bundle
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4
+        with:
+          name: bisabikinweb-app-deploy
+          path: app-dist/
+          if-no-files-found: error
+          retention-days: 7
