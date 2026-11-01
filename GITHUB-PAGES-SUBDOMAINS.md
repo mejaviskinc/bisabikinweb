@@ -1,66 +1,69 @@
-# BisaBikinWeb — GitHub Pages Multi-Subdomain
+# BisaBikinWeb — GitHub Pages untuk 3 Subdomain
 
-## Arsitektur
+**Sumber utama:** https://github.com/mejaviskinc/bisabikinweb (branch `main`)
 
-Domain utama tetap diterbitkan dari repository `mejaviskinc/bisabikinweb` dan GitHub Pages-nya sendiri. Tiga subdomain memakai repository publik TERPISAH:
+## Arsitektur aktif
 
-| Repo tujuan | Domain | Isi |
+| Domain | Repository | Konten |
 | --- | --- | --- |
-| `mejaviskinc/bisabikinweb-app` | `app.bisabikinweb.site` | Admin dan Seller |
-| `mejaviskinc/bisabikinweb-media` | `media.bisabikinweb.site` | Artikel, berita, redaksi |
-| `mejaviskinc/bisabikinweb-shop` | `shop.bisabikinweb.site` | Merch, cart, checkout, account, tracking |
+| bisabikinweb.site | `mejaviskinc/bisabikinweb` | Jasa, portfolio, konten, checkout produksi |
+| app.bisabikinweb.site | `mejaviskinc/bisabikinweb-app` | Portal admin dan seller |
+| media.bisabikinweb.site | `mejaviskinc/bisabikinweb-media` | Artikel, berita dan redaksi |
+| shop.bisabikinweb.site | `mejaviskinc/bisabikinweb-shop` | Merchandise, keranjang, akun pembeli, tracking |
 
-Jangan memindahkan CNAME `bisabikinweb.site` dari repo utama. GitHub Pages hanya mengelola satu custom-domain untuk setiap site/repository. Workflow sumber di repo utama **membuat tiga artifact terpisah**; tidak otomatis menerbitkan ketiga repo.
+**GitHub Pages**, bukan Netlify, adalah target deploy untuk ketiga repo subdomain.
 
-## Build di GitHub Actions
+## Bagaimana deployment otomatis bekerja
 
-Workflow: `.github/workflows/pages-subdomains.yml` → **Build three GitHub Pages subdomain packages**.
+Setiap repository subdomain sudah memiliki `.github/workflows/deploy-pages.yml` yang:
 
-1. Buka repo utama → Actions → workflow → Run workflow (branch main).
-2. Unduh artifact `pages-app`, `pages-media`, `pages-shop`.
-3. Ekstrak masing-masing ZIP. **Isi folder hasil ekstrak**, bukan ZIP itu sendiri, harus ada di root repository subdomain yang sesuai, termasuk `index.html`, `CNAME`, `assets/`, `.nojekyll`.
-4. Ketiga repo harus public untuk GitHub Pages publik di paket GitHub yang sesuai.
+1. Checkout source `mejaviskinc/bisabikinweb@main` (read-only).
+2. Install dependencies terkunci dan jalankan `npm test`.
+3. Menjalankan `npm run build:app`, `build:media` atau `build:shop`.
+4. Menyiapkan `pages-app`, `pages-media`, atau `pages-shop` dengan `CNAME`, `.nojekyll`, aset dan halaman yang hanya sesuai subdomain.
+5. Memvalidasi paket, mengupload Pages artifact, dan deploy via GitHub Actions.
+6. Rebuild pada push ke repo subdomain, melalui manual `workflow_dispatch`, dan secara berkala setiap jam agar perubahan source utama dan artikel terbaru ikut terbit.
 
-Untuk rebuild lokal: `npm ci && npm run build:all-subdomains && node scripts/prepare-pages-subdomains.mjs`.
-Output: `pages-app/`, `pages-media/`, dan `pages-shop/`.
+Tidak perlu upload ZIP atau copy file build secara manual. Perubahan kode dan konten cukup dilakukan dari repo sumber utama.
 
-## Aktifkan GitHub Pages di tiap repo
+## Yang perlu diaktifkan sekali pada masing-masing repo
 
-1. Buat repo PUBLIC `bisabikinweb-app`, `bisabikinweb-media`, dan `bisabikinweb-shop` pada akun `mejaviskinc`.
-2. Isi branch `main` dari paket artifact yang cocok (commit dan push semua file di root).
-3. Settings → Pages → Build and deployment → Source: **Deploy from a branch**, branch `main`, folder `/(root)` → Save.
-4. Di Settings → Pages → Custom domain, masukkan subdomain yang benar untuk repo, lalu Save.
-5. Di DNS provider aktif `bisabikinweb.site`, buat tepat tiga CNAME berikut tanpa menyentuh record `@`, `www`, MX, TXT, atau nameserver:
+Workflow telah diuji: proses `build` sukses, tetapi proses `deploy` masih gagal dengan `Get Pages site failed: Not Found` jika Pages belum aktif.
 
-| Type | Host | Value/Target | TTL |
-| --- | --- | --- | --- |
-| CNAME | app | mejaviskinc.github.io | Auto |
-| CNAME | media | mejaviskinc.github.io | Auto |
-| CNAME | shop | mejaviskinc.github.io | Auto |
+Gunakan tautan berikut dan pada **Settings → Pages → Build and deployment → Source** pilih **GitHub Actions**:
 
-**Penting:** Jangan gunakan target `mejaviskinc.github.io/bisabikinweb-app` atau alamat Netlify. GitHub Pages CNAME harus ke hostname `mejaviskinc.github.io`, tanpa nama repo atau `https://`. Jangan menambahkan wildcard DNS.
+- https://github.com/mejaviskinc/bisabikinweb-app/settings/pages
+- https://github.com/mejaviskinc/bisabikinweb-media/settings/pages
+- https://github.com/mejaviskinc/bisabikinweb-shop/settings/pages
 
-6. Setelah DNS terdeteksi, cek opsi **Enforce HTTPS** dan verifikasi sertifikat. Verifikasi homepage, artikel, admin/seller, produk, dan halaman checkout.
+Kemudian buka Actions pada masing-masing repo, pilih workflow `Deploy BisaBikinWeb ... to GitHub Pages`, lalu `Run workflow`. Setelah job `deploy` sukses, verifikasi GitHub Pages URL default dan lanjutkan custom domain.
 
-Docs: https://docs.github.com/en/pages/configuring-a-custom-domain-for-your-github-pages-site/managing-a-custom-domain-for-your-github-pages-site
+Hal ini tidak dapat diselesaikan dengan menambahkan `enablement: true` dan `GITHUB_TOKEN` biasa; GitHub mensyaratkan token lain yang punya izin administration/pages write, atau konfigurasi melalui Settings.
 
-## Keamanan, SEO & syarat aktivasi
+## DNS dan domain
 
-- Versi media dan shop dipublikasikan sebagai **preview noindex**. Jangan langsung mengubah canonical dan sitemap situs utama.
-- Semua artikel masih mengarah canonical ke domain utama. Migrasi SEO selesai hanya bila redirect HTTP 301 dari URL lama ke baru sudah tersedia, canonical diperbarui, sitemaps benar, Search Console diperbarui, dan otomatisasi artikel dikirim ke domain/repo baru. GitHub Pages sendiri tidak menyediakan aturan server-side HTTP 301 yang fleksibel, sehingga perlu proxy/hosting redirect saat cutover. Ini bukan alasan mengubah URL produksi sekarang.
-- **Checkout di shop belum boleh diumumkan live** sebelum mengonfirmasi deploy Supabase Edge Functions dengan CORS `https://shop.bisabikinweb.site`; perubahan CORS sudah disiapkan di source. Alamat Supabase di source saat ini `iyhwephcrxeqwiemhppw.supabase.co`, sedangkan project koneksi lain tidak cocok. Jangan deploy ke project yang tidak cocok.
-- Supabase Auth redirect allowlist perlu mengizinkan `https://shop.bisabikinweb.site/account/` untuk signup/reset; admin/seller mungkin perlu login ulang karena localStorage per-origin.
-- Callback pembayaran Midtrans masih memakai `https://bisabikinweb.site/track-order` — sengaja dipertahankan sampai seluruh transaksi dan tracking shop terverifikasi.
-- Shopping cart tidak otomatis terbagi antara `bisabikinweb.site` dan `shop.bisabikinweb.site`; lakukan transaksi awal hingga akhir pada satu origin.
-- Seller storefront `/toko/:slug` menggunakan 404 SPA fallback pada GitHub Pages, **HTTP status tetap 404**. Biarkan storefront resmi tetap di domain utama sampai slug dapat diprerender atau menggunakan hosting rewrite yang mendukung HTTP 200.
-- GitHub Actions di repo utama hanya menghasilkan artifact. Agar update konten otomatis masuk ke tiga repo dibutuhkan workflow push cross-repo dengan kredensial yang dibatasi, atau import artifact berkala. Jangan menaruh PAT di source code.
-- Subdomain bukan pengganti autentikasi, verifikasi role, RLS, atau Midtrans webhook verification.
+Pada **Settings → Pages → Custom domain** dari repo yang sesuai, set:
 
-## Periksa status
+- `app.bisabikinweb.site`
+- `media.bisabikinweb.site`
+- `shop.bisabikinweb.site`
 
-- `https://app.bisabikinweb.site/` = Portal, `/admin/`, `/seller/`.
-- `https://media.bisabikinweb.site/` = Media, `/artikel/`, `/berita/`.
-- `https://shop.bisabikinweb.site/` = Shop, `/merch/`, `/cart/`.
-- `https://bisabikinweb.site/` = domain utama tidak berubah.
+Di pengelola DNS aktif domain `bisabikinweb.site`, tambahkan:
 
-Sampai pengujian DNS, SSL, login, dan Midtrans selesai, **semua URL checkout produksi, otomatisasi, SEO, dan sitemap tetap di domain utama**.
+| Type | Host | Target |
+| --- | --- | --- |
+| CNAME | app | mejaviskinc.github.io |
+| CNAME | media | mejaviskinc.github.io |
+| CNAME | shop | mejaviskinc.github.io |
+
+Jangan ubah `@`, `www`, `MX`, `TXT`, nameserver, atau CNAME utama. Setelah DNS valid, aktifkan **Enforce HTTPS** pada masing-masing repo. File CNAME di artifact bukan pengganti pengaturan Custom domain di Settings.
+
+## Peraturan sebelum migrasi final
+
+- **Admin/seller**: autentikasi Supabase dan kontrol role tetap wajib. Login per-subdomain menggunakan localStorage terpisah. Izin CORS untuk endpoint seller/admin harus aktif pada Supabase **project live**.
+- **Media**: subdomain masih noindex, sedangkan canonical dan sitemap artikel berada di domain utama. Jangan ubah SEO/publikasi otomatis sampai rencana redirect dan Search Console tuntas. GitHub Pages tidak mendukung server-side 301 fleksibel.
+- **Shop**: checkout di alamat baru belum dirilis sebagai transaksi produksi sampai CORS endpoint checkout/status/customer, Auth redirect URL, checkout Midtrans dan tracking teruji. Supabase URL dalam source saat ini memakai project `iyhwephcrxeqwiemhppw`, sedangkan akun Supabase yang terhubung melalui konektor tidak menunjukkan project yang sama; jangan deploy function ke project yang salah.
+- **Seller storefront**: URL dinamis `/toko/:slug` memakai 404 SPA fallback di GitHub Pages. Visual masih dapat dirender, tetapi HTTP status 404 membuatnya belum cocok untuk migrasi SEO penuh.
+- **Keranjang**: data localStorage main-domain dan shop-domain tidak dibagikan otomatis. Semua checkout nyata tetap di `https://bisabikinweb.site/checkout/` sampai uji migrasi selesai.
+
+Referensi GitHub: https://docs.github.com/en/pages/getting-started-with-github-pages/configuring-a-publishing-source-for-your-github-pages-site
