@@ -4,8 +4,9 @@
   "type": "module",
   "scripts": {
     "build": "node build-pages.mjs",
-    "test": "node --test tests/security.test.mjs tests/editorial-posts.test.mjs tests/news.test.mjs",
-    "test:output": "node tests/output-security.mjs"
+    "test": "node --test tests/security.test.mjs tests/editorial-posts.test.mjs tests/news.test.mjs tests/app-subdomain.test.mjs",
+    "test:output": "node tests/output-security.mjs",
+    "build:app": "npm run build && node scripts/build-app.mjs"
   },
   "dependencies": {
     "react": "19.2.6",
