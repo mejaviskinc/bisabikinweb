@@ -5,7 +5,7 @@
   "scripts": {
     "build": "node build-pages.mjs",
     "test": "node --test tests/security.test.mjs tests/editorial-posts.test.mjs tests/news.test.mjs tests/app-subdomain.test.mjs tests/subdomain-build.test.mjs",
-    "test:output": "node tests/output-security.mjs",
+    "test:output": "node tests/output-security.mjs && node tests/seo-output.test.mjs",
     "build:app": "npm run build && node scripts/build-app.mjs",
     "build:media": "npm run build && node scripts/build-subdomain.mjs media",
     "build:shop": "npm run build && node scripts/build-subdomain.mjs shop",
