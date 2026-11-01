@@ -150,8 +150,21 @@ for(const [path,[name,description]] of Object.entries(pages)){
   const imageUrl=articleImage||origin+'/og.svg';
   const publishedAt=isoDate(article?.published_at);
   const modifiedAt=isoDate(article?.updated_at||article?.published_at);
-  const schemas=[organization,website];
-  if(isService)schemas.push({'@context':'https://schema.org','@type':'Service','@id':url+'#service',name:path==='/'?'Jasa Pembuatan Website':name,description:metaDescription,url,provider:{'@id':origin+'/#organization'},areaServed:[{'@type':'City','name':'Yogyakarta'},{'@type':'Country','name':'Indonesia'}],serviceType:'Website development and web design'});
+  // Prerender adalah satu-satunya sumber JSON-LD agar tidak bentrok dengan React.
+  const schemas=[];
+  if(!noindex){
+    if(path==='/'||path==='/tentang')schemas.push(organization);
+    if(path==='/')schemas.push(website);
+    const section=article?(isNewsArticle(article)?'/berita':'/artikel'):path.startsWith('/jasa/')?'/jasa':path.startsWith('/portfolio/')?'/portfolio':path.startsWith('/merch/')?'/merch':null;
+    const crumbs=path==='/'?[]:[{name:'Beranda',url:origin+'/'}];
+    if(section)crumbs.push({name:pages[section][0],url:origin+section+'/'});
+    if(path!=='/')crumbs.push({name:section?name:pages[path][0],url});
+    const breadcrumbId=url+'#breadcrumb';
+    const pageType=['/jasa','/portfolio','/artikel','/berita','/merch'].includes(path)?'CollectionPage':'WebPage';
+    schemas.push({'@context':'https://schema.org','@type':pageType,'@id':url+'#webpage',url,name:title,description:metaDescription,inLanguage:'id-ID',isPartOf:{'@id':origin+'/#website'},publisher:{'@id':origin+'/#organization'},...(crumbs.length>1?{breadcrumb:{'@id':breadcrumbId}}:{})});
+    if(crumbs.length>1)schemas.push({'@context':'https://schema.org','@type':'BreadcrumbList','@id':breadcrumbId,itemListElement:crumbs.map((crumb,i)=>({'@type':'ListItem',position:i+1,name:crumb.name,item:crumb.url}))});
+    if(isService)schemas.push({'@context':'https://schema.org','@type':'Service','@id':url+'#service',name,description:metaDescription,url,provider:{'@id':origin+'/#organization'},areaServed:[{'@type':'City',name:'Yogyakarta'},{'@type':'Country',name:'Indonesia'}],serviceType:name});
+  }
   if(article&&!noindex){
     const words=[article.title,article.summary,...(Array.isArray(article.body)?article.body:[])].join(' ').trim().split(/\s+/).filter(Boolean).length;
     const articleSchema={'@context':'https://schema.org','@type':isNewsArticle(article)?'NewsArticle':'BlogPosting','@id':url+'#article',mainEntityOfPage:{'@id':url+'#webpage'},headline:article.title,description:metaDescription,url,author:article.author_type==='seller'&&article.author_store_name?{'@type':'Organization',name:article.author_store_name}: {'@type':'Organization','@id':origin+'/#organization',name:brand},publisher:{'@id':origin+'/#organization'},inLanguage:'id-ID',articleSection:article.category,wordCount:words};
@@ -163,8 +176,9 @@ for(const [path,[name,description]] of Object.entries(pages)){
     schemas.push(articleSchema);
   }
   const structured=schemas.map(s=>'<script type="application/ld+json">'+jsonLd(s)+'</script>').join('');
+  const canonicalMarkup=noindex?'':'<link rel="canonical" href="'+esc(url)+'"/><link rel="sitemap" type="application/xml" href="'+origin+'/sitemap.xml"/>';
   const articleMeta=article?(publishedAt?'<meta property="article:published_time" content="'+esc(publishedAt)+'"/>':'')+(modifiedAt?'<meta property="article:modified_time" content="'+esc(modifiedAt)+'"/>':''):'';
-  const seo=`<title>${esc(title)}</title><meta name="description" content="${esc(metaDescription)}"/><meta name="application-name" content="${brand}"/><meta name="author" content="${brand}"/><meta name="robots" content="${noindex?'noindex,nofollow':'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}"/><meta name="googlebot" content="${noindex?'noindex,nofollow':'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}"/><link rel="canonical" href="${url}"/><link rel="sitemap" type="application/xml" href="${origin}/sitemap.xml"/><meta property="og:type" content="${article?'article':'website'}"/><meta property="og:locale" content="id_ID"/><meta property="og:site_name" content="${brand}"/><meta property="og:title" content="${esc(title)}"/><meta property="og:description" content="${esc(metaDescription)}"/><meta property="og:url" content="${url}"/><meta property="og:image" content="${esc(imageUrl)}"/><meta property="og:image:alt" content="${esc(article?.title||'Bisabikinweb — jasa pembuatan website profesional')}"/>${articleMeta}<meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="${esc(title)}"/><meta name="twitter:description" content="${esc(metaDescription)}"/><meta name="twitter:image" content="${esc(imageUrl)}"/>${structured}`;
+  const seo=`<title>${esc(title)}</title><meta name="description" content="${esc(metaDescription)}"/><meta name="application-name" content="${brand}"/><meta name="author" content="${brand}"/><meta name="robots" content="${noindex?'noindex,nofollow':'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}"/><meta name="googlebot" content="${noindex?'noindex,nofollow':'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}"/>${canonicalMarkup}<meta property="og:type" content="${article?'article':'website'}"/><meta property="og:locale" content="id_ID"/><meta property="og:site_name" content="${brand}"/><meta property="og:title" content="${esc(title)}"/><meta property="og:description" content="${esc(metaDescription)}"/><meta property="og:url" content="${url}"/><meta property="og:image" content="${esc(imageUrl)}"/><meta property="og:image:alt" content="${esc(article?.title||'Bisabikinweb — jasa pembuatan website profesional')}"/>${articleMeta}<meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="${esc(title)}"/><meta name="twitter:description" content="${esc(metaDescription)}"/><meta name="twitter:image" content="${esc(imageUrl)}"/>${structured}`;
  const monetized=path==='/'||path==='/artikel'||path==='/berita'||(article&&article.author_type!=='seller');
  const adsense=monetized?'<meta name="google-adsense-account" content="'+adsenseClient+'"/><script async src="'+adsenseScriptUrl+'" crossorigin="anonymous"></script>':'';
  const html=template.replace('<!--SEO-->',seo+adsense).replace('<!--APP-->',render(path,buildData));
