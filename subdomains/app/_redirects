@@ -1,0 +1,15 @@
+# Halaman publik tetap di website utama.
+/toko/*       https://bisabikinweb.site/toko/:splat       302
+/merch/*      https://bisabikinweb.site/merch/:splat      302
+/merch        https://bisabikinweb.site/merch/           302
+/checkout/*   https://bisabikinweb.site/checkout/:splat   302
+/checkout     https://bisabikinweb.site/checkout/        302
+/cart         https://bisabikinweb.site/cart/            302
+/account      https://bisabikinweb.site/account/         302
+/track-order  https://bisabikinweb.site/track-order/     302
+/artikel/*    https://bisabikinweb.site/artikel/:splat    302
+/berita/*     https://bisabikinweb.site/berita/:splat     302
+/jasa/*       https://bisabikinweb.site/jasa/:splat       302
+/portfolio/*  https://bisabikinweb.site/portfolio/:splat  302
+/harga        https://bisabikinweb.site/harga/           302
+/kontak       https://bisabikinweb.site/kontak/          302

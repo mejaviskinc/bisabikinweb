@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="id">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <meta name="theme-color" content="#0a0d0e">
+  <title>Portal Tim | BisaBikinWeb</title>
+  <meta name="description" content="Akses dashboard admin dan seller BisaBikinWeb.">
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml">
+  <style>
+    :root {color-scheme:dark;--bg:#0a0d0e;--panel:#15191a;--ink:#f8f6ee;--muted:#a8b1b0;--line:#303839;--accent:#cef08b}
+    *{box-sizing:border-box}
+    body{margin:0;background:radial-gradient(circle at 80% 5%,#253429 0,transparent 36%),var(--bg);color:var(--ink);font-family:Inter,system-ui,-apple-system,sans-serif;min-height:100svh}
+    a{color:inherit}
+    header,main,footer{width:min(1120px,calc(100% - 40px));margin:auto}
+    header{min-height:110px;display:flex;align-items:center;justify-content:space-between;gap:20px}
+    .logo{display:flex;align-items:center;gap:16px;text-decoration:none;font-weight:800;letter-spacing:-.025em}
+    .logo img{width:176px;max-width:45vw;height:auto}
+    .back{color:var(--muted);text-decoration:none;font-size:.9rem}
+    .back:hover,.back:focus-visible{color:var(--ink)}
+    main{padding:70px 0 100px}
+    .eyebrow{color:var(--accent);font-size:.77rem;letter-spacing:.2em;font-weight:800}
+    h1{margin:20px 0 22px;font-size:clamp(3rem,8vw,6.5rem);line-height:1;letter-spacing:-.07em}
+    h1 em{font-style:normal;color:var(--accent)}
+    .intro{font-size:clamp(1rem,2vw,1.25rem);line-height:1.7;color:var(--muted);max-width:720px;margin-bottom:55px}
+    .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+    .card{display:flex;flex-direction:column;min-height:300px;background:var(--panel);border:1px solid var(--line);border-radius:20px;padding:32px;text-decoration:none;transition:border-color .2s,transform .2s}
+    .card:hover,.card:focus-visible{border-color:var(--accent);transform:translateY(-3px);outline:none}
+    .card .top{display:flex;justify-content:space-between;align-items:center}
+    .card .tag{color:var(--accent);font-size:.78rem;font-weight:800;letter-spacing:.12em}
+    .card .arrow{font-size:2rem}
+    .card h2{margin:auto 0 15px;font-size:clamp(1.6rem,3vw,2.4rem);letter-spacing:-.045em}
+    .card p{margin:0;color:var(--muted);line-height:1.65}
+    .note{margin:25px 0 0;color:var(--muted);font-size:.88rem;line-height:1.7}
+    footer{padding:25px 0 40px;border-top:1px solid var(--line);color:var(--muted);font-size:.85rem;display:flex;flex-wrap:wrap;gap:18px;justify-content:space-between}
+    @media(max-width:680px){header{min-height:88px}main{padding:48px 0 70px}.cards{grid-template-columns:1fr}.card{min-height:250px;padding:26px}}
+    @media(prefers-reduced-motion:reduce){.card{transition:none}}
+  </style>
+</head>
+<body>
+  <header>
+    <a class="logo" href="https://bisabikinweb.site/" aria-label="Kembali ke BisaBikinWeb"><img src="/brand/bisabikinweb-logo.svg" alt="BisaBikinWeb"></a>
+    <a class="back" href="https://bisabikinweb.site/">← Website utama</a>
+  </header>
+  <main>
+    <span class="eyebrow">BISABIKINWEB / WORKSPACE</span>
+    <h1>One portal.<br><em>More control.</em></h1>
+    <p class="intro">Area pengelolaan tim BisaBikinWeb. Pilih dashboard sesuai kebutuhan. Akun admin dan seller tetap memakai sistem autentikasi yang sudah ada.</p>
+    <section class="cards" aria-label="Pilih dashboard">
+      <a class="card" href="/admin/">
+        <div class="top"><span class="tag">01 / INTERNAL</span><span class="arrow" aria-hidden="true">↗</span></div>
+        <h2>Dashboard Admin</h2>
+        <p>Kelola website, leads, konten, iklan, seller, dan pembayaran melalui akun admin resmi.</p>
+      </a>
+      <a class="card" href="/seller/">
+        <div class="top"><span class="tag">02 / PARTNER</span><span class="arrow" aria-hidden="true">↗</span></div>
+        <h2>Seller Studio</h2>
+        <p>Masuk atau daftar sebagai seller untuk mengelola produk, pesanan, artikel, dan pencairan.</p>
+      </a>
+    </section>
+    <p class="note">Portal ini tidak menerima pembayaran pembeli. Checkout merchandise tetap dilakukan melalui bisabikinweb.site. Karena domain login berbeda, pengguna perlu login kembali saat pertama kali menggunakan portal ini.</p>
+  </main>
+  <footer><span>© BisaBikinWeb — Portal tim</span><span>Build your digital presence.</span></footer>
+</body>
+</html>

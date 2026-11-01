@@ -1,0 +1,9 @@
+# Dipakai oleh site Netlify terpisah: app.bisabikinweb.site
+# Set config path ke "netlify.app.toml" pada site khusus App,
+# atau set Build command: npm run build:app, Publish directory: app-dist.
+[build]
+  command = "npm run build:app"
+  publish = "app-dist"
+
+[build.environment]
+  NODE_VERSION = "22"
