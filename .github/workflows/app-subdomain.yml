@@ -4,6 +4,7 @@ on:
     branches: [main, feature/app-subdomain-portal]
     paths:
       - 'scripts/build-app.mjs'
+      - 'tests/app-subdomain.test.mjs'
       - 'subdomains/app/**'
       - 'netlify.app.toml'
       - 'static-source/**'
