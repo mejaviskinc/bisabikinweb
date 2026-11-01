@@ -14,7 +14,7 @@ await mkdir(target, { recursive: true });
 // Site app hanya memuat panel admin/seller dan aset yang dibutuhkan.
 // Tidak menyalin artikel, berita, checkout, atau sitemap situs utama.
 const entries = [
-  'assets', 'brand', 'portfolio',
+  'assets', 'brand',
   'admin', 'seller',
   'favicon.ico', 'favicon.svg', 'apple-touch-icon.png', 'og.svg'
 ];
@@ -24,6 +24,8 @@ for (const entry of entries) {
   catch { if (entry === 'admin' || entry === 'seller' || entry === 'assets') throw new Error('Build belum menghasilkan ' + entry); else continue; }
   await cp(from, join(target, entry), { recursive: true });
 }
+// Monitor artikel adalah konten publik, bukan modul dashboard.
+await rm(join(target, 'assets/auto-artikel-monitor.js'), { force: true });
 for (const file of ['index.html', '_headers', '_redirects', '404.html']) {
   await cp(join(appSource, file), join(target, file));
 }
