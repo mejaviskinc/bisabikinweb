@@ -2,11 +2,13 @@ import {cp,readFile,writeFile,mkdir,rm,readdir,access} from 'node:fs/promises';
 import {resolve,join} from 'node:path';
 
 const root=process.cwd();
+const selected=process.argv[2]||'';
+if(selected&&!['app','media','shop'].includes(selected))throw new Error('Subdomain harus app, media, atau shop');
 for (const [kind,host] of Object.entries({
   app:'app.bisabikinweb.site',
   media:'media.bisabikinweb.site',
   shop:'shop.bisabikinweb.site'
-})){
+}).filter(([kind])=>!selected||kind===selected)){
   const source=resolve(root,kind+'-dist');
   const target=resolve(root,'pages-'+kind);
   await access(join(source,'index.html'));
