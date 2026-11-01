@@ -1,0 +1,11 @@
+/jasa/*       https://bisabikinweb.site/jasa/:splat       302
+/portfolio/*  https://bisabikinweb.site/portfolio/:splat  302
+/harga        https://bisabikinweb.site/harga/            302
+/kontak       https://bisabikinweb.site/kontak/           302
+/merch/*      https://bisabikinweb.site/merch/:splat      302
+/merch        https://bisabikinweb.site/merch/            302
+/cart/*       https://bisabikinweb.site/cart/:splat       302
+/checkout/*   https://bisabikinweb.site/checkout/:splat   302
+/account/*    https://bisabikinweb.site/account/:splat    302
+/seller/*     https://bisabikinweb.site/seller/:splat     302
+/admin/*      https://bisabikinweb.site/admin/:splat      302

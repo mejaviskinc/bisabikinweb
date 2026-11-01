@@ -1,4 +1,4 @@
-const ALLOWED_ORIGINS=new Set(['https://bisabikinweb.site','https://www.bisabikinweb.site']);
+const ALLOWED_ORIGINS=new Set(['https://bisabikinweb.site', 'https://www.bisabikinweb.site', 'https://app.bisabikinweb.site']);
 const SUPABASE_PUBLIC_KEY='sb_publishable_0QZOXv00GKp6ecUi2L-FLA_YvsQrzy3';
 function cors(origin:string|null){return {'Access-Control-Allow-Origin':origin&&ALLOWED_ORIGINS.has(origin)?origin:'https://bisabikinweb.site','Access-Control-Allow-Headers':'content-type, apikey, authorization','Access-Control-Allow-Methods':'POST, OPTIONS','Vary':'Origin','Cache-Control':'no-store','Content-Type':'application/json; charset=utf-8'};}
 function reply(body:unknown,status=200,origin:string|null=null){return new Response(JSON.stringify(body),{status,headers:cors(origin)});}

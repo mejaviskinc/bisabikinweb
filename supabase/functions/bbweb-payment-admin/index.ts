@@ -1,4 +1,4 @@
-const ALLOWED_ORIGINS = new Set(['https://bisabikinweb.site', 'https://www.bisabikinweb.site']);
+const ALLOWED_ORIGINS = new Set(['https://bisabikinweb.site', 'https://www.bisabikinweb.site', 'https://app.bisabikinweb.site']);
 function secretKey() {
   const modern = Deno.env.get('SUPABASE_SECRET_KEYS');
   if (modern) {
