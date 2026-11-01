@@ -3,6 +3,7 @@
   const host = location.hostname.toLowerCase();
   const root = 'https://bisabikinweb.site';
   const allowed = {
+    'app.bisabikinweb.site': ['/', '/admin', '/seller'],
     'media.bisabikinweb.site': ['/', '/artikel', '/berita', '/redaksi'],
     'shop.bisabikinweb.site': ['/', '/merch', '/cart', '/checkout', '/track-order', '/account']
   };
