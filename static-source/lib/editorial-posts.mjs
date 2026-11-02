@@ -553,6 +553,27 @@ export const editorialPosts = [
   {"id":"migrasi-cms-website-bisnis","title":"Migrasi CMS Website Bisnis: Checklist agar Data dan SEO Tetap Terjaga","category":"Teknologi Website","read":"7 menit","summary":"Checklist migrasi CMS yang mencakup backup, URL, pengujian, dan pemantauan setelah peluncuran.","image":"https://commons.wikimedia.org/wiki/Special:FilePath/Web_API_diagram.svg","author_type":"editorial","author_store_name":"BisaBikinWeb","published_at":"2026-11-02T08:30:00+07:00","updated_at":"2026-11-02T08:30:00+07:00","sort_order":119,"body":["## Tentukan hasil yang ingin dicapai","Migrasi CMS Website Bisnis: Checklist agar Data dan SEO Tetap Terjaga harus berangkat dari kebutuhan bisnis yang nyata. Tetapkan satu hasil utama yang dapat diuji, misalnya pengunjung menemukan informasi, mengirim inquiry, atau tim mengurangi pekerjaan manual.","## Susun proses yang dapat dipelihara","Buat daftar informasi, pemilik tugas, dan jadwal evaluasi. Mulai dari versi kecil yang bisa diuji; perubahan berikutnya sebaiknya didasarkan pada pertanyaan pelanggan atau data penggunaan, bukan dugaan semata.","## Jaga kejelasan dan keamanan","Gunakan bahasa yang mudah dipahami, periksa klaim sebelum tayang, dan batasi akses hanya bagi pihak yang membutuhkannya. Simpan cadangan saat perubahan berisiko dilakukan.","## Ukur dan perbaiki","Pantau kualitas prospek, waktu respons, dan kesalahan yang berulang. Hasil pengukuran membantu bisnis memperbaiki halaman serta proses operasional secara bertahap.","Sumber ilustrasi: Wikimedia Commons — https://commons.wikimedia.org/wiki/File:Web_API_diagram.svg. Kreator: I.hate.spam.mail.here. Lisensi: CC0 1.0 Universal, https://creativecommons.org/publicdomain/zero/1.0/."]}
 ];
 
+// Original editorial artwork prepared for the November evergreen guides.
+const refreshedCoverImages = {
+  "customer-journey-website-bisnis": "customer-journey-website-bisnis.webp",
+  "kalkulator-biaya-proyek-website": "kalkulator-biaya-proyek-website.webp",
+  "kontrak-maintenance-website": "kontrak-maintenance-website.webp",
+  "form-konsultasi-website-konversi": "form-konsultasi-website-konversi.webp",
+  "kecepatan-halaman-website-umkm": "kecepatan-halaman-website-umkm.webp",
+  "dokumentasi-produk-website-ekspor": "dokumentasi-produk-website-ekspor.webp",
+  "faq-website-jasa-profesional": "faq-website-jasa-profesional.webp",
+  "lokalisasi-website-pasar-ekspor": "lokalisasi-website-pasar-ekspor.webp",
+  "manajemen-akses-tim-website": "manajemen-akses-tim-website.webp",
+  "migrasi-cms-website-bisnis": "migrasi-cms-website-bisnis.webp"
+};
+
+for (const article of editorialPosts) {
+  const filename = refreshedCoverImages[article.id];
+  if (!filename) continue;
+  article.image = `https://bisabikinweb.site/article-covers/${filename}`;
+  article.body[article.body.length - 1] = "Keterangan gambar: Ilustrasi editorial orisinal BisaBikinWeb, dibuat khusus untuk panduan ini. Bukan foto dokumentasi peristiwa.";
+}
+
 export function mergeEditorialPosts(articles = []) {
   const source = Array.isArray(articles) ? articles : [];
   const existing = new Set(source.map(article => article.id));
