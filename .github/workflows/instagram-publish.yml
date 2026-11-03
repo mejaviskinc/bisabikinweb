@@ -38,7 +38,7 @@ jobs:
       IG_GRAPH_VERSION: ${{ vars.IG_GRAPH_VERSION || 'v26.0' }}
       GITHUB_TOKEN: ${{ github.token }}
     steps:
-      - uses: actions/checkout@v4
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Resolve WIB slot
         id: slot
         env:
@@ -56,7 +56,16 @@ jobs:
             *) echo 'Unsupported schedule'; exit 1 ;;
           esac
           echo "slot=$SLOT" >> "$GITHUB_OUTPUT"
-      - name: Publish one approved item
+      - name: Install image renderer
+        run: python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
+      - name: Prepare one approved or original evergreen post
+        id: prepare
         env:
           SLOT: ${{ steps.slot.outputs.slot }}
-        run: python3 scripts/instagram_autopost.py --publish --slot "$SLOT"
+        run: python3 scripts/instagram_prepare.py --slot "$SLOT"
+      - name: Publish prepared post
+        if: steps.prepare.outputs.ready == 'true'
+        env:
+          SLOT: ${{ steps.slot.outputs.slot }}
+          QUEUE: ${{ steps.prepare.outputs.queue }}
+        run: python3 scripts/instagram_autopost.py --publish --slot "$SLOT" --queue "$QUEUE"
