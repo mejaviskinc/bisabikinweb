@@ -1,95 +1,88 @@
 #!/usr/bin/env python3
-"""Create FIVE original BisaBikinWeb quote images using Python + Pillow.
+"""Render BisaBikinWeb original quotes (1080x1350) with Pillow.
 
-This keeps the measured Canva master structure (1080x1350, visual hero
-0..794, original-logo chip 675..794, quote area 795..1350, footer x106/x624),
-but replaces the news photograph with original typographic artwork.
-No third-party photos, invented quote attributions, or Instagram publishing.
+Visual references: user's 30-page Canva quote collection DAHWlFQyJHE,
+particularly pages 3-11 (text verified by Canva). Recreates the recurring
+content hierarchy: original Canva logo/wordmark + large quote + footer
+'bisabikinweb.id' / '@bisabikinweb' / 'Jasa Pembuatan Website Profesional'.
+
+This is an editable code approximation of a shared Canva reference, not an
+exact pixel export. The shared design has read access but not editing rights.
+No auto-posting and no third-party photograph rights are involved.
 """
 from __future__ import annotations
+
 import argparse
 import json
-import math
 from pathlib import Path
-
-from PIL import Image, ImageDraw, ImageFont
+from PIL import Image, ImageDraw
 from instagram_render_news_pillow import canva_brand_art, paste_canva_ink, font, wrap
 
 W,H=1080,1350
-DARK="#17232B"
-DEEP="#111B24"
-GOLD="#D7B98B"
-PANEL="#FFFFFF"
-TEXT="#141A20"
-GRAY="#647077"
+PAPER="#FAFAF8"
+BLACK="#111111"
+BEIGE="#F4EBD9"
+ACCENT="#D3B688"
+MUTED="#444444"
 
 
-def rgb(value):
-    value=value.lstrip("#")
-    return tuple(int(value[i:i+2],16) for i in (0,2,4))
+def draw_logo(canvas):
+    logo,_=canva_brand_art()
+    # This is original logo artwork from the owner's Canva quote design
+    # with proper italic 'Bikin' — never use a substituted text font.
+    paste_canva_ink(canvas,logo,(34,212,80,258),(83,102,158,178))
+    paste_canva_ink(canvas,logo,(94,191,378,235),(183,105,656,182))
+    paste_canva_ink(canvas,logo,(94,237,378,260),(183,179,656,218))
 
 
-def lower_quote_font(draw,quote):
-    for size in range(76,45,-1):
-        ft=font(size,True)
-        # use the font for actual word measurement
-        rows=wrap(draw,quote,ft,955)
-        leading=int(size*1.23)
-        if len(rows)<=5 and len(rows)*leading <= 315:
-            return ft,rows,leading
-    raise ValueError("Quote text too long for established Canva type zone")
+def fit_quote(draw,text,max_width=850,max_lines=7):
+    for px in range(82,43,-1):
+        ft=font(px,True)
+        lines=wrap(draw,text,ft,max_width)
+        step=int(px*1.25)
+        if len(lines)<=max_lines and len(lines)*step<=570:
+            return ft,lines,step
+    raise ValueError(f"Cannot fit quote: {text}")
 
 
 def render(item,path):
-    base=Image.new("RGB",(W,H),DARK)
-    p=base.load()
-    # Native Pillow color composition: clean dark-to-deep gradient, no external photo.
-    a,b=rgb(DARK),rgb(DEEP)
-    for y in range(795):
-        t=y/794.0
-        color=tuple(round((1-t)*x+t*z) for x,z in zip(a,b))
-        for x in range(W):
-            p[x,y]=color
-    d=ImageDraw.Draw(base)
-    # Understated editorial decorations, constrained to the master photo zone.
-    for radius in (165,240,325,405):
-        d.ellipse((840-radius,338-radius,840+radius,338+radius),outline="#30404A",width=3)
-    d.ellipse((825,310,860,345),fill=GOLD)
-    d.line((100,103,980,103),fill="#435058",width=2)
-    d.text((102,120),"BISABIKINWEB     /     QUOTES",font=font(22,True),fill="#D9DBDC")
-    d.text((102,198),"“",font=font(272,True),fill=GOLD)
-    d.text((104,505),item["theme"],font=font(25,True),fill=GOLD)
-    d.text((104,552),"IDE  •  AKSI  •  PERTUMBUHAN",font=font(29,True),fill="#F0E9DC")
-    d.text((976,735),f"{int(item['no']):02d} / 05",font=font(19),anchor="ra",fill="#E7D8BF")
+    image=Image.new("RGB",(W,H),PAPER)
+    draw=ImageDraw.Draw(image)
 
-    # Original Canva logo artwork reused exactly instead of imitating italic Bikin.
-    logo,cream=canva_brand_art()
-    d.rounded_rectangle((-18,675,437,794),radius=18,fill=cream)
-    paste_canva_ink(base,logo,(34,212,80,258),(20,691,104,777))
-    paste_canva_ink(base,logo,(94,191,378,235),(119,696,401,748))
-    paste_canva_ink(base,logo,(94,237,378,260),(119,744,386,769))
+    # Header follows actual shared Canva quote pages: identity first.
+    draw_logo(image)
+    draw=ImageDraw.Draw(image)
 
-    d=ImageDraw.Draw(base)
-    d.rectangle((0,795,W,1349),fill=PANEL)
-    ft,rows,leading=lower_quote_font(d,item["quote"])
-    y=861
-    for row in rows:
-        box=d.textbbox((0,0),row,font=ft)
-        x=(W-(box[2]-box[0]))/2
-        d.text((x,y),row,font=ft,fill=TEXT)
-        y+=leading
-    # Footer exactly aligns with source Canva master x106 and x624 at ~1265.
-    d.text((106,1268),"SHARE",font=font(23,True),fill=TEXT)
-    d.line((210,1282,260,1282),fill=TEXT,width=3)
-    d.line((250,1274,260,1282),fill=TEXT,width=3)
-    d.line((250,1290,260,1282),fill=TEXT,width=3)
-    d.text((624,1268),"QUOTE ORISINAL • BISABIKINWEB",font=font(18),fill=GRAY)
+    # Restrained cream accent inspired by the source Canva logo asset.
+    # No photo/banner, since actual reference pages are standalone quotes.
+    draw.rounded_rectangle((94,325,986,981),radius=30,fill=BEIGE)
+    draw.text((151,344),"“",font=font(144,True),fill=ACCENT)
+
+    ft,lines,line_h=fit_quote(draw,item["quote"])
+    block_h=line_h*len(lines)
+    start_y=486+max(0,(410-block_h)/2)
+    for line in lines:
+        bounds=draw.textbbox((0,0),line,font=ft)
+        x=(W-(bounds[2]-bounds[0]))/2
+        draw.text((x,start_y),line,font=ft,fill=BLACK)
+        start_y+=line_h
+
+    # Footer contents are the ORIGINAL text from all Canva quote pages.
+    draw.line((84,1056,996,1056),fill="#D7D0C6",width=2)
+    draw.text((87,1112),"bisabikinweb.id",font=font(28,True),fill=BLACK)
+    right="@bisabikinweb"
+    rw=draw.textbbox((0,0),right,font=font(28,True))[2]
+    draw.text((994-rw,1112),right,font=font(28,True),fill=BLACK)
+    service="Jasa Pembuatan Website Profesional"
+    fw=draw.textbbox((0,0),service,font=font(25))[2]
+    draw.text(((W-fw)/2,1186),service,font=font(25),fill=MUTED)
+    draw.rectangle((0,1296,W,H),fill=BEIGE)
+
     path.parent.mkdir(parents=True,exist_ok=True)
-    base.save(path,format="JPEG",quality=93,optimize=True,subsampling=0)
-    with Image.open(path) as check:
-        if check.size!=(W,H) or check.format!="JPEG":
-            raise ValueError(f"Invalid output: {path}")
-    print(f"QUOTE_RENDER_OK {path} {path.stat().st_size} bytes",flush=True)
+    image.save(path,"JPEG",quality=94,subsampling=0,optimize=True)
+    with Image.open(path) as verify:
+        assert verify.format=="JPEG" and verify.size==(W,H)
+    print("QUOTE_RENDER_OK",path,path.stat().st_size,flush=True)
 
 
 def main():
@@ -97,28 +90,34 @@ def main():
     parser.add_argument("--draft",default="social/instagram/drafts/2026-11-03-quotes.json")
     parser.add_argument("--dest",default="social/instagram/rendered/2026-11-03-quotes")
     args=parser.parse_args()
-    doc=json.loads(Path(args.draft).read_text(encoding="utf-8"))
-    entries=doc["items"]
-    if len(entries)!=5 or any(not x["quote_original"] for x in entries):
-        raise ValueError("Expected five original quotes")
+    obj=json.loads(Path(args.draft).read_text(encoding="utf-8"))
+    items=obj["items"]
+    if len(items)!=5 or any(not x["quote_original"] for x in items):
+        raise ValueError("Require exactly five original quotes")
     root=Path(args.dest)
-    report=[]
-    for entry in entries:
-        output=root/f"{entry['no']:02d}_quotes_pillow.jpg"
-        render(entry,output)
-        report.append({"no":entry["no"],"quote":entry["quote"],"file":output.name,"size":output.stat().st_size,
-                       "status":"DRAFT","rights":"BisaBikinWeb original typographic artwork and text",
-                       "format":"JPEG","dimensions":[W,H]})
-    (root/"render_manifest.json").write_text(json.dumps(report,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
-    thumb=Image.new("RGB",(5*232+6*18,374),"#EFE9DE")
-    td=ImageDraw.Draw(thumb)
-    td.text((18,14),"BISABIKINWEB • QUOTES • 5 ORIGINAL FEEDS",font=font(21,True),fill=TEXT)
+    receipts=[]
+    for item in items:
+        path=root/f"{item['no']:02d}_quotes_pillow.jpg"
+        render(item,path)
+        receipts.append({
+          "no":item["no"],"quote":item["quote"],"file":path.name,
+          "size":path.stat().st_size,"dimensions":[W,H],"status":"DRAFT_NOT_POSTED",
+          "reference_design_id":"DAHWlFQyJHE",
+          "style_note":"Original Canva quote collection hierarchy, with matching brand/footer copy; not an exact pixel-export.",
+          "original_content":True
+        })
+    (root/"render_manifest.json").write_text(json.dumps(receipts,ensure_ascii=False,indent=2)+"\n",encoding="utf-8")
+
+    tile_w,tile_h,gap=232,290,18
+    contact=Image.new("RGB",(5*(tile_w+gap)+gap,380),"#EEEAE2")
+    c=ImageDraw.Draw(contact)
+    c.text((gap,18),"BISABIKINWEB / QUOTES / CANVA REFERENCE",font=font(21,True),fill=BLACK)
     for i in range(1,6):
-        with Image.open(root/f"{i:02d}_quotes_pillow.jpg") as im:
-            cut=im.resize((232,290),Image.Resampling.LANCZOS)
-        thumb.paste(cut,(18+(i-1)*250,68))
-    thumb.save(root/"contact_sheet.jpg",quality=93,optimize=True)
-    print("QUOTES_ALL_5_OK • DRAFT ONLY • NO INSTAGRAM POST",flush=True)
+        with Image.open(root/f"{i:02d}_quotes_pillow.jpg") as src:
+            tile=src.resize((tile_w,tile_h),Image.Resampling.LANCZOS)
+        contact.paste(tile,(gap+(i-1)*(tile_w+gap),70))
+    contact.save(root/"contact_sheet.jpg",quality=93,optimize=True)
+    print("FIVE_CANVA_STYLE_QUOTES_READY / DRAFTS_ONLY",flush=True)
 
 
 if __name__=="__main__":
