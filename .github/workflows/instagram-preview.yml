@@ -1,6 +1,12 @@
 name: Instagram BisaBikinWeb Preview Aman
 # Manual only; no cron, no secrets, no publishing
 on:
+  pull_request:
+    paths:
+      - 'scripts/instagram_autopost.py'
+      - 'social/instagram/**'
+      - 'tests/test_instagram_autopost.py'
+      - '.github/workflows/instagram-preview.yml'
   workflow_dispatch:
 permissions:
   contents: read
