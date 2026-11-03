@@ -1,0 +1,53 @@
+name: Render BisaBikinWeb 5 News Feeds with Pillow (Preview Only)
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/instagram-news-pillow.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: bbweb-instagram-news-pillow
+  cancel-in-progress: false
+jobs:
+  render_preview_only:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: true
+      - name: Pillow renderer
+        run: python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
+      - name: Render five original-source 4:5 images
+        run: python3 scripts/instagram_render_news_pillow.py
+      - name: Validate all five JPGs are real 1080x1350 images
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          root=Path('social/instagram/rendered/2026-11-03')
+          items=list(root.glob('[0-9][0-9]_*_pillow.jpg'))
+          assert len(items)==5,f"Expected exactly 5 drafts, got {len(items)}"
+          for item in items:
+              with Image.open(item) as img:
+                  assert img.format=="JPEG" and img.size==(1080,1350)
+                  print(f"IMAGE_OK {item.name} {item.stat().st_size} bytes")
+          assert (root/'contact_sheet.jpg').is_file()
+          assert (root/'render_manifest.json').is_file()
+          PY
+      - name: Commit image previews to main (no publication)
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add social/instagram/rendered/2026-11-03/
+          if git diff --cached --quiet; then
+            echo 'No image changes'
+            exit 0
+          fi
+          git commit -m 'assets(instagram): 5 Pillow-rendered source-image previews for November 3'
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo 'FIVE_PREVIEWS_COMMITTED: no Instagram media publishing attempted'
