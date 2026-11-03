@@ -1,0 +1,17 @@
+{
+  "items": [
+    {
+      "id": "demo-bisabikinweb-20261104-0900",
+      "date": "2026-11-04",
+      "slot": "09:00",
+      "status": "approved",
+      "simulation_only": true,
+      "fact_checked": true,
+      "rights_verified": true,
+      "rights_note": "Simulasi internal, tidak boleh dipublikasi",
+      "source_url": "https://bisabikinweb.site/",
+      "image_url": "https://example.com/simulasi.jpg",
+      "caption": "[SIMULASI—JANGAN TERBIT] Ini contoh konten untuk menguji alur tanpa memanggil API Meta."
+    }
+  ]
+}

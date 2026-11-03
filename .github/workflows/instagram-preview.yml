@@ -1,0 +1,33 @@
+name: Instagram BisaBikinWeb Preview Aman
+# Manual only; no cron, no secrets, no publishing
+on:
+  pull_request:
+    paths:
+      - 'scripts/instagram_autopost.py'
+      - 'social/instagram/**'
+      - 'tests/test_instagram_autopost.py'
+      - '.github/workflows/instagram-preview.yml'
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: bisabikinweb-instagram-preview
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Offline safety tests
+        run: python3 -m unittest discover -s tests -p 'test_instagram_autopost.py' -v
+      - name: Safe simulation
+        run: python3 scripts/instagram_autopost.py --dry-run --queue social/instagram/examples/sample_queue.json --date 2026-11-04 --slot 09:00
+      - name: Install local image renderer
+        run: python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
+      - name: Render first evergreen card offline (no token, no network)
+        run: python3 scripts/instagram_prepare.py --dry-run --date 2026-11-04 --slot 09:00
+      - name: Validate generated card without publishing
+        run: |
+          test -s social/instagram/.runtime/bbweb-20261104-0900-evergreen.jpg
+          python3 scripts/instagram_autopost.py --dry-run --queue social/instagram/.runtime/runtime_queue.json --date 2026-11-04 --slot 09:00

@@ -1,0 +1,318 @@
+{
+  "schema_version": 1,
+  "start_date": "2026-11-04",
+  "timezone": "Asia/Jakarta",
+  "note": "70 original evergreen posts, 14 days × 5 slots. No current news or external photos. Replenish before 2026-11-18.",
+  "categories": [
+    {
+      "slot": "09:00",
+      "category": "BISNIS DIGITAL",
+      "items": [
+        {
+          "headline": "Bisnis punya Instagram, masih perlu website?",
+          "summary": "Media sosial membantu menjangkau audiens. Website memberi tempat terstruktur untuk layanan, katalog, dan informasi kontak."
+        },
+        {
+          "headline": "Kenapa profil bisnis perlu halaman resmi?",
+          "summary": "Halaman resmi memudahkan calon pelanggan menemukan detail usaha tanpa menggulir ratusan postingan."
+        },
+        {
+          "headline": "Satu tautan, banyak informasi bisnis",
+          "summary": "Website dapat menghubungkan profil usaha, daftar layanan, portofolio, alamat, dan jalur konsultasi dalam satu tempat."
+        },
+        {
+          "headline": "Jangan biarkan pelanggan menebak cara order",
+          "summary": "Buat alur pemesanan yang jelas: pilih produk, isi data, konfirmasi, lalu lanjut pembayaran."
+        },
+        {
+          "headline": "Website untuk usaha yang sedang tumbuh",
+          "summary": "Mulailah dari halaman layanan dan kontak yang rapi. Fitur tambahan bisa disesuaikan saat kebutuhan berkembang."
+        },
+        {
+          "headline": "Kepercayaan pelanggan dibangun dari detail",
+          "summary": "Nama usaha, alamat, jam layanan, kebijakan, dan kontak yang jelas membantu calon pelanggan memahami bisnis."
+        },
+        {
+          "headline": "Katalog digital bukan cuma foto produk",
+          "summary": "Katalog yang baik juga mencantumkan varian, harga, manfaat, ketersediaan, dan cara membeli."
+        },
+        {
+          "headline": "Calon pelanggan sering membuka dari HP",
+          "summary": "Prioritaskan navigasi sederhana, teks terbaca, dan tombol kontak yang mudah disentuh di layar kecil."
+        },
+        {
+          "headline": "Landing page untuk satu tujuan kampanye",
+          "summary": "Satu halaman yang fokus dapat menjelaskan penawaran, bukti pendukung, dan ajakan bertindak."
+        },
+        {
+          "headline": "Website bukan proyek sekali selesai",
+          "summary": "Informasi harga, kontak, layanan, dan keamanan tetap perlu diperiksa serta diperbarui secara berkala."
+        },
+        {
+          "headline": "Sebelum beriklan, siapkan tujuan klik",
+          "summary": "Pastikan pengunjung iklan tiba di halaman yang sesuai dengan pesan promosi dan punya langkah berikutnya yang jelas."
+        },
+        {
+          "headline": "Bangun aset digital milik bisnis",
+          "summary": "Website membantu usaha mengelola informasi dan jalur layanan yang dapat disesuaikan dengan identitas brand."
+        },
+        {
+          "headline": "Jelaskan keunggulan tanpa klaim berlebihan",
+          "summary": "Gunakan contoh hasil pekerjaan, proses kerja, dan penjelasan layanan yang bisa dibuktikan."
+        },
+        {
+          "headline": "Website yang baik menjawab pertanyaan dasar",
+          "summary": "Apa yang dijual, untuk siapa, bagaimana memesan, dan bagaimana menghubungi usaha harus mudah ditemukan."
+        }
+      ]
+    },
+    {
+      "slot": "10:30",
+      "category": "TIPS WEBSITE",
+      "items": [
+        {
+          "headline": "Tiga bagian penting halaman beranda",
+          "summary": "Mulai dengan pesan utama yang jelas, ringkasan layanan, dan tombol tindakan yang mudah ditemukan."
+        },
+        {
+          "headline": "Navigasi sederhana bikin pengunjung nyaman",
+          "summary": "Kelompokkan menu berdasarkan kebutuhan pengguna, bukan berdasarkan istilah internal tim."
+        },
+        {
+          "headline": "Judul halaman harus menjelaskan isi",
+          "summary": "Gunakan heading yang konkret agar pembaca dan mesin pencari lebih mudah memahami topik halaman."
+        },
+        {
+          "headline": "Tombol WhatsApp perlu konteks",
+          "summary": "Tulis ajakan yang spesifik seperti Konsultasi Website atau Tanya Katalog, bukan hanya Klik Di Sini."
+        },
+        {
+          "headline": "Jangan jadikan formulir terlalu panjang",
+          "summary": "Minta informasi yang diperlukan saja pada langkah pertama. Pertanyaan tambahan dapat menyusul saat konsultasi."
+        },
+        {
+          "headline": "Kecepatan website dimulai dari gambar",
+          "summary": "Kompres aset visual, gunakan ukuran yang tepat, dan hindari memuat media berat yang tidak diperlukan."
+        },
+        {
+          "headline": "Footer bukan tempat sisa informasi",
+          "summary": "Manfaatkan footer untuk kontak, tautan kebijakan, identitas usaha, dan navigasi penting."
+        },
+        {
+          "headline": "Periksa website di layar kecil",
+          "summary": "Cek ukuran teks, jarak tombol, menu, gambar, dan formulir dari ponsel sebelum meluncurkan situs."
+        },
+        {
+          "headline": "Pilih warna yang mudah dibaca",
+          "summary": "Kontras antara teks dan latar membantu aksesibilitas dan membuat informasi lebih nyaman dibaca."
+        },
+        {
+          "headline": "Halaman layanan butuh rincian",
+          "summary": "Jelaskan cakupan pekerjaan, proses pengerjaan, hasil yang diterima, dan cara memulai."
+        },
+        {
+          "headline": "FAQ membantu menjawab keraguan",
+          "summary": "Kumpulkan pertanyaan berulang dari calon pelanggan lalu jawab dengan singkat dan jelas."
+        },
+        {
+          "headline": "Gunakan satu tujuan utama per halaman",
+          "summary": "Hindari terlalu banyak tombol bersaing. Pilih tindakan utama sesuai tujuan halaman tersebut."
+        },
+        {
+          "headline": "Pastikan link dan formulir benar-benar jalan",
+          "summary": "Uji tombol kontak, checkout, pencarian, dan tautan sebelum website diumumkan."
+        },
+        {
+          "headline": "Perbarui informasi lama di website",
+          "summary": "Cek harga, jadwal, kebijakan, dan kontak secara berkala agar pengunjung tidak bingung."
+        }
+      ]
+    },
+    {
+      "slot": "12:30",
+      "category": "SEO & TEKNOLOGI",
+      "items": [
+        {
+          "headline": "SEO dimulai dari memahami pencarian",
+          "summary": "Pikirkan pertanyaan yang mungkin ditulis calon pelanggan, lalu buat halaman yang benar-benar menjawabnya."
+        },
+        {
+          "headline": "Satu halaman, satu fokus utama",
+          "summary": "Pisahkan topik yang berbeda ke halaman relevan agar struktur konten lebih mudah dipahami."
+        },
+        {
+          "headline": "Meta description adalah ringkasan",
+          "summary": "Buat ringkasan yang spesifik dan sesuai isi halaman, bukan sekadar mengulang kata kunci."
+        },
+        {
+          "headline": "Tautan internal membantu navigasi",
+          "summary": "Hubungkan artikel terkait dan halaman layanan agar pembaca mudah melanjutkan pencarian informasi."
+        },
+        {
+          "headline": "Alt text menjelaskan makna gambar",
+          "summary": "Deskripsikan gambar secara relevan untuk membantu aksesibilitas. Hindari menumpuk kata kunci."
+        },
+        {
+          "headline": "Pilih URL yang singkat dan bermakna",
+          "summary": "Slug yang menggambarkan topik lebih mudah dibaca daripada deretan karakter acak."
+        },
+        {
+          "headline": "Sitemap membantu penemuan halaman",
+          "summary": "Sitemap menjadi petunjuk URL untuk crawler, tetapi tidak menjamin setiap halaman akan terindeks."
+        },
+        {
+          "headline": "HTTPS penting untuk koneksi aman",
+          "summary": "Pastikan sertifikat HTTPS aktif dan tidak ada aset penting yang dimuat melalui koneksi tidak aman."
+        },
+        {
+          "headline": "Backup website perlu diuji",
+          "summary": "Jangan hanya menyimpan cadangan. Pastikan proses pemulihan pernah diperiksa dan dapat dijalankan."
+        },
+        {
+          "headline": "Pakai analytics untuk belajar",
+          "summary": "Lihat halaman yang sering dibuka, sumber kunjungan, dan langkah pengguna sebelum mengubah desain."
+        },
+        {
+          "headline": "Konten evergreen layak dirawat",
+          "summary": "Artikel panduan yang tetap relevan bisa diperbarui ketika informasi atau kebutuhan pembaca berubah."
+        },
+        {
+          "headline": "Jangan gandakan konten ke banyak URL",
+          "summary": "Gunakan struktur tautan dan canonical yang konsisten agar halaman utama lebih mudah dikenali."
+        },
+        {
+          "headline": "Akses admin perlu dibatasi",
+          "summary": "Berikan akun sesuai peran, gunakan autentikasi kuat, dan cabut akses yang sudah tidak diperlukan."
+        },
+        {
+          "headline": "AI bisa membantu draf, bukan verifikasi",
+          "summary": "Periksa fakta, data, nama, dan sumber setiap teks AI sebelum memublikasikannya."
+        }
+      ]
+    },
+    {
+      "slot": "16:30",
+      "category": "SOLUSI WEBSITE",
+      "items": [
+        {
+          "headline": "Website toko: mulai dari katalog",
+          "summary": "Katalog rapi, detail produk, opsi pengiriman, dan alur checkout adalah fondasi toko online."
+        },
+        {
+          "headline": "Website kafe: menu yang mudah dibuka",
+          "summary": "Tampilkan menu, harga, jam buka, alamat, serta cara menghubungi kafe dengan jelas."
+        },
+        {
+          "headline": "Website travel: jelaskan paket",
+          "summary": "Beri informasi rute, fasilitas, jadwal, ketentuan, dan langkah reservasi yang mudah dipahami."
+        },
+        {
+          "headline": "Company profile: ceritakan bisnis",
+          "summary": "Perkenalkan layanan, pengalaman, proses, serta cara menghubungi perusahaan dalam satu situs."
+        },
+        {
+          "headline": "Sistem kasir: pikirkan alur tim",
+          "summary": "Rancang akses kasir, stok, transaksi, dan laporan berdasarkan tanggung jawab tiap pengguna."
+        },
+        {
+          "headline": "Dashboard admin: mulai dari kebutuhan",
+          "summary": "Tentukan data yang paling penting agar tim tidak perlu membuka terlalu banyak halaman."
+        },
+        {
+          "headline": "Website properti: cari listing lebih mudah",
+          "summary": "Sediakan filter, foto yang relevan, detail lokasi, dan tombol kontak yang jelas."
+        },
+        {
+          "headline": "Website jasa: tampilkan proses kerja",
+          "summary": "Calon pelanggan terbantu saat tahu tahap konsultasi, pengerjaan, revisi, dan penyerahan."
+        },
+        {
+          "headline": "Website brand fashion: fokus visual",
+          "summary": "Foto produk, ukuran, varian, bahan, dan detail pengiriman sebaiknya mudah ditemukan."
+        },
+        {
+          "headline": "Website sekolah: informasi harus rapi",
+          "summary": "Jadwal, pengumuman, kontak, dan formulir perlu dipisah agar pengunjung tidak tersesat."
+        },
+        {
+          "headline": "Website event: arahkan ke pendaftaran",
+          "summary": "Tunjukkan waktu, tempat, agenda, syarat, dan jalur pendaftaran tanpa langkah yang membingungkan."
+        },
+        {
+          "headline": "Sistem gudang: setiap stok punya jejak",
+          "summary": "Catat barang masuk, barang keluar, dan penanggung jawab untuk memudahkan penelusuran."
+        },
+        {
+          "headline": "Website salon: layanan dan reservasi",
+          "summary": "Daftar layanan, estimasi durasi, lokasi, dan jalur booking membantu calon pelanggan bersiap."
+        },
+        {
+          "headline": "Website ekspor: informasi B2B",
+          "summary": "Profil perusahaan, katalog spesifikasi, kapasitas, dan kontak bisnis membantu memperkenalkan penawaran."
+        }
+      ]
+    },
+    {
+      "slot": "18:30",
+      "category": "BISABIKINWEB",
+      "items": [
+        {
+          "headline": "Mulai website dari kebutuhan bisnis",
+          "summary": "BisaBikinWeb membantu merancang website yang sesuai tujuan, dari landing page hingga aplikasi web."
+        },
+        {
+          "headline": "Ingin landing page untuk kampanye?",
+          "summary": "Diskusikan tujuan promosi dan alur pengunjung agar halaman dibuat fokus pada satu tindakan utama."
+        },
+        {
+          "headline": "Company profile yang mudah dijelajahi",
+          "summary": "Susun informasi tentang bisnis, layanan, proses, dan kontak dalam tampilan yang rapi."
+        },
+        {
+          "headline": "Toko online perlu alur yang jelas",
+          "summary": "Kami bisa membantu merencanakan katalog produk, detail pesanan, dan pengalaman checkout."
+        },
+        {
+          "headline": "Website harus nyaman di ponsel",
+          "summary": "Desain responsif menjadi salah satu pertimbangan utama saat merancang website bisnis."
+        },
+        {
+          "headline": "Tampilkan layanan tanpa bertele-tele",
+          "summary": "Buat calon pelanggan cepat memahami apa yang ditawarkan dan bagaimana memulai konsultasi."
+        },
+        {
+          "headline": "Butuh sistem admin sesuai kebutuhan?",
+          "summary": "Diskusikan fitur pengguna, data, laporan, dan proses kerja agar sistem lebih relevan."
+        },
+        {
+          "headline": "Rapikan struktur website dari awal",
+          "summary": "Navigasi, halaman layanan, konten, dan CTA yang konsisten memudahkan pengembangan selanjutnya."
+        },
+        {
+          "headline": "Punya website yang perlu diperbarui?",
+          "summary": "Audit tampilan, alur pengguna, konten, dan performa untuk menentukan prioritas pembenahan."
+        },
+        {
+          "headline": "Website bisnis tidak harus rumit",
+          "summary": "Mulai dari fitur inti yang berguna, kemudian kembangkan seiring kebutuhan operasional."
+        },
+        {
+          "headline": "Ingin menata katalog digital?",
+          "summary": "BisaBikinWeb membantu menyusun pengalaman melihat produk, memilih opsi, dan menghubungi penjual."
+        },
+        {
+          "headline": "Perlu halaman portofolio profesional?",
+          "summary": "Susun studi kasus, hasil kerja, dan penjelasan proyek yang dapat diverifikasi."
+        },
+        {
+          "headline": "Pikirkan keamanan sejak perancangan",
+          "summary": "Diskusikan kebutuhan login, pembatasan peran, backup, dan perlindungan data sedini mungkin."
+        },
+        {
+          "headline": "Konsultasikan ide website-mu",
+          "summary": "Jelaskan jenis bisnis, target pengunjung, dan fitur yang dibutuhkan. Kita susun langkah awalnya."
+        }
+      ]
+    }
+  ]
+}
