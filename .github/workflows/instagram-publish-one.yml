@@ -1,0 +1,70 @@
+# No schedule: this workflow only publishes after a person types PUBLISH-ONE.
+# It does not change the persistent IG_AUTOPUBLISH_ENABLED repository variable.
+name: Instagram BisaBikinWeb One-Time Publish Test
+on:
+  workflow_dispatch:
+    inputs:
+      date:
+        description: "Content date YYYY-MM-DD (first prepared date is 2026-11-04)"
+        required: true
+        type: string
+      slot:
+        description: "Select exactly one content slot in WIB"
+        type: choice
+        required: true
+        options:
+          - "09:00"
+          - "10:30"
+          - "12:30"
+          - "16:30"
+          - "18:30"
+      confirmation:
+        description: "Type PUBLISH-ONE to publish one real Instagram post"
+        required: true
+        type: string
+permissions:
+  contents: write
+concurrency:
+  group: bisabikinweb-instagram-publish
+  cancel-in-progress: false
+jobs:
+  publish_one:
+    if: ${{ github.ref == 'refs/heads/main' && inputs.confirmation == 'PUBLISH-ONE' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      IG_AUTOPUBLISH_ENABLED: "true"
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_GRAPH_BASE: ${{ vars.IG_GRAPH_BASE || 'https://graph.facebook.com' }}
+      IG_GRAPH_VERSION: ${{ vars.IG_GRAPH_VERSION || 'v26.0' }}
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install image renderer
+        run: python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
+      - name: Validate requested content date
+        env:
+          CONTENT_DATE: ${{ inputs.date }}
+        run: |
+          python3 - <<'PY'
+          import datetime, os
+          raw = os.environ["CONTENT_DATE"]
+          parsed = datetime.date.fromisoformat(raw)
+          if parsed.isoformat() != raw:
+              raise ValueError("Invalid date")
+          print("Date accepted:", raw)
+          PY
+      - name: Prepare one approved original card
+        id: prepare
+        env:
+          CONTENT_DATE: ${{ inputs.date }}
+          CONTENT_SLOT: ${{ inputs.slot }}
+        run: python3 scripts/instagram_prepare.py --date "$CONTENT_DATE" --slot "$CONTENT_SLOT"
+      - name: Publish exactly one media item
+        if: steps.prepare.outputs.ready == 'true'
+        env:
+          CONTENT_DATE: ${{ inputs.date }}
+          CONTENT_SLOT: ${{ inputs.slot }}
+          PREPARED_QUEUE: ${{ steps.prepare.outputs.queue }}
+        run: python3 scripts/instagram_autopost.py --publish --date "$CONTENT_DATE" --slot "$CONTENT_SLOT" --queue "$PREPARED_QUEUE"
