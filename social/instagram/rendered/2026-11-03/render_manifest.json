@@ -1,0 +1,82 @@
+[
+  {
+    "item": 1,
+    "title": "OJK: 27,23 JUTA AKUN KEUANGAN SELAMA BIK 2026",
+    "source_url": "https://ojk.go.id/id/berita-dan-kegiatan/siaran-pers/Pages/OJK-Gelar-Puncak-Bulan-Inklusi-Keuangan-%28BIK%29-dan-Financial-Expo-2026-di-Bandung.aspx",
+    "source_image": "https://ojk.go.id/PublishingImages/WhatsApp%20Image%202026-10-30%20at%2011.17.13.jpeg",
+    "source_credit": "OJK / dokumentasi Puncak BIK 2026 Bandung",
+    "file": "01_ojk_pillow.jpg",
+    "file_size": 436568,
+    "dimensions": [
+      1080,
+      1350
+    ],
+    "status": "DRAFT_NOT_PUBLISHED",
+    "reuse_permission_confirmed": false,
+    "note": "Source copyright stays with owner. Rendering does not grant a reuse license."
+  },
+  {
+    "item": 2,
+    "title": "KEMENKEU SOROT PAJAK DIGITAL DAN 23 JUTA AKUN KRIPTO",
+    "source_url": "https://www.kemenkeu.go.id/informasi-publik/publikasi/siaran-pers/Keadilan-Pajak-Ekonomi-Digital",
+    "source_image": "https://www.pajak.go.id/sites/default/files/2026-10/Panel%20Discussion.JPG",
+    "source_credit": "Direktorat Jenderal Pajak / Tim Dokumentasi, 15 Oktober 2026",
+    "file": "02_djp_pillow.jpg",
+    "file_size": 332144,
+    "dimensions": [
+      1080,
+      1350
+    ],
+    "status": "DRAFT_NOT_PUBLISHED",
+    "reuse_permission_confirmed": false,
+    "note": "Source copyright stays with owner. Rendering does not grant a reuse license."
+  },
+  {
+    "item": 3,
+    "title": "GOOGLE KENALKAN GENIE 4, SIMULASI AI INTERAKTIF",
+    "source_url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/",
+    "source_image": "https://storage.googleapis.com/gweb-uniblog-publish-prod/images/genie-4__hero-film__youtube_thum.width-1000.format-webp.webp",
+    "source_credit": "Google DeepMind / cuplikan resmi materi Genie 4",
+    "file": "03_google_pillow.jpg",
+    "file_size": 213607,
+    "dimensions": [
+      1080,
+      1350
+    ],
+    "status": "DRAFT_NOT_PUBLISHED",
+    "reuse_permission_confirmed": false,
+    "note": "Source copyright stays with owner. Rendering does not grant a reuse license."
+  },
+  {
+    "item": 4,
+    "title": "MICROSOFT–LUMEN PERKUAT JARINGAN AI",
+    "source_url": "https://news.microsoft.com/source/2026/11/02/lumen-and-microsoft-expand-collaboration-to-co-sell-enterprise-ai-ready-networks/",
+    "source_image": "https://news.microsoft.com/source/wp-content/uploads/2026/11/Lumen-Microsoft-Logo-Lock-Up.jpg",
+    "source_credit": "Microsoft / Lumen; gambar lockup resmi rilis 2 November 2026",
+    "file": "04_microsoft_pillow.jpg",
+    "file_size": 102365,
+    "dimensions": [
+      1080,
+      1350
+    ],
+    "status": "DRAFT_NOT_PUBLISHED",
+    "reuse_permission_confirmed": false,
+    "note": "Source copyright stays with owner. Rendering does not grant a reuse license."
+  },
+  {
+    "item": 5,
+    "title": "NASA RILIS CITRA TOPAN IN-FA DI PASIFIK",
+    "source_url": "https://science.nasa.gov/earth/earth-observatory/the-pacifics-busy-storm-season/",
+    "source_image": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-pacific's-busy-storm-season/storminfa_tmo_20261030.jpg",
+    "source_credit": "NASA Earth Observatory / Michala Garrison; MODIS/NASA EOSDIS",
+    "file": "05_nasa_pillow.jpg",
+    "file_size": 497732,
+    "dimensions": [
+      1080,
+      1350
+    ],
+    "status": "DRAFT_NOT_PUBLISHED",
+    "reuse_permission_confirmed": true,
+    "note": "Source copyright stays with owner. Rendering does not grant a reuse license."
+  }
+]
