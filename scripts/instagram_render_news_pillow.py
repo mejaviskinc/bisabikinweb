@@ -11,6 +11,7 @@
 from __future__ import annotations
 
 import argparse
+import base64
 import io
 import json
 import re
@@ -122,6 +123,38 @@ def cover(image, dst_size, bg="#ECECEC"):
         pass
     return ImageOps.fit(image, dst_size, method=Image.Resampling.LANCZOS, centering=(0.5, 0.45))
 
+def canva_brand_art():
+    """Load the owner's *original Canva* logo artwork embedded in repo SVG.
+
+    The SVG was prepared from owner-supplied Canva design DAHWlFQyJHE.
+    This PNG contains the real wordmark's italic 'Bikin' and original braces,
+    so do not approximate it by drawing a generic font.
+    """
+    source = Path("public-assets/brand/bisabikinweb-logo.svg").read_text(encoding="utf-8")
+    match = re.search(r'href="data:image/png;base64,([A-Za-z0-9+/=]+)"', source)
+    if not match:
+        raise ValueError("Official Canva logo asset not found in repository")
+    photo = Image.open(io.BytesIO(base64.b64decode(match.group(1)))).convert("RGB")
+    if photo.size != (400, 500):
+        raise ValueError(f"Unexpected Canva owner logo artwork dimensions: {photo.size}")
+    # The chip is the beige square in owner-supplied Canva artwork.
+    cream = photo.getpixel((90, 362))
+    return photo, cream
+
+
+def paste_canva_ink(canvas, source, source_box, destination_box):
+    """Rebuild the existing Canva luminance-to-alpha SVG filter using Pillow."""
+    cut = source.crop(source_box)
+    # Exact source SVG: alpha = (1 - relative_luma)*1.04 - .025.
+    alpha = ImageOps.invert(cut.convert("L"))
+    alpha = alpha.point(lambda v: max(0, min(255, round(v * 1.04 - 6.375))))
+    ink = Image.new("RGBA", cut.size, (0, 0, 0, 255))
+    ink.putalpha(alpha)
+    x1, y1, x2, y2 = destination_box
+    ink = ink.resize((x2 - x1, y2 - y1), Image.Resampling.LANCZOS)
+    canvas.paste(ink, (x1, y1), ink)
+
+
 def render(index, original, output):
     canvas = Image.new("RGB", (W,H), PANEL)
     draw = ImageDraw.Draw(canvas)
@@ -137,13 +170,15 @@ def render(index, original, output):
         photo = ImageEnhance.Color(photo).enhance(1.03)
     canvas.paste(photo,(0,0))
     draw=ImageDraw.Draw(canvas)
-    draw=ImageDraw.Draw(canvas)
-    # Original Canva master layout proportions: chip from x=0,y=675, ~437x119.
-    draw.rounded_rectangle((-18,675,437,794),radius=18,fill=CREAM)
-    draw.rounded_rectangle((20,691,104,777),radius=13,fill=INK)
-    draw.text((42,703),"{ }",font=font(29,True),fill="#FFFFFF")
-    draw.text((119,696),"Bisa BikinWeb",font=font(35,True),fill=INK)
-    draw.text((119,744),"Build Your Digital Presence",font=font(19),fill=INK)
+    # The brand chip is positioned exactly like Canva master:
+    # panel (0,675)-(437,794), icon (20,691)-(104,777),
+    # real wordmark at (119,696), tagline at (119,744).
+    logo_art, cream_color = canva_brand_art()
+    draw.rounded_rectangle((-18,675,437,794), radius=18, fill=cream_color)
+    paste_canva_ink(canvas, logo_art, (34,212,80,258), (20,691,104,777))
+    paste_canva_ink(canvas, logo_art, (94,191,378,235), (119,696,401,748))
+    paste_canva_ink(canvas, logo_art, (94,237,378,260), (119,744,386,769))
+    draw = ImageDraw.Draw(canvas)
     # The source Canva master has NO category pill, NO extra divider,
     # and NO advertising banner. Preserve its uncluttered title section.
     draw.rectangle((0,795,W,H),fill=PANEL)
@@ -157,7 +192,17 @@ def render(index, original, output):
         top+=spacing
     # Exact Canva footer baselines: CTA starts x106 at y1265;
     # source starts x624 at y1265. No unrelated button/background.
-    draw.text((106,1266),"READ MORE →",font=font(24,True),fill=INK)
+    # Original Canva footer has a separate arrow element x228..270.
+    # Keep READ MORE in the 125px text frame, instead of drawing a long string
+    # across the adjacent credit and changing the master layout.
+    label = "READ MORE"
+    cta_font = font(18, True)
+    while draw.textbbox((0,0), label, font=cta_font)[2] > 121:
+        cta_font = font(cta_font.size - 1, True)
+    draw.text((106,1270), label, font=cta_font, fill=INK)
+    draw.line((228,1282,258,1282),fill=INK,width=3)
+    draw.line((249,1274,260,1282),fill=INK,width=3)
+    draw.line((249,1290,260,1282),fill=INK,width=3)
     credit=CREDITS[index]
     cf=font(18,False)
     while draw.textbbox((0,0),credit,font=cf)[2] > 358:
