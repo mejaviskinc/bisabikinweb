@@ -11,6 +11,7 @@ PAGES={
  "kemenkeu":"https://www.kemenkeu.go.id/informasi-publik/publikasi/siaran-pers/Keadilan-Pajak-Ekonomi-Digital",
  "kemenkeu_news":"https://www.kemenkeu.go.id/informasi-publik/publikasi/berita-utama/Wamen-Nurkholisoh-Pentingnya-Keadilan-Pajak",
  "pajak":"https://pajak.go.id/index.php/id/berita/taxes-digital-economy-and-cripto-assets-perspective-shariah-pajak-dan-prinsip-syariah-dua",
+ "pajak_listing":"https://www.pajak.go.id/en/berita-page",
  "genie4":"https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/",
  "microsoft":"https://news.microsoft.com/source/2026/11/02/lumen-and-microsoft-expand-collaboration-to-co-sell-enterprise-ai-ready-networks/",
 }
