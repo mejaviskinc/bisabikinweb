@@ -8,8 +8,14 @@ from instagram_autopost import meta, SafeStop
 def main():
     token=os.getenv("IG_ACCESS_TOKEN", "")
     user_id=os.getenv("IG_USER_ID", "")
-    if not token or not re.fullmatch(r"\d{8,30}",user_id):
-        print("CONNECTION_CHECK_FAILED: Add IG_ACCESS_TOKEN and numeric IG_USER_ID to GitHub Actions Secrets.",file=sys.stderr)
+    if not token:
+        print("CONNECTION_CHECK_FAILED: IG_ACCESS_TOKEN is empty or unavailable in Repository secrets.",file=sys.stderr)
+        return 2
+    if not user_id:
+        print("CONNECTION_CHECK_FAILED: IG_USER_ID is empty or unavailable in Repository secrets.",file=sys.stderr)
+        return 2
+    if not re.fullmatch(r"\d{8,30}", user_id):
+        print("CONNECTION_CHECK_FAILED: IG_USER_ID must be 8-30 ASCII digits, no spaces, @, quotes, or username.",file=sys.stderr)
         return 2
     try:
         profile=meta("GET",user_id,token,{"fields":"id,username"})
