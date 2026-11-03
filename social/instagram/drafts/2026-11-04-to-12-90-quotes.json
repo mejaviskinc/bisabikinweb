@@ -7,8 +7,8 @@
   "start_date": "2026-11-04",
   "end_date": "2026-11-12",
   "per_day": 10,
-  "auto_publish": false,
-  "status": "render_pending",
+  "auto_publish": true,
+  "status": "all_90_scheduled_auto_publish_pending",
   "source": "100 original quotes from chat, excluding overlap with today's 10 posts",
   "items": [
     {
@@ -19,9 +19,16 @@
       "date": "2026-11-04",
       "time": "08:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/011.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/011.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/011.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415500583,
+      "metricool_post_uuid": "4783084868925147731",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-17456295771825892369.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=4783084868925147731"
     },
     {
       "no": 12,
@@ -31,9 +38,16 @@
       "date": "2026-11-04",
       "time": "09:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/012.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/012.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/012.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415501093,
+      "metricool_post_uuid": "-2388077949306845795",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-5753078826360287168.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-2388077949306845795"
     },
     {
       "no": 13,
@@ -43,9 +57,16 @@
       "date": "2026-11-04",
       "time": "11:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/013.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/013.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/013.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415501180,
+      "metricool_post_uuid": "2698720247625958037",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-3547847632933860778.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=2698720247625958037"
     },
     {
       "no": 14,
@@ -55,9 +76,16 @@
       "date": "2026-11-04",
       "time": "12:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/014.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/014.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/014.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415501251,
+      "metricool_post_uuid": "7378973957496194560",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-18429542745907038364.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=7378973957496194560"
     },
     {
       "no": 15,
@@ -67,9 +95,16 @@
       "date": "2026-11-04",
       "time": "14:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/015.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/015.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/015.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415501396,
+      "metricool_post_uuid": "-6281121178329921404",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-11819999732845856943.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-6281121178329921404"
     },
     {
       "no": 16,
@@ -79,9 +114,16 @@
       "date": "2026-11-04",
       "time": "15:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/016.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/016.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/016.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415501463,
+      "metricool_post_uuid": "4141151233651788418",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-938819118605647268.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=4141151233651788418"
     },
     {
       "no": 17,
@@ -91,9 +133,16 @@
       "date": "2026-11-04",
       "time": "17:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/017.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/017.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/017.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415501551,
+      "metricool_post_uuid": "2804646010284228744",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-14571118262164474648.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=2804646010284228744"
     },
     {
       "no": 18,
@@ -103,9 +152,16 @@
       "date": "2026-11-04",
       "time": "18:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/018.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/018.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/018.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415501623,
+      "metricool_post_uuid": "7226546758041225513",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-2803328793029124703.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=7226546758041225513"
     },
     {
       "no": 19,
@@ -115,9 +171,16 @@
       "date": "2026-11-04",
       "time": "20:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/019.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/019.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/019.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415501716,
+      "metricool_post_uuid": "-8485503138399958676",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-13506768749145792114.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-8485503138399958676"
     },
     {
       "no": 20,
@@ -127,9 +190,16 @@
       "date": "2026-11-04",
       "time": "21:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/020.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/020.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/020.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415501769,
+      "metricool_post_uuid": "-4650054746182695851",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-3767362892387605948.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-4650054746182695851"
     },
     {
       "no": 21,
@@ -139,9 +209,16 @@
       "date": "2026-11-05",
       "time": "08:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/021.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/021.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/021.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415502107,
+      "metricool_post_uuid": "-4076258575048421869",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-8046592642557244803.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-4076258575048421869"
     },
     {
       "no": 22,
@@ -151,9 +228,16 @@
       "date": "2026-11-05",
       "time": "09:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/022.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/022.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/022.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415502172,
+      "metricool_post_uuid": "-6648255082909711318",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-9392612694239926819.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-6648255082909711318"
     },
     {
       "no": 23,
@@ -163,9 +247,16 @@
       "date": "2026-11-05",
       "time": "11:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/023.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/023.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/023.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415502239,
+      "metricool_post_uuid": "130165549794086297",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-6224469833588257006.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=130165549794086297"
     },
     {
       "no": 24,
@@ -175,9 +266,16 @@
       "date": "2026-11-05",
       "time": "12:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/024.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/024.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/024.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415502311,
+      "metricool_post_uuid": "-7114283422160501148",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-50516477444247854.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-7114283422160501148"
     },
     {
       "no": 25,
@@ -187,9 +285,16 @@
       "date": "2026-11-05",
       "time": "14:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/025.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/025.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/025.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415502397,
+      "metricool_post_uuid": "-8183304873488726377",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-16211887485785225265.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-8183304873488726377"
     },
     {
       "no": 26,
@@ -199,9 +304,16 @@
       "date": "2026-11-05",
       "time": "15:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/026.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/026.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/026.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415502487,
+      "metricool_post_uuid": "2387162539634479057",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-15099104359566057882.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=2387162539634479057"
     },
     {
       "no": 27,
@@ -211,9 +323,16 @@
       "date": "2026-11-05",
       "time": "17:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/027.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/027.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/027.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415502544,
+      "metricool_post_uuid": "-4860623735596889779",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-8757830231854691508.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-4860623735596889779"
     },
     {
       "no": 28,
@@ -223,9 +342,16 @@
       "date": "2026-11-05",
       "time": "18:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/028.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/028.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/028.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415502623,
+      "metricool_post_uuid": "-2487012041905123599",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-9795095916039709139.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-2487012041905123599"
     },
     {
       "no": 29,
@@ -235,9 +361,16 @@
       "date": "2026-11-05",
       "time": "20:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/029.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/029.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/029.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415502700,
+      "metricool_post_uuid": "-4274672402261259461",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-17523765078150778179.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-4274672402261259461"
     },
     {
       "no": 30,
@@ -247,9 +380,16 @@
       "date": "2026-11-05",
       "time": "21:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/030.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/030.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/030.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415502787,
+      "metricool_post_uuid": "-7745854423027201722",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-9128256848475005482.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-7745854423027201722"
     },
     {
       "no": 31,
@@ -259,9 +399,16 @@
       "date": "2026-11-06",
       "time": "08:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/031.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/031.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/031.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415503715,
+      "metricool_post_uuid": "-7817054875370042394",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-11586116286633237142.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-7817054875370042394"
     },
     {
       "no": 32,
@@ -271,9 +418,16 @@
       "date": "2026-11-06",
       "time": "09:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/032.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/032.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/032.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415503826,
+      "metricool_post_uuid": "7790560101595038693",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-12969406293511896242.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=7790560101595038693"
     },
     {
       "no": 33,
@@ -283,9 +437,16 @@
       "date": "2026-11-06",
       "time": "11:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/033.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/033.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/033.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415503879,
+      "metricool_post_uuid": "1296599485890906773",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-8169316575775415595.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=1296599485890906773"
     },
     {
       "no": 34,
@@ -295,9 +456,16 @@
       "date": "2026-11-06",
       "time": "12:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/034.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/034.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/034.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415503929,
+      "metricool_post_uuid": "-5409704515564385829",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-12012988505571582436.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-5409704515564385829"
     },
     {
       "no": 35,
@@ -307,9 +475,16 @@
       "date": "2026-11-06",
       "time": "14:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/035.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/035.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/035.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415503985,
+      "metricool_post_uuid": "-991657209981415583",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-5126765415419798351.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-991657209981415583"
     },
     {
       "no": 36,
@@ -319,9 +494,16 @@
       "date": "2026-11-06",
       "time": "15:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/036.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/036.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/036.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415504054,
+      "metricool_post_uuid": "1247293263849738198",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-17349131485703034770.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=1247293263849738198"
     },
     {
       "no": 37,
@@ -331,9 +513,16 @@
       "date": "2026-11-06",
       "time": "17:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/037.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/037.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/037.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415504154,
+      "metricool_post_uuid": "3768635528910751278",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-8415167710289627669.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=3768635528910751278"
     },
     {
       "no": 38,
@@ -343,9 +532,16 @@
       "date": "2026-11-06",
       "time": "18:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/038.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/038.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/038.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415504231,
+      "metricool_post_uuid": "2994366306753006537",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-18178163148438757212.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=2994366306753006537"
     },
     {
       "no": 39,
@@ -355,9 +551,16 @@
       "date": "2026-11-06",
       "time": "20:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/039.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/039.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/039.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415504326,
+      "metricool_post_uuid": "3023218088955038359",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-12330829609615181572.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=3023218088955038359"
     },
     {
       "no": 40,
@@ -367,9 +570,16 @@
       "date": "2026-11-06",
       "time": "21:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/040.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/040.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/040.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415504417,
+      "metricool_post_uuid": "1931646193089134912",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-17316229158723973341.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=1931646193089134912"
     },
     {
       "no": 41,
@@ -379,9 +589,16 @@
       "date": "2026-11-07",
       "time": "08:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/041.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/041.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/041.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415504664,
+      "metricool_post_uuid": "4485840648509210905",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-11662913414398713341.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=4485840648509210905"
     },
     {
       "no": 42,
@@ -391,9 +608,16 @@
       "date": "2026-11-07",
       "time": "09:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/042.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/042.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/042.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415504730,
+      "metricool_post_uuid": "6649432081279568365",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-7414237210020173180.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=6649432081279568365"
     },
     {
       "no": 43,
@@ -403,9 +627,16 @@
       "date": "2026-11-07",
       "time": "11:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/043.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/043.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/043.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415504794,
+      "metricool_post_uuid": "-872034639679173717",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-14733549675466409803.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-872034639679173717"
     },
     {
       "no": 44,
@@ -415,9 +646,16 @@
       "date": "2026-11-07",
       "time": "12:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/044.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/044.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/044.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415504933,
+      "metricool_post_uuid": "8174867220095454568",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-13292730434466144907.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=8174867220095454568"
     },
     {
       "no": 45,
@@ -427,9 +665,16 @@
       "date": "2026-11-07",
       "time": "14:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/045.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/045.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/045.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415505040,
+      "metricool_post_uuid": "2113867585382731585",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-3697976125317574057.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=2113867585382731585"
     },
     {
       "no": 46,
@@ -439,9 +684,16 @@
       "date": "2026-11-07",
       "time": "15:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/046.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/046.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/046.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415505169,
+      "metricool_post_uuid": "-7336621495456677545",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-9793538545936943141.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-7336621495456677545"
     },
     {
       "no": 47,
@@ -451,9 +703,16 @@
       "date": "2026-11-07",
       "time": "17:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/047.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/047.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/047.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415505342,
+      "metricool_post_uuid": "944540280506304543",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-2629696256187736381.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=944540280506304543"
     },
     {
       "no": 48,
@@ -463,9 +722,16 @@
       "date": "2026-11-07",
       "time": "18:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/048.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/048.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/048.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415505446,
+      "metricool_post_uuid": "1612155687668567346",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-18356276378755232710.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=1612155687668567346"
     },
     {
       "no": 49,
@@ -475,9 +741,16 @@
       "date": "2026-11-07",
       "time": "20:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/049.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/049.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/049.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415505513,
+      "metricool_post_uuid": "-7981667013810174142",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-2720114553157588006.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-7981667013810174142"
     },
     {
       "no": 50,
@@ -487,9 +760,16 @@
       "date": "2026-11-07",
       "time": "21:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/050.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/050.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/050.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415505626,
+      "metricool_post_uuid": "-270095424270678681",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-7242081575240996470.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-270095424270678681"
     },
     {
       "no": 51,
@@ -499,9 +779,16 @@
       "date": "2026-11-08",
       "time": "08:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/051.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/051.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/051.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415506136,
+      "metricool_post_uuid": "7493166957814825531",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-3148636068450732749.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=7493166957814825531"
     },
     {
       "no": 52,
@@ -511,9 +798,16 @@
       "date": "2026-11-08",
       "time": "09:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/052.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/052.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/052.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415506314,
+      "metricool_post_uuid": "7278960110106133723",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-13925011374551904551.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=7278960110106133723"
     },
     {
       "no": 53,
@@ -523,9 +817,16 @@
       "date": "2026-11-08",
       "time": "11:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/053.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/053.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/053.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415506423,
+      "metricool_post_uuid": "8773493171781257671",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-8229549807594127526.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=8773493171781257671"
     },
     {
       "no": 54,
@@ -535,9 +836,16 @@
       "date": "2026-11-08",
       "time": "12:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/054.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/054.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/054.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415506502,
+      "metricool_post_uuid": "-6695966920453635045",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-2800382553060516476.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-6695966920453635045"
     },
     {
       "no": 55,
@@ -547,9 +855,16 @@
       "date": "2026-11-08",
       "time": "14:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/055.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/055.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/055.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415506572,
+      "metricool_post_uuid": "2067151631311587591",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-8422965889538763247.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=2067151631311587591"
     },
     {
       "no": 56,
@@ -559,9 +874,16 @@
       "date": "2026-11-08",
       "time": "15:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/056.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/056.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/056.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415506625,
+      "metricool_post_uuid": "227800852090601487",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-1503482839494886104.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=227800852090601487"
     },
     {
       "no": 57,
@@ -571,9 +893,16 @@
       "date": "2026-11-08",
       "time": "17:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/057.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/057.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/057.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415506704,
+      "metricool_post_uuid": "-7292232374007084896",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-12454937509298768070.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-7292232374007084896"
     },
     {
       "no": 58,
@@ -583,9 +912,16 @@
       "date": "2026-11-08",
       "time": "18:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/058.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/058.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/058.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415506781,
+      "metricool_post_uuid": "-1126989857681224089",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-6363859484835964614.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-1126989857681224089"
     },
     {
       "no": 59,
@@ -595,9 +931,16 @@
       "date": "2026-11-08",
       "time": "20:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/059.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/059.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/059.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415506843,
+      "metricool_post_uuid": "5945965950136436996",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-17038535932330592717.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=5945965950136436996"
     },
     {
       "no": 60,
@@ -607,9 +950,16 @@
       "date": "2026-11-08",
       "time": "21:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/060.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/060.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/060.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415506941,
+      "metricool_post_uuid": "3156723350111407020",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-11661760322980885038.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=3156723350111407020"
     },
     {
       "no": 61,
@@ -619,9 +969,16 @@
       "date": "2026-11-09",
       "time": "08:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/061.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/061.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/061.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415507286,
+      "metricool_post_uuid": "-2035981992640232472",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-2084581782255906425.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-2035981992640232472"
     },
     {
       "no": 62,
@@ -631,9 +988,16 @@
       "date": "2026-11-09",
       "time": "09:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/062.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/062.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/062.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415507373,
+      "metricool_post_uuid": "7821122818116374188",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-6181791840867557574.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=7821122818116374188"
     },
     {
       "no": 63,
@@ -643,9 +1007,16 @@
       "date": "2026-11-09",
       "time": "11:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/063.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/063.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/063.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415507462,
+      "metricool_post_uuid": "6833185833185134234",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-8173585906038421825.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=6833185833185134234"
     },
     {
       "no": 64,
@@ -655,9 +1026,16 @@
       "date": "2026-11-09",
       "time": "12:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/064.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/064.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/064.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415507540,
+      "metricool_post_uuid": "-5458200159763938170",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-6524635495732347409.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-5458200159763938170"
     },
     {
       "no": 65,
@@ -667,9 +1045,16 @@
       "date": "2026-11-09",
       "time": "14:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/065.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/065.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/065.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415507592,
+      "metricool_post_uuid": "5348985323047371300",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-2158437714075514128.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=5348985323047371300"
     },
     {
       "no": 66,
@@ -679,9 +1064,16 @@
       "date": "2026-11-09",
       "time": "15:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/066.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/066.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/066.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415507664,
+      "metricool_post_uuid": "3220417679440236221",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-7390819477797068012.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=3220417679440236221"
     },
     {
       "no": 67,
@@ -691,9 +1083,16 @@
       "date": "2026-11-09",
       "time": "17:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/067.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/067.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/067.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415507736,
+      "metricool_post_uuid": "-9079958464619723943",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-9367766110182834969.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-9079958464619723943"
     },
     {
       "no": 68,
@@ -703,9 +1102,16 @@
       "date": "2026-11-09",
       "time": "18:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/068.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/068.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/068.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415507912,
+      "metricool_post_uuid": "-6390221839875354843",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-7971468645624105212.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-6390221839875354843"
     },
     {
       "no": 69,
@@ -715,9 +1121,16 @@
       "date": "2026-11-09",
       "time": "20:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/069.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/069.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/069.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415507994,
+      "metricool_post_uuid": "-4051377347353886185",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-8237906857118163779.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-4051377347353886185"
     },
     {
       "no": 70,
@@ -727,9 +1140,16 @@
       "date": "2026-11-09",
       "time": "21:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/070.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/070.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/070.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415508079,
+      "metricool_post_uuid": "8302409717917830645",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-15288802051914481032.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=8302409717917830645"
     },
     {
       "no": 71,
@@ -739,9 +1159,16 @@
       "date": "2026-11-10",
       "time": "08:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/071.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/071.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/071.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415508380,
+      "metricool_post_uuid": "8393590578189845035",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-16697992010002087460.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=8393590578189845035"
     },
     {
       "no": 72,
@@ -751,9 +1178,16 @@
       "date": "2026-11-10",
       "time": "09:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/072.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/072.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/072.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415508466,
+      "metricool_post_uuid": "-7245881460017379168",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-2145234167846020947.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-7245881460017379168"
     },
     {
       "no": 73,
@@ -763,9 +1197,16 @@
       "date": "2026-11-10",
       "time": "11:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/073.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/073.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/073.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415508556,
+      "metricool_post_uuid": "-7122988461692400473",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-1565258947722059943.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-7122988461692400473"
     },
     {
       "no": 74,
@@ -775,9 +1216,16 @@
       "date": "2026-11-10",
       "time": "12:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/074.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/074.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/074.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415508646,
+      "metricool_post_uuid": "-7714491617399060656",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-15825120679326929254.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-7714491617399060656"
     },
     {
       "no": 75,
@@ -787,9 +1235,16 @@
       "date": "2026-11-10",
       "time": "14:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/075.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/075.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/075.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415508783,
+      "metricool_post_uuid": "-1416495600053501735",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-12194758131743986493.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-1416495600053501735"
     },
     {
       "no": 76,
@@ -799,9 +1254,16 @@
       "date": "2026-11-10",
       "time": "15:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/076.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/076.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/076.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415508837,
+      "metricool_post_uuid": "-5117098876615244492",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-5436751601960403515.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-5117098876615244492"
     },
     {
       "no": 77,
@@ -811,9 +1273,16 @@
       "date": "2026-11-10",
       "time": "17:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/077.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/077.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/077.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415508894,
+      "metricool_post_uuid": "-1166347320301039783",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-3069358411178028619.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-1166347320301039783"
     },
     {
       "no": 78,
@@ -823,9 +1292,16 @@
       "date": "2026-11-10",
       "time": "18:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/078.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/078.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/078.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415508970,
+      "metricool_post_uuid": "-3482233094839579029",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-6010101194281705677.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-3482233094839579029"
     },
     {
       "no": 79,
@@ -835,9 +1311,16 @@
       "date": "2026-11-10",
       "time": "20:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/079.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/079.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/079.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415509072,
+      "metricool_post_uuid": "-6857184958430428615",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-8799926883797817086.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-6857184958430428615"
     },
     {
       "no": 80,
@@ -847,9 +1330,16 @@
       "date": "2026-11-10",
       "time": "21:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/080.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/080.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/080.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415509139,
+      "metricool_post_uuid": "-5535206189501626190",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-11828502101333263010.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-5535206189501626190"
     },
     {
       "no": 81,
@@ -859,9 +1349,16 @@
       "date": "2026-11-11",
       "time": "08:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/081.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/081.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/081.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415509517,
+      "metricool_post_uuid": "-6381426821876987590",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-11254740673755244306.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-6381426821876987590"
     },
     {
       "no": 82,
@@ -871,9 +1368,16 @@
       "date": "2026-11-11",
       "time": "09:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/082.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/082.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/082.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415509689,
+      "metricool_post_uuid": "-4967191859467301848",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-7956833892557216536.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-4967191859467301848"
     },
     {
       "no": 83,
@@ -883,9 +1387,16 @@
       "date": "2026-11-11",
       "time": "11:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/083.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/083.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/083.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415509772,
+      "metricool_post_uuid": "596431128372658754",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-9588309870701979394.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=596431128372658754"
     },
     {
       "no": 84,
@@ -895,9 +1406,16 @@
       "date": "2026-11-11",
       "time": "12:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/084.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/084.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/084.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415509885,
+      "metricool_post_uuid": "882756324110911821",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-17374200991868496209.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=882756324110911821"
     },
     {
       "no": 85,
@@ -907,9 +1425,16 @@
       "date": "2026-11-11",
       "time": "14:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/085.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/085.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/085.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415509977,
+      "metricool_post_uuid": "-1408897688756729027",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-7744374411677918245.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-1408897688756729027"
     },
     {
       "no": 86,
@@ -919,9 +1444,16 @@
       "date": "2026-11-11",
       "time": "15:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/086.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/086.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/086.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415510085,
+      "metricool_post_uuid": "4509592789150222589",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-14776852749396778956.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=4509592789150222589"
     },
     {
       "no": 87,
@@ -931,9 +1463,16 @@
       "date": "2026-11-11",
       "time": "17:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/087.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/087.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/087.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415510191,
+      "metricool_post_uuid": "-2840657601117272472",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-10184228807964978095.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-2840657601117272472"
     },
     {
       "no": 88,
@@ -943,9 +1482,16 @@
       "date": "2026-11-11",
       "time": "18:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/088.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/088.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/088.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415510278,
+      "metricool_post_uuid": "5543050411766467937",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-1040117825875064409.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=5543050411766467937"
     },
     {
       "no": 89,
@@ -955,9 +1501,16 @@
       "date": "2026-11-11",
       "time": "20:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/089.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/089.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/089.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415510339,
+      "metricool_post_uuid": "6640059870738334645",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-12416598894231988279.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=6640059870738334645"
     },
     {
       "no": 90,
@@ -967,9 +1520,16 @@
       "date": "2026-11-11",
       "time": "21:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/090.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/090.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/090.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415510418,
+      "metricool_post_uuid": "1142086798736967093",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-556478321773067541.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=1142086798736967093"
     },
     {
       "no": 91,
@@ -979,9 +1539,16 @@
       "date": "2026-11-12",
       "time": "08:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/091.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/091.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/091.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415510662,
+      "metricool_post_uuid": "-3087497793973173862",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-6158790084119976238.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-3087497793973173862"
     },
     {
       "no": 92,
@@ -991,9 +1558,16 @@
       "date": "2026-11-12",
       "time": "09:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/092.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/092.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/092.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415510716,
+      "metricool_post_uuid": "-1076819804402856755",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-13031415942938634884.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-1076819804402856755"
     },
     {
       "no": 93,
@@ -1003,9 +1577,16 @@
       "date": "2026-11-12",
       "time": "11:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/093.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/093.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/093.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415510778,
+      "metricool_post_uuid": "3378729878586672776",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-10585057444154891885.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=3378729878586672776"
     },
     {
       "no": 94,
@@ -1015,9 +1596,16 @@
       "date": "2026-11-12",
       "time": "12:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/094.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/094.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/094.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415510833,
+      "metricool_post_uuid": "-7239643306426152185",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-16886571166183890950.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-7239643306426152185"
     },
     {
       "no": 95,
@@ -1027,9 +1615,16 @@
       "date": "2026-11-12",
       "time": "14:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/095.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/095.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/095.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415510930,
+      "metricool_post_uuid": "8225772105895004295",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-5047180634811391593.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=8225772105895004295"
     },
     {
       "no": 96,
@@ -1039,9 +1634,16 @@
       "date": "2026-11-12",
       "time": "15:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/096.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/096.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/096.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415511020,
+      "metricool_post_uuid": "4861617803366320453",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-11680058445290486207.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=4861617803366320453"
     },
     {
       "no": 97,
@@ -1051,9 +1653,16 @@
       "date": "2026-11-12",
       "time": "17:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/097.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/097.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/097.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415511085,
+      "metricool_post_uuid": "3809450672212361494",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-4889740594705392333.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=3809450672212361494"
     },
     {
       "no": 98,
@@ -1063,9 +1672,16 @@
       "date": "2026-11-12",
       "time": "18:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/098.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/098.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/098.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415511143,
+      "metricool_post_uuid": "-2511057990361920139",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-12914891281816886874.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-2511057990361920139"
     },
     {
       "no": 99,
@@ -1075,9 +1691,16 @@
       "date": "2026-11-12",
       "time": "20:00",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/099.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/099.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/099.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415511195,
+      "metricool_post_uuid": "-3619344969758586812",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-9674531814320730173.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=-3619344969758586812"
     },
     {
       "no": 100,
@@ -1087,9 +1710,21 @@
       "date": "2026-11-12",
       "time": "21:30",
       "timezone": "Asia/Jakarta",
-      "status": "planned",
+      "status": "scheduled",
       "media_path": "social/instagram/rendered/2026-11-04-to-12/100.jpg",
-      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/100.jpg"
+      "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-04-to-12/100.jpg",
+      "platform": "instagram",
+      "metricool_post_id": 415511262,
+      "metricool_post_uuid": "2665211249030874663",
+      "metricool_status": "PENDING",
+      "auto_publish": true,
+      "media_url": "https://static.metricool.com/planner/202611/7727294-file-15762109011488430230.jpeg",
+      "planner_url": "https://app.metricool.com/planner/calendar?blogId=7727294&openWithPostUuid=2665211249030874663"
     }
-  ]
+  ],
+  "scheduled_count": 90,
+  "verified_on": "2026-11-03",
+  "verified_active_count": 90,
+  "duplicate_schedules_disabled": 9,
+  "notice": "90 auto-publish active (10/day on Nov 4–12). Nine duplicate Nov 6 entries converted to inactive drafts; one unrelated old Metricool test draft remains inactive. Publication status is PENDING until due dates."
 }
