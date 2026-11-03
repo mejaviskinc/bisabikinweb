@@ -32,7 +32,6 @@ def rgb(value):
 def lower_quote_font(draw,quote):
     for size in range(76,45,-1):
         ft=font(size,True)
-        rows=wrap(draw,quote,965)
         # use the font for actual word measurement
         rows=wrap(draw,quote,ft,955)
         leading=int(size*1.23)
