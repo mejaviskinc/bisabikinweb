@@ -2,7 +2,9 @@ name: Inspect Official News Images - Read Only
 on:
   push:
     branches: [main]
-    paths: ['.github/workflows/instagram-photo-research.yml']
+    paths:
+      - '.github/workflows/instagram-photo-research.yml'
+      - 'scripts/instagram_find_source_images.py'
 permissions:
   contents: read
 jobs:
