@@ -1,0 +1,58 @@
+# ONE-SHOT LIVE TEST ONLY (2026-11-03). Safe guarded by exact push message and path.
+# This workflow is removed after the attempted run to prevent future activation.
+name: Instagram BisaBikinWeb ONE SHOT LIVE TEST 20261103
+on:
+  push:
+    branches: [main]
+    paths: ['.github/workflows/instagram-runonce-20261103.yml']
+permissions:
+  contents: write
+concurrency:
+  group: bisabikinweb-instagram-publish
+  cancel-in-progress: false
+jobs:
+  one_real_post:
+    if: ${{ github.ref == 'refs/heads/main' && github.event.head_commit.message == 'test(instagram): publish one authorized educational test post' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      IG_AUTOPUBLISH_ENABLED: 'true'
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_GRAPH_BASE: ${{ vars.IG_GRAPH_BASE || 'https://graph.facebook.com' }}
+      IG_GRAPH_VERSION: ${{ vars.IG_GRAPH_VERSION || 'v26.0' }}
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install image renderer
+        run: python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
+      - name: Prepare original test design, upload JPEG and queue
+        run: |
+          python3 - <<'PY'
+          import json, os, sys
+          from pathlib import Path
+          sys.path.insert(0, "scripts")
+          from instagram_prepare import render_image, upload_original_image, make_item
+          from instagram_autopost import eligible, github_state, SafeStop
+          repo = os.environ["GITHUB_REPOSITORY"]
+          gh_token = os.environ["GITHUB_TOKEN"]
+          item_id = "bbweb-20261103-instagram-test-01"
+          existing, _ = github_state(repo, gh_token)
+          if item_id in existing["entries"]:
+              raise SafeStop("One-shot content has already been claimed; never retry automatically.")
+          title = "Bisnis Punya Instagram, Masih Perlu Website?"
+          summary = "Website membantu pelanggan menemukan layanan, portofolio, dan kontak resmi dalam satu tempat. Jadikan informasi bisnismu lebih mudah diakses."
+          destination = Path("social/instagram/.runtime/") / (item_id + ".jpg")
+          render_image("TIPS WEBSITE", title, summary, destination)
+          link = upload_original_image(repo, gh_token, destination,
+                                      "social/instagram/generated/" + item_id + ".jpg")
+          item = make_item("2026-11-03", "18:30", "TIPS WEBSITE", title, summary, link)
+          item["id"] = item_id
+          eligible(item, "2026-11-03", "18:30")
+          Path("social/instagram/.runtime/test_queue.json").write_text(
+              json.dumps({"items": [item]}, indent=2, ensure_ascii=False) + "\n",
+              encoding="utf-8")
+          print("ONE_SHOT_PREPARED: "+item_id+" with 1080x1350 original JPEG")
+          PY
+      - name: Publish exactly one Instagram post
+        run: python3 scripts/instagram_autopost.py --publish --date 2026-11-03 --slot 18:30 --queue social/instagram/.runtime/test_queue.json
