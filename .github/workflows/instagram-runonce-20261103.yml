@@ -12,7 +12,8 @@ concurrency:
   cancel-in-progress: false
 jobs:
   one_real_post:
-    if: ${{ github.ref == 'refs/heads/main' && github.event.head_commit.message == 'test(instagram): publish one authorized educational test post' }}
+    if: >-
+      ${{ github.ref == 'refs/heads/main' && github.event.head_commit.message == 'test(instagram): publish one authorized educational test post' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
