@@ -1,9 +1,9 @@
 {
   "date": "2026-11-03",
   "content_type": "original_brand_quotes",
-  "template": "Canva BisaBikinWeb 1080x1350 / chip and footer geometry",
+  "template": "User-shared Canva 30-page quote collection DAHWlFQyJHE (pages 3-11)",
   "render_engine": "Python Pillow",
-  "status": "drafts_not_published",
+  "status": "canva_reference_renderer_updated_pending_preview",
   "photo_copyright_issue": false,
   "all_posts_original": true,
   "items": [
@@ -62,5 +62,15 @@
       "image_path": "social/instagram/rendered/2026-11-03-quotes/05_quotes_pillow.jpg",
       "image_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-03-quotes/05_quotes_pillow.jpg"
     }
-  ]
+  ],
+  "source_canva_url": "https://canva.link/tr3dmu0tl0ik07d",
+  "reference_design_id": "DAHWlFQyJHE",
+  "visual_reference_note": "Using original Canva logo and repeated text hierarchy: prominent quote, bisabikinweb.id, @bisabikinweb, Jasa Pembuatan Website Profesional. Original design is shared read-only; pixel-exact font and layout not guaranteed.",
+  "publication_status": "none_published",
+  "first_attempt": {
+    "platform": "instagram",
+    "post_id": "efb1d68c-498d-429d-9ead-526ed912ce1c",
+    "status": "failed",
+    "reason": "Instagram did not answer in time."
+  }
 }
