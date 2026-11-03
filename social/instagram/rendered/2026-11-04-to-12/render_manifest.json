@@ -1,0 +1,722 @@
+[
+  {
+    "no": 11,
+    "quote": "Katanya demi rakyat, kok rakyatnya cuma jadi penonton rapat?",
+    "image": "011.jpg",
+    "schedule_date": "2026-11-04",
+    "schedule_time": "08:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 12,
+    "quote": "Janji kampanye manis, realitanya pahitnya lebih kerasa dari kopi tanpa gula.",
+    "image": "012.jpg",
+    "schedule_date": "2026-11-04",
+    "schedule_time": "09:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 13,
+    "quote": "Pemerintah tuh kadang kayak WiFi publik: pas butuh malah lemot.",
+    "image": "013.jpg",
+    "schedule_date": "2026-11-04",
+    "schedule_time": "11:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 14,
+    "quote": "Katanya ekonomi membaik, tapi dompet gue belum diajak meeting.",
+    "image": "014.jpg",
+    "schedule_date": "2026-11-04",
+    "schedule_time": "12:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 15,
+    "quote": "Rakyat disuruh sabar, pejabat keburu nyaman.",
+    "image": "015.jpg",
+    "schedule_date": "2026-11-04",
+    "schedule_time": "14:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 16,
+    "quote": "Kalau bikin aturan secepat itu, harusnya beresin masalah juga jangan pakai buffering.",
+    "image": "016.jpg",
+    "schedule_date": "2026-11-04",
+    "schedule_time": "15:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 17,
+    "quote": "Yang naik bukan cuma harga, ekspektasi rakyat buat didengerin juga ikut capek.",
+    "image": "017.jpg",
+    "schedule_date": "2026-11-04",
+    "schedule_time": "17:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 18,
+    "quote": "Katanya kerja untuk rakyat, tapi rakyatnya masih nunggu hasil kerja.",
+    "image": "018.jpg",
+    "schedule_date": "2026-11-04",
+    "schedule_time": "18:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 19,
+    "quote": "Bansos jalan, tapi keadilan sosial masih nyasar.",
+    "image": "019.jpg",
+    "schedule_date": "2026-11-04",
+    "schedule_time": "20:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 20,
+    "quote": "Rakyat diminta paham situasi, pemerintah kapan paham isi kulkas rakyat?",
+    "image": "020.jpg",
+    "schedule_date": "2026-11-04",
+    "schedule_time": "21:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 21,
+    "quote": "Banyak proyek diresmikan, tapi masalah dasar belum lulus sidang.",
+    "image": "021.jpg",
+    "schedule_date": "2026-11-05",
+    "schedule_time": "08:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 22,
+    "quote": "Kalau kritik dianggap gangguan, ya wajar kalau solusi jadi nggak ketemu jalan.",
+    "image": "022.jpg",
+    "schedule_date": "2026-11-05",
+    "schedule_time": "09:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 23,
+    "quote": "Pemerintah tuh hobi bilang “tenang”, padahal yang panik rakyat terus.",
+    "image": "023.jpg",
+    "schedule_date": "2026-11-05",
+    "schedule_time": "11:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 24,
+    "quote": "Katanya suara rakyat penting, tapi didengernya pas pemilu doang.",
+    "image": "024.jpg",
+    "schedule_date": "2026-11-05",
+    "schedule_time": "12:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 25,
+    "quote": "Negara sibuk pencitraan, rakyat sibuk bertahan.",
+    "image": "025.jpg",
+    "schedule_date": "2026-11-05",
+    "schedule_time": "14:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 26,
+    "quote": "Laporan makin rapi, realita makin berantakan.",
+    "image": "026.jpg",
+    "schedule_date": "2026-11-05",
+    "schedule_time": "15:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 27,
+    "quote": "Yang sering turun cuma spanduk, bukan harga kebutuhan.",
+    "image": "027.jpg",
+    "schedule_date": "2026-11-05",
+    "schedule_time": "17:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 28,
+    "quote": "Rakyat diminta optimis, padahal isi rekening ngajak realistis.",
+    "image": "028.jpg",
+    "schedule_date": "2026-11-05",
+    "schedule_time": "18:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 29,
+    "quote": "Pejabat ngomong efisiensi, rakyat langsung cek harga beras.",
+    "image": "029.jpg",
+    "schedule_date": "2026-11-05",
+    "schedule_time": "20:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 30,
+    "quote": "Katanya demi masa depan, tapi masa kini rakyat aja masih megap-megap.",
+    "image": "030.jpg",
+    "schedule_date": "2026-11-05",
+    "schedule_time": "21:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 31,
+    "quote": "Rapatnya banyak, hasilnya kok cuma jadi headline?",
+    "image": "031.jpg",
+    "schedule_date": "2026-11-06",
+    "schedule_time": "08:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 32,
+    "quote": "Pemerintah dan transparansi kadang hubungannya kayak chat dibales “nanti ya”.",
+    "image": "032.jpg",
+    "schedule_date": "2026-11-06",
+    "schedule_time": "09:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 33,
+    "quote": "Yang diminta berhemat rakyat, yang boros tetap anggaran.",
+    "image": "033.jpg",
+    "schedule_date": "2026-11-06",
+    "schedule_time": "11:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 34,
+    "quote": "Birokrasi ribet tapi pidato selalu simpel: “semua akan baik-baik saja.”",
+    "image": "034.jpg",
+    "schedule_date": "2026-11-06",
+    "schedule_time": "12:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 35,
+    "quote": "Rakyat cari kerja susah, pejabat cari alasan gampang.",
+    "image": "035.jpg",
+    "schedule_date": "2026-11-06",
+    "schedule_time": "14:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 36,
+    "quote": "Harga naik terus, gaji cuma naik pas dibayangin.",
+    "image": "036.jpg",
+    "schedule_date": "2026-11-06",
+    "schedule_time": "15:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 37,
+    "quote": "Katanya pembangunan merata, tapi kesempatan masih numpuk di tempat tertentu.",
+    "image": "037.jpg",
+    "schedule_date": "2026-11-06",
+    "schedule_time": "17:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 38,
+    "quote": "Pemerintah bilang denger aspirasi, rakyat bilang sinyalnya lemah.",
+    "image": "038.jpg",
+    "schedule_date": "2026-11-06",
+    "schedule_time": "18:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 39,
+    "quote": "Data selalu indah, kenyataan di lapangan sering beda server.",
+    "image": "039.jpg",
+    "schedule_date": "2026-11-06",
+    "schedule_time": "20:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 40,
+    "quote": "Negara kaya sumber daya, rakyat kaya alasan buat bertahan.",
+    "image": "040.jpg",
+    "schedule_date": "2026-11-06",
+    "schedule_time": "21:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 41,
+    "quote": "Yang disubsidi kadang bukan rakyat, tapi drama kebijakan.",
+    "image": "041.jpg",
+    "schedule_date": "2026-11-07",
+    "schedule_time": "08:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 42,
+    "quote": "Katanya demi stabilitas, tapi hidup rakyat malah goyang terus.",
+    "image": "042.jpg",
+    "schedule_date": "2026-11-07",
+    "schedule_time": "09:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 43,
+    "quote": "Kalau solusi cuma wacana, ya rakyat wajar jadi skeptis.",
+    "image": "043.jpg",
+    "schedule_date": "2026-11-07",
+    "schedule_time": "11:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 44,
+    "quote": "Rakyat dipaksa adaptif, pemerintah terlalu nyaman jadi normatif.",
+    "image": "044.jpg",
+    "schedule_date": "2026-11-07",
+    "schedule_time": "12:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 45,
+    "quote": "Janji “pro-rakyat” tuh seringnya cuma jadi slogan, bukan pengalaman.",
+    "image": "045.jpg",
+    "schedule_date": "2026-11-07",
+    "schedule_time": "14:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 46,
+    "quote": "Pemerintah kalau bikin target semangat, kalau ditagih progres mendadak lowbat.",
+    "image": "046.jpg",
+    "schedule_date": "2026-11-07",
+    "schedule_time": "15:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 47,
+    "quote": "Rakyat nanya kepastian, yang datang malah konferensi pers.",
+    "image": "047.jpg",
+    "schedule_date": "2026-11-07",
+    "schedule_time": "17:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 48,
+    "quote": "Yang cepat tuh klarifikasi, bukan perbaikan.",
+    "image": "048.jpg",
+    "schedule_date": "2026-11-07",
+    "schedule_time": "18:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 49,
+    "quote": "Setiap ada masalah, rakyat disuruh maklum. Emang maklum bisa bayar tagihan?",
+    "image": "049.jpg",
+    "schedule_date": "2026-11-07",
+    "schedule_time": "20:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 50,
+    "quote": "Katanya membuka lapangan kerja, tapi pencari kerja tetap rebutan peluang sempit.",
+    "image": "050.jpg",
+    "schedule_date": "2026-11-07",
+    "schedule_time": "21:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 51,
+    "quote": "Banyak yang bilang negara hadir, tapi kok yang sering hadir malah tagihan?",
+    "image": "051.jpg",
+    "schedule_date": "2026-11-08",
+    "schedule_time": "08:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 52,
+    "quote": "Pemerintah suka bilang “jangan khawatir”, padahal alasan khawatirnya numpuk.",
+    "image": "052.jpg",
+    "schedule_date": "2026-11-08",
+    "schedule_time": "09:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 53,
+    "quote": "Yang dibangun megah, yang dibutuhkan kadang malah sederhana.",
+    "image": "053.jpg",
+    "schedule_date": "2026-11-08",
+    "schedule_time": "11:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 54,
+    "quote": "Kebijakan sering turun dari atas, tapi yang nanggung efeknya selalu bawah.",
+    "image": "054.jpg",
+    "schedule_date": "2026-11-08",
+    "schedule_time": "12:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 55,
+    "quote": "Katanya rakyat prioritas, tapi rasanya cuma jadi caption.",
+    "image": "055.jpg",
+    "schedule_date": "2026-11-08",
+    "schedule_time": "14:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 56,
+    "quote": "Negara pengin dihormati, tapi kritik aja masih suka dibaperin.",
+    "image": "056.jpg",
+    "schedule_date": "2026-11-08",
+    "schedule_time": "15:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 57,
+    "quote": "Kalau suara rakyat cuma dianggap noise, jangan kaget kalau kepercayaan ikut turun.",
+    "image": "057.jpg",
+    "schedule_date": "2026-11-08",
+    "schedule_time": "17:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 58,
+    "quote": "Rakyat disuruh produktif, sistemnya masih gemar bikin frustrasi.",
+    "image": "058.jpg",
+    "schedule_date": "2026-11-08",
+    "schedule_time": "18:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 59,
+    "quote": "Katanya perubahan besar sedang berjalan, cuma rakyat belum lihat arahnya ke mana.",
+    "image": "059.jpg",
+    "schedule_date": "2026-11-08",
+    "schedule_time": "20:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 60,
+    "quote": "Setiap kebijakan selalu demi kebaikan, tapi kenapa efeknya sering bikin overthinking?",
+    "image": "060.jpg",
+    "schedule_date": "2026-11-08",
+    "schedule_time": "21:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 61,
+    "quote": "Yang diminta tertib rakyat, yang bikin bingung aturan.",
+    "image": "061.jpg",
+    "schedule_date": "2026-11-09",
+    "schedule_time": "08:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 62,
+    "quote": "Kalau salah selalu “oknum”, kalau sukses langsung “institusi”.",
+    "image": "062.jpg",
+    "schedule_date": "2026-11-09",
+    "schedule_time": "09:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 63,
+    "quote": "Rakyat bayar mahal buat hidup sederhana. Ironisnya dijual sebagai kemajuan.",
+    "image": "063.jpg",
+    "schedule_date": "2026-11-09",
+    "schedule_time": "11:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 64,
+    "quote": "Katanya inflasi terkendali, tapi belanja mingguan tetep bikin hati nggak stabil.",
+    "image": "064.jpg",
+    "schedule_date": "2026-11-09",
+    "schedule_time": "12:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 65,
+    "quote": "Pemerintah tuh kadang kayak filter Instagram: kelihatan mulus, aslinya beda.",
+    "image": "065.jpg",
+    "schedule_date": "2026-11-09",
+    "schedule_time": "14:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 66,
+    "quote": "Rakyat butuh solusi, bukan sekadar narasi yang dikemas elegan.",
+    "image": "066.jpg",
+    "schedule_date": "2026-11-09",
+    "schedule_time": "15:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 67,
+    "quote": "Kalau anggaran bocor terus, wajar rakyat makin susah percaya.",
+    "image": "067.jpg",
+    "schedule_date": "2026-11-09",
+    "schedule_time": "17:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 68,
+    "quote": "Yang dituntut tahan banting rakyat, yang anti kritik malah elite.",
+    "image": "068.jpg",
+    "schedule_date": "2026-11-09",
+    "schedule_time": "18:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 69,
+    "quote": "Pembangunan jalan terus, tapi rasa keadilan kok jalan di tempat.",
+    "image": "069.jpg",
+    "schedule_date": "2026-11-09",
+    "schedule_time": "20:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 70,
+    "quote": "Katanya demi generasi muda, tapi anak muda masih sibuk cari celah bertahan hidup.",
+    "image": "070.jpg",
+    "schedule_date": "2026-11-09",
+    "schedule_time": "21:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 71,
+    "quote": "Negara ini luas, tapi ruang didengar rasanya sempit banget.",
+    "image": "071.jpg",
+    "schedule_date": "2026-11-10",
+    "schedule_time": "08:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 72,
+    "quote": "Pejabat update pencapaian, rakyat update pengeluaran.",
+    "image": "072.jpg",
+    "schedule_date": "2026-11-10",
+    "schedule_time": "09:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 73,
+    "quote": "Yang dirapikan laporan, yang berantakan kenyataan.",
+    "image": "073.jpg",
+    "schedule_date": "2026-11-10",
+    "schedule_time": "11:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 74,
+    "quote": "Rakyat tuh nggak anti aturan, cuma capek sama aturan yang nggak konsisten.",
+    "image": "074.jpg",
+    "schedule_date": "2026-11-10",
+    "schedule_time": "12:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 75,
+    "quote": "Setiap kali ada kebijakan baru, yang deg-degan duluan selalu rakyat kecil.",
+    "image": "075.jpg",
+    "schedule_date": "2026-11-10",
+    "schedule_time": "14:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 76,
+    "quote": "Yang sering diminta pengertian rakyat, yang jarang kasih pengertian pemerintah.",
+    "image": "076.jpg",
+    "schedule_date": "2026-11-10",
+    "schedule_time": "15:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 77,
+    "quote": "Kalau semua diklaim demi rakyat, coba sekali-sekali tanyain rakyatnya setuju apa nggak.",
+    "image": "077.jpg",
+    "schedule_date": "2026-11-10",
+    "schedule_time": "17:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 78,
+    "quote": "Harapan rakyat itu sederhana: hidup layak tanpa harus drama tiap akhir bulan.",
+    "image": "078.jpg",
+    "schedule_date": "2026-11-10",
+    "schedule_time": "18:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 79,
+    "quote": "Pemerintah pengin terlihat kerja, rakyat pengin benar-benar ngerasain hasilnya.",
+    "image": "079.jpg",
+    "schedule_date": "2026-11-10",
+    "schedule_time": "20:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 80,
+    "quote": "Banyak kebijakan lahir cepat, tapi efek sampingnya dibiarin tumbuh lama.",
+    "image": "080.jpg",
+    "schedule_date": "2026-11-10",
+    "schedule_time": "21:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 81,
+    "quote": "Rakyat butuh akses, bukan alasan.",
+    "image": "081.jpg",
+    "schedule_date": "2026-11-11",
+    "schedule_time": "08:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 82,
+    "quote": "Kalau cuma jago bikin slogan, ya rakyat tetap bayar realita.",
+    "image": "082.jpg",
+    "schedule_date": "2026-11-11",
+    "schedule_time": "09:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 83,
+    "quote": "Pemerintah tuh kadang terlalu fokus pada citra, sampai lupa rasa.",
+    "image": "083.jpg",
+    "schedule_date": "2026-11-11",
+    "schedule_time": "11:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 84,
+    "quote": "Setiap hari disuruh percaya proses, padahal prosesnya bikin napas sesak.",
+    "image": "084.jpg",
+    "schedule_date": "2026-11-11",
+    "schedule_time": "12:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 85,
+    "quote": "Yang dibilang kemajuan jangan cuma megah di kamera.",
+    "image": "085.jpg",
+    "schedule_date": "2026-11-11",
+    "schedule_time": "14:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 86,
+    "quote": "Rakyat udah hemat maksimal, kebijakan kapan belajar tepat sasaran?",
+    "image": "086.jpg",
+    "schedule_date": "2026-11-11",
+    "schedule_time": "15:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 87,
+    "quote": "Kalau semua kritik dianggap negatif, kapan ada ruang buat tumbuh?",
+    "image": "087.jpg",
+    "schedule_date": "2026-11-11",
+    "schedule_time": "17:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 88,
+    "quote": "Harga kebutuhan udah kayak ambisi politik: sama-sama naik terus.",
+    "image": "088.jpg",
+    "schedule_date": "2026-11-11",
+    "schedule_time": "18:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 89,
+    "quote": "Katanya demi kesejahteraan, tapi sejahtera masih terasa eksklusif.",
+    "image": "089.jpg",
+    "schedule_date": "2026-11-11",
+    "schedule_time": "20:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 90,
+    "quote": "Banyak yang bicara mewakili rakyat, sedikit yang benar-benar hidup seperti rakyat.",
+    "image": "090.jpg",
+    "schedule_date": "2026-11-11",
+    "schedule_time": "21:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 91,
+    "quote": "Negara nggak butuh lebih banyak gimmick, rakyat butuh hidup yang lebih gampang.",
+    "image": "091.jpg",
+    "schedule_date": "2026-11-12",
+    "schedule_time": "08:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 92,
+    "quote": "Pemerintah bilang sabar, rakyat bilang cicilan nggak kenal kompromi.",
+    "image": "092.jpg",
+    "schedule_date": "2026-11-12",
+    "schedule_time": "09:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 93,
+    "quote": "Kalau keputusan dibuat jauh dari realita, hasilnya pasti asing buat rakyat.",
+    "image": "093.jpg",
+    "schedule_date": "2026-11-12",
+    "schedule_time": "11:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 94,
+    "quote": "Yang dibutuhkan keberanian berbenah, bukan keberanian bikin slogan.",
+    "image": "094.jpg",
+    "schedule_date": "2026-11-12",
+    "schedule_time": "12:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 95,
+    "quote": "Rakyat kecil tuh bukan angka statistik, mereka manusia yang capek juga.",
+    "image": "095.jpg",
+    "schedule_date": "2026-11-12",
+    "schedule_time": "14:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 96,
+    "quote": "Jangan heran kalau rakyat sinis, terlalu sering dikasih janji rasa ulangan.",
+    "image": "096.jpg",
+    "schedule_date": "2026-11-12",
+    "schedule_time": "15:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 97,
+    "quote": "Katanya semua demi stabilitas, tapi hidup rakyat malah penuh ketidakpastian.",
+    "image": "097.jpg",
+    "schedule_date": "2026-11-12",
+    "schedule_time": "17:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 98,
+    "quote": "Kalau pemerintah cuma mau didengar tanpa mau mendengar, itu bukan dialog.",
+    "image": "098.jpg",
+    "schedule_date": "2026-11-12",
+    "schedule_time": "18:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 99,
+    "quote": "Rakyat nggak minta keajaiban, cukup kebijakan yang masuk akal dan berpihak.",
+    "image": "099.jpg",
+    "schedule_date": "2026-11-12",
+    "schedule_time": "20:00",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  },
+  {
+    "no": 100,
+    "quote": "Kalau pemerintah ingin dipercaya, mulai dulu dari berhenti bikin rakyat merasa sendirian.",
+    "image": "100.jpg",
+    "schedule_date": "2026-11-12",
+    "schedule_time": "21:30",
+    "status": "IMAGE_DRAFT_RENDERED_NOT_PUBLISHED"
+  }
+]
