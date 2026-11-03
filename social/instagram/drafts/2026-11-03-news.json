@@ -31,7 +31,8 @@
       "photo_caption_credit": "Ilustrasi: Ivan S / Pexels",
       "photo_usage_note": "Do not imply the persons, brand or organization in stock image are participants in the news or endorse BisaBikinWeb.",
       "canva_export_status": "not_exported",
-      "canva_layout": "Exact Canva master DAHZ2BT9HWc via autofill; no generative redesign"
+      "canva_layout": "Exact Canva master DAHZ2BT9HWc via autofill; no generative redesign",
+      "canva_read_more": "READ MORE →"
     },
     {
       "no": 2,
@@ -58,7 +59,8 @@
       "photo_caption_credit": "Ilustrasi: Bia Limova / Pexels",
       "photo_usage_note": "Do not imply the persons, brand or organization in stock image are participants in the news or endorse BisaBikinWeb.",
       "canva_export_status": "not_exported",
-      "canva_layout": "Exact Canva master DAHZ2BT9HWc via autofill; no generative redesign"
+      "canva_layout": "Exact Canva master DAHZ2BT9HWc via autofill; no generative redesign",
+      "canva_read_more": "READ MORE →"
     },
     {
       "no": 3,
@@ -85,7 +87,8 @@
       "photo_caption_credit": "Ilustrasi: Pachon in Motion / Pexels",
       "photo_usage_note": "Do not imply the persons, brand or organization in stock image are participants in the news or endorse BisaBikinWeb.",
       "canva_export_status": "not_exported",
-      "canva_layout": "Exact Canva master DAHZ2BT9HWc via autofill; no generative redesign"
+      "canva_layout": "Exact Canva master DAHZ2BT9HWc via autofill; no generative redesign",
+      "canva_read_more": "READ MORE →"
     },
     {
       "no": 4,
@@ -96,8 +99,8 @@
       "source_url": "https://news.microsoft.com/source/2026/11/02/lumen-and-microsoft-expand-collaboration-to-co-sell-enterprise-ai-ready-networks/",
       "photo_url": "https://images.pexels.com/photos/4508751/pexels-photo-4508751.jpeg",
       "photo_attribution": "Brett Sayles / Pexels",
-      "canva_design_id": "DAHZ3QgkgTg",
-      "canva_edit_url": "https://www.canva.com/d/T37o51DFTvB0cEm",
+      "canva_design_id": "DAHZ3cujQtA",
+      "canva_edit_url": "https://www.canva.com/d/z2MD10s5HqUtO7y",
       "status": "draft",
       "fact_checked": true,
       "rights_verified": true,
@@ -112,7 +115,8 @@
       "photo_caption_credit": "Ilustrasi: Brett Sayles / Pexels",
       "photo_usage_note": "Do not imply the persons, brand or organization in stock image are participants in the news or endorse BisaBikinWeb.",
       "canva_export_status": "not_exported",
-      "canva_layout": "Exact Canva master DAHZ2BT9HWc via autofill; no generative redesign"
+      "canva_layout": "Exact Canva master DAHZ2BT9HWc via autofill; no generative redesign",
+      "canva_read_more": "READ MORE →"
     },
     {
       "no": 5,
@@ -139,7 +143,9 @@
       "photo_caption_credit": "Foto: NASA Earth Observatory / Michala Garrison; data MODIS / NASA EOSDIS",
       "photo_usage_note": "Informational editorial use; no NASA logo, sponsorship claim or direct product endorsement.",
       "canva_export_status": "not_exported",
-      "canva_layout": "Exact Canva master DAHZ2BT9HWc via autofill; no generative redesign"
+      "canva_layout": "Exact Canva master DAHZ2BT9HWc via autofill; no generative redesign",
+      "canva_read_more": "READ MORE →"
     }
-  ]
+  ],
+  "canva_footer_note": "All 5 drafts have compact CTA READ MORE →. Website address remains in Instagram caption instead of overcrowding CTA."
 }
