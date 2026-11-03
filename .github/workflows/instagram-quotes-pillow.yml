@@ -1,0 +1,53 @@
+name: Render BisaBikinWeb Quote Feeds (Pillow Preview)
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/instagram-quotes-pillow.yml'
+      - 'scripts/instagram_render_quotes_pillow.py'
+      - 'social/instagram/drafts/2026-11-03-quotes.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: bbweb-instagram-quotes-renderer
+  cancel-in-progress: false
+jobs:
+  create_quotes:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install Pillow
+        run: python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
+      - name: Render five original quote designs
+        run: python3 scripts/instagram_render_quotes_pillow.py
+      - name: Verify the five JPGs and contact sheet
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          p=Path("social/instagram/rendered/2026-11-03-quotes")
+          files=sorted(p.glob("[0-9][0-9]_quotes_pillow.jpg"))
+          assert len(files)==5,files
+          for f in files:
+              with Image.open(f) as img:
+                  assert img.format=="JPEG" and img.size==(1080,1350), f
+                  print("QUOTES_IMAGE_OK",f,f.stat().st_size)
+          assert (p/"contact_sheet.jpg").exists()
+          print("FIVE_QUOTES_VALIDATED")
+          PY
+      - name: Save finished drafts to GitHub without publishing
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add social/instagram/rendered/2026-11-03-quotes/
+          if git diff --cached --quiet; then
+            echo 'No changes'
+            exit 0
+          fi
+          git commit -m 'assets(instagram): render five original business quote feeds'
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo 'QUOTE_DRAFTS_SAVED; NO INSTAGRAM POSTING'
