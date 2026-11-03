@@ -1,0 +1,51 @@
+name: Render 90 Canva-Style Quotes for Nov 4-12
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/instagram-render-90-quotes.yml'
+      - 'scripts/instagram_render_90_quotes.py'
+      - 'social/instagram/drafts/2026-11-04-to-12-90-quotes.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: bbweb-quotes-90-render
+  cancel-in-progress: false
+jobs:
+  render_90:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Install Pillow
+        run: python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
+      - name: Render all 90 branded quotes, retaining the exact original Canva header and footer
+        run: python3 scripts/instagram_render_90_quotes.py
+      - name: Verify output count, dimensions, and daily previews
+        run: |
+          python3 - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          base=Path('social/instagram/rendered/2026-11-04-to-12')
+          files=sorted(base.glob('[0-9][0-9][0-9].jpg'))
+          assert len(files)==90, 'Expected 90 JPGs; found '+str(len(files))
+          for f in files:
+            with Image.open(f) as im: assert im.size==(1080,1350) and im.format=='JPEG',str(f)
+          assert len(list(base.glob('preview_*.jpg')))==9
+          print('ALL_90_JPGS_VERIFIED_1080_1350',flush=True)
+          PY
+      - name: Save rendered images as GitHub assets; do not publish to Instagram
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add social/instagram/rendered/2026-11-04-to-12/
+          if git diff --cached --quiet; then
+            echo 'No changes'
+            exit 0
+          fi
+          git commit -m 'assets(instagram): 90 Canva-style quote previews Nov 4-12'
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo '90_ASSETS_READY_NOT_PUBLISHED'
