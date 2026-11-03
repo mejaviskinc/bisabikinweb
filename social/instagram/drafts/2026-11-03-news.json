@@ -1,7 +1,7 @@
 {
   "date": "2026-11-03",
   "timezone": "Asia/Jakarta",
-  "status": "five_original_source_images_placed_in_original_canva_master_drafts",
+  "status": "five_pillow_rendered_original_source_images_ready_not_posted",
   "template_design_id": "DAHZ2BT9HWc",
   "image_policy": "Original source images: OJK press release photo; DJP original seminar photo; Google Genie 4 official demo still; Microsoft Lumen official logo lockup; NASA Earth Observatory image. Adobe/Canva editing never transfers source rights. All posts remain drafts pending reuse permission where applicable.",
   "all_posts_approved": false,
@@ -24,16 +24,24 @@
       "canva_image_status": "original_source_visual_in_canva_draft",
       "photo_page_url": "https://ojk.go.id/id/berita-dan-kegiatan/siaran-pers/Pages/OJK-Gelar-Puncak-Bulan-Inklusi-Keuangan-%28BIK%29-dan-Financial-Expo-2026-di-Bandung.aspx",
       "photo_license": "Dokumentasi OJK; hak pakai ulang feed branded belum dikonfirmasi",
-      "photo_license_url": "https://www.pexels.com/license/",
+      "photo_license_url": null,
       "canva_asset_id": "MAHZ3c9wdF4",
       "photo_rights_verified": false,
       "image_kind": "Foto asli OJK tanggal 30 Oktober 2026",
       "photo_caption_credit": "OJK / dokumentasi Puncak BIK 2026 Bandung",
       "photo_usage_note": "Do not imply the persons, brand or organization in stock image are participants in the news or endorse BisaBikinWeb.",
-      "canva_export_status": "not_exported",
+      "canva_export_status": "not_required_pillow_jpeg_created",
       "canva_layout": "Exact Canva master DAHZ2BT9HWc via autofill; no generative redesign",
       "canva_read_more": "READ MORE →",
-      "image_rights_status": "source_verified_reuse_permission_not_verified"
+      "image_rights_status": "source_verified_reuse_permission_not_verified",
+      "render_engine": "Python Pillow 12.0.0",
+      "rendered_file_path": "social/instagram/rendered/2026-11-03/01_ojk_pillow.jpg",
+      "rendered_jpeg_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-03/01_ojk_pillow.jpg",
+      "rendered_dimensions": [
+        1080,
+        1350
+      ],
+      "render_status": "image_ready_not_posted"
     },
     {
       "no": 2,
@@ -53,16 +61,24 @@
       "canva_image_status": "original_source_visual_in_canva_draft",
       "photo_page_url": "https://www.pajak.go.id/id/berita/taxes-digital-economy-and-cripto-assets-perspective-shariah-pajak-dan-prinsip-syariah-dua",
       "photo_license": "Laman DJP mengizinkan penggunaan ulang nonkomersial dengan sumber; izin untuk feed bisnis belum dikonfirmasi",
-      "photo_license_url": "https://www.pexels.com/license/",
+      "photo_license_url": null,
       "canva_asset_id": "MAHZ3bF3zXk",
       "photo_rights_verified": false,
       "image_kind": "Foto asli panel diskusi DJP seminar pajak digital dan kripto 15 Oktober 2026",
       "photo_caption_credit": "Direktorat Jenderal Pajak / Tim Dokumentasi, 15 Oktober 2026",
       "photo_usage_note": "Do not imply the persons, brand or organization in stock image are participants in the news or endorse BisaBikinWeb.",
-      "canva_export_status": "not_exported",
+      "canva_export_status": "not_required_pillow_jpeg_created",
       "canva_layout": "Exact Canva master DAHZ2BT9HWc via autofill; no generative redesign",
       "canva_read_more": "READ MORE →",
-      "image_rights_status": "source_verified_reuse_permission_not_verified"
+      "image_rights_status": "source_verified_reuse_permission_not_verified",
+      "render_engine": "Python Pillow 12.0.0",
+      "rendered_file_path": "social/instagram/rendered/2026-11-03/02_djp_pillow.jpg",
+      "rendered_jpeg_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-03/02_djp_pillow.jpg",
+      "rendered_dimensions": [
+        1080,
+        1350
+      ],
+      "render_status": "image_ready_not_posted"
     },
     {
       "no": 3,
@@ -82,16 +98,24 @@
       "canva_image_status": "original_source_visual_in_canva_draft",
       "photo_page_url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/",
       "photo_license": "Visual resmi Google; hak pakai ulang/promosi belum dikonfirmasi",
-      "photo_license_url": "https://www.pexels.com/license/",
+      "photo_license_url": null,
       "canva_asset_id": "MAHZ3TMci3E",
       "photo_rights_verified": false,
       "image_kind": "Still video demo asli Genie 4",
       "photo_caption_credit": "Google DeepMind / cuplikan resmi materi Genie 4",
       "photo_usage_note": "Do not imply the persons, brand or organization in stock image are participants in the news or endorse BisaBikinWeb.",
-      "canva_export_status": "not_exported",
+      "canva_export_status": "not_required_pillow_jpeg_created",
       "canva_layout": "Exact Canva master DAHZ2BT9HWc via autofill; no generative redesign",
       "canva_read_more": "READ MORE →",
-      "image_rights_status": "source_verified_reuse_permission_not_verified"
+      "image_rights_status": "source_verified_reuse_permission_not_verified",
+      "render_engine": "Python Pillow 12.0.0",
+      "rendered_file_path": "social/instagram/rendered/2026-11-03/03_google_pillow.jpg",
+      "rendered_jpeg_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-03/03_google_pillow.jpg",
+      "rendered_dimensions": [
+        1080,
+        1350
+      ],
+      "render_status": "image_ready_not_posted"
     },
     {
       "no": 4,
@@ -111,16 +135,24 @@
       "canva_image_status": "original_source_visual_in_canva_draft",
       "photo_page_url": "https://news.microsoft.com/source/2026/11/02/lumen-and-microsoft-expand-collaboration-to-co-sell-enterprise-ai-ready-networks/",
       "photo_license": "Gambar logo Microsoft x Lumen dari situs resmi; hak merek dan pemakaian ulang tetap milik pemegang hak",
-      "photo_license_url": "https://www.pexels.com/license/",
+      "photo_license_url": null,
       "canva_asset_id": "MAHZ3VeoaR8",
       "photo_rights_verified": false,
       "image_kind": "Visual kolaborasi logo resmi, bukan foto kejadian",
       "photo_caption_credit": "Microsoft / Lumen; gambar lockup resmi rilis 2 November 2026",
       "photo_usage_note": "Do not imply the persons, brand or organization in stock image are participants in the news or endorse BisaBikinWeb.",
-      "canva_export_status": "not_exported",
+      "canva_export_status": "not_required_pillow_jpeg_created",
       "canva_layout": "Exact Canva master DAHZ2BT9HWc via autofill; no generative redesign",
       "canva_read_more": "READ MORE →",
-      "image_rights_status": "source_verified_reuse_permission_not_verified"
+      "image_rights_status": "source_verified_reuse_permission_not_verified",
+      "render_engine": "Python Pillow 12.0.0",
+      "rendered_file_path": "social/instagram/rendered/2026-11-03/04_microsoft_pillow.jpg",
+      "rendered_jpeg_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-03/04_microsoft_pillow.jpg",
+      "rendered_dimensions": [
+        1080,
+        1350
+      ],
+      "render_status": "image_ready_not_posted"
     },
     {
       "no": 5,
@@ -146,11 +178,21 @@
       "image_kind": "Citra satelit asli NASA",
       "photo_caption_credit": "NASA Earth Observatory / Michala Garrison; MODIS/NASA EOSDIS",
       "photo_usage_note": "Informational editorial use; no NASA logo, sponsorship claim or direct product endorsement.",
-      "canva_export_status": "not_exported",
+      "canva_export_status": "not_required_pillow_jpeg_created",
       "canva_layout": "Exact Canva master DAHZ2BT9HWc via autofill; no generative redesign",
       "canva_read_more": "READ MORE →",
-      "image_rights_status": "editorial_guidelines_verified"
+      "image_rights_status": "editorial_guidelines_verified",
+      "render_engine": "Python Pillow 12.0.0",
+      "rendered_file_path": "social/instagram/rendered/2026-11-03/05_nasa_pillow.jpg",
+      "rendered_jpeg_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-03/05_nasa_pillow.jpg",
+      "rendered_dimensions": [
+        1080,
+        1350
+      ],
+      "render_status": "image_ready_not_posted"
     }
   ],
-  "canva_footer_note": "All 5 drafts have compact CTA READ MORE →. Website address remains in Instagram caption instead of overcrowding CTA."
+  "canva_footer_note": "All 5 drafts have compact CTA READ MORE →. Website address remains in Instagram caption instead of overcrowding CTA.",
+  "contact_sheet_url": "https://raw.githubusercontent.com/mejaviskinc/bisabikinweb/main/social/instagram/rendered/2026-11-03/contact_sheet.jpg",
+  "renderer": "scripts/instagram_render_news_pillow.py"
 }
