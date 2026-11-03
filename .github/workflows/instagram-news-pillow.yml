@@ -4,6 +4,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/instagram-news-pillow.yml'
+      - 'scripts/instagram_render_news_pillow.py'
   workflow_dispatch:
 permissions:
   contents: write
