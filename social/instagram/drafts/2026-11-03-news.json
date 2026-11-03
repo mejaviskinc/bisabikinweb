@@ -1,7 +1,7 @@
 {
   "date": "2026-11-03",
   "timezone": "Asia/Jakarta",
-  "status": "five_licensed_canva_drafts_not_yet_exported",
+  "status": "five_rebuilt_in_original_canva_master_template_draft_only",
   "template_design_id": "DAHZ2BT9HWc",
   "image_policy": "All 5 Canva placeholders replaced. 4 are illustrative licensed Pexels assets, NOT original event photos; the NASA image is original event photography. Canva editing does not transfer copyright of underlying images.",
   "all_posts_approved": false,
@@ -15,8 +15,8 @@
       "source_url": "https://ojk.go.id/id/berita-dan-kegiatan/siaran-pers/Pages/OJK-Gelar-Puncak-Bulan-Inklusi-Keuangan-%28BIK%29-dan-Financial-Expo-2026-di-Bandung.aspx",
       "photo_url": "https://images.pexels.com/photos/7621140/pexels-photo-7621140.jpeg",
       "photo_attribution": "Ivan S / Pexels",
-      "canva_design_id": "DAHZ3bjyjX0",
-      "canva_edit_url": "https://www.canva.com/d/_5LAot3PyI4L7R0",
+      "canva_design_id": "DAHZ3YlZ7ws",
+      "canva_edit_url": "https://www.canva.com/d/G7bPhoHEatzFvU6",
       "status": "draft",
       "fact_checked": true,
       "rights_verified": true,
@@ -30,7 +30,8 @@
       "image_kind": "illustrative licensed stock image; NOT documentary photo of event or product",
       "photo_caption_credit": "Ilustrasi: Ivan S / Pexels",
       "photo_usage_note": "Do not imply the persons, brand or organization in stock image are participants in the news or endorse BisaBikinWeb.",
-      "canva_export_status": "not_exported"
+      "canva_export_status": "not_exported",
+      "canva_layout": "Exact Canva master DAHZ2BT9HWc via autofill; no generative redesign"
     },
     {
       "no": 2,
@@ -41,8 +42,8 @@
       "source_url": "https://www.kemenkeu.go.id/informasi-publik/publikasi/siaran-pers/Keadilan-Pajak-Ekonomi-Digital",
       "photo_url": "https://images.pexels.com/photos/33175669/pexels-photo-33175669.jpeg",
       "photo_attribution": "Bia Limova / Pexels",
-      "canva_design_id": "DAHZ3SnVinY",
-      "canva_edit_url": "https://www.canva.com/d/bN1g6RenLGGyl7p",
+      "canva_design_id": "DAHZ3W5qODs",
+      "canva_edit_url": "https://www.canva.com/d/nWp9iJRv4bKey6V",
       "status": "draft",
       "fact_checked": true,
       "rights_verified": true,
@@ -56,7 +57,8 @@
       "image_kind": "illustrative licensed stock image; NOT documentary photo of event or product",
       "photo_caption_credit": "Ilustrasi: Bia Limova / Pexels",
       "photo_usage_note": "Do not imply the persons, brand or organization in stock image are participants in the news or endorse BisaBikinWeb.",
-      "canva_export_status": "not_exported"
+      "canva_export_status": "not_exported",
+      "canva_layout": "Exact Canva master DAHZ2BT9HWc via autofill; no generative redesign"
     },
     {
       "no": 3,
@@ -67,8 +69,8 @@
       "source_url": "https://blog.google/innovation-and-ai/models-and-research/google-deepmind/introducing-genie-4/",
       "photo_url": "https://images.pexels.com/photos/18419510/pexels-photo-18419510.jpeg",
       "photo_attribution": "Pachon in Motion / Pexels",
-      "canva_design_id": "DAHZ3d7xyMI",
-      "canva_edit_url": "https://www.canva.com/d/FzQMWeNW_QE4Wlp",
+      "canva_design_id": "DAHZ3TJ3X_E",
+      "canva_edit_url": "https://www.canva.com/d/yh3KgJnFFhncXFX",
       "status": "draft",
       "fact_checked": true,
       "rights_verified": true,
@@ -82,7 +84,8 @@
       "image_kind": "illustrative licensed stock image; NOT documentary photo of event or product",
       "photo_caption_credit": "Ilustrasi: Pachon in Motion / Pexels",
       "photo_usage_note": "Do not imply the persons, brand or organization in stock image are participants in the news or endorse BisaBikinWeb.",
-      "canva_export_status": "not_exported"
+      "canva_export_status": "not_exported",
+      "canva_layout": "Exact Canva master DAHZ2BT9HWc via autofill; no generative redesign"
     },
     {
       "no": 4,
@@ -93,8 +96,8 @@
       "source_url": "https://news.microsoft.com/source/2026/11/02/lumen-and-microsoft-expand-collaboration-to-co-sell-enterprise-ai-ready-networks/",
       "photo_url": "https://images.pexels.com/photos/4508751/pexels-photo-4508751.jpeg",
       "photo_attribution": "Brett Sayles / Pexels",
-      "canva_design_id": "DAHZ3UuSb2Q",
-      "canva_edit_url": "https://www.canva.com/d/65kuWCORW0DUKtw",
+      "canva_design_id": "DAHZ3QgkgTg",
+      "canva_edit_url": "https://www.canva.com/d/T37o51DFTvB0cEm",
       "status": "draft",
       "fact_checked": true,
       "rights_verified": true,
@@ -108,7 +111,8 @@
       "image_kind": "illustrative licensed stock image; NOT documentary photo of event or product",
       "photo_caption_credit": "Ilustrasi: Brett Sayles / Pexels",
       "photo_usage_note": "Do not imply the persons, brand or organization in stock image are participants in the news or endorse BisaBikinWeb.",
-      "canva_export_status": "not_exported"
+      "canva_export_status": "not_exported",
+      "canva_layout": "Exact Canva master DAHZ2BT9HWc via autofill; no generative redesign"
     },
     {
       "no": 5,
@@ -120,8 +124,8 @@
       "photo_url": "https://assets.science.nasa.gov/dynamicimage/assets/science/esd/eo/images/iotd/2026/the-pacific's-busy-storm-season/storminfa_tmo_20261030.jpg",
       "photo_attribution": "NASA Earth Observatory / Michala Garrison; data MODIS / NASA EOSDIS",
       "photo_rights_verified": true,
-      "canva_design_id": "DAHZ3WgH-jA",
-      "canva_edit_url": "https://www.canva.com/d/u_eDWT6MyukPYUC",
+      "canva_design_id": "DAHZ3aZJo1E",
+      "canva_edit_url": "https://www.canva.com/d/U6MEh5AdifmW4Aj",
       "status": "draft",
       "fact_checked": true,
       "rights_verified": true,
@@ -134,7 +138,8 @@
       "image_kind": "original NASA satellite image of event",
       "photo_caption_credit": "Foto: NASA Earth Observatory / Michala Garrison; data MODIS / NASA EOSDIS",
       "photo_usage_note": "Informational editorial use; no NASA logo, sponsorship claim or direct product endorsement.",
-      "canva_export_status": "not_exported"
+      "canva_export_status": "not_exported",
+      "canva_layout": "Exact Canva master DAHZ2BT9HWc via autofill; no generative redesign"
     }
   ]
 }
