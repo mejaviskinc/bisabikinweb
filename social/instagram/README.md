@@ -1,50 +1,70 @@
-# Instagram BisaBikinWeb: GitHub Actions auto-post (NONAKTIF)
+# Instagram BisaBikinWeb: GitHub Actions auto-publish
 
-**Keamanan:** Branch ini hanya menyiapkan sistem, tidak memublikasikan apa pun. Alur preview hanya manual. File jadwal bernama instagram-publish.yml.disabled sehingga GitHub tidak akan menjalankannya. Queue produksi kosong.
+**Status kode:** workflow jadwal terpasang tetapi pekerjaan publikasi tetap **terkunci** hingga GitHub variable `IG_AUTOPUBLISH_ENABLED=true` dan dua Instagram Secrets dipasang. Tidak ada token Meta dalam repo. Tidak ada postingan sungguhan yang diuji saat pengembangan.
 
-## File
-- .github/workflows/instagram-preview.yml: pengujian manual tanpa token, tanpa Meta API.
-- .github/workflows/instagram-publish.yml.disabled: konfigurasi lima jadwal WIB yang BELUM AKTIF.
-- scripts/instagram_autopost.py: Python standard library, mode dry-run/publish; default tidak memublikasikan.
-- social/instagram/queue.json: antrean kosong; hanya entry approved yang valid bisa dipublikasikan setelah aktivasi.
-- social/instagram/state.json: catatan klaim/publikasi; klaim dibuat sebelum panggilan Meta agar tidak menggandakan post saat terjadi kegagalan.
-- social/instagram/examples/sample_queue.json: hanya simulasi, tidak boleh dipublikasikan.
+## Proses setiap hari (Asia/Jakarta)
+- Lima slot: 09:00, 10:30, 12:30, 16:30, 18:30 WIB.
+- GitHub Actions menjalankan `.github/workflows/instagram-publish.yml` di `main`.
+- `scripts/instagram_prepare.py` memilih konten manual yang `approved` dari `queue.json`, atau konten orisinal dari `evergreen_bank.json`.
+- Untuk konten evergreen, Pillow membentuk poster **JPEG 1080 × 1350** dengan teks dan bentuk asli, lalu menyimpannya pada branch publik `instagram-assets`. Tidak ada foto pihak ketiga atau scraping berita.
+- Sistem memeriksa URL gambar publik, kelengkapan caption, hak pakai, fakta, dan ID akun tujuan sebelum memanggil Meta.
+- `scripts/instagram_autopost.py` menulis status **claimed** ke `state.json` di `main` sebelum membuat media container Meta; kemudian menunggu `FINISHED`, memanggil `media_publish`, dan menyimpan ID postingan.
+- Jika terjadi error setelah status `claimed`, **jangan mengulang otomatis**: periksa akun Instagram dan status media secara manual agar tidak ada duplikasi.
 
-## Cara menguji (tanpa publikasi)
-Setelah PR di-merge, buka GitHub repo → Actions → Instagram BisaBikinWeb Preview Aman → Run workflow. Tidak ada akses token atau panggilan ke Meta. Secara lokal:
-python3 -m unittest discover -s tests -p test_instagram_autopost.py -v
-python3 scripts/instagram_autopost.py --dry-run --queue social/instagram/examples/sample_queue.json --date 2026-11-04 --slot 09:00
+## Konten awal
+- `social/instagram/evergreen_bank.json` berisi **70 konten edukasi dan promosi orisinal** untuk **4–17 November 2026** (14 hari × 5 slot).
+- Topik: bisnis digital, tips website, SEO/teknologi, solusi website, dan BisaBikinWeb. Bukan berita aktual dan tidak memakai foto Instagram orang lain.
+- Setelah 17 November 2026, sistem **skip**, tidak mengarang/mengulang konten. Tambahkan lebih banyak hari ke kategori bank, atau masukkan konten berlisensi ke `queue.json`. Jika ada konten manual berstatus `draft` di slot tertentu, sistem **skip** dan tidak menimpanya dengan evergreen.
+- Desain visual dibuat skrip Pillow, **bukan** ekspor dari template Canva; penghubung Canva belum tersedia.
 
-## Simpan token Meta ke GitHub Secrets
-Buka repository mejaviskinc/bisabikinweb → Settings → Secrets and variables → Actions → tab Secrets → New repository secret:
-1. IG_ACCESS_TOKEN: token dari Meta Developers, jangan dikirim ke chat atau dimasukkan ke kode.
-2. IG_USER_ID: ID numerik akun Instagram profesional @bisabikinweb.id (bukan username, Facebook App ID atau Business Portfolio ID).
+## Aktivasi awal (dilakukan pemilik akun)
+1. Pastikan Pull Request #20 telah di-merge dan GitHub Actions diaktifkan untuk repository.
+2. Masuk ke [Actions Secrets](https://github.com/mejaviskinc/bisabikinweb/settings/secrets/actions) → **New repository secret**:
+   - `IG_ACCESS_TOKEN`: token Meta yang dapat mengakses profil dan memublikasikan konten sesuai konfigurasi login.
+   - `IG_USER_ID`: ID numerik Instagram profesional **@bisabikinweb.id** (bukan username, App ID, atau Business Portfolio ID).
+3. Di **Actions → Variables**:
+   - `IG_GRAPH_BASE=https://graph.facebook.com` untuk Unified Login (ubah hanya jika Meta memberikan base endpoint lain);
+   - `IG_GRAPH_VERSION=v26.0`, sesuaikan dengan versi API pada aplikasi Meta;
+   - **`IG_AUTOPUBLISH_ENABLED=false`** selama tahap verifikasi.
+4. Di tab **Actions**, jalankan secara manual **Instagram BisaBikinWeb Check Connection (Read Only)**. Pastikan hasil `CONNECTION_OK` dan akun yang terbaca benar. Pemeriksaan ini **tidak menguji izin publish**.
+5. Jalankan **Instagram BisaBikinWeb Preview Aman**. Ia merender gambar dan validasi antrean **tanpa Meta API/token**.
+6. Bila kamu setuju publikasi otomatis dan semua kredensial/izin terbukti tepat, ubah GitHub Variable `IG_AUTOPUBLISH_ENABLED=true`. Dengan izin ini, GitHub mulai melakukan publikasi pada slot berikutnya. Mulai dari **satu slot manual** di Actions untuk uji publikasi nyata sebelum mengandalkan jadwal harian.
+7. Pantau [Actions](https://github.com/mejaviskinc/bisabikinweb/actions) dan `social/instagram/state.json`.
 
-Di tab Variables, atur:
-- IG_AUTOPUBLISH_ENABLED = false (biarkan tetap false sampai pengujian live sukses dan kamu meminta aktivasi).
-- IG_GRAPH_BASE = https://graph.facebook.com atau https://graph.instagram.com, sesuai tipe token dan endpoint yang ditampilkan Meta untuk aplikasi Unified Login.
-- IG_GRAPH_VERSION = v26.0 (konfirmasi pada Meta Developers).
+**PENTING:** Pengaturan secret tidak dapat dilakukan melalui koneksi GitHub ini; pemilik repository harus mengisinya sendiri. Jangan kirim token ke chat. Publikasi tidak terjadi sampai semua langkah di atas selesai.
 
-GitHub Actions menyediakan GITHUB_TOKEN sendiri untuk menandai state. Saat nanti diaktifkan, workflow memerlukan permission contents: write. Jangan pernah mencetak token di output log.
+## Pengujian pengembangan
+```sh
+python3 -m unittest discover -s tests -p 'test_instagram_autopost.py' -v
+python3 -m pip install Pillow==12.0.0
+python3 scripts/instagram_prepare.py --dry-run --date 2026-11-04 --slot 09:00
+python3 scripts/instagram_autopost.py --dry-run --queue social/instagram/.runtime/runtime_queue.json --date 2026-11-04 --slot 09:00
+```
 
-## Format antrean produksi
-Tambahkan tepat satu entri per tanggal dan slot di queue.json. Contoh STRUKTUR saja (URL ini placeholder dan tidak siap terbit):
+## Format override manual
+```json
+{
+  "items": [{
+    "id": "bbweb-20261106-0900-example",
+    "date": "2026-11-06",
+    "slot": "09:00",
+    "status": "draft",
+    "fact_checked": true,
+    "rights_verified": true,
+    "rights_note": "Aset dibuat sendiri oleh BisaBikinWeb",
+    "source_url": "https://bisabikinweb.site/",
+    "image_url": "https://public-example.com/owned-image.jpg",
+    "caption": "Caption orisinal untuk akun BisaBikinWeb."
+  }]
+}
+```
+Status `draft` akan **dilewati**. Ubah ke `approved` hanya setelah gambar HTTPS JPEG publik, informasi, hak pakai, dan caption diperiksa. Jangan memasukkan placeholder ke antrean produksi.
 
-{"items":[{"id":"bbweb-20261106-0900-website","date":"2026-11-06","slot":"09:00","status":"approved","fact_checked":true,"rights_verified":true,"rights_note":"Original asset milik BisaBikinWeb","source_url":"https://bisabikinweb.site/","image_url":"https://DOMAIN-GAMBAR-PUBLIK/contoh.jpg","caption":"Konten edukasi website yang telah diperiksa."}]}
+## Batasan
+- Penjadwalan GitHub Actions bisa terlambat/terlewat saat platform sibuk; tidak ada jaminan tepat menit.
+- Token Meta bisa kedaluwarsa dan wajib dirotasi sesuai aturan Meta. Publisher memakai mekanisme Instagram Graph API dua tahap: media container → media_publish.
+- Otomatisasi tidak mencakup riset berita real-time, pengambilan foto Instagram pihak ketiga, AI berbayar, atau template Canva. Evergreen awal dimaksudkan sebagai konten aman untuk menguji sistem.
+- Asset branch `instagram-assets` harus ada dan tetap publik; ia sudah dibuat pada repo publik BisaBikinWeb.
+- State commit di `main` bisa memicu deploy website GitHub Pages yang sudah ada. Tidak ada file website yang ditimpa secara langsung oleh modul ini.
 
-Slot waktu: 09:00, 10:30, 12:30, 16:30, 18:30 (WIB). URL JPEG harus publik dan dapat diambil oleh server Meta. Semua berita harus diverifikasi; hak pakai gambar harus ada. Hasil desain Canva memerlukan tahap ekspor JPG dan hosting publik terlebih dahulu—otomatisasi Canva/riset AI belum menjadi bagian modul ini.
-
-## Sebelum aktivasi
-1. Verifikasi token dan izin publish sesuai jalur login Meta (misalnya instagram_content_publish pada Unified Login atau instagram_business_content_publish pada Instagram Login).
-2. Verifikasi IG_USER_ID dan respons GET profil username yang benar.
-3. Isi Secrets/Variables, tetap IG_AUTOPUBLISH_ENABLED=false.
-4. Siapkan satu konten asli dengan gambar JPEG publik dari Canva; jalankan preview lokal dan Actions.
-5. Setelah ada persetujuan eksplisit, lakukan satu uji publikasi LIVE yang diawasi pada akun Instagram dan pastikan statusnya benar.
-6. Setelah tes berhasil, lakukan perubahan PR TERPISAH untuk mengubah .disabled menjadi .yml, lalu set variable IG_AUTOPUBLISH_ENABLED=true.
-7. Konten berstatus claimed pada state.json tidak boleh diulang otomatis. Cek akun Instagram dan hasil Meta dahulu apabila terjadi error setelah claim.
-8. Token bisa kedaluwarsa/dirotasi; buat prosedur pembaruan token secara aman.
-
-Catatan: GitHub schedule berjalan pada branch default dan dapat terlambat. Five-slot scheduling sudah disiapkan tetapi belum dieksekusi.
-
-Dokumentasi: https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax
-Meta resmi: https://www.postman.com/meta/instagram/documentation/6yqw8pt/instagram-api
+Rujukan: [Meta Instagram API official Postman](https://www.postman.com/meta/instagram/documentation/6yqw8pt/instagram-api) dan [GitHub scheduled workflows](https://docs.github.com/en/actions/reference/workflows-and-actions/workflow-syntax).
