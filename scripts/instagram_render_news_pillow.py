@@ -2,9 +2,9 @@
 """Render five BisaBikinWeb editorial feed drafts from original source images with Pillow.
 
 - No AI-generated photo, no Canva export, no Instagram publication.
-- Uses a fixed 1080x1350 editorial layout matched to the established Canva master:
-  photo 0..794, cream brand chip 675..794, centered headline 860..1160,
-  READ MORE + original-source attribution at the bottom.
+- Uses the editable Canva master geometry with no added category bar or separator:
+  photo 0..794, cream brand chip 675..794, title text starts 862,
+  footer CTA at x106 and source at x624, y1265.
 - Treats the first four source-image reuse permissions as *unverified*;
   rendering a draft is NOT permission to publish commercially.
 """
@@ -24,9 +24,9 @@ from PIL import Image, ImageDraw, ImageEnhance, ImageFilter, ImageFont, ImageOps
 
 W, H = 1080, 1350
 PHOTO_H = 795
-PANEL = "#FCFBF8"
+PANEL = "#FFFFFF"
 CREAM = "#E6D9C1"
-INK = "#1C252B"
+INK = "#151515"
 MUTED = "#5F6668"
 BORDER = "#DFDED9"
 FONT_DIR = Path("/usr/share/fonts/truetype/dejavu")
@@ -137,42 +137,32 @@ def render(index, original, output):
         photo = ImageEnhance.Color(photo).enhance(1.03)
     canvas.paste(photo,(0,0))
     draw=ImageDraw.Draw(canvas)
-    # Subtle dark gradient on bottom of photo for chip contrast.
-    gradient=Image.new("RGBA",(W,150),(0,0,0,0))
-    gp=gradient.load()
-    for y in range(150):
-        opacity=int((y/149)*32)
-        for x in range(W):
-            gp[x,y]=(0,0,0,opacity)
-    canvas.paste(gradient,(0,PHOTO_H-150),gradient)
     draw=ImageDraw.Draw(canvas)
     # Original Canva master layout proportions: chip from x=0,y=675, ~437x119.
-    draw.rounded_rectangle((-24,675,446,795),radius=28,fill=CREAM)
-    draw.rounded_rectangle((18,690,100,777),radius=18,fill=INK)
-    draw.text((34,709),"{ }",font=font(28,True),fill=CREAM)
-    draw.text((121,694),"Bisa BikinWeb",font=font(36,True),fill=INK)
-    draw.text((121,742),"Build Your Digital Presence",font=font(18),fill=INK)
-    # White headline panel, exact zone preserved in style.
+    draw.rounded_rectangle((-18,675,437,794),radius=18,fill=CREAM)
+    draw.rounded_rectangle((20,691,104,777),radius=13,fill=INK)
+    draw.text((42,703),"{ }",font=font(29,True),fill="#FFFFFF")
+    draw.text((119,696),"Bisa BikinWeb",font=font(35,True),fill=INK)
+    draw.text((119,744),"Build Your Digital Presence",font=font(19),fill=INK)
+    # The source Canva master has NO category pill, NO extra divider,
+    # and NO advertising banner. Preserve its uncluttered title section.
     draw.rectangle((0,795,W,H),fill=PANEL)
-    draw.line((55,824,1025,824),fill=BORDER,width=2)
-    draw.text((58,836),TAGS[index],font=font(20,True),fill=MUTED)
     title=TITLES[index]
     title_font, lines, spacing=fit_headline(draw,title)
-    total_height=spacing*len(lines)
-    top=882+max(0,(272-total_height)/2)
+    top=861
     for line in lines:
         bbox=draw.textbbox((0,0),line,font=title_font)
         tx=(W-(bbox[2]-bbox[0]))/2
         draw.text((tx,top),line,font=title_font,fill=INK,stroke_width=0)
         top+=spacing
-    # Footer: read-more remains uncluttered, source stays at right.
-    draw.line((55,1238,1025,1238),fill=BORDER,width=2)
-    draw.text((104,1267),"READ MORE →",font=font(28,True),fill=INK)
+    # Exact Canva footer baselines: CTA starts x106 at y1265;
+    # source starts x624 at y1265. No unrelated button/background.
+    draw.text((106,1266),"READ MORE →",font=font(24,True),fill=INK)
     credit=CREDITS[index]
     cf=font(18,False)
-    while draw.textbbox((0,0),credit,font=cf)[2] > 410:
+    while draw.textbbox((0,0),credit,font=cf)[2] > 358:
         cf=font(cf.size-1,False)
-    draw.text((1020-draw.textbbox((0,0),credit,font=cf)[2],1274),credit,font=cf,fill=MUTED)
+    draw.text((624,1268),credit,font=cf,fill=MUTED)
     # Actual photo owner/source remains credited and unrelated branding is not claimed.
     output.parent.mkdir(parents=True,exist_ok=True)
     canvas.save(output,format="JPEG",quality=92,optimize=True,subsampling=0,progressive=False)
