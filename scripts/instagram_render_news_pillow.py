@@ -206,6 +206,20 @@ def main():
             "note":"Source copyright stays with owner. Rendering does not grant a reuse license.",
         })
     (out/"render_manifest.json").write_text(json.dumps(receipt,indent=2,ensure_ascii=False)+"\n",encoding="utf-8")
+    # Visual five-up contact sheet for quick review without opening each image.
+    tile_w, tile_h = 256, 320
+    gap = 20
+    sheet = Image.new("RGB",(gap+(tile_w+gap)*5,410),"#F6F3EB")
+    sd=ImageDraw.Draw(sheet)
+    sd.text((20,17),"BISABIKINWEB  •  5 EDITORIAL DRAFTS  •  03 NOV 2026",
+            font=font(23,True),fill=INK)
+    for idx in range(1,6):
+        fpath=out/f"{idx:02}_{SOURCES[idx][0].lower()}_pillow.jpg"
+        with Image.open(fpath) as src:
+            tile=src.resize((tile_w,tile_h),Image.Resampling.LANCZOS)
+        sheet.paste(tile,(gap+(idx-1)*(tile_w+gap),68))
+    sheet.save(out/"contact_sheet.jpg",format="JPEG",quality=90,optimize=True)
+    print(f"CONTACT_SHEET_OK {out / 'contact_sheet.jpg'}",flush=True)
     assert len(receipt)==5
     print("ALL_5_RENDERED_OK: five JPEG designs; NOT published to Instagram",flush=True)
 
