@@ -1,0 +1,82 @@
+[
+  {
+    "no": 1,
+    "render_no": 101,
+    "image": "101.jpg",
+    "bytes": 153262,
+    "quote": "Nggak semua hal harus dipahami orang lain, kadang cukup kamu yang tahu kenapa kamu tetap bertahan.",
+    "status": "IMAGE_READY_NOT_POSTED"
+  },
+  {
+    "no": 2,
+    "render_no": 102,
+    "image": "102.jpg",
+    "bytes": 108744,
+    "quote": "Capek itu wajar, nyerah bukan satu-satunya jawaban.",
+    "status": "IMAGE_READY_NOT_POSTED"
+  },
+  {
+    "no": 3,
+    "render_no": 103,
+    "image": "103.jpg",
+    "bytes": 133109,
+    "quote": "Bukan hidup yang terlalu berat, kadang ekspektasi kita aja yang terlalu ramai.",
+    "status": "IMAGE_READY_NOT_POSTED"
+  },
+  {
+    "no": 4,
+    "render_no": 104,
+    "image": "104.jpg",
+    "bytes": 113756,
+    "quote": "Orang yang kelihatan santai, belum tentu hidupnya santai.",
+    "status": "IMAGE_READY_NOT_POSTED"
+  },
+  {
+    "no": 5,
+    "render_no": 105,
+    "image": "105.jpg",
+    "bytes": 135856,
+    "quote": "Nggak semua kehilangan harus ditangisi, kadang justru itu bentuk diselamatkan.",
+    "status": "IMAGE_READY_NOT_POSTED"
+  },
+  {
+    "no": 6,
+    "render_no": 106,
+    "image": "106.jpg",
+    "bytes": 136531,
+    "quote": "Kalau nggak dihargai di satu tempat, mungkin memang itu bukan tempatmu bertumbuh.",
+    "status": "IMAGE_READY_NOT_POSTED"
+  },
+  {
+    "no": 7,
+    "render_no": 107,
+    "image": "107.jpg",
+    "bytes": 130184,
+    "quote": "Dewasa itu bukan soal umur, tapi soal tetap jalan meski hati lagi berantakan.",
+    "status": "IMAGE_READY_NOT_POSTED"
+  },
+  {
+    "no": 8,
+    "render_no": 108,
+    "image": "108.jpg",
+    "bytes": 134414,
+    "quote": "Kadang yang bikin kita sedih bukan kenyataan, tapi harapan yang terlalu tinggi.",
+    "status": "IMAGE_READY_NOT_POSTED"
+  },
+  {
+    "no": 9,
+    "render_no": 109,
+    "image": "109.jpg",
+    "bytes": 129195,
+    "quote": "Jangan iri sama progress orang lain, tiap orang punya timeline yang beda.",
+    "status": "IMAGE_READY_NOT_POSTED"
+  },
+  {
+    "no": 10,
+    "render_no": 110,
+    "image": "110.jpg",
+    "bytes": 139563,
+    "quote": "Bahagia itu bukan hidup tanpa masalah, tapi punya hati yang nggak gampang kalah.",
+    "status": "IMAGE_READY_NOT_POSTED"
+  }
+]
