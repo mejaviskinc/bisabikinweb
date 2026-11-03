@@ -3,65 +3,70 @@
     "no": 1,
     "quote": "JANGAN TUNGGU BESAR UNTUK TAMPIL PROFESIONAL.",
     "file": "01_quotes_pillow.jpg",
-    "size": 160467,
-    "status": "DRAFT",
-    "rights": "BisaBikinWeb original typographic artwork and text",
-    "format": "JPEG",
+    "size": 133263,
     "dimensions": [
       1080,
       1350
-    ]
+    ],
+    "status": "DRAFT_NOT_POSTED",
+    "reference_design_id": "DAHWlFQyJHE",
+    "style_note": "Original Canva quote collection hierarchy, with matching brand/footer copy; not an exact pixel-export.",
+    "original_content": true
   },
   {
     "no": 2,
     "quote": "IDE BAGUS TAK CUKUP. YANG MEMBEDAKAN ADALAH EKSEKUSI.",
     "file": "02_quotes_pillow.jpg",
-    "size": 163891,
-    "status": "DRAFT",
-    "rights": "BisaBikinWeb original typographic artwork and text",
-    "format": "JPEG",
+    "size": 148752,
     "dimensions": [
       1080,
       1350
-    ]
+    ],
+    "status": "DRAFT_NOT_POSTED",
+    "reference_design_id": "DAHWlFQyJHE",
+    "style_note": "Original Canva quote collection hierarchy, with matching brand/footer copy; not an exact pixel-export.",
+    "original_content": true
   },
   {
     "no": 3,
     "quote": "BISNIS BOLEH BERAWAL DARI RUMAH. JANGKAUANNYA BISA KE SELURUH DUNIA.",
     "file": "03_quotes_pillow.jpg",
-    "size": 172626,
-    "status": "DRAFT",
-    "rights": "BisaBikinWeb original typographic artwork and text",
-    "format": "JPEG",
+    "size": 158230,
     "dimensions": [
       1080,
       1350
-    ]
+    ],
+    "status": "DRAFT_NOT_POSTED",
+    "reference_design_id": "DAHWlFQyJHE",
+    "style_note": "Original Canva quote collection hierarchy, with matching brand/footer copy; not an exact pixel-export.",
+    "original_content": true
   },
   {
     "no": 4,
     "quote": "DI DUNIA DIGITAL, KEPERCAYAAN DIMULAI DARI KESAN PERTAMA.",
     "file": "04_quotes_pillow.jpg",
-    "size": 159485,
-    "status": "DRAFT",
-    "rights": "BisaBikinWeb original typographic artwork and text",
-    "format": "JPEG",
+    "size": 143158,
     "dimensions": [
       1080,
       1350
-    ]
+    ],
+    "status": "DRAFT_NOT_POSTED",
+    "reference_design_id": "DAHWlFQyJHE",
+    "style_note": "Original Canva quote collection hierarchy, with matching brand/footer copy; not an exact pixel-export.",
+    "original_content": true
   },
   {
     "no": 5,
     "quote": "TIDAK HARUS SEMPURNA UNTUK MEMULAI. MULAI DULU, LALU PERBAIKI.",
     "file": "05_quotes_pillow.jpg",
-    "size": 162690,
-    "status": "DRAFT",
-    "rights": "BisaBikinWeb original typographic artwork and text",
-    "format": "JPEG",
+    "size": 151941,
     "dimensions": [
       1080,
       1350
-    ]
+    ],
+    "status": "DRAFT_NOT_POSTED",
+    "reference_design_id": "DAHWlFQyJHE",
+    "style_note": "Original Canva quote collection hierarchy, with matching brand/footer copy; not an exact pixel-export.",
+    "original_content": true
   }
 ]
