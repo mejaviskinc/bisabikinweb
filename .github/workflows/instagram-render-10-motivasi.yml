@@ -1,0 +1,48 @@
+name: Render 10 Motivation Quotes for Instagram
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/instagram-render-10-motivasi.yml'
+      - 'scripts/instagram_render_10_motivasi.py'
+      - 'social/instagram/drafts/2026-11-04-10-motivasi-quotes.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: bbweb-motivation-quotes
+  cancel-in-progress: false
+jobs:
+  render:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - run: python3 -m pip install --no-cache-dir Pillow==12.0.0
+      - name: Generate original Canva-style quote graphics
+        run: python3 scripts/instagram_render_10_motivasi.py
+      - name: Verify all ten JPG graphics
+        run: |
+          python3 - <<'PY'
+          from PIL import Image
+          from pathlib import Path
+          root=Path("social/instagram/rendered/2026-11-04-motivasi")
+          jpgs=list(root.glob("1[0-1][0-9].jpg"))
+          assert len(jpgs)==10,len(jpgs)
+          for p in jpgs:
+              with Image.open(p) as image:
+                  assert image.format=="JPEG" and image.size==(1080,1350)
+          assert (root/"manifest.json").is_file()
+          assert (root/"preview.jpg").is_file()
+          print("MOTIVASI_ALL_TEN_VALIDATED")
+          PY
+      - name: Save images in repository (no Instagram publishing)
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add social/instagram/rendered/2026-11-04-motivasi/
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'assets(instagram): render 10 motivation quotes for Nov 4'
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo 'MOTIVASI_ASSETS_COMMITTED'
