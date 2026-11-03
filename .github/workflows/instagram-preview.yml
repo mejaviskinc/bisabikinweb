@@ -1,0 +1,19 @@
+name: Instagram BisaBikinWeb Preview Aman
+# Manual only; no cron, no secrets, no publishing
+on:
+  workflow_dispatch:
+permissions:
+  contents: read
+concurrency:
+  group: bisabikinweb-instagram-preview
+  cancel-in-progress: false
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - name: Offline safety tests
+        run: python3 -m unittest discover -s tests -p 'test_instagram_autopost.py' -v
+      - name: Safe simulation
+        run: python3 scripts/instagram_autopost.py --dry-run --queue social/instagram/examples/sample_queue.json --date 2026-11-04 --slot 09:00
