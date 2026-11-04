@@ -1,3 +1,4 @@
+import {editorialCoverMap} from './editorial-cover-map.mjs';
 // Editorial content published in the static site repository.
 // Database versions of matching article slugs take precedence when present.
 export const editorialPosts = [
@@ -577,5 +578,8 @@ for (const article of editorialPosts) {
 export function mergeEditorialPosts(articles = []) {
   const source = Array.isArray(articles) ? articles : [];
   const existing = new Set(source.map(article => article.id));
-  return [...editorialPosts.filter(article => !existing.has(article.id)), ...source];
+  return [...editorialPosts.filter(article => !existing.has(article.id)), ...source].map(article => {
+    const generatedImage = editorialCoverMap[article.id];
+    return generatedImage ? {...article, image:generatedImage, cover_image_url:generatedImage} : article;
+  });
 }
