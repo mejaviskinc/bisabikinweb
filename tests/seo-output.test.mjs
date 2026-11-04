@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
+import {englishPages,englishHref} from '../static-source/lib/languages.mjs';
 
 const origin='https://bisabikinweb.site';
 const indexable=['','jasa','harga','portfolio','merch','tentang','kontak','artikel','berita','redaksi','privacy','terms','refund','shipping'];
@@ -58,6 +59,21 @@ for(const route of ['jasa/landing-page','portfolio/berbeda','artikel/website-eks
  assert.equal(graph.filter(s=>s['@type']==='BreadcrumbList').length,1,route+' requires one breadcrumb');
  if(route.startsWith('artikel/'))assert.equal(graph.filter(s=>['NewsArticle','BlogPosting'].includes(s['@type'])).length,1,'Article markup must not be duplicated');
  if(route.startsWith('jasa/'))assert.equal(graph.filter(s=>s['@type']==='Service').length,1,'Each service detail needs one Service markup');
+}
+for(const path of Object.keys(englishPages)){
+ const en=englishHref(path);
+ const id=path==='/'?'/':path+'/';
+ const [english,indonesian]=await Promise.all([getHtml(en.slice(1,-1)),getHtml(id.slice(1,-1))]);
+ assert.match(english,/<html lang="en">/);
+ assert.match(indonesian,/<html lang="id">/);
+ assert.equal(first(english,/<link rel="canonical" href="([^"]+)"\/>/),origin+en);
+ assert.ok(indexedLocations.has(origin+en),en+' missing from sitemap');
+ for(const html of [english,indonesian]){
+  assert.ok(html.includes('hreflang="en" href="'+origin+en+'"'));
+  assert.ok(html.includes('hreflang="id" href="'+origin+id+'"'));
+ }
+ assert.ok(english.includes('href="'+id+'" lang="id"'));
+ assert.ok(indonesian.includes('href="'+en+'" lang="en"'));
 }
 const robots=await readFile('site-dist/robots.txt','utf8');
 assert.match(robots,/Allow: \//);

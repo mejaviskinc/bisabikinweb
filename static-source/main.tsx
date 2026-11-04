@@ -1,6 +1,8 @@
 import React,{useEffect,useState} from 'react';
 import {createRoot,hydrateRoot} from 'react-dom/client';
 import Studio from './features/Studio';
+import EnglishStudio from './features/EnglishStudio';
+import {hasEnglishPage} from './lib/languages.mjs';
 import Admin from './features/Admin';
 import AdsManager from './features/AdsManager';
 import SellerDashboard from './features/SellerDashboard';
@@ -141,6 +143,7 @@ function AdminWithAdsMenu(){
 }
 
 const storefrontMatch=path.match(/^\/toko\/([a-z0-9-]+)$/i);
-const app=path==='/seller'?<SellerDashboard/>:path.startsWith('/admin/sellers')?<SellerAdmin/>:path.startsWith('/admin/iklan')?<AdsManager/>:path.startsWith('/admin/payments')?<PaymentGatewayAdmin/>:path.startsWith('/admin')?<AdminWithAdsMenu/>:storefrontMatch?<Storefront slug={storefrontMatch[1].toLowerCase()}/>:<PublicClient/>;
+const englishPath=path==='/en'?'/':path.startsWith('/en/')?path.slice(3):null;
+const app=englishPath && hasEnglishPage(englishPath)?<EnglishStudio path={englishPath}/>:path==='/seller'?<SellerDashboard/>:path.startsWith('/admin/sellers')?<SellerAdmin/>:path.startsWith('/admin/iklan')?<AdsManager/>:path.startsWith('/admin/payments')?<PaymentGatewayAdmin/>:path.startsWith('/admin')?<AdminWithAdsMenu/>:storefrontMatch?<Storefront slug={storefrontMatch[1].toLowerCase()}/>:<PublicClient/>;
 const root=document.getElementById('root')!;
 if(path.startsWith('/admin')||path==='/seller'||storefrontMatch)createRoot(root).render(app);else hydrateRoot(root,app);
