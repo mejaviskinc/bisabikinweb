@@ -1,8 +1,8 @@
 {
   "items": [
     {
-      "id": "bbweb-q011-20261104-0800",
-      "date": "2026-11-04",
+      "id": "bbweb-q011-20261113-0800",
+      "date": "2026-11-13",
       "slot": "08:00",
       "status": "approved",
       "fact_checked": true,
@@ -14,8 +14,8 @@
       "category": "SATIR GEN Z"
     },
     {
-      "id": "bbweb-q012-20261104-0930",
-      "date": "2026-11-04",
+      "id": "bbweb-q012-20261113-0930",
+      "date": "2026-11-13",
       "slot": "09:30",
       "status": "approved",
       "fact_checked": true,
@@ -27,8 +27,8 @@
       "category": "SATIR GEN Z"
     },
     {
-      "id": "bbweb-q013-20261104-1100",
-      "date": "2026-11-04",
+      "id": "bbweb-q013-20261113-1100",
+      "date": "2026-11-13",
       "slot": "11:00",
       "status": "approved",
       "fact_checked": true,
@@ -40,8 +40,8 @@
       "category": "SATIR GEN Z"
     },
     {
-      "id": "bbweb-q014-20261104-1230",
-      "date": "2026-11-04",
+      "id": "bbweb-q014-20261113-1230",
+      "date": "2026-11-13",
       "slot": "12:30",
       "status": "approved",
       "fact_checked": true,
@@ -53,8 +53,8 @@
       "category": "SATIR GEN Z"
     },
     {
-      "id": "bbweb-q015-20261104-1400",
-      "date": "2026-11-04",
+      "id": "bbweb-q015-20261113-1400",
+      "date": "2026-11-13",
       "slot": "14:00",
       "status": "approved",
       "fact_checked": true,
