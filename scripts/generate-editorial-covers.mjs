@@ -46,7 +46,36 @@ async function generate(p){
  }
  throw last;
 }
-const batch=editorialPosts.slice(offset,offset+limit);
+async function allPublishedPosts(){
+ const byId=new Map(editorialPosts.map(p=>[p.id,p]));
+ // The site's static builder uses this same public Supabase project. Include published
+ // CMS items too, without using a service-role key or modifying the database.
+ try{
+  const src=await readFile('static-source/lib/supabase.ts','utf8');
+  const url=src.match(/const SUPABASE_URL='([^']+)'/)?.[1];
+  const publicKey=src.match(/const SUPABASE_KEY='([^']+)'/)?.[1];
+  if(url&&publicKey){
+   const endpoint=new URL('/rest/v1/bbweb_articles',url);
+   endpoint.searchParams.set('select','id,title,category,status,is_active');
+   endpoint.searchParams.set('status','eq.published');
+   endpoint.searchParams.set('is_active','eq.true');
+   endpoint.searchParams.set('limit','5000');
+   const response=await fetch(endpoint,{headers:{apikey:publicKey,Accept:'application/json'},signal:AbortSignal.timeout(15000)});
+   if(response.ok){
+    const rows=await response.json();
+    for(const p of Array.isArray(rows)?rows:[]){
+     const id=String(p.id||'');
+     if(/^[a-z0-9][a-z0-9_-]{0,159}$/.test(id)&&p.title)
+      byId.set(id,{...byId.get(id),id,title:String(p.title),category:String(p.category||'Artikel')});
+    }
+   }else console.warn('Could not enumerate live CMS covers: HTTP '+response.status);
+  }
+ }catch(e){console.warn('Live CMS unavailable; continuing with editorial records: '+String(e.message||e));}
+ return [...byId.values()];
+}
+const posts=await allPublishedPosts();
+console.log('Published image candidates: '+posts.length);
+const batch=posts.slice(offset,offset+limit);
 for(const post of batch){
  const id=String(post.id||'');
  if(!/^[a-z0-9][a-z0-9_-]{0,159}$/.test(id)){errors.push(id+':invalid slug');continue;}
