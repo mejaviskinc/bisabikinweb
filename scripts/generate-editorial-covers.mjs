@@ -22,12 +22,11 @@ const errors=[];
 let generated=0,skipped=0;
 function promptFor(p){
  const title=String(p.title||'').replace(/[\r\n]/g,' ').slice(0,320);
- const news=isNewsArticle(p);
  return [
- 'Generate ONE brand new photorealistic editorial cover photograph. Landscape composition, professional publication photo, daylight, natural detail, Indonesian context and realistic everyday objects.',
+ 'Generate ONE brand new photorealistic editorial cover photograph for an EVERGREEN EDUCATIONAL ARTICLE, not for a factual news story. Landscape composition, professional publication photo, daylight, natural detail, Indonesian context and realistic everyday objects.',
  'Topic and headline: '+title,
- 'Image must illustrate the PRECISE SUBJECT of this headline, not generic technology stock imagery.',
- news?'This is a news topic involving real events. Create only an illustrative, representative photographic scene about the relevant objects, place type or industry; never fabricate visual evidence of the specific real event, a specific official meeting, an identifiable real person or victim.':'This is an educational guide. Show an authentic, specific real-world setting with relevant objects, digital screens, work or business activity.',
+ 'Image must illustrate the PRECISE SUBJECT of this educational headline, not generic technology stock imagery.',
+ 'Show an authentic, specific real-world setting with relevant objects, digital screens, work or business activity.',
  'No typography, captions, logos, watermarks, graphic text, AI labels or annotations in the image.'
  ].join('\n');
 }
@@ -71,10 +70,11 @@ async function allPublishedPosts(){
    }else console.warn('Could not enumerate live CMS covers: HTTP '+response.status);
   }
  }catch(e){console.warn('Live CMS unavailable; continuing with editorial records: '+String(e.message||e));}
- return [...byId.values()];
+ // News must use REAL, legally reusable event photography; never generate a fake event image.
+ return [...byId.values()].filter(p=>!isNewsArticle(p));
 }
 const posts=await allPublishedPosts();
-console.log('Published image candidates: '+posts.length);
+console.log('Published evergreen article image candidates (news excluded): '+posts.length);
 const batch=posts.slice(offset,offset+limit);
 for(const post of batch){
  const id=String(post.id||'');
