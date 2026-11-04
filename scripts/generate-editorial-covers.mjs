@@ -15,8 +15,8 @@ const dir='public-assets/editorial-covers';
 const mapFile='static-source/lib/editorial-cover-map.mjs';
 await mkdir(dir,{recursive:true});
 let map={};
-try{const src=await readFile(mapFile,'utf8');map=JSON.parse(src.match(/\/\* COVER_MAP_JSON_START \*\/\s*([\s\S]*?)\s*\/\* COVER_MAP_JSON_END \*\//)?.[1]||'{}')}catch{}
-const save=()=>writeFile(mapFile,'export const editorialCoverMap = '+JSON.stringify(map,null,2)+';\n/* COVER_MAP_JSON_START */\n'+JSON.stringify(map)+'\n/* COVER_MAP_JSON_END */\n','utf8');
+try{const {editorialCoverMap}=await import('../static-source/lib/editorial-cover-map.mjs');map={...editorialCoverMap}}catch(e){console.warn('No cover map found; starting fresh',String(e?.message||e))}
+const save=()=>writeFile(mapFile,'export const editorialCoverMap = '+JSON.stringify(map,null,2)+';\n','utf8');
 const sleep=ms=>new Promise(r=>setTimeout(r,ms));
 const errors=[];
 let generated=0,skipped=0;
