@@ -1,0 +1,78 @@
+# Fallback watchdog for GitHub's best-effort cron. It checks for approved
+# posts within four hours of their original slot, then publishes ONLY items
+# not yet claimed in state.json. A push validates logic without publishing.
+name: Instagram BisaBikinWeb Catch-up Watchdog
+on:
+  schedule:
+    - cron: '7,22,37,52 * * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/instagram-catchup.yml'
+permissions:
+  contents: write
+concurrency:
+  group: bisabikinweb-instagram-publish
+  cancel-in-progress: false
+jobs:
+  catchup:
+    if: ${{ github.ref == 'refs/heads/main' && vars.IG_AUTOPUBLISH_PAUSED != 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      IG_AUTOPUBLISH_ENABLED: 'true'
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_GRAPH_BASE: ${{ vars.IG_GRAPH_BASE || 'https://graph.facebook.com' }}
+      IG_GRAPH_VERSION: ${{ vars.IG_GRAPH_VERSION || 'v26.0' }}
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Find a safe overdue post
+        id: find
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+          import datetime as dt, json, os, sys
+          now=dt.datetime.now(ZoneInfo('Asia/Jakarta'))
+          date=now.date().isoformat()
+          queue=json.loads(Path('social/instagram/queue.json').read_text(encoding='utf8'))['items']
+          state=json.loads(Path('social/instagram/state.json').read_text(encoding='utf8'))['entries']
+          slots={'08:00','09:30','11:00','12:30','14:00','15:30','17:00','18:30','20:00','21:30'}
+          selected=[]
+          occupied=set()
+          for item in queue:
+              if item.get('date')!=date or item.get('status')!='approved':
+                  continue
+              slot=item.get('slot')
+              if slot not in slots:
+                  continue
+              key=(date,slot)
+              if key in occupied:
+                  print('SAFE_STOP: duplicate approved slot',key)
+                  sys.exit(1)
+              occupied.add(key)
+              if item.get('id') in state: # claimed or published -> never auto-retry
+                  continue
+              when=dt.datetime.strptime(date+' '+slot,'%Y-%m-%d %H:%M').replace(tzinfo=ZoneInfo('Asia/Jakarta'))
+              age=(now-when).total_seconds()/60
+              if 5<=age<=240:
+                  selected.append((when,item))
+          selected.sort(key=lambda x:x[0])
+          ready=bool(selected)
+          slot=selected[0][1]['slot'] if ready else ''
+          with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf-8') as f:
+              f.write('ready='+str(ready).lower()+'\nslot='+slot+'\ndate='+date+'\n')
+          print('CATCHUP_READY '+date+' '+slot if ready else 'CATCHUP_NOTHING_DUE '+date)
+          PY
+      - name: Confirm push trigger is read-only
+        if: ${{ github.event_name == 'push' }}
+        run: echo "DRY_RUN_ONLY - a push never publishes Instagram content."
+      - name: Publish one unclaimed overdue approved post
+        if: ${{ github.event_name != 'push' && steps.find.outputs.ready == 'true' }}
+        env:
+          SLOT: ${{ steps.find.outputs.slot }}
+          DATE: ${{ steps.find.outputs.date }}
+        run: python3 scripts/instagram_autopost.py --publish --date "$DATE" --slot "$SLOT" --queue social/instagram/queue.json
