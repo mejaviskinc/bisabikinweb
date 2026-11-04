@@ -1,3 +1,4 @@
+import {published20261104} from './published-20261104.mjs';
 import {editorialCoverMap} from './editorial-cover-map.mjs';
 // Editorial content published in the static site repository.
 // Database versions of matching article slugs take precedence when present.
@@ -574,6 +575,9 @@ for (const article of editorialPosts) {
   article.image = `https://bisabikinweb.site/article-covers/${filename}`;
   article.body[article.body.length - 1] = "Keterangan gambar: Ilustrasi editorial orisinal BisaBikinWeb, dibuat khusus untuk panduan ini. Bukan foto dokumentasi peristiwa.";
 }
+
+// Add reviewed news and SEO guides to the shared editorial stream for main site and Media.
+editorialPosts.push(...published20261104.filter(post => !editorialPosts.some(existing => existing.id === post.id)));
 
 export function mergeEditorialPosts(articles = []) {
   const source = Array.isArray(articles) ? articles : [];
