@@ -1,19 +1,30 @@
 # Canva-matched quote publishing. UTC cron schedules map to WIB (UTC+7).
+# Primary run at slot time; fallback at +11m, skips already claimed/published.
 # Enabled for main; set GitHub variable IG_AUTOPUBLISH_PAUSED=true to pause safely.
 # Posts only pre-approved, licensed quotes from social/instagram/queue.json.
 name: Instagram BisaBikinWeb Auto Publish
 on:
   schedule:
     - cron: '0 1 * * *'
+    - cron: '11 1 * * *' # Back-up run 11 minutes after scheduled slot
     - cron: '30 2 * * *'
+    - cron: '41 2 * * *' # Back-up run 11 minutes after scheduled slot
     - cron: '0 4 * * *'
+    - cron: '11 4 * * *' # Back-up run 11 minutes after scheduled slot
     - cron: '30 5 * * *'
+    - cron: '41 5 * * *' # Back-up run 11 minutes after scheduled slot
     - cron: '0 7 * * *'
+    - cron: '11 7 * * *' # Back-up run 11 minutes after scheduled slot
     - cron: '30 8 * * *'
+    - cron: '41 8 * * *' # Back-up run 11 minutes after scheduled slot
     - cron: '0 10 * * *'
+    - cron: '11 10 * * *' # Back-up run 11 minutes after scheduled slot
     - cron: '30 11 * * *'
+    - cron: '41 11 * * *' # Back-up run 11 minutes after scheduled slot
     - cron: '0 13 * * *'
+    - cron: '11 13 * * *' # Back-up run 11 minutes after scheduled slot
     - cron: '30 14 * * *'
+    - cron: '41 14 * * *' # Back-up run 11 minutes after scheduled slot
   workflow_dispatch:
     inputs:
       slot:
@@ -49,15 +60,25 @@ jobs:
         run: |
           case "$EVENT_NAME:$EVENT_SCHEDULE" in
             schedule:'0 1 * * *') SLOT='08:00' ;;
+            schedule:'11 1 * * *') SLOT='08:00' ;;
             schedule:'30 2 * * *') SLOT='09:30' ;;
+            schedule:'41 2 * * *') SLOT='09:30' ;;
             schedule:'0 4 * * *') SLOT='11:00' ;;
+            schedule:'11 4 * * *') SLOT='11:00' ;;
             schedule:'30 5 * * *') SLOT='12:30' ;;
+            schedule:'41 5 * * *') SLOT='12:30' ;;
             schedule:'0 7 * * *') SLOT='14:00' ;;
+            schedule:'11 7 * * *') SLOT='14:00' ;;
             schedule:'30 8 * * *') SLOT='15:30' ;;
+            schedule:'41 8 * * *') SLOT='15:30' ;;
             schedule:'0 10 * * *') SLOT='17:00' ;;
+            schedule:'11 10 * * *') SLOT='17:00' ;;
             schedule:'30 11 * * *') SLOT='18:30' ;;
+            schedule:'41 11 * * *') SLOT='18:30' ;;
             schedule:'0 13 * * *') SLOT='20:00' ;;
+            schedule:'11 13 * * *') SLOT='20:00' ;;
             schedule:'30 14 * * *') SLOT='21:30' ;;
+            schedule:'41 14 * * *') SLOT='21:30' ;;
             workflow_dispatch:*) SLOT="$MANUAL_SLOT" ;;
             *) echo 'Unsupported schedule'; exit 1 ;;
           esac
@@ -78,7 +99,9 @@ jobs:
           if len(matches) > 1:
               print('DUPLICATE_SLOT_BLOCKED', date, slot)
               sys.exit(1)
-          ready = len(matches) == 1 and matches[0].get('status') == 'approved'
+          state = json.loads(Path('social/instagram/state.json').read_text(encoding='utf-8')).get('entries', {})
+          already_claimed = bool(matches) and matches[0].get('id') in state
+          ready = len(matches) == 1 and matches[0].get('status') == 'approved' and not already_claimed
           with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as output:
               output.write('ready=' + ('true' if ready else 'false') + '\n')
           print('QUEUE_READY' if ready else 'SKIP_NO_APPROVED_QUOTE', date, slot)
