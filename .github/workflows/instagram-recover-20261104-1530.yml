@@ -1,0 +1,53 @@
+# One-time, date-limited recovery for the missed 2026-11-04 15:30 WIB post.
+# Never runs on a recurring schedule. Uses the existing publisher and its
+# durable claim-before-publish anti-duplication protection.
+name: Instagram Recovery 2026-11-04 15:30 WIB
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/instagram-recover-20261104-1530.yml'
+permissions:
+  contents: write
+concurrency:
+  group: bisabikinweb-instagram-publish
+  cancel-in-progress: false
+jobs:
+  recover:
+    if: ${{ github.ref == 'refs/heads/main' && vars.IG_AUTOPUBLISH_PAUSED != 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      IG_AUTOPUBLISH_ENABLED: 'true'
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_GRAPH_BASE: ${{ vars.IG_GRAPH_BASE || 'https://graph.facebook.com' }}
+      IG_GRAPH_VERSION: ${{ vars.IG_GRAPH_VERSION || 'v26.0' }}
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Check date, queue and existing publication claim
+        id: guard
+        run: |
+          python3 - <<'PY'
+          import datetime as dt, json, os
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+          now=dt.datetime.now(ZoneInfo('Asia/Jakarta'))
+          ready=False
+          if now.date().isoformat()=='2026-11-04' and (now.hour,now.minute)>=(15,30):
+              queue=json.loads(Path('social/instagram/queue.json').read_text(encoding='utf-8'))['items']
+              matches=[p for p in queue if p.get('date')=='2026-11-04' and p.get('slot')=='15:30' and p.get('id')=='bbweb-q016-20261104-1530' and p.get('status')=='approved']
+              if len(matches)!=1:
+                  raise SystemExit('SAFE_STOP: expected approved content absent')
+              state=json.loads(Path('social/instagram/state.json').read_text(encoding='utf-8'))['entries']
+              ready=matches[0]['id'] not in state
+              print('READY_TO_RECOVER' if ready else 'SKIP_ALREADY_CLAIMED')
+          else:
+              print('SKIP_OUTSIDE_RECOVERY_DATE')
+          with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf-8') as f:
+              f.write('ready='+str(ready).lower()+'\n')
+          PY
+      - name: Publish exactly one missed approved quote
+        if: steps.guard.outputs.ready == 'true'
+        run: python3 scripts/instagram_autopost.py --publish --date 2026-11-04 --slot '15:30' --queue social/instagram/queue.json
