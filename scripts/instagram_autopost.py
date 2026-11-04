@@ -5,7 +5,7 @@ import urllib.parse, urllib.request, urllib.error
 from pathlib import Path
 from zoneinfo import ZoneInfo
 
-SLOTS = ("09:00", "10:30", "12:30", "16:30", "18:30")
+SLOTS = ("08:00", "09:00", "09:30", "10:30", "11:00", "12:30", "14:00", "15:30", "16:30", "17:00", "18:30", "20:00", "21:30")
 STATE = "social/instagram/state.json"
 
 class SafeStop(Exception):
