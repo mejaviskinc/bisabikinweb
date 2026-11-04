@@ -1,7 +1,7 @@
 export const englishPages = {
   '/': ['Professional Website Development in Yogyakarta', 'BisaBikinWeb builds professional websites for businesses in Yogyakarta and across Indonesia, from landing pages to online stores and custom web apps.'],
   '/jasa': ['Website Development Services', 'Explore landing page design, company websites, e-commerce, portfolio sites, custom web applications, and website maintenance.'],
-  '/harga': ['Website Packages and Pricing', 'Compare BisaBikinWeb website packages, starting at IDR 800,000. Find the right scope for your business and request a tailored quote.'],
+  '/harga': ['Website Packages and Pricing', 'Compare BisaBikinWeb website packages priced in US dollars. Find the right scope for your business and request a tailored quote.'],
   '/portfolio': ['Website Design and Development Portfolio', 'Explore selected BisaBikinWeb projects across beauty, fashion, furniture, travel, and business websites in Indonesia.'],
   '/tentang': ['About BisaBikinWeb Digital Studio', 'Meet BisaBikinWeb, an independent digital studio in Yogyakarta that builds websites around the needs of businesses and their customers.'],
   '/kontak': ['Contact and Free Website Consultation', 'Contact BisaBikinWeb on WhatsApp or by email to discuss your website goals, project requirements, budget, and preferred timeline.'],
@@ -26,4 +26,13 @@ export function hasEnglishPage(path) {
 
 export function englishHref(path) {
   return path === '/' ? '/en/' : '/en' + path + '/';
+}
+
+// Fixed pricing reference: Bank Indonesia JISDOR, 4 November 2026.
+const rupiahPerUsDollar = 18_140;
+const internationalPriceMultiplier = 3.5;
+const usd = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'});
+
+export function formatEnglishPrice(priceInRupiah) {
+  return usd.format(priceInRupiah * internationalPriceMultiplier / rupiahPerUsDollar);
 }

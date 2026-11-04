@@ -3,7 +3,7 @@ import {ArrowUpRight, Menu, X} from 'lucide-react';
 import {Logo} from '../components/Visuals';
 import {defaults} from '../lib/data';
 import {whatsapp} from '../lib/client';
-import {englishHref, englishServices} from '../lib/languages.mjs';
+import {englishHref, englishServices, formatEnglishPrice} from '../lib/languages.mjs';
 
 const navigation = [
   ['Services', '/jasa'], ['Portfolio', '/portfolio'], ['Pricing', '/harga'],
@@ -31,8 +31,8 @@ function Pricing() {
   return <><div className="pricing-grid">{defaults.pricing.map((plan: {id: string; name: string; price: number | null; featured?: boolean}) =>
     <div className={'price-card ' + (plan.featured ? 'featured' : '')} key={plan.id}>
       <small>{plan.name.toUpperCase()}</small>
-      <h3>{plan.price ? 'IDR ' + plan.price.toLocaleString('en-US') : 'Request a quote'}</h3>
-      {plan.price && <span className="price-note">Starting price per project</span>}
+      <h3>{plan.price ? formatEnglishPrice(plan.price) : 'Request a quote'}</h3>
+      {plan.price && <span className="price-note">Starting price in USD per project</span>}
       <div>{plans[plan.id].map(feature => <p className="price-feature" key={feature}>{feature}</p>)}</div>
       <a className="btn" href={englishHref('/kontak')}>Discuss this package <ArrowUpRight size={16}/></a>
     </div>
@@ -81,7 +81,7 @@ function EnglishContent({path}: {path: string}) {
   </section>;
   if (path === '/harga') return <section className="section pricing-section">
     <div className="page-intro"><span className="eyebrow">WEBSITE PACKAGES</span><h1>Choose a package <em>that fits.</em></h1>
-      <p>Compare starting prices and features for your website project.</p></div><Pricing/>
+      <p>Compare starting prices in US dollars and features for your website project.</p></div><Pricing/>
   </section>;
   if (path === '/portfolio') return <section className="section work-section">
     <div className="page-intro"><span className="eyebrow">SELECTED WORK</span><h1>Our website <em>portfolio.</em></h1>
