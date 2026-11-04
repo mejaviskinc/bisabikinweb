@@ -1,25 +1,26 @@
-# Scheduled publication workflow. It only runs the publish job when IG_AUTOPUBLISH_ENABLED=true.
-# The GitHub queue must contain an approved licensed JPEG for the requested date/slot.
+# Canva-matched quote publishing. UTC cron schedules map to WIB (UTC+7).
+# Enabled for main; set GitHub variable IG_AUTOPUBLISH_PAUSED=true to pause safely.
+# Posts only pre-approved, licensed quotes from social/instagram/queue.json.
 name: Instagram BisaBikinWeb Auto Publish
 on:
   schedule:
-    - cron: '0 9 * * *'
-      timezone: 'Asia/Jakarta'
-    - cron: '30 10 * * *'
-      timezone: 'Asia/Jakarta'
-    - cron: '30 12 * * *'
-      timezone: 'Asia/Jakarta'
-    - cron: '30 16 * * *'
-      timezone: 'Asia/Jakarta'
-    - cron: '30 18 * * *'
-      timezone: 'Asia/Jakarta'
+    - cron: '0 1 * * *'
+    - cron: '30 2 * * *'
+    - cron: '0 4 * * *'
+    - cron: '30 5 * * *'
+    - cron: '0 7 * * *'
+    - cron: '30 8 * * *'
+    - cron: '0 10 * * *'
+    - cron: '30 11 * * *'
+    - cron: '0 13 * * *'
+    - cron: '30 14 * * *'
   workflow_dispatch:
     inputs:
       slot:
-        description: WIB posting slot
+        description: 'WIB quote posting slot'
         type: choice
         required: true
-        options: ['09:00', '10:30', '12:30', '16:30', '18:30']
+        options: ['08:00', '09:30', '11:00', '12:30', '14:00', '15:30', '17:00', '18:30', '20:00', '21:30']
 permissions:
   contents: write
 concurrency:
@@ -27,11 +28,11 @@ concurrency:
   cancel-in-progress: false
 jobs:
   publish:
-    if: ${{ vars.IG_AUTOPUBLISH_ENABLED == 'true' && github.ref == 'refs/heads/main' }}
+    if: ${{ github.ref == 'refs/heads/main' && vars.IG_AUTOPUBLISH_PAUSED != 'true' }}
     runs-on: ubuntu-latest
     timeout-minutes: 15
     env:
-      IG_AUTOPUBLISH_ENABLED: ${{ vars.IG_AUTOPUBLISH_ENABLED }}
+      IG_AUTOPUBLISH_ENABLED: 'true'
       IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
       IG_USER_ID: ${{ secrets.IG_USER_ID }}
       IG_GRAPH_BASE: ${{ vars.IG_GRAPH_BASE || 'https://graph.facebook.com' }}
@@ -47,25 +48,43 @@ jobs:
           MANUAL_SLOT: ${{ inputs.slot }}
         run: |
           case "$EVENT_NAME:$EVENT_SCHEDULE" in
-            schedule:'0 9 * * *') SLOT='09:00' ;;
-            schedule:'30 10 * * *') SLOT='10:30' ;;
-            schedule:'30 12 * * *') SLOT='12:30' ;;
-            schedule:'30 16 * * *') SLOT='16:30' ;;
-            schedule:'30 18 * * *') SLOT='18:30' ;;
+            schedule:'0 1 * * *') SLOT='08:00' ;;
+            schedule:'30 2 * * *') SLOT='09:30' ;;
+            schedule:'0 4 * * *') SLOT='11:00' ;;
+            schedule:'30 5 * * *') SLOT='12:30' ;;
+            schedule:'0 7 * * *') SLOT='14:00' ;;
+            schedule:'30 8 * * *') SLOT='15:30' ;;
+            schedule:'0 10 * * *') SLOT='17:00' ;;
+            schedule:'30 11 * * *') SLOT='18:30' ;;
+            schedule:'0 13 * * *') SLOT='20:00' ;;
+            schedule:'30 14 * * *') SLOT='21:30' ;;
             workflow_dispatch:*) SLOT="$MANUAL_SLOT" ;;
             *) echo 'Unsupported schedule'; exit 1 ;;
           esac
           echo "slot=$SLOT" >> "$GITHUB_OUTPUT"
-      - name: Install image renderer
-        run: python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
-      - name: Prepare one approved or original evergreen post
+      - name: Check prepared GitHub quote queue
         id: prepare
         env:
           SLOT: ${{ steps.slot.outputs.slot }}
-        run: python3 scripts/instagram_prepare.py --slot "$SLOT"
-      - name: Publish prepared post
+        run: |
+          python3 - <<'PY'
+          import datetime as dt, json, os, sys
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+          date = dt.datetime.now(ZoneInfo('Asia/Jakarta')).date().isoformat()
+          slot = os.environ['SLOT']
+          items = json.loads(Path('social/instagram/queue.json').read_text(encoding='utf-8'))['items']
+          matches = [p for p in items if p.get('date') == date and p.get('slot') == slot]
+          if len(matches) > 1:
+              print('DUPLICATE_SLOT_BLOCKED', date, slot)
+              sys.exit(1)
+          ready = len(matches) == 1 and matches[0].get('status') == 'approved'
+          with open(os.environ['GITHUB_OUTPUT'], 'a', encoding='utf-8') as output:
+              output.write('ready=' + ('true' if ready else 'false') + '\n')
+          print('QUEUE_READY' if ready else 'SKIP_NO_APPROVED_QUOTE', date, slot)
+          PY
+      - name: Publish Canva quote directly through Meta Graph API
         if: steps.prepare.outputs.ready == 'true'
         env:
           SLOT: ${{ steps.slot.outputs.slot }}
-          QUEUE: ${{ steps.prepare.outputs.queue }}
-        run: python3 scripts/instagram_autopost.py --publish --slot "$SLOT" --queue "$QUEUE"
+        run: python3 scripts/instagram_autopost.py --publish --slot "$SLOT" --queue social/instagram/queue.json
