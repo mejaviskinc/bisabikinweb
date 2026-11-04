@@ -15,7 +15,7 @@ await mkdir(target, { recursive: true });
 // Tidak menyalin artikel, berita, checkout, atau sitemap situs utama.
 const entries = [
   'assets', 'brand',
-  'admin', 'seller',
+  'admin', 'seller', 'autopost',
   'favicon.ico', 'favicon.svg', 'apple-touch-icon.png', 'og.svg'
 ];
 for (const entry of entries) {
