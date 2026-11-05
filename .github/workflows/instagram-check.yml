@@ -1,6 +1,12 @@
 name: Instagram BisaBikinWeb Check Connection (Read Only)
 on:
   workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/instagram-check.yml'
+      - 'scripts/instagram_autopost.py'
+      - 'scripts/instagram_check_connection.py'
 permissions:
   contents: read
 jobs:
