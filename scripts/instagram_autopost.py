@@ -59,7 +59,20 @@ def api(method, url, token, form=None, data=None):
             return json.load(response)
     except urllib.error.HTTPError as exc:
         # Never show the authorization token or unredacted provider response.
-        raise SafeStop(f"Provider HTTP {exc.code}; periksa dashboard; jangan retry otomatis") from None
+        detail = ""
+        try:
+            error = json.loads(exc.read(65536)).get("error", {})
+            # Only numeric codes are logged; messages may contain sensitive data.
+            code, subcode = error.get("code"), error.get("error_subcode")
+            if type(code) is int:
+                detail += f"; code={code}"
+            if type(subcode) is int:
+                detail += f"; subcode={subcode}"
+            if code == 190:
+                detail += "; ACTION_REQUIRED: renew IG_ACCESS_TOKEN in GitHub Secrets"
+        except (ValueError, AttributeError, TypeError):
+            pass
+        raise SafeStop(f"Provider HTTP {exc.code}{detail}; periksa dashboard; jangan retry otomatis") from None
     except (urllib.error.URLError, ValueError, TimeoutError):
         raise SafeStop("Permintaan jaringan gagal; cek status secara manual") from None
 
