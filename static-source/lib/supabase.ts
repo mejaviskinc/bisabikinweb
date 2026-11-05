@@ -98,7 +98,7 @@ function arr(value:any){return Array.isArray(value)?value.map(x=>String(x).trim(
 function collectionPayload(collection:AdminCollection,item:any){
   const now=new Date().toISOString();
   if(collection==='orders'){const payload:any={customer_id:item.customer_id||null,customer_name:s(item.customer_name,120),customer_email:s(item.customer_email,254),customer_phone:s(item.customer_phone,40),items:Array.isArray(item.items)?item.items:[],subtotal:n(item.subtotal),discount:n(item.discount),total:n(item.total),status:s(item.status||'new',30),payment_status:s(item.payment_status||'unpaid',30),notes:s(item.notes,3000),updated_at:now};if(item.id)payload.id=item.id;if(item.order_no)payload.order_no=s(item.order_no,80);return payload}
-  if(collection==='merchandise')return {id:s(item.id,120).toLowerCase(),sku:s(item.sku,120),name:s(item.name,200),collection:s(item.collection||'CORE',100),type:s(item.type||'item',80),color:s(item.color,80),print:s(item.print,1000),description:s(item.description,5000),price:item.price===''||item.price===null||item.price===undefined?null:n(item.price),badge:s(item.badge,100),material:s(item.material,1000),care:s(item.care,1500),shipping:s(item.shipping,1500),returns:s(item.returns,1500),stock:Math.max(0,Math.round(n(item.stock))),weight_grams:Math.min(100000,Math.max(1,Math.round(n(item.weight_grams,500)))),low_stock_threshold:Math.max(0,Math.round(n(item.low_stock_threshold,5))),is_active:Boolean(item.is_active),sort_order:Math.round(n(item.sort_order,100)),updated_at:now};
+  if(collection==='merchandise')return {id:s(item.id,120).toLowerCase(),sku:s(item.sku,120),name:s(item.name,200),image_url:s(item.image_url,1000),collection:s(item.collection||'CORE',100),type:s(item.type||'item',80),color:s(item.color,80),print:s(item.print,1000),description:s(item.description,5000),price:item.price===''||item.price===null||item.price===undefined?null:n(item.price),badge:s(item.badge,100),material:s(item.material,1000),care:s(item.care,1500),shipping:s(item.shipping,1500),returns:s(item.returns,1500),stock:Math.max(0,Math.round(n(item.stock))),weight_grams:Math.min(100000,Math.max(1,Math.round(n(item.weight_grams,500)))),low_stock_threshold:Math.max(0,Math.round(n(item.low_stock_threshold,5))),is_active:Boolean(item.is_active),sort_order:Math.round(n(item.sort_order,100)),updated_at:now};
   if(collection==='services')return {id:s(item.id,120).toLowerCase(),name:s(item.name,200),icon:s(item.icon||'↗',20),tag:s(item.tag,120),description:s(item.description,3000),features:arr(item.features),is_active:Boolean(item.is_active),sort_order:Math.round(n(item.sort_order,100)),updated_at:now};
   if(collection==='pricing')return {id:s(item.id,120).toLowerCase(),name:s(item.name,200),price:item.price===''||item.price===null||item.price===undefined?null:n(item.price),maintenance:item.maintenance===''||item.maintenance===null||item.maintenance===undefined?null:n(item.maintenance),description:s(item.description,3000),features:arr(item.features),featured:Boolean(item.featured),is_active:Boolean(item.is_active),sort_order:Math.round(n(item.sort_order,100)),updated_at:now};
   if(collection==='articles')return {id:s(item.id,160).toLowerCase(),title:s(item.title,300),category:s(item.category||'Business',100),read_time:s(item.read_time||'3 menit',50),summary:s(item.summary,3000),body:arr(item.body),cover_image_url:s(item.cover_image_url,1000),status:s(item.status||'draft',30),is_active:Boolean(item.is_active),sort_order:Math.round(n(item.sort_order,100)),published_at:item.status==='published'?(item.published_at||now):null,updated_at:now};
@@ -115,13 +115,18 @@ function imageExtension(file:File){const byType:Record<string,string>={'image/jp
 function safeSlug(value:string){return String(value||'draft').toLowerCase().replace(/[^a-z0-9-]+/g,'-').replace(/^-+|-+$/g,'').slice(0,80)||'draft'}
 function encodeStoragePath(path:string){return path.split('/').map(encodeURIComponent).join('/')}
 
-export async function adminUploadArticleImage(session:AdminSession,file:File,articleId='draft'){
+export function adminUploadArticleImage(session:AdminSession,file:File,articleId='draft'){return uploadAdminImage(session,file,articleId)}
+
+// Use the existing admin-only image storage with a separate merchandise folder.
+export function adminUploadMerchImage(session:AdminSession,file:File,productId='draft'){return uploadAdminImage(session,file,productId,'merchandise/')}
+
+async function uploadAdminImage(session:AdminSession,file:File,itemId:string,folder=''){
   const ext=imageExtension(file);if(!ext)throw new Error('Format gambar harus JPG, PNG, WEBP, GIF, atau AVIF.');
   if(file.size>5*1024*1024)throw new Error('Ukuran gambar maksimal 5 MB.');
   if(file.size<=0)throw new Error('File gambar kosong.');
   const live=await liveSession(session);await assertAdmin(live);
   const random=typeof crypto!=='undefined'&&'randomUUID' in crypto?crypto.randomUUID():Math.random().toString(36).slice(2);
-  const path=`${safeSlug(articleId)}/${Date.now()}-${random}.${ext}`;
+  const path=`${folder}${safeSlug(itemId)}/${Date.now()}-${random}.${ext}`;
   const response=await fetch(`${SUPABASE_URL}/storage/v1/object/${ARTICLE_BUCKET}/${encodeStoragePath(path)}`,{method:'POST',headers:{apikey:SUPABASE_KEY,Authorization:'Bearer '+live.access_token,'Content-Type':file.type,'Cache-Control':'3600','x-upsert':'false'},body:file});
   if(!response.ok){let message='Upload gambar gagal.';try{const data=await response.json();message=data?.message||data?.error||message}catch{}throw new Error(message)}
   return `${SUPABASE_URL}/storage/v1/object/public/${ARTICLE_BUCKET}/${encodeStoragePath(path)}`;
