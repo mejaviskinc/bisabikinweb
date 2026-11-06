@@ -1,6 +1,6 @@
 'use client';
 import {useState,useEffect} from 'react';
-import {ArrowUpRight,Heart,Minus,Plus,Trash2,X,ShoppingBag,Check,Package,ZoomIn} from 'lucide-react';
+import {ArrowUpRight,ArrowRight,Heart,Minus,Plus,Trash2,X,ShoppingBag,Check,Package,ZoomIn} from 'lucide-react';
 import {MerchArt} from '../components/Visuals';
 import {money,collections} from '../lib/data';
 import {event,merchCheckout,merchOrderStatus} from '../lib/client';
