@@ -78,15 +78,15 @@ const logo=origin+'/brand/bisabikinweb-logo-compact.svg';
 const phone='+62882003740969';
 const email='bisabikinw3b@gmail.com';
 const pages={
-  '/':['Jasa Bikin Web Seluruh Indonesia | BisaBikinWeb.id','Jasa bikin website profesional untuk UMKM, toko online, bisnis dan perusahaan di seluruh Indonesia. Desain modern, responsif, SEO-friendly. Mulai Rp800 ribuan.'],
-  '/jasa':['Jasa Pembuatan Website untuk Bisnis di Indonesia','Pilih jasa pembuatan website untuk UMKM dan perusahaan di seluruh Indonesia: landing page, company profile, toko online, web app, dan maintenance.'],
-  '/wilayah':['Jasa Bikin Website di 38 Provinsi dan Kota Besar Indonesia','Lihat daftar layanan jasa bikin web BisaBikinWeb untuk Jakarta, Bandung, Surabaya, Medan, Makassar, seluruh 38 provinsi dan kota/kabupaten lainnya di Indonesia.'],
-  '/harga':['Paket & Harga Pembuatan Website Mulai Rp800 Ribuan','Bandingkan paket Starter, Business, Commerce, dan Custom BisaBikinWeb. Lihat fitur, pilihan biaya, serta konsultasikan ruang lingkup proyek website.'],
-  '/portfolio':['Portofolio Website Bisnis, Brand & E-Commerce','Lihat studi kasus dan karya website BisaBikinWeb untuk Berbeda, Karpenter, Mejavi Skin+, GoO Ninks, GoJogja Travel, dan berbagai kebutuhan bisnis.'],
+  '/':['BisaBikinWeb.id | Jasa Bikin Website Seluruh Indonesia','Jasa pembuatan website profesional untuk UMKM, perusahaan, dan toko online di seluruh Indonesia. Lihat layanan, paket harga, portofolio, dan konsultasi BisaBikinWeb.'],
+  '/jasa':['Jasa Pembuatan Website Profesional di Indonesia','Pilih jasa pembuatan website untuk UMKM dan perusahaan di seluruh Indonesia: landing page, company profile, toko online, web app, dan maintenance.'],
+  '/wilayah':['Jasa Website Seluruh Indonesia & 38 Provinsi','Lihat daftar layanan jasa bikin web BisaBikinWeb untuk Jakarta, Bandung, Surabaya, Medan, Makassar, seluruh 38 provinsi dan kota/kabupaten lainnya di Indonesia.'],
+  '/harga':['Harga & Paket Jasa Pembuatan Website','Bandingkan paket Starter, Business, Commerce, dan Custom BisaBikinWeb. Lihat fitur, pilihan biaya, serta konsultasikan ruang lingkup proyek website.'],
+  '/portfolio':['Portofolio Website Bisnis & Toko Online','Lihat studi kasus dan karya website BisaBikinWeb untuk Berbeda, Karpenter, Mejavi Skin+, GoO Ninks, GoJogja Travel, dan berbagai kebutuhan bisnis.'],
   '/layanan-digital':['Layanan Digital: Pulsa, Data, Token & Travel','Rencana layanan digital BisaBikinWeb meliputi pulsa, paket data, token listrik, dan kebutuhan perjalanan. Fitur masih dalam tahap persiapan.'],
   '/merch':['Merchandise & Koleksi Apparel BisaBikinWeb','Jelajahi koleksi merchandise BisaBikinWeb, desain apparel, dan produk kreatif. Lihat pilihan produk, informasi stok, varian, serta cara pemesanan.'],
   '/tentang':['Tentang Studio Digital BisaBikinWeb di Yogyakarta','Kenali pendekatan dan proses kerja BisaBikinWeb dalam merancang website bisnis. Dari kebutuhan UMKM hingga solusi web khusus untuk perusahaan.'],
-  '/kontak':['Konsultasi Jasa Bikin Web Seluruh Indonesia','Hubungi BisaBikinWeb via WhatsApp atau email untuk konsultasi pembuatan website secara online dari mana saja di Indonesia, mulai UMKM hingga perusahaan.'],
+  '/kontak':['Konsultasi & Kontak Jasa Pembuatan Website','Hubungi BisaBikinWeb via WhatsApp atau email untuk konsultasi pembuatan website secara online dari mana saja di Indonesia, mulai UMKM hingga perusahaan.'],
   '/artikel':['Artikel SEO, Website & Strategi Bisnis Digital','Baca panduan praktis tentang SEO, pembuatan website, desain web, pemasaran digital, dan pengembangan bisnis dari tim editorial BisaBikinWeb.'],
   '/berita':['Berita Bisnis, Ekonomi, Politik & Teknologi','Ikuti berita terkurasi BisaBikinWeb seputar ekonomi, bisnis, politik, teknologi, dan perkembangan dalam maupun luar negeri dengan rujukan sumber.'],
   '/redaksi':['Redaksi, Sumber Berita & Kebijakan Koreksi','Ketahui standar editorial BisaBikinWeb: penggunaan sumber, verifikasi fakta, koreksi berita, hak penggunaan gambar, dan informasi kontak redaksi.'],
@@ -116,6 +116,11 @@ for(const [kind,prefix] of [['services','jasa'],['portfolio','portfolio'],['prod
   pages['/'+prefix+'/'+p.id]=[title,description];
  }
 }
+// Halaman toko online menjadi tujuan layanan tersendiri, bukan sekadar judul umum "Online Store".
+pages['/jasa/ecommerce']=[
+ 'Jasa Pembuatan Toko Online Profesional',
+ 'Buat website toko online untuk brand dan UMKM: katalog produk, varian, keranjang, pembayaran sesuai integrasi, dan pengelolaan pesanan.'
+];
 for(const article of buildArticles){
  const firstParagraph=Array.isArray(article.body)?article.body.find(line=>typeof line==='string'&&line.trim()&&!/^#+\\s/.test(line)):null;
  pages['/artikel/'+article.id]=[article.title,article.summary||firstParagraph||'Baca artikel '+article.title+' dari '+(article.author_store_name||'redaksi BisaBikinWeb')+'.'];
