@@ -167,7 +167,7 @@ for(const target of sitelinkTargets){
  const html=await getHtml(route);
  assert.ok(indexedLocations.has(url),'Sitelink destination must be in sitemap: '+url);
  assert.ok(nationwideHome.includes('href="'+target.href+'"'),'Homepage must have crawlable href: '+target.href);
- assert.ok(nationwideHome.includes(target.label),'Homepage must show descriptive sitelink label: '+target.label);
+ assert.ok(nationwideHome.includes(target.label.replace(/&/g,'&amp;')),'Homepage must show descriptive sitelink label: '+target.label);
  assert.ok((nationwideHome.match(new RegExp('href="'+target.href.replace(/\//g,'\\/')+'"','g'))||[]).length>=2,'Homepage and footer should link to '+target.href);
  assert.match(html,/<meta name="robots" content="index,follow/,'Sitelink destination must be indexable: '+route);
  assert.equal(first(html,/<link rel="canonical" href="([^"]+)"/),url,'Sitelink destination needs self-canonical: '+route);
