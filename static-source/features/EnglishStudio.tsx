@@ -1,3 +1,4 @@
+import FooterPaymentMethods from '../components/FooterPaymentMethods';
 import {useEffect, useState} from 'react';
 import {ArrowUpRight, Menu, X} from 'lucide-react';
 import {Logo} from '../components/Visuals';
