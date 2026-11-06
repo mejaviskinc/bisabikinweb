@@ -385,3 +385,17 @@
 @media(max-width:1150px){.footer-payment-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.footer-payment-logo strong{font-size:17px}}
 @media(max-width:650px){.footer-payment-heading{align-items:flex-start;flex-direction:column;gap:10px}.footer-payment-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.footer-payment-logo{min-height:61px}.footer-payment-logo strong{font-size:14px}.payment-cimb strong,.payment-muamalat strong{font-size:12px}}
 @media(max-width:390px){.footer-payment-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-payment-logo strong{font-size:16px}}
+
+/* Halaman prioritas: tautan yang mudah dipindai pengguna dan mesin pencari. */
+.sitelink-hub{padding-top:58px;padding-bottom:58px}
+.sitelink-heading{max-width:770px;margin-bottom:29px}
+.sitelink-heading h2{font-size:clamp(29px,3.1vw,43px);line-height:1.15;letter-spacing:-.045em}
+.sitelink-heading p{max-width:650px;margin:15px 0 0}
+.sitelink-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}
+.sitelink-card{position:relative;display:block;min-height:155px;padding:27px 50px 22px 25px;border:1px solid var(--line);border-radius:12px;background:var(--panel);transition:border-color .18s ease,transform .18s ease,background .18s ease}
+.sitelink-card:hover{border-color:var(--accent);background:var(--card);transform:translateY(-2px)}
+.sitelink-card>span{display:block;font-size:16px;font-weight:700;line-height:1.4;letter-spacing:-.025em;color:var(--text)}
+.sitelink-card p{font-size:12px;line-height:1.65;margin:12px 0 0}
+.sitelink-card>svg{position:absolute;top:27px;right:23px;color:var(--accent)}
+@media(max-width:900px){.sitelink-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:570px){.sitelink-hub{padding-top:38px;padding-bottom:38px}.sitelink-grid{grid-template-columns:minmax(0,1fr);gap:9px}.sitelink-card{min-height:112px;padding:21px 48px 17px 20px}.sitelink-card>svg{top:21px;right:18px}.sitelink-card p{margin-top:7px}}
