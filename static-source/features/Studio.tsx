@@ -6,6 +6,7 @@ import {ArrowUpRight,ArrowRight,ArrowDown,Search,ShoppingBag,Sun,Moon,Menu,X,Che
 import {Logo,ProjectVisual,MerchArt} from '../components/Visuals';
 import {Calculator,Consultation,Newsletter,FAQ} from './Forms';
 import {MerchStore,ProductCard,ProductDetail,Cart,Checkout,TrackOrder} from './Commerce';
+import PaymentPage from './PaymentPage';
 const Admin=lazy(()=>import('./Admin'));
 import {englishHref,hasEnglishPage} from '../lib/languages.mjs';
 import {money} from '../lib/data';
@@ -94,6 +95,7 @@ if(parts[0]==='admin')return <Suspense fallback={<div className="section">Memuat
 if(path==='/merch')return <MerchStore products={data.products} wish={wish} toggleWish={toggleWish}/>;
 if(parts[0]==='merch'&&parts.length===2){const p=data.products.find((x:any)=>x.id===parts[1]);if(p)return <ProductDetail p={p} variants={variants} add={add} wish={wish} toggleWish={toggleWish} products={data.products}/>;}
 if(path==='/checkout')return <Checkout cart={cart} settings={data.settings} clear={clear}/>;
+ if(path==='/payment')return <PaymentPage/>;
 if(path==='/cart')return <section className="section narrow"><Cart cart={cart} update={update} remove={remove}/></section>;
 if(path==='/track-order')return <TrackOrder/>;
 if(path==='/account')return <BuyerDashboard wish={wish} products={data.products} toggleWish={toggleWish}/>;
