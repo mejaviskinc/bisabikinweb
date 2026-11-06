@@ -33,7 +33,7 @@ export async function verifyNotification(headers: Headers, body: string) {
 }
 export function dokuStatus(status: string, type = '') {
   if (status === 'SUCCESS' && type === 'AUTHORIZE') return 'authorized';
-  return ({SUCCESS:'paid',PENDING:'pending',REDIRECT:'pending',FAILED:'failed',EXPIRED:'expired',REFUNDED:'refunded',TIMEOUT:'unknown'} as Record<string,string>)[status] || 'unknown';
+  // DOKU Checkout lets buyers retry a failed payment method on the same checkout page.\n  // Per DOKU's Checkout notification guidance, FAILED must not close the order.\n  return ({SUCCESS:'paid',PENDING:'pending',REDIRECT:'pending',FAILED:'pending',EXPIRED:'expired',REFUNDED:'refunded',TIMEOUT:'unknown'} as Record<string,string>)[status] || 'unknown';
 }
 export function validateResult(payment: any, result: any) {
   const amount = result?.order?.amount;
