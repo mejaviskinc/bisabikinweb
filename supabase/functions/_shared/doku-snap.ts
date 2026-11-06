@@ -141,10 +141,9 @@ export async function verifySnapWebhook(req:Request,raw:string,canonicalPath:str
  const stamp=req.headers.get('x-timestamp')||'';
  if(partner!==c.clientId||!received||!stamp||Math.abs(Date.now()-Date.parse(stamp))>300000)return false;
  const token=req.headers.get('authorization')?.replace(/^Bearer /i,'')||'';
- // SNAP webhook integrations can use a DOKU-generated access token. Never assume a
- // static incoming token; validate against the merchant-configured notification token.
- const verifiedToken=Deno.env.get('DOKU_SNAP_NOTIFICATION_TOKEN')||'';
- if(!verifiedToken||token!==verifiedToken)return false;
+ // DOKU uses its B2B bearer token to form the signed notification string.
+ // HMAC-SHA512 with the server-only merchant secret authenticates the body.
+ if(!token||token.length>4096)return false;
  const expected=await symmetric(c.secret,'POST:'+canonicalPath+':'+token+':'+await sha256hex(raw)+':'+stamp);
  if(expected.length!==received.length)return false;
  let diff=0;for(let i=0;i<received.length;i++)diff|=received.charCodeAt(i)^expected.charCodeAt(i);
