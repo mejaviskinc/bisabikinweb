@@ -1,4 +1,4 @@
-import {verifyNotification, applyDokuResult} from '../_shared/doku.ts';
+import {verifyNotification, applyDokuResult, config} from '../_shared/doku.ts';
 function secretKey() {
   const modern = Deno.env.get('SUPABASE_SECRET_KEYS');
   if (modern) {
@@ -38,6 +38,7 @@ Deno.serve(async(req:Request)=>{
   try{
     const rows=await db('bbweb_merch_payments?select=*&provider=eq.doku&merchant_order_id=eq.'+encodeURIComponent(invoice)+'&limit=1');
     const payment=rows?.[0];if(!payment)return reply({error:'Invoice not found'},404);
+    if(payment.environment!==config().environment)return reply({error:'Payment environment mismatch'},409);
     await applyDokuResult(payment,input,db,rpc);
     return reply({message:'Notification received'});
   }catch{return reply({error:'Notification could not be processed'},500)}

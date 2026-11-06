@@ -1,4 +1,4 @@
-import {config, dokuRequest, safePaymentUrl} from '../_shared/doku.ts';
+import {config, dokuRequest, safePaymentUrl, claimDokuPayment} from '../_shared/doku.ts';
 const ALLOWED_ORIGINS=new Set(['https://bisabikinweb.site', 'https://www.bisabikinweb.site', 'https://shop.bisabikinweb.site']);
 function cors(origin:string|null){return {'Access-Control-Allow-Origin':origin&&ALLOWED_ORIGINS.has(origin)?origin:'https://bisabikinweb.site','Access-Control-Allow-Headers':'content-type, apikey, authorization','Access-Control-Allow-Methods':'POST, OPTIONS','Vary':'Origin','Cache-Control':'no-store','Content-Type':'application/json; charset=utf-8'};}
 function reply(body:unknown,status=200,origin:string|null=null){return new Response(JSON.stringify(body),{status,headers:cors(origin)});}
@@ -110,16 +110,17 @@ Deno.serve(async(req:Request)=>{const origin=req.headers.get('origin');if(req.me
   let orderRows:any;try{orderRows=await db('bbweb_orders?select=id,order_no,customer_name,customer_email,customer_phone,items,subtotal,discount,total,shipping_amount,currency,status,payment_status,inventory_state,created_at&id=eq.'+encodeURIComponent(created.order_id)+'&limit=1');}catch{return reply({error:'Order sudah tersimpan tetapi gagal dibaca kembali. Gunakan halaman lacak pesanan.',order_saved:true,order_no:created.order_no,token},503,origin)}
   const order=Array.isArray(orderRows)?orderRows[0]:null;if(!order)return reply({error:'Order tidak ditemukan setelah dibuat.'},500,origin);
   if(order.payment_status==='paid')return reply({ok:true,order_saved:true,order_no:order.order_no,token,status:'paid',amount:Number(order.total),currency:order.currency},200,origin);
-  if(order.inventory_state==='released'){try{await rpc('bbweb_reserve_merch_order',{p_order_id:order.id});order.inventory_state='reserved';order.payment_status='pending';}catch(error){return reply({error:dbErrorMessage(error),order_saved:true,order_no:order.order_no,token},409,origin)}}
-  const pendingRows=await db('bbweb_merch_payments?select=merchant_order_id,provider,status,redirect_url,amount&order_id=eq.'+encodeURIComponent(order.id)+'&status=in.(created,pending,authorized)&redirect_url=not.is.null&order=created_at.desc&limit=1').catch(()=>[]);const pending=Array.isArray(pendingRows)?pendingRows[0]:null;if(pending?.redirect_url&&pending.provider==='doku'&&Number(pending.amount)===Number(order.total))return reply({ok:true,order_saved:true,order_no:order.order_no,token,status:pending.status,amount:Number(order.total),currency:order.currency,redirect_url:pending.redirect_url},200,origin);
   const cfg=config();
-  if(!cfg.clientId||!cfg.secret){await rpc('bbweb_release_merch_order',{p_order_id:order.id,p_payment_status:'payment_not_configured',p_status:'payment_error'}).catch(()=>{});return reply({error:'DOKU belum diaktifkan. Hubungi admin untuk melanjutkan pembayaran.',code:'PAYMENT_NOT_CONFIGURED',order_saved:true,order_no:order.order_no,token},503,origin)}
-  // Do not create another payable invoice while an earlier attempt can still settle.
-  const existing=await db('bbweb_merch_payments?select=id&order_id=eq.'+encodeURIComponent(order.id)+'&status=in.(created,pending,authorized,unknown,failed)&limit=1');
-  if(existing?.length)return reply({error:'Pembayaran sebelumnya perlu diperiksa admin sebelum mencoba lagi.',order_saved:true,order_no:order.order_no,token},409,origin);
+  if(!cfg.clientId||!cfg.secret){return reply({error:'DOKU belum diaktifkan. Hubungi admin untuk melanjutkan pembayaran.',code:'PAYMENT_NOT_CONFIGURED',order_saved:true,order_no:order.order_no,token},503,origin)}
   const environment=cfg.environment, merchantOrderId=('BB'+order.id.replaceAll('-','').slice(0,16)+randomHex(6)).slice(0,30),total=Number(order.total);
   if(!Number.isSafeInteger(total)||total<1)return reply({error:'Total order tidak valid.'},409,origin);
-  await db('bbweb_merch_payments',{method:'POST',body:JSON.stringify({order_id:order.id,merchant_order_id:merchantOrderId,provider:'doku',amount:total,currency:'IDR',environment,status:'created'})});
+  let claim:any;
+  try{claim=await claimDokuPayment(order.id,merchantOrderId,rpc)}catch{return reply({error:'Pembayaran belum dapat disiapkan. Hubungi admin.',order_saved:true,order_no:order.order_no,token},503,origin)}
+  if(!claim.claimed){
+    const previous=claim.payment;
+    if(previous.redirect_url&&previous.provider==='doku'&&previous.environment===environment&&safePaymentUrl(previous.redirect_url,environment)&&['created','pending','authorized','failed'].includes(previous.status))return reply({ok:true,order_saved:true,order_no:order.order_no,token,status:previous.status,amount:total,currency:'IDR',redirect_url:previous.redirect_url},200,origin);
+    return reply({error:'Pembayaran sebelumnya perlu diperiksa admin sebelum mencoba lagi.',order_saved:true,order_no:order.order_no,token},409,origin);
+  }
   const finish='https://bisabikinweb.site/track-order?id='+encodeURIComponent(order.order_no);
   const body:any={order:{amount:total,invoice_number:merchantOrderId,currency:'IDR',callback_url:finish,callback_url_cancel:finish,auto_redirect:true,line_items:order.items.map((x:any)=>({name:String(x.name).slice(0,255),price:Number(x.price),quantity:Number(x.quantity)}))},payment:{payment_due_date:30,type:'SALE'},customer:{name:order.customer_name,email:order.customer_email,phone:order.customer_phone,address:shipping.address.slice(0,400),postcode:shipping.postcode,state:shipping.province,city:shipping.city,country:'ID'},additional_info:{override_notification_url:(Deno.env.get('SUPABASE_URL')||'')+'/functions/v1/bbweb-doku-webhook'}};
   if(paymentMethod!=='all')body.payment.payment_method_types=paymentChannels[paymentMethod];

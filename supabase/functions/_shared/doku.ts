@@ -43,26 +43,29 @@ export function validateResult(payment: any, result: any) {
 export async function applyDokuResult(payment: any, result: any, db: any, rpc: any) {
   validateResult(payment,result);
   const status = dokuStatus(String(result?.transaction?.status || ''),String(result?.transaction?.type || ''));
-  // SUCCESS is committed by the existing idempotent stock/seller settlement RPC.
-  // Never downgrade paid or refunded records on delayed/replayed notifications.
-  if (payment.status === 'refunded' || (payment.paid_at && !['paid','refunded'].includes(status))) return payment;
-  const now = new Date().toISOString();
-  if (status === 'paid') await rpc('bbweb_commit_merch_order',{p_order_id:payment.order_id});
-  const patch: any = {status,transaction_status:String(result?.transaction?.status || '').slice(0,50),payment_type:String(result?.channel?.id || result?.service?.id || '').slice(0,100),updated_at:now};
-  if (status === 'paid') patch.paid_at = payment.paid_at || now;
-  // Conditional update prevents pending/failed notifications from winning a concurrent success.
-  const guard = ['paid','refunded'].includes(status) ? (status === 'paid' ? '&status=neq.refunded' : '') : '&paid_at=is.null&status=not.in.(paid,refunded)';
-  await db('bbweb_merch_payments?id=eq.'+encodeURIComponent(payment.id)+guard,{method:'PATCH',headers:{Prefer:'return=minimal'},body:JSON.stringify(patch)});
-  if (status === 'refunded') await db('bbweb_orders?id=eq.'+encodeURIComponent(payment.order_id),{method:'PATCH',body:JSON.stringify({payment_status:'refunded',updated_at:now})});
-  // FAILED may be retried on DOKU's hosted page. Do not release stock on a failed attempt.
-  return {...payment,...patch};
+  const updated=await rpc('bbweb_apply_doku_payment',{
+    p_payment_id:payment.id,p_invoice:payment.merchant_order_id,p_amount:Number(payment.amount),
+    p_status:status,p_transaction_status:String(result?.transaction?.status||'').slice(0,50),
+    p_payment_type:String(result?.channel?.id||result?.service?.id||'').slice(0,100)
+  });
+  if(!updated?.id)throw new Error('DOKU settlement runtime belum tersedia.');
+  return updated;
 }
+
 export async function refreshDoku(payment: any, db: any, rpc: any) {
   if (Date.now()-Date.parse(payment.created_at) < 60000) return payment;
+  const allowed=await rpc('bbweb_take_doku_poll_slot',{p_payment_id:payment.id});
+  if(allowed!==true)return payment;
   const response = await dokuRequest('/orders/v1/status/'+encodeURIComponent(payment.merchant_order_id),undefined,payment.environment);
   if (!response.ok) throw new Error('Status DOKU belum tersedia ('+response.status+').');
   return applyDokuResult(payment,await response.json(),db,rpc);
 }
 export function safePaymentUrl(value: unknown, environment: string) {
   try { const url = new URL(String(value)); return url.protocol === 'https:' && url.hostname === (environment === 'production' ? 'checkout.doku.com' : 'sandbox.doku.com') && !url.username && !url.password; } catch { return false; }
+}
+
+export async function claimDokuPayment(orderId: string, invoice: string, rpc: any) {
+  const claim=await rpc('bbweb_claim_doku_payment',{p_order_id:orderId,p_invoice:invoice,p_environment:config().environment});
+  if(typeof claim?.claimed!=='boolean'||!claim?.payment?.id)throw new Error('DOKU checkout runtime belum tersedia.');
+  return claim;
 }

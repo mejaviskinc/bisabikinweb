@@ -12,7 +12,23 @@ Set server-only secrets in that project: `DOKU_CLIENT_ID`, `DOKU_SECRET_KEY`, `D
 
 Inspect the live `bbweb_merch_payments` definition, constraints, indexes and `bbweb_commit_merch_order` RPC. Confirm `provider='doku'` is accepted; do not relabel historical payments. Confirm commit is atomic/idempotent, supports late payment after reservation expiry without double stock deduction or double seller settlement, and does not regress processing/shipped orders on repeated notifications.
 
-Checkout creation must have a database-enforced unique active attempt per order before activation. The current read-before-insert guard alone cannot serialize concurrent requests. Add an atomic claim RPC or a unique partial index after inspecting existing records and recovering any duplicate active attempts. Failed DOKU attempts may still settle on the same hosted page and must remain claimed. Reconcile unknown attempts before allowing a fresh invoice. This database work is blocked on access to the actual project and is a release blocker.
+The additive patch `supabase/patches/doku_payment_runtime.sql` provides:
+- `bbweb_claim_doku_payment`: locks the order before creating a payment attempt; initial checkout and buyer continuation share this claim. Existing uncertain/failed attempts remain claimed until reconciled.
+- `bbweb_apply_doku_payment`: locks the order and payment and commits payment/stock/seller settlement atomically. Repeated success does not call the existing settlement RPC twice or regress a shipped order. Refunded state cannot regress.
+- `bbweb_take_doku_poll_slot`: database-backed polling limit of one request per payment per 60 seconds.
+
+These functions use SECURITY INVOKER and are executable only by service_role. The poll table enables RLS with no client grants. If released stock cannot be reacquired for a late success, settlement rolls back, DOKU receives a retryable error, and admin must reconcile the paid invoice manually. The existing reserve/commit RPC implementations still need inspection in the actual project before live activation; local tests use realistic stub implementations, not a copy of the unavailable live database.
+
+## Backend deployment helper
+
+Install Supabase CLI. Set `SUPABASE_ACCESS_TOKEN` securely in the shell environment (or an operator's secret store), then run from the repository root:
+
+```sh
+node scripts/deploy-doku.mjs
+node scripts/deploy-doku.mjs --apply
+```
+
+The first command only checks project/schema compatibility. The second applies the additive runtime patch and deploys only the five affected functions, preserving existing JWT settings and deploying the signed webhook without gateway JWT verification. It does not configure DOKU credentials or publish the frontend. If provider constraints do not allow DOKU, deployment stops for schema review rather than rewriting payment history.
 
 Deploy `_shared/doku.ts` with each dependent function:
 - `bbweb-doku-webhook` (`verify_jwt=false`; verifies DOKU HMAC itself)
@@ -26,7 +42,7 @@ Register this exact notification URL in DOKU:
 
 The signed Request-Target must be `/functions/v1/bbweb-doku-webhook`. The public URL is used because Supabase's internal function URL can be rewritten. DOKU retries can be delayed, so notification authentication does not impose a short timestamp window. Replay safety relies on immutable invoice+amount matching and idempotent settlement, plus guards against paid/refunded status regression.
 
-The checkout return URL contains the order number only; the existing browser pending-order token opens tracking. Returning from DOKU never marks an order paid. Admin/buyer status checks sign GET requests, verify invoice and exact IDR amount, and preserve provider environment. Poll only after at least 60 seconds; apply additional server-side throttling before rollout.
+The checkout return URL contains the order number only; the existing browser pending-order token opens tracking. Returning from DOKU never marks an order paid. Admin/buyer status checks sign GET requests, verify invoice and exact IDR amount, and preserve provider environment. Poll only after at least 60 seconds; the database slot prevents repeated requests from multiple function instances.
 
 ## Sandbox acceptance before merge
 
@@ -38,3 +54,15 @@ References:
 - https://developers.doku.com/accept-payments/doku-checkout/integration-guide/backend-integration
 - https://developers.doku.com/get-started-with-doku-api/signature-component/non-snap/signature-component-from-request-header
 - https://developers.doku.com/get-started-with-doku-api/check-status-api/non-snap
+
+## Langkah pemasangan API DOKU
+
+Sesudah backend dipasang pada proyek yang benar:
+1. Buka Supabase → Edge Functions → Secrets.
+2. Isi `DOKU_CLIENT_ID` dan `DOKU_SECRET_KEY` dari akun Sandbox DOKU.
+3. Isi `DOKU_ENV` dengan `sandbox`.
+4. Pada pengaturan notifikasi pembayaran DOKU, pasang URL webhook di atas.
+5. Uji pembayaran sandbox; pastikan pesanan, stok dan saldo seller berubah sekali.
+6. Sesudah lolos pengujian dan akun produksi aktif, ganti kedua kredensial dengan kredensial produksi dan `DOKU_ENV=production`. Rekonsiliasi transaksi sandbox sebelum berganti mode.
+
+Jangan masukkan Secret Key ke kode frontend atau commit GitHub. Draft ini belum mengubah gateway website live.

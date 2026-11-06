@@ -31,20 +31,13 @@ test('invoice, exact amount and currency must match before any mutation',async()
   let writes=0;await assert.rejects(api.applyDokuResult(payment,{...success,order},()=>writes++,()=>writes++));assert.equal(writes,0);
  }
 });
-test('settlement uses existing idempotent RPC and never trusts a browser return',async()=>{
- const calls=[];await api.applyDokuResult(payment,success,async(path,opts)=>calls.push({path,patch:JSON.parse(opts.body)}),async(name,args)=>calls.push({name,args}));
- assert.equal(calls[0].name,'bbweb_commit_merch_order');assert.equal(calls[0].args.p_order_id,'o-1');assert.equal(calls[1].patch.status,'paid');
- assert.match(calls[1].path,/status=neq.refunded/);
+test('verified results use the atomic settlement RPC with invoice and exact amount',async()=>{
+ const calls=[];const paid={...payment,status:'paid'};
+ const result=await api.applyDokuResult(payment,success,()=>{throw Error('Unexpected non-atomic update')},async(name,args)=>{calls.push({name,args});return paid});
+ assert.equal(calls[0].name,'bbweb_apply_doku_payment');assert.equal(calls[0].args.p_payment_id,'p-1');
+ assert.equal(calls[0].args.p_amount,10000);assert.equal(calls[0].args.p_status,'paid');assert.equal(result,paid);
 });
-test('stale pending/failed notifications do not downgrade paid or refunded payments',async()=>{
- for(const state of [{status:'paid',paid_at:'2026-11-06T08:00:00Z'},{status:'refunded'}]){
- let writes=0;await api.applyDokuResult({...payment,...state},{...success,transaction:{status:'FAILED'}},()=>writes++,()=>writes++);assert.equal(writes,0);
- }
-});
-test('failed attempts do not release inventory; authorizations are not paid',async()=>{
- let rpc=0;const writes=[];
- await api.applyDokuResult(payment,{...success,transaction:{status:'FAILED'}},async(path,opts)=>writes.push({path,patch:JSON.parse(opts.body)}),()=>rpc++);
- assert.equal(rpc,0);assert.equal(writes.length,1);assert.match(writes[0].path,/paid_at=is.null/);
+test('authorizations are not paid and unknown states remain uncertain',()=>{
  assert.equal(api.dokuStatus('SUCCESS','AUTHORIZE'),'authorized');assert.equal(api.dokuStatus('TIMEOUT'),'unknown');
 });
 test('redirect allowlist rejects off-domain URLs and sandbox/production mixing',()=>{

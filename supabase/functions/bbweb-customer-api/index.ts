@@ -1,4 +1,4 @@
-import {config, refreshDoku, dokuRequest, safePaymentUrl} from '../_shared/doku.ts';
+import {config, refreshDoku, dokuRequest, safePaymentUrl, claimDokuPayment} from '../_shared/doku.ts';
 const ALLOWED_ORIGINS = new Set(['https://bisabikinweb.site', 'https://www.bisabikinweb.site', 'https://shop.bisabikinweb.site']);
 function cors(origin: string | null) {
   return {
@@ -204,12 +204,14 @@ async function retryPayment(user: any, orderNo: string) {
   if(!cfg.clientId||!cfg.secret)throw Object.assign(new Error('DOKU belum dikonfigurasi.'),{status:503});
   const rows=await db('bbweb_orders?select=id,order_no,total,currency,items,customer_name,customer_email,customer_phone,shipping_address,inventory_state&customer_id=eq.'+encodeURIComponent(order.customer_id)+'&order_no=eq.'+encodeURIComponent(orderNo)+'&limit=1');
   const current=rows?.[0];if(!current)throw Object.assign(new Error('Pesanan tidak ditemukan.'),{status:404});
-  const attempts=await db('bbweb_merch_payments?select=id&order_id=eq.'+encodeURIComponent(current.id)+'&status=in.(created,pending,authorized,unknown,failed)&limit=1');
-  if(attempts?.length)throw Object.assign(new Error('Pembayaran sebelumnya perlu diperiksa admin.'),{status:409});
-  if(current.inventory_state==='released')await rpc('bbweb_reserve_merch_order',{p_order_id:current.id});
   const total=Number(current.total),environment=cfg.environment,invoice=('BB'+current.id.replaceAll('-','').slice(0,16)+randomHex(6)).slice(0,30);
   if(!Number.isSafeInteger(total)||total<1||current.currency!=='IDR')throw Object.assign(new Error('Total pesanan tidak valid.'),{status:409});
-  await db('bbweb_merch_payments',{method:'POST',body:JSON.stringify({order_id:current.id,merchant_order_id:invoice,provider:'doku',amount:total,currency:'IDR',environment,status:'created'})});
+  const claim=await claimDokuPayment(current.id,invoice,rpc);
+  if(!claim.claimed){
+    const previous=claim.payment;
+    if(previous.provider==='doku'&&previous.environment===environment&&safePaymentUrl(previous.redirect_url,environment)&&['created','pending','authorized','failed'].includes(previous.status))return {ok:true,redirect_url:previous.redirect_url,reused:true};
+    throw Object.assign(new Error('Pembayaran sebelumnya perlu diperiksa admin.'),{status:409});
+  }
   const address=current.shipping_address||{};
   const body={order:{amount:total,invoice_number:invoice,currency:'IDR',callback_url:'https://bisabikinweb.site/account/?order='+encodeURIComponent(orderNo),line_items:current.items.map((x:any)=>({name:String(x.name).slice(0,255),price:Number(x.price),quantity:Number(x.quantity)}))},payment:{payment_due_date:30,type:'SALE'},customer:{name:current.customer_name,email:current.customer_email,phone:current.customer_phone,address:String(address.address||'').slice(0,400),city:address.city,state:address.province,postcode:address.postcode,country:'ID'},additional_info:{override_notification_url:(Deno.env.get('SUPABASE_URL')||'')+'/functions/v1/bbweb-doku-webhook'}};
   let response:Response;
