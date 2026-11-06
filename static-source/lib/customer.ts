@@ -1,7 +1,7 @@
-const SUPABASE_URL = 'https://iyhwephcrxeqwiemhppw.supabase.co';
-const SUPABASE_KEY = 'sb_publishable_0QZOXv00GKp6ecUi2L-FLA_YvsQrzy3';
+const SUPABASE_URL = 'https://kdlrobdzlxpjlkxbvzsd.supabase.co';
+const SUPABASE_KEY = 'sb_publishable_Xy3TI3nbOGglkk5xy6uAsA_ytlPYhv-';
 const FUNCTIONS_URL = SUPABASE_URL + '/functions/v1';
-const SESSION_KEY = 'bbweb_customer_session_v1';
+const SESSION_KEY = 'bbweb_customer_session_v2';
 
 export type CustomerSession = {
   access_token: string;
