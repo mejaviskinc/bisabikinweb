@@ -1,3 +1,4 @@
+import {config, refreshDoku} from '../_shared/doku.ts';
 const ALLOWED_ORIGINS = new Set(['https://bisabikinweb.site', 'https://www.bisabikinweb.site', 'https://app.bisabikinweb.site']);
 function secretKey() {
   const modern = Deno.env.get('SUPABASE_SECRET_KEYS');
@@ -32,7 +33,7 @@ async function db(path: string, options: RequestInit = {}) {
   if (!url || !key) throw new Error('Supabase server credentials unavailable');
   const headers = new Headers(options.headers || {});
   headers.set('apikey', key);
-  headers.set('Authorization', 'Bearer ' + key);
+  if (!key.startsWith('sb_secret_')) headers.set('Authorization', 'Bearer ' + key);
   headers.set('Accept', 'application/json');
   if (options.body !== undefined) headers.set('Content-Type', 'application/json');
   const response = await fetch(url + '/rest/v1/' + path, { ...options, headers });
@@ -94,6 +95,7 @@ async function dashboardData() {
     ok: true,
     payments: enriched,
     summary,
+    doku: {environment:config().environment,credentials_configured:Boolean(config().clientId&&config().secret),webhook_url:(Deno.env.get('SUPABASE_URL')||'')+'/functions/v1/bbweb-doku-webhook'},
     midtrans: {
       environment: (Deno.env.get('MIDTRANS_ENV') || 'sandbox').toLowerCase() === 'production' ? 'production' : 'sandbox',
       server_key_configured: Boolean(Deno.env.get('MIDTRANS_SERVER_KEY')),
@@ -104,9 +106,10 @@ async function dashboardData() {
 }
 async function refreshPayment(paymentId: string) {
   if (!/^[0-9a-f-]{36}$/i.test(paymentId)) throw Object.assign(new Error('ID transaksi tidak valid.'), { status: 400 });
-  const rows = await db('bbweb_merch_payments?select=id,order_id,merchant_order_id,amount,currency,environment,status,transaction_status,transaction_id,payment_type,fraud_status,status_code,created_at,paid_at&id=eq.' + encodeURIComponent(paymentId) + '&limit=1');
+  const rows = await db('bbweb_merch_payments?select=id,order_id,merchant_order_id,provider,amount,currency,environment,status,transaction_status,transaction_id,payment_type,fraud_status,status_code,created_at,paid_at&id=eq.' + encodeURIComponent(paymentId) + '&limit=1');
   const payment = Array.isArray(rows) ? rows[0] : null;
   if (!payment) throw Object.assign(new Error('Transaksi tidak ditemukan.'), { status: 404 });
+  if(payment.provider==='doku') return refreshDoku(payment,db,rpc);
   const serverKey = Deno.env.get('MIDTRANS_SERVER_KEY') || '';
   if (!serverKey) throw Object.assign(new Error('Midtrans Server Key belum dikonfigurasi di Supabase Edge Function Secrets.'), { status: 503 });
   const environment = String(payment.environment || Deno.env.get('MIDTRANS_ENV') || 'sandbox').toLowerCase() === 'production' ? 'production' : 'sandbox';
