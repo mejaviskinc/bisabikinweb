@@ -1,13 +1,15 @@
 // Run from the repository root. Tokens are read only from the environment.
 import {readFile} from 'node:fs/promises';
 import {spawnSync} from 'node:child_process';
-// Approved destination project; override explicitly when performing a reviewed migration.
-const project=process.env.SUPABASE_PROJECT_REF || 'kdlrobdzlxpjlkxbvzsd';
-if (!/^[a-z]{20}$/.test(project)) throw Error('Invalid Supabase project reference.');
+// Never deploy into a guessed project. The operator must verify the destination.
+const project=process.env.SUPABASE_PROJECT_REF || '';
+if(!project)throw Error('SUPABASE_PROJECT_REF is required. Verify the correct production project before running.');
+if(!/^[a-z]{20}$/.test(project))throw Error('Invalid Supabase project reference.');
 const apply=process.argv.includes('--apply');
-if(process.argv.some(x=>x.startsWith('--')&&!['--apply','--help'].includes(x)))throw Error('Unknown option');
+const allowShared=process.argv.includes('--allow-shared-project');
+if(process.argv.some(x=>x.startsWith('--')&&!['--apply','--help','--allow-shared-project'].includes(x)))throw Error('Unknown option');
 if(process.argv.includes('--help')){
- console.log('SUPABASE_ACCESS_TOKEN must be set in the environment.\nSUPABASE_PROJECT_REF defaults to kdlrobdzlxpjlkxbvzsd.\nnode scripts/deploy-doku.mjs          # read-only preflight\nnode scripts/deploy-doku.mjs --apply  # apply runtime patch and deploy backend\nDOKU credentials must be installed separately in Supabase Secrets.');process.exit(0);
+ console.log('SUPABASE_ACCESS_TOKEN must be set in the environment.\nSUPABASE_PROJECT_REF must be set explicitly to the verified project.\nnode scripts/deploy-doku.mjs          # read-only preflight\nnode scripts/deploy-doku.mjs --apply  # apply runtime patch and deploy backend\nShared projects with gn_* tables require manual review and --allow-shared-project.\nDOKU credentials must be installed separately in Supabase Secrets.');process.exit(0);
 }
 const token=process.env.SUPABASE_ACCESS_TOKEN;
 if(!token){console.error('SUPABASE_ACCESS_TOKEN is missing. Set it securely in your environment; do not put it in source code.');process.exit(1)}
@@ -16,6 +18,9 @@ async function management(path,body){
  if(!response.ok)throw Error('Supabase management request failed ('+response.status+'). Check access to project '+project+'.');
  return response.json();
 }
+// GoO ninks (gn_*) data was observed in the proposed target: fail closed.
+const shared=await management('/database/query',{query:"select table_name from information_schema.tables where table_schema='public' and table_name like 'gn_%' limit 10"});
+if(shared.length&&!allowShared)throw Error('Shared project contains gn_* tables. Review project ownership and data isolation before deploying. --allow-shared-project requires deliberate approval.');
 const columns=await management('/database/query',{query:"select table_name,column_name,data_type from information_schema.columns where table_schema='public' and table_name in ('bbweb_orders','bbweb_merch_payments')"});
 const required={bbweb_orders:['id','total','currency','payment_status','status','inventory_state'],bbweb_merch_payments:['id','order_id','provider','merchant_order_id','amount','currency','environment','status','paid_at']};
 for(const [table,names] of Object.entries(required))for(const name of names)if(!columns.some(x=>x.table_name===table&&x.column_name===name))throw Error('Missing column '+table+'.'+name+'. No changes applied.');
