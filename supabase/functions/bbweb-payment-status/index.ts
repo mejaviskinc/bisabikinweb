@@ -1,4 +1,5 @@
 import {config, refreshDoku, safePaymentUrl} from '../_shared/doku.ts';
+import {querySnapQris} from '../_shared/doku-snap.ts';
 const ALLOWED_ORIGINS=new Set(['https://bisabikinweb.site', 'https://www.bisabikinweb.site', 'https://shop.bisabikinweb.site']);
 function cors(origin:string|null){return {'Access-Control-Allow-Origin':origin&&ALLOWED_ORIGINS.has(origin)?origin:'https://bisabikinweb.site','Access-Control-Allow-Headers':'content-type, apikey, authorization','Access-Control-Allow-Methods':'POST, OPTIONS','Vary':'Origin','Cache-Control':'no-store','Content-Type':'application/json; charset=utf-8'};}
 function out(body:unknown,status=200,origin:string|null=null){return new Response(JSON.stringify(body),{status,headers:cors(origin)});}
@@ -11,6 +12,23 @@ function mapStatus(tx:string,fraud:string|undefined){const s=(tx||'').toLowerCas
 function displayStatus(value:string){const map:Record<string,string>={new:'New',waiting_payment:'Waiting Payment',paid:'Paid',payment_error:'Payment Error',processing:'Processing',ready:'Packed',packed:'Packed',shipped:'Shipped',completed:'Completed',cancelled:'Cancelled',expired:'Expired',refunded:'Refunded',partial_refund:'Partial Refund'};return map[value]||value;}
 async function reconcile(payment:any){
   if(payment?.provider==='doku'){try{return await refreshDoku(payment,db,rpc)}catch{return payment}}
+  if(payment?.provider==='doku_snap'&&payment.payment_type==='snap_qris'&&
+    ['created','pending','unknown'].includes(payment.status)&&payment.payment_details?.reference_no){
+    try{
+      const allowed=await rpc('bbweb_take_doku_poll_slot',{p_payment_id:payment.id});
+      if(allowed!==true)return payment;
+      const checked=await querySnapQris(payment.merchant_order_id,payment.payment_details.reference_no);
+      if(checked.status==='paid' && checked.amount===Number(payment.amount)){
+        return rpc('bbweb_apply_snap_payment',{
+          p_payment_id:payment.id,p_invoice:payment.merchant_order_id,p_amount:Number(payment.amount),
+          p_status:'paid',p_transaction_status:'SUCCESS',p_payment_type:'snap_qris'
+        });
+      }
+    }catch{}
+    return payment;
+  }
+  if(payment?.provider==='doku_snap')return payment;
+
 const serverKey=Deno.env.get('MIDTRANS_SERVER_KEY')||'';if(!serverKey||!payment?.merchant_order_id||!['created','pending','authorized','unknown'].includes(String(payment.status||'')))return;
   const environment=String(payment.environment||Deno.env.get('MIDTRANS_ENV')||'sandbox').toLowerCase()==='production'?'production':'sandbox';const apiBase=environment==='production'?'https://api.midtrans.com':'https://api.sandbox.midtrans.com';
   try{const r=await fetch(`${apiBase}/v2/${encodeURIComponent(payment.merchant_order_id)}/status`,{headers:{Accept:'application/json',Authorization:'Basic '+btoa(serverKey+':')},signal:AbortSignal.timeout(8000)});if(!r.ok)return;const p=await r.json();if(p?.order_id!==payment.merchant_order_id)return;const received=Math.round(Number(p?.gross_amount));if(!Number.isFinite(received)||received!==Number(payment.amount))return;const mapped=mapStatus(String(p?.transaction_status||''),p?.fraud_status);const upd:any={status:mapped,transaction_status:String(p?.transaction_status||''),transaction_id:p?.transaction_id||null,payment_type:p?.payment_type||null,fraud_status:p?.fraud_status||null,status_code:p?.status_code||null,raw_notification:{status_recheck:p},updated_at:new Date().toISOString()};if(mapped==='paid'&&!payment.paid_at)upd.paid_at=new Date().toISOString();await db('bbweb_merch_payments?id=eq.'+encodeURIComponent(payment.id),{method:'PATCH',headers:{Prefer:'return=minimal'},body:JSON.stringify(upd)});
@@ -22,11 +40,22 @@ const serverKey=Deno.env.get('MIDTRANS_SERVER_KEY')||'';if(!serverKey||!payment?
 }
 Deno.serve(async(req:Request)=>{const origin=req.headers.get('origin');if(req.method==='OPTIONS')return new Response(null,{status:204,headers:cors(origin)});if(req.method!=='POST')return out({error:'Method not allowed'},405,origin);if(!origin||!ALLOWED_ORIGINS.has(origin))return out({error:'Origin not allowed'},403,origin);let input:any;try{input=await req.json();}catch{return out({error:'Payload JSON tidak valid.'},400,origin)}const orderNo=String(input?.order_no||input?.order_id||'').trim().slice(0,80),token=String(input?.token||'').trim().toLowerCase().slice(0,80);if(!orderNo||!/^[a-f0-9]{64}$/.test(token))return out({error:'Referensi order tidak valid.'},400,origin);
   const accessHash=await sha256('access:'+token);let rows=await db('bbweb_orders?select=id,order_no,items,subtotal,discount,total,shipping_amount,shipping_address,currency,status,payment_status,inventory_state,reserved_until,created_at,updated_at,paid_at&order_no=eq.'+encodeURIComponent(orderNo)+'&access_token_hash=eq.'+encodeURIComponent(accessHash)+'&limit=1');let order=Array.isArray(rows)?rows[0]:null;if(!order)return out({error:'Order tidak ditemukan.'},404,origin);
-  let paymentRows=await db('bbweb_merch_payments?select=id,order_id,merchant_order_id,provider,amount,environment,status,transaction_status,payment_type,created_at,updated_at,paid_at&order_id=eq.'+encodeURIComponent(order.id)+'&order=created_at.desc&limit=1').catch(()=>[]);let payment=Array.isArray(paymentRows)?paymentRows[0]:null;
+  let paymentRows=await db('bbweb_merch_payments?select=id,order_id,merchant_order_id,provider,amount,environment,status,transaction_status,payment_type,payment_details,created_at,updated_at,paid_at&order_id=eq.'+encodeURIComponent(order.id)+'&order=created_at.desc&limit=1').catch(()=>[]);let payment=Array.isArray(paymentRows)?paymentRows[0]:null;
   if(payment)await reconcile(payment);
   await rpc('bbweb_release_expired_merch_reservations',{}).catch(()=>{});
   rows=await db('bbweb_orders?select=id,order_no,items,subtotal,discount,total,shipping_amount,shipping_address,currency,status,payment_status,inventory_state,reserved_until,created_at,updated_at,paid_at&order_no=eq.'+encodeURIComponent(orderNo)+'&access_token_hash=eq.'+encodeURIComponent(accessHash)+'&limit=1');order=Array.isArray(rows)?rows[0]:null;if(!order)return out({error:'Order tidak ditemukan.'},404,origin);
-  paymentRows=await db('bbweb_merch_payments?select=provider,environment,redirect_url,status,transaction_status,payment_type,created_at,updated_at,paid_at&order_id=eq.'+encodeURIComponent(order.id)+'&order=created_at.desc&limit=1').catch(()=>[]);payment=Array.isArray(paymentRows)?paymentRows[0]:null;
-  if(payment){const allowed=payment.provider==='doku'&&['created','pending','authorized','failed'].includes(payment.status)&&safePaymentUrl(payment.redirect_url,payment.environment);if(!allowed)delete payment.redirect_url;}
+  paymentRows=await db('bbweb_merch_payments?select=provider,environment,redirect_url,status,transaction_status,payment_type,payment_details,created_at,updated_at,paid_at&order_id=eq.'+encodeURIComponent(order.id)+'&order=created_at.desc&limit=1').catch(()=>[]);payment=Array.isArray(paymentRows)?paymentRows[0]:null;
+  if(payment){
+    const allowed=payment.provider==='doku'&&['created','pending','authorized','failed'].includes(payment.status)&&safePaymentUrl(payment.redirect_url,payment.environment);
+    if(!allowed)delete payment.redirect_url;
+    if(payment.provider==='doku_snap'&&payment.status==='pending'&&payment.payment_details&&typeof payment.payment_details==='object'){
+      const details=payment.payment_details;
+      payment.details=details.type==='qris'&&typeof details.qr_content==='string'&&details.qr_content.length<1100?
+        {type:'qris',qr_content:details.qr_content,expires_at:details.expires_at}:
+        details.type==='virtual_account'&&/^\d{8,28}$/.test(String(details.virtual_account_no||''))?
+        {type:'virtual_account',bank:details.bank,virtual_account_no:details.virtual_account_no,expires_at:details.expires_at}:null;
+    }
+    delete payment.payment_details;
+  }
   return out({ok:true,order:{order_no:order.order_no,items:order.items,subtotal:Number(order.subtotal),discount:Number(order.discount),shipping_amount:Number(order.shipping_amount),shipping_address:order.shipping_address||{},total:Number(order.total),currency:order.currency,status:displayStatus(String(order.status||'')),status_code:order.status,payment_status:order.payment_status,inventory_state:order.inventory_state,reserved_until:order.reserved_until,created_at:order.created_at,updated_at:order.updated_at,paid_at:order.paid_at,payment}},200,origin);
 });
