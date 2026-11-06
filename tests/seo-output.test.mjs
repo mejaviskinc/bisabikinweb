@@ -155,3 +155,21 @@ for(const page of localityPages){
 }
 assert.equal(new Set([...provincePages,...localityPages].map(page=>page.title)).size,212,'Generated titles should be unique');
 console.log('National coverage SEO verified: 38 indexable provinces, 174 navigable localities initially noindex, plus 16 priority cities.');
+
+const {sitelinkTargets}=await import('../static-source/lib/sitelinks.mjs');
+assert.equal(sitelinkTargets.length,6,'Homepage should prioritize six core sitelink destinations');
+assert.equal(new Set(sitelinkTargets.map(item=>item.href)).size,6,'Sitelink URLs must be unique');
+assert.match(nationwideHome,/<title>BisaBikinWeb\.id \| Jasa Bikin Website Seluruh Indonesia<\/title>/,'Branded homepage title must be stable');
+assert.match(nationwideHome,/aria-label="Halaman utama layanan BisaBikinWeb"/,'Homepage must have a clearly labelled priority navigation section');
+for(const target of sitelinkTargets){
+ const url=origin+target.href;
+ const route=target.href.replace(/^\/+|\/+$/g,'');
+ const html=await getHtml(route);
+ assert.ok(indexedLocations.has(url),'Sitelink destination must be in sitemap: '+url);
+ assert.ok(nationwideHome.includes('href="'+target.href+'"'),'Homepage must have crawlable href: '+target.href);
+ assert.ok(nationwideHome.includes(target.label),'Homepage must show descriptive sitelink label: '+target.label);
+ assert.ok((nationwideHome.match(new RegExp('href="'+target.href.replace(/\//g,'\\/')+'"','g'))||[]).length>=2,'Homepage and footer should link to '+target.href);
+ assert.match(html,/<meta name="robots" content="index,follow/,'Sitelink destination must be indexable: '+route);
+ assert.equal(first(html,/<link rel="canonical" href="([^"]+)"/),url,'Sitelink destination needs self-canonical: '+route);
+}
+console.log('Sitelink navigation verified: six crawlable homepage and footer destinations with indexable pages.');
