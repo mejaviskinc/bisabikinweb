@@ -69,3 +69,15 @@
 [data-theme="light"] .bbw-payment-total strong{color:#506e33}
 [data-theme="light"] .bbw-payment-actions button{color:#333b3b}
 [data-theme="light"] .bbw-payment-actions a{color:#526d30}
+
+/* Local QR rendering (MIT qrcodegen) and DOKU SNAP Virtual Account presentation */
+.bbw-payment-direct{margin:22px 0 12px;background:#252d29;border:1px solid #435246;border-radius:16px;padding:22px;text-align:center}
+.bbw-payment-direct>b{display:block;font-size:17px;font-weight:750}
+.bbw-payment-direct>p{color:#c1c9c5;font-size:12px;line-height:1.7;margin:9px auto 18px;max-width:330px}
+.bbw-payment-direct>small{display:block;color:#b0c3b8;font-size:12px;line-height:1.6;margin:14px auto 0;max-width:340px}
+.bbw-payment-qr{display:block;width:min(100%,260px);height:auto;aspect-ratio:1;background:#fff;border:12px solid #fff;border-radius:14px;margin:18px auto;image-rendering:pixelated;box-shadow:0 6px 20px #0003}
+.bbw-payment-va{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:16px;padding:17px;border-radius:12px;background:#101712;border:1px solid #495b4a}
+.bbw-payment-va strong{font-size:clamp(18px,3vw,24px);letter-spacing:.07em;overflow-wrap:anywhere;color:#d9eccd}
+.bbw-payment-va button{display:flex;align-items:center;gap:7px;background:#e0eccb;color:#182419;border:0;border-radius:8px;padding:9px 13px;font-size:12px;font-weight:750;cursor:pointer}
+[data-theme="light"] .bbw-payment-direct{background:#f4f7f1;border-color:#d5dfd3}
+[data-theme="light"] .bbw-payment-direct>p,[data-theme="light"] .bbw-payment-direct>small{color:#5c6b62}
