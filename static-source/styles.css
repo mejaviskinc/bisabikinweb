@@ -597,3 +597,16 @@
  .seo-unique-page[data-hero="11"] .seo-detail-hero>div:first-child{padding-left:0}
 }
 @media(prefers-reduced-motion:reduce){.seo-unique-page .seo-identity-art svg{animation:none}}
+
+/* Photography for each stage, with a consistent readable overlay in both themes. */
+.process-detail{isolation:isolate;background:#101510;color:#fff}
+.process-detail .process-photo{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .45s ease;pointer-events:none;z-index:-2}
+.process-detail .process-photo.active{opacity:1}
+.process-detail::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(6,10,7,.22) 0%,rgba(6,10,7,.55) 40%,rgba(6,10,7,.95) 100%);z-index:-1;pointer-events:none}
+.process-detail .process-number{color:rgba(255,255,255,.2);text-shadow:0 2px 24px #0003}
+.process-detail .eyebrow{color:#dde4d8}
+.process-detail p{color:#e2e6df}
+.process-detail .process-dots{position:relative}
+.process-detail .process-dots button{background:#ffffff55}
+.process-detail .process-dots button.active{background:var(--accent)}
+@media(prefers-reduced-motion:reduce){.process-detail .process-photo{transition:none}}
