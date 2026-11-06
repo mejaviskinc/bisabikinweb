@@ -1,6 +1,6 @@
-const SUPABASE_URL='https://iyhwephcrxeqwiemhppw.supabase.co';
-const SUPABASE_KEY='sb_publishable_0QZOXv00GKp6ecUi2L-FLA_YvsQrzy3';
-const SESSION_KEY='bbweb_admin_session_v1';
+const SUPABASE_URL='https://kdlrobdzlxpjlkxbvzsd.supabase.co';
+const SUPABASE_KEY='sb_publishable_Xy3TI3nbOGglkk5xy6uAsA_ytlPYhv-';
+const SESSION_KEY='bbweb_admin_session_v2';
 const ARTICLE_BUCKET='bbweb-article-images';
 
 export type AdminSession={access_token:string;refresh_token:string;expires_at:number;user:any};
