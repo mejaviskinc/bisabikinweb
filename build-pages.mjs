@@ -139,7 +139,7 @@ function protectHtml(html){
  const adConnections=hasAdsense?' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://www.google.com':'';
  const adFrames=hasAdsense?' https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com https://ep2.adtrafficquality.google':'';
  const hashes=[...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)].filter(m=>m[1].trim()).map(m=>"'sha256-"+createHash('sha256').update(m[1]).digest('base64')+"'");
- const policy=["default-src 'none'","base-uri 'none'","object-src 'none'","script-src 'self' "+hashes.join(' ')+adScripts,"script-src-attr 'none'","style-src 'self' 'unsafe-inline'","img-src 'self' data: https:","font-src 'self' data:","connect-src 'self' https://iyhwephcrxeqwiemhppw.supabase.co"+adConnections,"frame-src https://www.instagram.com https://instagram.com https://berbeda.co.id https://www.berbeda.co.id https://karpenter.co.id https://www.karpenter.co.id https://mejaviskincare.co.id https://www.mejaviskincare.co.id https://gooninks.co.id https://www.gooninks.co.id https://gojogjatravel.web.id https://www.gojogjatravel.web.id"+adFrames,"media-src 'self'","form-action 'none'","upgrade-insecure-requests"].join('; ');
+ const policy=["default-src 'none'","base-uri 'none'","object-src 'none'","script-src 'self' "+hashes.join(' ')+adScripts,"script-src-attr 'none'","style-src 'self' 'unsafe-inline'","img-src 'self' data: https:","font-src 'self' data:","connect-src 'self' https://kdlrobdzlxpjlkxbvzsd.supabase.co"+adConnections,"frame-src https://www.instagram.com https://instagram.com https://berbeda.co.id https://www.berbeda.co.id https://karpenter.co.id https://www.karpenter.co.id https://mejaviskincare.co.id https://www.mejaviskincare.co.id https://gooninks.co.id https://www.gooninks.co.id https://gojogjatravel.web.id https://www.gojogjatravel.web.id"+adFrames,"media-src 'self'","form-action 'none'","upgrade-insecure-requests"].join('; ');
  return html.replace('<head>','<head><meta http-equiv="Content-Security-Policy" content="'+policy+'"/><meta name="referrer" content="no-referrer"/>');
 }
 const template=await readFile('site-dist/index.html','utf8');
@@ -236,7 +236,7 @@ const publicEditorial=buildArticles.filter(article=>article.author_type!=='selle
 await writeFile('site-dist/auto-artikel/content.json',JSON.stringify({schema:1,generatedAt:new Date().toISOString(),source:'GitHub Pages editorial build',targetDaily:20,articles:publicEditorial},null,2));
 // Strict site CSP with a narrowly-scoped read-only connection to the public GitHub API.
 const monitorHtml=protectHtml(await readFile('site-dist/auto-artikel/index.html','utf8'));
-const monitorGithubApi=monitorHtml.replace('connect-src \'self\' https://iyhwephcrxeqwiemhppw.supabase.co','connect-src \'self\' https://iyhwephcrxeqwiemhppw.supabase.co https://api.github.com');
+const monitorGithubApi=monitorHtml.replace('connect-src \'self\' https://kdlrobdzlxpjlkxbvzsd.supabase.co','connect-src \'self\' https://kdlrobdzlxpjlkxbvzsd.supabase.co https://api.github.com');
 if(monitorGithubApi===monitorHtml)throw new Error('Auto Artikel CSP connection rule not found');
 await writeFile('site-dist/auto-artikel/index.html',monitorGithubApi);
 
