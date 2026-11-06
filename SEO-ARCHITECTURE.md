@@ -81,3 +81,11 @@ Rujukan: https://developers.google.com/search/docs/crawling-indexing/consolidate
 - Meta title, meta description, H1, skenario, checklist, catatan praktis dan FAQ spesifik setiap kota berbeda.
 - Structured data `Service` menunjukkan wilayah yang dapat dilayani secara online, tidak menambahkan `PostalAddress`, `LocalBusiness`, cabang, peta, atau testimoni palsu.
 - SEO multi-kota harus diperluas secara bertahap hanya setelah ada data Search Console, kebutuhan unik, dan bukti layanan yang relevan. Jangan menggandakan halaman dengan mengganti nama lokasi.
+
+## Direktori wilayah nasional tambahan
+- `/wilayah/` memiliki direktori responsif dengan pencarian untuk 38 provinsi dan 189 contoh lokasi, serta 16 kota dengan panduan khusus.
+- 38 halaman `/wilayah/provinsi/:provinsi/` berisi contoh jasa, tautan seluruh lokasi tercantum, proses proyek, dan FAQ.
+- 174 halaman `/wilayah/provinsi/:provinsi/:lokasi/` melengkapi 15 lokasi yang sudah masuk 16 halaman prioritas. Kota Jakarta adalah halaman prioritas yang terpisah dari 189 lokasi dalam direktori.
+- Metadata, canonical, sitemap, BreadcrumbList, dan Service schema ditambahkan untuk seluruh URL. Semua mengacu ke `https://bisabikinweb.site/`, bukan mengganti domain.
+- Konten baru adalah contoh penerapan website, bukan bukti proyek lokal. Jangan menganggap banyaknya halaman otomatis meningkatkan ranking; tambahkan studi kasus nyata dan informasi spesifik setelah verifikasi.
+- UI dirancang dengan tipografi premium, ringkasan cakupan, pencarian wilayah, daftar tautan daerah, CTA, dan tampilan responsif.

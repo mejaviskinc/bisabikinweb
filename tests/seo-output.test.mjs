@@ -119,3 +119,29 @@ for(const city of cityLandingPages){
  assert.ok(breadcrumb?.itemListElement.some(el=>el.item===origin+'/wilayah/'),route+' missing hub in breadcrumb');
 }
 console.log('City SEO output verified:',cityLandingPages.length,'unique pages, self canonical, index, schema, and hub links.');
+
+const {provincePages,localityPages,placeLink}=await import('../static-source/lib/geo-pages.mjs');
+assert.equal(provincePages.length,38,'Must have 38 province guides');
+assert.equal(localityPages.length,174,'Must cover 174 additional places');
+assert.equal(new Set([...provincePages,...localityPages].map(page=>page.path)).size,212,'All added URLs unique');
+for(const province of serviceAreaGroups.flatMap(group=>group.provinces)){
+ for(const place of province.places){
+  const path=placeLink(place,province.name);
+  assert.ok(nationwide.includes('href="'+path),place+' must appear as linked location');
+ }
+}
+for(const page of [...provincePages,...localityPages]){
+ const url=origin+page.path+'/';
+ const html=await getHtml(page.path.slice(1));
+ assert.ok(indexedLocations.has(url),page.path+' missing sitemap');
+ assert.equal(first(html,/<link rel="canonical" href="([^"]+)"/),url,page.path+' canonical mismatch');
+ assert.equal(first(html,/<title>([^<]+)<\/title>/),page.title,page.path+' title mismatch');
+ assert.ok(!first(html,/<meta name="robots" content="([^"]+)"/).includes('noindex'),page.path+' noindex');
+ const graph=scripts(html),service=graph.find(s=>s['@type']==='Service'),breadcrumbs=graph.find(s=>s['@type']==='BreadcrumbList');
+ assert.equal(graph.filter(s=>s['@type']==='Service').length,1,page.path+' service schema duplicates');
+ assert.ok(breadcrumbs?.itemListElement.some(c=>c.item===origin+'/wilayah/'),page.path+' breadcrumb missing');
+ if(page.city){assert.equal(service?.areaServed?.name,page.city);assert.ok(html.includes(page.topic.name)&&html.includes(page.topic.steps[0]),page.path+' content missing')}
+ else {assert.equal(service?.areaServed?.name,page.name);assert.ok(html.includes(page.name)&&html.includes(page.locations[0]),page.path+' directory missing')}
+}
+assert.equal(new Set([...provincePages,...localityPages].map(page=>page.title)).size,212,'Generated titles should be unique');
+console.log('Full national SEO verified: 38 provinces, 174 additional localities, plus 16 existing priority cities.');
