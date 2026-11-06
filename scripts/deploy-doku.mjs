@@ -1,11 +1,13 @@
 // Run from the repository root. Tokens are read only from the environment.
 import {readFile} from 'node:fs/promises';
 import {spawnSync} from 'node:child_process';
-// Approved destination project; override explicitly when performing a reviewed migration.\nconst project=process.env.SUPABASE_PROJECT_REF || 'kdlrobdzlxpjlkxbvzsd';\nif (!/^[a-z]{20}$/.test(project)) throw Error('Invalid Supabase project reference.');
+// Approved destination project; override explicitly when performing a reviewed migration.
+const project=process.env.SUPABASE_PROJECT_REF || 'kdlrobdzlxpjlkxbvzsd';
+if (!/^[a-z]{20}$/.test(project)) throw Error('Invalid Supabase project reference.');
 const apply=process.argv.includes('--apply');
 if(process.argv.some(x=>x.startsWith('--')&&!['--apply','--help'].includes(x)))throw Error('Unknown option');
 if(process.argv.includes('--help')){
- console.log('SUPABASE_ACCESS_TOKEN must be set in the environment.\nSUPABASE_PROJECT_REF defaults to kdlrobdzlxpjlkxbvzsd.\\nnode scripts/deploy-doku.mjs          # read-only preflight\nnode scripts/deploy-doku.mjs --apply  # apply runtime patch and deploy backend\nDOKU credentials must be installed separately in Supabase Secrets.');process.exit(0);
+ console.log('SUPABASE_ACCESS_TOKEN must be set in the environment.\nSUPABASE_PROJECT_REF defaults to kdlrobdzlxpjlkxbvzsd.\nnode scripts/deploy-doku.mjs          # read-only preflight\nnode scripts/deploy-doku.mjs --apply  # apply runtime patch and deploy backend\nDOKU credentials must be installed separately in Supabase Secrets.');process.exit(0);
 }
 const token=process.env.SUPABASE_ACCESS_TOKEN;
 if(!token){console.error('SUPABASE_ACCESS_TOKEN is missing. Set it securely in your environment; do not put it in source code.');process.exit(1)}
