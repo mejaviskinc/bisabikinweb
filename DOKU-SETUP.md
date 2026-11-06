@@ -4,9 +4,9 @@ This branch replaces checkout for new merchandise orders with DOKU Checkout (non
 
 ## Required access
 
-**Approved migration destination (6 November 2026):** Supabase project `kdlrobdzlxpjlkxbvzsd` (connected, active). Direct inspection found **zero `bbweb_%` tables, zero `bbweb_%` SQL RPCs, and zero Edge Functions** there; the generic `orders`, `payments`, `products` and `articles` tables each had zero rows. The live frontend still references the original `iyhwephcrxeqwiemhppw` project, which is not exposed by the connected Supabase accounts. **Do not deploy or switch the production frontend before migrating and verifying the original schema and data.** Merely storing DOKU credentials in the new project does not activate its checkout.
+**Migration blocked — source access unavailable (6 November 2026):** The live frontend uses `iyhwephcrxeqwiemhppw`, but none of the connected Supabase accounts can access it. The connected projects `kdlrobdzlxpjlkxbvzsd`, `etahuzvozoomklsqepyt`, and `nbkszvcaaitualyonkcw` each have **zero `bbweb_%` tables and zero `bbweb_%` RPCs**. The previously suggested target `kdlrobdzlxpjlkxbvzsd` is **not empty**: it contains seven GoO ninks `gn_%` tables and one Auth user. Do not treat it as an approved replacement without verifying tenancy and obtaining authorization. **Do not deploy DOKU or switch production until the original source database or a verified backup is available.**
 
-Set server-only secrets in that project: `DOKU_CLIENT_ID`, `DOKU_SECRET_KEY`, `DOKU_ENV=sandbox` (later `production`). Keep existing Supabase and historical Midtrans secrets. Never commit credentials or place them in the frontend.
+Only after confirming the real live or migrated project, set server-only secrets in that project: `DOKU_CLIENT_ID`, `DOKU_SECRET_KEY`, `DOKU_ENV=sandbox` (later `production`). Keep existing Supabase and historical Midtrans secrets. Never commit credentials or place them in the frontend.
 
 ## Preflight before rollout
 
@@ -21,14 +21,14 @@ These functions use SECURITY INVOKER and are executable only by service_role. Th
 
 ## Backend deployment helper
 
-Install Supabase CLI. Set `SUPABASE_ACCESS_TOKEN` securely in the shell environment (or an operator's secret store), then run from the repository root:
+Install Supabase CLI. Set `SUPABASE_ACCESS_TOKEN` securely and `SUPABASE_PROJECT_REF` explicitly to the verified project; the script has **no default target**. Then run from the repository root:
 
 ```sh
 node scripts/deploy-doku.mjs
 node scripts/deploy-doku.mjs --apply
 ```
 
-The first command only checks project/schema compatibility and is expected to **fail** until the source `bbweb_*` schema and RPCs have been migrated. The second applies the additive runtime patch and deploys only the five affected functions, preserving existing JWT settings and deploying the signed webhook without gateway JWT verification. It does not configure DOKU credentials or publish the frontend. If provider constraints do not allow DOKU, deployment stops for schema review rather than rewriting payment history.
+The first command only checks project/schema compatibility and is expected to **fail** until the correct `bbweb_*` schema and RPCs have been migrated. If `gn_*` tables are detected, deployment is blocked unless shared-project tenancy has been carefully reviewed and `--allow-shared-project` was deliberately supplied. Do not use this override to bypass missing order data. The second applies the additive runtime patch and deploys only the five affected functions, preserving existing JWT settings and deploying the signed webhook without gateway JWT verification. It does not configure DOKU credentials or publish the frontend. If provider constraints do not allow DOKU, deployment stops for schema review rather than rewriting payment history.
 
 Deploy `_shared/doku.ts` with each dependent function:
 - `bbweb-doku-webhook` (`verify_jwt=false`; verifies DOKU HMAC itself)
@@ -37,8 +37,10 @@ Deploy `_shared/doku.ts` with each dependent function:
 - `bbweb-payment-status`
 - `bbweb-customer-api`
 
-Register this notification URL in DOKU only **after migration and backend validation**:
-`https://kdlrobdzlxpjlkxbvzsd.supabase.co/functions/v1/bbweb-doku-webhook`
+After deploying the verified backend, register a notification URL in DOKU (not before):
+`https://<verified-project-ref>.supabase.co/functions/v1/bbweb-doku-webhook`
+
+Replace `<verified-project-ref>` with the confirmed `SUPABASE_PROJECT_REF`. Do not register the candidate target URL by default.
 
 The signed Request-Target must be `/functions/v1/bbweb-doku-webhook`. The public URL is used because Supabase's internal function URL can be rewritten. DOKU retries can be delayed, so notification authentication does not impose a short timestamp window. Replay safety relies on immutable invoice+amount matching and idempotent settlement, plus guards against paid/refunded status regression.
 
@@ -57,7 +59,7 @@ References:
 
 ## Langkah pemasangan API DOKU
 
-Sesudah data dan skema `bbweb_*` dipindahkan dari proyek lama dan backend berhasil terpasang pada `kdlrobdzlxpjlkxbvzsd`:
+Setelah proyek sumber dapat diakses, verifikasi proyek tujuan, pindahkan data dan skema `bbweb_*`, lalu pasang backend pada tujuan yang telah disetujui:
 1. Buka Supabase → Edge Functions → Secrets.
 2. Isi `DOKU_CLIENT_ID` dan `DOKU_SECRET_KEY` dari akun Sandbox DOKU.
 3. Isi `DOKU_ENV` dengan `sandbox`.
