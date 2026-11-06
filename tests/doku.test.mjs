@@ -38,7 +38,8 @@ test('verified results use the atomic settlement RPC with invoice and exact amou
  assert.equal(calls[0].args.p_amount,10000);assert.equal(calls[0].args.p_status,'paid');assert.equal(result,paid);
 });
 test('authorizations are not paid and unknown states remain uncertain',()=>{
- assert.equal(api.dokuStatus('SUCCESS','AUTHORIZE'),'authorized');assert.equal(api.dokuStatus('TIMEOUT'),'unknown');\n assert.equal(api.dokuStatus('FAILED','SALE'),'pending','DOKU Checkout FAILED allows retry on the same payment page');
+ assert.equal(api.dokuStatus('SUCCESS','AUTHORIZE'),'authorized');assert.equal(api.dokuStatus('TIMEOUT),'unknown');
+ assert.equal(api.dokuStatus('FAILED','SALE'),'pending','DOKU Checkout FAILED allows retry on the same payment page');
 });
 test('redirect allowlist rejects off-domain URLs and sandbox/production mixing',()=>{
  assert.equal(api.safePaymentUrl('https://sandbox.doku.com/checkout/test','sandbox'),true);
