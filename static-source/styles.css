@@ -460,3 +460,140 @@
 .seo-story-theme-lokasi .seo-story-content,.seo-story-theme-jenis-website .seo-story-content{border-top:3px solid var(--accent)}
 @media(max-width:840px){.seo-story-heading{flex-direction:column}.seo-story-index{align-items:center;flex-direction:row;text-align:left}.seo-story-content{grid-template-columns:1fr}.seo-story-highlight{border-left:0;border-top:1px solid var(--line)}}
 @media(max-width:570px){.seo-story-prose,.seo-story-highlight{padding:22px}.seo-story-outcome{grid-template-columns:1fr}}
+
+/* VISUAL IDENTITY SYSTEM — 600 page-specific compositions, shared BisaBikinWeb DNA.
+   12 hero arrangements × 10 editorial arrangements × 5 content card treatments.
+   Only scoped .seo-unique-page rules are affected. Theme, header and footer unchanged. */
+.seo-unique-page{--seo-art-accent:var(--accent);--seo-art-panel:var(--panel);--seo-ink:var(--text)}
+.seo-unique-page .seo-design-strap{display:flex;align-items:center;justify-content:space-between;gap:14px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:12px 0;margin:0 0 34px}
+.seo-design-strap span{font:10px monospace;letter-spacing:1.2px;color:var(--muted)}
+.seo-design-strap strong{font:12px monospace;letter-spacing:1.5px;color:var(--accent)}
+.seo-unique-page .seo-detail-hero{isolation:isolate}
+.seo-identity-art{color:var(--seo-art-accent);width:100%;margin:-8px 0 12px}
+.seo-identity-art svg{width:100%;max-height:172px;display:block}
+.seo-identity-art>span{display:flex;justify-content:space-between;gap:14px;border-top:1px solid var(--line);padding:9px 0 0;font:9px monospace;color:var(--muted);letter-spacing:.6px}
+.seo-identity-art>span b{color:var(--text);font-weight:600}
+.seo-unique-page .seo-detail-hero h1{text-wrap:balance}
+.seo-unique-page .seo-detail-overview{min-width:0;overflow:hidden}
+.seo-unique-page .seo-editorial-story,.seo-unique-page .seo-benefit-section,.seo-unique-page .seo-checklist,.seo-unique-page .seo-price-section,.seo-unique-page .seo-faq-section{position:relative}
+.seo-unique-page .seo-story-content,.seo-unique-page .seo-benefit-grid,.seo-unique-page .seo-story-outcome{transition:background-color .2s}
+.seo-unique-page .seo-detail-hero{grid-template-columns:minmax(0,1.85fr) minmax(260px,.72fr)}
+/* HERO: asymmetric editorial composition, alternating reading direction, centered
+   typography, full-width card, bold left rail, framed headline, and graphic-led. */
+.seo-unique-page[data-hero="1"] .seo-detail-hero{grid-template-columns:minmax(270px,.68fr) minmax(0,1.35fr)}
+.seo-unique-page[data-hero="1"] .seo-detail-hero>div:first-child{order:2}
+.seo-unique-page[data-hero="1"] .seo-detail-overview{order:1}
+.seo-unique-page[data-hero="2"] .seo-detail-hero{grid-template-columns:1fr}
+.seo-unique-page[data-hero="2"] .seo-detail-hero>div:first-child{max-width:1050px}
+.seo-unique-page[data-hero="2"] .seo-detail-overview{display:grid;grid-template-columns:minmax(0,1fr) minmax(170px,.6fr);gap:15px;align-items:center}
+.seo-unique-page[data-hero="2"] .seo-identity-art{grid-row:1/5;grid-column:1}
+.seo-unique-page[data-hero="3"] .seo-detail-hero{grid-template-columns:1fr}
+.seo-unique-page[data-hero="3"] .seo-detail-hero>div:first-child{text-align:center;margin:0 auto;max-width:920px}
+.seo-unique-page[data-hero="3"] .seo-actions{justify-content:center}
+.seo-unique-page[data-hero="3"] .seo-detail-overview{flex-direction:row;align-items:center;gap:22px}
+.seo-unique-page[data-hero="3"] .seo-identity-art{width:min(42%,300px);flex-shrink:0}
+.seo-unique-page[data-hero="4"] .seo-detail-hero>div:first-child{border-left:4px solid var(--accent);padding-left:25px}
+.seo-unique-page[data-hero="4"] .seo-detail-overview{border-radius:0 24px 0 24px}
+.seo-unique-page[data-hero="5"] .seo-detail-hero{grid-template-columns:minmax(0,1.28fr) minmax(280px,1fr)}
+.seo-unique-page[data-hero="5"] .seo-detail-hero h1{font-size:clamp(46px,6.5vw,92px)}
+.seo-unique-page[data-hero="5"] .seo-detail-overview{justify-content:space-between}
+.seo-unique-page[data-hero="6"] .seo-detail-hero{grid-template-columns:1fr}
+.seo-unique-page[data-hero="6"] .seo-detail-hero>div:first-child{background:var(--panel);padding:clamp(22px,3.5vw,48px);border:1px solid var(--line);border-radius:22px}
+.seo-unique-page[data-hero="6"] .seo-detail-overview{display:grid;grid-template-columns:1.3fr .8fr .9fr;gap:20px;align-items:center;background:transparent}
+.seo-unique-page[data-hero="7"] .seo-detail-hero{grid-template-columns:minmax(0,1.6fr) minmax(270px,.8fr)}
+.seo-unique-page[data-hero="7"] .seo-detail-hero>div:first-child{padding-top:28px;border-top:8px solid var(--accent)}
+.seo-unique-page[data-hero="7"] .seo-detail-overview{border-top:8px solid var(--text)}
+.seo-unique-page[data-hero="8"] .seo-detail-hero{grid-template-columns:minmax(240px,.75fr) minmax(0,1.3fr)}
+.seo-unique-page[data-hero="8"] .seo-detail-hero>div:first-child{order:2;padding:24px;border:1px solid var(--line);border-radius:12px}
+.seo-unique-page[data-hero="8"] .seo-detail-overview{order:1;justify-content:center}
+.seo-unique-page[data-hero="9"] .seo-detail-hero{grid-template-columns:1fr}
+.seo-unique-page[data-hero="9"] .seo-detail-hero h1{max-width:1200px;font-size:clamp(45px,7vw,106px);line-height:1.04}
+.seo-unique-page[data-hero="9"] .seo-detail-overview{flex-direction:row;gap:22px;align-items:center;border-radius:0}
+.seo-unique-page[data-hero="9"] .seo-identity-art{width:36%;flex-shrink:0}
+.seo-unique-page[data-hero="10"] .seo-detail-hero{grid-template-columns:minmax(0,1.25fr) minmax(290px,1fr)}
+.seo-unique-page[data-hero="10"] .seo-detail-hero>div:first-child{padding:30px;background:var(--soft);border-radius:14px}
+.seo-unique-page[data-hero="10"] .seo-detail-overview{background:transparent;border:1px dashed var(--accent);border-radius:14px}
+.seo-unique-page[data-hero="11"] .seo-detail-hero{grid-template-columns:1fr}
+.seo-unique-page[data-hero="11"] .seo-detail-hero>div:first-child{max-width:1150px;padding-left:min(8vw,110px)}
+.seo-unique-page[data-hero="11"] .seo-detail-overview{display:flex;flex-flow:row wrap;align-items:center;border-top:2px solid var(--accent)}
+.seo-unique-page[data-hero="11"] .seo-identity-art{width:240px;max-width:100%;margin-right:22px}
+/* EDITORIAL: story and signature have ten composition variants. */
+.seo-unique-page[data-story="1"] .seo-story-content{grid-template-columns:minmax(260px,.8fr) minmax(0,1.3fr)}
+.seo-unique-page[data-story="1"] .seo-story-prose{grid-column:2;grid-row:1}
+.seo-unique-page[data-story="1"] .seo-story-highlight{grid-column:1;grid-row:1;border-left:0;border-right:1px solid var(--line)}
+.seo-unique-page[data-story="2"] .seo-story-content{grid-template-columns:1fr}
+.seo-unique-page[data-story="2"] .seo-story-highlight{border-left:0;border-top:1px solid var(--line);padding:27px 40px}
+.seo-unique-page[data-story="2"] .seo-story-prose{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:35px}
+.seo-unique-page[data-story="2"] .seo-story-prose p:first-child{grid-column:span 2}
+.seo-unique-page[data-story="3"] .seo-story-content{grid-template-columns:1fr}
+.seo-unique-page[data-story="3"] .seo-story-highlight{grid-row:1;border-left:0;border-bottom:1px solid var(--line);background:var(--soft)}
+.seo-unique-page[data-story="3"] .seo-story-highlight h3{max-width:580px}
+.seo-unique-page[data-story="3"] .seo-story-prose{grid-row:2;max-width:900px}
+.seo-unique-page[data-story="4"] .seo-story-content{grid-template-columns:minmax(0,1fr) minmax(300px,1fr)}
+.seo-unique-page[data-story="4"] .seo-story-prose{border-left:5px solid var(--accent)}
+.seo-unique-page[data-story="4"] .seo-story-highlight{align-items:center;text-align:center}
+.seo-unique-page[data-story="5"] .seo-story-content{grid-template-columns:1fr}
+.seo-unique-page[data-story="5"] .seo-story-prose{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.seo-unique-page[data-story="5"] .seo-story-prose p{border-right:1px solid var(--line);padding-right:18px}
+.seo-unique-page[data-story="5"] .seo-story-highlight{border:0;border-top:1px solid var(--line)}
+.seo-unique-page[data-story="6"] .seo-story-content{grid-template-columns:minmax(250px,.85fr) minmax(0,1.4fr)}
+.seo-unique-page[data-story="6"] .seo-story-highlight{grid-column:1;grid-row:1;border-left:0;background:var(--soft)}
+.seo-unique-page[data-story="6"] .seo-story-prose{grid-column:2;grid-row:1}
+.seo-unique-page[data-story="7"] .seo-story-content{grid-template-columns:1fr}
+.seo-unique-page[data-story="7"] .seo-story-prose{padding:40px min(7vw,78px);max-width:1040px;margin:auto}
+.seo-unique-page[data-story="7"] .seo-story-prose p{font-size:clamp(16px,1.65vw,20px)}
+.seo-unique-page[data-story="7"] .seo-story-highlight{border-left:0;border-top:3px solid var(--accent)}
+.seo-unique-page[data-story="8"] .seo-story-content{grid-template-columns:minmax(0,1.3fr) minmax(290px,.9fr);border-radius:0 22px 0 22px}
+.seo-unique-page[data-story="8"] .seo-story-prose p{padding-left:15px;border-left:2px solid var(--line)}
+.seo-unique-page[data-story="8"] .seo-story-highlight{background:var(--soft)}
+.seo-unique-page[data-story="9"] .seo-story-content{grid-template-columns:1fr}
+.seo-unique-page[data-story="9"] .seo-story-prose{display:grid;grid-template-columns:1fr 1fr;gap:28px}
+.seo-unique-page[data-story="9"] .seo-story-prose p:last-child{grid-column:span 2;padding:22px;border-top:1px solid var(--line)}
+.seo-unique-page[data-story="9"] .seo-story-highlight{border-left:0;border-top:1px solid var(--line)}
+/* CARDS: five distinct arrangements in sections following the editorial narrative. */
+.seo-unique-page[data-cards="1"] .seo-benefit-grid{grid-template-columns:minmax(0,1.3fr) minmax(0,.7fr)}
+.seo-unique-page[data-cards="1"] .seo-benefit-grid article:first-child{grid-row:span 2;display:flex;flex-direction:column;justify-content:center}
+.seo-unique-page[data-cards="1"] .seo-benefit-grid article:first-child h3{font-size:clamp(25px,3vw,38px)}
+.seo-unique-page[data-cards="2"] .seo-benefit-grid{grid-template-columns:1fr}
+.seo-unique-page[data-cards="2"] .seo-benefit-grid article{display:grid;grid-template-columns:155px minmax(150px,.6fr) minmax(0,1.5fr);align-items:center;gap:19px}
+.seo-unique-page[data-cards="2"] .seo-benefit-grid article h3{margin:0}
+.seo-unique-page[data-cards="2"] .seo-benefit-grid article p{margin:0}
+.seo-unique-page[data-cards="3"] .seo-benefit-grid{grid-template-columns:repeat(2,minmax(0,1fr))}
+.seo-unique-page[data-cards="3"] .seo-benefit-grid article:last-child{grid-column:span 2;display:flex;flex-direction:row;align-items:center;gap:25px;border-top:3px solid var(--accent)}
+.seo-unique-page[data-cards="3"] .seo-benefit-grid article:last-child h3{min-width:31%}
+.seo-unique-page[data-cards="4"] .seo-benefit-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:0}
+.seo-unique-page[data-cards="4"] .seo-benefit-grid article{border-radius:0;border-right:0}
+.seo-unique-page[data-cards="4"] .seo-benefit-grid article:last-child{border-right:1px solid var(--line)}
+.seo-unique-page[data-cards="4"] .seo-benefit-grid h3{font-size:19px}
+.seo-unique-page[data-cards="4"] .seo-checklist li:nth-child(2n){background:var(--panel);padding-left:14px}
+/* Visual balance and accessibility on tablets and phones. */
+@media(max-width:1100px){
+ .seo-unique-page[data-hero="3"] .seo-detail-overview,.seo-unique-page[data-hero="9"] .seo-detail-overview,.seo-unique-page[data-hero="11"] .seo-detail-overview{flex-wrap:wrap}
+ .seo-unique-page[data-hero="6"] .seo-detail-overview{grid-template-columns:1fr 1fr}
+ .seo-unique-page[data-hero="6"] .seo-identity-art{grid-column:span 2}
+}
+@media(max-width:800px){
+ .seo-unique-page .seo-detail-hero,.seo-unique-page[data-hero="1"] .seo-detail-hero,.seo-unique-page[data-hero="5"] .seo-detail-hero,.seo-unique-page[data-hero="7"] .seo-detail-hero,.seo-unique-page[data-hero="8"] .seo-detail-hero,.seo-unique-page[data-hero="10"] .seo-detail-hero{grid-template-columns:1fr}
+ .seo-unique-page[data-hero="1"] .seo-detail-hero>div:first-child,.seo-unique-page[data-hero="8"] .seo-detail-hero>div:first-child{order:0}
+ .seo-unique-page[data-hero="1"] .seo-detail-overview,.seo-unique-page[data-hero="8"] .seo-detail-overview{order:1}
+ .seo-unique-page[data-story="1"] .seo-story-content,.seo-unique-page[data-story="4"] .seo-story-content,.seo-unique-page[data-story="6"] .seo-story-content,.seo-unique-page[data-story="8"] .seo-story-content{grid-template-columns:1fr}
+ .seo-unique-page[data-story="1"] .seo-story-prose,.seo-unique-page[data-story="1"] .seo-story-highlight,.seo-unique-page[data-story="6"] .seo-story-prose,.seo-unique-page[data-story="6"] .seo-story-highlight{grid-row:auto;grid-column:auto}
+ .seo-unique-page[data-story="1"] .seo-story-highlight{border-right:0;border-top:1px solid var(--line)}
+ .seo-unique-page[data-story="5"] .seo-story-prose{grid-template-columns:1fr}
+ .seo-unique-page[data-story="5"] .seo-story-prose p{border-right:0;padding:0}
+ .seo-unique-page[data-cards="1"] .seo-benefit-grid,.seo-unique-page[data-cards="3"] .seo-benefit-grid,.seo-unique-page[data-cards="4"] .seo-benefit-grid{grid-template-columns:1fr}
+ .seo-unique-page[data-cards="1"] .seo-benefit-grid article:first-child,.seo-unique-page[data-cards="3"] .seo-benefit-grid article:last-child{grid-row:auto;grid-column:auto}
+ .seo-unique-page[data-cards="3"] .seo-benefit-grid article:last-child{flex-direction:column;align-items:flex-start}
+ .seo-unique-page[data-cards="2"] .seo-benefit-grid article{grid-template-columns:1fr}
+ .seo-unique-page[data-cards="4"] .seo-benefit-grid article{border-right:1px solid var(--line);border-radius:10px}
+}
+@media(max-width:600px){
+ .seo-unique-page[data-hero="2"] .seo-detail-overview,.seo-unique-page[data-hero="6"] .seo-detail-overview{display:flex;flex-direction:column;align-items:flex-start}
+ .seo-unique-page[data-hero="2"] .seo-identity-art,.seo-unique-page[data-hero="6"] .seo-identity-art{width:100%}
+ .seo-unique-page[data-story="2"] .seo-story-prose,.seo-unique-page[data-story="9"] .seo-story-prose{display:flex;flex-direction:column}
+ .seo-unique-page[data-story="2"] .seo-story-prose p:first-child,.seo-unique-page[data-story="9"] .seo-story-prose p:last-child{grid-column:auto}
+ .seo-unique-page[data-hero="3"] .seo-detail-overview{display:flex;flex-direction:column;align-items:flex-start}
+ .seo-unique-page[data-hero="3"] .seo-identity-art{width:100%}
+ .seo-unique-page[data-hero="11"] .seo-detail-hero>div:first-child{padding-left:0}
+}
+@media(prefers-reduced-motion:reduce){.seo-unique-page .seo-identity-art svg{animation:none}}

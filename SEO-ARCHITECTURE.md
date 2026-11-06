@@ -111,3 +111,13 @@ Rujukan: https://developers.google.com/search/docs/crawling-indexing/consolidate
 - Templat desain menggunakan kolom editorial, panel ciri khas dan bagian hasil + pertanyaan brief dengan tampilan mobile responsif.
 - Test produksi memeriksa tujuh komponen naratif unik pada setiap satu dari 600 halaman SSR dan memastikan tidak ada bagian cerita yang sama persis antarkonten.
 - Detail 600 halaman tetap `noindex` sampai ada pengayaan editorial berupa pengalaman/proyek asli dan verifikasi klaim.
+
+## Variasi visual 600 halaman SEO — mempertahankan desain website utama
+- Halaman /solusi/ memakai identitas visual **BisaBikinWeb** yang sama: logo, header, navigasi, footer, font, mode terang/gelap, warna accent hijau, tombol dan tautan.
+- Halaman detail memiliki **600 kombinasi komposisi yang berbeda** melalui 12 varian hero × 10 format cerita editorial × 5 pola kartu manfaat. Ini sistem variasi terukur, **bukan 600 halaman yang didesain manual satu per satu**.
+- Modul `static-source/lib/seo-page-design.mjs` menghitung identitas tampilan dari ID permanen halaman. Setiap halaman memiliki tanda `data-design` yang unik, `data-hero`, `data-story`, dan `data-cards`.
+- Identitas geometris ringan dari SVG inline memanfaatkan skema warna website asli dan koordinat khusus setiap ID; tidak memerlukan foto stok, unduhan font, atau JavaScript runtime tambahan.
+- CSS khusus di `static-source/styles.css` hanya berlaku di `.seo-unique-page`, sehingga layout beranda, jasa, checkout, dashboard dan halaman lain tidak berubah.
+- Layout mengikuti breakpoint tablet/mobile, mempertahankan konten yang dapat diakses, internal link, FAQ, catatan bahwa cerita ilustratif, serta CTA konsultasi.
+- Pengujian `tests/seo-landing-pages.test.mjs` memastikan 600 kombinasi desain berbeda pada 600 HTML prerendered, artwork hadir, dan shell header/footer website utama terjaga.
+- Status `noindex` 600 halaman tetap diterapkan; variasi desain semata tidak memenuhi persyaratan konten bernilai unik untuk Google.
