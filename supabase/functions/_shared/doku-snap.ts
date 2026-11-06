@@ -139,7 +139,7 @@ export async function verifySnapWebhook(req:Request,raw:string,canonicalPath:str
  const partner=req.headers.get('x-partner-id')||'';
  const received=req.headers.get('x-signature')||'';
  const stamp=req.headers.get('x-timestamp')||'';
- if(partner!==c.clientId||!received||!stamp||Math.abs(Date.now()-Date.parse(stamp))>300000)return false;
+ if(partner!==c.clientId||!received||!stamp||!Number.isFinite(Date.parse(stamp))||Math.abs(Date.now()-Date.parse(stamp))>300000)return false;
  const token=req.headers.get('authorization')?.replace(/^Bearer /i,'')||'';
  // DOKU uses its B2B bearer token to form the signed notification string.
  // HMAC-SHA512 with the server-only merchant secret authenticates the body.
