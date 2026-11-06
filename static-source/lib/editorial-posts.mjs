@@ -598,6 +598,25 @@ const evergreen20261105 = [
 }));
 editorialPosts.push(...evergreen20261105.filter(post => !editorialPosts.some(existing => existing.id === post.id)));
 
+const evergreen20261106 = [
+  ["struktur-halaman-jasa-website","Struktur Halaman Jasa Website yang Membantu Calon Klien Mengambil Keputusan","Jasa Website","Susunan halaman jasa website untuk menjelaskan layanan, proses, bukti kerja, dan konsultasi secara jelas.","Halaman jasa harus menjawab masalah calon klien sebelum meminta mereka menghubungi bisnis."],
+  ["copywriting-website-umkm","Copywriting Website UMKM: Cara Menulis yang Jelas tanpa Janji Berlebihan","UMKM Digital","Panduan copywriting website UMKM agar manfaat produk, layanan, dan cara menghubungi bisnis mudah dipahami.","Teks yang baik membantu pelanggan mengambil keputusan berdasarkan informasi yang dapat diperiksa."],
+  ["crm-sederhana-website-bisnis","CRM Sederhana dari Website Bisnis: Merapikan Lead tanpa Sistem yang Rumit","Bisnis Digital","Cara menghubungkan formulir website dengan proses pencatatan lead sederhana agar tindak lanjut bisnis lebih rapi.","Mulai dari data yang benar-benar dibutuhkan tim untuk merespons calon pelanggan."],
+  ["landing-page-ekspor-buyer","Landing Page Ekspor untuk Buyer: Informasi yang Membuat Inquiry Lebih Berkualitas","Ekspor","Panduan menyusun landing page ekspor yang menjelaskan produk, kapasitas, dokumen, dan jalur komunikasi buyer.","Buyer memerlukan konteks produk yang konsisten sebelum meminta penawaran atau sampel."],
+  ["ai-untuk-riset-pasar-umkm","AI untuk Riset Pasar UMKM: Cara Memakai dengan Verifikasi yang Tepat","AI untuk Bisnis","Cara memakai AI untuk membantu riset pasar UMKM sambil memeriksa sumber, konteks, dan keputusan akhir.","AI mempercepat penyusunan pertanyaan dan rangkuman, tetapi keputusan tetap memerlukan data yang terverifikasi."],
+  ["integrasi-whatsapp-website-bisnis","Integrasi WhatsApp di Website Bisnis: Desain Alur Kontak yang Tidak Mengganggu","Marketing","Panduan menata tombol dan alur WhatsApp pada website bisnis agar pelanggan mudah bertanya tanpa pengalaman yang mengganggu.","Tentukan halaman, pesan awal, dan penanggung jawab respons sebelum menambah tombol kontak."],
+  ["website-aksesibilitas-pelanggan","Aksesibilitas Website untuk Pelanggan: Perbaikan Kecil yang Berdampak Besar","Website","Langkah awal meningkatkan aksesibilitas website bisnis melalui struktur, kontras, teks alternatif, dan navigasi.","Website yang jelas dan mudah dinavigasi membantu lebih banyak pelanggan menemukan informasi penting."],
+  ["strategi-blog-website-bisnis","Strategi Blog Website Bisnis: Menentukan Topik yang Mendukung Layanan","SEO","Cara merencanakan blog bisnis berdasarkan pertanyaan pelanggan, layanan utama, dan tujuan pencarian yang relevan.","Topik blog perlu membantu pembaca sekaligus memperjelas keahlian bisnis, bukan sekadar mengejar jumlah artikel."],
+  ["optimasi-formulir-inquiry-website","Optimasi Formulir Inquiry Website: Pertanyaan yang Mempercepat Tindak Lanjut","Marketing","Panduan membuat formulir inquiry website yang singkat, relevan, dan membantu tim menyiapkan respons lebih cepat.","Minta informasi secukupnya agar calon pelanggan tidak berhenti sebelum mengirim pertanyaan."],
+  ["backup-website-bisnis","Backup Website Bisnis: Strategi Dasar agar Pemulihan Tidak Panik","Keamanan Website","Panduan backup website bisnis mencakup data penting, frekuensi, penyimpanan, dan uji pemulihan.","Cadangan yang tidak pernah diuji belum tentu dapat digunakan ketika website mengalami masalah."]
+].map(([id,title,category,summary,focus], index) => ({
+  id,title,category,read:"7 menit",summary,
+  image:`https://bisabikinweb.site/article-covers/2026-11-06/${id}.webp`,cover_image_url:`https://bisabikinweb.site/article-covers/2026-11-06/${id}.webp`,
+  author_type:"editorial",author_store_name:"BisaBikinWeb",published_at:"2026-11-06T08:00:00+07:00",updated_at:"2026-11-06T08:00:00+07:00",sort_order:340+index,
+  body:[`## Fokus utama\n${focus} Tetapkan hasil yang dapat diuji, lalu pastikan setiap perubahan mendukung kebutuhan pelanggan dan kemampuan tim.`,`## Langkah pelaksanaan\nMulai dari kondisi saat ini. Buat daftar prioritas, penanggung jawab, dan tenggat kecil. Uji perubahan pada halaman atau proses yang paling sering dipakai sebelum memperluasnya.`,`## Pengukuran dan evaluasi\nPantau pertanyaan pelanggan, tindakan pada halaman, hambatan yang berulang, serta waktu respons tim. Gunakan hasil ini untuk memperbaiki proses secara bertahap.`,`## Risiko yang perlu dijaga\nHindari klaim yang tidak dapat dibuktikan, fitur yang tidak dirawat, dan pengumpulan data yang tidak diperlukan. Dokumentasikan perubahan serta siapkan cadangan bila menyentuh halaman penting.`,"Keterangan gambar: Foto editorial orisinal dibuat khusus untuk panduan ini; bukan dokumentasi peristiwa."]
+}));
+editorialPosts.push(...evergreen20261106.filter(post => !editorialPosts.some(existing => existing.id === post.id)));
+
 export function mergeEditorialPosts(articles = []) {
   const source = Array.isArray(articles) ? articles : [];
   const existing = new Set(source.map(article => article.id));
