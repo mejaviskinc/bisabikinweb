@@ -1,0 +1,5416 @@
+{
+  "brand": "BisaBikinWeb.id",
+  "domain": "https://bisabikinweb.site",
+  "generated_date": "2026-11-07",
+  "notes": "600 ide kueri pencarian potensial. Bukan laporan volume pencarian, hasil indeks, atau jaminan ranking.",
+  "counts": {
+    "nasional": 40,
+    "jenis-website": 144,
+    "industri": 160,
+    "lokasi": 216,
+    "fitur": 40
+  },
+  "total": 600,
+  "keywords": [
+    {
+      "id": 1,
+      "keyword": "jasa bikin web profesional",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 2,
+      "keyword": "jasa bikin website profesional",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 3,
+      "keyword": "jasa pembuatan website indonesia",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/wilayah/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 4,
+      "keyword": "jasa buat website murah",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 5,
+      "keyword": "jasa pembuatan web untuk bisnis",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 6,
+      "keyword": "jasa desain web modern",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 7,
+      "keyword": "jasa bikin website online",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 8,
+      "keyword": "jasa pembuatan website nasional",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/wilayah/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 9,
+      "keyword": "jasa website untuk umkm",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 10,
+      "keyword": "jasa pembuatan website usaha kecil",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 11,
+      "keyword": "buat website bisnis sendiri",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 12,
+      "keyword": "jasa developer website",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 13,
+      "keyword": "jasa pembuatan situs bisnis",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 14,
+      "keyword": "vendor website indonesia",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/wilayah/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 15,
+      "keyword": "jasa pembuatan website untuk usaha jasa",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 16,
+      "keyword": "jasa pembuat website perusahaan",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 17,
+      "keyword": "jasa bikin web responsif",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 18,
+      "keyword": "jasa bikin web seo friendly",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 19,
+      "keyword": "jasa bikin web dengan domain",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 20,
+      "keyword": "jasa bikin web dengan hosting",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 21,
+      "keyword": "website profesional untuk bisnis",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 22,
+      "keyword": "layanan pembuatan website online",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 23,
+      "keyword": "jasa web developer indonesia",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/wilayah/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 24,
+      "keyword": "jasa bikin web terpercaya",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 25,
+      "keyword": "jasa pembuatan web modern",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 26,
+      "keyword": "jasa bikin website custom",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 27,
+      "keyword": "jasa pembuatan website seluruh indonesia",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/wilayah/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 28,
+      "keyword": "jasa website dengan konsultasi gratis",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 29,
+      "keyword": "jasa bikin website untuk pemula bisnis",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 30,
+      "keyword": "harga pembuatan website profesional",
+      "cluster": "nasional",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 31,
+      "keyword": "biaya pembuatan website bisnis",
+      "cluster": "nasional",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 32,
+      "keyword": "paket bikin website murah",
+      "cluster": "nasional",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 33,
+      "keyword": "paket jasa pembuatan website",
+      "cluster": "nasional",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 34,
+      "keyword": "harga jasa bikin web",
+      "cluster": "nasional",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 35,
+      "keyword": "biaya jasa bikin website",
+      "cluster": "nasional",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 36,
+      "keyword": "estimasi harga website bisnis",
+      "cluster": "nasional",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 37,
+      "keyword": "jasa membuat situs usaha",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 38,
+      "keyword": "jasa website cepat dan responsif",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 39,
+      "keyword": "layanan desain dan pembuatan website",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 40,
+      "keyword": "jasa website untuk brand lokal",
+      "cluster": "nasional",
+      "intent": "commercial",
+      "target_url": "/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 41,
+      "keyword": "jasa bikin landing page",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/landing-page/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 42,
+      "keyword": "jasa pembuatan landing page",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/landing-page/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 43,
+      "keyword": "biaya pembuatan landing page",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 44,
+      "keyword": "harga jasa landing page",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 45,
+      "keyword": "paket landing page untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 46,
+      "keyword": "vendor pembuatan landing page",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/landing-page/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 47,
+      "keyword": "konsultasi pembuatan landing page",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/landing-page/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 48,
+      "keyword": "jasa desain landing page",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/landing-page/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 49,
+      "keyword": "layanan landing page profesional",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/landing-page/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 50,
+      "keyword": "jasa pengembangan landing page",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/landing-page/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 51,
+      "keyword": "bikin landing page untuk usaha",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/landing-page/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 52,
+      "keyword": "contoh landing page untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "informational",
+      "target_url": "/jasa/landing-page/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 53,
+      "keyword": "jasa bikin website company profile",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 54,
+      "keyword": "jasa pembuatan website company profile",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 55,
+      "keyword": "biaya pembuatan website company profile",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 56,
+      "keyword": "harga jasa website company profile",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 57,
+      "keyword": "paket website company profile untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 58,
+      "keyword": "vendor pembuatan website company profile",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 59,
+      "keyword": "konsultasi pembuatan website company profile",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 60,
+      "keyword": "jasa desain website company profile",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 61,
+      "keyword": "layanan website company profile profesional",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 62,
+      "keyword": "jasa pengembangan website company profile",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 63,
+      "keyword": "bikin website company profile untuk usaha",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 64,
+      "keyword": "contoh website company profile untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "informational",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 65,
+      "keyword": "jasa bikin toko online",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 66,
+      "keyword": "jasa pembuatan toko online",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 67,
+      "keyword": "biaya pembuatan toko online",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 68,
+      "keyword": "harga jasa toko online",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 69,
+      "keyword": "paket toko online untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 70,
+      "keyword": "vendor pembuatan toko online",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 71,
+      "keyword": "konsultasi pembuatan toko online",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 72,
+      "keyword": "jasa desain toko online",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 73,
+      "keyword": "layanan toko online profesional",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 74,
+      "keyword": "jasa pengembangan toko online",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 75,
+      "keyword": "bikin toko online untuk usaha",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 76,
+      "keyword": "contoh toko online untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "informational",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 77,
+      "keyword": "jasa bikin website ecommerce",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 78,
+      "keyword": "jasa pembuatan website ecommerce",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 79,
+      "keyword": "biaya pembuatan website ecommerce",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 80,
+      "keyword": "harga jasa website ecommerce",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 81,
+      "keyword": "paket website ecommerce untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 82,
+      "keyword": "vendor pembuatan website ecommerce",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 83,
+      "keyword": "konsultasi pembuatan website ecommerce",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 84,
+      "keyword": "jasa desain website ecommerce",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 85,
+      "keyword": "layanan website ecommerce profesional",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 86,
+      "keyword": "jasa pengembangan website ecommerce",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 87,
+      "keyword": "bikin website ecommerce untuk usaha",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 88,
+      "keyword": "contoh website ecommerce untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "informational",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 89,
+      "keyword": "jasa bikin website portofolio",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 90,
+      "keyword": "jasa pembuatan website portofolio",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 91,
+      "keyword": "biaya pembuatan website portofolio",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 92,
+      "keyword": "harga jasa website portofolio",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 93,
+      "keyword": "paket website portofolio untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 94,
+      "keyword": "vendor pembuatan website portofolio",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 95,
+      "keyword": "konsultasi pembuatan website portofolio",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 96,
+      "keyword": "jasa desain website portofolio",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 97,
+      "keyword": "layanan website portofolio profesional",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 98,
+      "keyword": "jasa pengembangan website portofolio",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 99,
+      "keyword": "bikin website portofolio untuk usaha",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 100,
+      "keyword": "contoh website portofolio untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "informational",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 101,
+      "keyword": "jasa bikin website personal branding",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 102,
+      "keyword": "jasa pembuatan website personal branding",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 103,
+      "keyword": "biaya pembuatan website personal branding",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 104,
+      "keyword": "harga jasa website personal branding",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 105,
+      "keyword": "paket website personal branding untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 106,
+      "keyword": "vendor pembuatan website personal branding",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 107,
+      "keyword": "konsultasi pembuatan website personal branding",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 108,
+      "keyword": "jasa desain website personal branding",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 109,
+      "keyword": "layanan website personal branding profesional",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 110,
+      "keyword": "jasa pengembangan website personal branding",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 111,
+      "keyword": "bikin website personal branding untuk usaha",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 112,
+      "keyword": "contoh website personal branding untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "informational",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 113,
+      "keyword": "jasa bikin web app custom",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 114,
+      "keyword": "jasa pembuatan web app custom",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 115,
+      "keyword": "biaya pembuatan web app custom",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 116,
+      "keyword": "harga jasa web app custom",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 117,
+      "keyword": "paket web app custom untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 118,
+      "keyword": "vendor pembuatan web app custom",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 119,
+      "keyword": "konsultasi pembuatan web app custom",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 120,
+      "keyword": "jasa desain web app custom",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 121,
+      "keyword": "layanan web app custom profesional",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 122,
+      "keyword": "jasa pengembangan web app custom",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 123,
+      "keyword": "bikin web app custom untuk usaha",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 124,
+      "keyword": "contoh web app custom untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "informational",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 125,
+      "keyword": "jasa bikin website booking online",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 126,
+      "keyword": "jasa pembuatan website booking online",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 127,
+      "keyword": "biaya pembuatan website booking online",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 128,
+      "keyword": "harga jasa website booking online",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 129,
+      "keyword": "paket website booking online untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 130,
+      "keyword": "vendor pembuatan website booking online",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 131,
+      "keyword": "konsultasi pembuatan website booking online",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 132,
+      "keyword": "jasa desain website booking online",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 133,
+      "keyword": "layanan website booking online profesional",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 134,
+      "keyword": "jasa pengembangan website booking online",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 135,
+      "keyword": "bikin website booking online untuk usaha",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 136,
+      "keyword": "contoh website booking online untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "informational",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 137,
+      "keyword": "jasa bikin website katalog produk",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 138,
+      "keyword": "jasa pembuatan website katalog produk",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 139,
+      "keyword": "biaya pembuatan website katalog produk",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 140,
+      "keyword": "harga jasa website katalog produk",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 141,
+      "keyword": "paket website katalog produk untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 142,
+      "keyword": "vendor pembuatan website katalog produk",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 143,
+      "keyword": "konsultasi pembuatan website katalog produk",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 144,
+      "keyword": "jasa desain website katalog produk",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 145,
+      "keyword": "layanan website katalog produk profesional",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 146,
+      "keyword": "jasa pengembangan website katalog produk",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 147,
+      "keyword": "bikin website katalog produk untuk usaha",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 148,
+      "keyword": "contoh website katalog produk untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "informational",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 149,
+      "keyword": "jasa bikin website ekspor",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 150,
+      "keyword": "jasa pembuatan website ekspor",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 151,
+      "keyword": "biaya pembuatan website ekspor",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 152,
+      "keyword": "harga jasa website ekspor",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 153,
+      "keyword": "paket website ekspor untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 154,
+      "keyword": "vendor pembuatan website ekspor",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 155,
+      "keyword": "konsultasi pembuatan website ekspor",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 156,
+      "keyword": "jasa desain website ekspor",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 157,
+      "keyword": "layanan website ekspor profesional",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 158,
+      "keyword": "jasa pengembangan website ekspor",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 159,
+      "keyword": "bikin website ekspor untuk usaha",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 160,
+      "keyword": "contoh website ekspor untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "informational",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 161,
+      "keyword": "jasa bikin website artikel dan berita",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 162,
+      "keyword": "jasa pembuatan website artikel dan berita",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 163,
+      "keyword": "biaya pembuatan website artikel dan berita",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 164,
+      "keyword": "harga jasa website artikel dan berita",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 165,
+      "keyword": "paket website artikel dan berita untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 166,
+      "keyword": "vendor pembuatan website artikel dan berita",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 167,
+      "keyword": "konsultasi pembuatan website artikel dan berita",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 168,
+      "keyword": "jasa desain website artikel dan berita",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 169,
+      "keyword": "layanan website artikel dan berita profesional",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 170,
+      "keyword": "jasa pengembangan website artikel dan berita",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 171,
+      "keyword": "bikin website artikel dan berita untuk usaha",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 172,
+      "keyword": "contoh website artikel dan berita untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "informational",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 173,
+      "keyword": "jasa bikin website multibahasa",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 174,
+      "keyword": "jasa pembuatan website multibahasa",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 175,
+      "keyword": "biaya pembuatan website multibahasa",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 176,
+      "keyword": "harga jasa website multibahasa",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 177,
+      "keyword": "paket website multibahasa untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 178,
+      "keyword": "vendor pembuatan website multibahasa",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 179,
+      "keyword": "konsultasi pembuatan website multibahasa",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 180,
+      "keyword": "jasa desain website multibahasa",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 181,
+      "keyword": "layanan website multibahasa profesional",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 182,
+      "keyword": "jasa pengembangan website multibahasa",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 183,
+      "keyword": "bikin website multibahasa untuk usaha",
+      "cluster": "jenis-website",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 184,
+      "keyword": "contoh website multibahasa untuk bisnis",
+      "cluster": "jenis-website",
+      "intent": "informational",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 185,
+      "keyword": "jasa bikin website untuk coffee shop",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 186,
+      "keyword": "jasa pembuatan website coffee shop",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 187,
+      "keyword": "buat website coffee shop profesional",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 188,
+      "keyword": "harga website coffee shop",
+      "cluster": "industri",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 189,
+      "keyword": "contoh website coffee shop",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 190,
+      "keyword": "desain web coffee shop",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 191,
+      "keyword": "fitur website coffee shop",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 192,
+      "keyword": "website coffee shop dengan formulir kontak",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 193,
+      "keyword": "jasa bikin website untuk restoran",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 194,
+      "keyword": "jasa pembuatan website restoran",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 195,
+      "keyword": "buat website restoran profesional",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 196,
+      "keyword": "harga website restoran",
+      "cluster": "industri",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 197,
+      "keyword": "contoh website restoran",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 198,
+      "keyword": "desain web restoran",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 199,
+      "keyword": "fitur website restoran",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 200,
+      "keyword": "website restoran dengan formulir kontak",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 201,
+      "keyword": "jasa bikin website untuk toko baju",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 202,
+      "keyword": "jasa pembuatan website toko baju",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 203,
+      "keyword": "buat website toko baju profesional",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 204,
+      "keyword": "harga website toko baju",
+      "cluster": "industri",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 205,
+      "keyword": "contoh website toko baju",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 206,
+      "keyword": "desain web toko baju",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 207,
+      "keyword": "fitur website toko baju",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 208,
+      "keyword": "website toko baju dengan formulir kontak",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 209,
+      "keyword": "jasa bikin website untuk brand skincare",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 210,
+      "keyword": "jasa pembuatan website brand skincare",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 211,
+      "keyword": "buat website brand skincare profesional",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 212,
+      "keyword": "harga website brand skincare",
+      "cluster": "industri",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 213,
+      "keyword": "contoh website brand skincare",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 214,
+      "keyword": "desain web brand skincare",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 215,
+      "keyword": "fitur website brand skincare",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 216,
+      "keyword": "website brand skincare dengan formulir kontak",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 217,
+      "keyword": "jasa bikin website untuk klinik kecantikan",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 218,
+      "keyword": "jasa pembuatan website klinik kecantikan",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 219,
+      "keyword": "buat website klinik kecantikan profesional",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 220,
+      "keyword": "harga website klinik kecantikan",
+      "cluster": "industri",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 221,
+      "keyword": "contoh website klinik kecantikan",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 222,
+      "keyword": "desain web klinik kecantikan",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 223,
+      "keyword": "fitur website klinik kecantikan",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 224,
+      "keyword": "website klinik kecantikan dengan formulir kontak",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 225,
+      "keyword": "jasa bikin website untuk salon",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 226,
+      "keyword": "jasa pembuatan website salon",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 227,
+      "keyword": "buat website salon profesional",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 228,
+      "keyword": "harga website salon",
+      "cluster": "industri",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 229,
+      "keyword": "contoh website salon",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 230,
+      "keyword": "desain web salon",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 231,
+      "keyword": "fitur website salon",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 232,
+      "keyword": "website salon dengan formulir kontak",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 233,
+      "keyword": "jasa bikin website untuk biro travel",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 234,
+      "keyword": "jasa pembuatan website biro travel",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 235,
+      "keyword": "buat website biro travel profesional",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 236,
+      "keyword": "harga website biro travel",
+      "cluster": "industri",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 237,
+      "keyword": "contoh website biro travel",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 238,
+      "keyword": "desain web biro travel",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 239,
+      "keyword": "fitur website biro travel",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 240,
+      "keyword": "website biro travel dengan formulir kontak",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 241,
+      "keyword": "jasa bikin website untuk rental mobil",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 242,
+      "keyword": "jasa pembuatan website rental mobil",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 243,
+      "keyword": "buat website rental mobil profesional",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 244,
+      "keyword": "harga website rental mobil",
+      "cluster": "industri",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 245,
+      "keyword": "contoh website rental mobil",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 246,
+      "keyword": "desain web rental mobil",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 247,
+      "keyword": "fitur website rental mobil",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 248,
+      "keyword": "website rental mobil dengan formulir kontak",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 249,
+      "keyword": "jasa bikin website untuk villa",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 250,
+      "keyword": "jasa pembuatan website villa",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 251,
+      "keyword": "buat website villa profesional",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 252,
+      "keyword": "harga website villa",
+      "cluster": "industri",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 253,
+      "keyword": "contoh website villa",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 254,
+      "keyword": "desain web villa",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 255,
+      "keyword": "fitur website villa",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 256,
+      "keyword": "website villa dengan formulir kontak",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 257,
+      "keyword": "jasa bikin website untuk penginapan",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 258,
+      "keyword": "jasa pembuatan website penginapan",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 259,
+      "keyword": "buat website penginapan profesional",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 260,
+      "keyword": "harga website penginapan",
+      "cluster": "industri",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 261,
+      "keyword": "contoh website penginapan",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 262,
+      "keyword": "desain web penginapan",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 263,
+      "keyword": "fitur website penginapan",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 264,
+      "keyword": "website penginapan dengan formulir kontak",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 265,
+      "keyword": "jasa bikin website untuk sekolah",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 266,
+      "keyword": "jasa pembuatan website sekolah",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 267,
+      "keyword": "buat website sekolah profesional",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 268,
+      "keyword": "harga website sekolah",
+      "cluster": "industri",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 269,
+      "keyword": "contoh website sekolah",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 270,
+      "keyword": "desain web sekolah",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 271,
+      "keyword": "fitur website sekolah",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 272,
+      "keyword": "website sekolah dengan formulir kontak",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 273,
+      "keyword": "jasa bikin website untuk lembaga kursus",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 274,
+      "keyword": "jasa pembuatan website lembaga kursus",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 275,
+      "keyword": "buat website lembaga kursus profesional",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 276,
+      "keyword": "harga website lembaga kursus",
+      "cluster": "industri",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 277,
+      "keyword": "contoh website lembaga kursus",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 278,
+      "keyword": "desain web lembaga kursus",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 279,
+      "keyword": "fitur website lembaga kursus",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 280,
+      "keyword": "website lembaga kursus dengan formulir kontak",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 281,
+      "keyword": "jasa bikin website untuk agen properti",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 282,
+      "keyword": "jasa pembuatan website agen properti",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 283,
+      "keyword": "buat website agen properti profesional",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 284,
+      "keyword": "harga website agen properti",
+      "cluster": "industri",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 285,
+      "keyword": "contoh website agen properti",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 286,
+      "keyword": "desain web agen properti",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 287,
+      "keyword": "fitur website agen properti",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 288,
+      "keyword": "website agen properti dengan formulir kontak",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 289,
+      "keyword": "jasa bikin website untuk kontraktor",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 290,
+      "keyword": "jasa pembuatan website kontraktor",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 291,
+      "keyword": "buat website kontraktor profesional",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 292,
+      "keyword": "harga website kontraktor",
+      "cluster": "industri",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 293,
+      "keyword": "contoh website kontraktor",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 294,
+      "keyword": "desain web kontraktor",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 295,
+      "keyword": "fitur website kontraktor",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 296,
+      "keyword": "website kontraktor dengan formulir kontak",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 297,
+      "keyword": "jasa bikin website untuk supplier industri",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 298,
+      "keyword": "jasa pembuatan website supplier industri",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 299,
+      "keyword": "buat website supplier industri profesional",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 300,
+      "keyword": "harga website supplier industri",
+      "cluster": "industri",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 301,
+      "keyword": "contoh website supplier industri",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 302,
+      "keyword": "desain web supplier industri",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 303,
+      "keyword": "fitur website supplier industri",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 304,
+      "keyword": "website supplier industri dengan formulir kontak",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 305,
+      "keyword": "jasa bikin website untuk toko elektronik",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 306,
+      "keyword": "jasa pembuatan website toko elektronik",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 307,
+      "keyword": "buat website toko elektronik profesional",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 308,
+      "keyword": "harga website toko elektronik",
+      "cluster": "industri",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 309,
+      "keyword": "contoh website toko elektronik",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 310,
+      "keyword": "desain web toko elektronik",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 311,
+      "keyword": "fitur website toko elektronik",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 312,
+      "keyword": "website toko elektronik dengan formulir kontak",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 313,
+      "keyword": "jasa bikin website untuk perusahaan ekspor",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 314,
+      "keyword": "jasa pembuatan website perusahaan ekspor",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 315,
+      "keyword": "buat website perusahaan ekspor profesional",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 316,
+      "keyword": "harga website perusahaan ekspor",
+      "cluster": "industri",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 317,
+      "keyword": "contoh website perusahaan ekspor",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 318,
+      "keyword": "desain web perusahaan ekspor",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 319,
+      "keyword": "fitur website perusahaan ekspor",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 320,
+      "keyword": "website perusahaan ekspor dengan formulir kontak",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 321,
+      "keyword": "jasa bikin website untuk katering",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 322,
+      "keyword": "jasa pembuatan website katering",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 323,
+      "keyword": "buat website katering profesional",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 324,
+      "keyword": "harga website katering",
+      "cluster": "industri",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 325,
+      "keyword": "contoh website katering",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 326,
+      "keyword": "desain web katering",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 327,
+      "keyword": "fitur website katering",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 328,
+      "keyword": "website katering dengan formulir kontak",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 329,
+      "keyword": "jasa bikin website untuk studio arsitek",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 330,
+      "keyword": "jasa pembuatan website studio arsitek",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 331,
+      "keyword": "buat website studio arsitek profesional",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 332,
+      "keyword": "harga website studio arsitek",
+      "cluster": "industri",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 333,
+      "keyword": "contoh website studio arsitek",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 334,
+      "keyword": "desain web studio arsitek",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 335,
+      "keyword": "fitur website studio arsitek",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 336,
+      "keyword": "website studio arsitek dengan formulir kontak",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 337,
+      "keyword": "jasa bikin website untuk konsultan bisnis",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 338,
+      "keyword": "jasa pembuatan website konsultan bisnis",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 339,
+      "keyword": "buat website konsultan bisnis profesional",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 340,
+      "keyword": "harga website konsultan bisnis",
+      "cluster": "industri",
+      "intent": "commercial-price",
+      "target_url": "/harga/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 341,
+      "keyword": "contoh website konsultan bisnis",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 342,
+      "keyword": "desain web konsultan bisnis",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 343,
+      "keyword": "fitur website konsultan bisnis",
+      "cluster": "industri",
+      "intent": "informational",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 344,
+      "keyword": "website konsultan bisnis dengan formulir kontak",
+      "cluster": "industri",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 345,
+      "keyword": "jasa bikin website jakarta",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/jakarta/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 346,
+      "keyword": "jasa pembuatan website jakarta",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/jakarta/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 347,
+      "keyword": "harga jasa website jakarta",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/jakarta/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 348,
+      "keyword": "jasa bikin website bandung",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/bandung/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 349,
+      "keyword": "jasa pembuatan website bandung",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/bandung/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 350,
+      "keyword": "harga jasa website bandung",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/bandung/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 351,
+      "keyword": "jasa bikin website surabaya",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/surabaya/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 352,
+      "keyword": "jasa pembuatan website surabaya",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/surabaya/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 353,
+      "keyword": "harga jasa website surabaya",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/surabaya/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 354,
+      "keyword": "jasa bikin website yogyakarta",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/yogyakarta/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 355,
+      "keyword": "jasa pembuatan website yogyakarta",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/yogyakarta/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 356,
+      "keyword": "harga jasa website yogyakarta",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/yogyakarta/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 357,
+      "keyword": "jasa bikin website semarang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/semarang/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 358,
+      "keyword": "jasa pembuatan website semarang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/semarang/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 359,
+      "keyword": "harga jasa website semarang",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/semarang/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 360,
+      "keyword": "jasa bikin website medan",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/medan/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 361,
+      "keyword": "jasa pembuatan website medan",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/medan/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 362,
+      "keyword": "harga jasa website medan",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/medan/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 363,
+      "keyword": "jasa bikin website tangerang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/tangerang/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 364,
+      "keyword": "jasa pembuatan website tangerang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/tangerang/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 365,
+      "keyword": "harga jasa website tangerang",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/tangerang/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 366,
+      "keyword": "jasa bikin website bekasi",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/bekasi/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 367,
+      "keyword": "jasa pembuatan website bekasi",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/bekasi/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 368,
+      "keyword": "harga jasa website bekasi",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/bekasi/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 369,
+      "keyword": "jasa bikin website bogor",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/bogor/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 370,
+      "keyword": "jasa pembuatan website bogor",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/bogor/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 371,
+      "keyword": "harga jasa website bogor",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/bogor/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 372,
+      "keyword": "jasa bikin website depok",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/depok/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 373,
+      "keyword": "jasa pembuatan website depok",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/depok/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 374,
+      "keyword": "harga jasa website depok",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/depok/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 375,
+      "keyword": "jasa bikin website malang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/malang/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 376,
+      "keyword": "jasa pembuatan website malang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/malang/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 377,
+      "keyword": "harga jasa website malang",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/malang/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 378,
+      "keyword": "jasa bikin website denpasar",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/denpasar/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 379,
+      "keyword": "jasa pembuatan website denpasar",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/denpasar/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 380,
+      "keyword": "harga jasa website denpasar",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/denpasar/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 381,
+      "keyword": "jasa bikin website batam",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/batam/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 382,
+      "keyword": "jasa pembuatan website batam",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/batam/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 383,
+      "keyword": "harga jasa website batam",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/batam/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 384,
+      "keyword": "jasa bikin website palembang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/palembang/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 385,
+      "keyword": "jasa pembuatan website palembang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/palembang/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 386,
+      "keyword": "harga jasa website palembang",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/palembang/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 387,
+      "keyword": "jasa bikin website balikpapan",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/balikpapan/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 388,
+      "keyword": "jasa pembuatan website balikpapan",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/balikpapan/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 389,
+      "keyword": "harga jasa website balikpapan",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/balikpapan/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 390,
+      "keyword": "jasa bikin website makassar",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/makassar/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 391,
+      "keyword": "jasa pembuatan website makassar",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/makassar/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 392,
+      "keyword": "harga jasa website makassar",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/makassar/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 393,
+      "keyword": "jasa bikin website padang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sumatera-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 394,
+      "keyword": "jasa pembuatan website padang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sumatera-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 395,
+      "keyword": "harga jasa website padang",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/sumatera-barat/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 396,
+      "keyword": "jasa bikin website pekanbaru",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/riau/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 397,
+      "keyword": "jasa pembuatan website pekanbaru",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/riau/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 398,
+      "keyword": "harga jasa website pekanbaru",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/riau/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 399,
+      "keyword": "jasa bikin website pontianak",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kalimantan-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 400,
+      "keyword": "jasa pembuatan website pontianak",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kalimantan-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 401,
+      "keyword": "harga jasa website pontianak",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/kalimantan-barat/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 402,
+      "keyword": "jasa bikin website samarinda",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kalimantan-timur/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 403,
+      "keyword": "jasa pembuatan website samarinda",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kalimantan-timur/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 404,
+      "keyword": "harga jasa website samarinda",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/kalimantan-timur/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 405,
+      "keyword": "jasa bikin website manado",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sulawesi-utara/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 406,
+      "keyword": "jasa pembuatan website manado",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sulawesi-utara/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 407,
+      "keyword": "harga jasa website manado",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/sulawesi-utara/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 408,
+      "keyword": "jasa bikin website jayapura",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/papua/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 409,
+      "keyword": "jasa pembuatan website jayapura",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/papua/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 410,
+      "keyword": "harga jasa website jayapura",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/papua/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 411,
+      "keyword": "jasa bikin website sorong",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/papua-barat-daya/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 412,
+      "keyword": "jasa pembuatan website sorong",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/papua-barat-daya/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 413,
+      "keyword": "harga jasa website sorong",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/papua-barat-daya/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 414,
+      "keyword": "jasa bikin website kupang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/nusa-tenggara-timur/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 415,
+      "keyword": "jasa pembuatan website kupang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/nusa-tenggara-timur/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 416,
+      "keyword": "harga jasa website kupang",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/nusa-tenggara-timur/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 417,
+      "keyword": "jasa bikin website banda aceh",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/aceh/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 418,
+      "keyword": "jasa pembuatan website banda aceh",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/aceh/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 419,
+      "keyword": "harga jasa website banda aceh",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/aceh/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 420,
+      "keyword": "jasa bikin website cirebon",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 421,
+      "keyword": "jasa pembuatan website cirebon",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 422,
+      "keyword": "harga jasa website cirebon",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/jawa-barat/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 423,
+      "keyword": "jasa bikin website cimahi",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 424,
+      "keyword": "jasa pembuatan website cimahi",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 425,
+      "keyword": "harga jasa website cimahi",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/jawa-barat/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 426,
+      "keyword": "jasa bikin website sukabumi",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 427,
+      "keyword": "jasa pembuatan website sukabumi",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 428,
+      "keyword": "harga jasa website sukabumi",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/jawa-barat/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 429,
+      "keyword": "jasa bikin website tasikmalaya",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 430,
+      "keyword": "jasa pembuatan website tasikmalaya",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 431,
+      "keyword": "harga jasa website tasikmalaya",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/jawa-barat/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 432,
+      "keyword": "jasa bikin website salatiga",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-tengah/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 433,
+      "keyword": "jasa pembuatan website salatiga",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-tengah/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 434,
+      "keyword": "harga jasa website salatiga",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/jawa-tengah/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 435,
+      "keyword": "jasa bikin website madiun",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 436,
+      "keyword": "jasa pembuatan website madiun",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 437,
+      "keyword": "harga jasa website madiun",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 438,
+      "keyword": "jasa bikin website kediri",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 439,
+      "keyword": "jasa pembuatan website kediri",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 440,
+      "keyword": "harga jasa website kediri",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 441,
+      "keyword": "jasa bikin website sidoarjo",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 442,
+      "keyword": "jasa pembuatan website sidoarjo",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 443,
+      "keyword": "harga jasa website sidoarjo",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 444,
+      "keyword": "jasa bikin website gresik",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 445,
+      "keyword": "jasa pembuatan website gresik",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 446,
+      "keyword": "harga jasa website gresik",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 447,
+      "keyword": "jasa bikin website jember",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 448,
+      "keyword": "jasa pembuatan website jember",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 449,
+      "keyword": "harga jasa website jember",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 450,
+      "keyword": "jasa bikin website banyuwangi",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 451,
+      "keyword": "jasa pembuatan website banyuwangi",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 452,
+      "keyword": "harga jasa website banyuwangi",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 453,
+      "keyword": "jasa bikin website cilegon",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/banten/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 454,
+      "keyword": "jasa pembuatan website cilegon",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/banten/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 455,
+      "keyword": "harga jasa website cilegon",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/banten/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 456,
+      "keyword": "jasa bikin website serang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/banten/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 457,
+      "keyword": "jasa pembuatan website serang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/banten/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 458,
+      "keyword": "harga jasa website serang",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/banten/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 459,
+      "keyword": "jasa bikin website tangerang selatan",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/banten/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 460,
+      "keyword": "jasa pembuatan website tangerang selatan",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/banten/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 461,
+      "keyword": "harga jasa website tangerang selatan",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/banten/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 462,
+      "keyword": "jasa bikin website deli serdang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sumatera-utara/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 463,
+      "keyword": "jasa pembuatan website deli serdang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sumatera-utara/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 464,
+      "keyword": "harga jasa website deli serdang",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/sumatera-utara/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 465,
+      "keyword": "jasa bikin website binjai",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sumatera-utara/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 466,
+      "keyword": "jasa pembuatan website binjai",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sumatera-utara/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 467,
+      "keyword": "harga jasa website binjai",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/sumatera-utara/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 468,
+      "keyword": "jasa bikin website dumai",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/riau/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 469,
+      "keyword": "jasa pembuatan website dumai",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/riau/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 470,
+      "keyword": "harga jasa website dumai",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/riau/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 471,
+      "keyword": "jasa bikin website tanjungpinang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kepulauan-riau/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 472,
+      "keyword": "jasa pembuatan website tanjungpinang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kepulauan-riau/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 473,
+      "keyword": "harga jasa website tanjungpinang",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/kepulauan-riau/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 474,
+      "keyword": "jasa bikin website prabumulih",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sumatera-selatan/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 475,
+      "keyword": "jasa pembuatan website prabumulih",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sumatera-selatan/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 476,
+      "keyword": "harga jasa website prabumulih",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/sumatera-selatan/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 477,
+      "keyword": "jasa bikin website lubuklinggau",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sumatera-selatan/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 478,
+      "keyword": "jasa pembuatan website lubuklinggau",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sumatera-selatan/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 479,
+      "keyword": "harga jasa website lubuklinggau",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/sumatera-selatan/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 480,
+      "keyword": "jasa bikin website sungailiat",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kepulauan-bangka-belitung/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 481,
+      "keyword": "jasa pembuatan website sungailiat",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kepulauan-bangka-belitung/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 482,
+      "keyword": "harga jasa website sungailiat",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/kepulauan-bangka-belitung/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 483,
+      "keyword": "jasa bikin website pangkalpinang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kepulauan-bangka-belitung/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 484,
+      "keyword": "jasa pembuatan website pangkalpinang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kepulauan-bangka-belitung/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 485,
+      "keyword": "harga jasa website pangkalpinang",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/kepulauan-bangka-belitung/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 486,
+      "keyword": "jasa bikin website metro",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/lampung/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 487,
+      "keyword": "jasa pembuatan website metro",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/lampung/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 488,
+      "keyword": "harga jasa website metro",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/lampung/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 489,
+      "keyword": "jasa bikin website bandar lampung",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/lampung/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 490,
+      "keyword": "jasa pembuatan website bandar lampung",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/lampung/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 491,
+      "keyword": "harga jasa website bandar lampung",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/lampung/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 492,
+      "keyword": "jasa bikin website badung",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/bali/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 493,
+      "keyword": "jasa pembuatan website badung",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/bali/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 494,
+      "keyword": "harga jasa website badung",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/bali/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 495,
+      "keyword": "jasa bikin website kuta",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/bali/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 496,
+      "keyword": "jasa pembuatan website kuta",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/bali/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 497,
+      "keyword": "harga jasa website kuta",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/bali/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 498,
+      "keyword": "jasa bikin website mataram",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/nusa-tenggara-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 499,
+      "keyword": "jasa pembuatan website mataram",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/nusa-tenggara-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 500,
+      "keyword": "harga jasa website mataram",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/nusa-tenggara-barat/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 501,
+      "keyword": "jasa bikin website bima",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/nusa-tenggara-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 502,
+      "keyword": "jasa pembuatan website bima",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/nusa-tenggara-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 503,
+      "keyword": "harga jasa website bima",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/nusa-tenggara-barat/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 504,
+      "keyword": "jasa bikin website lombok barat",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/nusa-tenggara-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 505,
+      "keyword": "jasa pembuatan website lombok barat",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/nusa-tenggara-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 506,
+      "keyword": "harga jasa website lombok barat",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/nusa-tenggara-barat/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 507,
+      "keyword": "jasa bikin website labuan bajo",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/nusa-tenggara-timur/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 508,
+      "keyword": "jasa pembuatan website labuan bajo",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/nusa-tenggara-timur/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 509,
+      "keyword": "harga jasa website labuan bajo",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/nusa-tenggara-timur/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 510,
+      "keyword": "jasa bikin website tarakan",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kalimantan-utara/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 511,
+      "keyword": "jasa pembuatan website tarakan",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kalimantan-utara/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 512,
+      "keyword": "harga jasa website tarakan",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/kalimantan-utara/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 513,
+      "keyword": "jasa bikin website bontang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kalimantan-timur/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 514,
+      "keyword": "jasa pembuatan website bontang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kalimantan-timur/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 515,
+      "keyword": "harga jasa website bontang",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/kalimantan-timur/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 516,
+      "keyword": "jasa bikin website singkawang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kalimantan-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 517,
+      "keyword": "jasa pembuatan website singkawang",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kalimantan-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 518,
+      "keyword": "harga jasa website singkawang",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/kalimantan-barat/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 519,
+      "keyword": "jasa bikin website palangka raya",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kalimantan-tengah/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 520,
+      "keyword": "jasa pembuatan website palangka raya",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kalimantan-tengah/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 521,
+      "keyword": "harga jasa website palangka raya",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/kalimantan-tengah/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 522,
+      "keyword": "jasa bikin website banjarmasin",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kalimantan-selatan/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 523,
+      "keyword": "jasa pembuatan website banjarmasin",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kalimantan-selatan/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 524,
+      "keyword": "harga jasa website banjarmasin",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/kalimantan-selatan/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 525,
+      "keyword": "jasa bikin website banjarbaru",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kalimantan-selatan/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 526,
+      "keyword": "jasa pembuatan website banjarbaru",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/kalimantan-selatan/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 527,
+      "keyword": "harga jasa website banjarbaru",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/kalimantan-selatan/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 528,
+      "keyword": "jasa bikin website parepare",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sulawesi-selatan/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 529,
+      "keyword": "jasa pembuatan website parepare",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sulawesi-selatan/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 530,
+      "keyword": "harga jasa website parepare",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/sulawesi-selatan/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 531,
+      "keyword": "jasa bikin website palopo",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sulawesi-selatan/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 532,
+      "keyword": "jasa pembuatan website palopo",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sulawesi-selatan/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 533,
+      "keyword": "harga jasa website palopo",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/sulawesi-selatan/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 534,
+      "keyword": "jasa bikin website palu",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sulawesi-tengah/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 535,
+      "keyword": "jasa pembuatan website palu",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sulawesi-tengah/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 536,
+      "keyword": "harga jasa website palu",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/sulawesi-tengah/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 537,
+      "keyword": "jasa bikin website kendari",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sulawesi-tenggara/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 538,
+      "keyword": "jasa pembuatan website kendari",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sulawesi-tenggara/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 539,
+      "keyword": "harga jasa website kendari",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/sulawesi-tenggara/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 540,
+      "keyword": "jasa bikin website gorontalo",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/gorontalo/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 541,
+      "keyword": "jasa pembuatan website gorontalo",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/gorontalo/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 542,
+      "keyword": "harga jasa website gorontalo",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/gorontalo/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 543,
+      "keyword": "jasa bikin website bitung",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sulawesi-utara/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 544,
+      "keyword": "jasa pembuatan website bitung",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/sulawesi-utara/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 545,
+      "keyword": "harga jasa website bitung",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/sulawesi-utara/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 546,
+      "keyword": "jasa bikin website ternate",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/maluku-utara/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 547,
+      "keyword": "jasa pembuatan website ternate",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/maluku-utara/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 548,
+      "keyword": "harga jasa website ternate",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/maluku-utara/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 549,
+      "keyword": "jasa bikin website ambon",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/maluku/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 550,
+      "keyword": "jasa pembuatan website ambon",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/maluku/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 551,
+      "keyword": "harga jasa website ambon",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/maluku/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 552,
+      "keyword": "jasa bikin website merauke",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/papua-selatan/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 553,
+      "keyword": "jasa pembuatan website merauke",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/papua-selatan/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 554,
+      "keyword": "harga jasa website merauke",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/papua-selatan/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 555,
+      "keyword": "jasa bikin website timika",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/papua-tengah/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 556,
+      "keyword": "jasa pembuatan website timika",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/papua-tengah/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 557,
+      "keyword": "harga jasa website timika",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/papua-tengah/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 558,
+      "keyword": "jasa bikin website manokwari",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/papua-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 559,
+      "keyword": "jasa pembuatan website manokwari",
+      "cluster": "lokasi",
+      "intent": "local-commercial",
+      "target_url": "/wilayah/provinsi/papua-barat/",
+      "priority": "P1",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 560,
+      "keyword": "harga jasa website manokwari",
+      "cluster": "lokasi",
+      "intent": "local-price",
+      "target_url": "/wilayah/provinsi/papua-barat/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 561,
+      "keyword": "jasa website dengan formulir konsultasi",
+      "cluster": "fitur",
+      "intent": "commercial",
+      "target_url": "/jasa/landing-page/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 562,
+      "keyword": "biaya website dengan formulir konsultasi",
+      "cluster": "fitur",
+      "intent": "commercial-price",
+      "target_url": "/jasa/landing-page/",
+      "priority": "P3",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 563,
+      "keyword": "jasa website dengan integrasi whatsapp",
+      "cluster": "fitur",
+      "intent": "commercial",
+      "target_url": "/jasa/landing-page/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 564,
+      "keyword": "biaya website dengan integrasi whatsapp",
+      "cluster": "fitur",
+      "intent": "commercial-price",
+      "target_url": "/jasa/landing-page/",
+      "priority": "P3",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 565,
+      "keyword": "jasa website dengan katalog produk",
+      "cluster": "fitur",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 566,
+      "keyword": "biaya website dengan katalog produk",
+      "cluster": "fitur",
+      "intent": "commercial-price",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P3",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 567,
+      "keyword": "jasa website dengan varian produk",
+      "cluster": "fitur",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 568,
+      "keyword": "biaya website dengan varian produk",
+      "cluster": "fitur",
+      "intent": "commercial-price",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P3",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 569,
+      "keyword": "jasa website dengan keranjang belanja",
+      "cluster": "fitur",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 570,
+      "keyword": "biaya website dengan keranjang belanja",
+      "cluster": "fitur",
+      "intent": "commercial-price",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P3",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 571,
+      "keyword": "jasa website dengan checkout online",
+      "cluster": "fitur",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 572,
+      "keyword": "biaya website dengan checkout online",
+      "cluster": "fitur",
+      "intent": "commercial-price",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P3",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 573,
+      "keyword": "jasa website dengan payment gateway",
+      "cluster": "fitur",
+      "intent": "commercial",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 574,
+      "keyword": "biaya website dengan payment gateway",
+      "cluster": "fitur",
+      "intent": "commercial-price",
+      "target_url": "/jasa/ecommerce/",
+      "priority": "P3",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 575,
+      "keyword": "jasa website dengan dashboard admin",
+      "cluster": "fitur",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 576,
+      "keyword": "biaya website dengan dashboard admin",
+      "cluster": "fitur",
+      "intent": "commercial-price",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P3",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 577,
+      "keyword": "jasa website dengan manajemen stok",
+      "cluster": "fitur",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 578,
+      "keyword": "biaya website dengan manajemen stok",
+      "cluster": "fitur",
+      "intent": "commercial-price",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P3",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 579,
+      "keyword": "jasa website dengan fitur booking",
+      "cluster": "fitur",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 580,
+      "keyword": "biaya website dengan fitur booking",
+      "cluster": "fitur",
+      "intent": "commercial-price",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P3",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 581,
+      "keyword": "jasa website dengan kalender reservasi",
+      "cluster": "fitur",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 582,
+      "keyword": "biaya website dengan kalender reservasi",
+      "cluster": "fitur",
+      "intent": "commercial-price",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P3",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 583,
+      "keyword": "jasa website dengan cms artikel",
+      "cluster": "fitur",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 584,
+      "keyword": "biaya website dengan cms artikel",
+      "cluster": "fitur",
+      "intent": "commercial-price",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P3",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 585,
+      "keyword": "jasa website dengan multibahasa",
+      "cluster": "fitur",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 586,
+      "keyword": "biaya website dengan multibahasa",
+      "cluster": "fitur",
+      "intent": "commercial-price",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P3",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 587,
+      "keyword": "jasa website dengan login pelanggan",
+      "cluster": "fitur",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 588,
+      "keyword": "biaya website dengan login pelanggan",
+      "cluster": "fitur",
+      "intent": "commercial-price",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P3",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 589,
+      "keyword": "jasa website dengan optimasi seo",
+      "cluster": "fitur",
+      "intent": "commercial",
+      "target_url": "/jasa/landing-page/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 590,
+      "keyword": "biaya website dengan optimasi seo",
+      "cluster": "fitur",
+      "intent": "commercial-price",
+      "target_url": "/jasa/landing-page/",
+      "priority": "P3",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 591,
+      "keyword": "jasa website dengan tampilan mobile responsif",
+      "cluster": "fitur",
+      "intent": "commercial",
+      "target_url": "/jasa/landing-page/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 592,
+      "keyword": "biaya website dengan tampilan mobile responsif",
+      "cluster": "fitur",
+      "intent": "commercial-price",
+      "target_url": "/jasa/landing-page/",
+      "priority": "P3",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 593,
+      "keyword": "jasa website dengan galeri portofolio",
+      "cluster": "fitur",
+      "intent": "commercial",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 594,
+      "keyword": "biaya website dengan galeri portofolio",
+      "cluster": "fitur",
+      "intent": "commercial-price",
+      "target_url": "/jasa/portfolio/",
+      "priority": "P3",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 595,
+      "keyword": "jasa website dengan tabel harga layanan",
+      "cluster": "fitur",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 596,
+      "keyword": "biaya website dengan tabel harga layanan",
+      "cluster": "fitur",
+      "intent": "commercial-price",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P3",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 597,
+      "keyword": "jasa website dengan integrasi email",
+      "cluster": "fitur",
+      "intent": "commercial",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 598,
+      "keyword": "biaya website dengan integrasi email",
+      "cluster": "fitur",
+      "intent": "commercial-price",
+      "target_url": "/jasa/custom-website/",
+      "priority": "P3",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 599,
+      "keyword": "jasa website dengan form permintaan penawaran",
+      "cluster": "fitur",
+      "intent": "commercial",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P2",
+      "status": "targeted-not-volume-verified"
+    },
+    {
+      "id": 600,
+      "keyword": "biaya website dengan form permintaan penawaran",
+      "cluster": "fitur",
+      "intent": "commercial-price",
+      "target_url": "/jasa/company-profile/",
+      "priority": "P3",
+      "status": "targeted-not-volume-verified"
+    }
+  ]
+}
