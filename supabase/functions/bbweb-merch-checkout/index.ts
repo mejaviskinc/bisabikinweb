@@ -104,14 +104,16 @@ Deno.serve(async(req:Request)=>{const origin=req.headers.get('origin');if(req.me
   // Product checkout intentionally does not depend on the shipping API yet.
   // The buyer pays for products first; courier and shipping fee are confirmed separately after order creation.
   const validatedShipping={...shipping,courier_code:'manual',courier_name:'Dikonfirmasi setelah pembayaran',service:'Ongkir dikonfirmasi kemudian',shipping_cost:0,shipping_etd:'',weight_grams:0,destination_label:''};
+  // Fail closed before persisting a customer, reserving stock or creating a payment.
+  let cfg:ReturnType<typeof config>;
+  try{cfg=config();}catch{return reply({error:'Konfigurasi pembayaran DOKU belum siap.',code:'PAYMENT_NOT_CONFIGURED'},503,origin)}
+  if(!cfg.clientId||!cfg.secret)return reply({error:'DOKU belum diaktifkan. Hubungi admin untuk melanjutkan pembayaran.',code:'PAYMENT_NOT_CONFIGURED'},503,origin);
   const accessHash=await sha256('access:'+token),checkoutHash=await sha256('checkout:'+token),requestHash=await sha256(JSON.stringify({customer,shipping:validatedShipping,items,note,payment_method:paymentMethod}));
   await rpc('bbweb_release_expired_merch_reservations',{}).catch(()=>{});
   let created:any;try{const rows=await rpc('bbweb_create_merch_order',{p_customer:customer,p_shipping:validatedShipping,p_items:items,p_access_token_hash:accessHash,p_checkout_key_hash:checkoutHash,p_request_hash:requestHash,p_note:note});created=Array.isArray(rows)?rows[0]:rows;if(!created?.order_id)throw new Error('ORDER_CREATE_FAILED');}catch(error){return reply({error:dbErrorMessage(error)},409,origin)}
   let orderRows:any;try{orderRows=await db('bbweb_orders?select=id,order_no,customer_name,customer_email,customer_phone,items,subtotal,discount,total,shipping_amount,currency,status,payment_status,inventory_state,created_at&id=eq.'+encodeURIComponent(created.order_id)+'&limit=1');}catch{return reply({error:'Order sudah tersimpan tetapi gagal dibaca kembali. Gunakan halaman lacak pesanan.',order_saved:true,order_no:created.order_no,token},503,origin)}
   const order=Array.isArray(orderRows)?orderRows[0]:null;if(!order)return reply({error:'Order tidak ditemukan setelah dibuat.'},500,origin);
   if(order.payment_status==='paid')return reply({ok:true,order_saved:true,order_no:order.order_no,token,status:'paid',amount:Number(order.total),currency:order.currency},200,origin);
-  const cfg=config();
-  if(!cfg.clientId||!cfg.secret){return reply({error:'DOKU belum diaktifkan. Hubungi admin untuk melanjutkan pembayaran.',code:'PAYMENT_NOT_CONFIGURED',order_saved:true,order_no:order.order_no,token},503,origin)}
   const environment=cfg.environment, merchantOrderId=('BB'+order.id.replaceAll('-','').slice(0,16)+randomHex(6)).slice(0,30),total=Number(order.total);
   if(!Number.isSafeInteger(total)||total<1)return reply({error:'Total order tidak valid.'},409,origin);
   let claim:any;
