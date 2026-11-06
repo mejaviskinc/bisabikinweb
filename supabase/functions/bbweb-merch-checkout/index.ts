@@ -1,5 +1,4 @@
 import {config, dokuRequest, safePaymentUrl, claimDokuPayment} from '../_shared/doku.ts';
-import {snapConfig, createSnap, type SnapMethod} from '../_shared/doku-snap.ts';
 const ALLOWED_ORIGINS=new Set(['https://bisabikinweb.site', 'https://www.bisabikinweb.site', 'https://shop.bisabikinweb.site']);
 function cors(origin:string|null){return {'Access-Control-Allow-Origin':origin&&ALLOWED_ORIGINS.has(origin)?origin:'https://bisabikinweb.site','Access-Control-Allow-Headers':'content-type, apikey, authorization','Access-Control-Allow-Methods':'POST, OPTIONS','Vary':'Origin','Cache-Control':'no-store','Content-Type':'application/json; charset=utf-8'};}
 function reply(body:unknown,status=200,origin:string|null=null){return new Response(JSON.stringify(body),{status,headers:cors(origin)});}
@@ -89,7 +88,6 @@ async function calculateShipping(input:any){
 Deno.serve(async(req:Request)=>{const origin=req.headers.get('origin');if(req.method==='OPTIONS')return new Response(null,{status:204,headers:cors(origin)});if(req.method!=='POST')return reply({error:'Method not allowed'},405,origin);if(!origin||!ALLOWED_ORIGINS.has(origin))return reply({error:'Origin not allowed'},403,origin);const len=Number(req.headers.get('content-length')||0);if(len>32768)return reply({error:'Payload terlalu besar.'},413,origin);
   const ip=clean((req.headers.get('x-forwarded-for')||req.headers.get('cf-connecting-ip')||'unknown').split(',')[0],100);const ua=clean(req.headers.get('user-agent')||'',180);try{const rateKey=await sha256('checkout-rate:'+ip+':'+ua);const allowed=await rpc('bbweb_take_checkout_slot',{p_key_hash:rateKey});const ok=Array.isArray(allowed)?allowed[0]:allowed;if(ok===false)return reply({error:'Terlalu banyak percobaan checkout. Coba lagi beberapa menit lagi.'},429,origin);}catch{}
   let input:any;try{input=await req.json();}catch{return reply({error:'Payload JSON tidak valid.'},400,origin)}
-  if(input?.action==='snap_capabilities'){const q=snapConfig('snap_qris'),b=snapConfig('snap_va_bca'),r=snapConfig('snap_va_bri');return reply({ok:true,qris:q.ready,bca:b.ready,bri:r.ready},200,origin);}
   if(input?.action==='shipping_rates'){try{const quote=await calculateShipping(input);return reply({ok:true,...quote},200,origin)}catch(error){const code=(error as any)?.code||'SHIPPING_RATE_FAILED';const status=code==='SHIPPING_NOT_CONFIGURED'?503:code==='SHIPPING_RATE_FAILED'?502:422;return reply({error:String((error as Error)?.message||'Ongkir belum dapat dihitung.'),code},status,origin)}}
   if(input?.accepted_terms!==true)return reply({error:'Persetujuan syarat dan kebijakan privasi wajib dicentang.'},400,origin);
   const token=clean(input?.checkout_token,80).toLowerCase();if(!/^[a-f0-9]{64}$/.test(token))return reply({error:'Token checkout tidak valid.'},400,origin);
@@ -102,54 +100,21 @@ Deno.serve(async(req:Request)=>{const origin=req.headers.get('origin');if(req.me
   const merged=new Map<string,number>();for(const raw of input.items){const id=clean(raw?.productId,120);const qty=Number(raw?.quantity);if(!id||!Number.isInteger(qty)||qty<1||qty>20)return reply({error:'Item keranjang tidak valid.'},400,origin);merged.set(id,(merged.get(id)||0)+qty);}const items=[...merged.entries()].map(([productId,quantity])=>({productId,quantity})).sort((a,b)=>a.productId.localeCompare(b.productId));if(items.some(x=>x.quantity>20))return reply({error:'Jumlah produk melebihi batas checkout.'},400,origin);
   const paymentMethod=clean(input?.payment_method||'all',40).toLowerCase();
   const paymentChannels:Record<string,string[]>={all:[],qris:['QRIS'],bank_transfer:['VIRTUAL_ACCOUNT_BCA','VIRTUAL_ACCOUNT_BANK_MANDIRI','VIRTUAL_ACCOUNT_BRI','VIRTUAL_ACCOUNT_BNI','VIRTUAL_ACCOUNT_DOKU'],ewallet:['EMONEY_OVO','EMONEY_SHOPEEPAY'],credit_card:['CREDIT_CARD'],cstore:['ONLINE_TO_OFFLINE_ALFA']};
-  const direct=['snap_qris','snap_va_bca','snap_va_bri'].includes(paymentMethod);
-  if(!direct&&!Object.prototype.hasOwnProperty.call(paymentChannels,paymentMethod))return reply({error:'Pilihan metode pembayaran tidak valid.'},400,origin);
-  if(direct&&!snapConfig(paymentMethod as SnapMethod).ready)return reply({error:'SNAP Direct API untuk kanal ini belum dikonfigurasi pada server. Pilih DOKU Checkout atau hubungi admin.',code:'SNAP_NOT_CONFIGURED'},503,origin);
+  if(!Object.prototype.hasOwnProperty.call(paymentChannels,paymentMethod))return reply({error:'Pilihan metode pembayaran tidak valid.'},400,origin);
   // Product checkout intentionally does not depend on the shipping API yet.
   // The buyer pays for products first; courier and shipping fee are confirmed separately after order creation.
   const validatedShipping={...shipping,courier_code:'manual',courier_name:'Dikonfirmasi setelah pembayaran',service:'Ongkir dikonfirmasi kemudian',shipping_cost:0,shipping_etd:'',weight_grams:0,destination_label:''};
   // Fail closed before persisting a customer, reserving stock or creating a payment.
-  let cfg:ReturnType<typeof config>|null=null;
-  if(!direct){
-    try{cfg=config();}catch{return reply({error:'Konfigurasi pembayaran DOKU belum siap.',code:'PAYMENT_NOT_CONFIGURED'},503,origin)}
-    if(!cfg.clientId||!cfg.secret)return reply({error:'DOKU belum diaktifkan. Hubungi admin untuk melanjutkan pembayaran.',code:'PAYMENT_NOT_CONFIGURED'},503,origin);
-  }
+  let cfg:ReturnType<typeof config>;
+  try{cfg=config();}catch{return reply({error:'Konfigurasi pembayaran DOKU belum siap.',code:'PAYMENT_NOT_CONFIGURED'},503,origin)}
+  if(!cfg.clientId||!cfg.secret)return reply({error:'DOKU belum diaktifkan. Hubungi admin untuk melanjutkan pembayaran.',code:'PAYMENT_NOT_CONFIGURED'},503,origin);
   const accessHash=await sha256('access:'+token),checkoutHash=await sha256('checkout:'+token),requestHash=await sha256(JSON.stringify({customer,shipping:validatedShipping,items,note,payment_method:paymentMethod}));
   await rpc('bbweb_release_expired_merch_reservations',{}).catch(()=>{});
   let created:any;try{const rows=await rpc('bbweb_create_merch_order',{p_customer:customer,p_shipping:validatedShipping,p_items:items,p_access_token_hash:accessHash,p_checkout_key_hash:checkoutHash,p_request_hash:requestHash,p_note:note});created=Array.isArray(rows)?rows[0]:rows;if(!created?.order_id)throw new Error('ORDER_CREATE_FAILED');}catch(error){return reply({error:dbErrorMessage(error)},409,origin)}
   let orderRows:any;try{orderRows=await db('bbweb_orders?select=id,order_no,customer_name,customer_email,customer_phone,items,subtotal,discount,total,shipping_amount,currency,status,payment_status,inventory_state,created_at&id=eq.'+encodeURIComponent(created.order_id)+'&limit=1');}catch{return reply({error:'Order sudah tersimpan tetapi gagal dibaca kembali. Gunakan halaman lacak pesanan.',order_saved:true,order_no:created.order_no,token},503,origin)}
   const order=Array.isArray(orderRows)?orderRows[0]:null;if(!order)return reply({error:'Order tidak ditemukan setelah dibuat.'},500,origin);
   if(order.payment_status==='paid')return reply({ok:true,order_saved:true,order_no:order.order_no,token,status:'paid',amount:Number(order.total),currency:order.currency},200,origin);
-  if(direct){
-    const sc=snapConfig(paymentMethod as SnapMethod),total=Number(order.total);
-    if(!Number.isSafeInteger(total)||total<1)return reply({error:'Total transaksi tidak valid.'},409,origin);
-    const merchantOrderId=('BS'+order.id.replaceAll('-','').slice(0,26)).slice(0,30);
-    let claim:any;
-    try{claim=await rpc('bbweb_claim_snap_payment',{p_order_id:order.id,p_invoice:merchantOrderId,p_environment:sc.environment,p_method:paymentMethod});}
-    catch{return reply({error:'Gagal menyiapkan transaksi SNAP.',order_saved:true,order_no:order.order_no,token},503,origin);}
-    if(!claim?.claimed){
-      const prior=claim?.payment;
-      if(prior?.provider==='doku_snap'&&prior?.payment_type===paymentMethod&&
-         prior?.environment===sc.environment&&prior?.status==='pending'&&
-         prior?.payment_details?.type)
-        return reply({ok:true,order_saved:true,order_no:order.order_no,token,status:'pending',amount:total,currency:'IDR',direct:true},200,origin);
-      return reply({error:'Pesanan memiliki proses pembayaran lain. Periksa status pesanan agar tidak membuat pembayaran ganda.',order_saved:true,order_no:order.order_no,token},409,origin);
-    }
-    try{
-      const detail=await createSnap(paymentMethod as SnapMethod,merchantOrderId,total,customer);
-      await db('bbweb_merch_payments?id=eq.'+encodeURIComponent(claim.payment.id)+'&provider=eq.doku_snap&status=eq.created',{
-        method:'PATCH',headers:{Prefer:'return=representation'},
-        body:JSON.stringify({status:'pending',transaction_status:'PENDING',payment_details:detail,updated_at:new Date().toISOString()})
-      });
-      return reply({ok:true,order_saved:true,order_no:order.order_no,token,status:'pending',amount:total,currency:'IDR',direct:true,method:paymentMethod},201,origin);
-    }catch(error){
-      await db('bbweb_merch_payments?id=eq.'+encodeURIComponent(claim.payment.id),{
-        method:'PATCH',body:JSON.stringify({status:'unknown',status_code:'SNAP_CREATE_RECHECK_NEEDED',updated_at:new Date().toISOString()})
-      }).catch(()=>{});
-      return reply({error:'Status penerbitan instruksi pembayaran belum pasti. Jangan buat pembayaran kedua. Hubungi admin dengan nomor pesanan.',order_saved:true,order_no:order.order_no,token,code:'SNAP_RECONCILE_REQUIRED'},503,origin);
-    }
-  }
-  const environment=cfg!.environment, merchantOrderId=('BB'+order.id.replaceAll('-','').slice(0,16)+randomHex(6)).slice(0,30),total=Number(order.total);
+  const environment=cfg.environment, merchantOrderId=('BB'+order.id.replaceAll('-','').slice(0,16)+randomHex(6)).slice(0,30),total=Number(order.total);
   if(!Number.isSafeInteger(total)||total<1)return reply({error:'Total order tidak valid.'},409,origin);
   let claim:any;
   try{claim=await claimDokuPayment(order.id,merchantOrderId,rpc)}catch{return reply({error:'Pembayaran belum dapat disiapkan. Hubungi admin.',order_saved:true,order_no:order.order_no,token},503,origin)}
