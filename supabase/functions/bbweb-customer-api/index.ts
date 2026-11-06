@@ -1,3 +1,4 @@
+import {config, refreshDoku, dokuRequest, safePaymentUrl} from '../_shared/doku.ts';
 const ALLOWED_ORIGINS = new Set(['https://bisabikinweb.site', 'https://www.bisabikinweb.site', 'https://shop.bisabikinweb.site']);
 function cors(origin: string | null) {
   return {
@@ -117,6 +118,8 @@ async function ensureProfile(user: any, customer: any) {
   return Array.isArray(rows) ? rows[0] : null;
 }
 async function refreshPayment(payment: any) {
+  if(payment?.provider==='doku'){try{return await refreshDoku(payment,db,rpc)}catch{return payment}}
+
   const serverKey = Deno.env.get('MIDTRANS_SERVER_KEY') || '';
   if (!serverKey || !payment?.merchant_order_id || !['created', 'pending', 'authorized', 'unknown'].includes(String(payment.status || ''))) return payment;
   const environment = String(payment.environment || Deno.env.get('MIDTRANS_ENV') || 'sandbox').toLowerCase() === 'production' ? 'production' : 'sandbox';
@@ -171,14 +174,14 @@ async function loadOrders(customerId: string) {
   const list = Array.isArray(orders) ? orders : [];
   const ids = list.map((order: any) => String(order.id)).filter(Boolean);
   if (!ids.length) return [];
-  const payments = await db('bbweb_merch_payments?select=id,order_id,merchant_order_id,amount,environment,status,transaction_status,payment_type,redirect_url,created_at,updated_at,paid_at&order_id=in.(' + ids.join(',') + ')&order=created_at.desc');
+  const payments = await db('bbweb_merch_payments?select=id,order_id,merchant_order_id,provider,amount,environment,status,transaction_status,payment_type,redirect_url,created_at,updated_at,paid_at&order_id=in.(' + ids.join(',') + ')&order=created_at.desc');
   const latest = new Map<string, any>();
   if (Array.isArray(payments)) for (const payment of payments) if (!latest.has(payment.order_id)) latest.set(payment.order_id, payment);
   for (const payment of latest.values()) await refreshPayment(payment);
   const refreshedOrders = await db('bbweb_orders?select=id,order_no,customer_id,items,subtotal,discount,total,shipping_amount,currency,status,payment_status,inventory_state,reserved_until,shipping_address,created_at,updated_at,paid_at&customer_id=eq.' + encodeURIComponent(customerId) + '&order=created_at.desc&limit=50');
   const refreshed = Array.isArray(refreshedOrders) ? refreshedOrders : [];
   const refreshedIds = refreshed.map((order: any) => String(order.id)).filter(Boolean);
-  const refreshedPayments = refreshedIds.length ? await db('bbweb_merch_payments?select=id,order_id,merchant_order_id,amount,environment,status,transaction_status,payment_type,redirect_url,created_at,updated_at,paid_at&order_id=in.(' + refreshedIds.join(',') + ')&order=created_at.desc') : [];
+  const refreshedPayments = refreshedIds.length ? await db('bbweb_merch_payments?select=id,order_id,merchant_order_id,provider,amount,environment,status,transaction_status,payment_type,redirect_url,created_at,updated_at,paid_at&order_id=in.(' + refreshedIds.join(',') + ')&order=created_at.desc') : [];
   const latestRefreshed = new Map<string, any>();
   if (Array.isArray(refreshedPayments)) for (const payment of refreshedPayments) if (!latestRefreshed.has(payment.order_id)) latestRefreshed.set(payment.order_id, payment);
   return refreshed.map((order: any) => ({ ...order, payment: latestRefreshed.get(order.id) || null }));
@@ -195,82 +198,32 @@ async function retryPayment(user: any, orderNo: string) {
   if (!order) throw Object.assign(new Error('Pesanan tidak ditemukan pada akun ini.'), { status: 404 });
   if (order.payment_status === 'paid' || order.status === 'completed') return { ok: true, paid: true };
   if (['refunded', 'partial_refund'].includes(String(order.payment_status || ''))) throw Object.assign(new Error('Pesanan yang sudah direfund tidak dapat dibayar ulang.'), { status: 409 });
-  const activePayment = order.payment && order.payment.redirect_url && ['created', 'pending', 'authorized', 'unknown'].includes(String(order.payment.status || ''));
+  const activePayment = order.payment && order.payment.redirect_url && ['created', 'pending', 'authorized', 'unknown', 'failed'].includes(String(order.payment.status || ''));
   if (activePayment) return { ok: true, redirect_url: order.payment.redirect_url, reused: true };
-  const serverKey = Deno.env.get('MIDTRANS_SERVER_KEY') || '';
-  if (!serverKey) throw Object.assign(new Error('Midtrans belum aktif di server. Server Key belum dikonfigurasi.'), { status: 503 });
-  await rpc('bbweb_release_expired_merch_reservations', {}).catch(() => {});
-  let currentRows = await db('bbweb_orders?select=id,order_no,items,total,currency,status,payment_status,inventory_state,created_at,customer_name,customer_email,customer_phone&customer_id=eq.' + encodeURIComponent(order.customer_id) + '&order_no=eq.' + encodeURIComponent(orderNo) + '&limit=1');
-  let currentOrder = Array.isArray(currentRows) ? currentRows[0] : null;
-  if (!currentOrder) throw Object.assign(new Error('Pesanan tidak ditemukan.'), { status: 404 });
-  if (currentOrder.payment_status === 'paid') return { ok: true, paid: true };
-  if (currentOrder.inventory_state === 'released') {
-    try { await rpc('bbweb_reserve_merch_order', { p_order_id: currentOrder.id }); }
-    catch (error) {
-      throw Object.assign(new Error('Stok pesanan tidak dapat direservasi kembali. Buat pesanan baru dari keranjang. Detail: ' + clean((error as Error)?.message || error, 160)), { status: 409 });
-    }
+  const cfg=config();
+  if(!cfg.clientId||!cfg.secret)throw Object.assign(new Error('DOKU belum dikonfigurasi.'),{status:503});
+  const rows=await db('bbweb_orders?select=id,order_no,total,currency,items,customer_name,customer_email,customer_phone,shipping_address,inventory_state&customer_id=eq.'+encodeURIComponent(order.customer_id)+'&order_no=eq.'+encodeURIComponent(orderNo)+'&limit=1');
+  const current=rows?.[0];if(!current)throw Object.assign(new Error('Pesanan tidak ditemukan.'),{status:404});
+  const attempts=await db('bbweb_merch_payments?select=id&order_id=eq.'+encodeURIComponent(current.id)+'&status=in.(created,pending,authorized,unknown,failed)&limit=1');
+  if(attempts?.length)throw Object.assign(new Error('Pembayaran sebelumnya perlu diperiksa admin.'),{status:409});
+  if(current.inventory_state==='released')await rpc('bbweb_reserve_merch_order',{p_order_id:current.id});
+  const total=Number(current.total),environment=cfg.environment,invoice=('BB'+current.id.replaceAll('-','').slice(0,16)+randomHex(6)).slice(0,30);
+  if(!Number.isSafeInteger(total)||total<1||current.currency!=='IDR')throw Object.assign(new Error('Total pesanan tidak valid.'),{status:409});
+  await db('bbweb_merch_payments',{method:'POST',body:JSON.stringify({order_id:current.id,merchant_order_id:invoice,provider:'doku',amount:total,currency:'IDR',environment,status:'created'})});
+  const address=current.shipping_address||{};
+  const body={order:{amount:total,invoice_number:invoice,currency:'IDR',callback_url:'https://bisabikinweb.site/account/?order='+encodeURIComponent(orderNo),line_items:current.items.map((x:any)=>({name:String(x.name).slice(0,255),price:Number(x.price),quantity:Number(x.quantity)}))},payment:{payment_due_date:30,type:'SALE'},customer:{name:current.customer_name,email:current.customer_email,phone:current.customer_phone,address:String(address.address||'').slice(0,400),city:address.city,state:address.province,postcode:address.postcode,country:'ID'},additional_info:{override_notification_url:(Deno.env.get('SUPABASE_URL')||'')+'/functions/v1/bbweb-doku-webhook'}};
+  let response:Response;
+  try{response=await dokuRequest('/checkout/v1/payment',body)}catch{
+    await db('bbweb_merch_payments?merchant_order_id=eq.'+invoice,{method:'PATCH',body:JSON.stringify({status:'unknown'})});
+    throw Object.assign(new Error('Respons DOKU belum pasti. Periksa status sebelum mencoba lagi.'),{status:502});
   }
-  currentRows = await db('bbweb_orders?select=id,order_no,items,total,currency,customer_name,customer_email,customer_phone&customer_id=eq.' + encodeURIComponent(order.customer_id) + '&order_no=eq.' + encodeURIComponent(orderNo) + '&limit=1');
-  currentOrder = Array.isArray(currentRows) ? currentRows[0] : currentOrder;
-  const environment = (Deno.env.get('MIDTRANS_ENV') || 'sandbox').toLowerCase() === 'production' ? 'production' : 'sandbox';
-  const merchantOrderId = (order.order_no + '-' + randomHex(12)).slice(0, 48);
-  const total = Math.round(Number(currentOrder.total));
-  if (!Number.isFinite(total) || total < 1) throw Object.assign(new Error('Total pesanan tidak valid.'), { status: 409 });
-  await db('bbweb_merch_payments', {
-    method: 'POST', headers: { Prefer: 'return=minimal' },
-    body: JSON.stringify({ order_id: currentOrder.id, merchant_order_id: merchantOrderId, amount: total, currency: 'IDR', environment, status: 'created' })
-  });
-  const itemDetails = (Array.isArray(currentOrder.items) ? currentOrder.items : []).map((item: any) => ({
-    id: String(item.sku || item.productId || 'merch').slice(0, 50),
-    price: Math.round(Number(item.price)), quantity: Math.round(Number(item.quantity)),
-    name: String(item.name || 'Bisabikinweb Merch').slice(0, 50)
-  }));
-  const body = {
-    transaction_details: { order_id: merchantOrderId, gross_amount: total },
-    item_details: itemDetails,
-    customer_details: { first_name: currentOrder.customer_name, email: currentOrder.customer_email, phone: currentOrder.customer_phone },
-    callbacks: { finish: 'https://bisabikinweb.site/account/?order=' + encodeURIComponent(order.order_no) },
-    expiry: { unit: 'minutes', duration: 30 },
-    page_expiry: { unit: 'minutes', duration: 30 },
-    custom_field1: order.order_no,
-    custom_field2: 'bisabikinweb-merch'
-  };
-  const endpoint = environment === 'production' ? 'https://app.midtrans.com/snap/v1/transactions' : 'https://app.sandbox.midtrans.com/snap/v1/transactions';
-  let response: Response;
-  try {
-    response = await fetch(endpoint, {
-      method: 'POST',
-      headers: { Accept: 'application/json', 'Content-Type': 'application/json', Authorization: 'Basic ' + btoa(serverKey + ':') },
-      body: JSON.stringify(body),
-      signal: AbortSignal.timeout(12000)
-    });
-  } catch {
-    await db('bbweb_merch_payments?merchant_order_id=eq.' + encodeURIComponent(merchantOrderId), {
-      method: 'PATCH', headers: { Prefer: 'return=minimal' },
-      body: JSON.stringify({ status: 'unknown', updated_at: new Date().toISOString() })
-    }).catch(() => {});
-    throw Object.assign(new Error('Order tetap tersimpan, tetapi respons Midtrans belum pasti. Refresh dashboard sebelum mencoba lagi.'), { status: 502 });
+  const result=await response.json().catch(()=>null),url=result?.response?.payment?.url;
+  if(!response.ok||!safePaymentUrl(url,environment)){
+    await db('bbweb_merch_payments?merchant_order_id=eq.'+invoice,{method:'PATCH',body:JSON.stringify({status:response.status>=400&&response.status<500?'failed':'unknown',status_code:String(response.status)})});
+    throw Object.assign(new Error('Halaman pembayaran DOKU belum tersedia. Hubungi admin.'),{status:502});
   }
-  const raw = await response.text();
-  let midtrans: any = null;
-  if (raw) { try { midtrans = JSON.parse(raw); } catch { midtrans = { message: raw }; } }
-  if (!response.ok || !midtrans?.token || !midtrans?.redirect_url) {
-    await db('bbweb_merch_payments?merchant_order_id=eq.' + encodeURIComponent(merchantOrderId), {
-      method: 'PATCH', headers: { Prefer: 'return=minimal' },
-      body: JSON.stringify({ status: 'failed', status_code: String(response.status), raw_notification: { stage: 'retry_create', response: midtrans }, updated_at: new Date().toISOString() })
-    }).catch(() => {});
-    await rpc('bbweb_release_merch_order', { p_order_id: currentOrder.id, p_payment_status: 'payment_error', p_status: 'payment_error' }).catch(() => {});
-    throw Object.assign(new Error('Midtrans menolak pembuatan transaksi. Periksa mode Sandbox/Production dan Server Key.'), { status: 502 });
-  }
-  await db('bbweb_merch_payments?merchant_order_id=eq.' + encodeURIComponent(merchantOrderId), {
-    method: 'PATCH', headers: { Prefer: 'return=minimal' },
-    body: JSON.stringify({ status: 'pending', snap_token: midtrans.token, redirect_url: midtrans.redirect_url, transaction_status: 'pending', updated_at: new Date().toISOString() })
-  });
-  await db('bbweb_orders?id=eq.' + encodeURIComponent(currentOrder.id), {
-    method: 'PATCH', headers: { Prefer: 'return=minimal' },
-    body: JSON.stringify({ status: 'waiting_payment', payment_status: 'pending', updated_at: new Date().toISOString() })
-  });
-  return { ok: true, redirect_url: midtrans.redirect_url, reused: false };
+  await db('bbweb_merch_payments?merchant_order_id=eq.'+invoice+'&status=eq.created',{method:'PATCH',body:JSON.stringify({status:'pending',redirect_url:url,transaction_status:'PENDING'})});
+  return {ok:true,redirect_url:url,reused:false};
 }
 Deno.serve(async (req: Request) => {
   const origin = req.headers.get('origin');
