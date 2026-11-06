@@ -119,6 +119,6 @@ export default function EnglishStudio({path}: {path: string}) {
     <footer className="site-footer"><div className="footer-top"><div><a href="/en/"><Logo/></a><p>Independent digital studio in Yogyakarta.</p></div>
       <div className="footer-links"><div><small>THE STUDIO</small>{links}</div><div><small>IN INDONESIAN</small>
         <a href="/artikel/">Articles (ID)</a><a href="/berita/">News (ID)</a><a href="/merch/">Merchandise (ID)</a><a href="/privacy/">Privacy policy (ID)</a>
-      </div></div></div></footer>
+      </div></div></div><FooterPaymentMethods english/></footer>
   </>;
 }
