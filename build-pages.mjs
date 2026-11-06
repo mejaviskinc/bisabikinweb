@@ -93,13 +93,14 @@ const pages={
   '/shipping':['Informasi Pengiriman Merchandise','Temukan informasi proses pengiriman merchandise BisaBikinWeb, konfirmasi alamat dan ongkir, serta pemantauan status pesanan.'],
   '/cart':['Keranjang','Tinjau wishlist dan produk Anda.'],
   '/checkout':['Checkout Merchandise','Selesaikan detail pengiriman dan lanjutkan pembayaran merchandise Bisabikinweb.'],
+  '/payment':['Pembayaran Aman — BisaBikinWeb','Halaman pembayaran merchandise BisaBikinWeb dengan konfirmasi status melalui DOKU.'],
   '/track-order':['Lacak Pesanan Merchandise','Periksa status pembayaran dan pengiriman pesanan Bisabikinweb.'],
   '/account':['Akun Pembeli — BisaBikinWeb','Login pembeli, profil, riwayat pesanan, dan status pembayaran merchandise BisaBikinWeb.'],
   '/admin':['Admin Bisabikinweb','Panel admin Bisabikinweb untuk lead, portfolio, dan pengaturan website.'],
   '/admin/sellers':['Seller Operations — Bisabikinweb','Panel admin untuk menyetujui seller, meninjau produk marketplace, dan mengelola permintaan withdraw.'],
   '/seller':['Seller Dashboard — Bisabikinweb','Dashboard seller untuk mengelola produk, pesanan, saldo penjualan, dan permintaan pencairan.'],
   '/admin/iklan':['Ads Manager Bisabikinweb','Panel admin untuk mengatur iklan homepage Bisabikinweb.'],
-  '/admin/payments':['Payment Gateway — BisaBikinWeb','Dashboard transaksi Midtrans, status pembayaran, rekonsiliasi, dan monitoring checkout merchandise.']
+  '/admin/payments':['Payment Gateway — BisaBikinWeb','Dashboard transaksi DOKU, status pembayaran, rekonsiliasi, dan monitoring checkout merchandise.']
 };
 for(const [kind,prefix] of [['services','jasa'],['portfolio','portfolio'],['products','merch']]){
  for(const p of defaults[kind]){
@@ -139,7 +140,7 @@ function protectHtml(html){
  const adConnections=hasAdsense?' https://pagead2.googlesyndication.com https://googleads.g.doubleclick.net https://ep1.adtrafficquality.google https://ep2.adtrafficquality.google https://www.google.com':'';
  const adFrames=hasAdsense?' https://googleads.g.doubleclick.net https://tpc.googlesyndication.com https://www.google.com https://ep2.adtrafficquality.google':'';
  const hashes=[...html.matchAll(/<script\b[^>]*>([\s\S]*?)<\/script>/gi)].filter(m=>m[1].trim()).map(m=>"'sha256-"+createHash('sha256').update(m[1]).digest('base64')+"'");
- const policy=["default-src 'none'","base-uri 'none'","object-src 'none'","script-src 'self' "+hashes.join(' ')+adScripts,"script-src-attr 'none'","style-src 'self' 'unsafe-inline'","img-src 'self' data: https:","font-src 'self' data:","connect-src 'self' https://kdlrobdzlxpjlkxbvzsd.supabase.co"+adConnections,"frame-src https://www.instagram.com https://instagram.com https://berbeda.co.id https://www.berbeda.co.id https://karpenter.co.id https://www.karpenter.co.id https://mejaviskincare.co.id https://www.mejaviskincare.co.id https://gooninks.co.id https://www.gooninks.co.id https://gojogjatravel.web.id https://www.gojogjatravel.web.id"+adFrames,"media-src 'self'","form-action 'none'","upgrade-insecure-requests"].join('; ');
+ const policy=["default-src 'none'","base-uri 'none'","object-src 'none'","script-src 'self' "+hashes.join(' ')+" https://sandbox.doku.com https://jokul.doku.com"+adScripts,"script-src-attr 'none'","style-src 'self' 'unsafe-inline'","img-src 'self' data: https:","font-src 'self' data:","connect-src 'self' https://kdlrobdzlxpjlkxbvzsd.supabase.co"+adConnections,"frame-src https://sandbox.doku.com https://jokul.doku.com https://checkout.doku.com https://www.instagram.com https://instagram.com https://berbeda.co.id https://www.berbeda.co.id https://karpenter.co.id https://www.karpenter.co.id https://mejaviskincare.co.id https://www.mejaviskincare.co.id https://gooninks.co.id https://www.gooninks.co.id https://gojogjatravel.web.id https://www.gojogjatravel.web.id"+adFrames,"media-src 'self'","form-action 'none'","upgrade-insecure-requests"].join('; ');
  return html.replace('<head>','<head><meta http-equiv="Content-Security-Policy" content="'+policy+'"/><meta name="referrer" content="no-referrer"/>');
 }
 const template=await readFile('site-dist/index.html','utf8');
@@ -153,7 +154,7 @@ for(const [path,[name,description]] of Object.entries(pages)){
   const title=article?(article.title.length<=55?article.title+' | '+brand:article.title):(path==='/'?brand+' | '+name:(name.toLowerCase().includes('bisabikinweb')?name:name+' | '+brand));
   const url=origin+(path==='/'?'/':path+'/');
   const isService=equivalentPath.startsWith('/jasa/');
-  const noindex=path==='/cart'||path==='/checkout'||path==='/track-order'||path==='/account'||path==='/seller'||path==='/layanan-digital'||path.startsWith('/admin');
+  const noindex=path==='/cart'||path==='/checkout'||path==='/payment'||path==='/track-order'||path==='/account'||path==='/seller'||path==='/layanan-digital'||path.startsWith('/admin');
   const metaDescription=snippet(description);
   const articleImage=safeHttpsUrl(article?.image);
   const imageUrl=articleImage||origin+'/og.svg';
@@ -207,7 +208,7 @@ const coverHash=createHash('sha256').update(coverBytes).digest('hex');
 if(coverHash!=='1fbaee73e936ba6064cc24c86137184f7ae165be32d7845f5e1c5d06b64ca662')throw new Error('GoJogja collaboration cover integrity check failed');
 await writeFile('site-dist/bisabikinweb-gojogja-travel-collaboration.webp',coverBytes);
 await writeFile('site-dist/robots.txt',`User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n${freshNewsArticles.length?`Sitemap: ${origin}/news-sitemap.xml\n`:''}`);
-const excludedRoutes=new Set(['/cart','/checkout','/track-order','/seller','/account','/layanan-digital']);
+const excludedRoutes=new Set(['/cart','/checkout','/payment','/track-order','/seller','/account','/layanan-digital']);
 const sitemapEntries=Object.keys(pages).filter(path=>!excludedRoutes.has(path)&&!path.startsWith('/admin')&&!path.startsWith('/seller/')).map(path=>{
  const article=articleByPath.get(path);
  const loc=origin+(path==='/'?'/':path+'/');
