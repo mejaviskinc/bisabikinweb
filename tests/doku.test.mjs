@@ -4,6 +4,7 @@ import {readFileSync} from 'node:fs';
 import {stripTypeScriptTypes} from 'node:module';
 import {createHmac,createHash,webcrypto} from 'node:crypto';
 import vm from 'node:vm';
+import {spawnSync} from 'node:child_process';
 const env={DOKU_CLIENT_ID:'merchant-test',DOKU_SECRET_KEY:'secret-test',DOKU_ENV:'sandbox'};
 const context=vm.createContext({crypto:webcrypto,TextEncoder,btoa,URL,Headers,Date,AbortSignal,Deno:{env:{get:key=>env[key]}},fetch:async()=>{throw Error('Unexpected network call')}});
 let source=stripTypeScriptTypes(readFileSync('supabase/functions/_shared/doku.ts','utf8')).replaceAll('export ','');
@@ -48,4 +49,19 @@ test('redirect allowlist rejects off-domain URLs and sandbox/production mixing',
 test('status lookup does not use sandbox credentials for production or poll within 60 seconds',async()=>{
  await assert.rejects(api.dokuRequest('/orders/v1/status/INV',undefined,'production'),/Mode transaksi/);
  const fresh={...payment,created_at:new Date().toISOString()};assert.equal(await api.refreshDoku(fresh),fresh);
+});
+
+test('DOKU deployment fails closed without an explicitly verified Supabase project',()=>{
+ const result=spawnSync(process.execPath,['scripts/deploy-doku.mjs'],{
+  encoding:'utf8',env:{...process.env,SUPABASE_PROJECT_REF:'',SUPABASE_ACCESS_TOKEN:''}
+ });
+ assert.notEqual(result.status,0);
+ assert.match(result.stderr,/SUPABASE_PROJECT_REF is required/);
+});
+test('DOKU deployment help is available without credentials or a project',()=>{
+ const result=spawnSync(process.execPath,['scripts/deploy-doku.mjs','--help'],{
+  encoding:'utf8',env:{...process.env,SUPABASE_PROJECT_REF:'',SUPABASE_ACCESS_TOKEN:''}
+ });
+ assert.equal(result.status,0,result.stderr);
+ assert.match(result.stdout,/SUPABASE_PROJECT_REF must be set explicitly/);
 });
