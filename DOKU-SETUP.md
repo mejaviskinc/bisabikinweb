@@ -37,8 +37,8 @@ Deploy `_shared/doku.ts` with each dependent function:
 - `bbweb-payment-status`
 - `bbweb-customer-api`
 
-Register this exact notification URL in DOKU:
-`https://iyhwephcrxeqwiemhppw.supabase.co/functions/v1/bbweb-doku-webhook`
+Register this notification URL in DOKU only **after migration and backend validation**:
+`https://kdlrobdzlxpjlkxbvzsd.supabase.co/functions/v1/bbweb-doku-webhook`
 
 The signed Request-Target must be `/functions/v1/bbweb-doku-webhook`. The public URL is used because Supabase's internal function URL can be rewritten. DOKU retries can be delayed, so notification authentication does not impose a short timestamp window. Replay safety relies on immutable invoice+amount matching and idempotent settlement, plus guards against paid/refunded status regression.
 
