@@ -1,4 +1,5 @@
 'use client';
+import FooterPaymentMethods from '../components/FooterPaymentMethods';
 import {restoreCart,restoreWishlist} from '../lib/security.mjs';
 import { PortfolioVisual, BrandShowcase } from '../components/Visuals';
 import {useState,useEffect,useRef,lazy,Suspense} from 'react';
