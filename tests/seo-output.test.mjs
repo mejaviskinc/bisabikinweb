@@ -95,3 +95,27 @@ for(const group of serviceAreaGroups)for(const province of group.provinces){
 }
 assert.equal(scripts(nationwide).filter(schema=>schema['@type']==='Service'&&schema.areaServed?.name==='Indonesia').length,1,'Nationwide page must have one national Service schema');
 console.log('National coverage SEO verified: 38 provinces and selected major cities.');
+
+const {cityLandingPages}=await import('../static-source/lib/city-pages.mjs');
+assert.equal(cityLandingPages.length,16,'Create 16 priority city pages with unique content');
+assert.equal(new Set(cityLandingPages.map(city=>city.title)).size,16,'City titles must be unique');
+assert.equal(new Set(cityLandingPages.map(city=>city.description)).size,16,'City meta descriptions must be unique');
+assert.equal(new Set(cityLandingPages.map(city=>city.scenario)).size,16,'City scenarios must be unique');
+for(const city of cityLandingPages){
+ const route='wilayah/'+city.slug;
+ const html=await getHtml(route);
+ const url=origin+'/'+route+'/';
+ assert.ok(indexedLocations.has(url),route+' missing from sitemap');
+ assert.equal(first(html,/<link rel="canonical" href="([^"]+)"/),url,route+' needs self canonical');
+ assert.match(html,/<meta name="robots" content="index,follow/,route+' indexable');
+ assert.ok(html.includes(city.city)&&html.includes(city.scenarioTitle),route+' lacks local useful content');
+ assert.ok(html.includes(city.tip),route+' lacks specific business recommendation');
+ assert.ok(html.includes(city.faq[0][0])&&html.includes(city.faq[1][0]),route+' lacks local FAQ');
+ assert.ok(nationwide.includes('href="/wilayah/'+city.slug+'/'),route+' not linked from national area hub');
+ const graph=scripts(html);
+ const service=graph.find(s=>s['@type']==='Service');
+ assert.equal(service?.areaServed?.name,city.city,route+' must describe the city served');
+ const breadcrumb=graph.find(s=>s['@type']==='BreadcrumbList');
+ assert.ok(breadcrumb?.itemListElement.some(el=>el.item===origin+'/wilayah/'),route+' missing hub in breadcrumb');
+}
+console.log('City SEO output verified:',cityLandingPages.length,'unique pages, self canonical, index, schema, and hub links.');

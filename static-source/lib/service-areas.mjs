@@ -1,5 +1,5 @@
 // Daftar provinsi dan contoh kota/kabupaten; tidak mengklaim kantor fisik di wilayah tersebut.
-// Satu halaman cakupan nasional menghindari halaman kota duplikat yang tidak memberi nilai tambah.
+// Satu halaman nasional berisi seluruh 38 provinsi; kota prioritas memiliki halaman konteks layanan yang berbeda.
 export const serviceAreaGroups = [
   {
     "region": "Sumatra",

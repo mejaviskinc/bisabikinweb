@@ -9,6 +9,7 @@
 | Beranda | `/` | Jasa bikin web profesional di seluruh Indonesia |
 | Jasa | `/jasa/` | Pilihan layanan: landing page, company profile, ecommerce, web app |
 | Wilayah | `/wilayah/` | Cakupan layanan online di 38 provinsi dan kota/kabupaten utama Indonesia |
+| Kota prioritas | `/wilayah/:kota/` | Panduan kebutuhan website yang spesifik per kota, FAQ, layanan terkait, kontak |
 | Detail jasa | `/jasa/:slug/` | Kebutuhan spesifik setiap jenis website |
 | Harga | `/harga/` | Daftar paket dan transparansi biaya |
 | Portofolio | `/portfolio/` | Karya dan pengalaman proyek |
@@ -71,3 +72,12 @@ Rujukan: https://developers.google.com/search/docs/crawling-indexing/consolidate
 - Tidak membuat ratusan halaman kota serupa tanpa studi kasus, testimoni, atau informasi layanan yang benar-benar spesifik. Halaman seperti itu berisiko masuk kebijakan doorway abuse Google.
 - Lokasi-lokasi yang tercantum adalah **jangkauan layanan jarak jauh**, bukan lokasi kantor atau cabang yang tidak diverifikasi.
 - URL kanonis tetap `https://bisabikinweb.site/`; "BisaBikinWeb.id" adalah identitas brand yang ditampilkan, bukan klaim bahwa domain .id adalah URL kanonis.
+
+## Halaman kota prioritas (2026-11-07)
+
+- 16 halaman berisi informasi kebutuhan bisnis yang berbeda untuk Jakarta, Bandung, Surabaya, Yogyakarta, Semarang, Medan, Tangerang, Bekasi, Bogor, Depok, Malang, Denpasar, Batam, Palembang, Balikpapan, dan Makassar.
+- Sumber konten terstruktur: `static-source/lib/city-pages.mjs`. Kategorinya ilustrasi kebutuhan, bukan bukti proyek atau cabang fisik di kota tersebut.
+- URL mengikuti `/wilayah/:kota/`, ditautkan langsung dari `/wilayah/`, serta menyertakan tautan ke halaman jasa, harga, portofolio, dan kota terkait.
+- Meta title, meta description, H1, skenario, checklist, catatan praktis dan FAQ spesifik setiap kota berbeda.
+- Structured data `Service` menunjukkan wilayah yang dapat dilayani secara online, tidak menambahkan `PostalAddress`, `LocalBusiness`, cabang, peta, atau testimoni palsu.
+- SEO multi-kota harus diperluas secara bertahap hanya setelah ada data Search Console, kebutuhan unik, dan bukti layanan yang relevan. Jangan menggandakan halaman dengan mengganti nama lokasi.

@@ -3,6 +3,7 @@ import {build} from 'vite';
 import {englishPages,englishHref,hasEnglishPage} from './static-source/lib/languages.mjs';
 import {isNewsArticle,makeNewsSitemap,getFreshNewsArticles} from './static-source/lib/news.mjs';
 import {mergeEditorialPosts} from './static-source/lib/editorial-posts.mjs';
+import {cityLandingPages} from './static-source/lib/city-pages.mjs';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 const configFile=new URL('./vite.pages.mjs',import.meta.url).pathname;
 await build({configFile});
@@ -103,6 +104,7 @@ const pages={
   '/admin/iklan':['Ads Manager Bisabikinweb','Panel admin untuk mengatur iklan homepage Bisabikinweb.'],
   '/admin/payments':['Payment Gateway — BisaBikinWeb','Dashboard transaksi DOKU, status pembayaran, rekonsiliasi, dan monitoring checkout merchandise.']
 };
+for(const city of cityLandingPages){pages['/wilayah/'+city.slug]=[city.title,city.description];}
 for(const [kind,prefix] of [['services','jasa'],['portfolio','portfolio'],['products','merch']]){
  for(const p of defaults[kind]){
   const name=String(p.name||p.title||'').trim();
@@ -155,6 +157,7 @@ for(const [path,[name,description]] of Object.entries(pages)){
   const title=article?(article.title.length<=55?article.title+' | '+brand:article.title):(path==='/'?name:(name.toLowerCase().includes('bisabikinweb')?name:name+' | '+brand));
   const url=origin+(path==='/'?'/':path+'/');
   const isService=equivalentPath.startsWith('/jasa/');
+  const cityPage=cityLandingPages.find(city=>path==='/wilayah/'+city.slug);
   const noindex=path==='/cart'||path==='/checkout'||path==='/payment'||path==='/track-order'||path==='/account'||path==='/seller'||path==='/layanan-digital'||path.startsWith('/admin');
   const metaDescription=snippet(description);
   const articleImage=safeHttpsUrl(article?.image);
@@ -167,7 +170,7 @@ for(const [path,[name,description]] of Object.entries(pages)){
     if(path==='/'||path==='/tentang')schemas.push(organization);
     if(path==='/')schemas.push(website);
     if(path==='/'||path==='/wilayah')schemas.push({'@context':'https://schema.org','@type':'Service','@id':url+'#nationwide-web-development',name:'Jasa Bikin Website Seluruh Indonesia',serviceType:'Jasa pembuatan website',description:metaDescription,url,provider:{'@id':origin+'/#organization'},areaServed:{'@type':'Country',name:'Indonesia'},availableLanguage:['id','en']});
-    const section=article?(isNewsArticle(article)?'/berita':'/artikel'):path.startsWith('/jasa/')?'/jasa':path.startsWith('/portfolio/')?'/portfolio':path.startsWith('/merch/')?'/merch':null;
+    const section=article?(isNewsArticle(article)?'/berita':'/artikel'):cityPage?'/wilayah':path.startsWith('/jasa/')?'/jasa':path.startsWith('/portfolio/')?'/portfolio':path.startsWith('/merch/')?'/merch':null;
     const crumbs=equivalentPath==='/'?[]:[{name:english?'Home':'Beranda',url:origin+homePath}];
     if(english&&isService)crumbs.push({name:'Services',url:origin+englishHref('/jasa')});
     if(section)crumbs.push({name:pages[section][0],url:origin+section+'/'});
@@ -177,6 +180,7 @@ for(const [path,[name,description]] of Object.entries(pages)){
     schemas.push({'@context':'https://schema.org','@type':pageType,'@id':url+'#webpage',url,name:title,description:metaDescription,inLanguage:language,isPartOf:{'@id':origin+'/#website'},publisher:{'@id':origin+'/#organization'},...(crumbs.length>1?{breadcrumb:{'@id':breadcrumbId}}:{})});
     if(crumbs.length>1)schemas.push({'@context':'https://schema.org','@type':'BreadcrumbList','@id':breadcrumbId,itemListElement:crumbs.map((crumb,i)=>({'@type':'ListItem',position:i+1,name:crumb.name,item:crumb.url}))});
     if(isService)schemas.push({'@context':'https://schema.org','@type':'Service','@id':url+'#service',name,description:metaDescription,url,provider:{'@id':origin+'/#organization'},areaServed:{'@type':'Country',name:'Indonesia'},serviceType:name});
+    if(cityPage)schemas.push({'@context':'https://schema.org','@type':'Service','@id':url+'#service',name:'Jasa Pembuatan Website '+cityPage.city,description:metaDescription,url,provider:{'@id':origin+'/#organization'},serviceType:'Website Development',areaServed:{'@type':'City',name:cityPage.city,containedInPlace:{'@type':'AdministrativeArea',name:cityPage.province}}});
   }
   if(article&&!noindex){
     const words=[article.title,article.summary,...(Array.isArray(article.body)?article.body:[])].join(' ').trim().split(/\s+/).filter(Boolean).length;

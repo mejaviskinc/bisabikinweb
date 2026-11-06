@@ -266,3 +266,39 @@
 .area-cta .btn{margin-top:15px}
 @media(max-width:850px){.nationwide-preview{grid-template-columns:1fr}.area-province-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 @media(max-width:560px){.area-province-grid{grid-template-columns:1fr}.area-province{padding:20px}.nationwide-preview{gap:25px}.area-region{margin-bottom:36px}}
+
+/* Halaman SEO kota, dirancang sebagai referensi kebutuhan bisnis, bukan kantor fisik. */
+.nationwide-city-list li a,.area-province li a{color:inherit;text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:3px}
+.city-index-links{display:flex;flex-wrap:wrap;gap:9px;margin:12px 0 2px}
+.city-index-links a{display:inline-flex;align-items:center;gap:6px;padding:8px 11px;border:1px solid var(--line);border-radius:5px;font-size:11px}
+.city-index-links a:hover,.city-service-links a:hover{border-color:var(--accent)}
+.city-landing{max-width:1240px}
+.city-breadcrumb{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-bottom:32px;color:var(--muted);font-size:11px}
+.city-breadcrumb a{text-decoration:underline;text-underline-offset:3px}
+.city-intro{max-width:960px;margin:0 0 52px}
+.city-intro h1{font-size:clamp(35px,5.3vw,76px);line-height:1.09;margin:0 0 25px}
+.city-intro>p{max-width:795px;font-size:14px;line-height:1.85}
+.city-actions{display:flex;gap:12px;flex-wrap:wrap;margin:26px 0 0}
+.city-intro .city-service-note{font-size:11px;margin-top:22px;max-width:730px;color:var(--muted)}
+.city-content-section{padding:34px 0;border-top:1px solid var(--line)}
+.city-content-section>.city-section-heading{max-width:880px}
+.city-section-heading h2{font-size:clamp(26px,3.3vw,41px);line-height:1.18;margin:8px 0 15px}
+.city-content-section>p,.city-section-heading>p{max-width:870px;font-size:13px;line-height:1.9}
+.city-steps{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:25px 0 22px;padding:0}
+.city-steps li{background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:21px}
+.city-steps li span{font-size:11px;font-weight:700;color:var(--accent)}
+.city-steps li p{font-size:13px;line-height:1.8;margin:12px 0 0}
+.city-tip{border-left:3px solid var(--accent);padding:12px 20px;background:var(--panel)}
+.city-service-links{display:flex;flex-wrap:wrap;gap:9px;margin:20px 0 18px}
+.city-service-links a{display:inline-flex;align-items:center;gap:12px;max-width:100%;padding:12px 15px;border:1px solid var(--line);border-radius:6px;font-size:12px}
+.city-related-services>p a{text-decoration:underline;text-underline-offset:3px}
+.city-faq{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:13px;margin:22px 0 0}
+.city-faq details{border:1px solid var(--line);border-radius:8px;padding:18px;background:var(--panel)}
+.city-faq summary{cursor:pointer;font-size:14px;font-weight:700;line-height:1.6}
+.city-faq p{font-size:12px;line-height:1.75}
+.city-crosslinks h2{font-size:28px}
+.city-final{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:30px 34px;margin-top:20px}
+.city-final h2{font-size:clamp(25px,3vw,34px);margin:0 0 14px}
+.city-final p{max-width:730px;font-size:13px;line-height:1.8}
+.city-final .btn{margin-top:10px}
+@media(max-width:650px){.city-faq,.city-steps{grid-template-columns:1fr}.city-intro{margin-bottom:32px}.city-final{padding:24px}.city-content-section{padding:26px 0}}
