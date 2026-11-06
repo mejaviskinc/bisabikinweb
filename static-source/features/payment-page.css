@@ -1,0 +1,71 @@
+/* Brand-owned payment surface; DOKU remains the regulated payment processor. */
+.bbw-payment-page{width:min(1180px,calc(100% - 36px));margin:0 auto;min-height:calc(100vh - 210px);padding:36px 0 100px;color:#eeeef2}
+.bbw-payment-top,.bbw-payment-top a,.bbw-payment-top span{display:flex;align-items:center;gap:8px}
+.bbw-payment-top{justify-content:space-between;font-size:12px;font-weight:650;letter-spacing:.02em}
+.bbw-payment-top a{color:#e4e6eb;text-decoration:none}
+.bbw-payment-top span{color:#a3abac;font-size:10px;letter-spacing:.12em}
+.bbw-payment-heading{margin:46px 0 35px;max-width:760px}
+.bbw-payment-heading .eyebrow{color:#bdca8a;font-weight:700;letter-spacing:.18em;font-size:11px}
+.bbw-payment-heading h1{font-weight:750;font-size:clamp(44px,6vw,80px);line-height:.99;margin:16px 0 19px;letter-spacing:-.065em}
+.bbw-payment-heading h1 em{font-weight:500;color:#d2de9f}
+.bbw-payment-heading p{max-width:550px;color:#afb4b8;line-height:1.75;font-size:15px}
+.bbw-payment-grid{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(290px,1fr);align-items:start;gap:22px}
+.bbw-payment-card{border-radius:24px;border:1px solid #30363a;background:#171a1d;padding:30px;box-shadow:0 18px 80px #0000001a}
+.bbw-payment-card-head{display:flex;justify-content:space-between;gap:12px;align-items:start}
+.bbw-payment-card-head .eyebrow,.bbw-payment-summary>.eyebrow{font-size:11px;font-weight:700;color:#b4c18c;letter-spacing:.14em}
+.bbw-payment-card-head h2{font-size:24px;letter-spacing:-.035em;margin:9px 0 0}
+.bbw-payment-pill{font-size:10px;font-weight:800;letter-spacing:.08em;white-space:nowrap;border-radius:100px;border:1px solid #62614e;color:#d6c7aa;padding:7px 11px}
+.bbw-payment-pill.is-paid{color:#dbefb7;border-color:#687a48;background:#42532a30}
+.bbw-payment-channel,.bbw-payment-success{display:flex;align-items:flex-start;gap:16px;border-radius:15px;padding:18px;background:#252b2d;margin-top:30px}
+.bbw-payment-channel>svg{flex:none;color:#d0dfae}
+.bbw-payment-channel b,.bbw-payment-success b{font-size:15px}
+.bbw-payment-channel p,.bbw-payment-success p,.bbw-payment-help{color:#aeb4b7;font-size:13px;line-height:1.7;margin:7px 0 0}
+.bbw-payment-success{color:#d5ecb2;background:#263621}
+.bbw-payment-clock{margin:22px 0;display:flex;align-items:center;gap:8px;font-size:13px;color:#d6cc9e}
+.bbw-payment-error{background:#4a2527;color:#ffd7d6;padding:12px 14px;border-radius:10px;font-size:13px;line-height:1.6;margin-top:20px}
+.bbw-payment-submit{margin-top:26px!important;width:100%;min-height:58px;display:flex!important;align-items:center;justify-content:center;gap:10px;font-size:15px!important;border-radius:13px!important}
+.bbw-payment-submit:disabled{cursor:not-allowed;opacity:.55}
+.bbw-payment-fallback{display:flex;gap:6px;align-items:center;justify-content:center;color:#cfdbaa;text-decoration:underline;text-underline-offset:4px;margin-top:15px;font-size:12px}
+.bbw-payment-divider{height:1px;width:100%;background:#31383b;margin:23px 0}
+.bbw-payment-actions{display:flex;gap:20px;flex-wrap:wrap;align-items:center}
+.bbw-payment-actions button,.bbw-payment-actions a{display:flex;align-items:center;gap:8px;border:none;background:none;color:#d2d8d7;font-size:13px;font-weight:600;cursor:pointer;padding:0;text-decoration:none}
+.bbw-payment-actions a{color:#d1dfa8}
+.bbw-payment-notice{display:flex;align-items:start;gap:10px;color:#879394;font-size:11px;line-height:1.6;margin-top:26px}
+.bbw-payment-notice svg{flex:none}
+.bbw-payment-order-no{display:flex;justify-content:space-between;gap:9px;align-items:center;margin-top:14px}
+.bbw-payment-order-no b{font-size:20px;letter-spacing:-.01em;word-break:break-word}
+.bbw-payment-order-no button{border:1px solid #4c5658;border-radius:8px;color:#d6dede;background:none;padding:8px;display:flex;gap:6px;align-items:center;font-size:11px;cursor:pointer;flex:none}
+.bbw-payment-summary>small{display:block;color:#96a0a2;font-size:12px;margin-top:6px}
+.bbw-payment-items{display:grid;gap:20px}
+.bbw-payment-items>div{display:flex;gap:10px;align-items:flex-start}
+.bbw-payment-items>div>svg{flex:none;color:#b4c28b;margin-top:3px}
+.bbw-payment-items span{flex:1;display:grid;gap:4px;min-width:0}
+.bbw-payment-items b{font-size:13px;font-weight:650}
+.bbw-payment-items small{font-size:11px;color:#9ea8a9}
+.bbw-payment-items strong{font-size:12px;white-space:nowrap}
+.bbw-payment-totals{display:grid;gap:13px;margin:0}
+.bbw-payment-totals>div{display:flex;justify-content:space-between;gap:10px;font-size:13px}
+.bbw-payment-totals dt{color:#aab3b3}
+.bbw-payment-totals dd{margin:0;font-weight:650;text-align:right}
+.bbw-payment-total{display:flex;justify-content:space-between;gap:15px;align-items:center;margin:25px 0 18px}
+.bbw-payment-total span{font-weight:700}
+.bbw-payment-total strong{font-size:27px;letter-spacing:-.035em;color:#d9e8af}
+.bbw-payment-state{display:flex;flex-direction:column;align-items:start;gap:15px;background:#171a1d;border:1px solid #343b40;border-radius:22px;max-width:650px;padding:32px;min-height:180px}
+.bbw-payment-state h2{margin:0}
+.bbw-payment-state>p{color:#b6babc}
+.bbw-payment-state form{display:grid;gap:12px;width:100%;max-width:430px}
+.bbw-payment-state input{background:#262b2f;color:#fff;border-radius:9px;border:1px solid #566066;padding:12px}
+.bbw-payment-state a{color:#d0dea6}
+@media(max-width:770px){.bbw-payment-page{width:min(100% - 28px,650px);padding:20px 0 75px}.bbw-payment-heading{margin:34px 0 23px}.bbw-payment-heading p{font-size:13px}.bbw-payment-grid{grid-template-columns:minmax(0,1fr);gap:15px}.bbw-payment-card{padding:21px;border-radius:18px}.bbw-payment-card-head h2{font-size:21px}.bbw-payment-top span{font-size:9px}.bbw-payment-total strong{font-size:23px}}
+/* Accommodate site light mode. */
+[data-theme="light"] .bbw-payment-page{color:#20272b}
+[data-theme="light"] .bbw-payment-top a{color:#282f31}
+[data-theme="light"] .bbw-payment-heading p{color:#637077}
+[data-theme="light"] .bbw-payment-card,[data-theme="light"] .bbw-payment-state{background:#fff;color:#222c30;border-color:#e1e7ea}
+[data-theme="light"] .bbw-payment-channel{background:#f4f7ee}
+[data-theme="light"] .bbw-payment-channel p,[data-theme="light"] .bbw-payment-help{color:#556367}
+[data-theme="light"] .bbw-payment-channel b{color:#232a26}
+[data-theme="light"] .bbw-payment-card-head .eyebrow,[data-theme="light"] .bbw-payment-summary>.eyebrow{color:#637544}
+[data-theme="light"] .bbw-payment-total strong{color:#506e33}
+[data-theme="light"] .bbw-payment-actions button{color:#333b3b}
+[data-theme="light"] .bbw-payment-actions a{color:#526d30}
