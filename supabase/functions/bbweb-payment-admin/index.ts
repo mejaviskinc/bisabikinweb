@@ -33,7 +33,7 @@ async function db(path: string, options: RequestInit = {}) {
   if (!url || !key) throw new Error('Supabase server credentials unavailable');
   const headers = new Headers(options.headers || {});
   headers.set('apikey', key);
-  headers.set('Authorization', 'Bearer ' + key);
+  if (!key.startsWith('sb_secret_')) headers.set('Authorization', 'Bearer ' + key);
   headers.set('Accept', 'application/json');
   if (options.body !== undefined) headers.set('Content-Type', 'application/json');
   const response = await fetch(url + '/rest/v1/' + path, { ...options, headers });
