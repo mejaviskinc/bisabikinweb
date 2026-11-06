@@ -103,3 +103,11 @@ Rujukan: https://developers.google.com/search/docs/crawling-indexing/consolidate
 - Halaman dibuat dari `static-source/lib/seo-solutions.mjs` dan `static-source/features/SeoSolutions.tsx`, dengan desain responsif yang sama seperti website utama.
 - **Seluruh 600 halaman detail sengaja noindex dan tidak masuk sitemap**, karena banyak variasi frasa berintensi serupa. Hanya direktori `/solusi/` dan halaman jasa asli yang diindeks sampai ada konten unik dan bukti proyek yang ditinjau secara editorial.
 - Pengujian `tests/seo-landing-pages.test.mjs` memeriksa 600 file SSR, metadata, tautan, dan status noindex.
+
+## Cerita dan ciri khas di seluruh 600 halaman SEO (7 November 2026)
+- Setiap URL /solusi/ kini mempunyai tujuh bagian naratif: judul cerita, situasi, masalah, keputusan rancangan, detail khas, manfaat yang dituju, dan pertanyaan untuk brief.
+- Data cerita per keyword tersimpan pada `static-source/lib/seo-story-content.mjs` dan dipasangkan ke halaman secara deterministik lewat ID.
+- Cerita merupakan **ilustrasi hipotetis**, bukan proyek, klien, hasil atau testimoni yang diklaim nyata. Tiap halaman menampilkan penjelasan tersebut.
+- Templat desain menggunakan kolom editorial, panel ciri khas dan bagian hasil + pertanyaan brief dengan tampilan mobile responsif.
+- Test produksi memeriksa tujuh komponen naratif unik pada setiap satu dari 600 halaman SSR dan memastikan tidak ada bagian cerita yang sama persis antarkonten.
+- Detail 600 halaman tetap `noindex` sampai ada pengayaan editorial berupa pengalaman/proyek asli dan verifikasi klaim.
