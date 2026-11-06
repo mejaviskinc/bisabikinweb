@@ -1,0 +1,4 @@
+project_id = "bisabikinweb"
+
+[functions.bbweb-doku-webhook]
+verify_jwt = false
