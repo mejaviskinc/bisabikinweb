@@ -120,6 +120,7 @@ for(const city of cityLandingPages){
 }
 console.log('City SEO output verified:',cityLandingPages.length,'unique pages, self canonical, index, schema, and hub links.');
 
+
 const {provincePages,localityPages,placeLink}=await import('../static-source/lib/geo-pages.mjs');
 assert.equal(provincePages.length,38,'Must have 38 province guides');
 assert.equal(localityPages.length,174,'Must cover 174 additional places');
@@ -130,7 +131,7 @@ for(const province of serviceAreaGroups.flatMap(group=>group.provinces)){
   assert.ok(nationwide.includes('href="'+path),place+' must appear as linked location');
  }
 }
-for(const page of [...provincePages,...localityPages]){
+for(const page of provincePages){
  const url=origin+page.path+'/';
  const html=await getHtml(page.path.slice(1));
  assert.ok(indexedLocations.has(url),page.path+' missing sitemap');
@@ -140,8 +141,17 @@ for(const page of [...provincePages,...localityPages]){
  const graph=scripts(html),service=graph.find(s=>s['@type']==='Service'),breadcrumbs=graph.find(s=>s['@type']==='BreadcrumbList');
  assert.equal(graph.filter(s=>s['@type']==='Service').length,1,page.path+' service schema duplicates');
  assert.ok(breadcrumbs?.itemListElement.some(c=>c.item===origin+'/wilayah/'),page.path+' breadcrumb missing');
- if(page.city){assert.equal(service?.areaServed?.name,page.city);assert.ok(html.includes(page.topic.name)&&html.includes(page.topic.steps[0]),page.path+' content missing')}
- else {assert.equal(service?.areaServed?.name,page.name);assert.ok(html.includes(page.name)&&html.includes(page.locations[0]),page.path+' directory missing')}
+ assert.equal(service?.areaServed?.name,page.name);
+ assert.ok(html.includes(page.name)&&html.includes(page.locations[0]),page.path+' directory missing');
+}
+for(const page of localityPages){
+ const html=await getHtml(page.path.slice(1));
+ assert.equal(first(html,/<title>([^<]+)<\/title>/),page.title,page.path+' title mismatch');
+ assert.equal(first(html,/<meta name="robots" content="([^"]+)"/),'noindex,nofollow',page.path+' must stay noindex until unique content is reviewed');
+ assert.ok(!html.includes('rel="canonical"'),page.path+' must not claim a canonical while noindex');
+ assert.ok(!indexedLocations.has(origin+page.path+'/'),page.path+' must be withheld from sitemap until unique editorial content is ready');
+ assert.equal(scripts(html).length,0,page.path+' must not publish structured data for noindex route');
+ assert.ok(html.includes(page.topic.name)&&html.includes(page.topic.steps[0]),page.path+' must contain useful visible guide');
 }
 assert.equal(new Set([...provincePages,...localityPages].map(page=>page.title)).size,212,'Generated titles should be unique');
-console.log('Full national SEO verified: 38 provinces, 174 additional localities, plus 16 existing priority cities.');
+console.log('National coverage SEO verified: 38 indexable provinces, 174 navigable localities initially noindex, plus 16 priority cities.');

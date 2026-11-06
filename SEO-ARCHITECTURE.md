@@ -89,3 +89,10 @@ Rujukan: https://developers.google.com/search/docs/crawling-indexing/consolidate
 - Metadata, canonical, sitemap, BreadcrumbList, dan Service schema ditambahkan untuk seluruh URL. Semua mengacu ke `https://bisabikinweb.site/`, bukan mengganti domain.
 - Konten baru adalah contoh penerapan website, bukan bukti proyek lokal. Jangan menganggap banyaknya halaman otomatis meningkatkan ranking; tambahkan studi kasus nyata dan informasi spesifik setelah verifikasi.
 - UI dirancang dengan tipografi premium, ringkasan cakupan, pencarian wilayah, daftar tautan daerah, CTA, dan tampilan responsif.
+
+## Pengamanan indeksasi untuk halaman kota otomatis
+
+- Seluruh 174 halaman lokasi tambahan tetap tersedia dan bisa dibuka dari direktori wilayah.
+- Sebelum ditambahkan studi kasus atau informasi lokal unik yang terverifikasi, halaman-halaman tersebut memiliki tag `noindex,nofollow` dan tidak dimasukkan sitemap. Ini mencegah direktori template menjadi ratusan landing page serupa yang dioptimasi terutama untuk mesin pencari.
+- Halaman beranda, /wilayah/, 38 halaman provinsi, dan 16 halaman kota prioritas tetap indexable dengan canonical dan sitemap.
+- Google Search Console perlu digunakan untuk memilih lokasi yang punya permintaan nyata, kemudian memperkaya konten lokal dan mengubah indeksasi melalui review editorial yang disengaja.
