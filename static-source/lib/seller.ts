@@ -1,6 +1,6 @@
-const SUPABASE_URL='https://iyhwephcrxeqwiemhppw.supabase.co';
-const SUPABASE_KEY='sb_publishable_0QZOXv00GKp6ecUi2L-FLA_YvsQrzy3';
-const SESSION_KEY='bbw_seller_session_v1';
+const SUPABASE_URL='https://kdlrobdzlxpjlkxbvzsd.supabase.co';
+const SUPABASE_KEY='sb_publishable_Xy3TI3nbOGglkk5xy6uAsA_ytlPYhv-';
+const SESSION_KEY='bbw_seller_session_v2';
 export type SellerSession={access_token:string;refresh_token:string;expires_at:number;user:any};
 async function authRequest(path:string,body:any,token?:string){const headers:Record<string,string>={apikey:SUPABASE_KEY,Accept:'application/json','Content-Type':'application/json'};if(token)headers.Authorization='Bearer '+token;const response=await fetch(SUPABASE_URL+path,{method:'POST',headers,body:JSON.stringify(body),credentials:'omit',cache:'no-store'});const text=await response.text();let payload:any={};if(text){try{payload=JSON.parse(text)}catch{payload={message:text}}}if(!response.ok)throw new Error(payload?.msg||payload?.message||payload?.error_description||payload?.error||'Permintaan autentikasi gagal.');return payload;}
 function saveSession(payload:any):SellerSession{const session:SellerSession={access_token:payload.access_token,refresh_token:payload.refresh_token,expires_at:Math.floor(Date.now()/1000)+Number(payload.expires_in||3600),user:payload.user};try{localStorage.setItem(SESSION_KEY,JSON.stringify(session))}catch{}return session;}
