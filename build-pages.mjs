@@ -3,6 +3,7 @@ import {build} from 'vite';
 import {englishPages,englishHref,hasEnglishPage} from './static-source/lib/languages.mjs';
 import {isNewsArticle,makeNewsSitemap,getFreshNewsArticles} from './static-source/lib/news.mjs';
 import {mergeEditorialPosts} from './static-source/lib/editorial-posts.mjs';
+import {geoGuideArticles} from './static-source/lib/geo-guides.mjs';
 import {cityLandingPages} from './static-source/lib/city-pages.mjs';
 import {provincePages,localityPages,provinceBySlug,localityByPath} from './static-source/lib/geo-pages.mjs';
 import {keywordPages,keywordPageByPath} from './static-source/lib/seo-solutions.mjs';
@@ -56,6 +57,10 @@ async function fetchPublishedArticles(){
 }
 const liveArticles=await fetchPublishedArticles();
 const buildArticles=mergeEditorialPosts(liveArticles?.length?liveArticles:defaults.articles);
+// Panduan editorial bermutu tetap tersedia pada hasil build, termasuk saat fetch Supabase gagal.
+for(const guide of geoGuideArticles){
+  if(!buildArticles.some(article=>article.id===guide.id))buildArticles.push(guide);
+}
 // Artikel SEO baru: website ekspor untuk bisnis Indonesia.
 const exportArticle={id:'website-ekspor-bisnis-internasional',title:'Website Ekspor: Cara Bisnis Indonesia Menjangkau Buyer Internasional',category:'Bisnis dan Teknologi',read:'6 menit',summary:'Pelajari manfaat website ekspor untuk memperkenalkan produk Indonesia, membangun kepercayaan buyer internasional, dan memperluas pasar global.',body:[
 'Website ekspor adalah website bisnis yang dirancang untuk memperkenalkan perusahaan, produk, kapasitas produksi, dan informasi perdagangan kepada calon pembeli dari luar negeri. Bagi eksportir, website dapat menjadi pusat informasi resmi yang bisa diakses buyer kapan saja dan dari berbagai negara.',
@@ -142,10 +147,10 @@ const dateOnly=value=>isoDate(value)?.slice(0,10)||buildDate;
 const safeHttpsUrl=value=>{try{const url=new URL(String(value||''));return url.protocol==='https:'&&!url.username&&!url.password?url.href:''}catch{return ''}};
 const organization={
   '@context':'https://schema.org','@type':'Organization','@id':origin+'/#organization',name:brand,url:origin+'/',logo:{'@type':'ImageObject',url:logo},image:logo,email,telephone:phone,
-  description:'Jasa pembuatan website profesional untuk UMKM, bisnis, personal brand, toko online, dan perusahaan.',
+  description:'Jasa pembuatan website profesional untuk UMKM, bisnis, personal brand, toko online, dan perusahaan.',alternateName:['BisaBikinWeb','Bisabikinweb'],
   contactPoint:{'@type':'ContactPoint',telephone:phone,email,contactType:'customer service',areaServed:'ID',availableLanguage:['id','en']}
 };
-const website={'@context':'https://schema.org','@type':'WebSite','@id':origin+'/#website',url:origin+'/',name:brand,alternateName:'BisaBikinWeb',inLanguage:'id-ID',publisher:{'@id':origin+'/#organization'}};
+const website={'@context':'https://schema.org','@type':'WebSite','@id':origin+'/#website',url:origin+'/',name:brand,alternateName:'BisaBikinWeb',description:'Situs resmi BisaBikinWeb untuk jasa pembuatan website dan panduan bisnis digital.',inLanguage:'id-ID',publisher:{'@id':origin+'/#organization'}};
 const adsenseClient='ca-pub-9568884120945028';
 const adsenseScriptUrl='https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client='+adsenseClient;
 function protectHtml(html){
@@ -182,6 +187,8 @@ for(const [path,[name,description]] of Object.entries(pages)){
   if(!noindex){
     if(path==='/'||path==='/tentang')schemas.push(organization);
     if(path==='/')schemas.push(website);
+    // Pertanyaan dan jawaban ini tampil sebagai teks di beranda dan halaman harga.
+    if(path==='/'||path==='/harga')schemas.push({'@context':'https://schema.org','@type':'FAQPage','@id':url+'#faq',mainEntity:buildData.faq.map(([question,answer])=>({'@type':'Question',name:question,acceptedAnswer:{'@type':'Answer',text:answer}}))});
     if(path==='/'||path==='/wilayah')schemas.push({'@context':'https://schema.org','@type':'Service','@id':url+'#nationwide-web-development',name:'Jasa Bikin Website Seluruh Indonesia',serviceType:'Jasa pembuatan website',description:metaDescription,url,provider:{'@id':origin+'/#organization'},areaServed:{'@type':'Country',name:'Indonesia'},availableLanguage:['id','en']});
     const section=article?(isNewsArticle(article)?'/berita':'/artikel'):(cityPage||geoProvince||geoLocality)?'/wilayah':path.startsWith('/jasa/')?'/jasa':path.startsWith('/portfolio/')?'/portfolio':path.startsWith('/merch/')?'/merch':null;
     const crumbs=equivalentPath==='/'?[]:[{name:english?'Home':'Beranda',url:origin+homePath}];
