@@ -1,0 +1,82 @@
+/**
+ * Panduan editorial orisinal untuk membantu calon pelanggan memahami layanan.
+ * Tidak mengklaim kantor fisik, jaminan ranking, atau hasil klien tanpa bukti.
+ */
+export const geoGuideArticles = [
+  {
+    "id": "checklist-memilih-jasa-pembuatan-website",
+    "title": "Checklist Memilih Jasa Pembuatan Website: 10 Hal yang Perlu Ditanyakan",
+    "category": "Panduan Website",
+    "read": "7 menit",
+    "summary": "Panduan praktis membandingkan vendor website: tujuan bisnis, fitur, biaya, domain, pengelolaan, keamanan, SEO, hingga dukungan setelah website diluncurkan.",
+    "author_type": "editorial",
+    "author_store_name": "BisaBikinWeb",
+    "published_at": "2026-11-07T04:00:00+07:00",
+    "updated_at": "2026-11-07T04:00:00+07:00",
+    "sort_order": 10,
+    "image": "",
+    "body": [
+      "Memilih jasa pembuatan website sebaiknya dimulai dari kebutuhan bisnis, bukan hanya contoh desain atau harga termurah. Vendor yang tepat harus dapat menjelaskan apa yang dibangun, siapa yang mengelola hasilnya, dan bagaimana pengunjung menghubungi atau membeli dari bisnis Anda.",
+      "## Jawaban singkat: bagaimana memilih vendor website?",
+      "Bandingkan vendor berdasarkan kejelasan ruang lingkup, contoh pekerjaan yang bisa diperiksa, biaya total, hak akses domain dan hosting, alur revisi, keamanan dasar, serta rencana pemeliharaan. Minta semua hal penting dicatat dalam penawaran tertulis sebelum pembayaran.",
+      "## 1. Apa tujuan utama website?",
+      "Apakah pengunjung diharapkan mengisi formulir prospek, melihat profil perusahaan, membaca katalog, memesan layanan, atau membayar produk? Tujuan utama akan menentukan struktur navigasi, konten, dan fitur yang perlu dibangun.",
+      "## 2. Jenis website apa yang paling sesuai?",
+      "Landing page cocok untuk satu penawaran atau kampanye. Company profile cocok untuk menampilkan identitas perusahaan, layanan, tim, dan kredensial. Toko online memerlukan perhatian pada katalog, varian, stok, pembayaran, dan pengiriman. Web app dibangun ketika bisnis membutuhkan alur operasional yang khusus.",
+      "## 3. Fitur apa saja yang termasuk dalam penawaran?",
+      "Minta daftar halaman, formulir, akun admin, integrasi WhatsApp, fitur produk, SEO dasar, dan analitik. Tanyakan apa yang tidak termasuk agar perubahan ruang lingkup di tengah proyek tidak menimbulkan salah paham. Lihat pilihan layanan di https://bisabikinweb.site/jasa/.",
+      "## 4. Berapa total biaya, bukan hanya harga awal?",
+      "Biaya akhir dapat meliputi pengembangan, domain, hosting, integrasi pihak ketiga, konten, dan pemeliharaan. Pastikan masa berlangganan, biaya perpanjangan, serta batas revisi tertulis jelas. Lihat gambaran paket di https://bisabikinweb.site/harga/; harga akhir bergantung pada kebutuhan yang disepakati.",
+      "## 5. Siapa pemilik domain, hosting, dan akun?",
+      "Pastikan nama domain dan akun penting dikelola secara transparan. Mintalah penjelasan hak akses, prosedur serah terima, dan pilihan migrasi apabila nanti berpindah penyedia layanan. Simpan dokumentasi kredensial secara aman.",
+      "## 6. Bisakah tim Anda mengubah isi website?",
+      "Jika produk, artikel, atau layanan sering berubah, tanyakan apakah tersedia CMS atau dashboard yang sesuai. Jika website jarang diperbarui, solusi yang lebih sederhana mungkin justru lebih efisien. Minta demonstrasi cara memperbarui konten.",
+      "## 7. Bagaimana keamanan dan backup ditangani?",
+      "Minimal tanyakan penggunaan HTTPS, kontrol akses administrator, validasi formulir, kebijakan backup, dan pembaruan dependensi. Untuk website yang menerima pembayaran atau menyimpan data pelanggan, kewajiban keamanan dan privasi perlu dibahas lebih rinci.",
+      "## 8. Bagaimana kesiapan SEO dan aksesibilitas?",
+      "Periksa struktur judul, URL yang jelas, metadata, sitemap, robots.txt, canonical, halaman yang dapat dibaca crawler, serta tautan antarhalaman. SEO dasar membantu halaman ditemukan, tetapi tidak menjamin peringkat atau indeks Google. Periksa juga keterbacaan teks, kontras, navigasi keyboard, dan tampilan ponsel.",
+      "## 9. Apakah contoh pekerjaan vendor dapat diperiksa?",
+      "Minta contoh website yang bisa dikunjungi, penjelasan fitur yang dikerjakan, dan peran vendor dalam proyek tersebut. Jangan mengandalkan angka hasil pemasaran atau testimonial yang tidak dapat diverifikasi. Contoh pekerjaan yang ditampilkan BisaBikinWeb ada di https://bisabikinweb.site/portfolio/.",
+      "## 10. Apa yang terjadi setelah website diluncurkan?",
+      "Tanyakan masa dukungan, ruang lingkup perbaikan bug, backup, pembaruan konten, biaya maintenance, dan prosedur jika website tidak dapat diakses. Kesepakatan yang jelas lebih membantu daripada janji dukungan tanpa batas.",
+      "## Dokumen singkat untuk meminta penawaran",
+      "Siapkan nama dan bidang usaha, target pengunjung, tujuan website, daftar fitur wajib, perkiraan jumlah halaman, materi brand dan foto yang boleh digunakan, referensi tampilan, target waktu, serta kisaran anggaran. Dokumen ini bisa digunakan untuk membandingkan penawaran secara adil.",
+      "## Tentang BisaBikinWeb",
+      "BisaBikinWeb adalah studio pembuatan website yang menerima konsultasi proyek secara online untuk bisnis di seluruh Indonesia. Website resmi studio ini adalah https://bisabikinweb.site/. Jika ingin meminta penawaran sesuai kebutuhan, gunakan https://bisabikinweb.site/kontak/."
+    ]
+  },
+  {
+    "id": "jasa-website-online-seluruh-indonesia",
+    "title": "Jasa Bikin Website Online Seluruh Indonesia: Alur Kerja, Biaya, dan Cara Konsultasi",
+    "category": "Panduan Website",
+    "read": "6 menit",
+    "summary": "Bisakah memakai jasa website tanpa bertemu langsung? Pelajari proses brief, rancangan, revisi, serah terima, dan cara memilih penyedia layanan website secara online.",
+    "author_type": "editorial",
+    "author_store_name": "BisaBikinWeb",
+    "published_at": "2026-11-07T04:00:00+07:00",
+    "updated_at": "2026-11-07T04:00:00+07:00",
+    "sort_order": 11,
+    "image": "",
+    "body": [
+      "Jasa pembuatan website dapat dilakukan jarak jauh ketika kebutuhan, materi, jadwal, dan persetujuan proyek disepakati secara jelas. Pelaku usaha di luar kota tidak selalu perlu bertemu langsung dengan pengembang website.",
+      "## Apakah bisa pesan website dari kota lain?",
+      "Ya. Konsultasi, pengiriman materi, pembahasan desain, pengujian, dan serah terima dapat dilakukan secara online. Namun, cara komunikasi, keamanan dokumen, serta tenggat harus disetujui bersama sebelum proyek dimulai.",
+      "## Langkah 1: jelaskan usaha dan tujuan website",
+      "Mulai dengan menjelaskan apa yang dijual atau ditawarkan, siapa pengunjung utama, dan tindakan yang diharapkan. Website untuk jasa konsultasi mempunyai kebutuhan berbeda dari katalog produk atau sistem pemesanan.",
+      "## Langkah 2: pilih halaman dan fitur penting",
+      "Daftar awal dapat meliputi beranda, layanan, profil usaha, portofolio, artikel, FAQ, dan kontak. Untuk toko online, pertimbangkan varian produk, checkout, metode pembayaran, stok, pengiriman, dan pengelolaan pesanan.",
+      "## Langkah 3: minta rincian harga serta ruang lingkup tertulis",
+      "Periksa apa yang termasuk dalam desain, pengembangan, konten, hosting, domain, revisi, pengujian, dan maintenance. Hindari membandingkan harga tanpa membandingkan hasil yang dijanjikan. Pilihan paket BisaBikinWeb tersedia di https://bisabikinweb.site/harga/.",
+      "## Langkah 4: tinjau rancangan dan berikan umpan balik",
+      "Periksa urutan informasi, keterbacaan di ponsel, cara menghubungi usaha, dan kelengkapan konten. Catat revisi secara spesifik agar setiap perubahan dapat ditinjau dan tidak mengulang pekerjaan yang sudah disetujui.",
+      "## Langkah 5: uji sebelum peluncuran",
+      "Cobalah tautan navigasi, formulir, tampilannya di ponsel, akses administrator, kecepatan halaman, serta integrasi yang digunakan. Pastikan halaman publik dapat diakses mesin pencari bila ingin ditemukan melalui Google.",
+      "## Langkah 6: serah terima dan pengelolaan setelah online",
+      "Sepakati pemilik akun domain dan hosting, akses admin, dokumentasi, jadwal backup, dan siapa yang menangani pembaruan. SEO memerlukan pemantauan setelah situs terbit; tidak ada penyedia yang dapat menjamin semua halaman langsung muncul di peringkat pertama.",
+      "## Apakah tersedia kantor di semua kota?",
+      "Cakupan layanan online berbeda dari keberadaan cabang fisik. Halaman wilayah pada BisaBikinWeb menjelaskan contoh kebutuhan bisnis setempat dan kemungkinan konsultasi jarak jauh, bukan klaim memiliki kantor di setiap kota.",
+      "## Wilayah layanan dan kontak resmi",
+      "Jelajahi panduan layanan untuk kota-kota besar dan provinsi di https://bisabikinweb.site/wilayah/. Untuk memulai proyek, kirim brief melalui https://bisabikinweb.site/kontak/. Situs resmi BisaBikinWeb adalah https://bisabikinweb.site/."
+    ]
+  }
+];
