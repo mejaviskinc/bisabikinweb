@@ -1,8 +1,8 @@
 import type {AdminSession} from './supabase';
 import {getSession} from './supabase';
 
-const SUPABASE_URL='https://iyhwephcrxeqwiemhppw.supabase.co';
-const SUPABASE_KEY='sb_publishable_0QZOXv00GKp6ecUi2L-FLA_YvsQrzy3';
+const SUPABASE_URL='https://kdlrobdzlxpjlkxbvzsd.supabase.co';
+const SUPABASE_KEY='sb_publishable_Xy3TI3nbOGglkk5xy6uAsA_ytlPYhv-';
 const FIELDS='ad_enabled,ad_label,ad_title,ad_description,ad_cta,ad_url,ad_image_url,ad_images,ad_start_at,ad_end_at';
 
 export type AdSettings={
