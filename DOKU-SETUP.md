@@ -4,13 +4,13 @@ This branch replaces checkout for new merchandise orders with DOKU Checkout (non
 
 ## Required access
 
-The live frontend uses Supabase project `iyhwephcrxeqwiemhppw`. None of the currently connected Supabase accounts expose that project. Do not deploy to another project with a similar name.
+**Approved migration destination (6 November 2026):** Supabase project `kdlrobdzlxpjlkxbvzsd` (connected, active). Direct inspection found **zero `bbweb_%` tables, zero `bbweb_%` SQL RPCs, and zero Edge Functions** there; the generic `orders`, `payments`, `products` and `articles` tables each had zero rows. The live frontend still references the original `iyhwephcrxeqwiemhppw` project, which is not exposed by the connected Supabase accounts. **Do not deploy or switch the production frontend before migrating and verifying the original schema and data.** Merely storing DOKU credentials in the new project does not activate its checkout.
 
 Set server-only secrets in that project: `DOKU_CLIENT_ID`, `DOKU_SECRET_KEY`, `DOKU_ENV=sandbox` (later `production`). Keep existing Supabase and historical Midtrans secrets. Never commit credentials or place them in the frontend.
 
 ## Preflight before rollout
 
-Inspect the live `bbweb_merch_payments` definition, constraints, indexes and `bbweb_commit_merch_order` RPC. Confirm `provider='doku'` is accepted; do not relabel historical payments. Confirm commit is atomic/idempotent, supports late payment after reservation expiry without double stock deduction or double seller settlement, and does not regress processing/shipped orders on repeated notifications.
+First obtain authorized access to the source project and migrate its existing payment schema, users, merchandise, orders, articles, files and related data to the approved destination. Validate row counts and ownership/RLS, and inspect the source and migrated `bbweb_merch_payments` definition, constraints, indexes and `bbweb_commit_merch_order` RPC. Confirm `provider='doku'` is accepted; do not relabel historical payments. Confirm commit is atomic/idempotent, supports late payment after reservation expiry without double stock deduction or double seller settlement, and does not regress processing/shipped orders on repeated notifications.
 
 The additive patch `supabase/patches/doku_payment_runtime.sql` provides:
 - `bbweb_claim_doku_payment`: locks the order before creating a payment attempt; initial checkout and buyer continuation share this claim. Existing uncertain/failed attempts remain claimed until reconciled.
@@ -28,7 +28,7 @@ node scripts/deploy-doku.mjs
 node scripts/deploy-doku.mjs --apply
 ```
 
-The first command only checks project/schema compatibility. The second applies the additive runtime patch and deploys only the five affected functions, preserving existing JWT settings and deploying the signed webhook without gateway JWT verification. It does not configure DOKU credentials or publish the frontend. If provider constraints do not allow DOKU, deployment stops for schema review rather than rewriting payment history.
+The first command only checks project/schema compatibility and is expected to **fail** until the source `bbweb_*` schema and RPCs have been migrated. The second applies the additive runtime patch and deploys only the five affected functions, preserving existing JWT settings and deploying the signed webhook without gateway JWT verification. It does not configure DOKU credentials or publish the frontend. If provider constraints do not allow DOKU, deployment stops for schema review rather than rewriting payment history.
 
 Deploy `_shared/doku.ts` with each dependent function:
 - `bbweb-doku-webhook` (`verify_jwt=false`; verifies DOKU HMAC itself)
@@ -57,7 +57,7 @@ References:
 
 ## Langkah pemasangan API DOKU
 
-Sesudah backend dipasang pada proyek yang benar:
+Sesudah data dan skema `bbweb_*` dipindahkan dari proyek lama dan backend berhasil terpasang pada `kdlrobdzlxpjlkxbvzsd`:
 1. Buka Supabase → Edge Functions → Secrets.
 2. Isi `DOKU_CLIENT_ID` dan `DOKU_SECRET_KEY` dari akun Sandbox DOKU.
 3. Isi `DOKU_ENV` dengan `sandbox`.
