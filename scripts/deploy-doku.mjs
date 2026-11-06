@@ -3,14 +3,14 @@ import {readFile} from 'node:fs/promises';
 import {spawnSync} from 'node:child_process';
 // Never deploy into a guessed project. The operator must verify the destination.
 const project=process.env.SUPABASE_PROJECT_REF || '';
-if(!project)throw Error('SUPABASE_PROJECT_REF is required. Verify the correct production project before running.');
-if(!/^[a-z]{20}$/.test(project))throw Error('Invalid Supabase project reference.');
 const apply=process.argv.includes('--apply');
 const allowShared=process.argv.includes('--allow-shared-project');
 if(process.argv.some(x=>x.startsWith('--')&&!['--apply','--help','--allow-shared-project'].includes(x)))throw Error('Unknown option');
 if(process.argv.includes('--help')){
  console.log('SUPABASE_ACCESS_TOKEN must be set in the environment.\nSUPABASE_PROJECT_REF must be set explicitly to the verified project.\nnode scripts/deploy-doku.mjs          # read-only preflight\nnode scripts/deploy-doku.mjs --apply  # apply runtime patch and deploy backend\nShared projects with gn_* tables require manual review and --allow-shared-project.\nDOKU credentials must be installed separately in Supabase Secrets.');process.exit(0);
 }
+if(!project)throw Error('SUPABASE_PROJECT_REF is required. Verify the correct production project before running.');
+if(!/^[a-z]{20}$/.test(project))throw Error('Invalid Supabase project reference.');
 const token=process.env.SUPABASE_ACCESS_TOKEN;
 if(!token){console.error('SUPABASE_ACCESS_TOKEN is missing. Set it securely in your environment; do not put it in source code.');process.exit(1)}
 async function management(path,body){
