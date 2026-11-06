@@ -365,26 +365,23 @@
 @media(max-width:470px){.geo-links{grid-template-columns:1fr}.geo-search{padding:17px}.geo-stat,.geo-province-tile,.geo-use-grid>article{padding:20px}.geo-bottom{padding:22px}}
 
 
-/* Payment channel wordmarks in the public footer — channels confirmed at checkout */
+/* Public footer: verified logo artwork, not simulated brand text */
 .footer-payment{margin-top:44px;padding:28px 0 34px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
 .footer-payment-heading{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;margin-bottom:22px}
 .footer-payment-heading small{font:9px monospace;letter-spacing:1.35px;color:var(--accent)}
 .footer-payment-heading h3{font-size:clamp(20px,2.1vw,28px);letter-spacing:-.04em;margin-top:8px}
 .footer-payment-heading p{max-width:340px;margin:0;color:var(--muted);font-size:11px;line-height:1.6}
 .footer-payment-grid{display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:10px}
-.footer-payment-logo{min-width:0;min-height:64px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:5px;border:1px solid var(--line);border-radius:7px;padding:10px 5px;background:var(--panel);text-align:center;overflow:hidden}
-.footer-payment-logo strong{display:block;font-size:clamp(12px,1.14vw,17px);font-weight:800;line-height:1.08;letter-spacing:-.045em;white-space:nowrap}
-.footer-payment-logo small{display:block;max-width:100%;font-size:7px;line-height:1.12;letter-spacing:0;color:var(--muted);white-space:normal;overflow-wrap:break-word}
-.payment-bsi strong{color:#36a9a5}.payment-bni strong{color:#f27c40}.payment-briva strong{color:#397ed5}.payment-alfamart strong{color:#f23c45;font-style:italic}
-.payment-cimb strong{color:#ef5051;font-size:13px}.payment-maybank{background:#ffd84c;border-color:#ffd84c}.payment-maybank strong,.payment-maybank small{color:#151515}
-.payment-indomaret{background:#fff;border-color:#fff}.payment-indomaret strong{color:#d42632;border-bottom:2px solid #236eb5}.payment-indomaret small{color:#455268}
-.payment-danamon strong{color:#2f9958}.payment-permata strong{color:var(--text);font-family:Georgia,serif;font-weight:700}.payment-muamalat strong{color:#9d66bc;font-size:13px}
-.payment-sinarmas strong{color:#ee575b}.payment-mandiri strong{color:#3a82d3}.payment-bca strong{color:#2d8eeb;font-style:italic}
-.payment-qris strong{color:#26a0ee;letter-spacing:.025em}.payment-ovo{background:#3d246e;border-color:#5f438f}.payment-ovo strong,.payment-ovo small{color:#fff}
-.payment-paypal strong{color:#2c94cc;font-style:italic}
-@media(max-width:1150px){.footer-payment-grid{grid-template-columns:repeat(4,minmax(0,1fr))}.footer-payment-logo strong{font-size:17px}}
-@media(max-width:650px){.footer-payment-heading{align-items:flex-start;flex-direction:column;gap:10px}.footer-payment-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.footer-payment-logo{min-height:61px}.footer-payment-logo strong{font-size:14px}.payment-cimb strong,.payment-muamalat strong{font-size:12px}}
-@media(max-width:390px){.footer-payment-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.footer-payment-logo strong{font-size:16px}}
+.footer-payment-logo{min-width:0;min-height:82px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:10px;border:1px solid #e9e9e9;border-radius:9px;padding:13px 9px 10px;background:#fff;text-align:center;overflow:hidden}
+.footer-payment-logo img{display:block;width:100%;max-width:120px;height:37px;object-fit:contain}
+.footer-payment-name{display:block;color:#59616c;font-size:9px;font-weight:700;line-height:1.2;letter-spacing:0}
+.footer-payment-logo.payment-image-unavailable img{display:none}
+.footer-payment-logo.payment-image-unavailable .footer-payment-name{font-size:13px;color:#222}
+.footer-payment-credit{margin:16px 0 0;font-size:9px;color:var(--muted);line-height:1.55}
+.footer-payment-credit a{text-decoration:underline;text-underline-offset:2px}
+@media(max-width:1150px){.footer-payment-grid{grid-template-columns:repeat(4,minmax(0,1fr))}}
+@media(max-width:650px){.footer-payment-heading{align-items:flex-start;flex-direction:column;gap:10px}.footer-payment-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}.footer-payment-logo{min-height:74px;padding:12px 7px 9px}.footer-payment-logo img{height:33px}}
+@media(max-width:390px){.footer-payment-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
 
 /* Commercial-intent SEO service links, readable without keyword stuffing. */
 .service-seo-intent{border-top:1px solid var(--line)}
