@@ -238,3 +238,31 @@
 
 .language-switch{font-size:11px;font-weight:700;flex-shrink:0}
 @media(max-width:390px){.site-header .brand-logo{width:145px}.site-header .nav-actions{gap:5px}}
+
+/* Cakupan jasa pembuatan website nasional: bagian beranda dan halaman /wilayah. */
+.nationwide-preview{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:start}
+.nationwide-intro h2{font-size:clamp(28px,3.6vw,46px);line-height:1.12;max-width:620px;margin:0 0 18px}
+.nationwide-intro p{max-width:580px;margin:0 0 25px;color:var(--muted);line-height:1.7;font-size:13px}
+.nationwide-city-list{list-style:none;display:flex;flex-wrap:wrap;gap:9px;margin:0;padding:0}
+.nationwide-city-list li{padding:10px 13px;background:var(--panel);border:1px solid var(--line);border-radius:99px;font-size:12px}
+.area-page .page-intro{max-width:940px}
+.area-page .page-intro h1{max-width:850px}
+.area-page .page-intro p{max-width:810px;line-height:1.75}
+.area-page .page-intro .btn{margin-top:15px}
+.area-summary{margin:45px 0 55px;display:flex;flex-direction:column;gap:8px;padding:18px 22px;border:1px solid var(--line);background:var(--panel);border-radius:10px}
+.area-summary strong{font-size:23px}
+.area-summary span{font-size:12px;line-height:1.7;color:var(--muted)}
+.area-region{margin:0 0 52px;scroll-margin-top:90px}
+.area-region>h2{font-size:clamp(25px,3vw,36px);margin:0 0 24px}
+.area-province-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+.area-province{border:1px solid var(--line);border-radius:10px;padding:22px;background:var(--panel)}
+.area-province h3{margin:0 0 12px;font-size:20px}
+.area-province p{margin:0 0 13px;color:var(--muted);font-size:11px;line-height:1.6}
+.area-province ul{list-style:none;display:flex;flex-wrap:wrap;gap:7px;margin:0;padding:0}
+.area-province li{font-size:11px;padding:6px 9px;border:1px solid var(--line);border-radius:5px;line-height:1.4}
+.area-cta{border-top:1px solid var(--line);padding-top:30px;margin-top:10px}
+.area-cta h2{font-size:28px;margin-bottom:10px}
+.area-cta p{max-width:680px;font-size:13px;line-height:1.7}
+.area-cta .btn{margin-top:15px}
+@media(max-width:850px){.nationwide-preview{grid-template-columns:1fr}.area-province-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.area-province-grid{grid-template-columns:1fr}.area-province{padding:20px}.nationwide-preview{gap:25px}.area-region{margin-bottom:36px}}

@@ -76,14 +76,15 @@ const logo=origin+'/brand/bisabikinweb-logo-compact.svg';
 const phone='+62882003740969';
 const email='bisabikinw3b@gmail.com';
 const pages={
-  '/':['Jasa Pembuatan Website Profesional di Yogyakarta','BisaBikinWeb membantu UMKM dan perusahaan membangun website bisnis profesional di Yogyakarta. Desain responsif, struktur SEO jelas, dan konsultasi langsung.'],
-  '/jasa':['Layanan Website: Landing Page, Toko Online & Web App','Pilih layanan website sesuai kebutuhan: landing page, company profile, toko online, portofolio, aplikasi web, hingga pemeliharaan. Pelajari fitur tiap layanan.'],
+  '/':['Jasa Bikin Web Seluruh Indonesia | BisaBikinWeb.id','Jasa bikin website profesional untuk UMKM, toko online, bisnis dan perusahaan di seluruh Indonesia. Desain modern, responsif, SEO-friendly. Mulai Rp800 ribuan.'],
+  '/jasa':['Jasa Pembuatan Website untuk Bisnis di Indonesia','Pilih jasa pembuatan website untuk UMKM dan perusahaan di seluruh Indonesia: landing page, company profile, toko online, web app, dan maintenance.'],
+  '/wilayah':['Jasa Bikin Website di 38 Provinsi dan Kota Besar Indonesia','Lihat daftar layanan jasa bikin web BisaBikinWeb untuk Jakarta, Bandung, Surabaya, Medan, Makassar, seluruh 38 provinsi dan kota/kabupaten lainnya di Indonesia.'],
   '/harga':['Paket & Harga Pembuatan Website Mulai Rp800 Ribuan','Bandingkan paket Starter, Business, Commerce, dan Custom BisaBikinWeb. Lihat fitur, pilihan biaya, serta konsultasikan ruang lingkup proyek website.'],
   '/portfolio':['Portofolio Website Bisnis, Brand & E-Commerce','Lihat studi kasus dan karya website BisaBikinWeb untuk Berbeda, Karpenter, Mejavi Skin+, GoO Ninks, GoJogja Travel, dan berbagai kebutuhan bisnis.'],
   '/layanan-digital':['Layanan Digital: Pulsa, Data, Token & Travel','Rencana layanan digital BisaBikinWeb meliputi pulsa, paket data, token listrik, dan kebutuhan perjalanan. Fitur masih dalam tahap persiapan.'],
   '/merch':['Merchandise & Koleksi Apparel BisaBikinWeb','Jelajahi koleksi merchandise BisaBikinWeb, desain apparel, dan produk kreatif. Lihat pilihan produk, informasi stok, varian, serta cara pemesanan.'],
   '/tentang':['Tentang Studio Digital BisaBikinWeb di Yogyakarta','Kenali pendekatan dan proses kerja BisaBikinWeb dalam merancang website bisnis. Dari kebutuhan UMKM hingga solusi web khusus untuk perusahaan.'],
-  '/kontak':['Kontak & Konsultasi Pembuatan Website','Hubungi tim BisaBikinWeb untuk konsultasi website melalui WhatsApp 0882003740969 atau email bisabikinw3b@gmail.com. Ceritakan kebutuhan dan anggaran proyek.'],
+  '/kontak':['Konsultasi Jasa Bikin Web Seluruh Indonesia','Hubungi BisaBikinWeb via WhatsApp atau email untuk konsultasi pembuatan website secara online dari mana saja di Indonesia, mulai UMKM hingga perusahaan.'],
   '/artikel':['Artikel SEO, Website & Strategi Bisnis Digital','Baca panduan praktis tentang SEO, pembuatan website, desain web, pemasaran digital, dan pengembangan bisnis dari tim editorial BisaBikinWeb.'],
   '/berita':['Berita Bisnis, Ekonomi, Politik & Teknologi','Ikuti berita terkurasi BisaBikinWeb seputar ekonomi, bisnis, politik, teknologi, dan perkembangan dalam maupun luar negeri dengan rujukan sumber.'],
   '/redaksi':['Redaksi, Sumber Berita & Kebijakan Koreksi','Ketahui standar editorial BisaBikinWeb: penggunaan sumber, verifikasi fakta, koreksi berita, hak penggunaan gambar, dan informasi kontak redaksi.'],
@@ -151,7 +152,7 @@ for(const [path,[name,description]] of Object.entries(pages)){
   const equivalentPath=english?path.slice(3)||'/':path;
   const homePath=english?'/en/':'/';
   const article=articleByPath.get(path);
-  const title=article?(article.title.length<=55?article.title+' | '+brand:article.title):(path==='/'?brand+' | '+name:(name.toLowerCase().includes('bisabikinweb')?name:name+' | '+brand));
+  const title=article?(article.title.length<=55?article.title+' | '+brand:article.title):(path==='/'?name:(name.toLowerCase().includes('bisabikinweb')?name:name+' | '+brand));
   const url=origin+(path==='/'?'/':path+'/');
   const isService=equivalentPath.startsWith('/jasa/');
   const noindex=path==='/cart'||path==='/checkout'||path==='/payment'||path==='/track-order'||path==='/account'||path==='/seller'||path==='/layanan-digital'||path.startsWith('/admin');
@@ -165,6 +166,7 @@ for(const [path,[name,description]] of Object.entries(pages)){
   if(!noindex){
     if(path==='/'||path==='/tentang')schemas.push(organization);
     if(path==='/')schemas.push(website);
+    if(path==='/'||path==='/wilayah')schemas.push({'@context':'https://schema.org','@type':'Service','@id':url+'#nationwide-web-development',name:'Jasa Bikin Website Seluruh Indonesia',serviceType:'Jasa pembuatan website',description:metaDescription,url,provider:{'@id':origin+'/#organization'},areaServed:{'@type':'Country',name:'Indonesia'},availableLanguage:['id','en']});
     const section=article?(isNewsArticle(article)?'/berita':'/artikel'):path.startsWith('/jasa/')?'/jasa':path.startsWith('/portfolio/')?'/portfolio':path.startsWith('/merch/')?'/merch':null;
     const crumbs=equivalentPath==='/'?[]:[{name:english?'Home':'Beranda',url:origin+homePath}];
     if(english&&isService)crumbs.push({name:'Services',url:origin+englishHref('/jasa')});
@@ -174,7 +176,7 @@ for(const [path,[name,description]] of Object.entries(pages)){
     const pageType=['/jasa','/portfolio','/artikel','/berita','/merch'].includes(path)?'CollectionPage':'WebPage';
     schemas.push({'@context':'https://schema.org','@type':pageType,'@id':url+'#webpage',url,name:title,description:metaDescription,inLanguage:language,isPartOf:{'@id':origin+'/#website'},publisher:{'@id':origin+'/#organization'},...(crumbs.length>1?{breadcrumb:{'@id':breadcrumbId}}:{})});
     if(crumbs.length>1)schemas.push({'@context':'https://schema.org','@type':'BreadcrumbList','@id':breadcrumbId,itemListElement:crumbs.map((crumb,i)=>({'@type':'ListItem',position:i+1,name:crumb.name,item:crumb.url}))});
-    if(isService)schemas.push({'@context':'https://schema.org','@type':'Service','@id':url+'#service',name,description:metaDescription,url,provider:{'@id':origin+'/#organization'},areaServed:[{'@type':'City',name:'Yogyakarta'},{'@type':'Country',name:'Indonesia'}],serviceType:name});
+    if(isService)schemas.push({'@context':'https://schema.org','@type':'Service','@id':url+'#service',name,description:metaDescription,url,provider:{'@id':origin+'/#organization'},areaServed:{'@type':'Country',name:'Indonesia'},serviceType:name});
   }
   if(article&&!noindex){
     const words=[article.title,article.summary,...(Array.isArray(article.body)?article.body:[])].join(' ').trim().split(/\s+/).filter(Boolean).length;

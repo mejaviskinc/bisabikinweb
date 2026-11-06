@@ -1,7 +1,7 @@
 import {editorialPosts} from './editorial-posts.mjs';
 export const money=(n:number)=>new Intl.NumberFormat('id-ID',{style:'currency',currency:'IDR',maximumFractionDigits:0}).format(n);
 export const defaults:any={
- settings:{brand:'Bisabikinweb',headline:'Website yang bikin bisnis kamu kelihatan serius.',description:'Bisnis bagus pantas punya website yang bagus juga. Kami bantu dari ide sampai online—dengan desain yang punya karakter dan pengalaman yang bikin nyaman.',whatsapp:'62882003740969',announcement:'OPEN FOR COLLABORATION — Let’s build something good.',email:'bisabikinw3b@gmail.com',instagram:'',tiktok:'',threads:'',linkedin:'',stats:[],heroLabel:'INDEPENDENT DIGITAL STUDIO · INDONESIA',testimonials:[]},
+ settings:{brand:'Bisabikinweb',headline:'Jasa bikin web untuk bisnis di seluruh Indonesia.',description:'BisaBikinWeb membantu UMKM, brand, dan perusahaan di seluruh Indonesia membuat website profesional. Konsultasi dan pengerjaan proyek dapat dilakukan secara online.',whatsapp:'62882003740969',announcement:'OPEN FOR COLLABORATION — Let’s build something good.',email:'bisabikinw3b@gmail.com',instagram:'',tiktok:'',threads:'',linkedin:'',stats:[],heroLabel:'INDEPENDENT DIGITAL STUDIO · INDONESIA',testimonials:[]},
  services:[
  {id:'landing-page',name:'Landing Page',icon:'↗',tag:'01 / CAMPAIGN',description:'Satu halaman. Satu tujuan. Bikin pengunjung ambil tindakan.',features:['Desain responsive','CTA WhatsApp','SEO dasar','Analytics opsional','Optimasi kecepatan']},
  {id:'company-profile',name:'Company Profile',icon:'▧',tag:'02 / BUSINESS',description:'Rumah digital yang memperkenalkan bisnis kamu dengan cara yang tepat.',features:['Profil perusahaan','Layanan & portfolio','Halaman tim','Form kontak','SEO dasar']},

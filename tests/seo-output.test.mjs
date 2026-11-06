@@ -3,7 +3,7 @@ import {readFile} from 'node:fs/promises';
 import {englishPages,englishHref} from '../static-source/lib/languages.mjs';
 
 const origin='https://bisabikinweb.site';
-const indexable=['','jasa','harga','portfolio','merch','tentang','kontak','artikel','berita','redaksi','privacy','terms','refund','shipping'];
+const indexable=['','jasa','wilayah','harga','portfolio','merch','tentang','kontak','artikel','berita','redaksi','privacy','terms','refund','shipping'];
 const privateRoutes=['admin','admin/iklan','admin/sellers','admin/payments','seller','account','cart','checkout','track-order','layanan-digital'];
 const getHtml=route=>readFile('site-dist/'+(route?route+'/':'')+'index.html','utf8');
 const first=(html,re)=>html.match(re)?.[1]||'';
@@ -81,3 +81,17 @@ assert.doesNotMatch(robots,/Disallow: \/(admin|seller|account|cart|checkout|trac
 assert.ok(robots.includes('Sitemap: '+origin+'/sitemap.xml'));
 assert.ok(!sitemap.includes('https://media.bisabikinweb.site')&&!sitemap.includes('https://shop.bisabikinweb.site'));
 console.log('SEO output verified:',indexable.length,'unique core menus,',privateRoutes.length,'noindex areas,',locations.length,'canonical sitemap URLs.');
+
+const nationwideHome=await getHtml('');
+const nationwide=await getHtml('wilayah');
+assert.match(nationwideHome, /href="\/wilayah\//, 'Homepage must link to nationwide coverage');
+assert.match(nationwideHome, /Jasa bikin web/, 'Homepage must mention national website development service');
+assert.match(nationwide, /38 provinsi/, 'Coverage page must specify all 38 provinces');
+const {serviceAreaGroups}=await import('../static-source/lib/service-areas.mjs');
+assert.equal(serviceAreaGroups.reduce((sum,group)=>sum+group.provinces.length,0),38,'All provinces must be represented');
+for(const group of serviceAreaGroups)for(const province of group.provinces){
+ assert.ok(nationwide.includes(province.name),province.name+' missing from coverage page');
+ assert.ok(province.places.every(city=>nationwide.includes(city)),province.name+' missing city/region');
+}
+assert.equal(scripts(nationwide).filter(schema=>schema['@type']==='Service'&&schema.areaServed?.name==='Indonesia').length,1,'Nationwide page must have one national Service schema');
+console.log('National coverage SEO verified: 38 provinces and selected major cities.');

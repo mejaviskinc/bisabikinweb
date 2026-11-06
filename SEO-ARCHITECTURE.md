@@ -6,8 +6,9 @@
 
 | Area | URL kanonis | Tujuan pencarian |
 | --- | --- | --- |
-| Beranda | `/` | Jasa pembuatan website profesional di Yogyakarta |
+| Beranda | `/` | Jasa bikin web profesional di seluruh Indonesia |
 | Jasa | `/jasa/` | Pilihan layanan: landing page, company profile, ecommerce, web app |
+| Wilayah | `/wilayah/` | Cakupan layanan online di 38 provinsi dan kota/kabupaten utama Indonesia |
 | Detail jasa | `/jasa/:slug/` | Kebutuhan spesifik setiap jenis website |
 | Harga | `/harga/` | Daftar paket dan transparansi biaya |
 | Portofolio | `/portfolio/` | Karya dan pengalaman proyek |
@@ -62,3 +63,11 @@ npm run build:all-subdomains
 5. Jangan mengklaim peringkat/traffic meningkat hanya dari perubahan metadata; ukur impresi, klik, CTR, dan kueri 2–4 minggu setelah Google merayapi ulang.
 
 Rujukan: https://developers.google.com/search/docs/crawling-indexing/consolidate-duplicate-urls dan https://developers.google.com/search/docs/appearance/title-link
+
+## SEO nasional dan nama daerah
+
+- Homepage menargetkan "jasa bikin web" secara nasional; halaman `/jasa/` fokus kategori layanan.
+- Halaman `/wilayah/` menyebut 38 provinsi dan contoh kota/kabupaten; daftar berasal dari `static-source/lib/service-areas.mjs` agar tidak berbeda antara halaman dan pengujian.
+- Tidak membuat ratusan halaman kota serupa tanpa studi kasus, testimoni, atau informasi layanan yang benar-benar spesifik. Halaman seperti itu berisiko masuk kebijakan doorway abuse Google.
+- Lokasi-lokasi yang tercantum adalah **jangkauan layanan jarak jauh**, bukan lokasi kantor atau cabang yang tidak diverifikasi.
+- URL kanonis tetap `https://bisabikinweb.site/`; "BisaBikinWeb.id" adalah identitas brand yang ditampilkan, bukan klaim bahwa domain .id adalah URL kanonis.

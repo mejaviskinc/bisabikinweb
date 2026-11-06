@@ -1,5 +1,5 @@
 export const englishPages = {
-  '/': ['Professional Website Development in Yogyakarta', 'BisaBikinWeb builds professional websites for businesses in Yogyakarta and across Indonesia, from landing pages to online stores and custom web apps.'],
+  '/': ['Professional Website Development Across Indonesia', 'BisaBikinWeb creates professional websites for businesses across Indonesia, from landing pages and online stores to custom web applications.'],
   '/jasa': ['Website Development Services', 'Explore landing page design, company websites, e-commerce, portfolio sites, custom web applications, and website maintenance.'],
   '/harga': ['Website Packages and Pricing', 'Compare BisaBikinWeb website packages priced in US dollars. Find the right scope for your business and request a tailored quote.'],
   '/portfolio': ['Website Design and Development Portfolio', 'Explore selected BisaBikinWeb projects across beauty, fashion, furniture, travel, and business websites in Indonesia.'],
