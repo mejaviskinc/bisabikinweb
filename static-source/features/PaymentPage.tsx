@@ -5,7 +5,7 @@ import {merchOrderStatus} from '../lib/client';
 import {money} from '../lib/data';
 declare global {interface Window {loadJokulCheckout?:(url:string)=>void}}
 function getSavedToken(id:string){try{const p=JSON.parse(localStorage.getItem('bbw_pending_order')||'null');return p?.order_no===id&&/^[a-f0-9]{64}$/.test(p.token||'')?p.token:''}catch{return ''}}
-function trustedLink(link:any,env:any){try{const u=new URL(String(link));return u.protocol==='https:'&&!u.username&&!u.password&&u.hostname===(env==='production'?'checkout.doku.com':'sandbox.doku.com')}catch{return false}}
+function trustedLink(link:any,env:any){try{const u=new URL(String(link));return u.protocol==='https:'&&!u.username&&!u.password&&(env==='production'?['checkout.doku.com','jokul.doku.com'].includes(u.hostname):u.hostname==='sandbox.doku.com')}catch{return false}}
 let loadedScript:Promise<void>|null=null;
 function loadDokuScript(env:string){if(window.loadJokulCheckout)return Promise.resolve();if(!loadedScript){loadedScript=new Promise<void>((yes,no)=>{const script=document.createElement('script');script.async=true;script.src=env==='production'?'https://jokul.doku.com/jokul-checkout-js/v1/jokul-checkout-1.0.0.js':'https://sandbox.doku.com/jokul-checkout-js/v1/jokul-checkout-1.0.0.js';script.onload=()=>window.loadJokulCheckout?yes():no(new Error('Modul DOKU tidak tersedia.'));script.onerror=()=>no(new Error('Gagal memuat layanan pembayaran DOKU.'));document.head.appendChild(script)}).catch(e=>{loadedScript=null;throw e})}return loadedScript}
 export default function PaymentPage(){
