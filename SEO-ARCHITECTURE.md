@@ -96,3 +96,10 @@ Rujukan: https://developers.google.com/search/docs/crawling-indexing/consolidate
 - Sebelum ditambahkan studi kasus atau informasi lokal unik yang terverifikasi, halaman-halaman tersebut memiliki tag `noindex,nofollow` dan tidak dimasukkan sitemap. Ini mencegah direktori template menjadi ratusan landing page serupa yang dioptimasi terutama untuk mesin pencari.
 - Halaman beranda, /wilayah/, 38 halaman provinsi, dan 16 halaman kota prioritas tetap indexable dengan canonical dan sitemap.
 - Google Search Console perlu digunakan untuk memilih lokasi yang punya permintaan nyata, kemudian memperkaya konten lokal dan mengubah indeksasi melalui review editorial yang disengaja.
+
+## Direktori 600 halaman solusi dan SEO
+- URL publik `/solusi/` memuat pencarian dan filter 600 kebutuhan pembuatan website.
+- Masing-masing keyword di `seo/keyword-targets-600.json` diberi halaman profesional `/solusi/NNN-judul-kata-kunci/` dengan contoh kegunaan, checklist, pilihan fitur, FAQ, dan CTA konsultasi.
+- Halaman dibuat dari `static-source/lib/seo-solutions.mjs` dan `static-source/features/SeoSolutions.tsx`, dengan desain responsif yang sama seperti website utama.
+- **Seluruh 600 halaman detail sengaja noindex dan tidak masuk sitemap**, karena banyak variasi frasa berintensi serupa. Hanya direktori `/solusi/` dan halaman jasa asli yang diindeks sampai ada konten unik dan bukti proyek yang ditinjau secara editorial.
+- Pengujian `tests/seo-landing-pages.test.mjs` memeriksa 600 file SSR, metadata, tautan, dan status noindex.

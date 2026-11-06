@@ -5,6 +5,7 @@ import {isNewsArticle,makeNewsSitemap,getFreshNewsArticles} from './static-sourc
 import {mergeEditorialPosts} from './static-source/lib/editorial-posts.mjs';
 import {cityLandingPages} from './static-source/lib/city-pages.mjs';
 import {provincePages,localityPages,provinceBySlug,localityByPath} from './static-source/lib/geo-pages.mjs';
+import {keywordPages,keywordPageByPath} from './static-source/lib/seo-solutions.mjs';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 const configFile=new URL('./vite.pages.mjs',import.meta.url).pathname;
 await build({configFile});
@@ -105,6 +106,8 @@ const pages={
   '/admin/iklan':['Ads Manager Bisabikinweb','Panel admin untuk mengatur iklan homepage Bisabikinweb.'],
   '/admin/payments':['Payment Gateway — BisaBikinWeb','Dashboard transaksi DOKU, status pembayaran, rekonsiliasi, dan monitoring checkout merchandise.']
 };
+pages['/solusi']=['600 Panduan Jasa Bikin Website untuk Bisnis','Temukan 600 panduan pembuatan website sesuai kebutuhan layanan, industri, lokasi, fitur dan biaya. Cari topik lalu diskusikan proyek dengan BisaBikinWeb.'];
+for(const item of keywordPages){pages[item.path]=[item.keyword[0].toUpperCase()+item.keyword.slice(1)+' | BisaBikinWeb.id',item.keyword+'. Panduan kebutuhan, fitur, persiapan materi, estimasi biaya, dan konsultasi website online.'];}
 for(const city of cityLandingPages){pages['/wilayah/'+city.slug]=[city.title,city.description];}
 for(const province of provincePages){pages[province.path]=[province.title,province.description];}
 for(const locality of localityPages){pages[locality.path]=[locality.title,locality.description];}
@@ -168,7 +171,7 @@ for(const [path,[name,description]] of Object.entries(pages)){
   const cityPage=cityLandingPages.find(city=>path==='/wilayah/'+city.slug);
   const geoProvince=path.startsWith('/wilayah/provinsi/')&&path.split('/').length===4?provinceBySlug[path.split('/')[3]]:null;
   const geoLocality=localityByPath[path]||null;
-  const noindex=Boolean(geoLocality)||path==='/cart'||path==='/checkout'||path==='/payment'||path==='/track-order'||path==='/account'||path==='/seller'||path==='/layanan-digital'||path.startsWith('/admin');
+  const noindex=Boolean(geoLocality||keywordPageByPath[path])||path==='/cart'||path==='/checkout'||path==='/payment'||path==='/track-order'||path==='/account'||path==='/seller'||path==='/layanan-digital'||path.startsWith('/admin');
   const metaDescription=snippet(description);
   const articleImage=safeHttpsUrl(article?.image);
   const imageUrl=articleImage||origin+'/og.svg';
@@ -187,7 +190,7 @@ for(const [path,[name,description]] of Object.entries(pages)){
     if(geoLocality)crumbs.push({name:geoLocality.province,url:origin+geoLocality.provincePath+'/'});
     if(equivalentPath!=='/')crumbs.push({name:section?name:pages[path][0],url});
     const breadcrumbId=url+'#breadcrumb';
-    const pageType=(['/jasa','/portfolio','/artikel','/berita','/merch','/wilayah'].includes(path)||geoProvince)?'CollectionPage':'WebPage';
+    const pageType=(['/jasa','/portfolio','/artikel','/berita','/merch','/wilayah','/solusi'].includes(path)||geoProvince)?'CollectionPage':'WebPage';
     schemas.push({'@context':'https://schema.org','@type':pageType,'@id':url+'#webpage',url,name:title,description:metaDescription,inLanguage:language,isPartOf:{'@id':origin+'/#website'},publisher:{'@id':origin+'/#organization'},...(crumbs.length>1?{breadcrumb:{'@id':breadcrumbId}}:{})});
     if(crumbs.length>1)schemas.push({'@context':'https://schema.org','@type':'BreadcrumbList','@id':breadcrumbId,itemListElement:crumbs.map((crumb,i)=>({'@type':'ListItem',position:i+1,name:crumb.name,item:crumb.url}))});
     if(isService)schemas.push({'@context':'https://schema.org','@type':'Service','@id':url+'#service',name,description:metaDescription,url,provider:{'@id':origin+'/#organization'},areaServed:{'@type':'Country',name:'Indonesia'},serviceType:name});
@@ -228,7 +231,7 @@ if(coverHash!=='1fbaee73e936ba6064cc24c86137184f7ae165be32d7845f5e1c5d06b64ca662
 await writeFile('site-dist/bisabikinweb-gojogja-travel-collaboration.webp',coverBytes);
 await writeFile('site-dist/robots.txt',`User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n${freshNewsArticles.length?`Sitemap: ${origin}/news-sitemap.xml\n`:''}`);
 const excludedRoutes=new Set(['/cart','/checkout','/payment','/track-order','/seller','/account','/layanan-digital']);
-const sitemapEntries=Object.keys(pages).filter(path=>!excludedRoutes.has(path)&&!localityByPath[path]&&!path.startsWith('/admin')&&!path.startsWith('/seller/')).map(path=>{
+const sitemapEntries=Object.keys(pages).filter(path=>!excludedRoutes.has(path)&&!localityByPath[path]&&!keywordPageByPath[path]&&!path.startsWith('/admin')&&!path.startsWith('/seller/')).map(path=>{
  const article=articleByPath.get(path);
  const loc=origin+(path==='/'?'/':path+'/');
  const lastmod=article?isoDate(article.updated_at||article.published_at)?.slice(0,10):null;
