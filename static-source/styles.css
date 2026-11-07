@@ -646,3 +646,5 @@
 .case-study-links{margin-top:60px;padding-top:32px;border-top:1px solid var(--line)}
 .case-study-links h2{margin-bottom:24px}
 @media(max-width:800px){.industry-editorial,.industry-project{grid-template-columns:1fr}.industry-editorial{gap:32px}.industry-detail .page-intro{padding-bottom:32px}.industry-project{gap:24px}}
+.intent-industries .service-intent-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:900px){.intent-industries .service-intent-grid{grid-template-columns:1fr}}

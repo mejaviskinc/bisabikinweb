@@ -29,9 +29,11 @@ Sumber pemetaan: `keyword-targets-600.json`. Setelah mengubah target, jalankan:
 ```sh
 node scripts/sync-seo-targets.mjs
 npm test
-npm run build
+BBWEB_OFFLINE_BUILD=1 npm run build
 npm run test:output
 ```
+
+Build offline memeriksa SEO menggunakan artikel dalam repositori tanpa menghubungi database. Build publikasi standar tetap mempertahankan pemuatan artikel live yang sudah ada.
 
 Script menyelaraskan CSV, data runtime, dan `target-summary.json` tanpa mengubah URL brief lama. Tes memeriksa jumlah, keunikan, konsistensi data, tujuan indexable, serta konten dan metadata halaman industri.
 
