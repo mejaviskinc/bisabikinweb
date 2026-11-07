@@ -282,4 +282,4 @@ export const published20261107 = [
       "## Penutup\nStrategi organik yang sehat mempertemukan kebutuhan pembaca, konten yang bermanfaat, dan tindak lanjut bisnis yang rapi. Lihat layanan website BisaBikinWeb di https://bisabikinweb.site/jasa/ serta artikel strategi konten di https://bisabikinweb.site/artikel/strategi-blog-website-bisnis/."
     ]
   }
-];
+].map(post=>({...post,body:post.body.flatMap(part=>{const split=part.indexOf("\n");return split>=0&&part.startsWith("## ")?[part.slice(0,split),part.slice(split+1)]:[part]})}));
