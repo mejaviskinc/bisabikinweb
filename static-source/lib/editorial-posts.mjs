@@ -1,5 +1,6 @@
 import {published20261104} from './published-20261104.mjs';
 import {editorialCoverMap} from './editorial-cover-map.mjs';
+import {published20261107} from './published-20261107.mjs';
 // Editorial content published in the static site repository.
 // Database versions of matching article slugs take precedence when present.
 export const editorialPosts = [
@@ -616,6 +617,9 @@ const evergreen20261106 = [
   body:[`## Fokus utama\n${focus} Tetapkan hasil yang dapat diuji, lalu pastikan setiap perubahan mendukung kebutuhan pelanggan dan kemampuan tim.`,`## Langkah pelaksanaan\nMulai dari kondisi saat ini. Buat daftar prioritas, penanggung jawab, dan tenggat kecil. Uji perubahan pada halaman atau proses yang paling sering dipakai sebelum memperluasnya.`,`## Pengukuran dan evaluasi\nPantau pertanyaan pelanggan, tindakan pada halaman, hambatan yang berulang, serta waktu respons tim. Gunakan hasil ini untuk memperbaiki proses secara bertahap.`,`## Risiko yang perlu dijaga\nHindari klaim yang tidak dapat dibuktikan, fitur yang tidak dirawat, dan pengumpulan data yang tidak diperlukan. Dokumentasikan perubahan serta siapkan cadangan bila menyentuh halaman penting.`,"Keterangan gambar: Foto editorial orisinal dibuat khusus untuk panduan ini; bukan dokumentasi peristiwa."]
 }));
 editorialPosts.push(...evergreen20261106.filter(post => !editorialPosts.some(existing => existing.id === post.id)));
+
+// Batch 7 Nov 2026: individually authored evergreen guides, distinct from daily news.
+editorialPosts.push(...published20261107.filter(post => !editorialPosts.some(existing => existing.id === post.id)));
 
 export function mergeEditorialPosts(articles = []) {
   const source = Array.isArray(articles) ? articles : [];
