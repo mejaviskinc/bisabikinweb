@@ -648,3 +648,10 @@
 @media(max-width:800px){.industry-editorial,.industry-project{grid-template-columns:1fr}.industry-editorial{gap:32px}.industry-detail .page-intro{padding-bottom:32px}.industry-project{gap:24px}}
 .intent-industries .service-intent-grid{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(max-width:900px){.intent-industries .service-intent-grid{grid-template-columns:1fr}}
+
+/* Natural workspace photography in the about section. */
+.about-photo{margin:0;min-width:0;align-self:start}
+.about-photo img{display:block;width:100%;height:auto;aspect-ratio:4/5;object-fit:cover;border-radius:16px;border:1px solid var(--line)}
+.about-photo figcaption{margin-top:12px;font-size:11px;line-height:1.6;color:var(--muted)}
+.about-photo figcaption a{text-decoration:underline;text-underline-offset:3px}
+@media(max-width:700px){.about-photo img{aspect-ratio:16/10;max-height:420px}}
