@@ -1,0 +1,446 @@
+{
+  "total": 600,
+  "destinations": 61,
+  "groups": [
+    {
+      "target": "/",
+      "count": 33,
+      "clusters": [
+        "nasional"
+      ]
+    },
+    {
+      "target": "/harga/",
+      "count": 155,
+      "clusters": [
+        "nasional",
+        "jenis-website",
+        "industri",
+        "lokasi",
+        "fitur"
+      ]
+    },
+    {
+      "target": "/jasa/landing-page/",
+      "count": 13,
+      "clusters": [
+        "jenis-website",
+        "fitur"
+      ]
+    },
+    {
+      "target": "/jasa/company-profile/",
+      "count": 69,
+      "clusters": [
+        "jenis-website",
+        "industri",
+        "fitur"
+      ]
+    },
+    {
+      "target": "/jasa/ecommerce/",
+      "count": 67,
+      "clusters": [
+        "jenis-website",
+        "industri",
+        "fitur"
+      ]
+    },
+    {
+      "target": "/jasa/portfolio/",
+      "count": 26,
+      "clusters": [
+        "jenis-website",
+        "industri",
+        "fitur"
+      ]
+    },
+    {
+      "target": "/jasa/custom-website/",
+      "count": 72,
+      "clusters": [
+        "jenis-website",
+        "industri",
+        "fitur"
+      ]
+    },
+    {
+      "target": "/industri/fashion/",
+      "count": 5,
+      "clusters": [
+        "industri"
+      ]
+    },
+    {
+      "target": "/portfolio/gooninks/",
+      "count": 2,
+      "clusters": [
+        "industri"
+      ]
+    },
+    {
+      "target": "/industri/skincare/",
+      "count": 5,
+      "clusters": [
+        "industri"
+      ]
+    },
+    {
+      "target": "/portfolio/mejavi-skin/",
+      "count": 2,
+      "clusters": [
+        "industri"
+      ]
+    },
+    {
+      "target": "/industri/travel/",
+      "count": 5,
+      "clusters": [
+        "industri"
+      ]
+    },
+    {
+      "target": "/portfolio/gojogja-travel/",
+      "count": 2,
+      "clusters": [
+        "industri"
+      ]
+    },
+    {
+      "target": "/wilayah/jakarta/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/bandung/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/surabaya/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/yogyakarta/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/semarang/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/medan/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/tangerang/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/bekasi/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/bogor/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/depok/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/malang/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/denpasar/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/batam/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/palembang/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/balikpapan/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/makassar/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/sumatera-barat/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/riau/",
+      "count": 4,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/kalimantan-barat/",
+      "count": 4,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/kalimantan-timur/",
+      "count": 4,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/sulawesi-utara/",
+      "count": 4,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/papua/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/papua-barat-daya/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/nusa-tenggara-timur/",
+      "count": 4,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/aceh/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/jawa-barat/",
+      "count": 8,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/jawa-tengah/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/jawa-timur/",
+      "count": 12,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/banten/",
+      "count": 6,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/sumatera-utara/",
+      "count": 4,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/kepulauan-riau/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/sumatera-selatan/",
+      "count": 4,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/kepulauan-bangka-belitung/",
+      "count": 4,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/lampung/",
+      "count": 4,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/bali/",
+      "count": 4,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/nusa-tenggara-barat/",
+      "count": 6,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/kalimantan-utara/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/kalimantan-tengah/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/kalimantan-selatan/",
+      "count": 4,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/sulawesi-selatan/",
+      "count": 4,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/sulawesi-tengah/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/sulawesi-tenggara/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/gorontalo/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/maluku-utara/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/maluku/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/papua-selatan/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/papua-tengah/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    },
+    {
+      "target": "/wilayah/provinsi/papua-barat/",
+      "count": 2,
+      "clusters": [
+        "lokasi"
+      ]
+    }
+  ]
+}

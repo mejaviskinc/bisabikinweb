@@ -35,7 +35,7 @@
       "keyword": "jasa pembuatan website indonesia",
       "cluster": "nasional",
       "intent": "commercial",
-      "target_url": "/wilayah/",
+      "target_url": "/",
       "priority": "P1",
       "status": "targeted-not-volume-verified"
     },
@@ -80,7 +80,7 @@
       "keyword": "jasa pembuatan website nasional",
       "cluster": "nasional",
       "intent": "commercial",
-      "target_url": "/wilayah/",
+      "target_url": "/",
       "priority": "P1",
       "status": "targeted-not-volume-verified"
     },
@@ -134,7 +134,7 @@
       "keyword": "vendor website indonesia",
       "cluster": "nasional",
       "intent": "commercial",
-      "target_url": "/wilayah/",
+      "target_url": "/",
       "priority": "P1",
       "status": "targeted-not-volume-verified"
     },
@@ -215,7 +215,7 @@
       "keyword": "jasa web developer indonesia",
       "cluster": "nasional",
       "intent": "commercial",
-      "target_url": "/wilayah/",
+      "target_url": "/",
       "priority": "P1",
       "status": "targeted-not-volume-verified"
     },
@@ -251,7 +251,7 @@
       "keyword": "jasa pembuatan website seluruh indonesia",
       "cluster": "nasional",
       "intent": "commercial",
-      "target_url": "/wilayah/",
+      "target_url": "/",
       "priority": "P1",
       "status": "targeted-not-volume-verified"
     },
@@ -1817,7 +1817,7 @@
       "keyword": "jasa bikin website untuk toko baju",
       "cluster": "industri",
       "intent": "commercial",
-      "target_url": "/jasa/ecommerce/",
+      "target_url": "/industri/fashion/",
       "priority": "P1",
       "status": "targeted-not-volume-verified"
     },
@@ -1826,7 +1826,7 @@
       "keyword": "jasa pembuatan website toko baju",
       "cluster": "industri",
       "intent": "commercial",
-      "target_url": "/jasa/ecommerce/",
+      "target_url": "/industri/fashion/",
       "priority": "P1",
       "status": "targeted-not-volume-verified"
     },
@@ -1835,7 +1835,7 @@
       "keyword": "buat website toko baju profesional",
       "cluster": "industri",
       "intent": "commercial",
-      "target_url": "/jasa/ecommerce/",
+      "target_url": "/industri/fashion/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -1853,7 +1853,7 @@
       "keyword": "contoh website toko baju",
       "cluster": "industri",
       "intent": "informational",
-      "target_url": "/jasa/ecommerce/",
+      "target_url": "/portfolio/gooninks/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -1862,7 +1862,7 @@
       "keyword": "desain web toko baju",
       "cluster": "industri",
       "intent": "commercial",
-      "target_url": "/jasa/ecommerce/",
+      "target_url": "/industri/fashion/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -1871,7 +1871,7 @@
       "keyword": "fitur website toko baju",
       "cluster": "industri",
       "intent": "informational",
-      "target_url": "/jasa/ecommerce/",
+      "target_url": "/portfolio/gooninks/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -1880,7 +1880,7 @@
       "keyword": "website toko baju dengan formulir kontak",
       "cluster": "industri",
       "intent": "commercial",
-      "target_url": "/jasa/ecommerce/",
+      "target_url": "/industri/fashion/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -1889,7 +1889,7 @@
       "keyword": "jasa bikin website untuk brand skincare",
       "cluster": "industri",
       "intent": "commercial",
-      "target_url": "/jasa/ecommerce/",
+      "target_url": "/industri/skincare/",
       "priority": "P1",
       "status": "targeted-not-volume-verified"
     },
@@ -1898,7 +1898,7 @@
       "keyword": "jasa pembuatan website brand skincare",
       "cluster": "industri",
       "intent": "commercial",
-      "target_url": "/jasa/ecommerce/",
+      "target_url": "/industri/skincare/",
       "priority": "P1",
       "status": "targeted-not-volume-verified"
     },
@@ -1907,7 +1907,7 @@
       "keyword": "buat website brand skincare profesional",
       "cluster": "industri",
       "intent": "commercial",
-      "target_url": "/jasa/ecommerce/",
+      "target_url": "/industri/skincare/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -1925,7 +1925,7 @@
       "keyword": "contoh website brand skincare",
       "cluster": "industri",
       "intent": "informational",
-      "target_url": "/jasa/ecommerce/",
+      "target_url": "/portfolio/mejavi-skin/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -1934,7 +1934,7 @@
       "keyword": "desain web brand skincare",
       "cluster": "industri",
       "intent": "commercial",
-      "target_url": "/jasa/ecommerce/",
+      "target_url": "/industri/skincare/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -1943,7 +1943,7 @@
       "keyword": "fitur website brand skincare",
       "cluster": "industri",
       "intent": "informational",
-      "target_url": "/jasa/ecommerce/",
+      "target_url": "/portfolio/mejavi-skin/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -1952,7 +1952,7 @@
       "keyword": "website brand skincare dengan formulir kontak",
       "cluster": "industri",
       "intent": "commercial",
-      "target_url": "/jasa/ecommerce/",
+      "target_url": "/industri/skincare/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -2105,7 +2105,7 @@
       "keyword": "jasa bikin website untuk biro travel",
       "cluster": "industri",
       "intent": "commercial",
-      "target_url": "/jasa/custom-website/",
+      "target_url": "/industri/travel/",
       "priority": "P1",
       "status": "targeted-not-volume-verified"
     },
@@ -2114,7 +2114,7 @@
       "keyword": "jasa pembuatan website biro travel",
       "cluster": "industri",
       "intent": "commercial",
-      "target_url": "/jasa/custom-website/",
+      "target_url": "/industri/travel/",
       "priority": "P1",
       "status": "targeted-not-volume-verified"
     },
@@ -2123,7 +2123,7 @@
       "keyword": "buat website biro travel profesional",
       "cluster": "industri",
       "intent": "commercial",
-      "target_url": "/jasa/custom-website/",
+      "target_url": "/industri/travel/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -2141,7 +2141,7 @@
       "keyword": "contoh website biro travel",
       "cluster": "industri",
       "intent": "informational",
-      "target_url": "/jasa/custom-website/",
+      "target_url": "/portfolio/gojogja-travel/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -2150,7 +2150,7 @@
       "keyword": "desain web biro travel",
       "cluster": "industri",
       "intent": "commercial",
-      "target_url": "/jasa/custom-website/",
+      "target_url": "/industri/travel/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -2159,7 +2159,7 @@
       "keyword": "fitur website biro travel",
       "cluster": "industri",
       "intent": "informational",
-      "target_url": "/jasa/custom-website/",
+      "target_url": "/portfolio/gojogja-travel/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -2168,7 +2168,7 @@
       "keyword": "website biro travel dengan formulir kontak",
       "cluster": "industri",
       "intent": "commercial",
-      "target_url": "/jasa/custom-website/",
+      "target_url": "/industri/travel/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3131,7 +3131,7 @@
       "keyword": "harga jasa website jakarta",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/jakarta/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3158,7 +3158,7 @@
       "keyword": "harga jasa website bandung",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/bandung/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3185,7 +3185,7 @@
       "keyword": "harga jasa website surabaya",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/surabaya/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3212,7 +3212,7 @@
       "keyword": "harga jasa website yogyakarta",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/yogyakarta/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3239,7 +3239,7 @@
       "keyword": "harga jasa website semarang",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/semarang/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3266,7 +3266,7 @@
       "keyword": "harga jasa website medan",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/medan/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3293,7 +3293,7 @@
       "keyword": "harga jasa website tangerang",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/tangerang/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3320,7 +3320,7 @@
       "keyword": "harga jasa website bekasi",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/bekasi/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3347,7 +3347,7 @@
       "keyword": "harga jasa website bogor",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/bogor/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3374,7 +3374,7 @@
       "keyword": "harga jasa website depok",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/depok/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3401,7 +3401,7 @@
       "keyword": "harga jasa website malang",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/malang/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3428,7 +3428,7 @@
       "keyword": "harga jasa website denpasar",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/denpasar/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3455,7 +3455,7 @@
       "keyword": "harga jasa website batam",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/batam/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3482,7 +3482,7 @@
       "keyword": "harga jasa website palembang",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/palembang/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3509,7 +3509,7 @@
       "keyword": "harga jasa website balikpapan",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/balikpapan/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3536,7 +3536,7 @@
       "keyword": "harga jasa website makassar",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/makassar/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3563,7 +3563,7 @@
       "keyword": "harga jasa website padang",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/sumatera-barat/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3590,7 +3590,7 @@
       "keyword": "harga jasa website pekanbaru",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/riau/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3617,7 +3617,7 @@
       "keyword": "harga jasa website pontianak",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/kalimantan-barat/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3644,7 +3644,7 @@
       "keyword": "harga jasa website samarinda",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/kalimantan-timur/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3671,7 +3671,7 @@
       "keyword": "harga jasa website manado",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/sulawesi-utara/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3698,7 +3698,7 @@
       "keyword": "harga jasa website jayapura",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/papua/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3725,7 +3725,7 @@
       "keyword": "harga jasa website sorong",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/papua-barat-daya/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3752,7 +3752,7 @@
       "keyword": "harga jasa website kupang",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/nusa-tenggara-timur/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3779,7 +3779,7 @@
       "keyword": "harga jasa website banda aceh",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/aceh/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3806,7 +3806,7 @@
       "keyword": "harga jasa website cirebon",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/jawa-barat/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3833,7 +3833,7 @@
       "keyword": "harga jasa website cimahi",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/jawa-barat/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3860,7 +3860,7 @@
       "keyword": "harga jasa website sukabumi",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/jawa-barat/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3887,7 +3887,7 @@
       "keyword": "harga jasa website tasikmalaya",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/jawa-barat/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3914,7 +3914,7 @@
       "keyword": "harga jasa website salatiga",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/jawa-tengah/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3941,7 +3941,7 @@
       "keyword": "harga jasa website madiun",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3968,7 +3968,7 @@
       "keyword": "harga jasa website kediri",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -3995,7 +3995,7 @@
       "keyword": "harga jasa website sidoarjo",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4022,7 +4022,7 @@
       "keyword": "harga jasa website gresik",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4049,7 +4049,7 @@
       "keyword": "harga jasa website jember",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4076,7 +4076,7 @@
       "keyword": "harga jasa website banyuwangi",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/jawa-timur/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4103,7 +4103,7 @@
       "keyword": "harga jasa website cilegon",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/banten/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4130,7 +4130,7 @@
       "keyword": "harga jasa website serang",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/banten/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4157,7 +4157,7 @@
       "keyword": "harga jasa website tangerang selatan",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/banten/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4184,7 +4184,7 @@
       "keyword": "harga jasa website deli serdang",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/sumatera-utara/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4211,7 +4211,7 @@
       "keyword": "harga jasa website binjai",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/sumatera-utara/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4238,7 +4238,7 @@
       "keyword": "harga jasa website dumai",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/riau/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4265,7 +4265,7 @@
       "keyword": "harga jasa website tanjungpinang",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/kepulauan-riau/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4292,7 +4292,7 @@
       "keyword": "harga jasa website prabumulih",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/sumatera-selatan/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4319,7 +4319,7 @@
       "keyword": "harga jasa website lubuklinggau",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/sumatera-selatan/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4346,7 +4346,7 @@
       "keyword": "harga jasa website sungailiat",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/kepulauan-bangka-belitung/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4373,7 +4373,7 @@
       "keyword": "harga jasa website pangkalpinang",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/kepulauan-bangka-belitung/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4400,7 +4400,7 @@
       "keyword": "harga jasa website metro",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/lampung/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4427,7 +4427,7 @@
       "keyword": "harga jasa website bandar lampung",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/lampung/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4454,7 +4454,7 @@
       "keyword": "harga jasa website badung",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/bali/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4481,7 +4481,7 @@
       "keyword": "harga jasa website kuta",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/bali/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4508,7 +4508,7 @@
       "keyword": "harga jasa website mataram",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/nusa-tenggara-barat/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4535,7 +4535,7 @@
       "keyword": "harga jasa website bima",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/nusa-tenggara-barat/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4562,7 +4562,7 @@
       "keyword": "harga jasa website lombok barat",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/nusa-tenggara-barat/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4589,7 +4589,7 @@
       "keyword": "harga jasa website labuan bajo",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/nusa-tenggara-timur/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4616,7 +4616,7 @@
       "keyword": "harga jasa website tarakan",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/kalimantan-utara/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4643,7 +4643,7 @@
       "keyword": "harga jasa website bontang",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/kalimantan-timur/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4670,7 +4670,7 @@
       "keyword": "harga jasa website singkawang",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/kalimantan-barat/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4697,7 +4697,7 @@
       "keyword": "harga jasa website palangka raya",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/kalimantan-tengah/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4724,7 +4724,7 @@
       "keyword": "harga jasa website banjarmasin",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/kalimantan-selatan/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4751,7 +4751,7 @@
       "keyword": "harga jasa website banjarbaru",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/kalimantan-selatan/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4778,7 +4778,7 @@
       "keyword": "harga jasa website parepare",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/sulawesi-selatan/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4805,7 +4805,7 @@
       "keyword": "harga jasa website palopo",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/sulawesi-selatan/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4832,7 +4832,7 @@
       "keyword": "harga jasa website palu",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/sulawesi-tengah/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4859,7 +4859,7 @@
       "keyword": "harga jasa website kendari",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/sulawesi-tenggara/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4886,7 +4886,7 @@
       "keyword": "harga jasa website gorontalo",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/gorontalo/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4913,7 +4913,7 @@
       "keyword": "harga jasa website bitung",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/sulawesi-utara/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4940,7 +4940,7 @@
       "keyword": "harga jasa website ternate",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/maluku-utara/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4967,7 +4967,7 @@
       "keyword": "harga jasa website ambon",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/maluku/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -4994,7 +4994,7 @@
       "keyword": "harga jasa website merauke",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/papua-selatan/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -5021,7 +5021,7 @@
       "keyword": "harga jasa website timika",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/papua-tengah/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -5048,7 +5048,7 @@
       "keyword": "harga jasa website manokwari",
       "cluster": "lokasi",
       "intent": "local-price",
-      "target_url": "/wilayah/provinsi/papua-barat/",
+      "target_url": "/harga/",
       "priority": "P2",
       "status": "targeted-not-volume-verified"
     },
@@ -5066,7 +5066,7 @@
       "keyword": "biaya website dengan formulir konsultasi",
       "cluster": "fitur",
       "intent": "commercial-price",
-      "target_url": "/jasa/landing-page/",
+      "target_url": "/harga/",
       "priority": "P3",
       "status": "targeted-not-volume-verified"
     },
@@ -5084,7 +5084,7 @@
       "keyword": "biaya website dengan integrasi whatsapp",
       "cluster": "fitur",
       "intent": "commercial-price",
-      "target_url": "/jasa/landing-page/",
+      "target_url": "/harga/",
       "priority": "P3",
       "status": "targeted-not-volume-verified"
     },
@@ -5102,7 +5102,7 @@
       "keyword": "biaya website dengan katalog produk",
       "cluster": "fitur",
       "intent": "commercial-price",
-      "target_url": "/jasa/ecommerce/",
+      "target_url": "/harga/",
       "priority": "P3",
       "status": "targeted-not-volume-verified"
     },
@@ -5120,7 +5120,7 @@
       "keyword": "biaya website dengan varian produk",
       "cluster": "fitur",
       "intent": "commercial-price",
-      "target_url": "/jasa/ecommerce/",
+      "target_url": "/harga/",
       "priority": "P3",
       "status": "targeted-not-volume-verified"
     },
@@ -5138,7 +5138,7 @@
       "keyword": "biaya website dengan keranjang belanja",
       "cluster": "fitur",
       "intent": "commercial-price",
-      "target_url": "/jasa/ecommerce/",
+      "target_url": "/harga/",
       "priority": "P3",
       "status": "targeted-not-volume-verified"
     },
@@ -5156,7 +5156,7 @@
       "keyword": "biaya website dengan checkout online",
       "cluster": "fitur",
       "intent": "commercial-price",
-      "target_url": "/jasa/ecommerce/",
+      "target_url": "/harga/",
       "priority": "P3",
       "status": "targeted-not-volume-verified"
     },
@@ -5174,7 +5174,7 @@
       "keyword": "biaya website dengan payment gateway",
       "cluster": "fitur",
       "intent": "commercial-price",
-      "target_url": "/jasa/ecommerce/",
+      "target_url": "/harga/",
       "priority": "P3",
       "status": "targeted-not-volume-verified"
     },
@@ -5192,7 +5192,7 @@
       "keyword": "biaya website dengan dashboard admin",
       "cluster": "fitur",
       "intent": "commercial-price",
-      "target_url": "/jasa/custom-website/",
+      "target_url": "/harga/",
       "priority": "P3",
       "status": "targeted-not-volume-verified"
     },
@@ -5210,7 +5210,7 @@
       "keyword": "biaya website dengan manajemen stok",
       "cluster": "fitur",
       "intent": "commercial-price",
-      "target_url": "/jasa/custom-website/",
+      "target_url": "/harga/",
       "priority": "P3",
       "status": "targeted-not-volume-verified"
     },
@@ -5228,7 +5228,7 @@
       "keyword": "biaya website dengan fitur booking",
       "cluster": "fitur",
       "intent": "commercial-price",
-      "target_url": "/jasa/custom-website/",
+      "target_url": "/harga/",
       "priority": "P3",
       "status": "targeted-not-volume-verified"
     },
@@ -5246,7 +5246,7 @@
       "keyword": "biaya website dengan kalender reservasi",
       "cluster": "fitur",
       "intent": "commercial-price",
-      "target_url": "/jasa/custom-website/",
+      "target_url": "/harga/",
       "priority": "P3",
       "status": "targeted-not-volume-verified"
     },
@@ -5264,7 +5264,7 @@
       "keyword": "biaya website dengan cms artikel",
       "cluster": "fitur",
       "intent": "commercial-price",
-      "target_url": "/jasa/custom-website/",
+      "target_url": "/harga/",
       "priority": "P3",
       "status": "targeted-not-volume-verified"
     },
@@ -5282,7 +5282,7 @@
       "keyword": "biaya website dengan multibahasa",
       "cluster": "fitur",
       "intent": "commercial-price",
-      "target_url": "/jasa/custom-website/",
+      "target_url": "/harga/",
       "priority": "P3",
       "status": "targeted-not-volume-verified"
     },
@@ -5300,7 +5300,7 @@
       "keyword": "biaya website dengan login pelanggan",
       "cluster": "fitur",
       "intent": "commercial-price",
-      "target_url": "/jasa/custom-website/",
+      "target_url": "/harga/",
       "priority": "P3",
       "status": "targeted-not-volume-verified"
     },
@@ -5318,7 +5318,7 @@
       "keyword": "biaya website dengan optimasi seo",
       "cluster": "fitur",
       "intent": "commercial-price",
-      "target_url": "/jasa/landing-page/",
+      "target_url": "/harga/",
       "priority": "P3",
       "status": "targeted-not-volume-verified"
     },
@@ -5336,7 +5336,7 @@
       "keyword": "biaya website dengan tampilan mobile responsif",
       "cluster": "fitur",
       "intent": "commercial-price",
-      "target_url": "/jasa/landing-page/",
+      "target_url": "/harga/",
       "priority": "P3",
       "status": "targeted-not-volume-verified"
     },
@@ -5354,7 +5354,7 @@
       "keyword": "biaya website dengan galeri portofolio",
       "cluster": "fitur",
       "intent": "commercial-price",
-      "target_url": "/jasa/portfolio/",
+      "target_url": "/harga/",
       "priority": "P3",
       "status": "targeted-not-volume-verified"
     },
@@ -5372,7 +5372,7 @@
       "keyword": "biaya website dengan tabel harga layanan",
       "cluster": "fitur",
       "intent": "commercial-price",
-      "target_url": "/jasa/company-profile/",
+      "target_url": "/harga/",
       "priority": "P3",
       "status": "targeted-not-volume-verified"
     },
@@ -5390,7 +5390,7 @@
       "keyword": "biaya website dengan integrasi email",
       "cluster": "fitur",
       "intent": "commercial-price",
-      "target_url": "/jasa/custom-website/",
+      "target_url": "/harga/",
       "priority": "P3",
       "status": "targeted-not-volume-verified"
     },
@@ -5408,7 +5408,7 @@
       "keyword": "biaya website dengan form permintaan penawaran",
       "cluster": "fitur",
       "intent": "commercial-price",
-      "target_url": "/jasa/company-profile/",
+      "target_url": "/harga/",
       "priority": "P3",
       "status": "targeted-not-volume-verified"
     }

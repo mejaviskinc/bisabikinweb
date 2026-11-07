@@ -6,6 +6,7 @@ import {mergeEditorialPosts} from './static-source/lib/editorial-posts.mjs';
 import {geoGuideArticles} from './static-source/lib/geo-guides.mjs';
 import {cityLandingPages} from './static-source/lib/city-pages.mjs';
 import {provincePages,localityPages,provinceBySlug,localityByPath} from './static-source/lib/geo-pages.mjs';
+import {industryPages,industryByPath} from './static-source/lib/industry-pages.mjs';
 import {keywordPages,keywordPageByPath} from './static-source/lib/seo-solutions.mjs';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 const configFile=new URL('./vite.pages.mjs',import.meta.url).pathname;
@@ -14,6 +15,11 @@ await build({configFile,publicDir:false,build:{ssr:'render.tsx',outDir:'../.page
 const {render,defaults}=await import('./.pages-ssr/render.js');
 
 async function fetchPublishedArticles(){
+  // Reproducible SEO validation can use repository articles without a database request.
+  if(process.env.BBWEB_OFFLINE_BUILD==='1'){
+    console.log('Offline build: using repository articles; Supabase is not contacted.');
+    return null;
+  }
   try{
     const source=await readFile('static-source/lib/supabase.ts','utf8');
     const supabaseUrl=source.match(/const SUPABASE_URL='([^']+)'/)?.[1];
@@ -111,7 +117,8 @@ const pages={
   '/admin/iklan':['Ads Manager Bisabikinweb','Panel admin untuk mengatur iklan homepage Bisabikinweb.'],
   '/admin/payments':['Payment Gateway — BisaBikinWeb','Dashboard transaksi DOKU, status pembayaran, rekonsiliasi, dan monitoring checkout merchandise.']
 };
-pages['/solusi']=['600 Panduan Jasa Bikin Website untuk Bisnis','Temukan 600 panduan pembuatan website sesuai kebutuhan layanan, industri, lokasi, fitur dan biaya. Cari topik lalu diskusikan proyek dengan BisaBikinWeb.'];
+pages['/solusi']=['Solusi Website untuk Bisnis, Industri & Daerah','Temukan layanan website, paket harga, contoh proyek fashion, skincare, travel, dan cakupan layanan online BisaBikinWeb sesuai kebutuhan bisnis Anda.'];
+for(const page of industryPages){pages[page.path]=[page.title,page.description];}
 for(const item of keywordPages){pages[item.path]=[item.keyword[0].toUpperCase()+item.keyword.slice(1)+' | BisaBikinWeb.id',item.keyword+'. Panduan kebutuhan, fitur, persiapan materi, estimasi biaya, dan konsultasi website online.'];}
 for(const city of cityLandingPages){pages['/wilayah/'+city.slug]=[city.title,city.description];}
 for(const province of provincePages){pages[province.path]=[province.title,province.description];}
@@ -172,7 +179,7 @@ for(const [path,[name,description]] of Object.entries(pages)){
   const article=articleByPath.get(path);
   const title=article?(article.title.length<=55?article.title+' | '+brand:article.title):(path==='/'?name:(name.toLowerCase().includes('bisabikinweb')?name:name+' | '+brand));
   const url=origin+(path==='/'?'/':path+'/');
-  const isService=equivalentPath.startsWith('/jasa/');
+  const isService=equivalentPath.startsWith('/jasa/')||Boolean(industryByPath[path]);
   const cityPage=cityLandingPages.find(city=>path==='/wilayah/'+city.slug);
   const geoProvince=path.startsWith('/wilayah/provinsi/')&&path.split('/').length===4?provinceBySlug[path.split('/')[3]]:null;
   const geoLocality=localityByPath[path]||null;
@@ -190,7 +197,7 @@ for(const [path,[name,description]] of Object.entries(pages)){
     // Pertanyaan dan jawaban ini tampil sebagai teks di beranda dan halaman harga.
     if(path==='/'||path==='/harga')schemas.push({'@context':'https://schema.org','@type':'FAQPage','@id':url+'#faq',mainEntity:buildData.faq.map(([question,answer])=>({'@type':'Question',name:question,acceptedAnswer:{'@type':'Answer',text:answer}}))});
     if(path==='/'||path==='/wilayah')schemas.push({'@context':'https://schema.org','@type':'Service','@id':url+'#nationwide-web-development',name:'Jasa Bikin Website Seluruh Indonesia',serviceType:'Jasa pembuatan website',description:metaDescription,url,provider:{'@id':origin+'/#organization'},areaServed:{'@type':'Country',name:'Indonesia'},availableLanguage:['id','en']});
-    const section=article?(isNewsArticle(article)?'/berita':'/artikel'):(cityPage||geoProvince||geoLocality)?'/wilayah':path.startsWith('/jasa/')?'/jasa':path.startsWith('/portfolio/')?'/portfolio':path.startsWith('/merch/')?'/merch':null;
+    const section=article?(isNewsArticle(article)?'/berita':'/artikel'):(cityPage||geoProvince||geoLocality)?'/wilayah':(path.startsWith('/jasa/')||industryByPath[path])?'/jasa':path.startsWith('/portfolio/')?'/portfolio':path.startsWith('/merch/')?'/merch':null;
     const crumbs=equivalentPath==='/'?[]:[{name:english?'Home':'Beranda',url:origin+homePath}];
     if(english&&isService)crumbs.push({name:'Services',url:origin+englishHref('/jasa')});
     if(section)crumbs.push({name:pages[section][0],url:origin+section+'/'});

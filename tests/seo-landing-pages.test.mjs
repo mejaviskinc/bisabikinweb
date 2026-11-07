@@ -15,8 +15,10 @@ assert.equal(new Set(keywordPages.map(page=>page.path)).size,600);
 const sitemap=await readFile('site-dist/sitemap.xml','utf8');
 assert.ok(sitemap.includes('<loc>'+host+'/solusi/</loc>'),'Hub sitemap');
 const index=await readFile('site-dist/solusi/index.html','utf8');
-assert.ok(index.includes('600 kebutuhan website.')&&index.includes('Cari panduan website'));
-assert.ok(index.includes('href="'+keywordPages[0].path+'/'));
+assert.ok(index.includes('Temukan website yang')&&index.includes('Cari solusi website'));
+assert.ok(!/href="\/solusi\/\d{3}-/.test(index),'Hub must link to primary destinations, not legacy briefs');
+for(const target of new Set(keywordPages.map(page=>page.target)))assert.ok(index.includes('href="'+target+'"'),'Primary destination missing from hub: '+target);
+assert.ok(index.includes('href="'+keywordPages[0].target+'"'));
 for(const page of keywordPages){
  const file='site-dist'+page.path+'/index.html';
  assert.ok((await stat(file)).size>3500,'Page missing: '+file);

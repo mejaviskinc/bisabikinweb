@@ -1,35 +1,40 @@
 # Peta 600 Keyword Jasa Bikin Web — BisaBikinWeb.id
 
-**Domain canonical:** https://bisabikinweb.site/  
-**Jumlah keyword:** 600 (unik, bahasa Indonesia)  
-**Jenis data:** rencana target pencarian, bukan data kueri yang telah terukur dari Search Console.
+Domain utama: https://bisabikinweb.site/
+600 keyword unik, dipetakan ke **61 halaman tujuan**. Daftar ini rencana target pencarian, bukan data volume atau laporan peringkat Google.
 
-## Distribusi
-| Klaster | Keyword | Halaman yang ditarget |
+| Kelompok | Keyword | Tujuan |
 |---|---:|---|
-| Nasional | 40 | Beranda, harga, wilayah |
-| Jenis website | 144 | Enam landing layanan yang sudah tersedia; harga |
-| Industri | 160 | Kategori jasa, harga |
-| Lokasi | 216 | 16 halaman kota prioritas; halaman provinsi untuk lokasi lainnya |
-| Fitur | 40 | Landing jasa sesuai fungsi website |
-| **Total** | **600** | **Tidak membuat 600 halaman duplikat** |
+| Nasional | 40 | Beranda untuk jasa umum; harga untuk kueri biaya |
+| Jenis website | 144 | Halaman layanan; harga untuk kueri biaya |
+| Industri | 160 | Solusi industri yang memiliki contoh portofolio, studi kasus untuk pencarian contoh, atau layanan yang relevan |
+| Lokasi | 216 | Kota prioritas dan provinsi yang sudah indexable |
+| Fitur | 40 | Layanan sesuai kebutuhan; harga untuk kueri biaya |
+| Total | 600 | 61 URL utama dalam domain yang sama |
 
-## Prinsip penerapan
-1. Satu URL tidak perlu berisi setiap variasi kata kunci. Gunakan target utama dan istilah yang wajar dalam konten asli sesuai kebutuhan calon pembeli.
-2. **Keyword lokasi** mencakup 72 lokasi × 3 variasi. Lokasi non-prioritas diarahkan ke halaman provinsi yang bisa diindeks, bukan ke halaman template lokasi yang ditandai noindex.
-3. Perbarui portofolio, halaman FAQ, harga, dan studi kasus nyata agar memenuhi kebutuhan pencari; jangan menciptakan klaim kantor fisik atau proyek lokal.
-4. **Urutan kerja:** sempurnakan 6 kategori jasa → halaman harga → 16 kota prioritas → halaman provinsi → artikel edukasi berdasarkan kueri Search Console.
-5. Gunakan Search Console untuk memeriksa impresi, CTR, klik, dan posisi aktual sebelum memilih target yang perlu diperluas.
-6. Tidak menggunakan meta keywords, karena Google tidak memakainya untuk ranking; SEO efektif mengikuti konten yang berguna dan struktur internal link yang relevan.
+## Penerapan
 
-## Konten yang tidak perlu diindeks
-- 174 halaman kota tambahan yang masih berbentuk template tetap noindex hingga punya isi yang berbeda dan bernilai.
-- Jangan menambahkan 600 halaman otomatis dengan judul berbeda tetapi isi yang sama.
+- Beranda fokus jasa bikin web nasional dan variasi yang memiliki kebutuhan sama.
+- Semua kueri dengan intent biaya diarahkan ke `/harga/`, termasuk biaya fitur. Pemetaan ini mengarahkan optimasi; Google tetap memilih URL dan posisi hasil pencarian.
+- Fashion, skincare, dan travel memiliki halaman `/industri/` berisi alur bisnis, persiapan materi, FAQ, serta contoh portofolio yang sudah tercatat.
+- Pencarian contoh pada tiga industri tersebut diarahkan ke studi kasus proyek yang sesuai.
+- `/solusi/` menjadi direktori pilihan layanan, harga, studi kasus dan wilayah. Pencarian/filter mengenali 600 variasi kata, tetapi kartu langsung menuju 61 tujuan utama. Semua kartu tersedia sebagai tautan HTML pada hasil render awal.
+- URL brief `/solusi/NNN-.../` lama tetap tersedia dan noindex. Tidak mengklaim redirect 301: GitHub Pages tidak menyediakan konfigurasi redirect HTTP per rute. Tautan utama dan terkait dari brief diarahkan ke tujuan relevan.
+- Status editorial wilayah yang sudah ada dipertahankan; tidak membuka indeks halaman lokal yang masih draft secara massal.
 
-## Referensi
-- https://developers.google.com/search/docs/fundamentals/seo-starter-guide?hl=id
-- https://developers.google.com/search/docs/essentials/spam-policies
+## Pembaruan data
 
-## Berkas
-- `keyword-targets-600.csv`: semua 600 frasa, kategori, intensi, URL yang ditarget, prioritas.
-- `keyword-targets-600.json`: data terstruktur untuk validasi dan analisis otomatis.
+Sumber pemetaan: `keyword-targets-600.json`. Setelah mengubah target, jalankan:
+
+```sh
+node scripts/sync-seo-targets.mjs
+npm test
+npm run build
+npm run test:output
+```
+
+Script menyelaraskan CSV, data runtime, dan `target-summary.json` tanpa mengubah URL brief lama. Tes memeriksa jumlah, keunikan, konsistensi data, tujuan indexable, serta konten dan metadata halaman industri.
+
+## Tindak lanjut
+
+Pantau kueri, impresi, klik, CTR, serta konsultasi masuk melalui data aktual. Tambahkan industri atau daerah ketika kebutuhan dan materi pendukungnya tersedia. Desain berbeda saja bukan alasan menerbitkan halaman untuk setiap variasi keyword.

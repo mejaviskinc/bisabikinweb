@@ -97,27 +97,17 @@ Rujukan: https://developers.google.com/search/docs/crawling-indexing/consolidate
 - Halaman beranda, /wilayah/, 38 halaman provinsi, dan 16 halaman kota prioritas tetap indexable dengan canonical dan sitemap.
 - Google Search Console perlu digunakan untuk memilih lokasi yang punya permintaan nyata, kemudian memperkaya konten lokal dan mengubah indeksasi melalui review editorial yang disengaja.
 
-## Direktori 600 halaman solusi dan SEO
-- URL publik `/solusi/` memuat pencarian dan filter 600 kebutuhan pembuatan website.
-- Masing-masing keyword di `seo/keyword-targets-600.json` diberi halaman profesional `/solusi/NNN-judul-kata-kunci/` dengan contoh kegunaan, checklist, pilihan fitur, FAQ, dan CTA konsultasi.
-- Halaman dibuat dari `static-source/lib/seo-solutions.mjs` dan `static-source/features/SeoSolutions.tsx`, dengan desain responsif yang sama seperti website utama.
-- **Seluruh 600 halaman detail sengaja noindex dan tidak masuk sitemap**, karena banyak variasi frasa berintensi serupa. Hanya direktori `/solusi/` dan halaman jasa asli yang diindeks sampai ada konten unik dan bukti proyek yang ditinjau secara editorial.
-- Pengujian `tests/seo-landing-pages.test.mjs` memeriksa 600 file SSR, metadata, tautan, dan status noindex.
+## Konsolidasi 600 keyword — 7 November 2026
 
-## Cerita dan ciri khas di seluruh 600 halaman SEO (7 November 2026)
-- Setiap URL /solusi/ kini mempunyai tujuh bagian naratif: judul cerita, situasi, masalah, keputusan rancangan, detail khas, manfaat yang dituju, dan pertanyaan untuk brief.
-- Data cerita per keyword tersimpan pada `static-source/lib/seo-story-content.mjs` dan dipasangkan ke halaman secara deterministik lewat ID.
-- Cerita merupakan **ilustrasi hipotetis**, bukan proyek, klien, hasil atau testimoni yang diklaim nyata. Tiap halaman menampilkan penjelasan tersebut.
-- Templat desain menggunakan kolom editorial, panel ciri khas dan bagian hasil + pertanyaan brief dengan tampilan mobile responsif.
-- Test produksi memeriksa tujuh komponen naratif unik pada setiap satu dari 600 halaman SSR dan memastikan tidak ada bagian cerita yang sama persis antarkonten.
-- Detail 600 halaman tetap `noindex` sampai ada pengayaan editorial berupa pengalaman/proyek asli dan verifikasi klaim.
+600 keyword dipetakan ke 61 URL utama: beranda, harga, layanan, halaman industri, studi kasus, kota prioritas dan provinsi. Semua tetap dalam domain `bisabikinweb.site`. Detail pemetaan ada pada `seo/README-600-KEYWORDS.md` dan `seo/target-summary.json`.
 
-## Variasi visual 600 halaman SEO — mempertahankan desain website utama
-- Halaman /solusi/ memakai identitas visual **BisaBikinWeb** yang sama: logo, header, navigasi, footer, font, mode terang/gelap, warna accent hijau, tombol dan tautan.
-- Halaman detail memiliki **600 kombinasi komposisi yang berbeda** melalui 12 varian hero × 10 format cerita editorial × 5 pola kartu manfaat. Ini sistem variasi terukur, **bukan 600 halaman yang didesain manual satu per satu**.
-- Modul `static-source/lib/seo-page-design.mjs` menghitung identitas tampilan dari ID permanen halaman. Setiap halaman memiliki tanda `data-design` yang unik, `data-hero`, `data-story`, dan `data-cards`.
-- Identitas geometris ringan dari SVG inline memanfaatkan skema warna website asli dan koordinat khusus setiap ID; tidak memerlukan foto stok, unduhan font, atau JavaScript runtime tambahan.
-- CSS khusus di `static-source/styles.css` hanya berlaku di `.seo-unique-page`, sehingga layout beranda, jasa, checkout, dashboard dan halaman lain tidak berubah.
-- Layout mengikuti breakpoint tablet/mobile, mempertahankan konten yang dapat diakses, internal link, FAQ, catatan bahwa cerita ilustratif, serta CTA konsultasi.
-- Pengujian `tests/seo-landing-pages.test.mjs` memastikan 600 kombinasi desain berbeda pada 600 HTML prerendered, artwork hadir, dan shell header/footer website utama terjaga.
-- Status `noindex` 600 halaman tetap diterapkan; variasi desain semata tidak memenuhi persyaratan konten bernilai unik untuk Google.
+- `/solusi/` sekarang direktori tujuan utama, dengan pencarian terhadap variasi keyword dan filter kategori. Kartu tidak lagi mengarah ke 600 brief terpisah.
+- Beranda menjadi tujuan frasa jasa nasional; seluruh intent biaya mengarah ke harga.
+- Tiga halaman industri `/industri/fashion/`, `/industri/skincare/`, `/industri/travel/` menghubungkan kebutuhan usaha dengan GoO Ninks, Mejavi Skin+, dan GoJogja Travel yang sudah ada dalam portofolio. Halaman memiliki isi, metadata, canonical, Service schema, breadcrumb, dan sitemap.
+- Enam detail jasa mendapat penjelasan kecocokan, persiapan, batas ruang lingkup, dan tautan lanjutan. Halaman harga menjelaskan biaya awal, berulang, serta maintenance.
+- Portofolio menampilkan tautan studi kasus internal di samping kartu website live.
+- 600 URL brief sebelumnya tetap tersedia dengan desain dan cerita ilustratif lama; status noindex dipertahankan. Tautan terkait mengarah ke halaman tujuan utama. Tidak diterapkan atau diklaim redirect HTTP 301 pada GitHub Pages.
+- Tidak membuat proyek lokal, cabang, testimoni, atau angka hasil bisnis yang tidak tersedia.
+- Indeksasi wilayah mengikuti data editorial terbaru pada `geo-pages.mjs`; halaman draft tidak otomatis dibuka untuk indeks.
+
+Perubahan ini merapikan arsitektur dan kesesuaian konten; bukan laporan keberhasilan ranking. Penilaian traffic dilakukan dari Search Console setelah perayapan ulang.
