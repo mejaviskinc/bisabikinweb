@@ -176,7 +176,7 @@ for(const [path,[name,description]] of Object.entries(pages)){
   const cityPage=cityLandingPages.find(city=>path==='/wilayah/'+city.slug);
   const geoProvince=path.startsWith('/wilayah/provinsi/')&&path.split('/').length===4?provinceBySlug[path.split('/')[3]]:null;
   const geoLocality=localityByPath[path]||null;
-  const noindex=Boolean(geoLocality||keywordPageByPath[path])||path==='/cart'||path==='/checkout'||path==='/payment'||path==='/track-order'||path==='/account'||path==='/seller'||path==='/layanan-digital'||path.startsWith('/admin');
+  const noindex=Boolean((geoLocality&&!geoLocality.indexReady)||keywordPageByPath[path])||path==='/cart'||path==='/checkout'||path==='/payment'||path==='/track-order'||path==='/account'||path==='/seller'||path==='/layanan-digital'||path.startsWith('/admin');
   const metaDescription=snippet(description);
   const articleImage=safeHttpsUrl(article?.image);
   const imageUrl=articleImage||origin+'/og.svg';
@@ -238,7 +238,7 @@ if(coverHash!=='1fbaee73e936ba6064cc24c86137184f7ae165be32d7845f5e1c5d06b64ca662
 await writeFile('site-dist/bisabikinweb-gojogja-travel-collaboration.webp',coverBytes);
 await writeFile('site-dist/robots.txt',`User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n${freshNewsArticles.length?`Sitemap: ${origin}/news-sitemap.xml\n`:''}`);
 const excludedRoutes=new Set(['/cart','/checkout','/payment','/track-order','/seller','/account','/layanan-digital']);
-const sitemapEntries=Object.keys(pages).filter(path=>!excludedRoutes.has(path)&&!localityByPath[path]&&!keywordPageByPath[path]&&!path.startsWith('/admin')&&!path.startsWith('/seller/')).map(path=>{
+const sitemapEntries=Object.keys(pages).filter(path=>!excludedRoutes.has(path)&&!(localityByPath[path]&&!localityByPath[path].indexReady)&&!keywordPageByPath[path]&&!path.startsWith('/admin')&&!path.startsWith('/seller/')).map(path=>{
  const article=articleByPath.get(path);
  const loc=origin+(path==='/'?'/':path+'/');
  const lastmod=article?isoDate(article.updated_at||article.published_at)?.slice(0,10):null;
