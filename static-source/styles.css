@@ -610,3 +610,23 @@
 .process-detail .process-dots button{background:#ffffff55}
 .process-detail .process-dots button.active{background:var(--accent)}
 @media(prefers-reduced-motion:reduce){.process-detail .process-photo{transition:none}}
+
+/* Bespoke locality editorial panels inherit the main BisaBikinWeb visual language. */
+.geo-editorial-showcase{display:grid;grid-template-columns:1.1fr .9fr;gap:clamp(15px,3vw,36px);align-items:stretch}
+.geo-editorial-showcase .geo-editorial-note{border:1px solid var(--line);border-radius:18px;padding:clamp(23px,3.2vw,45px);background:var(--panel);min-width:0;display:flex;flex-direction:column;justify-content:center;gap:10px}
+.geo-editorial-showcase h2,.geo-editorial-showcase h3{margin:8px 0;color:var(--text);line-height:1.2}
+.geo-editorial-showcase h2{font-size:clamp(24px,3vw,38px)}.geo-editorial-showcase h3{font-size:clamp(20px,2.5vw,28px)}
+.geo-editorial-showcase p{font-size:15px;line-height:1.75;color:var(--muted);margin:0 0 10px}
+.geo-editorial-showcase .geo-assets{list-style:none;margin:0 0 16px;padding:0;display:grid;gap:9px}
+.geo-editorial-showcase .geo-assets li{border-bottom:1px solid var(--line);padding:9px 0;color:var(--text);font-weight:600;text-transform:capitalize}
+.geo-editorial-showcase .geo-assets li::before{content:"↗";margin-right:13px;color:var(--accent)}
+.geo-editorial-showcase .geo-reference{font-size:13px;color:var(--muted);margin-top:10px}
+.geo-editorial-showcase .geo-reference a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
+.geo-detail .geo-local-scenario{margin-top:15px;padding-left:18px;border-left:3px solid var(--accent);max-width:730px}
+.geo-layout-0 .geo-editorial-note:first-child{border-top:4px solid var(--accent)}
+.geo-layout-1 .geo-editorial-note:last-child{border-top:4px solid var(--accent)}
+.geo-layout-2 .geo-editorial-showcase{grid-template-columns:.95fr 1.05fr}
+.geo-layout-2 .geo-editorial-note:first-child{background:var(--soft)}
+.geo-layout-3 .geo-editorial-note:first-child{border-bottom:4px solid var(--accent)}
+.geo-layout-3 .geo-editorial-note:last-child{background:var(--soft)}
+@media(max-width:760px){.geo-editorial-showcase,.geo-layout-2 .geo-editorial-showcase{grid-template-columns:1fr}.geo-editorial-showcase .geo-editorial-note{padding:24px}}
