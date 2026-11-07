@@ -73,7 +73,7 @@ export const localityPages=serviceAreaGroups.flatMap(group=>group.provinces.flat
  indexReady:indexableLocalityNames.has(city)&&Boolean(provinceSources[province.name]),
  layoutVariant:brief.topicIndex%4,
  title:'Jasa Bikin Website '+city+' | BisaBikinWeb.id',
- description:'Contoh desain website '+city+': '+primary.name+', persiapan konten bisnis, pilihan fitur, dan konsultasi online di '+province.name+'.'
+ description:'Jasa website '+city+': '+brief.scenario+' Konsultasi dan pengerjaan website dilakukan secara online.'
  };
  })));
 export const localityByPath=Object.fromEntries(localityPages.map(item=>[item.path,item]));
