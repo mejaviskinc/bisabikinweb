@@ -144,17 +144,33 @@ for(const page of provincePages){
  assert.equal(service?.areaServed?.name,page.name);
  assert.ok(html.includes(page.name)&&html.includes(page.locations[0]),page.path+' directory missing');
 }
+let readyCount=0;
 for(const page of localityPages){
  const html=await getHtml(page.path.slice(1));
+ const url=origin+page.path+'/';
  assert.equal(first(html,/<title>([^<]+)<\/title>/),page.title,page.path+' title mismatch');
- assert.equal(first(html,/<meta name="robots" content="([^"]+)"/),'noindex,nofollow',page.path+' must stay noindex until unique content is reviewed');
- assert.ok(!html.includes('rel="canonical"'),page.path+' must not claim a canonical while noindex');
- assert.ok(!indexedLocations.has(origin+page.path+'/'),page.path+' must be withheld from sitemap until unique editorial content is ready');
- assert.equal(scripts(html).length,0,page.path+' must not publish structured data for noindex route');
+ assert.ok(page.editorial.scenario.length>=80,page.path+' needs a substantial location-specific scenario');
+ assert.ok(page.editorial.assets.length>=3,page.path+' needs a practical local brief checklist');
+ assert.ok(html.includes(page.editorial.scenario),page.path+' must show its distinctive scenario');
+ assert.ok(html.includes(page.provinceEditorial.journey),page.path+' must show regional context');
  assert.ok(html.includes(page.topic.name)&&html.includes(page.topic.steps[0]),page.path+' must contain useful visible guide');
+ if(page.indexReady){
+  readyCount++;
+  assert.ok(page.source,'Only source-backed locality guides may be enabled at this stage');
+  assert.ok(indexedLocations.has(url),page.path+' must be in the sitemap');
+  assert.equal(first(html,/<link rel="canonical" href="([^"]+)"/),url,page.path+' canonical mismatch');
+  assert.match(html,/<meta name="robots" content="index,follow/,page.path+' should be indexable');
+  assert.ok(scripts(html).some(schema=>schema['@type']==='Service'),page.path+' needs Service schema');
+ }else{
+  assert.equal(first(html,/<meta name="robots" content="([^"]+)"/),'noindex,nofollow',page.path+' draft remains noindex');
+  assert.ok(!html.includes('rel="canonical"'),page.path+' draft should not claim canonical');
+  assert.ok(!indexedLocations.has(url),page.path+' draft must stay out of sitemap');
+  assert.equal(scripts(html).length,0,page.path+' draft should not expose marketing schema');
+ }
 }
+assert.equal(readyCount,14,'Expected 14 individually curated, source-backed locality guides');
 assert.equal(new Set([...provincePages,...localityPages].map(page=>page.title)).size,212,'Generated titles should be unique');
-console.log('National coverage SEO verified: 38 indexable provinces, 174 navigable localities initially noindex, plus 16 priority cities.');
+console.log('National coverage SEO verified: 38 provinces, 14 source-backed localities, 160 remaining drafts, plus 16 priority cities.');
 
 const {sitelinkTargets}=await import('../static-source/lib/sitelinks.mjs');
 assert.equal(sitelinkTargets.length,6,'Homepage should prioritize six core sitelink destinations');
