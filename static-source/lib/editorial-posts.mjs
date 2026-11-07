@@ -1,3 +1,4 @@
+import {publishedNews20261107} from './published-news-20261107.mjs';
 import {published20261104} from './published-20261104.mjs';
 import {editorialCoverMap} from './editorial-cover-map.mjs';
 import {published20261107} from './published-20261107.mjs';
@@ -620,6 +621,9 @@ editorialPosts.push(...evergreen20261106.filter(post => !editorialPosts.some(exi
 
 // Batch 7 Nov 2026: individually authored evergreen guides, distinct from daily news.
 editorialPosts.push(...published20261107.filter(post => !editorialPosts.some(existing => existing.id === post.id)));
+
+// Five source-verified news items for 7 Nov 2026 with licensed illustration photos.
+editorialPosts.push(...publishedNews20261107.filter(post => !editorialPosts.some(existing => existing.id === post.id)));
 
 export function mergeEditorialPosts(articles = []) {
   const source = Array.isArray(articles) ? articles : [];
