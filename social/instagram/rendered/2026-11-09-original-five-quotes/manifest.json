@@ -1,0 +1,72 @@
+[
+  {
+    "id": "bbweb-genz-five-20261109-01",
+    "quote": "Katanya uang bukan segalanya, tapi hampir semua masalah punya nominal penyelesaian.",
+    "file": "social/instagram/rendered/2026-11-09-original-five-quotes/01.jpg",
+    "date": "2026-11-09",
+    "slot": "08:45",
+    "dimensions": [
+      1080,
+      1350
+    ],
+    "format": "JPEG",
+    "intent": "ONE_IMAGE_FEED_POST",
+    "music": "Instagram's licensed music library not supported by Meta Graph API photo publishing"
+  },
+  {
+    "id": "bbweb-genz-five-20261109-02",
+    "quote": "Di era semua orang punya pilihan, setia malah dianggap kekurangan referensi.",
+    "file": "social/instagram/rendered/2026-11-09-original-five-quotes/02.jpg",
+    "date": "2026-11-09",
+    "slot": "11:45",
+    "dimensions": [
+      1080,
+      1350
+    ],
+    "format": "JPEG",
+    "intent": "ONE_IMAGE_FEED_POST",
+    "music": "Instagram's licensed music library not supported by Meta Graph API photo publishing"
+  },
+  {
+    "id": "bbweb-genz-five-20261109-03",
+    "quote": "Negeri ini bukan kekurangan orang pintar, cuma kebanyakan orang pintar yang pura-pura nggak tahu.",
+    "file": "social/instagram/rendered/2026-11-09-original-five-quotes/03.jpg",
+    "date": "2026-11-09",
+    "slot": "14:45",
+    "dimensions": [
+      1080,
+      1350
+    ],
+    "format": "JPEG",
+    "intent": "ONE_IMAGE_FEED_POST",
+    "music": "Instagram's licensed music library not supported by Meta Graph API photo publishing"
+  },
+  {
+    "id": "bbweb-genz-five-20261109-04",
+    "quote": "Gue bukan males kerja, gue cuma heran kenapa hidup harus habis buat bikin orang lain kaya.",
+    "file": "social/instagram/rendered/2026-11-09-original-five-quotes/04.jpg",
+    "date": "2026-11-09",
+    "slot": "17:45",
+    "dimensions": [
+      1080,
+      1350
+    ],
+    "format": "JPEG",
+    "intent": "ONE_IMAGE_FEED_POST",
+    "music": "Instagram's licensed music library not supported by Meta Graph API photo publishing"
+  },
+  {
+    "id": "bbweb-genz-five-20261109-05",
+    "quote": "Sekarang yang penting bukan siapa yang paling benar, tapi siapa yang paling jago bikin narasi.",
+    "file": "social/instagram/rendered/2026-11-09-original-five-quotes/05.jpg",
+    "date": "2026-11-09",
+    "slot": "20:45",
+    "dimensions": [
+      1080,
+      1350
+    ],
+    "format": "JPEG",
+    "intent": "ONE_IMAGE_FEED_POST",
+    "music": "Instagram's licensed music library not supported by Meta Graph API photo publishing"
+  }
+]
