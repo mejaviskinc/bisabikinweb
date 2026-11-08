@@ -31,7 +31,11 @@ test('service ordering cannot claim to have accepted payment from a client',()=>
  assert.ok(api.includes("requireAdmin(admin)"));
  assert.match(api,/payment_status:'not_invoiced'/);
  assert.doesNotMatch(api,/payment_status\s*:\s*['"]paid['"]/);
- assert.doesNotMatch(api,/['"]MIDTRANS_SERVER_KEY['"]|['"]DOKU_SECRET_KEY['"]/);
+ assert.doesNotMatch(api,/['"]MIDTRANS_SERVER_KEY['"]/);
+ assert.match(api,/Deno\.env\.get\('DOKU_SECRET_KEY'\)/);
+ assert.match(api,/if\(action==='create_payment'\)/);
+ assert.match(api,/bbweb_claim_website_doku_payment/);
+ assert.doesNotMatch(api,/payment_status\s*:\s*['"]paid['"]/);
 });
 test('new Supabase tables have RLS, ownership checks, and no existing merch mutations',()=>{
  for(const table of ['bbweb_website_templates','bbweb_website_packages','bbweb_website_orders','bbweb_website_order_events']){

@@ -1,4 +1,4 @@
-// Website services ordering API. Does not create payments or modify merchandise checkout.
+// Website services ordering, DOKU Checkout initialization, and admin API. Merchandise checkout remains isolated.
 const ALLOWED_ORIGINS=new Set(['https://bisabikinweb.site','https://www.bisabikinweb.site']);
 function cors(origin:string|null){
  return {'Access-Control-Allow-Origin':origin&&ALLOWED_ORIGINS.has(origin)?origin:'https://bisabikinweb.site',
@@ -39,6 +39,28 @@ async function countWebsiteOrders(filter=''){
  if(!count)fail('Total pesanan tidak tersedia.',503);
  return Number(count[1]);
 }
+function dokuSettings(){
+ const clientId=Deno.env.get('DOKU_CLIENT_ID')||'',secret=Deno.env.get('DOKU_SECRET_KEY')||'';
+ const environment=Deno.env.get('DOKU_ENV')||'sandbox';
+ if(environment!=='sandbox'&&environment!=='production')fail('Konfigurasi lingkungan DOKU tidak valid.',503);
+ return {clientId,secret,environment,base:environment==='production'?'https://api.doku.com':'https://api-sandbox.doku.com'};
+}
+function dokuPaymentUrl(value:unknown,environment:string){
+ try{const u=new URL(String(value||''));const hosts=environment==='production'?['checkout.doku.com','jokul.doku.com']:['sandbox.doku.com'];
+ return u.protocol==='https:'&&hosts.includes(u.hostname)&&!u.username&&!u.password?u.href:''}catch{return ''}
+}
+async function requestDokuCheckout(data:unknown){
+ const settings=dokuSettings();
+ if(!settings.clientId||!settings.secret)fail('DOKU belum dikonfigurasi pada server. Hubungi admin.',503);
+ const path='/checkout/v1/payment',body=JSON.stringify(data),requestId=crypto.randomUUID(),timestamp=new Date().toISOString().replace(/\.\d{3}Z$/,'Z');
+ const encoder=new TextEncoder(),digest=btoa(String.fromCharCode(...new Uint8Array(await crypto.subtle.digest('SHA-256',encoder.encode(body)))));
+ const textToSign=['Client-Id:'+settings.clientId,'Request-Id:'+requestId,'Request-Timestamp:'+timestamp,'Request-Target:'+path,'Digest:'+digest].join('\n');
+ const key=await crypto.subtle.importKey('raw',encoder.encode(settings.secret),{name:'HMAC',hash:'SHA-256'},false,['sign']);
+ const signature='HMACSHA256='+btoa(String.fromCharCode(...new Uint8Array(await crypto.subtle.sign('HMAC',key,encoder.encode(textToSign)))));
+ return fetch(settings.base+path,{method:'POST',headers:{'Client-Id':settings.clientId,'Request-Id':requestId,'Request-Timestamp':timestamp,'Signature':signature,'Accept':'application/json','Content-Type':'application/json'},body,signal:AbortSignal.timeout(12000)});
+}
+async function rpc(name:string,payload:unknown){return db('rpc/'+name,{method:'POST',headers:{Prefer:'return=representation'},body:JSON.stringify(payload)})}
+function phoneForDoku(raw:string){const d=raw.replace(/\D/g,'');return d.startsWith('0')?'62'+d.slice(1):d}
 async function authenticate(req:Request){
  const bearer=req.headers.get('authorization')||'';
  if(!/^Bearer\s+\S+$/i.test(bearer))fail('Silakan login terlebih dahulu.',401);
@@ -104,10 +126,56 @@ Deno.serve(async(req:Request)=>{
    const list=Array.isArray(orders)?orders:[];
    if(!list.length)return response({orders:[]},200,origin);
    const ids=list.map((o:any)=>o.id).filter(Boolean);
-   const events=await db('bbweb_website_order_events?select=order_id,event_type,note,created_at&order_id=in.('+ids.join(',')+')&order=created_at.asc&limit=500');
-   const byOrder=new Map<string,any[]>();
+   const [events,payments]=await Promise.all([
+    db('bbweb_website_order_events?select=order_id,event_type,note,created_at&order_id=in.('+ids.join(',')+')&order=created_at.asc&limit=500'),
+    db('bbweb_website_payments?select=order_id,merchant_order_id,amount,environment,status,redirect_url,paid_at&order_id=in.('+ids.join(',')+')')
+   ]);
+   const byOrder=new Map<string,any[]>(),byPayment=new Map<string,any>();
    if(Array.isArray(events))for(const ev of events){if(!byOrder.has(ev.order_id))byOrder.set(ev.order_id,[]);byOrder.get(ev.order_id)?.push(ev);}
-   return response({orders:list.map((o:any)=>({...o,events:byOrder.get(o.id)||[]}))},200,origin);
+   if(Array.isArray(payments))for(const payment of payments)byPayment.set(payment.order_id,payment);
+   return response({orders:list.map((o:any)=>({...o,events:byOrder.get(o.id)||[],payment:byPayment.get(o.id)||null}))},200,origin);
+  }
+  if(action==='create_payment'){
+   const id=clean(input.id,40);
+   if(!/^[a-f0-9-]{36}$/i.test(id))fail('ID pesanan tidak valid.');
+   const settings=dokuSettings();
+   if(!settings.clientId||!settings.secret)fail('Pembayaran DOKU belum aktif di server. Hubungi admin.',503);
+   const rows=await db('bbweb_website_orders?select=id,order_no,user_id,full_name,email,phone,company,package_slug,quoted_total,status,payment_status&id=eq.'+encodeURIComponent(id)+'&user_id=eq.'+encodeURIComponent(user.id)+'&limit=1');
+   const order=Array.isArray(rows)?rows[0]:null;
+   if(!order)fail('Pesanan tidak ditemukan atau bukan milik akun ini.',404);
+   if(order.status!=='awaiting_payment'||order.payment_status==='paid'||!Number.isSafeInteger(Number(order.quoted_total))||Number(order.quoted_total)<1)fail('Penawaran belum disetujui admin atau sudah lunas.',409);
+   const invoice='BWS'+String(order.id).replaceAll('-','').slice(0,23).toUpperCase();
+   const claim=await rpc('bbweb_claim_website_doku_payment',{p_order_id:order.id,p_invoice:invoice,p_environment:settings.environment});
+   const payment=claim?.payment;
+   if(!payment?.id||!Number.isSafeInteger(Number(payment.amount)))fail('Invoice website belum bisa dibuat.',503);
+   if(claim.claimed!==true){
+    const priorUrl=dokuPaymentUrl(payment.redirect_url,settings.environment);
+    if(priorUrl&&payment.status==='pending')return response({redirect_url:priorUrl,invoice,amount:payment.amount,environment:settings.environment,status:'pending'},200,origin);
+    fail('Invoice sebelumnya masih perlu pemeriksaan admin. Jangan membuat pembayaran ganda.',409);
+   }
+   const callback='https://bisabikinweb.site/client/dashboard/';
+   const notification=(Deno.env.get('SUPABASE_URL')||'')+'/functions/v1/bbweb-website-doku-webhook';
+   const body={
+    order:{invoice_number:invoice,amount:Number(payment.amount),currency:'IDR',callback_url:callback,callback_url_cancel:callback,callback_url_result:callback,auto_redirect:true,disable_retry_payment:true,
+      line_items:[{name:'Jasa website - '+clean(order.package_slug,70),price:Number(payment.amount),quantity:1}]},
+    payment:{payment_due_date:60,type:'SALE'},
+    customer:{name:clean(order.full_name,120),email:clean(order.email,254),phone:phoneForDoku(clean(order.phone,40))},
+    additional_info:{override_notification_url:notification}
+   };
+   let dokuResponse:Response;
+   try{dokuResponse=await requestDokuCheckout(body)}catch(e){console.error('Website DOKU checkout transport failure',String(e).slice(0,100));
+     await db('bbweb_website_payments?id=eq.'+payment.id+'&status=eq.created',{method:'PATCH',body:JSON.stringify({status:'unknown',updated_at:new Date().toISOString()})}).catch(()=>{});
+     fail('Koneksi DOKU tidak pasti. Invoice sudah dicadangkan; hubungi admin sebelum mencoba ulang.',502);
+   }
+   const answer=await dokuResponse.json().catch(()=>null);
+   const redirect=dokuPaymentUrl(answer?.response?.payment?.url,settings.environment);
+   if(!dokuResponse.ok||!redirect){
+    await db('bbweb_website_payments?id=eq.'+payment.id+'&status=eq.created',{method:'PATCH',body:JSON.stringify({status:'unknown',updated_at:new Date().toISOString()})}).catch(()=>{});
+    fail('DOKU belum memberikan tautan pembayaran yang valid. Hubungi admin.',502);
+   }
+   await db('bbweb_website_payments?id=eq.'+payment.id+'&status=eq.created',{method:'PATCH',body:JSON.stringify({status:'pending',redirect_url:redirect,transaction_status:'PENDING',updated_at:new Date().toISOString()})});
+   await db('bbweb_website_orders?id=eq.'+order.id+'&payment_status=eq.not_invoiced',{method:'PATCH',body:JSON.stringify({payment_status:'pending',updated_at:new Date().toISOString()})});
+   return response({redirect_url:redirect,invoice,amount:payment.amount,environment:settings.environment,status:'pending'},200,origin);
   }
   if(action==='request_revision'){
    const id=clean(input.id,40);
@@ -128,6 +196,10 @@ Deno.serve(async(req:Request)=>{
   }
   const admin=await isAdmin(user);
   requireAdmin(admin);
+  if(action==='admin_doku_config'){
+   const settings=dokuSettings();
+   return response({configured:Boolean(settings.clientId&&settings.secret),environment:settings.environment,webhook_url:(Deno.env.get('SUPABASE_URL')||'')+'/functions/v1/bbweb-website-doku-webhook'},200,origin);
+  }
   if(action==='admin_summary'){
    const [total,pending,custom]=await Promise.all([
     countWebsiteOrders(),
@@ -147,7 +219,11 @@ Deno.serve(async(req:Request)=>{
     countWebsiteOrders()
    ]);
    const rows=Array.isArray(orders)?orders:[];
-   return response({orders:rows,templates:templates||[],packages:packages||[],total_orders:total,
+   const ids=rows.map((o:any)=>o.id).filter(Boolean);
+   const payments=ids.length?await db('bbweb_website_payments?select=order_id,merchant_order_id,amount,status,environment,transaction_status,payment_type,paid_at,created_at&order_id=in.('+ids.join(',')+')'): [];
+   const paymentByOrder=new Map<string,any>();
+   if(Array.isArray(payments))for(const payment of payments)paymentByOrder.set(payment.order_id,payment);
+   return response({orders:rows.map((o:any)=>({...o,payment:paymentByOrder.get(o.id)||null})),templates:templates||[],packages:packages||[],total_orders:total,
     next_offset:offset+rows.length<total?offset+rows.length:null},200,origin);
   }
   if(action==='admin_save_template'){
