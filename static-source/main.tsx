@@ -1,6 +1,7 @@
 import React,{useEffect,useState} from 'react';
 import {createRoot,hydrateRoot} from 'react-dom/client';
 import Studio from './features/Studio';
+import PromoPopup from './components/PromoPopup';
 import EnglishStudio from './features/EnglishStudio';
 import {hasEnglishPage} from './lib/languages.mjs';
 import Admin from './features/Admin';
@@ -38,6 +39,7 @@ function merchVariants(products:any[]){return (products||[]).filter(p=>Number.is
 function PublicClient(){
   const [data,setData]=useState(defaults);
   const [ad,setAd]=useState<AdSettings|null>(null);
+  const [promo,setPromo]=useState<{announcement:string;whatsapp:string}|null>(null);
   const [version,setVersion]=useState(0);
   useEffect(()=>{
     let active=true;
@@ -54,7 +56,9 @@ function PublicClient(){
         products:remote.products?.length?remote.products:defaults.products,
         articles:mergeEditorialPosts(remote.articles?.length?remote.articles:defaults.articles)
       };
-      setData(next);setAd(advert);setVersion(1);
+      setData(next);setAd(advert);
+      setPromo(remote.settings?{announcement:String(remote.settings.announcement||''),whatsapp:String(remote.settings.whatsapp||'')}:null);
+      setVersion(1);
     });
     return()=>{active=false};
   },[]);
@@ -109,7 +113,7 @@ function PublicClient(){
     return()=>{stopAuto();cancelAnimationFrame(raf);window.removeEventListener('resize',onResize);host.remove()};
   },[ad,version]);
 
-  return <Studio key={version} initial={data} initialVariants={merchVariants(data.products)} path={path} user={null} isAdmin={false} catalogReady={version>0}/>;
+  return <><Studio key={version} initial={data} initialVariants={merchVariants(data.products)} path={path} user={null} isAdmin={false} catalogReady={version>0}/>{path==='/'&&promo&&<PromoPopup announcement={promo.announcement} whatsapp={promo.whatsapp}/>}</>;
 }
 
 function AdminWithAdsMenu(){
