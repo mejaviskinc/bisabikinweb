@@ -11,8 +11,33 @@ STATE = "social/instagram/state.json"
 class SafeStop(Exception):
     pass
 
+def media_urls(item):
+    """Accept one JPEG or a proper Instagram carousel (2–10 distinct JPEGs)."""
+    single = "image_url" in item
+    multiple = "image_urls" in item
+    if single == multiple:
+        raise SafeStop("Pilih tepat satu: image_url atau image_urls")
+    if single:
+        urls = [item["image_url"]]
+    else:
+        urls = item["image_urls"]
+        if not isinstance(urls, list) or not 2 <= len(urls) <= 10:
+            raise SafeStop("Carousel memerlukan 2–10 gambar")
+    if any(not isinstance(url, str) or not url.strip() for url in urls):
+        raise SafeStop("URL gambar harus teks nonkosong")
+    if len(set(urls)) != len(urls):
+        raise SafeStop("Gambar carousel duplikat")
+    for image_url in urls:
+        url = urllib.parse.urlsplit(image_url)
+        if url.scheme != "https" or not url.hostname or url.username or url.password:
+            raise SafeStop("URL gambar wajib HTTPS publik")
+        if not url.path.lower().endswith((".jpg", ".jpeg")):
+            raise SafeStop("Gambar Instagram harus JPEG")
+    return urls
+
+
 def eligible(item, date, slot, dry_run=False):
-    required = ("id", "date", "slot", "caption", "image_url", "source_url", "rights_note")
+    required = ("id", "date", "slot", "caption", "source_url", "rights_note")
     if any(not isinstance(item.get(k), str) or not item[k].strip() for k in required):
         raise SafeStop("Data konten belum lengkap")
     if (item["date"], item["slot"], item.get("status")) != (date, slot, "approved"):
@@ -24,13 +49,11 @@ def eligible(item, date, slot, dry_run=False):
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9_-]{3,75}", item["id"]):
         raise SafeStop("ID konten tidak valid")
     if not 10 <= len(item["caption"]) <= 2200:
-        raise SafeStop("Caption harus 10-2200 karakter")
-    for key in ("image_url", "source_url"):
-        url = urllib.parse.urlsplit(item[key])
-        if url.scheme != "https" or not url.hostname or url.username or url.password:
-            raise SafeStop("Semua URL harus HTTPS")
-    if not urllib.parse.urlsplit(item["image_url"]).path.lower().endswith((".jpg", ".jpeg")):
-        raise SafeStop("Gunakan gambar JPEG publik, bukan PNG/WebP")
+        raise SafeStop("Caption harus 10–2200 karakter")
+    source = urllib.parse.urlsplit(item["source_url"])
+    if source.scheme != "https" or not source.hostname or source.username or source.password:
+        raise SafeStop("Sumber konten harus HTTPS")
+    media_urls(item)
     return item
 
 def find_item(queue, date, slot):
@@ -70,13 +93,15 @@ def api(method, url, token, form=None, data=None):
                 detail += f"; subcode={subcode}"
             if code == 190:
                 detail += "; ACTION_REQUIRED: renew IG_ACCESS_TOKEN in GitHub Secrets"
+            if code in (10, 200):
+                detail += "; META_PERMISSION_DENIED: periksa izin publish, peran akun, App Review, dan host login"
         except (ValueError, AttributeError, TypeError):
             pass
         raise SafeStop(f"Provider HTTP {exc.code}{detail}; periksa dashboard; jangan retry otomatis") from None
     except (urllib.error.URLError, ValueError, TimeoutError):
         raise SafeStop("Permintaan jaringan gagal; cek status secara manual") from None
 
-def meta(method, path, token, params=None):
+def meta(method, path, token, params=None, stage="META_API"):
     base = os.getenv("IG_GRAPH_BASE", "https://graph.facebook.com")
     version = os.getenv("IG_GRAPH_VERSION", "v26.0")
     if base not in ("https://graph.facebook.com", "https://graph.instagram.com"):
@@ -86,7 +111,10 @@ def meta(method, path, token, params=None):
     url = f"{base}/{version}/{path}"
     if method == "GET" and params:
         url += "?" + urllib.parse.urlencode(params)
-    return api(method, url, token, form=params if method == "POST" else None)
+    try:
+        return api(method, url, token, form=params if method == "POST" else None)
+    except SafeStop as exc:
+        raise SafeStop(f"{stage}: {exc}") from None
 
 def github_state(repository, token):
     if not re.fullmatch(r"[\w.-]+/[\w.-]+", repository):
@@ -104,6 +132,41 @@ def write_state(repository, token, state, sha, message):
     result = api("PUT", url, token, data={"message": message, "content": encoded, "sha": sha, "branch": "main"})
     return result["content"]["sha"]
 
+def wait_for_media(container_id, token, stage):
+    if not str(container_id).isdigit():
+        raise SafeStop(f"{stage}: Meta tidak mengembalikan ID media numerik")
+    for i in range(8):
+        result = meta("GET", str(container_id), token, {"fields": "status_code"}, stage=stage + "_STATUS")
+        status = result.get("status_code")
+        if status == "FINISHED":
+            return
+        if status in ("ERROR", "EXPIRED", "PUBLISHED"):
+            raise SafeStop(f"{stage}: status container {status}; jangan retry otomatis")
+        if i < 7:
+            time.sleep(5)
+    raise SafeStop(f"{stage}: container belum siap; periksa Meta sebelum ulang")
+
+
+def create_media_container(item, user_id, token):
+    urls = media_urls(item)
+    if len(urls) == 1:
+        response = meta("POST", user_id + "/media", token,
+                        {"image_url": urls[0], "caption": item["caption"]}, stage="IMAGE_CREATE")
+        return str(response.get("id", ""))
+    children = []
+    for index, url in enumerate(urls, start=1):
+        response = meta("POST", user_id + "/media", token,
+                        {"image_url": url, "is_carousel_item": "true"},
+                        stage=f"CAROUSEL_CHILD_{index}_CREATE")
+        child_id = str(response.get("id", ""))
+        wait_for_media(child_id, token, f"CAROUSEL_CHILD_{index}")
+        children.append(child_id)
+    response = meta("POST", user_id + "/media", token,
+                    {"media_type": "CAROUSEL", "children": ",".join(children),
+                     "caption": item["caption"]}, stage="CAROUSEL_PARENT_CREATE")
+    return str(response.get("id", ""))
+
+
 def live_publish(item):
     if os.getenv("IG_AUTOPUBLISH_ENABLED") != "true" or os.getenv("GITHUB_REF") != "refs/heads/main":
         raise SafeStop("Auto-publish terkunci; hanya branch main yang diizinkan")
@@ -114,39 +177,33 @@ def live_publish(item):
     gh_token, repo = os.environ["GITHUB_TOKEN"], os.environ["GITHUB_REPOSITORY"]
     if not re.fullmatch(r"\d{8,30}", user_id):
         raise SafeStop("IG_USER_ID harus ID numerik profesional")
-    profile = meta("GET", user_id, token, {"fields": "id,username"})
-    if profile.get("username", "").lower() != "bisabikinweb.id":
-        raise SafeStop("Akun tidak cocok dengan @bisabikinweb.id")
+    profile = meta("GET", user_id, token, {"fields": "id,username"}, stage="PROFILE_ACCESS")
+    if str(profile.get("id")) != user_id or profile.get("username", "").lower() != "bisabikinweb.id":
+        raise SafeStop("PROFILE_ACCESS: ID atau username berbeda dengan @bisabikinweb.id")
 
+    # Claim once before creating media containers; failed/uncertain attempts
+    # are never automatically retried, preventing duplicate Instagram posts.
     state, sha = github_state(repo, gh_token)
     if item["id"] in state["entries"]:
         raise SafeStop("Konten pernah diklaim: jangan ulangi; cek state dan Instagram")
-    # Commit a durable claim *before* contacting the publishing endpoints.
-    state["entries"][item["id"]] = {"status": "claimed", "date": item["date"], "slot": item["slot"],
-        "claimed_at": dt.datetime.now(dt.timezone.utc).isoformat()}
+    state["entries"][item["id"]] = {
+        "status": "claimed", "date": item["date"], "slot": item["slot"],
+        "claimed_at": dt.datetime.now(dt.timezone.utc).isoformat(),
+    }
     sha = write_state(repo, gh_token, state, sha, "claim instagram content " + item["id"])
-    container = meta("POST", user_id + "/media", token,
-                     {"image_url": item["image_url"], "caption": item["caption"]})
-    cid = str(container.get("id", ""))
-    if not cid.isdigit():
-        raise SafeStop("Container Meta tidak jelas; klaim tetap dicatat")
-    for i in range(8):
-        status = meta("GET", cid, token, {"fields": "status_code"}).get("status_code")
-        if status == "FINISHED":
-            break
-        if status in ("ERROR", "EXPIRED"):
-            raise SafeStop("Container bermasalah; klaim tetap dicatat")
-        if i != 7:
-            time.sleep(5)
-    else:
-        raise SafeStop("Container belum siap; cek manual sebelum mengulang")
-    published = meta("POST", user_id + "/media_publish", token, {"creation_id": cid})
-    mid = str(published.get("id", ""))
-    if not mid.isdigit():
+
+    container_id = create_media_container(item, user_id, token)
+    wait_for_media(container_id, token, "PUBLISH_CONTAINER")
+    published = meta("POST", user_id + "/media_publish", token,
+                     {"creation_id": container_id}, stage="MEDIA_PUBLISH")
+    media_id = str(published.get("id", ""))
+    if not media_id.isdigit():
         raise SafeStop("Tidak ada konfirmasi publikasi; klaim tetap dicatat")
-    state["entries"][item["id"]].update({"status": "published", "instagram_media_id": mid})
+    state["entries"][item["id"]].update({
+        "status": "published", "instagram_media_id": media_id
+    })
     write_state(repo, gh_token, state, sha, "instagram published " + item["id"])
-    print("PUBLISHED item=" + item["id"] + " media_id=" + mid)
+    print("PUBLISHED item=" + item["id"] + " media_id=" + media_id)
 
 def main(argv=None):
     parser = argparse.ArgumentParser()
