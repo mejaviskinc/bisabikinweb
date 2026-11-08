@@ -1,0 +1,60 @@
+# One-time owner-authorized immediate publishing of five original separate feed photos.
+# Triggered only by a unique command file; never by the normal 90-item schedule.
+name: Instagram BisaBikinWeb Publish Five Quotes NOW
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'social/instagram/commands/publish-five-now-20261109.txt'
+permissions:
+  contents: write
+concurrency:
+  group: bisabikinweb-instagram-publish
+  cancel-in-progress: false
+jobs:
+  publish_five:
+    if: ${{ github.ref == 'refs/heads/main' && vars.IG_AUTOPUBLISH_PAUSED != 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      IG_AUTOPUBLISH_ENABLED: 'true'
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_GRAPH_BASE: ${{ vars.IG_GRAPH_BASE || 'https://graph.facebook.com' }}
+      IG_GRAPH_VERSION: ${{ vars.IG_GRAPH_VERSION || 'v26.0' }}
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - name: Checkout approved queue and photo assets
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Validate five approved unique photo posts before publishing
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          from scripts.instagram_autopost import eligible
+          queue=json.loads(Path('social/instagram/queue.json').read_text(encoding='utf8'))['items']
+          slots=['08:45','11:45','14:45','17:45','20:45']
+          matches=[p for p in queue if p.get('id','').startswith('bbweb-genz-five-20261109-')]
+          assert len(matches)==5,'FIVE_POSTS_MISSING'
+          assert len({(p.get('date'),p.get('slot')) for p in queue})==len(queue),'DUPLICATE_QUEUE_SLOTS'
+          state=json.loads(Path('social/instagram/state.json').read_text(encoding='utf8'))['entries']
+          for i,slot in enumerate(slots,1):
+              selected=[p for p in matches if p.get('date')=='2026-11-09' and p.get('slot')==slot]
+              assert len(selected)==1,'MISSING_QUOTE_SLOT'
+              p=selected[0]
+              assert p['id']==f'bbweb-genz-five-20261109-{i:02d}','QUOTE_ID_MISMATCH'
+              assert p['image_url'].endswith(f'/{i:02d}.jpg'),'INCORRECT_IMAGE'
+              assert p['id'] not in state,'ALREADY_CLAIMED_DO_NOT_DUPLICATE'
+              eligible(p,'2026-11-09',slot,dry_run=True)
+          print('FIVE_QUOTE_PHOTO_POSTS_VERIFIED_AND_UNCLAIMED')
+          PY
+      - name: Publish five individual feed photos directly with Meta Graph API
+        run: |
+          set -euo pipefail
+          for SLOT in 08:45 11:45 14:45 17:45 20:45; do
+            echo "PUBLISHING_ORIGINAL_PHOTO_SLOT=$SLOT"
+            python3 scripts/instagram_autopost.py --publish --date 2026-11-09 --slot "$SLOT" --queue social/instagram/queue.json
+            echo "PUBLISHED_ORIGINAL_PHOTO_SLOT=$SLOT"
+            sleep 8
+          done
+          echo "FIVE_SEPARATE_ORIGINAL_PHOTO_POSTS_CONFIRMED"
