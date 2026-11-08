@@ -33,6 +33,7 @@ as $$
 declare o public.bbweb_website_orders%rowtype;
         p public.bbweb_website_payments%rowtype;
         inserted boolean := false;
+        affected integer := 0;
 begin
  if p_environment not in ('sandbox','production') then raise exception 'INVALID_ENVIRONMENT'; end if;
  select * into o from public.bbweb_website_orders where id=p_order_id for update;
@@ -43,7 +44,8 @@ begin
  insert into public.bbweb_website_payments(order_id,merchant_order_id,amount,environment)
  values (o.id,p_invoice,o.quoted_total,p_environment)
  on conflict (order_id) do nothing;
- get diagnostics inserted = row_count;
+ get diagnostics affected = row_count;
+ inserted := affected > 0;
  select * into p from public.bbweb_website_payments where order_id=o.id for update;
  if p.environment <> p_environment or p.amount <> o.quoted_total or p.merchant_order_id <> p_invoice then raise exception 'PAYMENT_ALREADY_LOCKED_DIFFERENT_DETAILS'; end if;
  return jsonb_build_object('claimed',inserted,'payment',to_jsonb(p));
