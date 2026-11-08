@@ -1,0 +1,110 @@
+.bbweb-promo-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  padding: clamp(14px, 4vw, 32px);
+  background: rgba(10, 11, 12, .7);
+  -webkit-backdrop-filter: blur(6px);
+  backdrop-filter: blur(6px);
+}
+.bbweb-promo-card {
+  position: relative;
+  box-sizing: border-box;
+  width: min(100%, 560px);
+  max-height: min(88dvh, 760px);
+  overflow-y: auto;
+  padding: 48px 44px 34px;
+  background: #f9f9f6;
+  color: #151515;
+  border: 1px solid rgba(0,0,0,.1);
+  border-radius: 24px;
+  box-shadow: 0 28px 85px rgba(0,0,0,.3);
+  animation: bbweb-promo-arrive .25s ease-out;
+}
+.bbweb-promo-close {
+  position: absolute;
+  right: 19px;
+  top: 18px;
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border: 1px solid #e5e5e2;
+  border-radius: 50%;
+  color: #222;
+  background: #fff;
+  font-size: 26px;
+  line-height: 1;
+}
+.bbweb-promo-close:hover,
+.bbweb-promo-close:focus-visible { background: #ededeb; }
+.bbweb-promo-kicker {
+  display: inline-block;
+  max-width: calc(100% - 42px);
+  margin-bottom: 22px;
+  padding: 8px 12px;
+  border-radius: 99px;
+  background: #e8e8e3;
+  color: #3d3d3d;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  line-height: 1.3;
+}
+.bbweb-promo-card h2 {
+  margin: 0 0 18px;
+  font-size: clamp(29px, 4.2vw, 39px);
+  font-weight: 800;
+  letter-spacing: -.045em;
+  line-height: 1.12;
+}
+.bbweb-promo-copy {
+  margin: 0 0 28px;
+  color: #565656;
+  font-size: 16px;
+  line-height: 1.75;
+  white-space: pre-line;
+  overflow-wrap: anywhere;
+}
+.bbweb-promo-cta {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 14px;
+  width: 100%;
+  min-height: 54px;
+  padding: 15px 20px;
+  background: #171717;
+  color: white;
+  border-radius: 13px;
+  font-size: 15px;
+  font-weight: 700;
+  text-align: center;
+  text-decoration: none;
+}
+.bbweb-promo-cta:hover,
+.bbweb-promo-cta:focus-visible { background: #393939; color: white; }
+.bbweb-promo-card small {
+  display: block;
+  margin-top: 20px;
+  color: #777;
+  font-size: 11px;
+  line-height: 1.5;
+  text-align: center;
+}
+@keyframes bbweb-promo-arrive {
+  from { opacity: 0; transform: translateY(12px) scale(.985); }
+  to { opacity: 1; transform: translateY(0) scale(1); }
+}
+@media (max-width: 600px) {
+  .bbweb-promo-card { padding: 42px 25px 28px; border-radius: 20px; }
+  .bbweb-promo-card h2 { font-size: clamp(27px, 7.2vw, 34px); }
+  .bbweb-promo-copy { font-size: 15px; }
+  .bbweb-promo-kicker { margin-bottom: 18px; font-size: 9px; }
+  .bbweb-promo-close { right: 12px; top: 12px; width: 38px; height: 38px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .bbweb-promo-card { animation: none; }
+}
