@@ -1,0 +1,90 @@
+# One-time 2026-11-10 through 2026-11-13 Instagram batch.
+# 86 remaining, 25 + 25 + 25 + 11, each as a single Canva-style JPEG.
+# GitHub scheduled events are best effort: poll three times per hour and
+# select one due, unclaimed approved image each time. No Metricool.
+name: Instagram BisaBikinWeb 25 Quotes Daily
+on:
+  schedule:
+    - cron: '7,27,47 0-16 10-13 11 *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/instagram-25-per-day.yml'
+      - 'scripts/instagram_schedule_25.py'
+permissions:
+  contents: write
+concurrency:
+  group: bisabikinweb-instagram-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: ${{ github.ref == 'refs/heads/main' && (github.event_name != 'schedule' || vars.IG_AUTOPUBLISH_PAUSED != 'true') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      IG_AUTOPUBLISH_ENABLED: 'true'
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_GRAPH_BASE: ${{ vars.IG_GRAPH_BASE || 'https://graph.facebook.com' }}
+      IG_GRAPH_VERSION: ${{ vars.IG_GRAPH_VERSION || 'v26.0' }}
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - name: Checkout current approved quote queue
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Validate 25+25+25+11 layout and select one due post
+        id: select
+        run: |
+          if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
+            python3 scripts/instagram_schedule_25.py
+          else
+            python3 scripts/instagram_schedule_25.py --validate-only
+          fi
+      - name: Check rolling Meta publishing quota before claiming a post
+        id: quota
+        if: ${{ github.event_name == 'schedule' && steps.select.outputs.ready == 'true' }}
+        run: |
+          python3 - <<'PY'
+          import os
+          from scripts.instagram_autopost import meta, SafeStop
+
+          token=os.environ.get("IG_ACCESS_TOKEN","")
+          user_id=os.environ.get("IG_USER_ID","")
+          if not token or not user_id.isdigit():
+              raise SystemExit("QUOTA_SAFE_STOP: Instagram credentials unavailable")
+          try:
+              response=meta("GET",user_id+"/content_publishing_limit",token,
+                            {"fields":"quota_usage,config"},stage="CHECK_PUBLISH_QUOTA")
+          except SafeStop as e:
+              raise SystemExit("QUOTA_SAFE_STOP: "+str(e))
+          obj=response.get("data")
+          entry=obj[0] if isinstance(obj,list) and obj else response
+          if not isinstance(entry,dict):
+              raise SystemExit("QUOTA_SAFE_STOP: unsupported Meta quota response")
+          try:
+              usage=int(entry["quota_usage"])
+          except (KeyError,ValueError,TypeError):
+              raise SystemExit("QUOTA_SAFE_STOP: no quota usage in Meta response")
+          cfg=entry.get("config") if isinstance(entry.get("config"),dict) else {}
+          try:
+              total=int(cfg["quota_total"])
+          except (KeyError,ValueError,TypeError):
+              total=25 # Conservative legacy ceiling when Meta omits configuration
+          if total <= 0 or usage < 0:
+              raise SystemExit("QUOTA_SAFE_STOP: invalid quota numbers")
+          allowed=usage < total
+          with open(os.environ["GITHUB_OUTPUT"],"a",encoding="utf8") as output:
+              output.write("allowed="+str(allowed).lower()+"\n")
+          print("META_PUBLISH_QUOTA: used="+str(usage)+", total="+str(total)+", allowed="+str(allowed))
+          PY
+      - name: Publish one individual quote via official Meta Graph API
+        if: ${{ github.event_name == 'schedule' && steps.select.outputs.ready == 'true' && steps.quota.outputs.allowed == 'true' }}
+        env:
+          DATE: ${{ steps.select.outputs.date }}
+          SLOT: ${{ steps.select.outputs.slot }}
+        run: |
+          python3 scripts/instagram_autopost.py --publish --date "$DATE" --slot "$SLOT" --queue social/instagram/queue.json
+      - name: Explain quota-limited skip
+        if: ${{ github.event_name == 'schedule' && steps.select.outputs.ready == 'true' && steps.quota.outputs.allowed == 'false' }}
+        run: echo "SKIP: Meta rolling 24-hour publishing quota reached; no duplicate claim made"
