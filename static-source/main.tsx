@@ -29,6 +29,7 @@ import './features/payment-gateway.css';
 import './features/payment-page.css';
 import './features/website-store.css';
 import './features/website-store-admin.css';
+import './features/website-sales-dashboard.css';
 import './features/website-live-demo.css';
 
 const path=location.pathname.replace(/\/+$/,'')||'/';
