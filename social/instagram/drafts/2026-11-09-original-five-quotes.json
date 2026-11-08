@@ -1,0 +1,43 @@
+{
+  "batch": "Lima quotes Gen Z asli dari percakapan, masing-masing satu foto pada feed resmi BisaBikinWeb",
+  "date": "2026-11-09",
+  "design_ref": "Canva-matched 1080x1350 white quote template with original header and three-column footer",
+  "publishing": "GitHub Actions -> Meta Graph API, NOT Metricool",
+  "items": [
+    {
+      "no": 1,
+      "slot": "08:45",
+      "category": "REALITA HIDUP",
+      "quote": "Katanya uang bukan segalanya, tapi hampir semua masalah punya nominal penyelesaian.",
+      "caption": "Katanya uang bukan segalanya, tapi hampir semua masalah punya nominal penyelesaian. 💸\n\nYang bilang uang bukan segalanya, pernah lihat tagihan belum? 👀\n\nLo relate nggak?\n\n#BisaBikinWeb #QuotesGenZ #RealitaHidup #GenZIndonesia"
+    },
+    {
+      "no": 2,
+      "slot": "11:45",
+      "category": "PERCINTAAN",
+      "quote": "Di era semua orang punya pilihan, setia malah dianggap kekurangan referensi.",
+      "caption": "Di era semua orang punya pilihan, setia malah dianggap kekurangan referensi.\n\nPilihan boleh banyak, tapi komitmen nggak seharusnya jadi barang langka. 🫠\n\nSetuju nggak?\n\n#BisaBikinWeb #QuotesGenZ #Percintaan #GenZIndonesia"
+    },
+    {
+      "no": 3,
+      "slot": "14:45",
+      "category": "SINDIRAN POLITIK",
+      "quote": "Negeri ini bukan kekurangan orang pintar, cuma kebanyakan orang pintar yang pura-pura nggak tahu.",
+      "caption": "Negeri ini bukan kekurangan orang pintar, cuma kebanyakan orang pintar yang pura-pura nggak tahu.\n\nIni sindiran sosial, bukan tuduhan ke orang tertentu. Menurut lo, perubahan harus dimulai dari mana?\n\n#BisaBikinWeb #QuotesGenZ #SindiranSosial #Indonesia"
+    },
+    {
+      "no": 4,
+      "slot": "17:45",
+      "category": "DUNIA KERJA",
+      "quote": "Gue bukan males kerja, gue cuma heran kenapa hidup harus habis buat bikin orang lain kaya.",
+      "caption": "Gue bukan males kerja, gue cuma heran kenapa hidup harus habis buat bikin orang lain kaya.\n\nKerja keras boleh, tapi hidup juga perlu dinikmati. ☕\n\nWork-life balance versi lo gimana?\n\n#BisaBikinWeb #QuotesGenZ #DuniaKerja #GenZIndonesia"
+    },
+    {
+      "no": 5,
+      "slot": "20:45",
+      "category": "SINDIRAN SOSIAL",
+      "quote": "Sekarang yang penting bukan siapa yang paling benar, tapi siapa yang paling jago bikin narasi.",
+      "caption": "Sekarang yang penting bukan siapa yang paling benar, tapi siapa yang paling jago bikin narasi.\n\nDi era viral, jangan lupa cek faktanya sebelum ikut menyebarkan.\n\nSetuju atau nggak?\n\n#BisaBikinWeb #QuotesGenZ #SindiranSosial #MediaSosial"
+    }
+  ]
+}
