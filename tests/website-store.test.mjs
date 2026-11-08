@@ -46,9 +46,10 @@ test('new Supabase tables have RLS, ownership checks, and no existing merch muta
  assert.match(sql,/revoke all on/);
  assert.doesNotMatch(sql,/\b(drop table|truncate|delete from|alter table public\.bbweb_orders)\b/i);
 });
-test('catalog illustrations and manual domain status are labeled honestly',()=>{
+test('catalog illustrations, manual domain status and upfront payment are labeled honestly',()=>{
  assert.match(storefront,/Ilustrasi konsep/);
  assert.match(storefront,/perlu verifikasi manual/);
- assert.match(storefront,/bukan pembayaran otomatis/);
+ assert.match(storefront,/Paket harga tetap langsung dibayar di awal via DOKU/);
+ assert.match(storefront,/Paket Custom memerlukan penawaran admin/);
  assert.match(storefront,/harga mulai|Harga mulai|Estimasi harga mulai/);
 });
