@@ -219,10 +219,10 @@ export const publishedBusiness20261109 = [
     "read": "3 menit",
     "summary": "Pemerintah menyiapkan stimulus diskon 30% tarif dasar tiket kapal PELNI kelas ekonomi selama masa angkutan Natal dan Tahun Baru.",
     "meta_description": "Pemerintah menyiapkan stimulus diskon 30% tarif dasar tiket kapal PELNI kelas ekonomi selama masa angkutan Natal dan Tahun Baru.",
-    "image": "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1600&h=900&q=78",
-    "cover_image_url": "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1600&h=900&q=78",
+    "image": "https://images.unsplash.com/photo-1579109490876-ccb424b93ad5?auto=format&fit=crop&w=1600&h=900&q=78",
+    "cover_image_url": "https://images.unsplash.com/photo-1579109490876-ccb424b93ad5?auto=format&fit=crop&w=1600&h=900&q=78",
     "image_alt": "Pemandangan perjalanan dan transportasi sebagai ilustrasi perjalanan kapal",
-    "image_source": "https://images.unsplash.com/photo-1500534623283-312aade485b7",
+    "image_source": "https://images.unsplash.com/photo-1579109490876-ccb424b93ad5",
     "image_license_url": "https://unsplash.com/license",
     "image_caption": "Foto ilustrasi dari Unsplash, bukan dokumentasi langsung peristiwa yang diberitakan.",
     "source_urls": [
