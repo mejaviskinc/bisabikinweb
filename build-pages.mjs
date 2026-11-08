@@ -8,6 +8,7 @@ import {cityLandingPages} from './static-source/lib/city-pages.mjs';
 import {provincePages,localityPages,provinceBySlug,localityByPath} from './static-source/lib/geo-pages.mjs';
 import {industryPages,industryByPath} from './static-source/lib/industry-pages.mjs';
 import {keywordPages,keywordPageByPath} from './static-source/lib/seo-solutions.mjs';
+import {websiteDemos} from './static-source/lib/website-demos.mjs';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 const configFile=new URL('./vite.pages.mjs',import.meta.url).pathname;
 await build({configFile});
@@ -123,6 +124,10 @@ pages['/pesan-website']=['Formulir Pemesanan Website','Isi brief website dan pil
 pages['/admin/website-store']=['Website Store Admin','Kelola desain, paket, dan pesanan website melalui dashboard admin yang aman.'];
 pages['/client/dashboard']=['Proyek Website Saya','Dashboard pribadi untuk memantau progres permintaan dan proyek website.'];
 for(const [slug,label] of [['umkm','UMKM'],['company-profile','Company Profile'],['toko-online','Toko Online'],['ekspor','Ekspor'],['travel','Travel dan Tour'],['restoran','Restoran dan Kafe'],['fashion','Fashion'],['pendidikan','Sekolah dan Pendidikan']])pages['/beli-website/'+slug]=['Desain Website '+label+' | Katalog BisaBikinWeb','Inspirasi desain website '+label+' dan layanan pembuatan website untuk bisnis profesional. Pilih desain dan minta penawaran.'];
+for(const demo of websiteDemos){
+ pages['/desain/'+demo.slug]=['Desain Website '+demo.title+' | BisaBikinWeb',demo.description+' Lihat dan coba live demo '+demo.title+' sebelum memesan website.'];
+ pages['/demo/'+demo.slug]=['Live Demo Website '+demo.title, 'Demo website interaktif '+demo.title+' untuk contoh desain '+demo.tagline+'. Pilih desain melalui katalog BisaBikinWeb.'];
+}
 for(const [slug,label] of [['studio-umkm','Studio UMKM'],['corporate-grid','Corporate Grid'],['shop-essentials','Shop Essentials'],['global-trade','Global Trade'],['tour-story','Tour Story'],['cafe-menu','Cafe Menu'],['atelier','Atelier'],['campus-info','Campus Info']])pages['/desain/'+slug]=['Konsep Desain Website '+label,'Lihat konsep desain '+label+' untuk menentukan kebutuhan website, fitur, dan paket pembuatan website profesional.'];
 pages['/solusi']=['Solusi Website untuk Bisnis, Industri & Daerah','Temukan layanan website, paket harga, contoh proyek fashion, skincare, travel, dan cakupan layanan online BisaBikinWeb sesuai kebutuhan bisnis Anda.'];
 for(const page of industryPages){pages[page.path]=[page.title,page.description];}
@@ -190,7 +195,7 @@ for(const [path,[name,description]] of Object.entries(pages)){
   const cityPage=cityLandingPages.find(city=>path==='/wilayah/'+city.slug);
   const geoProvince=path.startsWith('/wilayah/provinsi/')&&path.split('/').length===4?provinceBySlug[path.split('/')[3]]:null;
   const geoLocality=localityByPath[path]||null;
-  const noindex=Boolean((geoLocality&&!geoLocality.indexReady)||keywordPageByPath[path])||path==='/cart'||path==='/checkout'||path==='/payment'||path==='/track-order'||path==='/account'||path==='/seller'||path==='/layanan-digital'||path==='/pesan-website'||path==='/client/dashboard'||path.startsWith('/admin');
+  const noindex=Boolean((geoLocality&&!geoLocality.indexReady)||keywordPageByPath[path])||path==='/cart'||path==='/checkout'||path==='/payment'||path==='/track-order'||path==='/account'||path==='/seller'||path==='/layanan-digital'||path==='/pesan-website'||path==='/client/dashboard'||path.startsWith('/demo/')||path.startsWith('/admin');
   const metaDescription=snippet(description);
   const articleImage=safeHttpsUrl(article?.image);
   const imageUrl=articleImage||origin+'/og.svg';
@@ -252,7 +257,7 @@ if(coverHash!=='1fbaee73e936ba6064cc24c86137184f7ae165be32d7845f5e1c5d06b64ca662
 await writeFile('site-dist/bisabikinweb-gojogja-travel-collaboration.webp',coverBytes);
 await writeFile('site-dist/robots.txt',`User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n${freshNewsArticles.length?`Sitemap: ${origin}/news-sitemap.xml\n`:''}`);
 const excludedRoutes=new Set(['/cart','/checkout','/payment','/track-order','/seller','/account','/layanan-digital','/pesan-website','/client/dashboard']);
-const sitemapEntries=Object.keys(pages).filter(path=>!excludedRoutes.has(path)&&!(localityByPath[path]&&!localityByPath[path].indexReady)&&!keywordPageByPath[path]&&!path.startsWith('/admin')&&!path.startsWith('/seller/')).map(path=>{
+const sitemapEntries=Object.keys(pages).filter(path=>!excludedRoutes.has(path)&&!(localityByPath[path]&&!localityByPath[path].indexReady)&&!keywordPageByPath[path]&&!path.startsWith('/admin')&&!path.startsWith('/demo/')&&!path.startsWith('/seller/')).map(path=>{
  const article=articleByPath.get(path);
  const loc=origin+(path==='/'?'/':path+'/');
  const lastmod=article?isoDate(article.updated_at||article.published_at)?.slice(0,10):null;
