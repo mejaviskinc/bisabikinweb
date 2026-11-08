@@ -4,34 +4,14 @@
 # Posts only pre-approved, licensed quotes from social/instagram/queue.json.
 name: Instagram BisaBikinWeb Auto Publish
 on:
-  schedule:
-    - cron: '0 1 * * *'
-    - cron: '11 1 * * *' # Back-up run 11 minutes after scheduled slot
-    - cron: '30 2 * * *'
-    - cron: '41 2 * * *' # Back-up run 11 minutes after scheduled slot
-    - cron: '0 4 * * *'
-    - cron: '11 4 * * *' # Back-up run 11 minutes after scheduled slot
-    - cron: '30 5 * * *'
-    - cron: '41 5 * * *' # Back-up run 11 minutes after scheduled slot
-    - cron: '0 7 * * *'
-    - cron: '11 7 * * *' # Back-up run 11 minutes after scheduled slot
-    - cron: '30 8 * * *'
-    - cron: '41 8 * * *' # Back-up run 11 minutes after scheduled slot
-    - cron: '0 10 * * *'
-    - cron: '11 10 * * *' # Back-up run 11 minutes after scheduled slot
-    - cron: '30 11 * * *'
-    - cron: '41 11 * * *' # Back-up run 11 minutes after scheduled slot
-    - cron: '0 13 * * *'
-    - cron: '11 13 * * *' # Back-up run 11 minutes after scheduled slot
-    - cron: '30 14 * * *'
-    - cron: '41 14 * * *' # Back-up run 11 minutes after scheduled slot
   workflow_dispatch:
     inputs:
       slot:
-        description: 'WIB quote posting slot'
+        description: 'Legacy WIB quote publishing slot, manual only'
         type: choice
         required: true
         options: ['08:00', '09:30', '11:00', '12:30', '14:00', '15:30', '17:00', '18:30', '20:00', '21:30']
+
 permissions:
   contents: write
 concurrency:
