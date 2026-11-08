@@ -106,7 +106,7 @@ def meta(method, path, token, params=None, stage="META_API"):
     version = os.getenv("IG_GRAPH_VERSION", "v26.0")
     if base not in ("https://graph.facebook.com", "https://graph.instagram.com"):
         raise SafeStop("Host Meta API tidak valid")
-    if not re.fullmatch(r"v\\d+\\.0", version):
+    if not re.fullmatch(r"v\d+\.0", version):
         raise SafeStop("Versi Graph API tidak valid")
     url = f"{base}/{version}/{path}"
     if method == "GET" and params:
@@ -175,7 +175,7 @@ def live_publish(item):
         raise SafeStop("Kredensial belum lengkap")
     token, user_id = os.environ["IG_ACCESS_TOKEN"], os.environ["IG_USER_ID"]
     gh_token, repo = os.environ["GITHUB_TOKEN"], os.environ["GITHUB_REPOSITORY"]
-    if not re.fullmatch(r"\\d{8,30}", user_id):
+    if not re.fullmatch(r"\d{8,30}", user_id):
         raise SafeStop("IG_USER_ID harus ID numerik profesional")
     profile = meta("GET", user_id, token, {"fields": "id,username"}, stage="PROFILE_ACCESS")
     if str(profile.get("id")) != user_id or profile.get("username", "").lower() != "bisabikinweb.id":
