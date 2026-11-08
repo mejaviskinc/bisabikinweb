@@ -43,7 +43,7 @@ jobs:
           fi
       - name: Check rolling Meta publishing quota before claiming a post
         id: quota
-        if: ${{ github.event_name == 'schedule' && steps.select.outputs.ready == 'true' }}
+        if: ${{ github.event_name == 'push' || (github.event_name == 'schedule' && steps.select.outputs.ready == 'true') }}
         run: |
           python3 - <<'PY'
           import os
