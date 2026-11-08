@@ -7,12 +7,12 @@ export const websiteDemos=[
     "category": "umkm",
     "description": "Pilihan dekorasi hangat untuk sudut rumah yang ingin kamu hidupkan lagi.",
     "headline": "Ruang cantik dimulai dari detail kecil.",
-    "tagline": [
+    "tagline": "Earthy home decor",
+    "highlights": [
       "Vas Tanah",
       "Lilin Senja",
       "Rak Kayu Mini"
     ],
-    "highlights": "Earthy home decor",
     "features": [
       "Vas Tanah",
       "Lilin Senja",
@@ -55,12 +55,12 @@ export const websiteDemos=[
     "category": "umkm",
     "description": "Menu rumahan untuk rapat, keluarga, dan perayaan yang ingin terasa akrab.",
     "headline": "Makan enak, hari jadi ringan.",
-    "tagline": [
+    "tagline": "Homemade catering",
+    "highlights": [
       "Nasi Ayam Rempah",
       "Snack Box Pagi",
       "Paket Prasmanan"
     ],
-    "highlights": "Homemade catering",
     "features": [
       "Nasi Ayam Rempah",
       "Snack Box Pagi",
@@ -103,12 +103,12 @@ export const websiteDemos=[
     "category": "umkm",
     "description": "Rangkaian segar untuk merayakan, berterima kasih, dan menyapa.",
     "headline": "Bunga untuk cerita yang tak cukup kata.",
-    "tagline": [
+    "tagline": "Floral studio",
+    "highlights": [
       "Bouquet Senja",
       "Vase Garden",
       "Table Arrangement"
     ],
-    "highlights": "Floral studio",
     "features": [
       "Bouquet Senja",
       "Vase Garden",
@@ -151,12 +151,12 @@ export const websiteDemos=[
     "category": "umkm",
     "description": "Roti panggang harian dengan rasa sederhana yang bikin kembali.",
     "headline": "Hangat dari oven, hangat sampai hati.",
-    "tagline": [
+    "tagline": "Artisan bakery",
+    "highlights": [
       "Sourdough Loaf",
       "Butter Croissant",
       "Cinnamon Roll"
     ],
-    "highlights": "Artisan bakery",
     "features": [
       "Sourdough Loaf",
       "Butter Croissant",
@@ -199,12 +199,12 @@ export const websiteDemos=[
     "category": "umkm",
     "description": "Kerajinan anyaman bernuansa alami untuk gaya hidup masa kini.",
     "headline": "Tradisi yang ikut tinggal di rumah modern.",
-    "tagline": [
+    "tagline": "Craft collective",
+    "highlights": [
       "Keranjang Rotan",
       "Lampu Anyam",
       "Tas Serat"
     ],
-    "highlights": "Craft collective",
     "features": [
       "Keranjang Rotan",
       "Lampu Anyam",
@@ -247,12 +247,12 @@ export const websiteDemos=[
     "category": "umkm",
     "description": "Bumbu dan makanan khas pilihan yang dibuat dengan perhatian.",
     "headline": "Rasa kampung, cerita yang panjang.",
-    "tagline": [
+    "tagline": "Local food brand",
+    "highlights": [
       "Sambal Kecombrang",
       "Keripik Tempe",
       "Bumbu Rendang"
     ],
-    "highlights": "Local food brand",
     "features": [
       "Sambal Kecombrang",
       "Keripik Tempe",
@@ -295,12 +295,12 @@ export const websiteDemos=[
     "category": "umkm",
     "description": "Jasa laundry dan perawatan kain untuk hari-hari yang serba cepat.",
     "headline": "Bersih, segar, lebih bertanggung jawab.",
-    "tagline": [
+    "tagline": "Laundry service",
+    "highlights": [
       "Laundry Premium",
       "Cuci Sepatu",
       "Perawatan Selimut"
     ],
-    "highlights": "Laundry service",
     "features": [
       "Laundry Premium",
       "Cuci Sepatu",
@@ -343,12 +343,12 @@ export const websiteDemos=[
     "category": "umkm",
     "description": "Grooming dan kebutuhan hewan dengan pendekatan penuh perhatian.",
     "headline": "Lebih banyak bahagia untuk sahabat berbulu.",
-    "tagline": [
+    "tagline": "Pet grooming",
+    "highlights": [
       "Grooming Kucing",
       "Pet Spa",
       "Pet Essentials"
     ],
-    "highlights": "Pet grooming",
     "features": [
       "Grooming Kucing",
       "Pet Spa",
@@ -391,12 +391,12 @@ export const websiteDemos=[
     "category": "company-profile",
     "description": "Konsultasi strategi untuk bisnis yang siap tumbuh berkelanjutan.",
     "headline": "Keputusan penting perlu arah yang tepat.",
-    "tagline": [
+    "tagline": "Business advisory",
+    "highlights": [
       "Strategy Review",
       "Market Research",
       "Growth Roadmap"
     ],
-    "highlights": "Business advisory",
     "features": [
       "Strategy Review",
       "Market Research",
@@ -439,12 +439,12 @@ export const websiteDemos=[
     "category": "company-profile",
     "description": "Partner pekerjaan konstruksi dari perencanaan hingga pelaksanaan.",
     "headline": "Membangun dengan presisi dan tanggung jawab.",
-    "tagline": [
+    "tagline": "Construction company",
+    "highlights": [
       "Bangun Komersial",
       "Manajemen Proyek",
       "Renovasi Struktur"
     ],
-    "highlights": "Construction company",
     "features": [
       "Bangun Komersial",
       "Manajemen Proyek",
@@ -487,12 +487,12 @@ export const websiteDemos=[
     "category": "company-profile",
     "description": "Analitik dan teknologi untuk mendukung keputusan sehari-hari.",
     "headline": "Data yang jelas. Arah bisnis yang tegas.",
-    "tagline": [
+    "tagline": "Data consulting",
+    "highlights": [
       "Business Intelligence",
       "Dashboard Analytics",
       "Integrasi Data"
     ],
-    "highlights": "Data consulting",
     "features": [
       "Business Intelligence",
       "Dashboard Analytics",
@@ -535,12 +535,12 @@ export const websiteDemos=[
     "category": "company-profile",
     "description": "Layanan legal profesional untuk kebutuhan usaha dan korporasi.",
     "headline": "Pendampingan hukum yang terasa jelas.",
-    "tagline": [
+    "tagline": "Legal practice",
+    "highlights": [
       "Corporate Advisory",
       "Contract Review",
       "Business Compliance"
     ],
-    "highlights": "Legal practice",
     "features": [
       "Corporate Advisory",
       "Contract Review",
@@ -583,12 +583,12 @@ export const websiteDemos=[
     "category": "company-profile",
     "description": "Studio arsitektur dengan perhatian pada fungsi dan karakter.",
     "headline": "Ruang yang menjawab cara hidup.",
-    "tagline": [
+    "tagline": "Architecture studio",
+    "highlights": [
       "Residential Design",
       "Commercial Space",
       "Interior Planning"
     ],
-    "highlights": "Architecture studio",
     "features": [
       "Residential Design",
       "Commercial Space",
@@ -631,12 +631,12 @@ export const websiteDemos=[
     "category": "company-profile",
     "description": "Solusi rekrutmen dan pengembangan talenta untuk organisasi.",
     "headline": "Tim yang kuat dimulai dari manusia.",
-    "tagline": [
+    "tagline": "People consultancy",
+    "highlights": [
       "Talent Search",
       "People Development",
       "HR Assessment"
     ],
-    "highlights": "People consultancy",
     "features": [
       "Talent Search",
       "People Development",
@@ -679,12 +679,12 @@ export const websiteDemos=[
     "category": "company-profile",
     "description": "Layanan logistik dan distribusi untuk rantai pasok yang bergerak.",
     "headline": "Setiap pengiriman punya janji.",
-    "tagline": [
+    "tagline": "Logistics company",
+    "highlights": [
       "Freight Services",
       "Warehousing",
       "Last-mile Delivery"
     ],
-    "highlights": "Logistics company",
     "features": [
       "Freight Services",
       "Warehousing",
@@ -727,12 +727,12 @@ export const websiteDemos=[
     "category": "company-profile",
     "description": "Perencanaan sistem energi dan solusi operasional yang berkelanjutan.",
     "headline": "Energi efisien untuk masa depan bisnis.",
-    "tagline": [
+    "tagline": "Energy services",
+    "highlights": [
       "Energy Audit",
       "Solar Planning",
       "Operations Support"
     ],
-    "highlights": "Energy services",
     "features": [
       "Energy Audit",
       "Solar Planning",
@@ -775,12 +775,12 @@ export const websiteDemos=[
     "category": "toko-online",
     "description": "Pilihan barang esensial dengan bentuk yang tenang dan fungsional.",
     "headline": "Rumah terasa lebih kamu.",
-    "tagline": [
+    "tagline": "Home collection",
+    "highlights": [
       "Ceramic Tray",
       "Linen Cushion",
       "Oak Organizer"
     ],
-    "highlights": "Home collection",
     "features": [
       "Ceramic Tray",
       "Linen Cushion",
@@ -823,12 +823,12 @@ export const websiteDemos=[
     "category": "toko-online",
     "description": "Perlengkapan harian untuk mobilitas aktif tanpa kompromi gaya.",
     "headline": "Bawa semua. Bergerak bebas.",
-    "tagline": [
+    "tagline": "Outdoor essentials",
+    "highlights": [
       "Daypack Lite",
       "Bottle Steel",
       "Utility Pouch"
     ],
-    "highlights": "Outdoor essentials",
     "features": [
       "Daypack Lite",
       "Bottle Steel",
@@ -871,12 +871,12 @@ export const websiteDemos=[
     "category": "toko-online",
     "description": "Pilihan perawatan kulit dengan bahasa yang sederhana dan jelas.",
     "headline": "Rutinitas lembut untuk hari yang sibuk.",
-    "tagline": [
+    "tagline": "Skin essentials",
+    "highlights": [
       "Gentle Wash",
       "Hydra Serum",
       "Daily Moisturizer"
     ],
-    "highlights": "Skin essentials",
     "features": [
       "Gentle Wash",
       "Hydra Serum",
@@ -919,12 +919,12 @@ export const websiteDemos=[
     "category": "toko-online",
     "description": "Alat tulis dan kertas untuk mencatat hal-hal yang berarti.",
     "headline": "Ide bagus butuh tempat pulang.",
-    "tagline": [
+    "tagline": "Stationery store",
+    "highlights": [
       "Journal Linen",
       "Weekly Planner",
       "Sketch Notebook"
     ],
-    "highlights": "Stationery store",
     "features": [
       "Journal Linen",
       "Weekly Planner",
@@ -967,12 +967,12 @@ export const websiteDemos=[
     "category": "toko-online",
     "description": "Perlengkapan latihan untuk aktivitas yang nyaman.",
     "headline": "Semangat bergerak dimulai dari sekarang.",
-    "tagline": [
+    "tagline": "Active essentials",
+    "highlights": [
       "Training Tee",
       "Yoga Mat",
       "Running Belt"
     ],
-    "highlights": "Active essentials",
     "features": [
       "Training Tee",
       "Yoga Mat",
@@ -1015,12 +1015,12 @@ export const websiteDemos=[
     "category": "toko-online",
     "description": "Koleksi rias sederhana untuk ekspresi sehari-hari.",
     "headline": "Warna yang mengikuti caramu tampil.",
-    "tagline": [
+    "tagline": "Beauty boutique",
+    "highlights": [
       "Tinted Balm",
       "Soft Blush",
       "Glow Base"
     ],
-    "highlights": "Beauty boutique",
     "features": [
       "Tinted Balm",
       "Soft Blush",
@@ -1063,12 +1063,12 @@ export const websiteDemos=[
     "category": "toko-online",
     "description": "Aksesori audio untuk musik, bekerja, dan waktu sendiri.",
     "headline": "Temukan suara yang pas buat kamu.",
-    "tagline": [
+    "tagline": "Audio gadgets",
+    "highlights": [
       "Wireless Buds",
       "Desk Speaker",
       "Studio Headset"
     ],
-    "highlights": "Audio gadgets",
     "features": [
       "Wireless Buds",
       "Desk Speaker",
@@ -1111,12 +1111,12 @@ export const websiteDemos=[
     "category": "toko-online",
     "description": "Perlengkapan anak dengan bentuk ramah dan warna menyenangkan.",
     "headline": "Bermain, belajar, tumbuh bersama.",
-    "tagline": [
+    "tagline": "Kids essentials",
+    "highlights": [
       "Wooden Blocks",
       "Play Mat",
       "Story Cards"
     ],
-    "highlights": "Kids essentials",
     "features": [
       "Wooden Blocks",
       "Play Mat",
@@ -1159,12 +1159,12 @@ export const websiteDemos=[
     "category": "ekspor",
     "description": "Source selected botanicals and spices with clear trade information.",
     "headline": "Indonesian spices, connected to the world.",
-    "tagline": [
+    "tagline": "Spice exporter",
+    "highlights": [
       "Premium Cinnamon",
       "Whole Cloves",
       "Black Pepper"
     ],
-    "highlights": "Spice exporter",
     "features": [
       "Premium Cinnamon",
       "Whole Cloves",
@@ -1207,12 +1207,12 @@ export const websiteDemos=[
     "category": "ekspor",
     "description": "A trade showcase for responsibly sourced timber product inquiries.",
     "headline": "Natural materials for considered spaces.",
-    "tagline": [
+    "tagline": "Timber supplier",
+    "highlights": [
       "Teak Panels",
       "Furniture Components",
       "Outdoor Decking"
     ],
-    "highlights": "Timber supplier",
     "features": [
       "Teak Panels",
       "Furniture Components",
@@ -1255,12 +1255,12 @@ export const websiteDemos=[
     "category": "ekspor",
     "description": "Explore Indonesian coffee profiles and request green bean samples.",
     "headline": "Coffee origins worth discovering.",
-    "tagline": [
+    "tagline": "Coffee trade",
+    "highlights": [
       "Arabica Gayo",
       "Java Preanger",
       "Flores Bajawa"
     ],
-    "highlights": "Coffee trade",
     "features": [
       "Arabica Gayo",
       "Java Preanger",
@@ -1303,12 +1303,12 @@ export const websiteDemos=[
     "category": "ekspor",
     "description": "A dedicated B2B showcase for cocoa ingredients and specifications.",
     "headline": "From cacao origins to global partnerships.",
-    "tagline": [
+    "tagline": "Cocoa supplier",
+    "highlights": [
       "Cocoa Beans",
       "Cocoa Powder",
       "Cocoa Butter"
     ],
-    "highlights": "Cocoa supplier",
     "features": [
       "Cocoa Beans",
       "Cocoa Powder",
@@ -1351,12 +1351,12 @@ export const websiteDemos=[
     "category": "ekspor",
     "description": "Present quality details, harvest information, and inquiry channels.",
     "headline": "Botanical sourcing, built on clarity.",
-    "tagline": [
+    "tagline": "Botanical supplier",
+    "highlights": [
       "Dried Ginger",
       "Lemongrass",
       "Turmeric Roots"
     ],
-    "highlights": "Botanical supplier",
     "features": [
       "Dried Ginger",
       "Lemongrass",
@@ -1399,12 +1399,12 @@ export const websiteDemos=[
     "category": "ekspor",
     "description": "A professional buyer inquiry portal for seafood product ranges.",
     "headline": "Seafood trade with clearer communication.",
-    "tagline": [
+    "tagline": "Seafood exporter",
+    "highlights": [
       "Frozen Tuna",
       "Vannamei Shrimp",
       "Squid Selection"
     ],
-    "highlights": "Seafood exporter",
     "features": [
       "Frozen Tuna",
       "Vannamei Shrimp",
@@ -1447,12 +1447,12 @@ export const websiteDemos=[
     "category": "ekspor",
     "description": "Natural bamboo products for lifestyle and hospitality supply.",
     "headline": "Sustainable material, versatile potential.",
-    "tagline": [
+    "tagline": "Bamboo products",
+    "highlights": [
       "Bamboo Panels",
       "Woven Baskets",
       "Bamboo Straws"
     ],
-    "highlights": "Bamboo products",
     "features": [
       "Bamboo Panels",
       "Woven Baskets",
@@ -1495,12 +1495,12 @@ export const websiteDemos=[
     "category": "ekspor",
     "description": "Present woven fabric selections, colorways, and bulk order inquiries.",
     "headline": "Textile stories across borders.",
-    "tagline": [
+    "tagline": "Textile sourcing",
+    "highlights": [
       "Cotton Weave",
       "Batik Cloth",
       "Natural Dye Textile"
     ],
-    "highlights": "Textile sourcing",
     "features": [
       "Cotton Weave",
       "Batik Cloth",
@@ -1543,12 +1543,12 @@ export const websiteDemos=[
     "category": "travel",
     "description": "Rancang pengalaman kota budaya, kuliner, dan alam bersama teman.",
     "headline": "Jogja punya seribu cara untuk dikenang.",
-    "tagline": [
+    "tagline": "Yogyakarta tours",
+    "highlights": [
       "Heritage Walk",
       "Sunrise Escape",
       "Village Discovery"
     ],
-    "highlights": "Yogyakarta tours",
     "features": [
       "Heritage Walk",
       "Sunrise Escape",
@@ -1591,12 +1591,12 @@ export const websiteDemos=[
     "category": "travel",
     "description": "Pilihan perjalanan pantai dan pulau untuk momen yang berkesan.",
     "headline": "Pergi lebih jauh, pulang lebih kaya cerita.",
-    "tagline": [
+    "tagline": "Island travel",
+    "highlights": [
       "Island Hopping",
       "Sunset Sailing",
       "Beach Retreat"
     ],
-    "highlights": "Island travel",
     "features": [
       "Island Hopping",
       "Sunset Sailing",
@@ -1639,12 +1639,12 @@ export const websiteDemos=[
     "category": "travel",
     "description": "Perjalanan alam yang dirancang untuk menikmati setiap langkah.",
     "headline": "Puncak bukan satu-satunya tujuan.",
-    "tagline": [
+    "tagline": "Adventure travel",
+    "highlights": [
       "Mountain Camp",
       "Forest Trek",
       "Highland Weekend"
     ],
-    "highlights": "Adventure travel",
     "features": [
       "Mountain Camp",
       "Forest Trek",
@@ -1687,12 +1687,12 @@ export const websiteDemos=[
     "category": "travel",
     "description": "City tour, kafe, dan jalan kaki dengan ritme yang lebih santai.",
     "headline": "Kenali kota dari sudut yang berbeda.",
-    "tagline": [
+    "tagline": "Urban travel",
+    "highlights": [
       "Old Town Route",
       "Cafe Trail",
       "Night City Walk"
     ],
-    "highlights": "Urban travel",
     "features": [
       "Old Town Route",
       "Cafe Trail",
@@ -1735,12 +1735,12 @@ export const websiteDemos=[
     "category": "travel",
     "description": "Trip laut untuk yang suka eksplorasi dengan nyaman.",
     "headline": "Temukan cerita di balik birunya laut.",
-    "tagline": [
+    "tagline": "Marine adventures",
+    "highlights": [
       "Snorkeling Day",
       "Coral Discovery",
       "Boat Journey"
     ],
-    "highlights": "Marine adventures",
     "features": [
       "Snorkeling Day",
       "Coral Discovery",
@@ -1783,12 +1783,12 @@ export const websiteDemos=[
     "category": "travel",
     "description": "Susuri budaya lokal, arsitektur, dan tradisi yang terjaga.",
     "headline": "Sejarah hidup di setiap perjalanan.",
-    "tagline": [
+    "tagline": "Culture tours",
+    "highlights": [
       "Temple Trail",
       "Culture Visit",
       "Historic Quarter"
     ],
-    "highlights": "Culture tours",
     "features": [
       "Temple Trail",
       "Culture Visit",
@@ -1831,12 +1831,12 @@ export const websiteDemos=[
     "category": "travel",
     "description": "Perjalanan fleksibel untuk bekerja, bertemu, dan menjelajah.",
     "headline": "Beberapa hari jauh, banyak hal baru.",
-    "tagline": [
+    "tagline": "Flexible holidays",
+    "highlights": [
       "Workcation Stay",
       "Creative Escape",
       "Weekend Reset"
     ],
-    "highlights": "Flexible holidays",
     "features": [
       "Workcation Stay",
       "Creative Escape",
@@ -1879,12 +1879,12 @@ export const websiteDemos=[
     "category": "restoran",
     "description": "Sudut kopi nyaman untuk rutinitas dan ide baru.",
     "headline": "Kopi enak, obrolan panjang.",
-    "tagline": [
+    "tagline": "Neighborhood coffee",
+    "highlights": [
       "Signature Latte",
       "Espresso Tonic",
       "Butter Toast"
     ],
-    "highlights": "Neighborhood coffee",
     "features": [
       "Signature Latte",
       "Espresso Tonic",
@@ -1927,12 +1927,12 @@ export const websiteDemos=[
     "category": "restoran",
     "description": "Menu sayur dan bahan musiman untuk makan yang terasa ringan.",
     "headline": "Semua yang segar ada ceritanya.",
-    "tagline": [
+    "tagline": "Botanical dining",
+    "highlights": [
       "Garden Bowl",
       "Herbal Iced Tea",
       "Roasted Veggies"
     ],
-    "highlights": "Botanical dining",
     "features": [
       "Garden Bowl",
       "Herbal Iced Tea",
@@ -1975,12 +1975,12 @@ export const websiteDemos=[
     "category": "restoran",
     "description": "Fresh bakes and thoughtful bites for every kind of morning.",
     "headline": "Made slowly. Shared happily.",
-    "tagline": [
+    "tagline": "Bakery & pastry",
+    "highlights": [
       "Country Loaf",
       "Almond Pastry",
       "Seasonal Tart"
     ],
-    "highlights": "Bakery & pastry",
     "features": [
       "Country Loaf",
       "Almond Pastry",
@@ -2023,12 +2023,12 @@ export const websiteDemos=[
     "category": "restoran",
     "description": "Klasik rempah Indonesia dengan penyajian yang hangat.",
     "headline": "Kuliner Nusantara, di satu meja.",
-    "tagline": [
+    "tagline": "Indonesian kitchen",
+    "highlights": [
       "Nasi Rempah",
       "Ayam Bakar",
       "Es Asam Jawa"
     ],
-    "highlights": "Indonesian kitchen",
     "features": [
       "Nasi Rempah",
       "Ayam Bakar",
@@ -2071,12 +2071,12 @@ export const websiteDemos=[
     "category": "restoran",
     "description": "Comforting pasta favorites with a modern neighborhood spirit.",
     "headline": "A little pasta makes a good day.",
-    "tagline": [
+    "tagline": "Casual Italian",
+    "highlights": [
       "Creamy Alfredo",
       "Tomato Rigatoni",
       "Garlic Bread"
     ],
-    "highlights": "Casual Italian",
     "features": [
       "Creamy Alfredo",
       "Tomato Rigatoni",
@@ -2119,12 +2119,12 @@ export const websiteDemos=[
     "category": "restoran",
     "description": "Sushi bar dengan pilihan menu yang sederhana dan bersahabat.",
     "headline": "Fresh moments, made to share.",
-    "tagline": [
+    "tagline": "Sushi bar",
+    "highlights": [
       "Salmon Roll",
       "Veggie Maki",
       "Miso Soup"
     ],
-    "highlights": "Sushi bar",
     "features": [
       "Salmon Roll",
       "Veggie Maki",
@@ -2167,12 +2167,12 @@ export const websiteDemos=[
     "category": "restoran",
     "description": "Brunch yang dibuat untuk menikmati waktu lebih lama.",
     "headline": "Slow mornings, good company.",
-    "tagline": [
+    "tagline": "All-day brunch",
+    "highlights": [
       "Avocado Toast",
       "Granola Bowl",
       "Cold Brew"
     ],
-    "highlights": "All-day brunch",
     "features": [
       "Avocado Toast",
       "Granola Bowl",
@@ -2215,12 +2215,12 @@ export const websiteDemos=[
     "category": "fashion",
     "description": "Pakaian esensial dengan garis bersih untuk ritme keseharian.",
     "headline": "Everyday pieces. Effortless attitude.",
-    "tagline": [
+    "tagline": "Essentials wardrobe",
+    "highlights": [
       "Everyday Tee",
       "Relaxed Pants",
       "Classic Shirt"
     ],
-    "highlights": "Essentials wardrobe",
     "features": [
       "Everyday Tee",
       "Relaxed Pants",
@@ -2263,12 +2263,12 @@ export const websiteDemos=[
     "category": "fashion",
     "description": "Koleksi busana yang membawa inspirasi tekstil Nusantara.",
     "headline": "Warisan motif, ekspresi hari ini.",
-    "tagline": [
+    "tagline": "Contemporary wastra",
+    "highlights": [
       "Motif Shirt",
       "Modern Outer",
       "Scarf Series"
     ],
-    "highlights": "Contemporary wastra",
     "features": [
       "Motif Shirt",
       "Modern Outer",
@@ -2311,12 +2311,12 @@ export const websiteDemos=[
     "category": "fashion",
     "description": "Potongan minimal untuk tampil percaya diri tanpa banyak kata.",
     "headline": "A quieter kind of statement.",
-    "tagline": [
+    "tagline": "Minimal wardrobe",
+    "highlights": [
       "Structured Blazer",
       "Pleated Trousers",
       "Minimal Vest"
     ],
-    "highlights": "Minimal wardrobe",
     "features": [
       "Structured Blazer",
       "Pleated Trousers",
@@ -2359,12 +2359,12 @@ export const websiteDemos=[
     "category": "fashion",
     "description": "Koleksi kasual bernuansa hangat untuk gaya yang personal.",
     "headline": "Wear your own story.",
-    "tagline": [
+    "tagline": "Casual lifestyle",
+    "highlights": [
       "Graphic Tee",
       "Everyday Tote",
       "Canvas Jacket"
     ],
-    "highlights": "Casual lifestyle",
     "features": [
       "Graphic Tee",
       "Everyday Tote",
@@ -2407,12 +2407,12 @@ export const websiteDemos=[
     "category": "fashion",
     "description": "Streetwear energik untuk hari-hari penuh rencana.",
     "headline": "Made for movement, styled for life.",
-    "tagline": [
+    "tagline": "Streetwear",
+    "highlights": [
       "Oversized Tee",
       "Utility Cargo",
       "Zip Hoodie"
     ],
-    "highlights": "Streetwear",
     "features": [
       "Oversized Tee",
       "Utility Cargo",
@@ -2455,12 +2455,12 @@ export const websiteDemos=[
     "category": "fashion",
     "description": "Busana linen santai dengan siluet yang timeless.",
     "headline": "Breathe easy. Dress simply.",
-    "tagline": [
+    "tagline": "Natural clothing",
+    "highlights": [
       "Linen Set",
       "Summer Shirt",
       "Wrap Dress"
     ],
-    "highlights": "Natural clothing",
     "features": [
       "Linen Set",
       "Summer Shirt",
@@ -2503,12 +2503,12 @@ export const websiteDemos=[
     "category": "fashion",
     "description": "Aksesori kecil dengan bentuk modern dan sentuhan personal.",
     "headline": "Small details, bright character.",
-    "tagline": [
+    "tagline": "Modern accessories",
+    "highlights": [
       "Hoop Earrings",
       "Mini Bag",
       "Daily Necklace"
     ],
-    "highlights": "Modern accessories",
     "features": [
       "Hoop Earrings",
       "Mini Bag",
@@ -2551,12 +2551,12 @@ export const websiteDemos=[
     "category": "pendidikan",
     "description": "Program belajar dengan pendekatan praktis dan suportif.",
     "headline": "Belajar untuk melangkah lebih jauh.",
-    "tagline": [
+    "tagline": "Learning academy",
+    "highlights": [
       "Kelas Intensif",
       "Mentoring",
       "Career Preparation"
     ],
-    "highlights": "Learning academy",
     "features": [
       "Kelas Intensif",
       "Mentoring",
@@ -2599,12 +2599,12 @@ export const websiteDemos=[
     "category": "pendidikan",
     "description": "Belajar coding lewat proyek dan praktik yang mudah diikuti.",
     "headline": "Build your first thing.",
-    "tagline": [
+    "tagline": "Coding classes",
+    "highlights": [
       "Web Fundamentals",
       "Frontend Project",
       "Coding Club"
     ],
-    "highlights": "Coding classes",
     "features": [
       "Web Fundamentals",
       "Frontend Project",
@@ -2647,12 +2647,12 @@ export const websiteDemos=[
     "category": "pendidikan",
     "description": "Kelas bahasa dengan latihan yang terasa relevan.",
     "headline": "Percakapan baru, peluang baru.",
-    "tagline": [
+    "tagline": "Language school",
+    "highlights": [
       "English Conversation",
       "Business Writing",
       "Kids English"
     ],
-    "highlights": "Language school",
     "features": [
       "English Conversation",
       "Business Writing",
@@ -2695,12 +2695,12 @@ export const websiteDemos=[
     "category": "pendidikan",
     "description": "Ruang belajar anak yang memberi tempat untuk bereksplorasi.",
     "headline": "Rasa ingin tahu tumbuh setiap hari.",
-    "tagline": [
+    "tagline": "Early childhood",
+    "highlights": [
       "Early Years",
       "Practical Life",
       "Sensory Studio"
     ],
-    "highlights": "Early childhood",
     "features": [
       "Early Years",
       "Practical Life",
@@ -2743,12 +2743,12 @@ export const websiteDemos=[
     "category": "pendidikan",
     "description": "Bimbingan belajar untuk target akademik yang jelas.",
     "headline": "Belajar lebih terarah, percaya diri meningkat.",
-    "tagline": [
+    "tagline": "Tutoring studio",
+    "highlights": [
       "Math Club",
       "Science Lab",
       "Exam Preparation"
     ],
-    "highlights": "Tutoring studio",
     "features": [
       "Math Club",
       "Science Lab",
@@ -2791,12 +2791,12 @@ export const websiteDemos=[
     "category": "pendidikan",
     "description": "Kelas musik yang mengajak mencoba, mendengar, dan berekspresi.",
     "headline": "Setiap anak punya irama sendiri.",
-    "tagline": [
+    "tagline": "Music school",
+    "highlights": [
       "Piano Basics",
       "Guitar Start",
       "Music Playground"
     ],
-    "highlights": "Music school",
     "features": [
       "Piano Basics",
       "Guitar Start",
@@ -2839,12 +2839,12 @@ export const websiteDemos=[
     "category": "pendidikan",
     "description": "Kelas seni, desain, dan keterampilan kreatif untuk berbagai usia.",
     "headline": "Ide berkembang saat diberi ruang.",
-    "tagline": [
+    "tagline": "Creative education",
+    "highlights": [
       "Drawing Studio",
       "Digital Design",
       "Creative Workshop"
     ],
-    "highlights": "Creative education",
     "features": [
       "Drawing Studio",
       "Digital Design",
