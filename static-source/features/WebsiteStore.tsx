@@ -78,6 +78,28 @@ export function WebsiteCheckout(){
 
 export function WebsiteClientProjects(){
  const [orders,setOrders]=useState<any[]>([]),[busy,setBusy]=useState(true),[error,setError]=useState(''),[logged,setLogged]=useState<boolean|null>(null);
- useEffect(()=>{let alive=true;(async()=>{try{const session=await customerGetSession();if(!alive)return;setLogged(Boolean(session));if(session){const r=await websiteStoreApi('my_orders',{},session.access_token);if(alive)setOrders(r.orders||[])}}catch(e:any){if(alive)setError(String(e.message||'Gagal memuat proyek.'))}finally{if(alive)setBusy(false)}})();return()=>{alive=false}},[]);
- return <section className="section ws-root ws-projects"><small>CLIENT AREA / WEBSITE PROJECTS</small><h1>Website yang<br/><em>sedang dibangun.</em></h1><p>Pantau permintaan dan progres pengerjaan website, terpisah dari pesanan merchandise.</p><div className="ws-actions"><a href="/pesan-website/" className="btn primary">Buat pesanan baru <ArrowUpRight size={15}/></a><a href="/account/" className="btn">Akun pembeli</a></div>{busy&&<p>Memuat data...</p>}{!busy&&!logged&&<div className="ws-notice">Masuk melalui <a href="/account/">akun pembeli</a> untuk melihat proyek.</div>}{error&&<p className="ws-error" role="alert">{error}</p>}{!busy&&logged&&orders.length===0&&<div className="ws-empty">Belum ada permintaan website yang tersimpan.</div>}<div className="ws-project-list">{orders.map(o=><article key={o.id}><small>{o.order_no} · {new Date(o.created_at).toLocaleDateString('id-ID')}</small><h3>{o.company||'Website bisnis'} — {o.package_slug}</h3><p>{websiteStatusLabel[o.status]||o.status}</p><span>Status pembayaran: {o.payment_status==='not_invoiced'?'Belum ada invoice':o.payment_status}</span><p>Domain yang diminta: {o.requested_domain||'Belum ditentukan'} (belum diverifikasi)</p>{o.quoted_total!=null&&<strong>Nilai penawaran: {rupiah(Number(o.quoted_total))}</strong>}</article>)}</div></section>;
+ const [selected,setSelected]=useState(''),[note,setNote]=useState(''),[sending,setSending]=useState(false),[notice,setNotice]=useState('');
+ async function loadOrders(){const session=await customerGetSession();setLogged(Boolean(session));if(!session)return;const r=await websiteStoreApi('my_orders',{},session.access_token);setOrders(r.orders||[]);}
+ useEffect(()=>{let alive=true;(async()=>{try{if(alive)await loadOrders()}catch(e:any){if(alive)setError(String(e.message||'Gagal memuat proyek.'))}finally{if(alive)setBusy(false)}})();return()=>{alive=false}},[]);
+ async function requestRevision(e:React.FormEvent<HTMLFormElement>){e.preventDefault();if(!selected)return;setSending(true);setError('');setNotice('');try{await websiteStoreApi('request_revision',{id:selected,note});setNotice('Permintaan revisi berhasil disimpan.');setSelected('');setNote('');await loadOrders();}catch(e:any){setError(String(e.message||'Revisi belum tersimpan.'))}finally{setSending(false)}}
+ return <section className="section ws-root ws-projects">
+  <small>CLIENT AREA / WEBSITE PROJECTS</small><h1>Website yang<br/><em>sedang dibangun.</em></h1>
+  <p>Pantau permintaan dan progres pengerjaan website, terpisah dari pesanan merchandise.</p>
+  <div className="ws-actions"><a href="/pesan-website/" className="btn primary">Buat pesanan baru <ArrowUpRight size={15}/></a><a href="/account/" className="btn">Akun pembeli</a></div>
+  {busy&&<p>Memuat data...</p>}{!busy&&!logged&&<div className="ws-notice">Masuk melalui <a href="/account/">akun pembeli</a> untuk melihat proyek.</div>}
+  {error&&<p className="ws-error" role="alert">{error}</p>}{notice&&<p className="ws-notice" role="status">{notice}</p>}
+  {!busy&&logged&&orders.length===0&&<div className="ws-empty">Belum ada permintaan website yang tersimpan.</div>}
+  <div className="ws-project-list">{orders.map(o=><article key={o.id}>
+   <small>{o.order_no} · {new Date(o.created_at).toLocaleDateString('id-ID')}</small>
+   <h3>{o.company||'Website bisnis'} — {o.package_slug}</h3>
+   <p>{websiteStatusLabel[o.status]||o.status}</p>
+   <span>Status pembayaran: {o.payment_status==='not_invoiced'?'Belum ada invoice':o.payment_status}</span>
+   <p>Domain yang diminta: {o.requested_domain||'Belum ditentukan'} (status: {o.domain_status==='manual_review'?'Perlu diperiksa':o.domain_status})</p>
+   {o.quoted_total!=null&&<strong>Nilai penawaran: {rupiah(Number(o.quoted_total))}</strong>}
+   <div className="ws-timeline"><h4>Riwayat progres</h4><ol>{(o.events||[]).map((ev:any,i:number)=><li key={i}><small>{new Date(ev.created_at).toLocaleString('id-ID')}</small><strong>{websiteStatusLabel[ev.event_type]||ev.event_type}</strong>{ev.note&&<p>{ev.note}</p>}</li>)}</ol></div>
+   {o.status==='client_review'&&<div className="ws-revision">
+    {selected===o.id?<form onSubmit={requestRevision}><label htmlFor={'revision-'+o.id}>Tulis permintaan revisi</label><textarea id={'revision-'+o.id} minLength={10} maxLength={1200} rows={3} required value={note} onChange={e=>setNote(e.target.value)} placeholder="Bagian mana yang perlu diubah?"/><div className="ws-actions"><button type="submit" disabled={sending} className="btn primary">{sending?'Mengirim...':'Kirim revisi'}</button><button type="button" className="btn" onClick={()=>{setSelected('');setNote('')}}>Batal</button></div></form>:<button type="button" className="btn primary" onClick={()=>setSelected(o.id)}>Ajukan revisi</button>}
+   </div>}
+  </article>)}</div>
+ </section>;
 }
