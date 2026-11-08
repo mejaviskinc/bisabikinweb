@@ -25,7 +25,8 @@ test('Admin lists all kinds of website purchases with identity, design, category
  assert.match(board,/Muat 100 pesanan berikutnya/);
  assert.match(board,/admin_update_order/);
  assert.match(board,/Belum dibuat invoice/);
- assert.match(board,/Pembayaran tidak bisa ditandai lunas/);
+ assert.match(board,/Status lunas hanya berasal dari notifikasi DOKU/);
+ assert.match(board,/admin_doku_config/);
 });
 test('Consultation enquiries are visible separately from actual orders',()=>{
  assert.match(board,/Permintaan konsultasi/);
