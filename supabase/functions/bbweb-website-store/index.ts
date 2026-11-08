@@ -103,23 +103,31 @@ Deno.serve(async(req:Request)=>{
    }
    const name=clean(input.full_name,120),phone=clean(input.phone,32),company=clean(input.company,160);
    const brief=clean(input.brief,3500),domain=clean(input.domain,253).toLowerCase(),category=clean(input.category,80);
+   const domainSource=clean(input.domain_source,20);
    const reference=input.reference_url?url(input.reference_url,500):'';
    if(name.length<2||company.length<2||!/^\+?[0-9()\s.-]{7,32}$/.test(phone)||brief.length<20)fail('Lengkapi nama, nomor kontak, bisnis, dan brief minimal 20 karakter.');
    if(!categories.has(category))fail('Kategori bisnis tidak valid.');
+   if(!['hostinger','existing'].includes(domainSource))fail('Pilih jalur pembelian atau kepemilikan domain terlebih dahulu.');
+   if(!domain)fail('Siapkan nama domain sebelum memesan website.');
    if(domain&&!/^(?=.{4,253}$)[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)+$/.test(domain))fail('Format domain yang diminta belum valid.');
    const since=new Date(Date.now()-60*60*1000).toISOString();
    const existing=await db('bbweb_website_orders?select=id&user_id=eq.'+encodeURIComponent(user.id)+'&created_at=gte.'+encodeURIComponent(since)+'&limit=4');
    if(Array.isArray(existing)&&existing.length>=3)fail('Maksimal tiga permintaan website per jam. Coba lagi nanti.',429);
    const now=new Date().toISOString();
+   // Published fixed-price packages may proceed directly to DOKU; custom quotes still require admin approval.
+   // The price is looked up on the server and never accepted from the browser.
+   const publishedPrice=Number(pack.base_price);
+   const payUpfront=pack.base_price!==null&&Number.isSafeInteger(publishedPrice)&&publishedPrice>0;
+   const orderStatus=payUpfront?'awaiting_payment':'requested';
    const orderNo='BW-'+shortHex();
    const payload={order_no:orderNo,user_id:user.id,package_slug:packageSlug,template_slug:templateSlug,
     category,full_name:name,email:String(user.email).toLowerCase(),phone,company,requested_domain:domain,
-    reference_url:reference,brief,base_price_snapshot:pack.base_price,status:'requested',
-    domain_status:domain?'manual_review':'unchecked',payment_status:'not_invoiced',updated_at:now};
+    reference_url:reference,brief,base_price_snapshot:pack.base_price,quoted_total:payUpfront?publishedPrice:null,status:orderStatus,
+    domain_status:'manual_review',payment_status:'not_invoiced',updated_at:now};
    const inserted=await db('bbweb_website_orders',{method:'POST',headers:{Prefer:'return=representation'},body:JSON.stringify(payload)});
    const order=Array.isArray(inserted)?inserted[0]:null;if(!order)fail('Permintaan belum tersimpan.',503);
-   await db('bbweb_website_order_events',{method:'POST',headers:{Prefer:'return=minimal'},body:JSON.stringify({order_id:order.id,actor_user_id:user.id,event_type:'requested',note:'Brief pesanan website diterima.'})}).catch(()=>{});
-   return response({order:{id:order.id,order_no:orderNo,status:'requested',payment_status:'not_invoiced'}},200,origin);
+   await db('bbweb_website_order_events',{method:'POST',headers:{Prefer:'return=minimal'},body:JSON.stringify({order_id:order.id,actor_user_id:user.id,event_type:orderStatus,note:(payUpfront?'Paket harga tetap siap dibayar lewat DOKU; konsultasi desain setelah pembayaran terverifikasi.':'Brief website custom menunggu tinjauan dan penawaran admin.')+' Domain '+domain+' diklaim '+(domainSource==='hostinger'?'sudah dibeli atau dipesan via Hostinger':'sudah dimiliki pelanggan')+'; verifikasi domain oleh admin masih diperlukan.'})}).catch(()=>{});
+   return response({order:{id:order.id,order_no:orderNo,status:orderStatus,payment_status:'not_invoiced',quoted_total:payUpfront?publishedPrice:null}},200,origin);
   }
   if(action==='my_orders'){
    const orders=await db('bbweb_website_orders?select=id,order_no,package_slug,template_slug,company,requested_domain,domain_status,quoted_total,status,payment_status,created_at,updated_at&user_id=eq.'+encodeURIComponent(user.id)+'&order=created_at.desc&limit=100');
@@ -153,10 +161,11 @@ Deno.serve(async(req:Request)=>{
     if(priorUrl&&payment.status==='pending')return response({redirect_url:priorUrl,invoice,amount:payment.amount,environment:settings.environment,status:'pending'},200,origin);
     fail('Invoice sebelumnya masih perlu pemeriksaan admin. Jangan membuat pembayaran ganda.',409);
    }
-   const callback='https://bisabikinweb.site/client/dashboard/';
+   const callback='https://bisabikinweb.site/client/dashboard/?payment_return=1&order_id='+encodeURIComponent(order.id);
+   const cancelCallback='https://bisabikinweb.site/client/dashboard/?payment_cancel=1&order_id='+encodeURIComponent(order.id);
    const notification=(Deno.env.get('SUPABASE_URL')||'')+'/functions/v1/bbweb-website-doku-webhook';
    const body={
-    order:{invoice_number:invoice,amount:Number(payment.amount),currency:'IDR',callback_url:callback,callback_url_cancel:callback,callback_url_result:callback,auto_redirect:true,disable_retry_payment:true,
+    order:{invoice_number:invoice,amount:Number(payment.amount),currency:'IDR',callback_url:callback,callback_url_cancel:cancelCallback,callback_url_result:callback,auto_redirect:true,disable_retry_payment:true,
       line_items:[{name:'Jasa website - '+clean(order.package_slug,70),price:Number(payment.amount),quantity:1}]},
     payment:{payment_due_date:60,type:'SALE'},
     customer:{name:clean(order.full_name,120),email:clean(order.email,254),phone:phoneForDoku(clean(order.phone,40))},
