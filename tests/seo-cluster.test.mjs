@@ -9,7 +9,7 @@ test('five unique, substantive and accurately described SEO guides',()=>{
  for(const article of seoCluster20261109){
   assert.match(article.id,/^[a-z0-9-]+$/);assert.ok(!ids.has(article.id),'duplicate slug: '+article.id);ids.add(article.id);
   assert.ok(article.title.length>=35 && article.summary.length>=90,'brief metadata: '+article.id);
-  assert.ok(article.body.join(' ').trim().split(/\\s+/).length>=300,'thin article: '+article.id);
+  assert.ok(article.body.join(' ').trim().split(/\s+/).length>=300,'thin article: '+article.id);
   assert.ok(article.body.some(line=>line.startsWith('## ')),'missing headings: '+article.id);
   assert.ok(article.image.startsWith('https://images.unsplash.com/photo-'),'missing illustrative photo: '+article.id);
   assert.ok(article.image_license_url==='https://unsplash.com/license');
