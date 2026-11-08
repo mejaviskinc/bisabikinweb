@@ -46,6 +46,20 @@ test('Customer and admin pages show real DOKU payment state without manual paid 
  assert.match(admin,/admin_doku_config/);
  assert.match(admin,/Status lunas hanya berasal dari notifikasi DOKU/);
 });
+test('Fixed-price website orders start DOKU upfront and verified payments lead to WhatsApp consultation',()=>{
+ assert.match(api,/const payUpfront=pack\.base_price!==null&&Number\.isSafeInteger\(publishedPrice\)&&publishedPrice>0/);
+ assert.match(api,/const orderStatus=payUpfront\?'awaiting_payment':'requested'/);
+ assert.match(api,/quoted_total:payUpfront\?publishedPrice:null,status:orderStatus/);
+ assert.match(api,/callback_url:callback,callback_url_cancel:cancelCallback,callback_url_result:callback/);
+ assert.match(api,/payment_return=1&order_id=/);
+ assert.match(client,/if\(response\.order\.status==='awaiting_payment'\)await startCheckout\(response\.order\)/);
+ assert.match(client,/websiteStoreApi\('create_payment',\{id:order\.id\}\)/);
+ assert.match(client,/const paid=orders\.find\(o=>o\.id===returnedOrderId&&o\.payment_status==='paid'\)/);
+ assert.match(client,/location\.replace\(designConsultationUrl\(paid\)\)/);
+ assert.match(client,/wa\.me\/62882003740969/);
+ assert.match(client,/Konsultasi desain via WhatsApp/);
+});
+
 const oldDeno=globalThis.Deno,oldFetch=globalThis.fetch;
 const env={DOKU_CLIENT_ID:'MCH-TEST-0001',DOKU_SECRET_KEY:'webhook-test-secret',DOKU_ENV:'sandbox',
  SUPABASE_URL:'https://example.supabase.co',SUPABASE_SERVICE_ROLE_KEY:'service-test'};
