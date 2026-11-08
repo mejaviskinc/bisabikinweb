@@ -27,6 +27,18 @@ async function db(path:string,options:RequestInit={}){
  if(!r.ok){console.error('Website store database HTTP',r.status,path.split('?')[0]);fail('Data website belum bisa diproses.',503)}
  return data;
 }
+// Read counts using PostgREST HEAD. Never infer totals from a truncated list.
+async function countWebsiteOrders(filter=''){
+ const base=Deno.env.get('SUPABASE_URL')||'', key=secretKey();if(!base||!key)fail('Konfigurasi backend belum tersedia.',503);
+ const headers=new Headers({apikey:key,Prefer:'count=exact',Accept:'application/json'});
+ if(!key.startsWith('sb_secret_'))headers.set('Authorization','Bearer '+key);
+ const response=await fetch(base+'/rest/v1/bbweb_website_orders?select=id&limit=1'+filter,{method:'HEAD',headers});
+ if(!response.ok)fail('Statistik pesanan tidak tersedia.',503);
+ const raw=response.headers.get('content-range')||'';
+ const count=/\/(\d+)$/.exec(raw);
+ if(!count)fail('Total pesanan tidak tersedia.',503);
+ return Number(count[1]);
+}
 async function authenticate(req:Request){
  const bearer=req.headers.get('authorization')||'';
  if(!/^Bearer\s+\S+$/i.test(bearer))fail('Silakan login terlebih dahulu.',401);
@@ -116,13 +128,27 @@ Deno.serve(async(req:Request)=>{
   }
   const admin=await isAdmin(user);
   requireAdmin(admin);
-  if(action==='admin_list'){
-   const [orders,templates,packages]=await Promise.all([
-    db('bbweb_website_orders?select=*&order=created_at.desc&limit=200'),
-    db('bbweb_website_templates?select=*&order=sort_order.asc&limit=300'),
-    db('bbweb_website_packages?select=*&order=sort_order.asc&limit=100')
+  if(action==='admin_summary'){
+   const [total,pending,custom]=await Promise.all([
+    countWebsiteOrders(),
+    countWebsiteOrders('&status=in.(requested,reviewing,proposal)'),
+    countWebsiteOrders('&package_slug=eq.custom')
    ]);
-   return response({orders:orders||[],templates:templates||[],packages:packages||[]},200,origin);
+   return response({total,pending,custom},200,origin);
+  }
+  if(action==='admin_list'){
+   const offset=Number(input.offset??0);
+   if(!Number.isSafeInteger(offset)||offset<0||offset>1000000)fail('Offset tidak valid.');
+   const pageSize=100;
+   const [orders,templates,packages,total]=await Promise.all([
+    db('bbweb_website_orders?select=*&order=created_at.desc&limit='+pageSize+'&offset='+offset),
+    offset===0?db('bbweb_website_templates?select=*&order=sort_order.asc&limit=500'):Promise.resolve([]),
+    offset===0?db('bbweb_website_packages?select=*&order=sort_order.asc&limit=100'):Promise.resolve([]),
+    countWebsiteOrders()
+   ]);
+   const rows=Array.isArray(orders)?orders:[];
+   return response({orders:rows,templates:templates||[],packages:packages||[],total_orders:total,
+    next_offset:offset+rows.length<total?offset+rows.length:null},200,origin);
   }
   if(action==='admin_save_template'){
    const item=bodyObject(input.item);
