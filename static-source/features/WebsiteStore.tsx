@@ -95,7 +95,7 @@ export function WebsiteClientProjects(){
  const [orders,setOrders]=useState<any[]>([]),[busy,setBusy]=useState(true),[error,setError]=useState(''),[logged,setLogged]=useState<boolean|null>(null);
  const [selected,setSelected]=useState(''),[note,setNote]=useState(''),[sending,setSending]=useState(false),[notice,setNotice]=useState('');
  const [payingId,setPayingId]=useState('');
- const returnedParams=new URLSearchParams(location.search);
+ const returnedParams=new URLSearchParams(typeof window==='undefined'?'':window.location.search);
  const paymentReturned=returnedParams.get('payment_return')==='1';
  const paymentCancelled=returnedParams.get('payment_cancel')==='1';
  const returnedOrderId=returnedParams.get('order_id')||'';
