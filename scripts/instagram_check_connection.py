@@ -74,8 +74,12 @@ def main():
 
     fb_me, fb_status = query("graph.facebook.com", "me", token, "id,name")
     print("DIAG_FB_LOGIN: result=" + ("TOKEN_ACCEPTED" if fb_me else fb_status))
-    if fb_me:
-        grants, grant_status = query("graph.facebook.com", "me/permissions", token)
+    fb_min, fb_min_status = query("graph.facebook.com", "me", token, "id")
+    print("DIAG_FB_MINIMAL: result=" + ("TOKEN_ACCEPTED" if fb_min else fb_min_status))
+    ig_min, ig_min_status = query("graph.facebook.com", user_id, token, "id")
+    print("DIAG_IG_MINIMAL: result=" + ("ACCOUNT_ID_ACCESSIBLE" if ig_min else ig_min_status))
+    grants, grant_status = query("graph.facebook.com", "me/permissions", token)
+    if True:
         if grants and isinstance(grants.get("data"), list):
             relevant = {r.get("permission"): r.get("status") for r in grants["data"]
                         if isinstance(r, dict) and
