@@ -79,10 +79,9 @@ def select(items: list[dict], state: dict, now: dt.datetime) -> dict | None:
         print("NO_POST: 25 originals already published today")
         return None
     if claimed:
-        # A prior publication was attempted without confirmed success.
-        # Freeze the batch rather than risk hidden duplicate posts.
-        print(f"NO_POST: unresolved claimed content; manual audit required: {len(claimed)}")
-        return None
+        # The idempotent state guard excludes these IDs. Other approved posts
+        # remain safe to publish even if one attempt needs manual review.
+        print(f"WARNING: {len(claimed)} claimed posts require manual audit; no retry of those IDs")
     current_time = now.strftime("%H:%M")
     due = [r for r in items if r.get("date") == day
            and OLD_QUOTE.match(str(r.get("id", "")))
