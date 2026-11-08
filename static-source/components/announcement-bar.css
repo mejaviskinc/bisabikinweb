@@ -138,3 +138,78 @@
 @media (prefers-reduced-motion: reduce) {
   .announcement-action { transition: none; }
 }
+
+/* Infinite running text: the promo moves while the CTA stays fixed. */
+.announcement-inner {
+  justify-content: space-between;
+  gap: 16px;
+}
+.announcement-ticker {
+  flex: 1 1 auto;
+  width: 0;
+  min-width: 0;
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(to right, transparent, #000 24px, #000 calc(100% - 24px), transparent);
+  mask-image: linear-gradient(to right, transparent, #000 24px, #000 calc(100% - 24px), transparent);
+}
+.announcement-track {
+  display: flex;
+  align-items: center;
+  width: max-content;
+  animation: bbweb-announcement-scroll 26s linear infinite;
+  will-change: transform;
+}
+.announcement-segment {
+  display: flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: max-content;
+}
+.announcement-segment .announcement-text {
+  display: inline-flex;
+  align-items: center;
+  flex: 0 0 auto;
+  width: auto;
+  max-width: none;
+  margin: 0;
+  padding-right: clamp(40px, 4.5vw, 76px);
+  overflow: visible;
+  font-size: clamp(11px, 1.02vw, 13px);
+  line-height: 1.5;
+  font-weight: 600;
+  letter-spacing: .025em;
+  white-space: nowrap;
+}
+@keyframes bbweb-announcement-scroll {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+.announcement:hover .announcement-track,
+.announcement:focus-within .announcement-track {
+  animation-play-state: paused;
+}
+@media (max-width: 650px) {
+  .announcement-inner { gap: 9px; }
+  .announcement-segment .announcement-text {
+    flex: 0 0 auto;
+    padding-right: 42px;
+    font-size: 10.5px;
+    line-height: 1.45;
+    white-space: nowrap;
+  }
+  .announcement-ticker {
+    -webkit-mask-image: linear-gradient(to right, transparent, #000 12px, #000 calc(100% - 12px), transparent);
+    mask-image: linear-gradient(to right, transparent, #000 12px, #000 calc(100% - 12px), transparent);
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  .announcement-track { animation: none; will-change: auto; }
+  .announcement-segment:nth-child(2),
+  .announcement-segment .announcement-text:not(:first-child) { display: none; }
+  .announcement-ticker { -webkit-mask-image: none; mask-image: none; }
+  .announcement-segment .announcement-text {
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
