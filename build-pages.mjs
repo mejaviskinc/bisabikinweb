@@ -121,6 +121,7 @@ const pages={
 pages['/beli-website']=['Beli Website & Katalog Desain Profesional','Jelajahi desain website untuk UMKM, company profile, ekspor, toko online, fashion, travel, restoran, dan pendidikan. Pilih desain dan minta penawaran.'];
 pages['/harga-website']=['Paket Harga Website: Starter, Business, Commerce, Custom','Lihat harga mulai dan fitur jasa pembuatan website BisaBikinWeb. Bandingkan paket sebelum memesan website online.'];
 pages['/pesan-website']=['Formulir Pemesanan Website','Isi brief website dan pilih paket untuk menerima penawaran dari BisaBikinWeb.'];
+pages['/admin/digital-store']=['Admin Layanan Digital — BisaBikinWeb','Pantau permintaan pembelian game, pulsa, data, PLN, dan voucher di dashboard admin.'];
 pages['/admin/website-store']=['Website Store Admin','Kelola desain, paket, dan pesanan website melalui dashboard admin yang aman.'];
 pages['/client/dashboard']=['Proyek Website Saya','Dashboard pribadi untuk memantau progres permintaan dan proyek website.'];
 for(const [slug,label] of [['umkm','UMKM'],['company-profile','Company Profile'],['toko-online','Toko Online'],['ekspor','Ekspor'],['travel','Travel dan Tour'],['restoran','Restoran dan Kafe'],['fashion','Fashion'],['pendidikan','Sekolah dan Pendidikan']])pages['/beli-website/'+slug]=['Desain Website '+label+' | Katalog BisaBikinWeb','Inspirasi desain website '+label+' dan layanan pembuatan website untuk bisnis profesional. Pilih desain dan minta penawaran.'];
