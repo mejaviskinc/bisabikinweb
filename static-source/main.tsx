@@ -10,6 +10,8 @@ import Storefront from './features/Storefront';
 import SellerAdmin from './features/SellerAdmin';
 import PaymentGatewayAdmin from './features/PaymentGatewayAdmin';
 import WebsiteStoreAdmin from './features/WebsiteStoreAdmin';
+import DigitalOrdersAdmin from './features/DigitalOrdersAdmin';
+import './features/digital-admin.css';
 import WebsiteLiveDemo from './features/WebsiteLiveDemo';
 import {defaults} from './lib/data';
 import {mergeEditorialPosts} from './lib/editorial-posts.mjs';
@@ -141,6 +143,12 @@ function AdminWithAdsMenu(){
         const txt=document.createElement('span');txt.textContent='Website Store';link.append(icon,txt);
         if(systemLabel)nav.insertBefore(link,systemLabel);else nav.appendChild(link);
       }
+      if(!nav.querySelector('[data-admin-digital-menu]')){
+        const link=document.createElement('a');link.href='/admin/digital-store/';link.className='admin-ads-menu';link.dataset.adminDigitalMenu='true';
+        const icon=document.createElement('span');icon.className='admin-ads-menu-icon';icon.textContent='DIG';
+        const label=document.createElement('span');label.textContent='Layanan Digital';link.append(icon,label);
+        if(systemLabel)nav.insertBefore(link,systemLabel);else nav.appendChild(link);
+      }
       if(!nav.querySelector('[data-admin-payments-menu]')){
         const link=document.createElement('a');link.href='/admin/payments/';link.className='admin-ads-menu';link.dataset.adminPaymentsMenu='true';
         const icon=document.createElement('span');icon.className='admin-ads-menu-icon';icon.textContent='PAY';
@@ -159,6 +167,6 @@ function AdminWithAdsMenu(){
 
 const storefrontMatch=path.match(/^\/toko\/([a-z0-9-]+)$/i);
 const englishPath=path==='/en'?'/':path.startsWith('/en/')?path.slice(3):null;
-const app=path.startsWith('/demo/')?<WebsiteLiveDemo path={path}/>:englishPath && hasEnglishPage(englishPath)?<EnglishStudio path={englishPath}/>:path==='/seller'?<SellerDashboard/>:path==='/admin/website-store'?<WebsiteStoreAdmin/>:path.startsWith('/admin/sellers')?<SellerAdmin/>:path.startsWith('/admin/iklan')?<AdsManager/>:path.startsWith('/admin/payments')?<PaymentGatewayAdmin/>:path.startsWith('/admin')?<AdminWithAdsMenu/>:storefrontMatch?<Storefront slug={storefrontMatch[1].toLowerCase()}/>:<PublicClient/>;
+const app=path.startsWith('/demo/')?<WebsiteLiveDemo path={path}/>:englishPath && hasEnglishPage(englishPath)?<EnglishStudio path={englishPath}/>:path==='/seller'?<SellerDashboard/>:path==='/admin/digital-store'?<DigitalOrdersAdmin/>:path==='/admin/website-store'?<WebsiteStoreAdmin/>:path.startsWith('/admin/sellers')?<SellerAdmin/>:path.startsWith('/admin/iklan')?<AdsManager/>:path.startsWith('/admin/payments')?<PaymentGatewayAdmin/>:path.startsWith('/admin')?<AdminWithAdsMenu/>:storefrontMatch?<Storefront slug={storefrontMatch[1].toLowerCase()}/>:<PublicClient/>;
 const root=document.getElementById('root')!;
 if(path.startsWith('/admin')||path==='/seller'||storefrontMatch)createRoot(root).render(app);else hydrateRoot(root,app);
