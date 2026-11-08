@@ -1,11 +1,11 @@
-# One-time 2026-11-10 through 2026-11-13 Instagram batch.
+# One-time 2026-11-09 through 2026-11-12 Instagram batch, starting at 07:00 WIB.
 # 86 remaining, 25 + 25 + 25 + 11, each as a single Canva-style JPEG.
 # GitHub scheduled events are best effort: poll three times per hour and
 # select one due, unclaimed approved image each time. No Metricool.
 name: Instagram BisaBikinWeb 25 Quotes Daily
 on:
   schedule:
-    - cron: '7,27,47 0-16 10-13 11 *'
+    - cron: '0,20,40 0-16 9-12 11 *'
   workflow_dispatch:
   push:
     branches: [main]
