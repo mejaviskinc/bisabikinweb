@@ -6,6 +6,7 @@ import {getWebsiteCatalog,websiteStoreApi} from '../lib/website-store-api';
 import {customerGetSession} from '../lib/customer';
 import {websiteDemos} from '../lib/website-demos.mjs';
 import {hostingerDomainUrl} from '../lib/hostinger-domain';
+import './website-domain.css';
 
 type Template={slug:string;title:string;category:string;description:string;features?:string[];image_url?:string;demo_url?:string;theme?:string;concept?:boolean};
 type Package={slug:string;name:string;description:string;base_price:number|null;features:string[]};
