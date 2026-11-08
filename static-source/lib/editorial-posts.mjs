@@ -3,6 +3,7 @@ import {published20261104} from './published-20261104.mjs';
 import {editorialCoverMap} from './editorial-cover-map.mjs';
 import {published20261107} from './published-20261107.mjs';
 import {published20261108} from './published-20261108.mjs';
+import {seoCluster20261109} from './seo-cluster-20261109.mjs';
 // Editorial content published in the static site repository.
 // Database versions of matching article slugs take precedence when present.
 export const editorialPosts = [
@@ -628,6 +629,9 @@ editorialPosts.push(...publishedNews20261107.filter(post => !editorialPosts.some
 
 // Nov 8 evergreen batch. Publish metadata is not an embargo in static builds.
 editorialPosts.push(...published20261108.filter(post => !editorialPosts.some(existing => existing.id === post.id)));
+
+// Practical intent-focused guides with contextual links to services and actual portfolio pages.
+editorialPosts.push(...seoCluster20261109.filter(post => !editorialPosts.some(existing => existing.id === post.id)));
 
 export function mergeEditorialPosts(articles = []) {
   const source = Array.isArray(articles) ? articles : [];
