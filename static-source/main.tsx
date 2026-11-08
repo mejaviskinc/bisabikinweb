@@ -10,6 +10,7 @@ import Storefront from './features/Storefront';
 import SellerAdmin from './features/SellerAdmin';
 import PaymentGatewayAdmin from './features/PaymentGatewayAdmin';
 import WebsiteStoreAdmin from './features/WebsiteStoreAdmin';
+import WebsiteLiveDemo from './features/WebsiteLiveDemo';
 import {defaults} from './lib/data';
 import {mergeEditorialPosts} from './lib/editorial-posts.mjs';
 import {loadPublicContent} from './lib/supabase';
@@ -28,6 +29,7 @@ import './features/payment-gateway.css';
 import './features/payment-page.css';
 import './features/website-store.css';
 import './features/website-store-admin.css';
+import './features/website-live-demo.css';
 
 const path=location.pathname.replace(/\/+$/,'')||'/';
 function merchVariants(products:any[]){return (products||[]).filter(p=>Number.isSafeInteger(Number(p.price))&&Number(p.price)>0&&Number.isInteger(Number(p.stock))&&Number(p.stock)>0).map(p=>({id:p.id,product_id:p.id,size:'Standard',color:p.color||'Default',price:Number(p.price),stock:Number(p.stock),active:true}))}
@@ -154,6 +156,6 @@ function AdminWithAdsMenu(){
 
 const storefrontMatch=path.match(/^\/toko\/([a-z0-9-]+)$/i);
 const englishPath=path==='/en'?'/':path.startsWith('/en/')?path.slice(3):null;
-const app=englishPath && hasEnglishPage(englishPath)?<EnglishStudio path={englishPath}/>:path==='/seller'?<SellerDashboard/>:path==='/admin/website-store'?<WebsiteStoreAdmin/>:path.startsWith('/admin/sellers')?<SellerAdmin/>:path.startsWith('/admin/iklan')?<AdsManager/>:path.startsWith('/admin/payments')?<PaymentGatewayAdmin/>:path.startsWith('/admin')?<AdminWithAdsMenu/>:storefrontMatch?<Storefront slug={storefrontMatch[1].toLowerCase()}/>:<PublicClient/>;
+const app=path.startsWith('/demo/')?<WebsiteLiveDemo path={path}/>:englishPath && hasEnglishPage(englishPath)?<EnglishStudio path={englishPath}/>:path==='/seller'?<SellerDashboard/>:path==='/admin/website-store'?<WebsiteStoreAdmin/>:path.startsWith('/admin/sellers')?<SellerAdmin/>:path.startsWith('/admin/iklan')?<AdsManager/>:path.startsWith('/admin/payments')?<PaymentGatewayAdmin/>:path.startsWith('/admin')?<AdminWithAdsMenu/>:storefrontMatch?<Storefront slug={storefrontMatch[1].toLowerCase()}/>:<PublicClient/>;
 const root=document.getElementById('root')!;
 if(path.startsWith('/admin')||path==='/seller'||storefrontMatch)createRoot(root).render(app);else hydrateRoot(root,app);
