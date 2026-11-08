@@ -79,17 +79,16 @@ def main():
     ig_min, ig_min_status = query("graph.facebook.com", user_id, token, "id")
     print("DIAG_IG_MINIMAL: result=" + ("ACCOUNT_ID_ACCESSIBLE" if ig_min else ig_min_status))
     grants, grant_status = query("graph.facebook.com", "me/permissions", token)
-    if True:
-        if grants and isinstance(grants.get("data"), list):
-            relevant = {r.get("permission"): r.get("status") for r in grants["data"]
-                        if isinstance(r, dict) and
-                        (str(r.get("permission", "")).startswith("instagram") or
-                         str(r.get("permission", "")).startswith("pages_"))}
-            print("DIAG_FB_SCOPES: " + json.dumps(relevant, sort_keys=True))
-            if relevant.get("instagram_content_publish") != "granted":
-                print("DIAG_ACTION: Facebook Login requires granted instagram_content_publish")
-        else:
-            print("DIAG_FB_SCOPES: " + grant_status + "; cannot confirm publish permission")
+    if grants and isinstance(grants.get("data"), list):
+        relevant = {r.get("permission"): r.get("status") for r in grants["data"]
+                    if isinstance(r, dict) and
+                    (str(r.get("permission", "")).startswith("instagram") or
+                     str(r.get("permission", "")).startswith("pages_"))}
+        print("DIAG_FB_SCOPES: " + json.dumps(relevant, sort_keys=True))
+        if relevant.get("instagram_content_publish") != "granted":
+            print("DIAG_ACTION: Facebook Login requires granted instagram_content_publish")
+    else:
+        print("DIAG_FB_SCOPES: " + grant_status + "; cannot confirm publish permission")
 
     if matches:
         print("DIAG_RESULT: MATCHED_HOST=" + matches[0])
