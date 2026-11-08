@@ -1,3 +1,4 @@
+import {publishedBusiness20261109} from './published-business-20261109.mjs';
 import {publishedNews20261107} from './published-news-20261107.mjs';
 import {published20261104} from './published-20261104.mjs';
 import {editorialCoverMap} from './editorial-cover-map.mjs';
@@ -632,6 +633,10 @@ editorialPosts.push(...published20261108.filter(post => !editorialPosts.some(exi
 
 // Practical intent-focused guides with contextual links to services and actual portfolio pages.
 editorialPosts.push(...seoCluster20261109.filter(post => !editorialPosts.some(existing => existing.id === post.id)));
+
+
+// Nov 9: ten original business-news summaries with source and image-license metadata.
+editorialPosts.push(...publishedBusiness20261109.filter(post => !editorialPosts.some(existing => existing.id === post.id)));
 
 export function mergeEditorialPosts(articles = []) {
   const source = Array.isArray(articles) ? articles : [];
