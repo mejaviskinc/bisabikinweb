@@ -128,7 +128,7 @@ Deno.serve(async(req:Request)=>{
    if(!allowedStatuses.has(next)||!allowedDomainStatuses.has(domainStatus))fail('Status tidak valid.');
    const total=input.quoted_total==null||input.quoted_total===''?null:Number(input.quoted_total);
    if(total!==null&&(!Number.isSafeInteger(total)||total<0||total>100000000000))fail('Nilai penawaran tidak valid.');
-   const oldRows=await db('bbweb_website_orders?select=id,status,payment_status& id=eq.'.replace(' & ','&')+encodeURIComponent(id)+'&limit=1');
+   const oldRows=await db('bbweb_website_orders?select=id,status,payment_status&id=eq.'+encodeURIComponent(id)+'&limit=1');
    const current=Array.isArray(oldRows)?oldRows[0]:null;if(!current)fail('Order tidak ditemukan.',404);
    // Payment status is never changed here; only a verified payment provider may mark a payment paid.
    const note=clean(input.note,2000);
