@@ -1,0 +1,8 @@
+Trigger one-time immediate Instagram publication of the five previously approved Gen Z photo feeds.
+Date: 2026-11-09 WIB.
+Target: @bisabikinweb.id.
+Content IDs: bbweb-genz-five-20261109-01 through -05.
+Images: five standalone JPG feed photos, no carousel.
+Use GitHub Actions + Meta Graph API, not Metricool.
+No licensed Instagram music can be attached by the photo Graph API.
+Respect pause flag, duplicate state, and 90-item existing schedule.
