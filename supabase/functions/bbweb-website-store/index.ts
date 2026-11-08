@@ -219,7 +219,11 @@ Deno.serve(async(req:Request)=>{
     countWebsiteOrders()
    ]);
    const rows=Array.isArray(orders)?orders:[];
-   return response({orders:rows,templates:templates||[],packages:packages||[],total_orders:total,
+   const ids=rows.map((o:any)=>o.id).filter(Boolean);
+   const payments=ids.length?await db('bbweb_website_payments?select=order_id,merchant_order_id,amount,status,environment,transaction_status,payment_type,paid_at,created_at&order_id=in.('+ids.join(',')+')'): [];
+   const paymentByOrder=new Map<string,any>();
+   if(Array.isArray(payments))for(const payment of payments)paymentByOrder.set(payment.order_id,payment);
+   return response({orders:rows.map((o:any)=>({...o,payment:paymentByOrder.get(o.id)||null})),templates:templates||[],packages:packages||[],total_orders:total,
     next_offset:offset+rows.length<total?offset+rows.length:null},200,origin);
   }
   if(action==='admin_save_template'){
