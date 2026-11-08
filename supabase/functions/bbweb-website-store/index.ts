@@ -1,4 +1,4 @@
-// Website services ordering API. Does not create payments or modify merchandise checkout.
+// Website services ordering, DOKU Checkout initialization, and admin API. Merchandise checkout remains isolated.
 const ALLOWED_ORIGINS=new Set(['https://bisabikinweb.site','https://www.bisabikinweb.site']);
 function cors(origin:string|null){
  return {'Access-Control-Allow-Origin':origin&&ALLOWED_ORIGINS.has(origin)?origin:'https://bisabikinweb.site',
