@@ -21,7 +21,7 @@ const plans: Record<string, string[]> = {
 function Services() {
   return <div className="services-grid">{Object.entries(englishServices).map(([id, [name, description, features]]) =>
     <a className="service-card" href={englishHref('/jasa/' + id)} key={id}>
-      <div className="service-top"><span className="service-icon" aria-hidden="true">WEB</span><ArrowUpRight size={20}/></div>
+      <div className="service-top"><span className="service-icon service-text-icon" aria-hidden="true">WEB</span><ArrowUpRight size={20}/></div>
       <h3>{name}</h3><p>{description}</p>
       <div className="service-features">{features.slice(0, 3).map(feature => <span key={feature}>{feature}</span>)}</div>
     </a>
