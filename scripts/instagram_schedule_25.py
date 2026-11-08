@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Select one due original BisaBikinWeb quote from the 25-per-day Nov 10-13 batch.
+"""Select one due original BisaBikinWeb quote from the 25-per-day Nov 9-12 batch.
 
 Does not contact Meta or publish. Reads the queue + anti-duplicate state.
 Called by a serialized GitHub Actions workflow every ~20 minutes.
@@ -16,12 +16,12 @@ from zoneinfo import ZoneInfo
 
 ROOT = Path("social/instagram")
 COUNTS = {
+    "2026-11-09": 25,
     "2026-11-10": 25,
     "2026-11-11": 25,
-    "2026-11-12": 25,
-    "2026-11-13": 11,
+    "2026-11-12": 11,
 }
-START_MINUTE = 7 * 60 + 17
+START_MINUTE = 7 * 60
 SLOTS = tuple(f"{(START_MINUTE + 40 * i) // 60:02d}:{(START_MINUTE + 40 * i) % 60:02d}" for i in range(25))
 OLD_QUOTE = re.compile(r"^bbweb-q\d{3}-")
 
@@ -50,7 +50,7 @@ def validate(items: list[dict], state: dict) -> None:
     originals = [x for x in items if isinstance(x.get("id"), str) and OLD_QUOTE.match(x["id"])]
     if len(originals) != 90:
         raise ValueError(f"Expected original collection of 90 quotes, got {len(originals)}")
-    scheduled = [x for x in originals if x.get("date") in COUNTS]
+    scheduled = [x for x in originals if x.get("date") in COUNTS and "original_scheduled_date" in x]
     if len(scheduled) != 86:
         raise ValueError(f"Expected 86 remaining original quotes, got {len(scheduled)}")
     for day, count in COUNTS.items():
@@ -69,11 +69,11 @@ def validate(items: list[dict], state: dict) -> None:
 def select(items: list[dict], state: dict, now: dt.datetime) -> dict | None:
     day = now.date().isoformat()
     if day not in COUNTS:
-        print(f"NO_POST: outside batch 2026-11-10..13, now={day}")
+        print(f"NO_POST: outside batch 2026-11-09..12, now={day}")
         return None
-    made = [r for r in items if r.get("date") == day and OLD_QUOTE.match(str(r.get("id", "")))
+    made = [r for r in items if r.get("date") == day and OLD_QUOTE.match(str(r.get("id", ""))) and "original_scheduled_date" in r
             and r.get("id") in state and state[r["id"]].get("status") == "published"]
-    claimed = [r for r in items if r.get("date") == day and OLD_QUOTE.match(str(r.get("id", "")))
+    claimed = [r for r in items if r.get("date") == day and OLD_QUOTE.match(str(r.get("id", ""))) and "original_scheduled_date" in r
                and r.get("id") in state and state[r["id"]].get("status") == "claimed"]
     if len(made) >= 25:
         print("NO_POST: 25 originals already published today")
@@ -84,7 +84,7 @@ def select(items: list[dict], state: dict, now: dt.datetime) -> dict | None:
         print(f"WARNING: {len(claimed)} claimed posts require manual audit; no retry of those IDs")
     current_time = now.strftime("%H:%M")
     due = [r for r in items if r.get("date") == day
-           and OLD_QUOTE.match(str(r.get("id", "")))
+           and OLD_QUOTE.match(str(r.get("id", ""))) and "original_scheduled_date" in r
            and r.get("slot", "") <= current_time
            and r.get("status") == "approved"
            and r["id"] not in state]
