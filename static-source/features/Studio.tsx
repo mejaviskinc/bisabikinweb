@@ -37,11 +37,54 @@ function instagramPostUrl(a:any){const candidate=String(a?.instagram_post_url||'
 function InstagramOriginal({article}:{article:any}){const url=instagramPostUrl(article);if(!url)return null;return <figure className="article-instagram-original" style={{maxWidth:560,margin:'24px auto 36px',textAlign:'center'}}><div style={{textAlign:'left',marginBottom:12}}><strong>Visual asli dari Instagram</strong><p>Unggahan {article.instagram_post_account||'akun sumber'} — ditampilkan melalui Instagram, bukan foto yang disalin.</p></div><iframe title={'Unggahan Instagram terkait '+article.title} loading="lazy" width="100%" height="650" src={url+'embed/'} style={{display:'block',maxWidth:540,border:0,margin:'0 auto'}} referrerPolicy="strict-origin-when-cross-origin" sandbox="allow-scripts allow-same-origin allow-popups allow-popups-to-escape-sandbox"/><figcaption><a href={url} target="_blank" rel="noopener noreferrer">Lihat unggahan asli di Instagram ↗</a><p>Jika sematan tidak muncul, buka tautan sumber. Hak gambar tetap milik pengunggah.</p></figcaption></figure>}
 function articleDate(value:string){const date=new Date(value);return Number.isNaN(date.getTime())?'':date.toLocaleDateString('id-ID',{day:'numeric',month:'short',year:'numeric',timeZone:'Asia/Jakarta'})}
 function Articles({items}:{items:any[]}){return <div className="article-grid">{items.map((a:any,i:number)=><a className="article-card" key={a.id} href={'/artikel/'+a.id+'/'}><div className={'article-visual av-'+i%3}>{articleImage(a)?<img className="article-cover" src={articleImage(a)} alt={a.image_alt||a.title} loading={i===0?'eager':'lazy'} decoding="async" width="800" height="500"/>:<><span className="article-placeholder-label">{isNewsArticle(a)?'BISABIKINWEB / BERITA':'BISABIKINWEB / JOURNAL'}</span><span>{a.category||'Insight'}<br/><em>{isNewsArticle(a)?'Kabar terkini.':'Ide untuk bertumbuh.'}</em></span><ArrowUpRight aria-hidden="true"/></>}</div><div className="article-card-copy"><div className="article-meta"><span>{a.category||'Insight'}</span><span>{a.read||'3 menit'}</span></div><h3>{a.title}</h3><p>{a.summary}</p><div className="article-card-bottom">{articleDate(a.published_at)&&<time dateTime={a.published_at}>{articleDate(a.published_at)}</time>}<span className="text-link">{isNewsArticle(a)?'Baca berita':'Baca artikel'} <ArrowUpRight size={16}/></span></div></div></a>)}</div>}
+// Industry-facing navigation for the article index. Editorial topic labels remain
+// unchanged on individual articles and in the newsroom.
+const editorialIndustries=[
+ 'Ekspor & Perdagangan',
+ 'Manufaktur & Industri',
+ 'Retail & E-Commerce',
+ 'Fashion & Tekstil',
+ 'Kecantikan & Skincare',
+ 'Kuliner & F&B',
+ 'Pariwisata & Hospitality',
+ 'Pendidikan',
+ 'Properti & Konstruksi',
+ 'Kesehatan',
+ 'Keuangan',
+ 'Logistik & Transportasi',
+ 'Pertanian & Agribisnis',
+ 'UMKM',
+ 'Media & Kreatif',
+ 'Jasa Profesional',
+ 'Teknologi & Digital'
+] as const;
+function editorialIndustry(article:any):string{
+ const content=[article.title,article.category,article.summary].map(value=>String(value||'')).join(' ').toLocaleLowerCase('id-ID');
+ const rules:[string,RegExp][]=[
+  ['Ekspor & Perdagangan',/ekspor|impor|importir|export|buyer internasional|perdagangan|trade expo|pasar global|pasar luar negeri|kepabeanan|bea cukai/],
+  ['Manufaktur & Industri',/manufaktur|pabrik|industri manufaktur|produksi massal|mesin industri|kawasan industri/],
+  ['Fashion & Tekstil',/fashion|fesyen|tekstil|busana|pakaian|butik|wastra|konveksi|apparel/],
+  ['Kecantikan & Skincare',/skincare|skin care|kosmetik|kecantikan|beauty|salon|perawatan kulit/],
+  ['Kuliner & F&B',/kuliner|restoran|restaurant|kafe|cafe|café|coffee shop|kopi|food & beverage|makanan dan minuman|usaha makanan/],
+  ['Pariwisata & Hospitality',/pariwisata|wisata|travel|tourism|tour operator|hotel|penginapan|itinerary|destinasi/],
+  ['Pendidikan',/pendidikan|sekolah|kampus|universitas|kursus|akademi|edukasi|pelatihan siswa/],
+  ['Properti & Konstruksi',/properti|real estate|perumahan|developer properti|konstruksi|kontraktor|arsitektur|arsitek/],
+  ['Kesehatan',/kesehatan|klinik|rumah sakit|dokter|apotek|farmasi|healthcare|medis/],
+  ['Keuangan',/keuangan|perbankan|bank digital|fintech|asuransi|investasi|pembiayaan|finansial|saham|bursa efek/],
+  ['Logistik & Transportasi',/logistik|pengiriman|ekspedisi|transportasi|kurir|gudang|warehouse|freight|kargo/],
+  ['Pertanian & Agribisnis',/pertanian|agribisnis|perkebunan|peternakan|perikanan|hasil tani|komoditas pertanian/],
+  ['Retail & E-Commerce',/e-commerce|ecommerce|toko online|online store|marketplace|retail|ritel|belanja online|checkout/],
+  ['UMKM',/umkm|usaha mikro|usaha kecil|usaha menengah|bisnis rumahan/],
+  ['Media & Kreatif',/media kreatif|konten kreatif|desain grafis|agensi kreatif|studio desain|fotografi|videografi|penerbitan|periklanan|branding|marketing|pemasaran/],
+  ['Jasa Profesional',/jasa profesional|konsultan|konsultasi bisnis|agency|agensi|jasa pembuatan|layanan bisnis|company profile/]
+ ];
+ return rules.find(([,pattern])=>pattern.test(content))?.[0]||'Teknologi & Digital';
+}
 function EditorialIndex({items,news=false}:{items:any[],news?:boolean}){
  const [query,setQuery]=useState('');const [category,setCategory]=useState('Semua');const [limit,setLimit]=useState(12);
  const all=items.filter(a=>isNewsArticle(a)===news).sort((a,b)=>(Date.parse(b.published_at)||0)-(Date.parse(a.published_at)||0));
- const categories=['Semua',...Array.from(new Set(all.map(a=>String(a.category||'Insight'))))];
- const filtered=all.filter(a=>(category==='Semua'||(a.category||'Insight')===category)&&[a.title,a.summary,a.category].join(' ').toLocaleLowerCase('id-ID').includes(query.trim().toLocaleLowerCase('id-ID')));
+ const categories=news?['Semua',...Array.from(new Set(all.map(a=>String(a.category||'Insight'))))]:['Semua',...editorialIndustries.filter(industry=>all.some(a=>editorialIndustry(a)===industry))];
+ const filtered=all.filter(a=>(category==='Semua'||(news?(a.category||'Insight')===category:editorialIndustry(a)===category))&&[a.title,a.summary,a.category].join(' ').toLocaleLowerCase('id-ID').includes(query.trim().toLocaleLowerCase('id-ID')));
  return <section className="section editorial-index"><div className="editorial-heading"><div><span className="eyebrow">{news?'BISABIKINWEB / NEWSROOM':'THE STUDIO JOURNAL'}</span><h1>{news?'Berita & perkembangan':'Ide, panduan &'}<br/><em>{news?'terkini.':'insight bisnis.'}</em></h1><p>{news?'Ikuti kabar ekonomi, bisnis, teknologi, dan peristiwa pilihan redaksi.':'Jelajahi catatan tentang website, SEO, dan langkah membangun bisnis di dunia digital.'}</p></div><nav className="editorial-switch" aria-label="Jenis bacaan"><a href="/artikel/" aria-current={!news?'page':undefined}>Artikel <ArrowUpRight size={15}/></a><a href="/berita/" aria-current={news?'page':undefined}>Berita <ArrowUpRight size={15}/></a></nav></div>
  <div className="editorial-toolbar"><div className="editorial-categories" role="group" aria-label="Filter kategori">{categories.map(c=><button type="button" key={c} aria-pressed={category===c} onClick={()=>{setCategory(c);setLimit(12)}}>{c}</button>)}</div><label className="editorial-search"><Search size={18}/><input type="search" aria-label={news?'Cari berita':'Cari artikel'} placeholder={news?'Cari berita…':'Cari artikel…'} value={query} onChange={e=>{setQuery(e.target.value);setLimit(12)}}/></label></div>
  <div className="editorial-results"><span role="status">{filtered.length} {news?'berita':'artikel'}{query||category!=='Semua'?' ditemukan':' tersedia'}</span>{news?<a href="/redaksi/">Tentang redaksi <ArrowUpRight size={14}/></a>:<span>Panduan untuk bisnis kamu</span>}</div>
