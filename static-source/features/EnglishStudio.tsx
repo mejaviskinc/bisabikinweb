@@ -21,7 +21,7 @@ const plans: Record<string, string[]> = {
 function Services() {
   return <div className="services-grid">{Object.entries(englishServices).map(([id, [name, description, features]]) =>
     <a className="service-card" href={englishHref('/jasa/' + id)} key={id}>
-      <div className="service-top"><span className="service-icon" aria-hidden="true">✳</span><ArrowUpRight size={20}/></div>
+      <div className="service-top"><span className="service-icon" aria-hidden="true">WEB</span><ArrowUpRight size={20}/></div>
       <h3>{name}</h3><p>{description}</p>
       <div className="service-features">{features.slice(0, 3).map(feature => <span key={feature}>{feature}</span>)}</div>
     </a>
@@ -73,7 +73,7 @@ function EnglishContent({path}: {path: string}) {
   if (path === '/tentang') return <section className="section about-page">
     <div className="page-intro"><span className="eyebrow">YOGYAKARTA, INDONESIA</span><h1>Websites for people <em>building a business.</em></h1>
       <p>BisaBikinWeb is an independent digital studio in Yogyakarta. We help small businesses, personal brands, and companies build websites that make it easy for visitors to understand what they offer and take the next step.</p></div>
-    <div className="about-statement"><span>✳</span><div><p>We start with your business goals, agree on the pages and features, then design, build, and test the website before launch.</p>
+    <div className="about-statement"><span className="about-statement-label">HOW WE WORK.</span><div><p>We start with your business goals, agree on the pages and features, then design, build, and test the website before launch.</p>
       <a className="text-link" href={contact}>Talk to the studio <ArrowUpRight size={17}/></a></div></div>
   </section>;
   if (path === '/jasa') return <section className="section">
