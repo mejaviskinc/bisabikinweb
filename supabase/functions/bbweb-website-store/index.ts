@@ -89,7 +89,30 @@ Deno.serve(async(req:Request)=>{
   }
   if(action==='my_orders'){
    const orders=await db('bbweb_website_orders?select=id,order_no,package_slug,template_slug,company,requested_domain,domain_status,quoted_total,status,payment_status,created_at,updated_at&user_id=eq.'+encodeURIComponent(user.id)+'&order=created_at.desc&limit=100');
-   return response({orders:Array.isArray(orders)?orders:[]},200,origin);
+   const list=Array.isArray(orders)?orders:[];
+   if(!list.length)return response({orders:[]},200,origin);
+   const ids=list.map((o:any)=>o.id).filter(Boolean);
+   const events=await db('bbweb_website_order_events?select=order_id,event_type,note,created_at&order_id=in.('+ids.join(',')+')&order=created_at.asc&limit=500');
+   const byOrder=new Map<string,any[]>();
+   if(Array.isArray(events))for(const ev of events){if(!byOrder.has(ev.order_id))byOrder.set(ev.order_id,[]);byOrder.get(ev.order_id)?.push(ev);}
+   return response({orders:list.map((o:any)=>({...o,events:byOrder.get(o.id)||[]}))},200,origin);
+  }
+  if(action==='request_revision'){
+   const id=clean(input.id,40);
+   if(!/^[a-f0-9-]{36}$/i.test(id))fail('Nomor permintaan tidak valid.');
+   const note=clean(input.note,1200);
+   if(note.length<10)fail('Jelaskan revisi minimal 10 karakter.');
+   const rows=await db('bbweb_website_orders?select=id,status&user_id=eq.'+encodeURIComponent(user.id)+'&id=eq.'+encodeURIComponent(id)+'&limit=1');
+   const existing=Array.isArray(rows)?rows[0]:null;
+   if(!existing)fail('Proyek tidak ditemukan.',404);
+   if(existing.status!=='client_review')fail('Revisi hanya dapat diajukan saat status Review Klien.');
+   const since=new Date(Date.now()-24*60*60*1000).toISOString();
+   const recent=await db('bbweb_website_order_events?select=id&order_id=eq.'+encodeURIComponent(id)+'&event_type=eq.revision&created_at=gte.'+encodeURIComponent(since)+'&limit=8');
+   if(Array.isArray(recent)&&recent.length>=5)fail('Batas permintaan revisi harian tercapai.',429);
+   const updated=await db('bbweb_website_orders?id=eq.'+encodeURIComponent(id)+'&status=eq.client_review',{method:'PATCH',headers:{Prefer:'return=representation'},body:JSON.stringify({status:'revision',updated_at:new Date().toISOString()})});
+   if(!Array.isArray(updated)||!updated[0])fail('Status proyek berubah. Perbarui halaman untuk mencoba lagi.',409);
+   await db('bbweb_website_order_events',{method:'POST',headers:{Prefer:'return=minimal'},body:JSON.stringify({order_id:id,actor_user_id:user.id,event_type:'revision',note})});
+   return response({ok:true},200,origin);
   }
   const admin=await isAdmin(user);
   requireAdmin(admin);
