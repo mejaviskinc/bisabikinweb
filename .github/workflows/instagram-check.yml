@@ -1,17 +1,33 @@
 name: Instagram BisaBikinWeb Check Connection (Read Only)
 on:
   workflow_dispatch:
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/instagram-check.yml'
+      - 'scripts/instagram_autopost.py'
+      - 'scripts/instagram_check_connection.py'
+      - 'tests/test_instagram_autopost.py'
   push:
     branches: [main]
     paths:
       - '.github/workflows/instagram-check.yml'
       - 'scripts/instagram_autopost.py'
       - 'scripts/instagram_check_connection.py'
+      - 'tests/test_instagram_autopost.py'
 permissions:
   contents: read
 jobs:
+  unit_tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Check Instagram publisher without Meta credentials
+        run: python3 -m unittest discover -s tests -p test_instagram_autopost.py -v
   check:
     if: ${{ github.ref == 'refs/heads/main' }}
+    needs: unit_tests
     runs-on: ubuntu-latest
     timeout-minutes: 3
     env:
@@ -20,6 +36,6 @@ jobs:
       IG_GRAPH_BASE: ${{ vars.IG_GRAPH_BASE || 'https://graph.facebook.com' }}
       IG_GRAPH_VERSION: ${{ vars.IG_GRAPH_VERSION || 'v26.0' }}
     steps:
-      - uses: actions/checkout@v4
-      - name: Verify Instagram identity without publishing
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Diagnose Instagram login host and scopes (no publishing)
         run: python3 scripts/instagram_check_connection.py
