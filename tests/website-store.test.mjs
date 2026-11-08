@@ -54,7 +54,7 @@ test('catalog illustrations, manual domain status and upfront payment are labele
  assert.match(storefront,/Beli domain di Hostinger/);
  assert.match(storefront,/hostingerDomainUrl/);
  assert.match(storefront,/domainStepComplete/);
- assert.match(storefront,/Paket Custom memerlukan penawaran admin|Paket Custom memerlukan penawaran admin|Paket Custom/);
+ assert.match(api,/const orderStatus=payUpfront\?'awaiting_payment':'requested'/);
  assert.match(storefront,/harga mulai|Harga mulai|Estimasi harga mulai/);
 });
 
