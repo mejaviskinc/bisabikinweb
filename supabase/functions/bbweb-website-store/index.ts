@@ -103,9 +103,12 @@ Deno.serve(async(req:Request)=>{
    }
    const name=clean(input.full_name,120),phone=clean(input.phone,32),company=clean(input.company,160);
    const brief=clean(input.brief,3500),domain=clean(input.domain,253).toLowerCase(),category=clean(input.category,80);
+   const domainSource=clean(input.domain_source,20);
    const reference=input.reference_url?url(input.reference_url,500):'';
    if(name.length<2||company.length<2||!/^\+?[0-9()\s.-]{7,32}$/.test(phone)||brief.length<20)fail('Lengkapi nama, nomor kontak, bisnis, dan brief minimal 20 karakter.');
    if(!categories.has(category))fail('Kategori bisnis tidak valid.');
+   if(!['hostinger','existing'].includes(domainSource))fail('Pilih jalur pembelian atau kepemilikan domain terlebih dahulu.');
+   if(!domain)fail('Siapkan nama domain sebelum memesan website.');
    if(domain&&!/^(?=.{4,253}$)[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)+$/.test(domain))fail('Format domain yang diminta belum valid.');
    const since=new Date(Date.now()-60*60*1000).toISOString();
    const existing=await db('bbweb_website_orders?select=id&user_id=eq.'+encodeURIComponent(user.id)+'&created_at=gte.'+encodeURIComponent(since)+'&limit=4');
@@ -120,10 +123,10 @@ Deno.serve(async(req:Request)=>{
    const payload={order_no:orderNo,user_id:user.id,package_slug:packageSlug,template_slug:templateSlug,
     category,full_name:name,email:String(user.email).toLowerCase(),phone,company,requested_domain:domain,
     reference_url:reference,brief,base_price_snapshot:pack.base_price,quoted_total:payUpfront?publishedPrice:null,status:orderStatus,
-    domain_status:domain?'manual_review':'unchecked',payment_status:'not_invoiced',updated_at:now};
+    domain_status:'manual_review',payment_status:'not_invoiced',updated_at:now};
    const inserted=await db('bbweb_website_orders',{method:'POST',headers:{Prefer:'return=representation'},body:JSON.stringify(payload)});
    const order=Array.isArray(inserted)?inserted[0]:null;if(!order)fail('Permintaan belum tersimpan.',503);
-   await db('bbweb_website_order_events',{method:'POST',headers:{Prefer:'return=minimal'},body:JSON.stringify({order_id:order.id,actor_user_id:user.id,event_type:orderStatus,note:payUpfront?'Paket harga tetap siap dibayar lewat DOKU; konsultasi desain setelah pembayaran terverifikasi.':'Brief website custom menunggu tinjauan dan penawaran admin.'})}).catch(()=>{});
+   await db('bbweb_website_order_events',{method:'POST',headers:{Prefer:'return=minimal'},body:JSON.stringify({order_id:order.id,actor_user_id:user.id,event_type:orderStatus,note:(payUpfront?'Paket harga tetap siap dibayar lewat DOKU; konsultasi desain setelah pembayaran terverifikasi.':'Brief website custom menunggu tinjauan dan penawaran admin.')+' Domain '+domain+' diklaim '+(domainSource==='hostinger'?'sudah dibeli atau dipesan via Hostinger':'sudah dimiliki pelanggan')+'; verifikasi domain oleh admin masih diperlukan.'})}).catch(()=>{});
    return response({order:{id:order.id,order_no:orderNo,status:orderStatus,payment_status:'not_invoiced',quoted_total:payUpfront?publishedPrice:null}},200,origin);
   }
   if(action==='my_orders'){
