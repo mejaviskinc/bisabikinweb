@@ -1,0 +1,116 @@
+# Five user-approved single-image feed posts (not carousel / Reel).
+# No Metricool publishing. Date in UTC + 7h = Asia/Jakarta.
+name: Instagram BisaBikinWeb Five Original Quotes
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'social/instagram/drafts/2026-11-09-original-five-quotes.json'
+  workflow_dispatch:
+  schedule:
+    - cron: '45 1 9 11 *'
+    - cron: '56 1 9 11 *'
+    - cron: '45 4 9 11 *'
+    - cron: '56 4 9 11 *'
+    - cron: '45 7 9 11 *'
+    - cron: '56 7 9 11 *'
+    - cron: '45 10 9 11 *'
+    - cron: '56 10 9 11 *'
+    - cron: '45 13 9 11 *'
+    - cron: '56 13 9 11 *'
+permissions:
+  contents: write
+concurrency:
+  group: bisabikinweb-instagram-publish
+  cancel-in-progress: false
+jobs:
+  prepare:
+    if: ${{ github.ref == 'refs/heads/main' && (github.event_name == 'push' || github.event_name == 'workflow_dispatch') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install fonts and renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-inter
+          python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
+      - name: Render five approved quotes and append only free queue slots
+        run: python3 scripts/instagram_render_original_five.py
+      - name: Validate offline without publishing
+        run: |
+          python3 - <<'PY'
+          from pathlib import Path
+          from scripts.instagram_autopost import eligible
+          import json
+          rows=json.loads(Path('social/instagram/queue.json').read_text(encoding='utf8'))['items']
+          items=[r for r in rows if r.get('id','').startswith('bbweb-genz-five-20261109-')]
+          assert len(items)==5
+          assert len({(r['date'],r['slot']) for r in rows})==len(rows),'duplicate queue slots'
+          for item in items:
+              eligible(item,item['date'],item['slot'],dry_run=True)
+              print('VALIDATED',item['id'],item['slot'])
+          PY
+      - name: Save 5 JPEG images and updated queue to GitHub
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add social/instagram/queue.json social/instagram/rendered/2026-11-09-original-five-quotes/
+          if git diff --cached --quiet; then
+            echo 'ALREADY_PREPARED: no change'
+            exit 0
+          fi
+          git commit -m 'content(instagram): queue five original single-image Gen Z posts'
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo 'FIVE_QUOTES_QUEUED; NO_PUBLICATION_IN_PREPARATION'
+  publish:
+    if: ${{ github.ref == 'refs/heads/main' && github.event_name == 'schedule' && vars.IG_AUTOPUBLISH_PAUSED != 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      IG_AUTOPUBLISH_ENABLED: 'true'
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_GRAPH_BASE: ${{ vars.IG_GRAPH_BASE || 'https://graph.facebook.com' }}
+      IG_GRAPH_VERSION: ${{ vars.IG_GRAPH_VERSION || 'v26.0' }}
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Resolve 9 November posting slot and check duplicate state
+        id: gate
+        env:
+          CRON_EXPR: ${{ github.event.schedule }}
+        run: |
+          case "$CRON_EXPR" in
+            '45 1 9 11 *'|'56 1 9 11 *') SLOT='08:45' ;;
+            '45 4 9 11 *'|'56 4 9 11 *') SLOT='11:45' ;;
+            '45 7 9 11 *'|'56 7 9 11 *') SLOT='14:45' ;;
+            '45 10 9 11 *'|'56 10 9 11 *') SLOT='17:45' ;;
+            '45 13 9 11 *'|'56 13 9 11 *') SLOT='20:45' ;;
+            *) echo 'UNKNOWN_CRON'; exit 1 ;;
+          esac
+          export SLOT
+          python3 - <<'PY'
+          import datetime as dt, json, os
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+          now=dt.datetime.now(ZoneInfo('Asia/Jakarta'))
+          date=now.date().isoformat()
+          slot=os.environ['SLOT']
+          rows=json.loads(Path('social/instagram/queue.json').read_text(encoding='utf8'))['items']
+          state=json.loads(Path('social/instagram/state.json').read_text(encoding='utf8'))['entries']
+          matching=[r for r in rows if r.get('date')==date and r.get('slot')==slot]
+          ready=(date=='2026-11-09' and len(matching)==1 and
+                 matching[0].get('id','').startswith('bbweb-genz-five-20261109-') and
+                 matching[0].get('status')=='approved' and matching[0]['id'] not in state)
+          with open(os.environ['GITHUB_OUTPUT'],'a',encoding='utf8') as out:
+              out.write('ready='+str(ready).lower()+'\nslot='+slot+'\ndate='+date+'\n')
+          print('READY' if ready else 'SKIPPED_UNREADY_OR_CLAIMED',date,slot)
+          PY
+      - name: Publish exactly one photo via Meta Graph API
+        if: ${{ steps.gate.outputs.ready == 'true' }}
+        env:
+          SLOT: ${{ steps.gate.outputs.slot }}
+          DATE: ${{ steps.gate.outputs.date }}
+        run: python3 scripts/instagram_autopost.py --publish --date "$DATE" --slot "$SLOT" --queue social/instagram/queue.json
