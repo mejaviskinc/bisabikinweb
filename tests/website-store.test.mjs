@@ -8,6 +8,7 @@ const build=read('build-pages.mjs');
 const api=read('supabase/functions/bbweb-website-store/index.ts');
 const sql=read('supabase/patches/website_store_20261108.sql');
 const storefront=read('static-source/features/WebsiteStore.tsx');
+const hostinger=read('static-source/lib/hostinger-domain.ts');
 const app=read('static-source/main.tsx');
 
 test('Website Store routes are connected without replacing existing merch, buyer and checkout',()=>{
@@ -48,8 +49,26 @@ test('new Supabase tables have RLS, ownership checks, and no existing merch muta
 });
 test('catalog illustrations, manual domain status and upfront payment are labeled honestly',()=>{
  assert.match(storefront,/Ilustrasi konsep/);
- assert.match(storefront,/perlu verifikasi manual/);
- assert.match(storefront,/Paket harga tetap langsung dibayar di awal via DOKU/);
- assert.match(storefront,/Paket Custom memerlukan penawaran admin/);
+ assert.match(storefront,/Status dan kepemilikan domain belum terverifikasi otomatis/);
+ assert.match(storefront,/Siapkan domain lebih dulu melalui Hostinger/);
+ assert.match(storefront,/Beli domain di Hostinger/);
+ assert.match(storefront,/hostingerDomainUrl/);
+ assert.match(storefront,/domainStepComplete/);
+ assert.match(storefront,/Paket Custom memerlukan penawaran admin|Paket Custom memerlukan penawaran admin|Paket Custom/);
  assert.match(storefront,/harga mulai|Harga mulai|Estimasi harga mulai/);
+});
+
+test('Domain purchase precedes website orders; partnership link is configurable but not invented',()=>{
+ assert.match(hostinger,/https:\/\/www\.hostinger\.com\/id\/domain/);
+ assert.match(hostinger,/VITE_HOSTINGER_PARTNER_URL/);
+ assert.match(storefront,/domain_source:domainChoice/);
+ assert.match(storefront,/domainChoice==='hostinger'/);
+ assert.match(storefront,/domainChoice==='existing'/);
+ assert.match(storefront,/domainConfirmed/);
+ assert.match(api,/const domainSource=clean\(input\.domain_source,20\)/);
+ assert.match(api,/if\(!domain\)fail/);
+ assert.match(api,/\['hostinger','existing'\]\.includes\(domainSource\)/);
+ assert.match(api,/domain_status:'manual_review'/);
+ assert.match(api,/verifikasi domain oleh admin masih diperlukan/);
+ assert.doesNotMatch(api,/domain_status:'available'/);
 });
