@@ -1,0 +1,20 @@
+'use client';
+import {useEffect,useState} from 'react';
+import {ArrowUpRight,RefreshCw,ShoppingBag,ShieldCheck} from 'lucide-react';
+import {getSession,assertAdmin,type AdminSession} from '../lib/supabase';
+const API='https://kdlrobdzlxpjlkxbvzsd.supabase.co/functions/v1/bbweb-digital-orders';
+const KEY='sb_publishable_Xy3TI3nbOGglkk5xy6uAsA_ytlPYhv-';
+const labels:Record<string,string>={game:'Top Up Game',pulsa:'Pulsa',data:'Paket Data',pln:'Token Listrik',voucher:'Voucher Digital'};
+export default function DigitalOrdersAdmin(){
+ const [session,setSession]=useState<AdminSession|null>(null),[orders,setOrders]=useState<any[]>([]),[busy,setBusy]=useState(true),[error,setError]=useState(''),[selected,setSelected]=useState<any>(null);
+ async function load(s:AdminSession){setBusy(true);setError('');try{const r=await fetch(API,{method:'POST',headers:{'Content-Type':'application/json',apikey:KEY,Authorization:'Bearer '+s.access_token},body:JSON.stringify({action:'admin_list'}),cache:'no-store'});const p=await r.json().catch(()=>({}));if(!r.ok)throw Error(p.error||'Gagal memuat permintaan.');setOrders(p.orders||[]);setSelected((old:any)=>old?((p.orders||[]).find((x:any)=>x.id===old.id)||null):null)}catch(e:any){setError(String(e?.message||'Gagal memuat permintaan.'))}finally{setBusy(false)}}
+ useEffect(()=>{let active=true;(async()=>{try{const s=await getSession();if(!s)throw Error('Masuk ke dashboard admin lebih dahulu.');await assertAdmin(s);if(!active)return;setSession(s);await load(s)}catch(e:any){if(active){setError(String(e?.message||'Akses admin ditolak.'));setBusy(false)}}})();return()=>{active=false}},[]);
+ return <section className="section digital-admin">
+  <div className="digital-admin-head"><div><span className="eyebrow">BISABIKINWEB / ADMIN</span><h1>Transaksi Digital.</h1><p>Permintaan pembelian dari menu Layanan Digital. Pembayaran dan pengiriman otomatis belum diaktifkan.</p></div><div className="digital-admin-actions"><a className="btn" href="/admin/">Dashboard utama <ArrowUpRight size={16}/></a><a className="btn" href="/layanan-digital/">Lihat layanan</a>{session&&<button className="btn primary" type="button" disabled={busy} onClick={()=>load(session)}><RefreshCw size={15}/> Refresh</button>}</div></div>
+  {!session&&<div className="digital-alert"><ShieldCheck size={20}/> {error||'Memeriksa akses admin...'} <a href="/admin/">Masuk ke admin</a></div>}
+  {session&&<><div className="digital-admin-stat"><ShoppingBag size={21}/><div><small>Total permintaan yang ditampilkan</small><strong>{orders.length}</strong></div><small>Data terbaru hingga 200 pesanan</small></div>{error&&<div className="digital-alert" role="alert">{error}</div>}
+  {busy?<p>Memuat data transaksi…</p>:orders.length===0?<div className="digital-alert">Belum ada permintaan layanan digital yang masuk.</div>:
+  <div className="digital-admin-layout"><div className="digital-admin-orders">{orders.map(o=><button type="button" key={o.id} onClick={()=>setSelected(o)} className={selected?.id===o.id?'active':''}><small>{o.order_no} · {new Date(o.created_at).toLocaleString('id-ID')}</small><strong>{labels[o.service]||o.service} — {o.product_name}</strong><span>{o.buyer_name} · {o.status==='requested'?'Menunggu ditinjau':o.status}</span></button>)}</div><aside className="digital-admin-detail">{selected?<><span className="eyebrow">DETAIL PESANAN</span><h2>{selected.order_no}</h2><dl>{[['Layanan',labels[selected.service]||selected.service],['Produk',selected.product_name],['Tujuan',selected.target_primary],['Server ID',selected.target_secondary||'—'],['Pembeli',selected.buyer_name],['Email',selected.buyer_email],['WhatsApp',selected.buyer_phone],['Status',selected.status],['Pembayaran','Belum ada invoice'],['Catatan',selected.note||'—']].map(([key,value])=><div key={key}><dt>{key}</dt><dd>{value}</dd></div>)}</dl><p>Detail ditampilkan untuk tindak lanjut admin. Jangan menandai lunas atau mengirim top up sebelum verifikasi pembayaran.</p></>:<p>Pilih salah satu pesanan untuk melihat detail dan nomor tujuan.</p>}</aside></div>}
+  </>}
+ </section>;
+}
