@@ -1,0 +1,127 @@
+# One-time, explicitly approved carousel from BisaBikinWeb.
+# Triggered ONLY by a dedicated request file committed to main.
+# Uses GitHub Actions -> Meta Graph API. No third-party social publisher.
+name: Instagram BisaBikinWeb Approved Carousel
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'social/instagram/requests/publish-carousel-20261109.json'
+permissions:
+  contents: write
+concurrency:
+  group: bisabikinweb-instagram-publish
+  cancel-in-progress: false
+jobs:
+  publish_approved_carousel:
+    if: ${{ github.ref == 'refs/heads/main' && vars.IG_AUTOPUBLISH_PAUSED != 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      IG_AUTOPUBLISH_ENABLED: 'true'
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_GRAPH_BASE: ${{ vars.IG_GRAPH_BASE || 'https://graph.facebook.com' }}
+      IG_GRAPH_VERSION: ${{ vars.IG_GRAPH_VERSION || 'v26.0' }}
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install JPEG validator
+        run: python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
+      - name: Mirror approved slides to owner-controlled GitHub assets and publish via Meta
+        env:
+          REQUEST_FILE: social/instagram/requests/publish-carousel-20261109.json
+        run: |
+          python3 - <<'PY'
+          import base64
+          import datetime as dt
+          import io
+          import json
+          import os
+          import pathlib
+          import sys
+          import time
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+          from zoneinfo import ZoneInfo
+          from PIL import Image
+
+          sys.path.insert(0, 'scripts')
+          from instagram_autopost import eligible, live_publish, github_state
+
+          request = json.loads(pathlib.Path(os.environ['REQUEST_FILE']).read_text(encoding='utf-8'))
+          item = request['item']
+          expected_id = 'bbweb-carousel-20261109-website-bisnis'
+          if item.get('id') != expected_id or request.get('account') != 'bisabikinweb.id':
+              raise RuntimeError('SAFE_STOP: approved item/account ID does not match')
+          sources = request.get('media_sources')
+          if not isinstance(sources, list) or len(sources) != 7 or len(set(sources)) != 7:
+              raise RuntimeError('SAFE_STOP: exactly seven unique approved slide URLs required')
+          if any(urllib.parse.urlsplit(u).hostname != 'static.metricool.com'
+                 or urllib.parse.urlsplit(u).scheme != 'https'
+                 for u in sources):
+              raise RuntimeError('SAFE_STOP: unrecognized one-time media source')
+          if item.get('status') != 'approved' or item.get('rights_verified') is not True:
+              raise RuntimeError('SAFE_STOP: content approval/rights missing')
+
+          repository = os.environ['GITHUB_REPOSITORY']
+          token = os.environ['GITHUB_TOKEN']
+          state, _ = github_state(repository, token)
+          if expected_id in state['entries']:
+              print('SKIP_ALREADY_CLAIMED: Do not republish; inspect Instagram and state.json')
+              sys.exit(0)
+
+          def put_asset(path, data):
+              url = 'https://api.github.com/repos/' + repository + '/contents/' + path
+              body = json.dumps({
+                  'message': 'media(instagram): approved website carousel ' + path.rsplit('/', 1)[-1],
+                  'content': base64.b64encode(data).decode('ascii'),
+                  'branch': 'instagram-assets',
+              }).encode('utf-8')
+              req = urllib.request.Request(
+                  url, data=body, method='PUT',
+                  headers={'Authorization': 'Bearer ' + token,
+                           'Accept': 'application/vnd.github+json',
+                           'Content-Type': 'application/json'})
+              with urllib.request.urlopen(req, timeout=45) as response:
+                  if response.status not in (200, 201):
+                      raise RuntimeError('GitHub rejected media upload')
+              return 'https://raw.githubusercontent.com/' + repository + '/instagram-assets/' + path
+
+          image_urls = []
+          for i, url in enumerate(sources, start=1):
+              req = urllib.request.Request(url, headers={'User-Agent': 'BisaBikinWeb-Instagram-Assets/1.0'})
+              with urllib.request.urlopen(req, timeout=30) as response:
+                  media = response.read(8_000_001)
+              if not 50_000 <= len(media) <= 8_000_000:
+                  raise RuntimeError('SAFE_STOP: unexpected image size on slide ' + str(i))
+              with Image.open(io.BytesIO(media)) as im:
+                  if im.format != 'JPEG' or im.size != (1080, 1350):
+                      raise RuntimeError('SAFE_STOP: image type/dimensions invalid on slide ' + str(i))
+              path = 'instagram-approved-carousel/20261109/slide-' + str(i).zfill(2) + '.jpg'
+              asset_url = put_asset(path, media)
+              image_urls.append(asset_url)
+              print('MIRRORED_APPROVED_SLIDE', i)
+
+          # Wait until newly committed media URLs are publicly reachable by Meta.
+          for url in image_urls:
+              for attempt in range(12):
+                  try:
+                      req = urllib.request.Request(url, method='HEAD')
+                      with urllib.request.urlopen(req, timeout=12) as response:
+                          if response.status == 200 and response.headers.get('Content-Type', '').startswith('image/jpeg'):
+                              break
+                  except (urllib.error.HTTPError, urllib.error.URLError, TimeoutError):
+                      pass
+                  time.sleep(3)
+              else:
+                  raise RuntimeError('SAFE_STOP: GitHub image not publicly readable')
+
+          now = dt.datetime.now(ZoneInfo('Asia/Jakarta'))
+          item['date'] = now.date().isoformat()
+          item['slot'] = now.strftime('%H:%M')
+          item['image_urls'] = image_urls
+          eligible(item, item['date'], item['slot'])
+          live_publish(item)
+          PY
