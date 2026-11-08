@@ -13,7 +13,8 @@ for(const demo of websiteDemos){
   const html=readFileSync(demoPath,'utf8');
   const design=readFileSync(designPath,'utf8');
   assert.ok(html.includes('DEMO INTERAKTIF'),demo.slug+' has no standalone SSR page');
-  assert.ok(html.includes(demo.title),demo.slug+' missing brand');
+  const escapedBrand=demo.title.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+  assert.ok(html.includes(escapedBrand),demo.slug+' missing brand');
   assert.ok(html.includes('Pakai desain ini'),demo.slug+' missing buyer CTA');
   assert.ok(html.includes('name="robots" content="noindex,nofollow"'),demo.slug+' should be noindex');
   assert.ok(design.includes('Buka website demo'),demo.slug+' missing live preview CTA');
