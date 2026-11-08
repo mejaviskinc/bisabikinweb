@@ -31,7 +31,7 @@ function PriceCards({items}:{items:Package[]}){
 export default function WebsiteStore({path}:{path:string}){
  const [templates,setTemplates]=useState<Template[]>(conceptTemplates);
  const [packages,setPackages]=useState<Package[]>(basePackages);
- const [search,setSearch]=useState(''),[category,setCategory]=useState('semua');
+ const [search,setSearch]=useState(''),[category,setCategory]=useState(websiteCategories.some(c=>c.slug===path.split('/')[2])?path.split('/')[2]:'semua');
  useEffect(()=>{let active=true;getWebsiteCatalog().then(rows=>{
   if(!active||!rows)return;
   if(rows.templates.length)setTemplates(rows.templates.filter(t=>/^[a-z0-9-]+$/.test(String(t.slug||''))).map(t=>({...t,concept:false})));
