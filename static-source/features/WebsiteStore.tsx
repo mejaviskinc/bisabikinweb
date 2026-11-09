@@ -7,6 +7,7 @@ import {customerGetSession} from '../lib/customer';
 import {whatsapp} from '../lib/client';
 import {websiteDemos} from '../lib/website-demos.mjs';
 import {creativeFor} from '../lib/demo-creative.mjs';
+import DokuPaymentChannels from '../components/DokuPaymentChannels';
 
 type Template={slug:string;title:string;category:string;description:string;features?:string[];image_url?:string;demo_url?:string;theme?:string;concept?:boolean};
 type Package={slug:string;name:string;description:string;base_price:number|null;features:string[]};
@@ -203,7 +204,8 @@ export function WebsiteClientProjects({whatsappNumber}:{whatsappNumber:string}){
       o.payment_status==='refunded'?<p>Pembayaran dikembalikan. Hubungi admin bila perlu konfirmasi.</p>:
       o.payment?.status==='unknown'||o.payment?.status==='expired'?<p>Status invoice perlu diverifikasi admin sebelum pembayaran ulang.</p>:
       o.status==='awaiting_payment'&&Number(o.quoted_total)>0?<>
-       <p>Nominal final: <strong>{rupiah(Number(o.quoted_total))}</strong>. Pembayaran hanya melalui halaman DOKU resmi.</p>
+       <p>Nominal final: <strong>{rupiah(Number(o.quoted_total))}</strong>. Pilih metode pembayaran yang aktif langsung di halaman resmi DOKU Checkout.</p>
+        <DokuPaymentChannels/>
        {safeDokuUrl(o.payment?.redirect_url,o.payment?.environment)?<a className="btn primary" href={safeDokuUrl(o.payment.redirect_url,o.payment.environment)} onClick={()=>rememberPaidConsultation(o.id)} rel="noopener noreferrer">Lanjutkan pembayaran DOKU <ArrowUpRight size={16}/></a>:
         o.payment?.status==='created'||o.payment?.status==='authorized'?<p>Invoice sedang diproses. Segarkan status atau hubungi admin.</p>:
         <button type="button" className="btn primary" disabled={payingId===o.id} onClick={()=>void payNow(o.id)}>{payingId===o.id?'Mempersiapkan pembayaran...':'Bayar dengan DOKU'} <ArrowUpRight size={16}/></button>}
