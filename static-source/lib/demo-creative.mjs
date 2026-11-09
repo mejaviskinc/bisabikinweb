@@ -305,7 +305,7 @@ export const creativeDirections={
     "hero": "https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1600&q=85",
     "mood": "Modern streetwear",
     "headline": "Waktunya bergerak dengan gaya",
-    "story": "Koleksi drop, ukuran dan stok mudah dibaca pengunjung."
+    "story": "Koleksi drop, ukuran dan stok dibuat mudah dibaca; tiap rilis punya karakter visual, detail bahan dan panduan belanja sendiri."
   },
   "linen-story": {
     "hero": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1600&q=85",
@@ -317,13 +317,13 @@ export const creativeDirections={
     "hero": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1600&q=85",
     "mood": "Fine accessories",
     "headline": "Objek kecil, karakter besar",
-    "story": "Aksesori dipilih melalui bahan, ukuran dan ide styling."
+    "story": "Aksesori dipilih melalui bahan, ukuran, pilihan warna dan ide styling; informasi perawatan juga disampaikan secara jelas."
   },
   "cakrawala-academy": {
     "hero": "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1600&q=85",
     "mood": "Career academy",
     "headline": "Belajar untuk langkah berikutnya",
-    "story": "Program dijelaskan menurut capaian, silabus dan jadwal."
+    "story": "Program dijelaskan berdasarkan capaian pembelajaran, silabus, jadwal, pengalaman mentor dan proses pendaftaran yang mudah dipahami."
   },
   "code-future-camp": {
     "hero": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=85",
