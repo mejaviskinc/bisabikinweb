@@ -44,6 +44,7 @@ for(let number=1;number<=60;number++){
  const hostname='template'+number+'.bisabikinweb.site';
  await writeFile(join(dest,'CNAME'),hostname+'\n');
  await writeFile(join(dest,'.nojekyll'),'');
+ await writeFile(join(dest,'.bbweb-template-id'),number+' '+slug+'\n');
  // Fictional showcase domains must not compete with the indexed main catalog.
  await writeFile(join(dest,'robots.txt'),'User-agent: *\nDisallow: /\n');
  report.push({number,hostname,slug,title:demo.title,category:demo.category});
