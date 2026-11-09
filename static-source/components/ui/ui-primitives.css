@@ -1,0 +1,12 @@
+/* Scoped to opt-in ui components; never override generic h1/button/img. */
+.ui-section{padding:clamp(56px,7vw,95px) max(5.5vw,24px);max-width:var(--ds-container);margin-inline:auto}
+.ui-section-heading{margin-bottom:var(--ds-space-6)}
+.ui-section-heading h2{color:var(--ds-text);margin:0;font-size:clamp(32px,3.5vw,51px);line-height:1.08}
+.ui-eyebrow{display:block;color:var(--ds-accent);font:600 10px/1.6 monospace;letter-spacing:.12em;margin-bottom:var(--ds-space-3)}
+.ui-card{min-width:0;padding:var(--ds-space-5);border:1px solid var(--ds-border);border-radius:var(--ds-radius-md);background:var(--ds-card);color:var(--ds-text)}
+.ui-button{display:inline-flex;align-items:center;justify-content:center;gap:var(--ds-space-3);min-height:49px;padding:13px 19px;border:1px solid var(--ds-border);border-radius:var(--ds-radius-sm);font-size:12px;font-weight:600;line-height:1.4;text-decoration:none}
+.ui-button--primary{background:var(--ds-accent);color:var(--ds-accent-text);border-color:var(--ds-accent)}
+.ui-button--secondary{background:var(--ds-panel);color:var(--ds-text)}
+.ui-button:focus-visible{outline:2px solid var(--ds-focus-ring);outline-offset:4px}
+@media(max-width:640px){.ui-section{padding:54px 20px}.ui-card{padding:20px}}
+@media(prefers-reduced-motion:reduce){.ui-button{transition:none}}
