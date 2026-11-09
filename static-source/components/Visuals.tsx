@@ -10,13 +10,21 @@ export function PortfolioVisual({project}:{project:any}){
  const realPreview=Boolean(live)&&['gooninks','gojogja-travel'].includes(project.id);
  const mejaviPreview=project.id==='mejavi-skin'&&Boolean(safeHttpsUrl(live,['https://mejaviskincare.co.id','https://www.mejaviskincare.co.id']));
  const [screenshotFailed,setScreenshotFailed]=useState(false);
+ const [mejaviScreenshotStage,setMejaviScreenshotStage]=useState(0);
+ const mejaviScreenshotUrls=[
+  '/portfolio/mejavi-home-desktop.png',
+  'https://s0.wp.com/mshots/v1/'+encodeURIComponent('https://mejaviskincare.co.id/')+'?w=1280&h=900',
+  'https://s0.wp.com/mshots/v1/'+encodeURIComponent('https://mejaviskinc.github.io/mejavi-skin/')+'?w=1280&h=900'
+ ];
  // WordPress mshots creates a screenshot of the actual public homepage; it is not a fabricated mockup.
  const screenshot=realPreview?'https://s0.wp.com/mshots/v1/'+encodeURIComponent(live)+'?w=1440&h=1000':'';
  return <div className={'portfolio-domain-card portfolio-live-card portfolio-'+project.id}>
   <div className="portfolio-domain-bar"><span><i/><i/><i/></span><span>{domain}</span><span>↗</span></div>
   <div className="portfolio-site-preview">
    {mejaviPreview
-    ? <iframe src={live} title={'Website '+project.name} loading="lazy" tabIndex={-1} sandbox="allow-scripts allow-same-origin" referrerPolicy="no-referrer" allow="camera 'none'; microphone 'none'; geolocation 'none'; payment 'none'"/>
+    ? mejaviScreenshotStage<mejaviScreenshotUrls.length
+      ? <img className="portfolio-live-screenshot" src={mejaviScreenshotUrls[mejaviScreenshotStage]} alt={'Screenshot asli website '+project.name+' — '+domain} width="1440" height="1000" loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={()=>setMejaviScreenshotStage(stage=>Math.min(stage+1,mejaviScreenshotUrls.length))}/>
+      : <div className="portfolio-screenshot-fallback"><b>Website Mejavi Skin+</b><p>Pratinjau gambar belum tersedia. Buka website resminya melalui kartu ini.</p></div>
     : realPreview
     ? !screenshotFailed
       ? <img className="portfolio-live-screenshot" src={screenshot} alt={'Tangkapan layar halaman website '+project.name+' — '+domain} width="1440" height="1000" loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={()=>setScreenshotFailed(true)}/>
