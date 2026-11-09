@@ -45,16 +45,20 @@ jobs:
           test -n "$URL" || { echo "Mejavi is unreachable; refusing to generate fictional previews"; exit 1; }
           mkdir -p public-assets/portfolio
           for format in desktop mobile; do
-            if [ "$format" = desktop ]; then width=1440; height=900; else width=420; height=844; fi
+            if [ "$format" = desktop ]; then width=1440; height=900; else width=390; height=844; fi
             export DISPLAY=:97
             Xvfb :97 -screen 0 "${width}x${height}x24" -nolisten tcp >/tmp/mejavi-xvfb-${format}.log 2>&1 &
             xvfb_pid=$!
             sleep 2
-            "$CHROME" --no-sandbox --no-first-run --no-default-browser-check --disable-dev-shm-usage --disable-extensions --disable-gpu --remote-debugging-port=9223 --remote-allow-origins='*' --autoplay-policy=no-user-gesture-required --mute-audio --kiosk --window-position=0,0 --window-size="${width},${height}" --user-data-dir="/tmp/mejavi-capture-${format}" "$URL" >/tmp/mejavi-chrome-${format}.log 2>&1 &
+            "$CHROME" --no-sandbox --no-first-run --no-default-browser-check --disable-dev-shm-usage --disable-extensions --disable-gpu --disable-translate --disable-features=Translate,TranslateUI --lang=id-ID --remote-debugging-port=9223 --remote-allow-origins='*' --autoplay-policy=no-user-gesture-required --mute-audio --kiosk --window-position=0,0 --window-size="${width},${height}" --user-data-dir="/tmp/mejavi-capture-${format}" "$URL" >/tmp/mejavi-chrome-${format}.log 2>&1 &
             chrome_pid=$!
             # Give network assets time to start, then hide any loader blocking the original hero.
             sleep 9
-            node scripts/prepare-mejavi-capture.mjs
+            if [ "$format" = mobile ]; then
+              node scripts/prepare-mejavi-capture.mjs --mobile
+            else
+              node scripts/prepare-mejavi-capture.mjs
+            fi
             sleep 2
             poster="public-assets/portfolio/mejavi-home-${format}.png"
             ffmpeg -hide_banner -loglevel error -nostdin -y -f x11grab -video_size "${width}x${height}" -i :97.0+0,0 -frames:v 1 "$poster"
