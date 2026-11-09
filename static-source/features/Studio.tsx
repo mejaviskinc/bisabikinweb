@@ -253,7 +253,7 @@ function PageContent({path,data,wish,toggleWish,variants,add,cart,update,remove,
 if(parts[0]==='admin')return <Suspense fallback={<div className="section">Memuat studio…</div>}><Admin isAdmin={isAdmin} user={user}/></Suspense>;
 if(path==='/beli-website'||path==='/harga-website'||path.startsWith('/beli-website/')||path.startsWith('/desain/'))return <WebsiteStore path={path}/>;
 if(path==='/pesan-website')return <WebsiteCheckout/>;
-if(path==='/client/dashboard')return <WebsiteClientProjects/>;
+if(path==='/client/dashboard')return <WebsiteClientProjects whatsappNumber={data.settings.whatsapp||''}/>;
 if(path==='/merch')return <MerchStore products={data.products} wish={wish} toggleWish={toggleWish}/>;
 if(parts[0]==='merch'&&parts.length===2){const p=data.products.find((x:any)=>x.id===parts[1]);if(p)return <ProductDetail p={p} variants={variants} add={add} wish={wish} toggleWish={toggleWish} products={data.products}/>;}
 if(path==='/checkout')return <Checkout cart={cart} settings={data.settings} clear={clear}/>;
