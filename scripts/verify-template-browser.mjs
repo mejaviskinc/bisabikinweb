@@ -32,8 +32,8 @@ try{
     });
     const response=await page.goto('https://'+hostname+'/',{waitUntil:'domcontentloaded',timeout:35000});
     if(response?.status()!==200)throw Error('Root returned '+response?.status());
-    await page.locator('.wd-logo').waitFor({state:'visible',timeout:15000});
-    const brand=(await page.locator('.wd-logo').innerText()).trim();
+    await page.locator('.wd-header .wd-logo').waitFor({state:'visible',timeout:15000});
+    const brand=(await page.locator('.wd-header .wd-logo').innerText()).trim();
     if(!brand.toLowerCase().includes(demo.slug.split('-')[0])) {
      // Brand text may have a different first word than the slug on some designs.
      if(!brand)throw Error('Missing brand logo');
