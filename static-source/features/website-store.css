@@ -28,3 +28,32 @@
 .ws-client-payment{margin:16px 0;padding:18px;background:var(--panel);border:1px solid var(--line);border-radius:9px;display:flex;flex-direction:column;gap:9px;align-items:flex-start}
 .ws-client-payment>small{font:10px monospace;letter-spacing:1px;color:var(--accent)}.ws-client-payment p{font-size:12px;margin:0;line-height:1.7}.ws-client-payment .btn{font-size:12px;min-height:42px}
 .ws-payment-paid{display:flex;align-items:center;gap:8px;color:var(--accent);font-weight:700}
+
+/* Browser-style miniature actual website layouts in the 60-item design storefront */
+.ws-real-preview{width:100%;height:100%;background:var(--site-paper,#f4f1eb);color:var(--site-ink,#262b25);overflow:hidden;display:flex;flex-direction:column}
+.ws-real-topbar{height:19px;background:#111a;display:flex;align-items:center;gap:4px;padding:0 12px;color:#fff8}
+.ws-real-topbar i{width:5px;height:5px;border-radius:50%;background:#fff7}
+.ws-real-topbar span{font:8px monospace;margin-left:auto;opacity:.75}
+.ws-real-header{display:flex;justify-content:space-between;align-items:center;gap:10px;height:46px;padding:0 5%;border-bottom:1px solid color-mix(in srgb,var(--site-ink,#111),transparent 80%)}
+.ws-real-header strong{font-size:clamp(9px,1vw,17px);font-weight:850;letter-spacing:-.045em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.ws-real-header span{font:7px monospace;white-space:nowrap;letter-spacing:.04em}
+.ws-real-header b{display:flex;background:var(--site-ink,#111);color:var(--site-paper,#fff);align-items:center;justify-content:center;min-width:21px;min-height:21px;font-size:10px}
+.ws-real-hero{display:grid;grid-template-columns:1fr 1fr;min-height:0;flex:1}
+.ws-real-hero>div{padding:9% 8%;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:8px;min-width:0}
+.ws-real-hero small{font:8px monospace;letter-spacing:.11em;text-transform:uppercase;opacity:.7}
+.ws-real-hero strong{font-size:clamp(13px,2vw,29px);line-height:1.05;letter-spacing:-.06em;display:-webkit-box;-webkit-box-orient:vertical;-webkit-line-clamp:3;overflow:hidden}
+.ws-real-hero em{font-style:normal;background:var(--site-ink,#111);color:var(--site-paper,#fff);font:8px sans-serif;padding:7px 9px;margin-top:5px}
+.ws-real-hero img{display:block;width:100%;height:100%;min-height:0;object-fit:cover}
+.ws-real-bottom{display:flex;justify-content:space-around;align-items:center;gap:6px;padding:10px 3%;min-height:42px;background:var(--site-accent,#c4d5b0);font-size:clamp(7px,.8vw,10px);font-weight:700}
+.ws-real-bottom span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.ws-preview-fashion .ws-real-hero{grid-template-columns:1fr 1fr}.ws-preview-fashion .ws-real-hero strong{font-family:Georgia,serif}
+.ws-preview-restoran .ws-real-hero{grid-template-columns:1fr 1.2fr}.ws-preview-restoran .ws-real-hero strong{font-family:Georgia,serif}
+.ws-preview-ekspor .ws-real-hero{grid-template-columns:1.2fr 1fr}.ws-preview-ekspor .ws-real-hero{background:var(--site-ink,#102b40);color:var(--site-paper,#fff)}
+.ws-preview-company-profile .ws-real-hero{grid-template-columns:1.2fr 1fr}.ws-preview-company-profile .ws-real-hero strong{font-weight:600}
+.ws-preview-pendidikan .ws-real-bottom{border-top:4px solid var(--site-ink,#111)}
+.ws-preview-travel .ws-real-hero{grid-template-columns:1fr 1.3fr}
+.ws-preview-toko-online .ws-real-hero{grid-template-columns:1fr 1fr}
+.ws-preview-umkm .ws-real-hero strong{font-family:Georgia,serif}
+.ws-template:hover .ws-real-hero img{transform:scale(1.03);transition:transform .4s ease}
+@media(max-width:700px){.ws-real-topbar{height:14px}.ws-real-header{height:33px}.ws-real-header span{font-size:6px}.ws-real-hero strong{font-size:clamp(13px,4.3vw,22px)}.ws-real-hero em{font-size:7px}.ws-real-bottom{min-height:27px;padding:6px 3%}}
+@media(prefers-reduced-motion:reduce){.ws-template:hover .ws-real-hero img{transition:none;transform:none}}
