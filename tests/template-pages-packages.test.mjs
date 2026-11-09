@@ -19,7 +19,8 @@ for(let number=1;number<=60;number++){
  const html=await readFile(join(dir,'index.html'),'utf8');
  assert.match(html,/DEMO INTERAKTIF/);
  assert.match(html,/name="robots" content="noindex,nofollow"/);
- assert.ok(html.includes(websiteDemos[number-1].title),hostname+' must not show another demo brand');
+ const brand=websiteDemos[number-1].title.replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+ assert.ok(html.includes(brand),hostname+' must not show another demo brand');
  assert.equal(await readFile(join(dir,'demo',slug,'index.html'),'utf8'),html);
  const assetLinks=[...html.matchAll(/(?:src|href)="\/assets\/([^"]+)"/g)].map(m=>m[1]);
  assert.ok(assetLinks.length>=1,'Vite asset links missing in '+hostname);
