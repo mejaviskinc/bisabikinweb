@@ -59,12 +59,24 @@
 @media(prefers-reduced-motion:reduce){.ws-template:hover .ws-real-hero img{transition:none;transform:none}}
 
 
-/* A real, scaled desktop website is rendered in each demo card (not a repeated stock image). */
-.ws-live-canvas{position:absolute;inset:0;overflow:hidden;background:#f8f8f5;pointer-events:none}
-.ws-live-canvas iframe{position:absolute;top:0;left:0;width:320%;height:320%;border:0;background:#fff;transform:scale(.3125);transform-origin:top left;pointer-events:none}
-.ws-live-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:#3c443d;background:linear-gradient(135deg,#f3f4ee 0%,#d6e0d1 54%,#eff1ea 100%)}
-.ws-live-placeholder span{font:700 12px/1.2 monospace;letter-spacing:.22em}
-.ws-live-placeholder small{font-size:11px;color:#657367}
+/* Draw each site's actual first-fold content using the same demo design styles.
+   No iframe/network request for an embedded page: the catalog stays visible even
+   when framing headers, content blockers or client networks reject embeds. */
+.ws-live-canvas{position:absolute;inset:0;overflow:hidden;background:#e8eae1;pointer-events:none}
+.ws-demo-mini-site{position:absolute;inset:0;width:320%;height:320%;transform:scale(.3125);transform-origin:top left;overflow:hidden;isolation:isolate}
+.ws-demo-mini-site .wd-root{min-height:0;height:100%}
+.ws-demo-mini-site .wd-header .wd-nav span{font-size:12px;font-weight:600;white-space:nowrap}
+.ws-demo-mini-site .wd-header-contact{pointer-events:none}
+.ws-demo-mini-site .wd-root .wd-hero-copy>p{max-width:465px}
+.ws-demo-mini-site .wd-visual img{color:transparent}
+.ws-demo-mini-site .wd-hero-caption{margin-top:42px}
+.ws-demo-mini-site .wd-visual{min-height:360px}
+.ws-demo-mini-site .wd-preview-ribbon{position:relative}
+.ws-demo-mini-site .wd-root .wd-main-button{pointer-events:none}
+.ws-root .ws-toolbar{align-items:stretch}
+.ws-root .ws-toolbar>label{display:flex!important;flex-direction:row!important;align-items:center!important;gap:12px;min-height:50px;padding:0 16px;overflow:hidden}
+.ws-root .ws-toolbar>label>svg{flex:0 0 18px;width:18px;height:18px;margin:0}
+.ws-root .ws-toolbar>label>input{display:block!important;flex:1!important;min-width:0!important;width:100%!important;height:49px!important;min-height:0!important;max-height:49px!important;margin:0!important;padding:0!important;border:0!important;outline:0!important;border-radius:0!important;box-shadow:none!important;background:transparent!important}
 .ws-template-visual{position:relative}
 .ws-template-visual-link{position:absolute;inset:0;z-index:3;display:flex;justify-content:flex-end;align-items:flex-end;padding:14px;outline-offset:-3px}
 .ws-template-visual-link>span{display:inline-flex;align-items:center;gap:7px;padding:9px 12px;background:var(--accent);color:var(--accent-ink);border-radius:5px;font-size:11px;font-weight:700;opacity:0;transform:translateY(7px);transition:opacity .2s ease,transform .2s ease}
