@@ -1,0 +1,32 @@
+name: Read-only template subdomain DNS readiness audit
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/template-dns-audit.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  dns-audit:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Public NS, DNS, HTTPS and brand checks (no changes)
+        run: node scripts/audit-template-dns.mjs
+      - name: Upload DNS report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: template-dns-readiness
+          path: dns-readiness-report/
+          retention-days: 30
+          if-no-files-found: warn
