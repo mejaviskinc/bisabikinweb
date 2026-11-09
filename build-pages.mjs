@@ -9,6 +9,7 @@ import {provincePages,localityPages,provinceBySlug,localityByPath} from './stati
 import {industryPages,industryByPath} from './static-source/lib/industry-pages.mjs';
 import {keywordPages,keywordPageByPath} from './static-source/lib/seo-solutions.mjs';
 import {websiteDemos} from './static-source/lib/website-demos.mjs';
+import {demoRouteList,demoExperiences} from './static-source/lib/demo-site-config.mjs';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 const configFile=new URL('./vite.pages.mjs',import.meta.url).pathname;
 await build({configFile});
@@ -128,6 +129,10 @@ for(const [slug,label] of [['umkm','UMKM'],['company-profile','Company Profile']
 for(const demo of websiteDemos){
  pages['/desain/'+demo.slug]=['Desain Website '+demo.title+' | BisaBikinWeb',demo.description+' Lihat dan coba live demo '+demo.title+' sebelum memesan website.'];
  pages['/demo/'+demo.slug]=['Live Demo Website '+demo.title, 'Demo website interaktif '+demo.title+' untuk contoh desain '+demo.tagline+'. Pilih desain melalui katalog BisaBikinWeb.'];
+ for(const subPath of demoRouteList(demo).filter(Boolean)){
+  const pageLabel=subPath.includes('/')?subPath.split('/').slice(-1)[0].replace(/-/g,' '):subPath.replace(/-/g,' ');
+  pages['/demo/'+demo.slug+'/'+subPath]=[pageLabel+' | '+demo.title+' — Website Demo', 'Halaman '+pageLabel+' untuk website contoh '+demo.title+' dalam industri '+demoExperiences[demo.category].label+'. Semua data bersifat simulasi.'];
+ }
 }
 for(const [slug,label] of [['studio-umkm','Studio UMKM'],['corporate-grid','Corporate Grid'],['shop-essentials','Shop Essentials'],['global-trade','Global Trade'],['tour-story','Tour Story'],['cafe-menu','Cafe Menu'],['atelier','Atelier'],['campus-info','Campus Info']])pages['/desain/'+slug]=['Konsep Desain Website '+label,'Lihat konsep desain '+label+' untuk menentukan kebutuhan website, fitur, dan paket pembuatan website profesional.'];
 pages['/solusi']=['Solusi Website untuk Bisnis, Industri & Daerah','Temukan layanan website, paket harga, contoh proyek fashion, skincare, travel, dan cakupan layanan online BisaBikinWeb sesuai kebutuhan bisnis Anda.'];
