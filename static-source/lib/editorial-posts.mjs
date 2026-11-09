@@ -1,3 +1,4 @@
+import {editorial20261110} from './editorial-20261110.mjs';
 import {publishedBusiness20261109} from './published-business-20261109.mjs';
 import {publishedNews20261107} from './published-news-20261107.mjs';
 import {published20261104} from './published-20261104.mjs';
@@ -637,6 +638,9 @@ editorialPosts.push(...seoCluster20261109.filter(post => !editorialPosts.some(ex
 
 // Nov 9: ten original business-news summaries with source and image-license metadata.
 editorialPosts.push(...publishedBusiness20261109.filter(post => !editorialPosts.some(existing => existing.id === post.id)));
+
+// 10 November 2026: source-checked export guide and international trade news.
+editorialPosts.push(...editorial20261110.filter(post => !editorialPosts.some(existing => existing.id === post.id)));
 
 export function mergeEditorialPosts(articles = []) {
   const source = Array.isArray(articles) ? articles : [];
