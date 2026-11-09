@@ -14,6 +14,12 @@ try{
   const page=await context.newPage();
   const errors=[];
   page.on('pageerror',e=>errors.push(String(e.message)));
+  // Keep repository demo data stable while testing. Third-party images are allowed;
+  // dynamic catalog/auth requests would otherwise replace card nodes mid-screenshot.
+  await page.route('**/*',request=>{
+    const u=new URL(request.request().url());
+    return ['127.0.0.1','localhost','images.unsplash.com'].includes(u.hostname)?request.continue():request.abort();
+  });
   const response=await page.goto('http://127.0.0.1:4173/beli-website/',{waitUntil:'domcontentloaded',timeout:30000});
   assert.equal(response?.status(),200,device.name+' site HTTP status');
   await page.locator('[data-industry-preview]').first().waitFor({state:'visible'});
@@ -21,23 +27,21 @@ try{
   assert.equal(allCategories.length,8,'All 8 industry structures must be available');
   const company=page.getByRole('button',{name:/Company Profile/i}).first();
   await company.click();
-  await page.waitForFunction(()=>[...document.querySelectorAll('.ws-template .ws-type-badge')].every(x=>x.textContent?.includes('COMPANY PROFILE')));
+  await page.waitForFunction(()=>document.querySelectorAll('.ws-template').length>=7&&[...document.querySelectorAll('.ws-template .ws-type-badge')].every(x=>x.textContent?.includes('COMPANY PROFILE')));
   assert.ok(await page.locator('.ws-template').count()>=7,'Company profile templates should be present');
   assert.ok(await page.locator('.ws-ip-corp-services').count()>=7,'Every corporate template should show corporate service anatomy');
   assert.equal(await page.locator('.ws-ip-products').count(),0,'Company profile must not show ecommerce product grids');
   const companyCard=page.locator('.ws-template').first();
-  await companyCard.scrollIntoViewIfNeeded();
-  await page.waitForTimeout(300);
+  await page.waitForTimeout(550);
   const companyImage=await companyCard.screenshot({path:root+'/company-profile-'+device.name+'.png',animations:'disabled'});
   const ecommerce=page.getByRole('button',{name:/E-Commerce/i}).first();
   await ecommerce.click();
-  await page.waitForFunction(()=>[...document.querySelectorAll('.ws-template .ws-type-badge')].every(x=>x.textContent?.includes('E-COMMERCE')));
+  await page.waitForFunction(()=>document.querySelectorAll('.ws-template').length>=7&&[...document.querySelectorAll('.ws-template .ws-type-badge')].every(x=>x.textContent?.includes('E-COMMERCE')));
   assert.ok(await page.locator('.ws-template').count()>=7,'E-commerce templates should be present');
   assert.ok(await page.locator('.ws-ip-products').count()>=7,'Every e-commerce template needs product cards with example prices');
   assert.equal(await page.locator('.ws-ip-corp-services').count(),0,'E-commerce must not show corporate service grids');
   const ecommerceCard=page.locator('.ws-template').first();
-  await ecommerceCard.scrollIntoViewIfNeeded();
-  await page.waitForTimeout(300);
+  await page.waitForTimeout(550);
   const ecommerceImage=await ecommerceCard.screenshot({path:root+'/ecommerce-'+device.name+'.png',animations:'disabled'});
   assert.equal(companyImage.equals(ecommerceImage),false,'Two industry screenshots must be different');
   await page.getByRole('button',{name:/Semua Desain/i}).first().click();
