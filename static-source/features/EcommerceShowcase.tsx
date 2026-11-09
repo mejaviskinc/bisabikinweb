@@ -65,8 +65,8 @@ export default function EcommerceShowcase(){
   <section className="section ec-industry" aria-labelledby="ec-industries-heading">
    <div className="ec-industry-intro"><span className="eyebrow">DESIGNED AROUND YOUR BUSINESS</span><h2 id="ec-industries-heading">Beda industri.<br/><em>Beda cara berjualan.</em></h2><p>Toko fashion memerlukan ukuran dan preorder. Skincare memerlukan detail produk. Makanan dan produk digital mempunyai alur pembelian berbeda. Struktur website harus mengikuti kebutuhan bisnis, bukan template yang dipaksakan.</p><a className="text-link" href="/industri/">Jelajahi solusi industri <ArrowUpRight size={18}/></a></div>
    <div className="ec-industry-cards">
-    <a href="/industri/fashion/" className="ec-industry-card"><img src="/public-assets/editorial-covers/katalog-fashion-online-foto-ukuran-varian.webp" loading="lazy" alt="Ilustrasi katalog fashion dan variasi produk"/><span>01 / FASHION & LIFESTYLE</span><h3>Ukuran, warna, koleksi & preorder <ArrowUpRight size={19}/></h3></a>
-    <a href="/industri/skincare/" className="ec-industry-card"><img src="/public-assets/editorial-covers/website-skincare-komposisi-legalitas-klaim-produk.webp" loading="lazy" alt="Ilustrasi website produk skincare"/><span>02 / BEAUTY & SKINCARE</span><h3>Detail manfaat, komposisi & varian <ArrowUpRight size={19}/></h3></a>
+    <a href="/industri/fashion/" className="ec-industry-card"><img src="/editorial-covers/katalog-fashion-online-foto-ukuran-varian.webp" loading="lazy" alt="Ilustrasi katalog fashion dan variasi produk"/><span>01 / FASHION & LIFESTYLE</span><h3>Ukuran, warna, koleksi & preorder <ArrowUpRight size={19}/></h3></a>
+    <a href="/industri/skincare/" className="ec-industry-card"><img src="/editorial-covers/website-skincare-komposisi-legalitas-klaim-produk.webp" loading="lazy" alt="Ilustrasi website produk skincare"/><span>02 / BEAUTY & SKINCARE</span><h3>Detail manfaat, komposisi & varian <ArrowUpRight size={19}/></h3></a>
    </div>
   </section>
 
