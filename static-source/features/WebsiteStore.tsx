@@ -6,6 +6,7 @@ import {getWebsiteCatalog,websiteStoreApi} from '../lib/website-store-api';
 import {customerGetSession} from '../lib/customer';
 import {whatsapp} from '../lib/client';
 import {websiteDemos} from '../lib/website-demos.mjs';
+import {publicDemoUrl,TEMPLATE_SUBDOMAINS_READY} from '../lib/template-subdomains.mjs';
 import {creativeFor} from '../lib/demo-creative.mjs';
 import IndustrySitePreview from '../components/IndustrySitePreview';
 import DokuPaymentChannels from '../components/DokuPaymentChannels';
@@ -13,7 +14,7 @@ import DokuPaymentChannels from '../components/DokuPaymentChannels';
 type Template={slug:string;title:string;category:string;description:string;features?:string[];image_url?:string;demo_url?:string;theme?:string;concept?:boolean};
 type Package={slug:string;name:string;description:string;base_price:number|null;features:string[]};
 const legacyConcepts:Template[]=websiteConcepts.map(x=>({...x,concept:true}));
-const conceptTemplates:Template[]=websiteDemos.map(d=>({slug:d.slug,title:d.title,category:d.category,description:d.description,features:d.highlights,image_url:d.image,demo_url:'https://bisabikinweb.site/demo/'+d.slug+'/',concept:false,theme:d.category}));
+const conceptTemplates:Template[]=websiteDemos.map(d=>({slug:d.slug,title:d.title,category:d.category,description:d.description,features:d.highlights,image_url:d.image,demo_url:publicDemoUrl(d.slug,{subdomainsReady:TEMPLATE_SUBDOMAINS_READY}),concept:false,theme:d.category}));
 const basePackages:Package[]=websitePackages.map(x=>({...x,features:[...x.features]}));
 const pendingConsultationKey='bbweb_pending_website_consultation';
 function rememberPaidConsultation(orderId:string){try{sessionStorage.setItem(pendingConsultationKey,orderId)}catch{}}
@@ -58,7 +59,7 @@ function Preview({item}:{item:Template}){
  const src=safeUrl(item.image_url);
  const demoUrl=safeUrl(item.demo_url);
  const liveDemo=websiteDemos.find(d=>d.slug===item.slug);
- const hasLivePreview=Boolean(liveDemo&&/^https:\/\/bisabikinweb\.site\/demo\/[a-z0-9-]+\/$/.test(demoUrl));
+ const hasLivePreview=Boolean(liveDemo&&demoUrl===publicDemoUrl(item.slug,{subdomainsReady:TEMPLATE_SUBDOMAINS_READY}));
  return <div className={'ws-preview ws-preview-'+(item.theme||'graphite')}>
   {hasLivePreview?<LiveSitePreview slug={item.slug}/>:
   src?<img src={src} alt={'Pratinjau '+item.title} loading="lazy" width="700" height="420"/>:

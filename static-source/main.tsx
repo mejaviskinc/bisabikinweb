@@ -13,6 +13,7 @@ import WebsiteStoreAdmin from './features/WebsiteStoreAdmin';
 import DigitalOrdersAdmin from './features/DigitalOrdersAdmin';
 import './features/digital-admin.css';
 import WebsiteLiveDemo from './features/WebsiteLiveDemo';
+import {templateDemoForHostname} from './lib/template-subdomains.mjs';
 import {defaults} from './lib/data';
 import {mergeEditorialPosts} from './lib/editorial-posts.mjs';
 import {loadPublicContent} from './lib/supabase';
@@ -35,7 +36,9 @@ import './features/website-store-admin.css';
 import './features/website-sales-dashboard.css';
 import './features/website-live-demo.css';
 
-const path=location.pathname.replace(/\/+$/,'')||'/';
+// A templateN hostname serves the corresponding demo at the hostname root.
+const activeTemplate=templateDemoForHostname(location.hostname);
+const path=activeTemplate?'/demo/'+activeTemplate.slug:(location.pathname.replace(/\/+$/,'')||'/');
 function merchVariants(products:any[]){return (products||[]).filter(p=>Number.isSafeInteger(Number(p.price))&&Number(p.price)>0&&Number.isInteger(Number(p.stock))&&Number(p.stock)>0).map(p=>({id:p.id,product_id:p.id,size:'Standard',color:p.color||'Default',price:Number(p.price),stock:Number(p.stock),active:true}))}
 
 function PublicClient(){
@@ -169,4 +172,6 @@ const storefrontMatch=path.match(/^\/toko\/([a-z0-9-]+)$/i);
 const englishPath=path==='/en'?'/':path.startsWith('/en/')?path.slice(3):null;
 const app=path.startsWith('/demo/')?<WebsiteLiveDemo path={path}/>:englishPath && hasEnglishPage(englishPath)?<EnglishStudio path={englishPath}/>:path==='/seller'?<SellerDashboard/>:path==='/admin/digital-store'?<DigitalOrdersAdmin/>:path==='/admin/website-store'?<WebsiteStoreAdmin/>:path.startsWith('/admin/sellers')?<SellerAdmin/>:path.startsWith('/admin/iklan')?<AdsManager/>:path.startsWith('/admin/payments')?<PaymentGatewayAdmin/>:path.startsWith('/admin')?<AdminWithAdsMenu/>:storefrontMatch?<Storefront slug={storefrontMatch[1].toLowerCase()}/>:<PublicClient/>;
 const root=document.getElementById('root')!;
-if(path.startsWith('/admin')||path==='/seller'||storefrontMatch)createRoot(root).render(app);else hydrateRoot(root,app);
+// A non-home query param cannot hydrate the static demo homepage markup.
+const templateDeepLink=Boolean(activeTemplate&&new URLSearchParams(location.search).get('halaman'));
+if(path.startsWith('/admin')||path==='/seller'||storefrontMatch||templateDeepLink)createRoot(root).render(app);else hydrateRoot(root,app);

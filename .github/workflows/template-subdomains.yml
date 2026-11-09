@@ -1,0 +1,110 @@
+name: Template1-60 Subdomains (safe validation and manual activation)
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'static-source/lib/template-subdomains.mjs'
+      - 'static-source/main.tsx'
+      - 'static-source/features/WebsiteStore.tsx'
+      - 'static-source/features/WebsiteLiveDemo.tsx'
+      - 'cloudflare/**'
+      - 'scripts/provision-template-dns.mjs'
+      - 'scripts/verify-template-browser.mjs'
+      - 'tests/template-subdomains.test.mjs'
+      - '.github/workflows/template-subdomains.yml'
+  workflow_dispatch:
+    inputs:
+      activate:
+        description: 'Provision Cloudflare DNS and deploy 60 exact Worker routes (requires existing Cloudflare secrets)'
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    name: Validate all 60 domain mappings and site build
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci --ignore-scripts --no-audit --no-fund
+      - run: npm test
+      - run: BBWEB_OFFLINE_BUILD=1 npm run build
+      - run: npm run test:output
+      - name: Install Playwright Chromium for subdomain browser QA
+        run: |
+          npm install --no-save --package-lock=false @playwright/test@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Start local static-site server
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory site-dist > /tmp/bbw-templates-http.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl -fsS -o /dev/null http://127.0.0.1:4173/demo/teras-rona/; then break; fi
+            sleep 1
+          done
+          curl -fsS -o /dev/null http://127.0.0.1:4173/demo/teras-rona/
+      - name: Verify real browser hydration and navigation on sample template hostnames
+        run: node scripts/verify-template-browser.mjs
+      - name: Upload desktop and mobile browser screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: template-hostname-browser-qa
+          path: template-browser-checks/
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Generate DNS change plan (dry-run)
+        run: node scripts/provision-template-dns.mjs > template-dns-plan.json
+      - name: Upload DNS plan for human approval
+        uses: actions/upload-artifact@v4
+        with:
+          name: template-subdomain-dns-plan
+          path: template-dns-plan.json
+          retention-days: 30
+
+  activate:
+    name: Manual Cloudflare DNS and Worker activation
+    if: ${{ github.event_name == 'workflow_dispatch' && inputs.activate == true && github.ref == 'refs/heads/main' }}
+    needs: validate
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    environment: production-domains
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+      - name: Fail closed if Cloudflare access not configured
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: |
+          test -n "$CLOUDFLARE_API_TOKEN"
+          test -n "$CLOUDFLARE_ZONE_ID"
+          test -n "$CLOUDFLARE_ACCOUNT_ID"
+      - name: Provision 60 scoped CNAME records (refuses DNS conflicts)
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ZONE_ID: ${{ secrets.CLOUDFLARE_ZONE_ID }}
+        run: node scripts/provision-template-dns.mjs --apply
+      - name: Publish Worker for template1 to template60 only
+        env:
+          CLOUDFLARE_API_TOKEN: ${{ secrets.CLOUDFLARE_API_TOKEN }}
+          CLOUDFLARE_ACCOUNT_ID: ${{ secrets.CLOUDFLARE_ACCOUNT_ID }}
+        run: npx --yes wrangler@4 deploy --config cloudflare/wrangler.json
+      - name: Next step
+        run: |
+          echo "Check all 60 HTTPS hostnames and authentication redirects."
+          echo "Do not enable catalog subdomain links until live checks are successful."

@@ -27,7 +27,7 @@ export default function WebsiteLiveDemo({path}:{path:string}){
  const demo=demoBySlug[slug] as Demo|undefined;
  const [mobile,setMobile]=useState(false),[cart,setCart]=useState<Record<string,number>>({}),[cartOpen,setCartOpen]=useState(false);
  const [sent,setSent]=useState(false),[submittedName,setSubmittedName]=useState(''),[query,setQuery]=useState(''),[selected,setSelected]=useState('all');
- if(!demo)return <main className="wd-missing"><h1>Demo tidak ditemukan.</h1><p>Pilih salah satu desain yang tersedia di katalog BisaBikinWeb.</p><a href="/beli-website/">Kembali ke katalog</a></main>;
+ if(!demo)return <main className="wd-missing"><h1>Demo tidak ditemukan.</h1><p>Pilih salah satu desain yang tersedia di katalog BisaBikinWeb.</p><a href="https://bisabikinweb.site/beli-website/">Kembali ke katalog</a></main>;
  const d=demo;
  const experience=brandPositioning(d);
  const creative=creativeFor(d.slug);
@@ -41,7 +41,8 @@ export default function WebsiteLiveDemo({path}:{path:string}){
  const navigate=(page:string,item?:number)=>{setActivePage(page);if(page==='detail'&&item!==undefined)setActiveItem(item);setMobile(false);setSent(false);if(typeof window!=='undefined'){const url=new URL(window.location.href);if(page==='home')url.searchParams.delete('halaman');else url.searchParams.set('halaman',page);if(page==='detail')url.searchParams.set('item',String(item??activeItem));else url.searchParams.delete('item');window.history.pushState({},'',url);window.scrollTo({top:0,behavior:'instant'});}};
  const style={'--wd-ink':d.palette.ink,'--wd-accent':d.palette.accent,'--wd-paper':d.palette.paper,'--wd-deep':d.palette.deep} as React.CSSProperties;
  const websiteCart=cartEnabled.has(d.category);
- const quoteLink='/pesan-website/?desain='+encodeURIComponent(d.slug)+'&paket='+encodeURIComponent(d.packageSlug);
+ // Purchases must remain on the apex to reuse buyer login and payment sessions.
+ const quoteLink='https://bisabikinweb.site/pesan-website/?desain='+encodeURIComponent(d.slug)+'&paket='+encodeURIComponent(d.packageSlug);
  const sum=Object.values(cart).reduce((a,n)=>a+n,0);
  const total=d.offerings.reduce((s,p)=>s+(cart[p.name]||0)*p.price,0);
  const visible=d.offerings.filter(p=>selected==='all'||selected===p.name).filter(p=>p.name.toLowerCase().includes(query.trim().toLowerCase()));
@@ -50,7 +51,7 @@ export default function WebsiteLiveDemo({path}:{path:string}){
  const nav=experience.nav.map((label:string,i:number)=>[label,navPages[i]]);
  function submitContact(e:React.FormEvent<HTMLFormElement>){e.preventDefault();const fields=new FormData(e.currentTarget);setSubmittedName(String(fields.get('name')||'Pelanggan').slice(0,60));setSent(true)}
  return <div className={'wd-root wd-layout-'+d.layout+' wd-sector-'+d.category} style={style}>
-   <div className="wd-preview-ribbon"><div><span className="wd-live-dot"/>DEMO INTERAKTIF • {d.title.toUpperCase()} <span className="wd-preview-suffix">— Brand contoh, bukan bisnis sungguhan</span></div><div><a href="/beli-website/">Semua 60 desain <ArrowUpRight size={13}/></a><a className="wd-ribbon-buy" href={quoteLink}>Pakai desain ini <ArrowRight size={14}/></a></div></div>
+   <div className="wd-preview-ribbon"><div><span className="wd-live-dot"/>DEMO INTERAKTIF • {d.title.toUpperCase()} <span className="wd-preview-suffix">— Brand contoh, bukan bisnis sungguhan</span></div><div><a href="https://bisabikinweb.site/beli-website/">Semua 60 desain <ArrowUpRight size={13}/></a><a className="wd-ribbon-buy" href={quoteLink}>Pakai desain ini <ArrowRight size={14}/></a></div></div>
    <header className="wd-header"><a className="wd-logo" href={'/demo/'+d.slug+'/'} onClick={e=>{e.preventDefault();navigate('home')}}>{d.title}<small>®</small></a>
     <nav className={mobile?'wd-nav wd-nav-open':'wd-nav'} aria-label={'Navigasi '+d.title}>{nav.map(([label,page])=><a href={'?halaman='+page} aria-current={activePage===page?'page':undefined} key={label} onClick={e=>{e.preventDefault();navigate(page)}}>{label}</a>)}</nav>
     <div className="wd-header-actions">{websiteCart&&<button aria-label={'Lihat keranjang contoh, '+sum+' item'} className="wd-cart-toggle" onClick={()=>setCartOpen(true)}><ShoppingBag size={17}/>{sum>0&&<b>{sum}</b>}</button>}
