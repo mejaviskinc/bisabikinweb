@@ -34,6 +34,7 @@ import './features/website-store.css';
 import './features/website-store-admin.css';
 import './features/website-sales-dashboard.css';
 import './features/website-live-demo.css';
+import './features/website-experience.css';
 
 const path=location.pathname.replace(/\/+$/,'')||'/';
 function merchVariants(products:any[]){return (products||[]).filter(p=>Number.isSafeInteger(Number(p.price))&&Number(p.price)>0&&Number.isInteger(Number(p.stock))&&Number(p.stock)>0).map(p=>({id:p.id,product_id:p.id,size:'Standard',color:p.color||'Default',price:Number(p.price),stock:Number(p.stock),active:true}))}
