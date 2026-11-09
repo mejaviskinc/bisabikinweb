@@ -6,6 +6,7 @@ import {ShieldCheck} from 'lucide-react';
  */
 const paymentStyles=`#bbw-doku-methods{display:block;width:100%;margin-top:24px;padding:18px 0 24px;border-top:1px solid var(--line,#293027);border-bottom:1px solid var(--line,#293027);color:var(--text,#f2f3ee)}
 #bbw-doku-methods *{box-sizing:border-box}
+#bbw-doku-methods .bbw-payment-heading{margin:0 0 22px;color:var(--text,#f2f3ee);font-size:clamp(24px,2.5vw,32px);font-weight:700;line-height:1.2;letter-spacing:-.045em}
 #bbw-doku-methods .bbw-payment-group{margin:0 0 25px}
 #bbw-doku-methods .bbw-payment-group:last-of-type{margin-bottom:18px}
 #bbw-doku-methods .bbw-payment-group h4{margin:0 0 12px;color:var(--muted,#a5aca2);font-size:11px;font-weight:650;letter-spacing:.055em;text-transform:uppercase}
@@ -63,8 +64,9 @@ function PaymentBrand({method}:{method:(typeof paymentGroups)[number]['methods']
 }
 
 export default function FooterPaymentMethods({english=false}:{english?:boolean}){
- return <section id="bbw-doku-methods" aria-label={english?'Available payment methods':'Pilihan metode pembayaran'}>
+ return <section id="bbw-doku-methods" aria-labelledby="bbw-doku-title">
   <style>{paymentStyles}</style>
+  <h3 id="bbw-doku-title" className="bbw-payment-heading">{english?'Payment Methods':'Metode Pembayaran'}</h3>
   {paymentGroups.map(group=><div className="bbw-payment-group" key={group.id}>
    <h4>{english?group.titleEn:group.titleId}</h4>
    <div className="bbw-payment-grid">{group.methods.map(method=><PaymentBrand method={method} key={method.id}/>)}</div>
