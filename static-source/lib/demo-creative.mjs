@@ -259,7 +259,7 @@ export const creativeDirections={
     "headline": "Menghadirkan rasa di setiap meja",
     "story": "Menu ditata menurut hidangan, pendamping dan kebutuhan acara."
   },
-  "pasta-co": {
+  "pasta-and-co": {
     "hero": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1600&q=85",
     "mood": "Italian comfort",
     "headline": "Pasta dibuat untuk dibagikan",
