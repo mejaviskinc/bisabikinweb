@@ -83,6 +83,14 @@ export async function customerSignUp(email: string, password: string, metadata: 
   return { session: payload?.access_token ? saveSession(payload) : null, user: payload?.user || payload };
 }
 
+/** Re-send the signup confirmation token using Supabase Auth's signup template. */
+export async function customerResendSignupOtp(email: string): Promise<void> {
+  await request('/auth/v1/resend', {
+    method: 'POST',
+    body: { email: email.trim().toLowerCase(), type: 'signup' }
+  });
+}
+
 export async function customerSendPasswordReset(email: string): Promise<void> {
   const redirect = typeof window !== 'undefined' ? window.location.origin + '/account/' : 'https://bisabikinweb.site/account/';
   await request('/auth/v1/recover?redirect_to=' + encodeURIComponent(redirect), {
