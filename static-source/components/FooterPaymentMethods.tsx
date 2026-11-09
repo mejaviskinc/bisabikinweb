@@ -15,14 +15,14 @@ const paymentChannels = [
   {label:'Indomaret', detail:'Retail payment', file:'Indomaret.svg'},
   {label:'Danamon', detail:'Bank transfer', file:'Danamon_(2024).svg'},
   {label:'PermataBank', detail:'Bank transfer', file:'Permata_Bank_(2024).svg'},
-  {label:'Bank Sinarmas', detail:'Bank transfer', file:'Bank_Sinarmas.png'},
   {label:'Mandiri VA', detail:'Mandiri Virtual Account', file:'Bank_Mandiri_logo_2016.svg'},
   {label:'BCA VA', detail:'BCA Virtual Account', file:'Bank_Central_Asia.svg'},
   {label:'QRIS', detail:'QR payment', file:'Logo_QRIS.svg'},
   {label:'OVO', detail:'E-wallet', src:'https://cdn.prod.website-files.com/674ab654de930b217c6389c1/6768ffe4b3a0965dc1ecc388_ovo.avif'},
   {label:'DANA', detail:'E-wallet'},
   {label:'ShopeePay', detail:'E-wallet'},
-  {label:'Kartu debit / kredit', detail:'Pembayaran kartu'}
+  {label:'Kartu debit / kredit', detail:'Pembayaran kartu'},
+  {label:'PayLater', detail:'Cicilan jika tersedia di DOKU'}
 ] as const;
 
 function logoUrl(item:(typeof paymentChannels)[number]) {
