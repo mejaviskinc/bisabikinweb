@@ -39,7 +39,17 @@
       "editorial_status": "needs_verification",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-10"
+      "recheck_after": "2026-11-10",
+      "next_article_candidate": {
+        "title": "Schema BlogPosting dan Canonical Website Bisnis: Implementasi dan Cara Mengujinya",
+        "slug": "schema-blogposting-website-bisnis-canonical-seo",
+        "keyword": "cara pasang schema blogposting canonical website",
+        "search_intent": "informational technical",
+        "reader_pain_point": "Website bisnis memiliki metadata artikel tidak lengkap atau canonical saling bertentangan",
+        "source_url": "https://developers.google.com/search/docs/appearance/structured-data/article",
+        "verification": "official_google_guidance_verified; current_site_implementation_not_tested",
+        "status": "research_only_not_published"
+      }
     },
     {
       "id": "furniture-kayu-2026-11-10",
@@ -58,7 +68,17 @@
       "editorial_status": "needs_verification",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-10"
+      "recheck_after": "2026-11-10",
+      "next_article_candidate": {
+        "title": "Kemasan Kayu Ekspor: Panduan ISPM 15 untuk Palet, Peti, dan Dokumen Pengiriman",
+        "slug": "panduan-kemasan-kayu-ekspor-ispm15-palet-peti",
+        "keyword": "aturan ISPM 15 kemasan kayu ekspor",
+        "search_intent": "informational compliance",
+        "reader_pain_point": "Eksportir furnitur tidak tahu kapan palet dan peti kayu harus diberi perlakuan/marking",
+        "source_url": "https://www.ippc.int/en/publications/640/",
+        "verification": "source_standard_verified; destination_rules_need_verification",
+        "status": "research_only_not_published"
+      }
     },
     {
       "id": "kakao-coklat-2026-11-10",
@@ -134,7 +154,17 @@
       "editorial_status": "needs_verification",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-10"
+      "recheck_after": "2026-11-10",
+      "next_article_candidate": {
+        "title": "Commercial Invoice dan Packing List Ekspor: Perbedaan, Kolom Penting, dan Kesalahan Umum",
+        "slug": "cara-membuat-commercial-invoice-packing-list-ekspor",
+        "keyword": "perbedaan commercial invoice packing list ekspor",
+        "search_intent": "informational transactional",
+        "reader_pain_point": "Dokumen buyer dan freight forwarder tidak konsisten sehingga pengiriman tertahan",
+        "source_url": "https://www.trade.gov/common-export-documents",
+        "verification": "general_guide_verified; Indonesian_rules_need_verification",
+        "status": "research_only_not_published"
+      }
     },
     {
       "id": "manajemen-risiko-2026-11-10",
@@ -153,7 +183,17 @@
       "editorial_status": "needs_verification",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-10"
+      "recheck_after": "2026-11-10",
+      "next_article_candidate": {
+        "title": "Checklist Verifikasi Buyer Ekspor sebelum Kirim Sampel atau Menyetujui Pembayaran",
+        "slug": "checklist-verifikasi-buyer-ekspor-sebelum-kirim-sampel",
+        "keyword": "cara verifikasi buyer ekspor sebelum transaksi",
+        "search_intent": "informational risk mitigation",
+        "reader_pain_point": "UMKM tidak memiliki proses due diligence untuk permintaan sampel, kontrak, dan syarat pembayaran",
+        "source_url": "https://www.trade.gov/common-export-documents",
+        "verification": "general_export_documentation_verified; country_specific_compliance_unverified",
+        "status": "research_only_not_published"
+      }
     },
     {
       "id": "peluang-usaha-2026-11-10",
@@ -348,6 +388,66 @@
       "schedule_status": "No verified per-post scheduling",
       "source_verified": "Kementerian Perdagangan, release dated 2026-11-09",
       "editorial_next_step": "Expand four unique evergreen articles across other industry clusters, with legal images and QA before publish"
+    },
+    "2026-11-10T03:34:25+07:00": {
+      "repository_module": "static-source/lib/editorial-20261110.mjs",
+      "repo_nonnews_count_confirmed": 1,
+      "repo_news_count_confirmed": 1,
+      "remaining_nonnews_target": 4,
+      "cms_status": "not independently verified",
+      "cover_status": "today's evergreen slug absent from editorial-cover-map.mjs; no verified generated WebP",
+      "live_status": "site URL could not be opened by web tool; not verified",
+      "deployment_status": "latest GitHub Actions run checked, but not tied to verified article URL",
+      "schedule_status": "no verified per-post scheduling",
+      "workflow_status": "generate-editorial-covers.yml exists; repository secret availability not readable and generation not triggered",
+      "new_verified_references": [
+        "https://www.ippc.int/en/publications/640/",
+        "https://www.trade.gov/common-export-documents",
+        "https://developers.google.com/search/docs/appearance/structured-data/article"
+      ],
+      "editorial_plan": [
+        {
+          "category": "Furniture & Kayu",
+          "slug": "panduan-kemasan-kayu-ekspor-ispm15-palet-peti",
+          "title": "Kemasan Kayu Ekspor: Panduan ISPM 15 untuk Palet, Peti, dan Dokumen Pengiriman",
+          "keyword": "aturan ISPM 15 kemasan kayu ekspor",
+          "intent": "informational compliance",
+          "pain": "Eksportir furnitur tidak tahu kapan palet dan peti kayu harus diberi perlakuan/marking",
+          "source": "https://www.ippc.int/en/publications/640/",
+          "status": "source_standard_verified; destination_rules_need_verification"
+        },
+        {
+          "category": "Logistik & Pengiriman",
+          "slug": "cara-membuat-commercial-invoice-packing-list-ekspor",
+          "title": "Commercial Invoice dan Packing List Ekspor: Perbedaan, Kolom Penting, dan Kesalahan Umum",
+          "keyword": "perbedaan commercial invoice packing list ekspor",
+          "intent": "informational transactional",
+          "pain": "Dokumen buyer dan freight forwarder tidak konsisten sehingga pengiriman tertahan",
+          "source": "https://www.trade.gov/common-export-documents",
+          "status": "general_guide_verified; Indonesian_rules_need_verification"
+        },
+        {
+          "category": "Digitalisasi & Website",
+          "slug": "schema-blogposting-website-bisnis-canonical-seo",
+          "title": "Schema BlogPosting dan Canonical Website Bisnis: Implementasi dan Cara Mengujinya",
+          "keyword": "cara pasang schema blogposting canonical website",
+          "intent": "informational technical",
+          "pain": "Website bisnis memiliki metadata artikel tidak lengkap atau canonical saling bertentangan",
+          "source": "https://developers.google.com/search/docs/appearance/structured-data/article",
+          "status": "official_google_guidance_verified; current_site_implementation_not_tested"
+        },
+        {
+          "category": "Manajemen Risiko",
+          "slug": "checklist-verifikasi-buyer-ekspor-sebelum-kirim-sampel",
+          "title": "Checklist Verifikasi Buyer Ekspor sebelum Kirim Sampel atau Menyetujui Pembayaran",
+          "keyword": "cara verifikasi buyer ekspor sebelum transaksi",
+          "intent": "informational risk mitigation",
+          "pain": "UMKM tidak memiliki proses due diligence untuk permintaan sampel, kontrak, dan syarat pembayaran",
+          "source": "https://www.trade.gov/common-export-documents",
+          "status": "general_export_documentation_verified; country_specific_compliance_unverified"
+        }
+      ],
+      "correction": "Do not count repository-committed articles as live; do not call externally linked Unsplash images generated/local WebP; official source material above is evergreen, not a new 24-hour news event."
     }
   }
 }
