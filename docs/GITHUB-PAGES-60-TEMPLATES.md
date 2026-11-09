@@ -16,7 +16,7 @@
 - GitHub Actions **Publish 60 GitHub Pages template sites (manual approval)** is manual-only, has a Boolean confirmation, never runs on push, and refuses to overwrite repositories without a matching ownership marker. It can safely resume partial publication.
 
 ## Owner action required once
-1. On GitHub, create a short-lived token authorized to create PUBLIC repositories in the `mejaviskinc` account, push content and edit Pages settings. A classic PAT with `public_repo` scope may work; ensure it is scoped and short-lived wherever supported.
+1. On GitHub, create a short-lived token authorized to create PUBLIC repositories in the `mejaviskinc` account, push content and edit Pages settings. GitHub REST Pages settings update requires a classic PAT with `repo` scope, or a suitable fine-grained token with repository creation, Contents write, Administration write, and Pages write access. Prefer the smallest supported permissions and a short expiration; confirm the token can administer newly created repositories.
 2. Store it in the `mejaviskinc/bisabikinweb` repository **Settings → Secrets and variables → Actions → New repository secret** as `TEMPLATE_PAGES_PAT`. Do NOT paste the token into chat, an issue, source code or PR.
 3. In **Actions**, choose **Publish 60 GitHub Pages template sites (manual approval)** on the `main` branch; check the explicit `publish` box and run it. GitHub will create or update `bisabikinweb-template1` to `bisabikinweb-template60`.
 4. The workflow publishes each standalone `index.html`, assets, `CNAME`, `robots.txt`, `.nojekyll`, and compatibility `/demo/<slug>/`; then configures GitHub Pages custom domain to `templateN.bisabikinweb.site`.
