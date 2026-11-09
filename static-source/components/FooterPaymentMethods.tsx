@@ -6,10 +6,6 @@ import {ShieldCheck} from 'lucide-react';
  */
 const paymentStyles=`#bbw-doku-methods{margin-top:42px;padding:34px 0 31px;border-top:1px solid var(--line,#293027);border-bottom:1px solid var(--line,#293027);color:var(--text,#f2f3ee)}
 #bbw-doku-methods *{box-sizing:border-box}
-#bbw-doku-methods .bbw-doku-head{display:flex;align-items:flex-end;justify-content:space-between;gap:26px;margin:0 0 25px}
-#bbw-doku-methods .bbw-doku-eyebrow{display:block;margin-bottom:9px;color:var(--accent,#c3f85c);font:10px/1.4 monospace;letter-spacing:1.55px}
-#bbw-doku-methods .bbw-doku-head h3{margin:0;color:var(--text,#f2f3ee);font-size:clamp(24px,2.5vw,34px);font-weight:700;letter-spacing:-.05em;line-height:1.18}
-#bbw-doku-methods .bbw-doku-intro{max-width:365px;margin:0;color:var(--muted,#999);font-size:12px;line-height:1.75}
 #bbw-doku-methods .bbw-payment-group{margin:0 0 25px}
 #bbw-doku-methods .bbw-payment-group:last-of-type{margin-bottom:18px}
 #bbw-doku-methods .bbw-payment-group h4{margin:0 0 12px;color:var(--muted,#a5aca2);font-size:11px;font-weight:650;letter-spacing:.055em;text-transform:uppercase}
@@ -23,7 +19,7 @@ const paymentStyles=`#bbw-doku-methods{margin-top:42px;padding:34px 0 31px;borde
 #bbw-doku-methods .bbw-doku-note svg{flex:0 0 16px;margin-top:1px;color:var(--accent,#c3f85c)}
 @media(min-width:981px){#bbw-doku-methods .bbw-payment-tile:hover{border-color:color-mix(in srgb,var(--accent,#c3f85c) 36%,var(--line,#293027))}}
 @media(max-width:1020px){#bbw-doku-methods .bbw-payment-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:640px){#bbw-doku-methods{margin-top:30px;padding:28px 0 24px}#bbw-doku-methods .bbw-doku-head{display:block;margin-bottom:23px}#bbw-doku-methods .bbw-doku-intro{max-width:100%;margin-top:12px}#bbw-doku-methods .bbw-payment-group{margin-bottom:21px}#bbw-doku-methods .bbw-payment-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}#bbw-doku-methods .bbw-payment-tile{min-height:108px;padding:10px;gap:8px}#bbw-doku-methods .bbw-payment-plate{height:55px;padding:9px}#bbw-doku-methods .bbw-payment-plate img{max-height:33px}}`;
+@media(max-width:640px){#bbw-doku-methods{margin-top:30px;padding:28px 0 24px}#bbw-doku-methods .bbw-payment-group{margin-bottom:21px}#bbw-doku-methods .bbw-payment-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}#bbw-doku-methods .bbw-payment-tile{min-height:108px;padding:10px;gap:8px}#bbw-doku-methods .bbw-payment-plate{height:55px;padding:9px}#bbw-doku-methods .bbw-payment-plate img{max-height:33px}}`;
 const paymentGroups=[
   {id:"bank",titleId:"Transfer Bank / Virtual Account",titleEn:"Bank Transfer / Virtual Account",methods:[
    {id:"bca",name:"BCA",logos:["https://cdn.prod.website-files.com/674ab654de930b217c6389c1/685cf08fec80ea69f98ffc47_BCA.svg","https://commons.wikimedia.org/wiki/Special:FilePath/Bank_Central_Asia.svg"]},
@@ -67,17 +63,8 @@ function PaymentBrand({method}:{method:(typeof paymentGroups)[number]['methods']
 }
 
 export default function FooterPaymentMethods({english=false}:{english?:boolean}){
- return <section id="bbw-doku-methods" aria-labelledby="footer-payment-title">
+ return <section id="bbw-doku-methods" aria-label={english?'Available payment methods':'Pilihan metode pembayaran'}>
   <style>{paymentStyles}</style>
-  <header className="bbw-doku-head">
-   <div>
-    <small className="bbw-doku-eyebrow">PAYMENT CHANNELS / DOKU</small>
-    <h3 id="footer-payment-title">{english?'Payment Methods via DOKU':'Metode Pembayaran via DOKU'}</h3>
-   </div>
-   <p className="bbw-doku-intro">{english
-    ? 'Original payment provider logos, arranged by category. Final payment options are provided by DOKU Checkout.'
-    : 'Logo resmi penyedia pembayaran, dikelompokkan agar mudah dibaca. Pilihan akhir tersedia saat checkout di DOKU.'}</p>
-  </header>
   {paymentGroups.map(group=><div className="bbw-payment-group" key={group.id}>
    <h4>{english?group.titleEn:group.titleId}</h4>
    <div className="bbw-payment-grid">{group.methods.map(method=><PaymentBrand method={method} key={method.id}/>)}</div>
