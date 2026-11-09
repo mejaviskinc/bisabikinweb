@@ -15,7 +15,8 @@ test('E-commerce reuses authentic Mejavi video preview from portfolio, with desk
  assert.match(component,/https:\/\/mejaviskincare\.co\.id\//);
  assert.match(component,/VIDEO WEBSITE ASLI/);
  assert.match(component,/mode==='mobile'/);
- assert.match(component,/Buka website asli/);
+ assert.match(component,/href=\{MEJAVI_SITE\} target="_blank"/);
+ assert.doesNotMatch(component,/VIDEO PREVIEW SAMA SEPERTI DI PORTOFOLIO|Rekaman video diambil|Buka website asli/);
  assert.doesNotMatch(component,/<iframe\b/i);
  assert.doesNotMatch(component,/STUDIOGOODS|studio-goods\.example|mejaviProducts|ec-mejavi-page/i);
 });
