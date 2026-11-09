@@ -9,6 +9,7 @@ on:
       - 'static-source/features/WebsiteLiveDemo.tsx'
       - 'cloudflare/**'
       - 'scripts/provision-template-dns.mjs'
+      - 'scripts/verify-template-browser.mjs'
       - 'tests/template-subdomains.test.mjs'
       - '.github/workflows/template-subdomains.yml'
   workflow_dispatch:
@@ -39,6 +40,28 @@ jobs:
       - run: npm test
       - run: BBWEB_OFFLINE_BUILD=1 npm run build
       - run: npm run test:output
+      - name: Install Playwright Chromium for subdomain browser QA
+        run: |
+          npm install --no-save --package-lock=false @playwright/test@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Start local static-site server
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 --directory site-dist > /tmp/bbw-templates-http.log 2>&1 &
+          for i in $(seq 1 30); do
+            if curl -fsS -o /dev/null http://127.0.0.1:4173/demo/teras-rona/; then break; fi
+            sleep 1
+          done
+          curl -fsS -o /dev/null http://127.0.0.1:4173/demo/teras-rona/
+      - name: Verify real browser hydration and navigation on sample template hostnames
+        run: node scripts/verify-template-browser.mjs
+      - name: Upload desktop and mobile browser screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: template-hostname-browser-qa
+          path: template-browser-checks/
+          retention-days: 30
+          if-no-files-found: warn
       - name: Generate DNS change plan (dry-run)
         run: node scripts/provision-template-dns.mjs > template-dns-plan.json
       - name: Upload DNS plan for human approval
