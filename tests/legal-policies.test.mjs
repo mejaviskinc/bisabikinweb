@@ -48,6 +48,21 @@ test('fulfilled orders are final for change of mind without canceling mandatory 
   assert.match(refund,/gagal dipenuhi/);
 });
 
+test('refund decisions are based on verifiable costs and clear service timing, not chance',()=>{
+  const terms=docs.slice(docs.indexOf(" '/terms':"),docs.indexOf(" '/privacy':"));
+  const refund=docs.slice(docs.indexOf(" '/refund':"));
+  assert.match(refund,/bukan undian, peluang, atau kebijakan sesuka hati/);
+  assert.match(refund,/tidak ada potongan ganda atau biaya fiktif/);
+  assert.match(refund,/belum ada pekerjaan yang dimulai/);
+  assert.match(refund,/paling lambat 2 hari kerja/);
+  assert.match(refund,/paling lambat 7 hari kerja/);
+  assert.match(refund,/hak konsumen/i);
+  assert.match(terms,/tidak menyediakan pembuatan, promosi, integrasi pembayaran, atau layanan digital untuk judi online/);
+  assert.match(refund,/tidak menerima proyek situs, promosi, afiliasi, transaksi pembayaran, saldo, atau sistem digital untuk judi online/);
+  assert.match(refund,/dana yang sudah diterima dikembalikan/);
+  assert.match(refund,/top-up game yang sah/);
+});
+
 test('no absolute no-refund waiver is introduced',()=>{
   assert.doesNotMatch(docs,/semua transaksi bersifat final dan tidak dapat dikembalikan/i);
   assert.doesNotMatch(docs,/no refunds under any circumstances/i);
