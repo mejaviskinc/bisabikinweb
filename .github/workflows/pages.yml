@@ -7,6 +7,9 @@ on:
     paths:
       - '.github/workflows/pages.yml'
       - 'static-source/lib/legal-policies.ts'
+      - 'static-source/features/WebsiteStore.tsx'
+      - 'static-source/features/website-store.css'
+      - 'static-source/features/WebsiteLiveDemo.tsx'
   workflow_dispatch:
   schedule:
     - cron: '*/15 * * * *'
