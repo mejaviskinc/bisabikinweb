@@ -34,7 +34,7 @@ test('OTP email template includes the actual code and matches brand palette', ()
   assert.match(email, /#c3f85c/);
   assert.doesNotMatch(email, /\{\{\s*\.ConfirmationURL\s*\}\}/);
   assert.match(signupEmail, /\{\{\s*\.Token\s*\}\}/);
-  assert.doesNotMatch(signupEmail, /\{\{\s*\.ConfirmationURL\s*\}\}/);
+  assert.match(signupEmail, /\{\{\s*\.ConfirmationURL\s*\}\}/); // seller/admin signup fallback
 });
 
 test('frontend does not include SMTP credentials', () => {
