@@ -35,6 +35,15 @@ console.log('DNS PROVIDER',report.provider);
 console.log('DNS CONFIGURED',report.dnsPresent+'/'+samples.length);
 console.log('INVALID EXAMPLE IPS',report.invalidExampleIp+'/'+samples.length);
 console.log('CNAME TO GITHUB PAGES',report.cnameToGithubPages+'/'+samples.length);
+const target='mejaviskinc.github.io';
+report.cnameCorrect=report.checks.filter(x=>x.cname.some(v=>v.replace(/\\.$/,'').toLowerCase()===target)).length;
+report.dnsMisconfigured=report.checks.filter(x=>x.cname.length===0&&x.ipv4.length>0).length;
+console.log('CNAME CORRECT TARGET',report.cnameCorrect+'/'+samples.length,'('+target+')');
+console.log('A RECORD WITHOUT CNAME',report.dnsMisconfigured+'/'+samples.length);
+for(const number of [1,9,17,60]){
+ const x=report.checks[number-1];
+ console.log('DNS SAMPLE',x.hostname,'CNAME='+(x.cname.join(',')||'none'),'A='+(x.ipv4.join(',')||'none'));
+}
 console.log('HTTPS READY',report.readySamples+'/'+httpsSamples.size+' samples');
 if(report.readySamples!==httpsSamples.size){
  console.log('Not activating catalog links. DNS, Worker and TLS must be verified before switching readiness flag.');
