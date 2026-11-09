@@ -21,17 +21,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Vas Tanah",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan vas tanah dari Teras Rona, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 89000
       },
       {
         "name": "Lilin Senja",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan lilin senja dari Teras Rona, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 129000
       },
       {
         "name": "Rak Kayu Mini",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan rak kayu mini dari Teras Rona, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 175000
       }
     ],
@@ -69,17 +69,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Nasi Ayam Rempah",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan nasi ayam rempah dari Dapur Pagi, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 89000
       },
       {
         "name": "Snack Box Pagi",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan snack box pagi dari Dapur Pagi, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 129000
       },
       {
         "name": "Paket Prasmanan",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan paket prasmanan dari Dapur Pagi, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 175000
       }
     ],
@@ -117,17 +117,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Bouquet Senja",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan bouquet senja dari Arunika Florist, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 89000
       },
       {
         "name": "Vase Garden",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan vase garden dari Arunika Florist, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 129000
       },
       {
         "name": "Table Arrangement",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan table arrangement dari Arunika Florist, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 175000
       }
     ],
@@ -165,17 +165,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Sourdough Loaf",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan sourdough loaf dari Roti Pagi, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 89000
       },
       {
         "name": "Butter Croissant",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan butter croissant dari Roti Pagi, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 129000
       },
       {
         "name": "Cinnamon Roll",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan cinnamon roll dari Roti Pagi, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 175000
       }
     ],
@@ -213,17 +213,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Keranjang Rotan",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan keranjang rotan dari Karya Anyam, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 89000
       },
       {
         "name": "Lampu Anyam",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan lampu anyam dari Karya Anyam, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 129000
       },
       {
         "name": "Tas Serat",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan tas serat dari Karya Anyam, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 175000
       }
     ],
@@ -261,17 +261,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Sambal Kecombrang",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan sambal kecombrang dari Saji Lokal, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 89000
       },
       {
         "name": "Keripik Tempe",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan keripik tempe dari Saji Lokal, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 129000
       },
       {
         "name": "Bumbu Rendang",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan bumbu rendang dari Saji Lokal, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 175000
       }
     ],
@@ -309,17 +309,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Laundry Premium",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan laundry premium dari Eco Wash Studio, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 89000
       },
       {
         "name": "Cuci Sepatu",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan cuci sepatu dari Eco Wash Studio, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 129000
       },
       {
         "name": "Perawatan Selimut",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan perawatan selimut dari Eco Wash Studio, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 175000
       }
     ],
@@ -357,17 +357,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Grooming Kucing",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan grooming kucing dari Aluna Pet Care, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 89000
       },
       {
         "name": "Pet Spa",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan pet spa dari Aluna Pet Care, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 129000
       },
       {
         "name": "Pet Essentials",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Pilihan pet essentials dari Aluna Pet Care, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
         "price": 175000
       }
     ],
@@ -405,17 +405,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Strategy Review",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Strategy Review merupakan area layanan Meridian Advisory. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       },
       {
         "name": "Market Research",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Market Research merupakan area layanan Meridian Advisory. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       },
       {
         "name": "Growth Roadmap",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Growth Roadmap merupakan area layanan Meridian Advisory. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       }
     ],
@@ -453,17 +453,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Bangun Komersial",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Bangun Komersial merupakan area layanan Nusa Konstruksi. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       },
       {
         "name": "Manajemen Proyek",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Manajemen Proyek merupakan area layanan Nusa Konstruksi. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       },
       {
         "name": "Renovasi Struktur",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Renovasi Struktur merupakan area layanan Nusa Konstruksi. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       }
     ],
@@ -501,17 +501,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Business Intelligence",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Business Intelligence merupakan area layanan Satu Data Studio. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       },
       {
         "name": "Dashboard Analytics",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Dashboard Analytics merupakan area layanan Satu Data Studio. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       },
       {
         "name": "Integrasi Data",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Integrasi Data merupakan area layanan Satu Data Studio. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       }
     ],
@@ -549,17 +549,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Corporate Advisory",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Corporate Advisory merupakan area layanan Vertex Legal. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       },
       {
         "name": "Contract Review",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Contract Review merupakan area layanan Vertex Legal. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       },
       {
         "name": "Business Compliance",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Business Compliance merupakan area layanan Vertex Legal. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       }
     ],
@@ -597,17 +597,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Residential Design",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Residential Design merupakan area layanan Karsa Architecture. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       },
       {
         "name": "Commercial Space",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Commercial Space merupakan area layanan Karsa Architecture. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       },
       {
         "name": "Interior Planning",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Interior Planning merupakan area layanan Karsa Architecture. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       }
     ],
@@ -645,17 +645,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Talent Search",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Talent Search merupakan area layanan Lentera People. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       },
       {
         "name": "People Development",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "People Development merupakan area layanan Lentera People. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       },
       {
         "name": "HR Assessment",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "HR Assessment merupakan area layanan Lentera People. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       }
     ],
@@ -693,17 +693,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Freight Services",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Freight Services merupakan area layanan Aksa Logistics. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       },
       {
         "name": "Warehousing",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Warehousing merupakan area layanan Aksa Logistics. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       },
       {
         "name": "Last-mile Delivery",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Last-mile Delivery merupakan area layanan Aksa Logistics. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       }
     ],
@@ -741,17 +741,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Energy Audit",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Energy Audit merupakan area layanan Visi Energi. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       },
       {
         "name": "Solar Planning",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Solar Planning merupakan area layanan Visi Energi. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       },
       {
         "name": "Operations Support",
-        "description": "Lingkup layanan, proses dan hasil kerja akan dirinci saat konsultasi.",
+        "description": "Operations Support merupakan area layanan Visi Energi. Diskusikan ruang lingkup, target pekerjaan, tahapan, risiko, jadwal, dan deliverable melalui konsultasi awal.",
         "price": 0
       }
     ],
@@ -789,17 +789,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Ceramic Tray",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Ceramic Tray dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 99000
       },
       {
         "name": "Linen Cushion",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Linen Cushion dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 159000
       },
       {
         "name": "Oak Organizer",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Oak Organizer dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 225000
       }
     ],
@@ -837,17 +837,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Daypack Lite",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Daypack Lite dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 99000
       },
       {
         "name": "Bottle Steel",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Bottle Steel dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 159000
       },
       {
         "name": "Utility Pouch",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Utility Pouch dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 225000
       }
     ],
@@ -885,17 +885,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Gentle Wash",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Gentle Wash dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 99000
       },
       {
         "name": "Hydra Serum",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Hydra Serum dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 159000
       },
       {
         "name": "Daily Moisturizer",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Daily Moisturizer dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 225000
       }
     ],
@@ -933,17 +933,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Journal Linen",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Journal Linen dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 99000
       },
       {
         "name": "Weekly Planner",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Weekly Planner dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 159000
       },
       {
         "name": "Sketch Notebook",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Sketch Notebook dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 225000
       }
     ],
@@ -981,17 +981,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Training Tee",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Training Tee dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 99000
       },
       {
         "name": "Yoga Mat",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Yoga Mat dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 159000
       },
       {
         "name": "Running Belt",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Running Belt dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 225000
       }
     ],
@@ -1029,17 +1029,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Tinted Balm",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Tinted Balm dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 99000
       },
       {
         "name": "Soft Blush",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Soft Blush dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 159000
       },
       {
         "name": "Glow Base",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Glow Base dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 225000
       }
     ],
@@ -1077,17 +1077,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Wireless Buds",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Wireless Buds dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 99000
       },
       {
         "name": "Desk Speaker",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Desk Speaker dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 159000
       },
       {
         "name": "Studio Headset",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Studio Headset dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 225000
       }
     ],
@@ -1125,17 +1125,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Wooden Blocks",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Wooden Blocks dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 99000
       },
       {
         "name": "Play Mat",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Play Mat dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 159000
       },
       {
         "name": "Story Cards",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Jelajahi Story Cards dengan detail spesifikasi, pilihan varian, informasi stok, kebijakan pengiriman dan keranjang demo. Data produk nyata diisi saat onboarding.",
         "price": 225000
       }
     ],
@@ -1173,17 +1173,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Premium Cinnamon",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Premium Cinnamon: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       },
       {
         "name": "Whole Cloves",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Whole Cloves: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       },
       {
         "name": "Black Pepper",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Black Pepper: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       }
     ],
@@ -1221,17 +1221,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Teak Panels",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Teak Panels: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       },
       {
         "name": "Furniture Components",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Furniture Components: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       },
       {
         "name": "Outdoor Decking",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Outdoor Decking: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       }
     ],
@@ -1269,17 +1269,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Arabica Gayo",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Arabica Gayo: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       },
       {
         "name": "Java Preanger",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Java Preanger: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       },
       {
         "name": "Flores Bajawa",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Flores Bajawa: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       }
     ],
@@ -1317,17 +1317,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Cocoa Beans",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Cocoa Beans: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       },
       {
         "name": "Cocoa Powder",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Cocoa Powder: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       },
       {
         "name": "Cocoa Butter",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Cocoa Butter: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       }
     ],
@@ -1365,17 +1365,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Dried Ginger",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Dried Ginger: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       },
       {
         "name": "Lemongrass",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Lemongrass: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       },
       {
         "name": "Turmeric Roots",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Turmeric Roots: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       }
     ],
@@ -1413,17 +1413,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Frozen Tuna",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Frozen Tuna: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       },
       {
         "name": "Vannamei Shrimp",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Vannamei Shrimp: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       },
       {
         "name": "Squid Selection",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Squid Selection: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       }
     ],
@@ -1461,17 +1461,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Bamboo Panels",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Bamboo Panels: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       },
       {
         "name": "Woven Baskets",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Woven Baskets: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       },
       {
         "name": "Bamboo Straws",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Bamboo Straws: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       }
     ],
@@ -1509,17 +1509,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Cotton Weave",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Cotton Weave: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       },
       {
         "name": "Batik Cloth",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Batik Cloth: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       },
       {
         "name": "Natural Dye Textile",
-        "description": "Spesifikasi, kapasitas dan opsi pengiriman dapat diminta melalui formulir RFQ.",
+        "description": "Sourcing Natural Dye Textile: detail grade, spesifikasi teknis, origin, packing, MOQ, kapasitas dan dokumen kualitas tersedia melalui permintaan RFQ yang terverifikasi.",
         "price": 0
       }
     ],
@@ -1557,17 +1557,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Heritage Walk",
-        "description": "Pilihan aktivitas dan rute perjalanan dapat disesuaikan dengan kebutuhan.",
+        "description": "Paket Heritage Walk dengan gambaran destinasi, durasi, itinerary, fasilitas, pengecualian, serta kebutuhan peserta. Jadwal dan harga akhir perlu dikonfirmasi.",
         "price": 450000
       },
       {
         "name": "Sunrise Escape",
-        "description": "Pilihan aktivitas dan rute perjalanan dapat disesuaikan dengan kebutuhan.",
+        "description": "Paket Sunrise Escape dengan gambaran destinasi, durasi, itinerary, fasilitas, pengecualian, serta kebutuhan peserta. Jadwal dan harga akhir perlu dikonfirmasi.",
         "price": 750000
       },
       {
         "name": "Village Discovery",
-        "description": "Pilihan aktivitas dan rute perjalanan dapat disesuaikan dengan kebutuhan.",
+        "description": "Paket Village Discovery dengan gambaran destinasi, durasi, itinerary, fasilitas, pengecualian, serta kebutuhan peserta. Jadwal dan harga akhir perlu dikonfirmasi.",
         "price": 1200000
       }
     ],
@@ -1605,17 +1605,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Island Hopping",
-        "description": "Pilihan aktivitas dan rute perjalanan dapat disesuaikan dengan kebutuhan.",
+        "description": "Paket Island Hopping dengan gambaran destinasi, durasi, itinerary, fasilitas, pengecualian, serta kebutuhan peserta. Jadwal dan harga akhir perlu dikonfirmasi.",
         "price": 450000
       },
       {
         "name": "Sunset Sailing",
-        "description": "Pilihan aktivitas dan rute perjalanan dapat disesuaikan dengan kebutuhan.",
+        "description": "Paket Sunset Sailing dengan gambaran destinasi, durasi, itinerary, fasilitas, pengecualian, serta kebutuhan peserta. Jadwal dan harga akhir perlu dikonfirmasi.",
         "price": 750000
       },
       {
         "name": "Beach Retreat",
-        "description": "Pilihan aktivitas dan rute perjalanan dapat disesuaikan dengan kebutuhan.",
+        "description": "Paket Beach Retreat dengan gambaran destinasi, durasi, itinerary, fasilitas, pengecualian, serta kebutuhan peserta. Jadwal dan harga akhir perlu dikonfirmasi.",
         "price": 1200000
       }
     ],
@@ -1653,17 +1653,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Mountain Camp",
-        "description": "Pilihan aktivitas dan rute perjalanan dapat disesuaikan dengan kebutuhan.",
+        "description": "Paket Mountain Camp dengan gambaran destinasi, durasi, itinerary, fasilitas, pengecualian, serta kebutuhan peserta. Jadwal dan harga akhir perlu dikonfirmasi.",
         "price": 450000
       },
       {
         "name": "Forest Trek",
-        "description": "Pilihan aktivitas dan rute perjalanan dapat disesuaikan dengan kebutuhan.",
+        "description": "Paket Forest Trek dengan gambaran destinasi, durasi, itinerary, fasilitas, pengecualian, serta kebutuhan peserta. Jadwal dan harga akhir perlu dikonfirmasi.",
         "price": 750000
       },
       {
         "name": "Highland Weekend",
-        "description": "Pilihan aktivitas dan rute perjalanan dapat disesuaikan dengan kebutuhan.",
+        "description": "Paket Highland Weekend dengan gambaran destinasi, durasi, itinerary, fasilitas, pengecualian, serta kebutuhan peserta. Jadwal dan harga akhir perlu dikonfirmasi.",
         "price": 1200000
       }
     ],
@@ -1701,17 +1701,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Old Town Route",
-        "description": "Pilihan aktivitas dan rute perjalanan dapat disesuaikan dengan kebutuhan.",
+        "description": "Paket Old Town Route dengan gambaran destinasi, durasi, itinerary, fasilitas, pengecualian, serta kebutuhan peserta. Jadwal dan harga akhir perlu dikonfirmasi.",
         "price": 450000
       },
       {
         "name": "Cafe Trail",
-        "description": "Pilihan aktivitas dan rute perjalanan dapat disesuaikan dengan kebutuhan.",
+        "description": "Paket Cafe Trail dengan gambaran destinasi, durasi, itinerary, fasilitas, pengecualian, serta kebutuhan peserta. Jadwal dan harga akhir perlu dikonfirmasi.",
         "price": 750000
       },
       {
         "name": "Night City Walk",
-        "description": "Pilihan aktivitas dan rute perjalanan dapat disesuaikan dengan kebutuhan.",
+        "description": "Paket Night City Walk dengan gambaran destinasi, durasi, itinerary, fasilitas, pengecualian, serta kebutuhan peserta. Jadwal dan harga akhir perlu dikonfirmasi.",
         "price": 1200000
       }
     ],
@@ -1749,17 +1749,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Snorkeling Day",
-        "description": "Pilihan aktivitas dan rute perjalanan dapat disesuaikan dengan kebutuhan.",
+        "description": "Paket Snorkeling Day dengan gambaran destinasi, durasi, itinerary, fasilitas, pengecualian, serta kebutuhan peserta. Jadwal dan harga akhir perlu dikonfirmasi.",
         "price": 450000
       },
       {
         "name": "Coral Discovery",
-        "description": "Pilihan aktivitas dan rute perjalanan dapat disesuaikan dengan kebutuhan.",
+        "description": "Paket Coral Discovery dengan gambaran destinasi, durasi, itinerary, fasilitas, pengecualian, serta kebutuhan peserta. Jadwal dan harga akhir perlu dikonfirmasi.",
         "price": 750000
       },
       {
         "name": "Boat Journey",
-        "description": "Pilihan aktivitas dan rute perjalanan dapat disesuaikan dengan kebutuhan.",
+        "description": "Paket Boat Journey dengan gambaran destinasi, durasi, itinerary, fasilitas, pengecualian, serta kebutuhan peserta. Jadwal dan harga akhir perlu dikonfirmasi.",
         "price": 1200000
       }
     ],
@@ -1797,17 +1797,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Temple Trail",
-        "description": "Pilihan aktivitas dan rute perjalanan dapat disesuaikan dengan kebutuhan.",
+        "description": "Paket Temple Trail dengan gambaran destinasi, durasi, itinerary, fasilitas, pengecualian, serta kebutuhan peserta. Jadwal dan harga akhir perlu dikonfirmasi.",
         "price": 450000
       },
       {
         "name": "Culture Visit",
-        "description": "Pilihan aktivitas dan rute perjalanan dapat disesuaikan dengan kebutuhan.",
+        "description": "Paket Culture Visit dengan gambaran destinasi, durasi, itinerary, fasilitas, pengecualian, serta kebutuhan peserta. Jadwal dan harga akhir perlu dikonfirmasi.",
         "price": 750000
       },
       {
         "name": "Historic Quarter",
-        "description": "Pilihan aktivitas dan rute perjalanan dapat disesuaikan dengan kebutuhan.",
+        "description": "Paket Historic Quarter dengan gambaran destinasi, durasi, itinerary, fasilitas, pengecualian, serta kebutuhan peserta. Jadwal dan harga akhir perlu dikonfirmasi.",
         "price": 1200000
       }
     ],
@@ -1845,17 +1845,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Workcation Stay",
-        "description": "Pilihan aktivitas dan rute perjalanan dapat disesuaikan dengan kebutuhan.",
+        "description": "Paket Workcation Stay dengan gambaran destinasi, durasi, itinerary, fasilitas, pengecualian, serta kebutuhan peserta. Jadwal dan harga akhir perlu dikonfirmasi.",
         "price": 450000
       },
       {
         "name": "Creative Escape",
-        "description": "Pilihan aktivitas dan rute perjalanan dapat disesuaikan dengan kebutuhan.",
+        "description": "Paket Creative Escape dengan gambaran destinasi, durasi, itinerary, fasilitas, pengecualian, serta kebutuhan peserta. Jadwal dan harga akhir perlu dikonfirmasi.",
         "price": 750000
       },
       {
         "name": "Weekend Reset",
-        "description": "Pilihan aktivitas dan rute perjalanan dapat disesuaikan dengan kebutuhan.",
+        "description": "Paket Weekend Reset dengan gambaran destinasi, durasi, itinerary, fasilitas, pengecualian, serta kebutuhan peserta. Jadwal dan harga akhir perlu dikonfirmasi.",
         "price": 1200000
       }
     ],
@@ -1893,17 +1893,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Signature Latte",
-        "description": "Menu spesial pilihan untuk pengalaman yang ingin terasa dekat.",
+        "description": "Menu Signature Latte dengan informasi porsi, bahan, opsi penyajian dan alergen yang dapat ditampilkan setelah dikonfirmasi dapur. Harga di sini hanya contoh.",
         "price": 32000
       },
       {
         "name": "Espresso Tonic",
-        "description": "Menu spesial pilihan untuk pengalaman yang ingin terasa dekat.",
+        "description": "Menu Espresso Tonic dengan informasi porsi, bahan, opsi penyajian dan alergen yang dapat ditampilkan setelah dikonfirmasi dapur. Harga di sini hanya contoh.",
         "price": 46000
       },
       {
         "name": "Butter Toast",
-        "description": "Menu spesial pilihan untuk pengalaman yang ingin terasa dekat.",
+        "description": "Menu Butter Toast dengan informasi porsi, bahan, opsi penyajian dan alergen yang dapat ditampilkan setelah dikonfirmasi dapur. Harga di sini hanya contoh.",
         "price": 69000
       }
     ],
@@ -1941,17 +1941,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Garden Bowl",
-        "description": "Menu spesial pilihan untuk pengalaman yang ingin terasa dekat.",
+        "description": "Menu Garden Bowl dengan informasi porsi, bahan, opsi penyajian dan alergen yang dapat ditampilkan setelah dikonfirmasi dapur. Harga di sini hanya contoh.",
         "price": 32000
       },
       {
         "name": "Herbal Iced Tea",
-        "description": "Menu spesial pilihan untuk pengalaman yang ingin terasa dekat.",
+        "description": "Menu Herbal Iced Tea dengan informasi porsi, bahan, opsi penyajian dan alergen yang dapat ditampilkan setelah dikonfirmasi dapur. Harga di sini hanya contoh.",
         "price": 46000
       },
       {
         "name": "Roasted Veggies",
-        "description": "Menu spesial pilihan untuk pengalaman yang ingin terasa dekat.",
+        "description": "Menu Roasted Veggies dengan informasi porsi, bahan, opsi penyajian dan alergen yang dapat ditampilkan setelah dikonfirmasi dapur. Harga di sini hanya contoh.",
         "price": 69000
       }
     ],
@@ -1989,17 +1989,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Country Loaf",
-        "description": "Menu spesial pilihan untuk pengalaman yang ingin terasa dekat.",
+        "description": "Menu Country Loaf dengan informasi porsi, bahan, opsi penyajian dan alergen yang dapat ditampilkan setelah dikonfirmasi dapur. Harga di sini hanya contoh.",
         "price": 32000
       },
       {
         "name": "Almond Pastry",
-        "description": "Menu spesial pilihan untuk pengalaman yang ingin terasa dekat.",
+        "description": "Menu Almond Pastry dengan informasi porsi, bahan, opsi penyajian dan alergen yang dapat ditampilkan setelah dikonfirmasi dapur. Harga di sini hanya contoh.",
         "price": 46000
       },
       {
         "name": "Seasonal Tart",
-        "description": "Menu spesial pilihan untuk pengalaman yang ingin terasa dekat.",
+        "description": "Menu Seasonal Tart dengan informasi porsi, bahan, opsi penyajian dan alergen yang dapat ditampilkan setelah dikonfirmasi dapur. Harga di sini hanya contoh.",
         "price": 69000
       }
     ],
@@ -2037,17 +2037,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Nasi Rempah",
-        "description": "Menu spesial pilihan untuk pengalaman yang ingin terasa dekat.",
+        "description": "Menu Nasi Rempah dengan informasi porsi, bahan, opsi penyajian dan alergen yang dapat ditampilkan setelah dikonfirmasi dapur. Harga di sini hanya contoh.",
         "price": 32000
       },
       {
         "name": "Ayam Bakar",
-        "description": "Menu spesial pilihan untuk pengalaman yang ingin terasa dekat.",
+        "description": "Menu Ayam Bakar dengan informasi porsi, bahan, opsi penyajian dan alergen yang dapat ditampilkan setelah dikonfirmasi dapur. Harga di sini hanya contoh.",
         "price": 46000
       },
       {
         "name": "Es Asam Jawa",
-        "description": "Menu spesial pilihan untuk pengalaman yang ingin terasa dekat.",
+        "description": "Menu Es Asam Jawa dengan informasi porsi, bahan, opsi penyajian dan alergen yang dapat ditampilkan setelah dikonfirmasi dapur. Harga di sini hanya contoh.",
         "price": 69000
       }
     ],
@@ -2085,17 +2085,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Creamy Alfredo",
-        "description": "Menu spesial pilihan untuk pengalaman yang ingin terasa dekat.",
+        "description": "Menu Creamy Alfredo dengan informasi porsi, bahan, opsi penyajian dan alergen yang dapat ditampilkan setelah dikonfirmasi dapur. Harga di sini hanya contoh.",
         "price": 32000
       },
       {
         "name": "Tomato Rigatoni",
-        "description": "Menu spesial pilihan untuk pengalaman yang ingin terasa dekat.",
+        "description": "Menu Tomato Rigatoni dengan informasi porsi, bahan, opsi penyajian dan alergen yang dapat ditampilkan setelah dikonfirmasi dapur. Harga di sini hanya contoh.",
         "price": 46000
       },
       {
         "name": "Garlic Bread",
-        "description": "Menu spesial pilihan untuk pengalaman yang ingin terasa dekat.",
+        "description": "Menu Garlic Bread dengan informasi porsi, bahan, opsi penyajian dan alergen yang dapat ditampilkan setelah dikonfirmasi dapur. Harga di sini hanya contoh.",
         "price": 69000
       }
     ],
@@ -2133,17 +2133,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Salmon Roll",
-        "description": "Menu spesial pilihan untuk pengalaman yang ingin terasa dekat.",
+        "description": "Menu Salmon Roll dengan informasi porsi, bahan, opsi penyajian dan alergen yang dapat ditampilkan setelah dikonfirmasi dapur. Harga di sini hanya contoh.",
         "price": 32000
       },
       {
         "name": "Veggie Maki",
-        "description": "Menu spesial pilihan untuk pengalaman yang ingin terasa dekat.",
+        "description": "Menu Veggie Maki dengan informasi porsi, bahan, opsi penyajian dan alergen yang dapat ditampilkan setelah dikonfirmasi dapur. Harga di sini hanya contoh.",
         "price": 46000
       },
       {
         "name": "Miso Soup",
-        "description": "Menu spesial pilihan untuk pengalaman yang ingin terasa dekat.",
+        "description": "Menu Miso Soup dengan informasi porsi, bahan, opsi penyajian dan alergen yang dapat ditampilkan setelah dikonfirmasi dapur. Harga di sini hanya contoh.",
         "price": 69000
       }
     ],
@@ -2181,17 +2181,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Avocado Toast",
-        "description": "Menu spesial pilihan untuk pengalaman yang ingin terasa dekat.",
+        "description": "Menu Avocado Toast dengan informasi porsi, bahan, opsi penyajian dan alergen yang dapat ditampilkan setelah dikonfirmasi dapur. Harga di sini hanya contoh.",
         "price": 32000
       },
       {
         "name": "Granola Bowl",
-        "description": "Menu spesial pilihan untuk pengalaman yang ingin terasa dekat.",
+        "description": "Menu Granola Bowl dengan informasi porsi, bahan, opsi penyajian dan alergen yang dapat ditampilkan setelah dikonfirmasi dapur. Harga di sini hanya contoh.",
         "price": 46000
       },
       {
         "name": "Cold Brew",
-        "description": "Menu spesial pilihan untuk pengalaman yang ingin terasa dekat.",
+        "description": "Menu Cold Brew dengan informasi porsi, bahan, opsi penyajian dan alergen yang dapat ditampilkan setelah dikonfirmasi dapur. Harga di sini hanya contoh.",
         "price": 69000
       }
     ],
@@ -2229,17 +2229,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Everyday Tee",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Koleksi Everyday Tee dengan halaman editorial, bahan, detail potongan, ukuran, pilihan warna dan perawatan. Ketersediaan varian dikonfirmasi brand.",
         "price": 125000
       },
       {
         "name": "Relaxed Pants",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Koleksi Relaxed Pants dengan halaman editorial, bahan, detail potongan, ukuran, pilihan warna dan perawatan. Ketersediaan varian dikonfirmasi brand.",
         "price": 195000
       },
       {
         "name": "Classic Shirt",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Koleksi Classic Shirt dengan halaman editorial, bahan, detail potongan, ukuran, pilihan warna dan perawatan. Ketersediaan varian dikonfirmasi brand.",
         "price": 285000
       }
     ],
@@ -2277,17 +2277,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Motif Shirt",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Koleksi Motif Shirt dengan halaman editorial, bahan, detail potongan, ukuran, pilihan warna dan perawatan. Ketersediaan varian dikonfirmasi brand.",
         "price": 125000
       },
       {
         "name": "Modern Outer",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Koleksi Modern Outer dengan halaman editorial, bahan, detail potongan, ukuran, pilihan warna dan perawatan. Ketersediaan varian dikonfirmasi brand.",
         "price": 195000
       },
       {
         "name": "Scarf Series",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Koleksi Scarf Series dengan halaman editorial, bahan, detail potongan, ukuran, pilihan warna dan perawatan. Ketersediaan varian dikonfirmasi brand.",
         "price": 285000
       }
     ],
@@ -2325,17 +2325,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Structured Blazer",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Koleksi Structured Blazer dengan halaman editorial, bahan, detail potongan, ukuran, pilihan warna dan perawatan. Ketersediaan varian dikonfirmasi brand.",
         "price": 125000
       },
       {
         "name": "Pleated Trousers",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Koleksi Pleated Trousers dengan halaman editorial, bahan, detail potongan, ukuran, pilihan warna dan perawatan. Ketersediaan varian dikonfirmasi brand.",
         "price": 195000
       },
       {
         "name": "Minimal Vest",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Koleksi Minimal Vest dengan halaman editorial, bahan, detail potongan, ukuran, pilihan warna dan perawatan. Ketersediaan varian dikonfirmasi brand.",
         "price": 285000
       }
     ],
@@ -2373,17 +2373,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Graphic Tee",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Koleksi Graphic Tee dengan halaman editorial, bahan, detail potongan, ukuran, pilihan warna dan perawatan. Ketersediaan varian dikonfirmasi brand.",
         "price": 125000
       },
       {
         "name": "Everyday Tote",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Koleksi Everyday Tote dengan halaman editorial, bahan, detail potongan, ukuran, pilihan warna dan perawatan. Ketersediaan varian dikonfirmasi brand.",
         "price": 195000
       },
       {
         "name": "Canvas Jacket",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Koleksi Canvas Jacket dengan halaman editorial, bahan, detail potongan, ukuran, pilihan warna dan perawatan. Ketersediaan varian dikonfirmasi brand.",
         "price": 285000
       }
     ],
@@ -2421,17 +2421,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Oversized Tee",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Koleksi Oversized Tee dengan halaman editorial, bahan, detail potongan, ukuran, pilihan warna dan perawatan. Ketersediaan varian dikonfirmasi brand.",
         "price": 125000
       },
       {
         "name": "Utility Cargo",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Koleksi Utility Cargo dengan halaman editorial, bahan, detail potongan, ukuran, pilihan warna dan perawatan. Ketersediaan varian dikonfirmasi brand.",
         "price": 195000
       },
       {
         "name": "Zip Hoodie",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Koleksi Zip Hoodie dengan halaman editorial, bahan, detail potongan, ukuran, pilihan warna dan perawatan. Ketersediaan varian dikonfirmasi brand.",
         "price": 285000
       }
     ],
@@ -2469,17 +2469,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Linen Set",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Koleksi Linen Set dengan halaman editorial, bahan, detail potongan, ukuran, pilihan warna dan perawatan. Ketersediaan varian dikonfirmasi brand.",
         "price": 125000
       },
       {
         "name": "Summer Shirt",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Koleksi Summer Shirt dengan halaman editorial, bahan, detail potongan, ukuran, pilihan warna dan perawatan. Ketersediaan varian dikonfirmasi brand.",
         "price": 195000
       },
       {
         "name": "Wrap Dress",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Koleksi Wrap Dress dengan halaman editorial, bahan, detail potongan, ukuran, pilihan warna dan perawatan. Ketersediaan varian dikonfirmasi brand.",
         "price": 285000
       }
     ],
@@ -2517,17 +2517,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Hoop Earrings",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Koleksi Hoop Earrings dengan halaman editorial, bahan, detail potongan, ukuran, pilihan warna dan perawatan. Ketersediaan varian dikonfirmasi brand.",
         "price": 125000
       },
       {
         "name": "Mini Bag",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Koleksi Mini Bag dengan halaman editorial, bahan, detail potongan, ukuran, pilihan warna dan perawatan. Ketersediaan varian dikonfirmasi brand.",
         "price": 195000
       },
       {
         "name": "Daily Necklace",
-        "description": "Pilihan unggulan dengan desain dan fungsi untuk kebutuhan sehari-hari.",
+        "description": "Koleksi Daily Necklace dengan halaman editorial, bahan, detail potongan, ukuran, pilihan warna dan perawatan. Ketersediaan varian dikonfirmasi brand.",
         "price": 285000
       }
     ],
@@ -2565,17 +2565,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Kelas Intensif",
-        "description": "Pelajari materi, format kelas dan jadwal program melalui sesi konsultasi.",
+        "description": "Program Kelas Intensif mencakup penjelasan tujuan belajar, materi utama, level peserta, durasi, pengajar, jadwal kelas dan tahapan pendaftaran.",
         "price": 350000
       },
       {
         "name": "Mentoring",
-        "description": "Pelajari materi, format kelas dan jadwal program melalui sesi konsultasi.",
+        "description": "Program Mentoring mencakup penjelasan tujuan belajar, materi utama, level peserta, durasi, pengajar, jadwal kelas dan tahapan pendaftaran.",
         "price": 650000
       },
       {
         "name": "Career Preparation",
-        "description": "Pelajari materi, format kelas dan jadwal program melalui sesi konsultasi.",
+        "description": "Program Career Preparation mencakup penjelasan tujuan belajar, materi utama, level peserta, durasi, pengajar, jadwal kelas dan tahapan pendaftaran.",
         "price": 950000
       }
     ],
@@ -2613,17 +2613,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Web Fundamentals",
-        "description": "Pelajari materi, format kelas dan jadwal program melalui sesi konsultasi.",
+        "description": "Program Web Fundamentals mencakup penjelasan tujuan belajar, materi utama, level peserta, durasi, pengajar, jadwal kelas dan tahapan pendaftaran.",
         "price": 350000
       },
       {
         "name": "Frontend Project",
-        "description": "Pelajari materi, format kelas dan jadwal program melalui sesi konsultasi.",
+        "description": "Program Frontend Project mencakup penjelasan tujuan belajar, materi utama, level peserta, durasi, pengajar, jadwal kelas dan tahapan pendaftaran.",
         "price": 650000
       },
       {
         "name": "Coding Club",
-        "description": "Pelajari materi, format kelas dan jadwal program melalui sesi konsultasi.",
+        "description": "Program Coding Club mencakup penjelasan tujuan belajar, materi utama, level peserta, durasi, pengajar, jadwal kelas dan tahapan pendaftaran.",
         "price": 950000
       }
     ],
@@ -2661,17 +2661,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "English Conversation",
-        "description": "Pelajari materi, format kelas dan jadwal program melalui sesi konsultasi.",
+        "description": "Program English Conversation mencakup penjelasan tujuan belajar, materi utama, level peserta, durasi, pengajar, jadwal kelas dan tahapan pendaftaran.",
         "price": 350000
       },
       {
         "name": "Business Writing",
-        "description": "Pelajari materi, format kelas dan jadwal program melalui sesi konsultasi.",
+        "description": "Program Business Writing mencakup penjelasan tujuan belajar, materi utama, level peserta, durasi, pengajar, jadwal kelas dan tahapan pendaftaran.",
         "price": 650000
       },
       {
         "name": "Kids English",
-        "description": "Pelajari materi, format kelas dan jadwal program melalui sesi konsultasi.",
+        "description": "Program Kids English mencakup penjelasan tujuan belajar, materi utama, level peserta, durasi, pengajar, jadwal kelas dan tahapan pendaftaran.",
         "price": 950000
       }
     ],
@@ -2709,17 +2709,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Early Years",
-        "description": "Pelajari materi, format kelas dan jadwal program melalui sesi konsultasi.",
+        "description": "Program Early Years mencakup penjelasan tujuan belajar, materi utama, level peserta, durasi, pengajar, jadwal kelas dan tahapan pendaftaran.",
         "price": 350000
       },
       {
         "name": "Practical Life",
-        "description": "Pelajari materi, format kelas dan jadwal program melalui sesi konsultasi.",
+        "description": "Program Practical Life mencakup penjelasan tujuan belajar, materi utama, level peserta, durasi, pengajar, jadwal kelas dan tahapan pendaftaran.",
         "price": 650000
       },
       {
         "name": "Sensory Studio",
-        "description": "Pelajari materi, format kelas dan jadwal program melalui sesi konsultasi.",
+        "description": "Program Sensory Studio mencakup penjelasan tujuan belajar, materi utama, level peserta, durasi, pengajar, jadwal kelas dan tahapan pendaftaran.",
         "price": 950000
       }
     ],
@@ -2757,17 +2757,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Math Club",
-        "description": "Pelajari materi, format kelas dan jadwal program melalui sesi konsultasi.",
+        "description": "Program Math Club mencakup penjelasan tujuan belajar, materi utama, level peserta, durasi, pengajar, jadwal kelas dan tahapan pendaftaran.",
         "price": 350000
       },
       {
         "name": "Science Lab",
-        "description": "Pelajari materi, format kelas dan jadwal program melalui sesi konsultasi.",
+        "description": "Program Science Lab mencakup penjelasan tujuan belajar, materi utama, level peserta, durasi, pengajar, jadwal kelas dan tahapan pendaftaran.",
         "price": 650000
       },
       {
         "name": "Exam Preparation",
-        "description": "Pelajari materi, format kelas dan jadwal program melalui sesi konsultasi.",
+        "description": "Program Exam Preparation mencakup penjelasan tujuan belajar, materi utama, level peserta, durasi, pengajar, jadwal kelas dan tahapan pendaftaran.",
         "price": 950000
       }
     ],
@@ -2805,17 +2805,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Piano Basics",
-        "description": "Pelajari materi, format kelas dan jadwal program melalui sesi konsultasi.",
+        "description": "Program Piano Basics mencakup penjelasan tujuan belajar, materi utama, level peserta, durasi, pengajar, jadwal kelas dan tahapan pendaftaran.",
         "price": 350000
       },
       {
         "name": "Guitar Start",
-        "description": "Pelajari materi, format kelas dan jadwal program melalui sesi konsultasi.",
+        "description": "Program Guitar Start mencakup penjelasan tujuan belajar, materi utama, level peserta, durasi, pengajar, jadwal kelas dan tahapan pendaftaran.",
         "price": 650000
       },
       {
         "name": "Music Playground",
-        "description": "Pelajari materi, format kelas dan jadwal program melalui sesi konsultasi.",
+        "description": "Program Music Playground mencakup penjelasan tujuan belajar, materi utama, level peserta, durasi, pengajar, jadwal kelas dan tahapan pendaftaran.",
         "price": 950000
       }
     ],
@@ -2853,17 +2853,17 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Drawing Studio",
-        "description": "Pelajari materi, format kelas dan jadwal program melalui sesi konsultasi.",
+        "description": "Program Drawing Studio mencakup penjelasan tujuan belajar, materi utama, level peserta, durasi, pengajar, jadwal kelas dan tahapan pendaftaran.",
         "price": 350000
       },
       {
         "name": "Digital Design",
-        "description": "Pelajari materi, format kelas dan jadwal program melalui sesi konsultasi.",
+        "description": "Program Digital Design mencakup penjelasan tujuan belajar, materi utama, level peserta, durasi, pengajar, jadwal kelas dan tahapan pendaftaran.",
         "price": 650000
       },
       {
         "name": "Creative Workshop",
-        "description": "Pelajari materi, format kelas dan jadwal program melalui sesi konsultasi.",
+        "description": "Program Creative Workshop mencakup penjelasan tujuan belajar, materi utama, level peserta, durasi, pengajar, jadwal kelas dan tahapan pendaftaran.",
         "price": 950000
       }
     ],
