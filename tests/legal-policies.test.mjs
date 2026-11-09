@@ -28,6 +28,9 @@ test('privacy, complaints and refund contact route remain accessible',()=>{
   assert.match(studio,/\['\/privacy','Kebijakan Privasi'\]/);
   assert.match(studio,/\['\/refund','Pengembalian Dana'\]/);
   assert.match(studio,/aria-labelledby="legal-title"/);
+  assert.match(docs,/export const legalOperatorName='PT GHAZALI DIGITAL INDONESIA'/);
+  assert.ok((docs.match(/PT GHAZALI DIGITAL INDONESIA/g)||[]).length>=4);
+  assert.match(studio,/BisaBikinWeb — \{legalOperatorName\}/);
 });
 
 test('no absolute no-refund waiver is introduced',()=>{
