@@ -23,7 +23,9 @@ test('Email outbox remains private and has atomic claim with retry',()=>{
  assert.match(migration,/revoke all on function public.bbweb_claim_website_email_jobs/);
  assert.match(migration,/for update skip locked/);
  assert.match(migration,/next_attempt_at/);
- assert.match(worker,/status:'sending'/);
+ // Sending is claimed atomically by the SQL RPC; the worker updates only rows held in that state.
+ assert.match(worker,/rpc\/bbweb_claim_website_email_jobs/);
+ assert.match(worker,/&status=eq\.sending/);
  assert.match(worker,/status:'sent'/);
  assert.match(worker,/status:'pending'/);
 });
