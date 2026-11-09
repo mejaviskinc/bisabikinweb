@@ -1,0 +1,57 @@
+name: Publish 60 GitHub Pages template sites (manual approval)
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: 'I approve creation/update of 60 PUBLIC GitHub repos and assignment of template1-60 custom domains'
+        required: true
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+
+concurrency:
+  group: template-pages-publication
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    if: ${{ inputs.publish == true && github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    environment: template-sites-production
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Verify code and demo mapping
+        run: npm test
+      - name: Produce deployable website bundles
+        run: |
+          BBWEB_OFFLINE_BUILD=1 npm run build
+          node scripts/build-template-pages.mjs
+          node tests/template-pages-packages.test.mjs
+      - name: Require repository-creation credentials from GitHub Secrets
+        env:
+          GH_TOKEN: ${{ secrets.TEMPLATE_PAGES_PAT }}
+        run: |
+          test -n "$GH_TOKEN" || { echo "TEMPLATE_PAGES_PAT GitHub Actions secret is missing. Nothing was published."; exit 1; }
+      - name: Create or safely update 60 public template repositories and configure Pages
+        env:
+          GH_TOKEN: ${{ secrets.TEMPLATE_PAGES_PAT }}
+          GH_OWNER: mejaviskinc
+          GH_PROMPT_DISABLED: '1'
+        run: bash scripts/publish-template-pages.sh --publish
+      - name: Domain activation notice
+        run: |
+          echo "All 60 publication requests finished."
+          echo "Check HTTPS certificates and brand content in the DNS audit before switching catalog links."
