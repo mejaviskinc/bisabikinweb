@@ -1,0 +1,248 @@
+{
+  "name": "bisabikinweb-template-router",
+  "main": "./template-router.mjs",
+  "compatibility_date": "2026-10-01",
+  "workers_dev": false,
+  "routes": [
+    {
+      "pattern": "template1.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template2.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template3.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template4.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template5.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template6.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template7.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template8.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template9.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template10.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template11.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template12.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template13.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template14.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template15.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template16.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template17.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template18.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template19.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template20.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template21.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template22.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template23.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template24.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template25.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template26.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template27.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template28.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template29.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template30.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template31.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template32.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template33.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template34.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template35.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template36.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template37.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template38.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template39.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template40.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template41.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template42.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template43.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template44.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template45.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template46.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template47.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template48.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template49.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template50.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template51.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template52.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template53.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template54.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template55.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template56.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template57.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template58.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template59.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    },
+    {
+      "pattern": "template60.bisabikinweb.site/*",
+      "zone_name": "bisabikinweb.site"
+    }
+  ]
+}
