@@ -166,7 +166,7 @@
       "geography": "Indonesia dan pasar tujuan",
       "facts": [
         {
-          "claim": "Kemendag menyebut pelepasan lima kontainer makanan ringan PT Dua Kelinci ke Australia total 24,9 ton, USD 56.979.",
+          "claim": "Rilis Kemendag 9 November 2026 melaporkan ekspor lima kontainer makanan ringan PT Dua Kelinci ke Australia, volume 24,9 ton dan nilai USD56.979.",
           "source_urls": [
             "https://www.kemendag.go.id/berita/siaran-pers/lepas-ekspor-pt-dua-kelinci-ke-negeri-kanguru-mendag-busan-terus-ajak-pelaku-usaha-manfaatkan-perjanjian-dagang"
           ]
@@ -175,17 +175,21 @@
       "sources": [
         {
           "url": "https://www.kemendag.go.id/berita/siaran-pers/lepas-ekspor-pt-dua-kelinci-ke-negeri-kanguru-mendag-busan-terus-ajak-pelaku-usaha-manfaatkan-perjanjian-dagang",
-          "publisher": "Kementerian Perdagangan RI",
-          "accessed_at": "2026-11-10T01:20:00+07:00"
+          "publisher": "Kementerian Perdagangan Republik Indonesia",
+          "source_published_at": "2026-11-09",
+          "accessed_at": "2026-11-10T02:34:37+07:00"
         }
       ],
       "practical_impact": "Contoh bahwa pengetahuan buyer, spesifikasi, kemasan, dan strategi pasar penting bagi eksportir; bukan indikasi semua UMKM siap mengirim skala sama.",
       "content_angle": "Panduan evergreen menyiapkan penawaran ekspor makanan ringan dan website B2B.",
-      "keyword_intent": "cara ekspor makanan ringan untuk UMKM",
+      "keyword_intent": "cara ekspor makanan ringan untuk UMKM | informational-commercial",
       "editorial_status": "verified",
       "content_status": "drafted",
       "published_url": null,
-      "recheck_after": "2026-11-10"
+      "recheck_after": "2026-11-10",
+      "reader_pain_point": "UMKM makanan ringan memerlukan katalog SKU, bukti mutu, spesifikasi kemasan, dan alur RFQ sebelum menghubungi buyer internasional.",
+      "evergreen_idea": "Checklist penawaran ekspor makanan ringan untuk UMKM: validasi label, buyer, sampel, kapasitas, katalog B2B, dan logistik.",
+      "verification_note": "Rilis Kemendag 9 November 2026 ditemukan melalui penelusuran sumber primer 10 November; volume 24,9 ton dan nilai USD56.979 adalah transaksi PT Dua Kelinci, bukan standar minimum UMKM. Gambar artikel yang tersedia masih hotlink Unsplash dan belum diverifikasi sebagai file WebP lokal; status live tidak diklaim."
     },
     {
       "id": "pertanian-buah-2026-11-10",
@@ -331,5 +335,19 @@
       "cover_status": "licensed_stock_published_in_source; original_AI_cover_not_uploaded"
     }
   ],
-  "publication_note": "2 konten baru committed ke GitHub; URL live, build, dan final cover generated belum diverifikasi. Foto Unsplash adalah ilustrasi berlisensi, bukan dokumentasi."
+  "publication_note": "2 konten baru committed ke GitHub; URL live, build, dan final cover generated belum diverifikasi. Foto Unsplash adalah ilustrasi berlisensi, bukan dokumentasi.",
+  "editorial_audit": {
+    "2026-11-10T02:34:37+07:00": {
+      "repository_module": "static-source/lib/editorial-20261110.mjs",
+      "repo_nonnews_count_confirmed": 1,
+      "repo_news_count_confirmed": 1,
+      "nonnews_slug": "panduan-ekspor-makanan-ringan-umkm-katalog-buyer-australia",
+      "remaining_nonnews_target": 4,
+      "cms_status": "not independently verified",
+      "image_status": "Unsplash image URL present; local WebP and live response not verified",
+      "schedule_status": "No verified per-post scheduling",
+      "source_verified": "Kementerian Perdagangan, release dated 2026-11-09",
+      "editorial_next_step": "Expand four unique evergreen articles across other industry clusters, with legal images and QA before publish"
+    }
+  }
 }
