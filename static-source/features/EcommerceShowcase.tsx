@@ -1,5 +1,5 @@
 import {useEffect,useRef,useState} from 'react';
-import {ArrowUpRight,ArrowRight,PackageCheck,Layers3,ShieldCheck,Boxes,Headphones,Paintbrush,Truck,Settings2,Check,MessageCircle,ClipboardList,LockKeyhole} from 'lucide-react';
+import {ArrowUpRight,ArrowRight,ShoppingBag,PackageCheck,Layers3,ShieldCheck,Boxes,Headphones,Paintbrush,Truck,Settings2,Check,MessageCircle,ClipboardList,LockKeyhole} from 'lucide-react';
 import './ecommerce-showcase.css';
 
 const MEJAVI_SITE='https://mejaviskinc.github.io/mejavi-skin/';
