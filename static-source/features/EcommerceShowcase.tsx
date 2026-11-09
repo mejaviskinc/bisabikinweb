@@ -1,3 +1,4 @@
+import {useState} from 'react';
 import {ArrowUpRight,ArrowRight,PackageCheck,Layers3,ShieldCheck,Boxes,Headphones,Paintbrush,Truck,Settings2,Check,MessageCircle,ClipboardList} from 'lucide-react';
 import {PortfolioVisual} from '../components/Visuals';
 import './ecommerce-showcase.css';
@@ -27,6 +28,7 @@ const questions=[
 ];
 
 export default function EcommerceShowcase(){
+ const [mode,setMode]=useState<'desktop'|'mobile'>('desktop');
  return <div className="ec-showcase">
   <section className="section ec-intro" aria-labelledby="ec-intro-heading">
    <div className="ec-intro-copy">
@@ -37,12 +39,12 @@ export default function EcommerceShowcase(){
     <div className="ec-cta-row"><a href="/beli-website/" className="btn primary">Rancang toko saya <ArrowUpRight size={17}/></a><a href="/portfolio/" className="btn">Lihat portofolio <ArrowRight size={17}/></a></div>
    </div>
    <div className="ec-preview-shell ec-mejavi-shell">
-    <div className="ec-preview-head"><div><span className="ec-live-dot"/> MEJAVI SKIN+ / SCREENSHOT WEBSITE ASLI</div><span className="ec-screenshot-state">CAPTURED HOMEPAGE</span></div>
-    <a className="ec-mejavi-shot-link" href={MEJAVI_SITE} target="_blank" rel="noopener noreferrer" aria-label="Buka website resmi Mejavi Skin+">
-     <PortfolioVisual project={mejaviProject}/>
+    <div className="ec-preview-head"><div><span className="ec-live-dot"/> MEJAVI SKIN+ / VIDEO WEBSITE ASLI</div><div className="ec-view-controls" role="group" aria-label="Ukuran video preview"><button type="button" className={mode==='desktop'?'selected':''} aria-pressed={mode==='desktop'} onClick={()=>setMode('desktop')}>Desktop</button><button type="button" className={mode==='mobile'?'selected':''} aria-pressed={mode==='mobile'} onClick={()=>setMode('mobile')}>Mobile</button></div></div>
+    <a className={"ec-mejavi-shot-link "+(mode==='mobile'?"ec-mejavi-mobile-shot":"ec-mejavi-desktop-shot")} href={MEJAVI_SITE} target="_blank" rel="noopener noreferrer" aria-label="Buka website resmi Mejavi Skin+">
+     <PortfolioVisual key={mode} project={{...mejaviProject,previewMode:mode}}/>
     </a>
-    <div className="ec-preview-note"><span><span className="ec-live-dot"/> PREVIEW SAMA SEPERTI DI PORTOFOLIO</span><a href={MEJAVI_SITE} target="_blank" rel="noopener noreferrer">Buka website asli <ArrowUpRight size={14}/></a></div>
-    <p className="ec-mejavi-frame-help">Tangkapan layar berasal dari homepage website resmi Mejavi Skin+ dan bukan desain ulang. Klik pratinjau untuk menjelajahi website secara langsung di tab baru.</p>
+    <div className="ec-preview-note"><span><span className="ec-live-dot"/> VIDEO PREVIEW SAMA SEPERTI DI PORTOFOLIO</span><a href={MEJAVI_SITE} target="_blank" rel="noopener noreferrer">Buka website asli <ArrowUpRight size={14}/></a></div>
+    <p className="ec-mejavi-frame-help">Rekaman video diambil dari website resmi Mejavi Skin+ dan berjalan otomatis tanpa suara. Klik pratinjau untuk menjelajahi website aslinya. Jika video tidak tersedia, screenshot asli akan ditampilkan.</p>
    </div>
   </section>
 
