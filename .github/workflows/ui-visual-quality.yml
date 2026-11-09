@@ -1,0 +1,70 @@
+name: UI Visual Quality Gate
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ui-quality-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  visual-regression:
+    name: visual-regression
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - name: Checkout candidate and base history
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - name: Set up Node 22
+        uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install site dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Install pinned Playwright runner without changing lockfile
+        run: npm install --no-save --package-lock=false @playwright/test@1.56.1
+      - name: Install Chromium and OS dependencies
+        run: npx playwright install --with-deps chromium
+      - name: Compare desktop and mobile against base commit
+        env:
+          UI_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          CI: 'true'
+        run: bash scripts/ui-quality-gate.sh
+      - name: Capture public production desktop/mobile
+        if: always()
+        continue-on-error: true
+        run: node tests/visual/capture-live.mjs
+      - name: Upload main-branch baseline screenshots
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-baseline-main
+          path: tests/visual/visual.spec.mjs-snapshots/
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Upload production captures and HTTP report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-production-desktop-mobile
+          path: ui-live-captures/
+          retention-days: 30
+          if-no-files-found: warn
+      - name: Upload visual diff report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: ui-playwright-report
+          path: |
+            tests/visual/playwright-report/
+            tests/visual/test-results/
+          retention-days: 30
+          if-no-files-found: warn
