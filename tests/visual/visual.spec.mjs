@@ -18,6 +18,13 @@ const stabilizationCSS = [
 
 for(const route of criticalRoutes) {
   test('@visual '+route.id+' viewport is unchanged', async ({page}, testInfo) => {
+    // Avoid non-deterministic Supabase content, rotating promotions and third-party assets.
+    // The actual public site is captured separately without blocking external requests.
+    await page.route('**/*',request=>{
+      const target=new URL(request.request().url());
+      const local=['127.0.0.1','localhost'].includes(target.hostname);
+      return local ? request.continue() : request.abort();
+    });
     const response=await page.goto(route.path,{waitUntil:'domcontentloaded'});
     expect(response,'Route must respond').not.toBeNull();
     expect(response.status(),'Route should not be a server error').toBeLessThan(400);
