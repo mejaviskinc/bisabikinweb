@@ -38,8 +38,16 @@ function websitePaidConsultationMessage(order:any){
 function safeUrl(raw:any){try{const u=new URL(String(raw||''));return u.protocol==='https:'&&!u.username&&!u.password?u.href:''}catch{return ''}}
 function Preview({item}:{item:Template}){
  const src=safeUrl(item.image_url);
- return <div className={'ws-preview ws-preview-'+(item.theme||'graphite')}>
-  {src?<img src={src} alt={'Pratinjau '+item.title} loading="lazy" width="700" height="420"/>:
+ const sample=websiteDemos.find(d=>d.slug===item.slug);
+ const sector=websiteCategories.find(c=>c.slug===item.category);
+ const style=sample?{'--site-ink':sample.palette.ink,'--site-paper':sample.palette.paper,'--site-accent':sample.palette.accent} as React.CSSProperties:undefined;
+ return <div className={'ws-preview ws-preview-'+(item.theme||'graphite')} style={style}>
+  {src?<div className="ws-real-preview" aria-label={'Cuplikan layout website '+item.title}>
+   <div className="ws-real-topbar"><i/><i/><i/><span>{item.slug}.demo</span></div>
+   <div className="ws-real-header"><strong>{item.title}</strong><span>HOME&nbsp; / &nbsp;{item.category==='ekspor'?'PRODUCTS':item.category==='travel'?'TOURS':item.category==='pendidikan'?'PROGRAM':item.category==='restoran'?'MENU':'COLLECTION'}&nbsp; / &nbsp;ABOUT</span><b>↗</b></div>
+   <div className="ws-real-hero"><div><small>{(sample?.tagline||sector?.label||'PROFESSIONAL WEBSITE').toUpperCase()}</small><strong>{sample?.headline||item.title}</strong><em>{item.category==='ekspor'?'Request quotation':item.category==='travel'?'Explore our trips':item.category==='company-profile'?'Our solutions':item.category==='restoran'?'Discover our menu':'Explore collection'} ↗</em></div><img src={src} alt={'Foto ilustrasi desain '+item.title} loading="lazy" width="700" height="420"/></div>
+   <div className="ws-real-bottom"><span>{sample?.highlights?.[0]||'Detail layanan'}</span><span>{sample?.highlights?.[1]||'Profil bisnis'}</span><span>{sample?.highlights?.[2]||'Kontak'}</span></div>
+  </div>:
   <div className="ws-faux-browser" aria-label="Ilustrasi konsep desain, bukan screenshot situs jadi">
    <span className="ws-browser-chrome"><i/><i/><i/><b>DESIGN CONCEPT</b></span>
    <div className="ws-browser-body"><span className="ws-mini-brand">YOUR BRAND <span>↗</span></span><div className="ws-shapes"><div><strong>Make your<br/>mark online.</strong><small>Professional digital presence</small><em/></div><div className="ws-art-shape"><span>WEB</span></div></div><div className="ws-mini-cards"><span/><span/><span/></div></div>
