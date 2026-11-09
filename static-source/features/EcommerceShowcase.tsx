@@ -43,8 +43,6 @@ export default function EcommerceShowcase(){
     <a className={"ec-mejavi-shot-link "+(mode==='mobile'?"ec-mejavi-mobile-shot":"ec-mejavi-desktop-shot")} href={MEJAVI_SITE} target="_blank" rel="noopener noreferrer" aria-label="Buka website resmi Mejavi Skin+">
      <PortfolioVisual key={mode} project={{...mejaviProject,previewMode:mode}}/>
     </a>
-    <div className="ec-preview-note"><span><span className="ec-live-dot"/> VIDEO PREVIEW SAMA SEPERTI DI PORTOFOLIO</span><a href={MEJAVI_SITE} target="_blank" rel="noopener noreferrer">Buka website asli <ArrowUpRight size={14}/></a></div>
-    <p className="ec-mejavi-frame-help">Rekaman video diambil dari website resmi Mejavi Skin+ dan berjalan otomatis tanpa suara. Klik pratinjau untuk menjelajahi website aslinya. Jika video tidak tersedia, screenshot asli akan ditampilkan.</p>
    </div>
   </section>
 
