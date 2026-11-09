@@ -29,13 +29,19 @@
       "summary": "Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
       "event_date": null,
       "source_published_at": null,
-      "researched_at": "2026-11-10T04:34:15+07:00",
+      "researched_at": "2026-11-10T06:26:11+07:00",
       "geography": "Indonesia dan pasar tujuan",
       "facts": [
         {
           "claim": "Google mendukung structured data Article, NewsArticle, dan BlogPosting untuk membantu memahami judul, gambar, tanggal, serta penulis artikel; implementasi harus cocok dengan konten yang tampak.",
           "source_urls": [
             "https://developers.google.com/search/docs/appearance/structured-data/article?hl=id"
+          ]
+        },
+        {
+          "claim": "Google merekomendasikan author, headline, image, datePublished dan dateModified untuk Article/BlogPosting, serta pengujian Rich Results Test dan URL Inspection setelah implementasi.",
+          "source_urls": [
+            "https://developers.google.com/search/docs/appearance/structured-data/article"
           ]
         }
       ],
@@ -45,6 +51,12 @@
           "publisher": "Google Search Central",
           "source_published_at": null,
           "accessed_at": "2026-11-10T04:34:15+07:00"
+        },
+        {
+          "url": "https://developers.google.com/search/docs/appearance/structured-data/article",
+          "publisher": "Google Search Central",
+          "source_published_at": null,
+          "accessed_at": "2026-11-10T06:26:11+07:00"
         }
       ],
       "practical_impact": "Jangan mengambil keputusan usaha dari temuan lama sebelum melakukan verifikasi sumber dan tanggal.",
@@ -73,13 +85,19 @@
       "summary": "Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
       "event_date": null,
       "source_published_at": null,
-      "researched_at": "2026-11-10T04:34:15+07:00",
+      "researched_at": "2026-11-10T06:26:11+07:00",
       "geography": "Indonesia dan pasar tujuan",
       "facts": [
         {
           "claim": "ISPM 15 mengatur langkah fitosanitari untuk material kemasan kayu mentah dalam perdagangan internasional, termasuk dunnage; kayu olahan tertentu seperti plywood dikecualikan dari cakupan yang dijelaskan.",
           "source_urls": [
             "https://www.ippc.int/en/publications/640/"
+          ]
+        },
+        {
+          "claim": "Katalog standar IPPC menampilkan ISPM 15 pada daftar standar yang diadopsi dengan tanggal 28 Juli 2025; halaman publikasi 2021 tidak boleh otomatis dianggap sebagai versi paling baru. Periksa naskah standar yang berlaku dan persyaratan negara tujuan sebelum menerbitkan rincian teknis.",
+          "source_urls": [
+            "https://www.ippc.int/es/core-activities/standards-setting/ispms/"
           ]
         }
       ],
@@ -89,6 +107,12 @@
           "publisher": "International Plant Protection Convention (IPPC)",
           "source_published_at": "2021-07-13",
           "accessed_at": "2026-11-10T04:34:15+07:00"
+        },
+        {
+          "url": "https://www.ippc.int/es/core-activities/standards-setting/ispms/",
+          "publisher": "IPPC",
+          "source_published_at": null,
+          "accessed_at": "2026-11-10T06:26:11+07:00"
         }
       ],
       "practical_impact": "Jangan mengambil keputusan usaha dari temuan lama sebelum melakukan verifikasi sumber dan tanggal.",
@@ -108,7 +132,7 @@
         "verification": "primary_source_checked_2026-11-10; country_specific_or_live_implementation_not_checked",
         "status": "research_only_not_published"
       },
-      "verification_note": "Panduan IPPC 2023: https://www.ippc.int/en/publications/92080/; persyaratan negara tujuan dan penanda pemasok masih perlu diperiksa."
+      "verification_note": "Koreksi sumber: halaman publikasi 2021 bukan bukti versi ISPM 15 terbaru; katalog IPPC menampilkan adopsi 28 Juli 2025. Belum diverifikasi ketentuan setiap negara tujuan."
     },
     {
       "id": "kakao-coklat-2026-11-10",
@@ -174,11 +198,17 @@
       "summary": "Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
       "event_date": null,
       "source_published_at": null,
-      "researched_at": "2026-11-10T04:34:15+07:00",
+      "researched_at": "2026-11-10T06:26:11+07:00",
       "geography": "Indonesia dan pasar tujuan",
       "facts": [
         {
           "claim": "Commercial invoice menjelaskan barang yang dijual dan nilai yang harus dibayar; packing list merinci paket, berat, jumlah, dimensi dan penandaan. Packing list tidak menggantikan commercial invoice.",
+          "source_urls": [
+            "https://www.trade.gov/common-export-documents"
+          ]
+        },
+        {
+          "claim": "International Trade Administration menjelaskan packing list tidak menggantikan commercial invoice; rincian dokumen ekspor perlu dikonfirmasi bersama importir atau freight forwarder untuk tiap tujuan.",
           "source_urls": [
             "https://www.trade.gov/common-export-documents"
           ]
@@ -523,5 +553,17 @@
       "next_action": "Create and QA four nonduplicate 700-1500-word guides with genuinely licensed/generated 16:9 WebP before publication; verify scheduler, build and live URLs.",
       "source_status": "No new primary-source development confirmed in this incremental check."
     }
-  ]
+  ],
+  "last_incremental_check": {
+    "checked_at": "2026-11-10T06:26:11+07:00",
+    "source_checks": [
+      "https://www.ippc.int/es/core-activities/standards-setting/ispms/",
+      "https://www.trade.gov/common-export-documents",
+      "https://developers.google.com/search/docs/appearance/structured-data/article"
+    ],
+    "github_workflow": "generate-editorial-covers.yml ditemukan; workflow membutuhkan OPENAI_API_KEY dan menggunakan API berbayar; secret tidak bisa diverifikasi dari konektor GitHub",
+    "site_check": "URL artikel snack ekspor tidak dapat diakses melalui pemeriksa web; status live belum terkonfirmasi",
+    "publication_check": "Tidak ada perubahan status artikel yang diklaim pada putaran ini",
+    "editorial_note": "Sumber yang diverifikasi bersifat panduan evergreen; tidak dianggap perkembangan industri 24-72 jam."
+  }
 }
