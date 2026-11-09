@@ -24,7 +24,7 @@
 
 /* Portrait recording follows the actual mobile viewport; keep cards and controls accessible. */
 .ec-mejavi-mobile-shot{display:block;max-width:330px;margin:0 auto}
-.ec-mejavi-mobile-shot .portfolio-site-preview{aspect-ratio:420/844}
+.ec-mejavi-mobile-shot .portfolio-site-preview{aspect-ratio:390/844}
 .ec-mejavi-mobile-shot .portfolio-site-preview .portfolio-live-video,
 .ec-mejavi-mobile-shot .portfolio-site-preview .portfolio-live-screenshot{object-position:center top}
 .ec-mejavi-shell .ec-view-controls{margin-left:auto}
