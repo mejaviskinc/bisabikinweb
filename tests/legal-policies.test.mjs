@@ -31,6 +31,9 @@ test('privacy, complaints and refund contact route remain accessible',()=>{
   assert.match(docs,/export const legalOperatorName='PT GHAZALI DIGITAL INDONESIA'/);
   assert.ok((docs.match(/PT GHAZALI DIGITAL INDONESIA/g)||[]).length>=4);
   assert.match(studio,/BisaBikinWeb — \{legalOperatorName\}/);
+  assert.match(docs,/export const legalOperatorAddress='Jl\. Jogja–Purworejo KM 5, Cengkawakrejo, Banyuurip, Purworejo, Jawa Tengah 54171'/);
+  assert.match(studio,/Alamat kantor dan korespondensi: <strong>\{legalOperatorAddress\}<\/strong>/);
+  assert.match(studio,/footer-business-address/);
 });
 
 test('no absolute no-refund waiver is introduced',()=>{
