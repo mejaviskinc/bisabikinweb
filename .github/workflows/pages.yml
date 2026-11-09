@@ -7,6 +7,16 @@ on:
     paths:
       - '.github/workflows/pages.yml'
       - 'static-source/lib/legal-policies.ts'
+      # Showcase/shop changes deploy immediately without waiting for the 15-minute content batch.
+      - 'static-source/features/WebsiteLiveDemo.tsx'
+      - 'static-source/features/WebsiteStore.tsx'
+      - 'static-source/features/website-live-demo.css'
+      - 'static-source/features/website-store.css'
+      - 'static-source/lib/demo-creative.mjs'
+      - 'static-source/lib/demo-industries.mjs'
+      - 'static-source/lib/website-demos.mjs'
+      - 'static-source/lib/website-store.ts'
+      - 'tests/website-demos-60.test.mjs'
       - 'static-source/features/WebsiteStore.tsx'
       - 'static-source/features/website-store.css'
       - 'static-source/features/WebsiteLiveDemo.tsx'
