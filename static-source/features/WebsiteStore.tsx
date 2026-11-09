@@ -6,6 +6,7 @@ import {getWebsiteCatalog,websiteStoreApi} from '../lib/website-store-api';
 import {customerGetSession} from '../lib/customer';
 import {whatsapp} from '../lib/client';
 import {websiteDemos} from '../lib/website-demos.mjs';
+import {creativeFor} from '../lib/demo-creative.mjs';
 
 type Template={slug:string;title:string;category:string;description:string;features?:string[];image_url?:string;demo_url?:string;theme?:string;concept?:boolean};
 type Package={slug:string;name:string;description:string;base_price:number|null;features:string[]};
@@ -36,27 +37,43 @@ function websitePaidConsultationMessage(order:any){
  ].join('\n');
 }
 function safeUrl(raw:any){try{const u=new URL(String(raw||''));return u.protocol==='https:'&&!u.username&&!u.password?u.href:''}catch{return ''}}
-function LiveSitePreview({url,title}:{url:string;title:string}){
- const holder=useRef<HTMLDivElement>(null);
- const [inView,setInView]=useState(false);
- useEffect(()=>{
-  const node=holder.current;
-  if(!node)return;
-  if(typeof IntersectionObserver==='undefined'){setInView(true);return}
-  const observer=new IntersectionObserver(entries=>setInView(entries.some(entry=>entry.isIntersecting)),{rootMargin:'420px 0px'});
-  observer.observe(node);
-  return()=>observer.disconnect();
- },[url]);
- return <div className="ws-live-canvas" ref={holder} aria-label={'Preview halaman website '+title}>
-  {inView?<iframe src={url} title={'Preview langsung '+title} loading="lazy" tabIndex={-1} aria-hidden="true"/>:<div className="ws-live-placeholder" aria-hidden="true"><span>LIVE WEBSITE</span><small>Pratinjau situs interaktif</small></div>}
+// Render the actual demo's first-fold design from its shared content and visual tokens.
+// External iframes can fail to load or be blocked, leaving broken gray rectangles.
+function LiveSitePreview({slug}:{slug:string}){
+ const d=websiteDemos.find(demo=>demo.slug===slug);
+ if(!d)return null;
+ const creative=creativeFor(d.slug);
+ const style={'--wd-ink':d.palette.ink,'--wd-accent':d.palette.accent,'--wd-paper':d.palette.paper,'--wd-deep':d.palette.deep} as React.CSSProperties;
+ return <div className="ws-live-canvas" aria-label={'Cuplikan website demo '+d.title}>
+  <div className="ws-demo-mini-site">
+   <div className={'wd-root wd-layout-'+d.layout+' wd-sector-'+d.category} style={style}>
+    <div className="wd-preview-ribbon"><div><span className="wd-live-dot"/>DEMO INTERAKTIF • {d.title.toUpperCase()}</div><div>WEB DESIGN / BISABIKINWEB</div></div>
+    <header className="wd-header"><span className="wd-logo">{d.title}<small>®</small></span><nav className="wd-nav" aria-label="Contoh navigasi website"><span>Beranda</span><span>Koleksi</span><span>Layanan</span><span>Tentang</span><span>Kontak</span></nav><span className="wd-header-contact">Hubungi kami <ArrowUpRight size={15}/></span></header>
+    <section className="wd-hero">
+     <div className="wd-hero-copy">
+      <div className="wd-kicker"><i/>{d.tagline} <span>/ {d.category.toUpperCase()}</span></div>
+      <h1>{creative?.headline||d.headline}</h1><p>{creative?.story||d.description}</p>
+      <div className="wd-hero-actions"><span className="wd-main-button">{d.action}<ArrowUpRight size={19}/></span><span className="wd-secondary-button">Kenali kami <ArrowRight size={16}/></span></div>
+      <div className="wd-hero-caption"><span>THOUGHTFULLY PRESENTED</span><span>—</span><span>MADE FOR THE EVERYDAY</span></div>
+     </div>
+     <div className={'wd-visual wd-visual-'+d.layout}>
+      <img src={d.image} alt="" loading="lazy" decoding="async" onError={e=>{e.currentTarget.style.display='none'}}/>
+      <div className="wd-visual-halo" aria-hidden="true"><i/><i/><i/></div>
+      <div className="wd-visual-note"><span>{d.tagline.toUpperCase()}</span><strong>01 / 03</strong></div>
+     </div>
+    </section>
+    <div className="wd-ticker"><span>{d.tagline}</span>{d.highlights.map(h=><span key={h}>{h}</span>)}</div>
+   </div>
+  </div>
  </div>;
 }
 function Preview({item}:{item:Template}){
  const src=safeUrl(item.image_url);
  const demoUrl=safeUrl(item.demo_url);
- const internalLiveDemo=/^https:\/\/bisabikinweb\.site\/demo\/[a-z0-9-]+\/$/.test(demoUrl);
+ const liveDemo=websiteDemos.find(d=>d.slug===item.slug);
+ const hasLivePreview=Boolean(liveDemo&&/^https:\/\/bisabikinweb\.site\/demo\/[a-z0-9-]+\/$/.test(demoUrl));
  return <div className={'ws-preview ws-preview-'+(item.theme||'graphite')}>
-  {internalLiveDemo?<LiveSitePreview url={demoUrl} title={item.title}/>:
+  {hasLivePreview?<LiveSitePreview slug={item.slug}/>:
   src?<img src={src} alt={'Pratinjau '+item.title} loading="lazy" width="700" height="420"/>:
   <div className="ws-faux-browser" aria-label="Ilustrasi konsep desain, bukan screenshot situs jadi">
    <span className="ws-browser-chrome"><i/><i/><i/><b>DESIGN CONCEPT</b></span>
