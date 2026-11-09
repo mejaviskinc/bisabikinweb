@@ -14,6 +14,7 @@ for(let number=1;number<=60;number++){
  const dir=join(root,'template'+number);
  assert.equal((await readFile(join(dir,'CNAME'),'utf8')).trim(),hostname,'Incorrect Pages custom domain: '+hostname);
  await access(join(dir,'.nojekyll'));
+ assert.equal((await readFile(join(dir,'.bbweb-template-id'),'utf8')).trim(),number+' '+slug);
  const robots=await readFile(join(dir,'robots.txt'),'utf8');
  assert.match(robots,/Disallow:\s*\//);
  const html=await readFile(join(dir,'index.html'),'utf8');
