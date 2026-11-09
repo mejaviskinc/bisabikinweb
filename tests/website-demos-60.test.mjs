@@ -103,6 +103,6 @@ test('Each demo offers real multipage navigation and item detail interactions wi
  assert.match(sectors,/Kurikulum/);
  assert.match(styles,/\.wd-detail-grid/);
  assert.match(styles,/@media\(max-width:560px\)/);
- assert.match(cards,/ws-real-preview/);
+ assert.match(cards,/ws-live-canvas/); // Catalog embeds actual on-site interactive previews, rather than static mockups.
  assert.ok(!demo.includes('window.open('),'No false merchant checkout should open');
 });
