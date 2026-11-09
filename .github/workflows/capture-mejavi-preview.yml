@@ -61,10 +61,10 @@ jobs:
             fi
             sleep 2
             poster="public-assets/portfolio/mejavi-home-${format}.png"
-            ffmpeg -hide_banner -loglevel error -nostdin -y -f x11grab -video_size "${width}x${height}" -i :97.0+0,0 -frames:v 1 "$poster"
+            ffmpeg -hide_banner -loglevel error -nostdin -y -f x11grab -draw_mouse 0 -video_size "${width}x${height}" -i :97.0+0,0 -frames:v 1 "$poster"
             test -s "$poster" || { echo "Poster capture missing: $poster"; exit 1; }
             video="public-assets/portfolio/mejavi-home-${format}.mp4"
-            ffmpeg -hide_banner -loglevel error -nostdin -y -f x11grab -framerate 12 -video_size "${width}x${height}" -i :97.0+0,0 -t 9 -an -c:v libx264 -preset veryfast -crf 30 -pix_fmt yuv420p -movflags +faststart "$video"
+            ffmpeg -hide_banner -loglevel error -nostdin -y -f x11grab -draw_mouse 0 -framerate 12 -video_size "${width}x${height}" -i :97.0+0,0 -t 9 -an -c:v libx264 -preset veryfast -crf 30 -pix_fmt yuv420p -movflags +faststart "$video"
             test -s "$video"
             ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height,duration -of default=noprint_wrappers=1 "$video"
             # Do not publish a blank capture or a still masquerading as motion.
