@@ -1,0 +1,57 @@
+name: Export 60 GitHub Pages template sites
+on:
+  pull_request:
+    branches: [main]
+    paths:
+      - 'scripts/build-template-pages.mjs'
+      - 'tests/template-pages-packages.test.mjs'
+      - '.github/workflows/template-pages-export.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/build-template-pages.mjs'
+      - 'tests/template-pages-packages.test.mjs'
+      - '.github/workflows/template-pages-export.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  export-sites:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 25
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Verify site source
+        run: npm test
+      - name: Build complete source offline without secrets
+        run: BBWEB_OFFLINE_BUILD=1 npm run build
+      - name: Generate 60 separate deployable Pages sites
+        run: node scripts/build-template-pages.mjs
+      - name: Verify domains, brands, Vite assets and demo hydration
+        run: node tests/template-pages-packages.test.mjs
+      - name: Archive one deployable site per custom hostname
+        run: |
+          mkdir -p template-page-archives
+          for i in $(seq 1 60); do
+            tar -czf "template-page-archives/template${i}.tar.gz" -C "template-pages-dist/template${i}" .
+          done
+          cp template-pages-dist/manifest.json template-page-archives/manifest.json
+          echo "Created $(find template-page-archives -name '*.tar.gz' | wc -l) site archives"
+      - name: Upload 60 production-ready website packages
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-pages-template1-template60
+          path: template-page-archives/
+          retention-days: 30
