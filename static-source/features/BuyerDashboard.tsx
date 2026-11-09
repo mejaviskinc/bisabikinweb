@@ -227,7 +227,7 @@ export default function BuyerDashboard({ wish, products, toggleWish }: { wish: s
           <label>Nomor WhatsApp *<input value={registerPhone} onChange={e => setRegisterPhone(e.target.value)} required minLength={8} maxLength={40} type="tel" autoComplete="tel"/></label>
         </>}
         <label>Email *<input value={email} onChange={e => setEmail(e.target.value)} required type="email" maxLength={254} autoComplete="email" readOnly={mode === 'otp' && otpPending}/></label>
-        {mode === 'otp' && otpPending && <label>Kode OTP 6 digit *<input value={otpCode} onChange={e => setOtpCode(e.target.value.replace(/\\D/g, '').slice(0, 6))} type="text" inputMode="numeric" pattern="[0-9]{6}" minLength={6} maxLength={6} required autoComplete="one-time-code" placeholder="000000"/><small>Jangan bagikan kode OTP kepada siapa pun.</small></label>}
+        {mode === 'otp' && otpPending && <label>Kode OTP 6 digit *<input value={otpCode} onChange={e => setOtpCode(e.target.value.replace(/\D/g, '').slice(0, 6))} type="text" inputMode="numeric" pattern="[0-9]{6}" minLength={6} maxLength={6} required autoComplete="one-time-code" placeholder="000000"/><small>Jangan bagikan kode OTP kepada siapa pun.</small></label>}
         {(mode === 'login' || mode === 'signup') && <label>Password *<input value={password} onChange={e => setPassword(e.target.value)} required minLength={8} maxLength={128} type="password" autoComplete={mode === 'signup' ? 'new-password' : 'current-password'}/><small>Minimal 8 karakter. Gunakan password unik.</small></label>}
         {error && <p className="error" role="alert">{error}</p>}
         {message && <p className="info-box" role="status">{message}</p>}
