@@ -1,9 +1,10 @@
 'use client';
-import {useEffect,useMemo,useState} from 'react';
+import {useEffect,useMemo,useRef,useState} from 'react';
 import {ArrowUpRight,ArrowRight,Check,Search,Monitor,Globe2,ShieldCheck,LayoutTemplate,Clock3} from 'lucide-react';
 import {websiteCategories,websitePackages,websiteConcepts,websiteStatusLabel,rupiah} from '../lib/website-store';
 import {getWebsiteCatalog,websiteStoreApi} from '../lib/website-store-api';
 import {customerGetSession} from '../lib/customer';
+import {whatsapp} from '../lib/client';
 import {websiteDemos} from '../lib/website-demos.mjs';
 
 type Template={slug:string;title:string;category:string;description:string;features?:string[];image_url?:string;demo_url?:string;theme?:string;concept?:boolean};
@@ -11,6 +12,29 @@ type Package={slug:string;name:string;description:string;base_price:number|null;
 const legacyConcepts:Template[]=websiteConcepts.map(x=>({...x,concept:true}));
 const conceptTemplates:Template[]=websiteDemos.map(d=>({slug:d.slug,title:d.title,category:d.category,description:d.description,features:d.highlights,image_url:d.image,demo_url:'https://bisabikinweb.site/demo/'+d.slug+'/',concept:false,theme:d.category}));
 const basePackages:Package[]=websitePackages.map(x=>({...x,features:[...x.features]}));
+const pendingConsultationKey='bbweb_pending_website_consultation';
+function rememberPaidConsultation(orderId:string){try{sessionStorage.setItem(pendingConsultationKey,orderId)}catch{}}
+function websitePaidConsultationMessage(order:any){
+ const category=websiteCategories.find(c=>c.slug===order.category)?.label||order.category||'-';
+ const design=websiteDemos.find(d=>d.slug===order.template_slug)?.title||order.template_slug||'Desain custom';
+ const selectedPackage=websitePackages.find(p=>p.slug===order.package_slug)?.name||order.package_slug||'-';
+ return [
+  'Halo tim BisaBikinWeb, saya ingin melanjutkan konsultasi desain website setelah pembayaran terverifikasi.',
+  '',
+  '*Nomor pesanan:* '+order.order_no,
+  '*Nama klien:* '+(order.full_name||'-'),
+  '*Nama bisnis:* '+(order.company||'-'),
+  '*Email:* '+(order.email||'-'),
+  '*WhatsApp klien:* '+(order.phone||'-'),
+  '*Industri:* '+category,
+  '*Paket website:* '+selectedPackage,
+  '*Desain dipilih:* '+design,
+  '*Domain yang diinginkan:* '+(order.requested_domain||'Belum ditentukan'),
+  '*Total pembayaran:* '+(order.quoted_total==null?'-':rupiah(Number(order.quoted_total))),
+  '',
+  'Pembayaran sudah diverifikasi oleh sistem. Mohon bantuan untuk konsultasi desain dan pengurusan domain.'
+ ].join('\n');
+}
 function safeUrl(raw:any){try{const u=new URL(String(raw||''));return u.protocol==='https:'&&!u.username&&!u.password?u.href:''}catch{return ''}}
 function Preview({item}:{item:Template}){
  const src=safeUrl(item.image_url);
@@ -79,14 +103,49 @@ export function WebsiteCheckout(){
  </form><aside className="ws-order-summary"><small>RINGKASAN PERMINTAAN</small><h3>{current?.name||'Paket tidak tersedia'}</h3><strong>{current?.base_price==null?'Menunggu penawaran':rupiah(current.base_price)}</strong><p>Estimasi harga mulai, belum termasuk biaya tambahan yang disepakati.</p><ul>{(current?.features||[]).map(f=><li key={f}><Check size={14}/>{f}</li>)}</ul><div className="ws-summary-note"><Clock3 size={18}/> Penawaran dan invoice diterbitkan setelah brief diverifikasi.</div></aside></div></section></div>;
 }
 
-export function WebsiteClientProjects(){
+export function WebsiteClientProjects({whatsappNumber}:{whatsappNumber:string}){
+ const redirectedToConsultation=useRef(false);
+ const [consultOrderId]=useState<string>(()=>{
+  if(typeof window==='undefined')return '';
+  const fromReturn=new URLSearchParams(window.location.search).get('consult')||'';
+  let fromCheckout='';
+  try{fromCheckout=sessionStorage.getItem(pendingConsultationKey)||''}catch{}
+  const id=fromReturn||fromCheckout;
+  return /^[0-9a-f]{8}-(?:[0-9a-f]{4}-){3}[0-9a-f]{12}$/i.test(id)?id:'';
+ });
  const [orders,setOrders]=useState<any[]>([]),[busy,setBusy]=useState(true),[error,setError]=useState(''),[logged,setLogged]=useState<boolean|null>(null);
  const [selected,setSelected]=useState(''),[note,setNote]=useState(''),[sending,setSending]=useState(false),[notice,setNotice]=useState('');
  const [payingId,setPayingId]=useState('');
  const safeDokuUrl=(raw:unknown,mode:string)=>{try{const u=new URL(String(raw||''));return u.protocol==='https:'&&!u.username&&!u.password&&(mode==='production'?['checkout.doku.com','jokul.doku.com']:['sandbox.doku.com']).includes(u.hostname)?u.href:''}catch{return ''}};
- async function payNow(id:string){setPayingId(id);setError('');setNotice('');try{const result=await websiteStoreApi('create_payment',{id});const url=safeDokuUrl(result.redirect_url,result.environment);if(!url)throw Error('Tautan DOKU tidak valid.');location.assign(url);}catch(e:any){setError(String(e.message||'Pembayaran DOKU belum dapat dibuka.'));setPayingId('');}}
+ async function payNow(id:string){setPayingId(id);setError('');setNotice('');try{const result=await websiteStoreApi('create_payment',{id});const url=safeDokuUrl(result.redirect_url,result.environment);if(!url)throw Error('Tautan DOKU tidak valid.');rememberPaidConsultation(id);location.assign(url);}catch(e:any){setError(String(e.message||'Pembayaran DOKU belum dapat dibuka.'));setPayingId('');}}
  async function loadOrders(){const session=await customerGetSession();setLogged(Boolean(session));if(!session)return;const r=await websiteStoreApi('my_orders',{},session.access_token);setOrders(r.orders||[]);}
  useEffect(()=>{let alive=true;(async()=>{try{if(alive)await loadOrders()}catch(e:any){if(alive)setError(String(e.message||'Gagal memuat proyek.'))}finally{if(alive)setBusy(false)}})();return()=>{alive=false}},[]);
+ // DOKU redirects back here; the webhook, not the callback query, must confirm payment.
+ useEffect(()=>{
+  if(!consultOrderId||!logged||busy||redirectedToConsultation.current)return;
+  const paidOrder=orders.find(order=>order.id===consultOrderId&&order.payment_status==='paid');
+  if(!paidOrder)return;
+  const digits=whatsappNumber.replace(/\\D/g,'');
+  if(digits.length<10||digits.length>15){setError('Nomor WhatsApp konsultasi belum valid. Hubungi admin BisaBikinWeb.');return;}
+  redirectedToConsultation.current=true;
+  try{
+   sessionStorage.removeItem(pendingConsultationKey);
+   const cleanUrl=new URL(window.location.href);
+   cleanUrl.searchParams.delete('consult');
+   history.replaceState(history.state,'',cleanUrl.pathname+cleanUrl.search+cleanUrl.hash);
+  }catch{}
+  window.location.assign(whatsapp(whatsappNumber,websitePaidConsultationMessage(paidOrder)));
+ },[consultOrderId,logged,busy,orders,whatsappNumber]);
+ // Provider notifications can arrive after the browser returns; retry status briefly.
+ useEffect(()=>{
+  if(!consultOrderId||!logged||redirectedToConsultation.current)return;
+  let polls=0;
+  const timer=window.setInterval(()=>{
+   if(redirectedToConsultation.current||++polls>40){window.clearInterval(timer);return;}
+   void loadOrders().catch((e:any)=>setError(String(e.message||'Gagal memeriksa status pembayaran.')));
+  },3000);
+  return()=>window.clearInterval(timer);
+ },[consultOrderId,logged]);
  async function requestRevision(e:React.FormEvent<HTMLFormElement>){e.preventDefault();if(!selected)return;setSending(true);setError('');setNotice('');try{await websiteStoreApi('request_revision',{id:selected,note});setNotice('Permintaan revisi berhasil disimpan.');setSelected('');setNote('');await loadOrders();}catch(e:any){setError(String(e.message||'Revisi belum tersimpan.'))}finally{setSending(false)}}
  return <section className="section ws-root ws-projects">
   <small>CLIENT AREA / WEBSITE PROJECTS</small><h1>Website yang<br/><em>sedang dibangun.</em></h1>
@@ -101,15 +160,16 @@ export function WebsiteClientProjects(){
    <p>{websiteStatusLabel[o.status]||o.status}</p>
    <span>Status pembayaran: {o.payment_status==='not_invoiced'?'Belum ada invoice':o.payment_status}</span>
    <p>Domain yang diminta: {o.requested_domain||'Belum ditentukan'} (status: {o.domain_status==='manual_review'?'Perlu diperiksa':o.domain_status})</p>
+   {o.id===consultOrderId&&o.payment_status!=='paid'&&<p className="ws-notice">Menunggu konfirmasi pembayaran DOKU. Setelah pembayaran benar-benar terverifikasi, WhatsApp konsultasi akan terbuka otomatis.</p>}
    {o.quoted_total!=null&&<strong>Nilai penawaran: {rupiah(Number(o.quoted_total))}</strong>}
    <div className="ws-client-payment">
      <small>PEMBAYARAN WEBSITE VIA DOKU</small>
-     {o.payment_status==='paid'?<p className="ws-payment-paid"><Check size={16}/> Pembayaran DOKU terkonfirmasi. Pengerjaan dapat dilanjutkan.</p>:
+     {o.payment_status==='paid'?<p className="ws-payment-paid"><Check size={16}/> Pembayaran DOKU terkonfirmasi. {o.id===consultOrderId?'Membuka WhatsApp konsultasi secara otomatis...':'Pengerjaan dapat dilanjutkan.'}</p>:
       o.payment_status==='refunded'?<p>Pembayaran dikembalikan. Hubungi admin bila perlu konfirmasi.</p>:
       o.payment?.status==='unknown'||o.payment?.status==='expired'?<p>Status invoice perlu diverifikasi admin sebelum pembayaran ulang.</p>:
       o.status==='awaiting_payment'&&Number(o.quoted_total)>0?<>
        <p>Nominal final: <strong>{rupiah(Number(o.quoted_total))}</strong>. Pembayaran hanya melalui halaman DOKU resmi.</p>
-       {safeDokuUrl(o.payment?.redirect_url,o.payment?.environment)?<a className="btn primary" href={safeDokuUrl(o.payment.redirect_url,o.payment.environment)} rel="noopener noreferrer">Lanjutkan pembayaran DOKU <ArrowUpRight size={16}/></a>:
+       {safeDokuUrl(o.payment?.redirect_url,o.payment?.environment)?<a className="btn primary" href={safeDokuUrl(o.payment.redirect_url,o.payment.environment)} onClick={()=>rememberPaidConsultation(o.id)} rel="noopener noreferrer">Lanjutkan pembayaran DOKU <ArrowUpRight size={16}/></a>:
         o.payment?.status==='created'||o.payment?.status==='authorized'?<p>Invoice sedang diproses. Segarkan status atau hubungi admin.</p>:
         <button type="button" className="btn primary" disabled={payingId===o.id} onClick={()=>void payNow(o.id)}>{payingId===o.id?'Mempersiapkan pembayaran...':'Bayar dengan DOKU'} <ArrowUpRight size={16}/></button>}
       </>:<p>Menunggu admin menyetujui penawaran dan menetapkan invoice.</p>}
