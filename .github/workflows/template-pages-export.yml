@@ -33,8 +33,10 @@ jobs:
           cache: npm
       - name: Install locked dependencies
         run: npm ci --ignore-scripts --no-audit --no-fund
-      - name: Verify site source
-        run: npm test
+      - name: Verify source and publication script syntax
+        run: |
+          npm test
+          bash -n scripts/publish-template-pages.sh
       - name: Build complete source offline without secrets
         run: BBWEB_OFFLINE_BUILD=1 npm run build
       - name: Generate 60 separate deployable Pages sites
