@@ -36,6 +36,18 @@ test('privacy, complaints and refund contact route remain accessible',()=>{
   assert.match(studio,/footer-business-address/);
 });
 
+test('fulfilled orders are final for change of mind without canceling mandatory consumer rights',()=>{
+  const refund=docs.slice(docs.indexOf(" '/refund':"));
+  assert.match(refund,/prinsip TRANSAKSI FINAL/);
+  assert.match(refund,/1\. Transaksi final dan perubahan pikiran/);
+  assert.match(refund,/biaya atas tahap pekerjaan yang benar-benar telah dilaksanakan/);
+  assert.match(refund,/tidak otomatis hangus seluruhnya/);
+  assert.match(refund,/tidak berlaku surut/);
+  assert.match(refund,/Hak konsumen yang dijamin undang-undang tetap berlaku/);
+  assert.match(refund,/2 \(dua\) hari kerja/);
+  assert.match(refund,/gagal dipenuhi/);
+});
+
 test('no absolute no-refund waiver is introduced',()=>{
   assert.doesNotMatch(docs,/semua transaksi bersifat final dan tidak dapat dikembalikan/i);
   assert.doesNotMatch(docs,/no refunds under any circumstances/i);
