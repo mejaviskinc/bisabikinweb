@@ -28,6 +28,9 @@ report.readySamples=report.checks.filter(x=>x.https?.status===200&&x.https?.cont
 report.invalidExampleIp=report.checks.filter(x=>x.ipv4.some(ip=>ip.startsWith('192.0.2.')||ip.startsWith('198.51.100.')||ip.startsWith('203.0.113.'))).length;
 report.dnsPresent=report.checks.filter(x=>x.ipv4.length||x.ipv6.length||x.cname.length).length;
 report.cnameToGithubPages=report.checks.filter(x=>x.cname.some(v=>v.endsWith('.github.io'))).length;
+const target='mejaviskinc.github.io';
+report.cnameCorrect=report.checks.filter(x=>x.cname.some(v=>v.replace(/\.$/,'').toLowerCase()===target)).length;
+report.dnsMisconfigured=report.checks.filter(x=>x.cname.length===0&&x.ipv4.length>0).length;
 await mkdir('dns-readiness-report',{recursive:true});
 await writeFile('dns-readiness-report/status.json',JSON.stringify(report,null,2));
 console.log('NAMESERVERS',report.nameservers.join(', ')||report.nameserverError);
@@ -35,9 +38,6 @@ console.log('DNS PROVIDER',report.provider);
 console.log('DNS CONFIGURED',report.dnsPresent+'/'+samples.length);
 console.log('INVALID EXAMPLE IPS',report.invalidExampleIp+'/'+samples.length);
 console.log('CNAME TO GITHUB PAGES',report.cnameToGithubPages+'/'+samples.length);
-const target='mejaviskinc.github.io';
-report.cnameCorrect=report.checks.filter(x=>x.cname.some(v=>v.replace(/\\.$/,'').toLowerCase()===target)).length;
-report.dnsMisconfigured=report.checks.filter(x=>x.cname.length===0&&x.ipv4.length>0).length;
 console.log('CNAME CORRECT TARGET',report.cnameCorrect+'/'+samples.length,'('+target+')');
 console.log('A RECORD WITHOUT CNAME',report.dnsMisconfigured+'/'+samples.length);
 for(const number of [1,9,17,60]){
@@ -46,5 +46,5 @@ for(const number of [1,9,17,60]){
 }
 console.log('HTTPS READY',report.readySamples+'/'+httpsSamples.size+' samples');
 if(report.readySamples!==httpsSamples.size){
- console.log('Not activating catalog links. DNS, Worker and TLS must be verified before switching readiness flag.');
+ console.log('Not activating catalog links. DNS, GitHub Pages repository domains and TLS must be verified before switching readiness flag.');
 }
