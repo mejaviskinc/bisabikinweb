@@ -78,7 +78,7 @@ export default function WebsiteStore({path}:{path:string}){
  const [search,setSearch]=useState(''),[category,setCategory]=useState(websiteCategories.some(c=>c.slug===path.split('/')[2])?path.split('/')[2]:'semua');
  useEffect(()=>{let active=true;getWebsiteCatalog().then(rows=>{
   if(!active||!rows)return;
-  if(rows.templates.length)setTemplates(()=>{const remote=rows.templates.filter(t=>/^[a-z0-9-]+$/.test(String(t.slug||''))).map(t=>({...t,concept:false}));const remoteBySlug=new Map(remote.map(t=>[t.slug,t]));return [...conceptTemplates.map(local=>({...local,...(remoteBySlug.get(local.slug)||{}),demo_url:local.demo_url,category:local.category})),...remote.filter(t=>!conceptTemplates.some(local=>local.slug===t.slug))];});
+  if(rows.templates.length)setTemplates(()=>{const remote=rows.templates.filter(t=>/^[a-z0-9-]+$/.test(String(t.slug||''))).map(t=>({...t,concept:false}));const remoteBySlug=new Map(remote.map(t=>[t.slug,t]));return [...conceptTemplates.map(local=>({...local,...(remoteBySlug.get(local.slug)||{}),title:local.title,description:local.description,features:local.features,image_url:local.image_url,demo_url:local.demo_url,category:local.category})),...remote.filter(t=>!conceptTemplates.some(local=>local.slug===t.slug))];});
   if(rows.packages.length)setPackages(rows.packages.map(p=>({...p,base_price:p.base_price==null?null:Number(p.base_price)})));
  });return()=>{active=false}},[]);
  const match=path.match(/^\/desain\/([a-z0-9-]+)$/);
