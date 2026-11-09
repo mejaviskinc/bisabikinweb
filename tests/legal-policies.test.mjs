@@ -8,7 +8,7 @@ const studio=readFileSync(new URL('../static-source/features/Studio.tsx',import.
 test('legal routes all have dedicated Indonesian consumer-facing documents',()=>{
   for(const p of ["'/terms'","'/privacy'","'/refund'"]) assert.ok(docs.includes(p),p);
   for(const title of ['Syarat dan Ketentuan','Kebijakan Privasi','Kebijakan Pengembalian Dana dan Pembatalan']) assert.ok(docs.includes(title),title);
-  assert.match(studio,/import \{legalDocuments,legalReviewedOn\} from '\.\.\/lib\/legal-policies'/);
+  assert.match(studio,/import \{legalDocuments,legalReviewedOn,legalOperatorName,legalOperatorAddress\} from '\.\.\/lib\/legal-policies'/);
   assert.match(studio,/legalDocuments\[path as keyof typeof legalDocuments\]/);
 });
 
