@@ -281,7 +281,7 @@ export const websiteDemos=[
       "paper": "#f4f0ff",
       "deep": "#50466f"
     },
-    "image": "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1600&q=85",
+    "image": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1600&q=85",
     "layout": 5,
     "sectionTitle": "Pilihan dari kami",
     "action": "Jelajahi koleksi",
@@ -2009,7 +2009,7 @@ export const websiteDemos=[
       "paper": "#fff4ec",
       "deep": "#6c3742"
     },
-    "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&q=85",
+    "image": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1600&q=85",
     "layout": 1,
     "sectionTitle": "Pilihan dari dapur",
     "action": "Lihat menu",
