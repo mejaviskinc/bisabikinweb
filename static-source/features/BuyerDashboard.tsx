@@ -1,7 +1,7 @@
 'use client';
 import React, { useEffect, useState } from 'react';
 import { ArrowUpRight, CheckCircle2, Clock3, Heart, LogOut, MapPin, Package, RefreshCw, ShieldCheck, ShoppingBag, UserRound, Wallet } from 'lucide-react';
-import { customerApi, customerGetSession, customerSendPasswordReset, customerRequestEmailOtp, customerVerifyEmailOtp, customerSignIn, customerSignOut, customerSignUp, type CustomerSession } from '../lib/customer';
+import { customerApi, customerGetSession, customerSendPasswordReset, customerResendSignupOtp, customerRequestEmailOtp, customerVerifyEmailOtp, customerSignIn, customerSignOut, customerSignUp, type CustomerSession } from '../lib/customer';
 import { money } from '../lib/data';
 import { ProductCard } from './Commerce';
 
@@ -18,13 +18,14 @@ export default function BuyerDashboard({ wish, products, toggleWish }: { wish: s
   const [booting, setBooting] = useState(true);
   const [busy, setBusy] = useState(false);
   const [busyOrder, setBusyOrder] = useState('');
-  const [mode, setMode] = useState<'login' | 'signup' | 'reset' | 'otp'>('login');
+  const [mode, setMode] = useState<'login' | 'signup' | 'reset' | 'otp'>('otp');
   const [tab, setTab] = useState<'overview' | 'orders' | 'profile' | 'favorites'>('overview');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [registerName, setRegisterName] = useState('');
   const [registerPhone, setRegisterPhone] = useState('');
   const [otpPending, setOtpPending] = useState(false);
+  const [signupPending, setSignupPending] = useState(false);
   const [otpEmail, setOtpEmail] = useState('');
   const [otpCode, setOtpCode] = useState('');
   const [profile, setProfile] = useState<any>(emptyProfile);
@@ -67,6 +68,7 @@ export default function BuyerDashboard({ wish, products, toggleWish }: { wish: s
   function switchAuthMode(nextMode: 'login' | 'signup' | 'reset' | 'otp') {
     setMode(nextMode);
     setOtpPending(false);
+    setSignupPending(false);
     setOtpEmail('');
     setOtpCode('');
     setError('');
@@ -77,8 +79,12 @@ export default function BuyerDashboard({ wish, products, toggleWish }: { wish: s
     if (!otpEmail || busy) return;
     setBusy(true); setError(''); setMessage('');
     try {
-      await customerRequestEmailOtp(otpEmail);
-      setMessage('Jika akun terdaftar, kode OTP baru telah diminta. Periksa inbox atau spam.');
+      if (mode === 'signup' && signupPending) {
+        await customerResendSignupOtp(otpEmail);
+      } else {
+        await customerRequestEmailOtp(otpEmail);
+      }
+      setMessage('Jika alamat email valid, kode verifikasi baru telah diminta. Periksa inbox atau spam.');
     } catch (e: any) {
       setError(e?.message || 'Belum bisa mengirim ulang kode OTP.');
     } finally {
@@ -97,6 +103,20 @@ export default function BuyerDashboard({ wish, products, toggleWish }: { wish: s
         return;
       }
       if (mode === 'signup') {
+        if (signupPending) {
+          const s = await customerVerifyEmailOtp(otpEmail, otpCode);
+          if (!verified(s)) {
+            await customerSignOut(s);
+            throw new Error('Verifikasi email belum selesai. Masukkan kode OTP terbaru.');
+          }
+          setSession(s);
+          await loadDashboard(s);
+          setTab('overview');
+          setSignupPending(false);
+          setOtpCode('');
+          setMessage('Email berhasil diverifikasi. Akun pembeli sekarang aktif.');
+          return;
+        }
         if (password.length < 8) throw new Error('Password minimal 8 karakter.');
         if (registerName.trim().length < 2) throw new Error('Nama lengkap minimal 2 karakter.');
         if (registerPhone.replace(/\D/g, '').length < 8) throw new Error('Nomor WhatsApp belum valid.');
@@ -108,8 +128,10 @@ export default function BuyerDashboard({ wish, products, toggleWish }: { wish: s
           setMessage('Akun berhasil dibuat. Profil pembeli siap digunakan.');
         } else {
           if (result.session) await customerSignOut(result.session);
-          switchAuthMode('login');
-          setMessage('Akun berhasil didaftarkan. Buka email untuk verifikasi, lalu login di sini sebelum menggunakan dashboard pembeli.');
+          setOtpEmail(email.trim().toLowerCase());
+          setSignupPending(true);
+          setOtpCode('');
+          setMessage('Jika pendaftaran dapat diproses, kode verifikasi 6 digit dikirim ke email. Masukkan kode dari email untuk mengaktifkan akun.');
         }
         return;
       }
@@ -138,7 +160,7 @@ export default function BuyerDashboard({ wish, products, toggleWish }: { wish: s
       const s = await customerSignIn(email, password);
       if (!verified(s)) {
         await customerSignOut(s);
-        throw new Error('Email belum diverifikasi. Buka tautan verifikasi yang dikirim ke email, lalu login kembali.');
+        throw new Error('Email belum diverifikasi. Gunakan kode dari email pendaftaran atau hubungi dukungan.');
       }
       setSession(s);
       await loadDashboard(s);
@@ -222,23 +244,23 @@ export default function BuyerDashboard({ wish, products, toggleWish }: { wish: s
       </div>
       <form className="consult-form buyer-auth-form" onSubmit={handleAuth}>
         <div className="buyer-form-heading"><span className="eyebrow">{mode === 'signup' ? 'CREATE CUSTOMER ACCOUNT' : mode === 'reset' ? 'RESET PASSWORD' : mode === 'otp' ? 'SECURE EMAIL OTP' : 'WELCOME BACK'}</span><h2>{mode === 'signup' ? 'Buat akun pembeli' : mode === 'reset' ? 'Pulihkan password' : mode === 'otp' ? 'Login dengan kode email' : 'Login pembeli'}</h2></div>
-        {mode === 'signup' && <>
+        {mode === 'signup' && !signupPending && <>
           <label>Nama lengkap *<input value={registerName} onChange={e => setRegisterName(e.target.value)} required minLength={2} maxLength={120} autoComplete="name"/></label>
           <label>Nomor WhatsApp *<input value={registerPhone} onChange={e => setRegisterPhone(e.target.value)} required minLength={8} maxLength={40} type="tel" autoComplete="tel"/></label>
         </>}
-        <label>Email *<input value={email} onChange={e => setEmail(e.target.value)} required type="email" maxLength={254} autoComplete="email" readOnly={mode === 'otp' && otpPending}/></label>
-        {mode === 'otp' && otpPending && <label>Kode OTP 6 digit *<input value={otpCode} onChange={e => setOtpCode(e.target.value.replace(/\D/g, '').slice(0, 6))} type="text" inputMode="numeric" pattern="[0-9]{6}" minLength={6} maxLength={6} required autoComplete="one-time-code" placeholder="000000"/><small>Jangan bagikan kode OTP kepada siapa pun.</small></label>}
-        {(mode === 'login' || mode === 'signup') && <label>Password *<input value={password} onChange={e => setPassword(e.target.value)} required minLength={8} maxLength={128} type="password" autoComplete={mode === 'signup' ? 'new-password' : 'current-password'}/><small>Minimal 8 karakter. Gunakan password unik.</small></label>}
+        <label>Email *<input value={email} onChange={e => setEmail(e.target.value)} required type="email" maxLength={254} autoComplete="email" readOnly={(mode === 'otp' && otpPending) || (mode === 'signup' && signupPending)}/></label>
+        {((mode === 'otp' && otpPending) || (mode === 'signup' && signupPending)) && <label>Kode OTP 6 digit *<input value={otpCode} onChange={e => setOtpCode(e.target.value.replace(/\D/g, '').slice(0, 6))} type="text" inputMode="numeric" pattern="[0-9]{6}" minLength={6} maxLength={6} required autoComplete="one-time-code" placeholder="000000"/><small>Jangan bagikan kode OTP kepada siapa pun.</small></label>}
+        {(mode === 'login' || (mode === 'signup' && !signupPending)) && <label>Password *<input value={password} onChange={e => setPassword(e.target.value)} required minLength={8} maxLength={128} type="password" autoComplete={mode === 'signup' ? 'new-password' : 'current-password'}/><small>Minimal 8 karakter. Gunakan password unik.</small></label>}
         {error && <p className="error" role="alert">{error}</p>}
         {message && <p className="info-box" role="status">{message}</p>}
-        <button className="btn primary buyer-submit" disabled={busy}>{busy ? 'Memproses…' : mode === 'signup' ? 'Daftar akun' : mode === 'reset' ? 'Kirim tautan reset' : mode === 'otp' ? (otpPending ? 'Verifikasi kode & masuk' : 'Kirim kode OTP') : 'Login'} <ArrowUpRight size={17}/></button>
+        <button className="btn primary buyer-submit" disabled={busy}>{busy ? 'Memproses…' : mode === 'signup' ? (signupPending ? 'Verifikasi kode & aktifkan akun' : 'Daftar akun') : mode === 'reset' ? 'Kirim tautan reset' : mode === 'otp' ? (otpPending ? 'Verifikasi kode & masuk' : 'Kirim kode OTP') : 'Login'} <ArrowUpRight size={17}/></button>
         <div className="buyer-auth-links">
-          {mode === 'login' && <>
+           {mode === 'login' && <>
             <button type="button" className="text-link" onClick={() => switchAuthMode('otp')}>Login dengan OTP email</button>
             <button type="button" className="text-link" onClick={() => switchAuthMode('reset')}>Lupa password?</button>
           </>}
-          {mode === 'otp' && otpPending && <button type="button" className="text-link" disabled={busy} onClick={() => void resendOtp()}>Kirim ulang kode</button>}
-          {mode !== 'login' && <button type="button" className="text-link" onClick={() => switchAuthMode('login')}>Kembali ke login password</button>}
+          {((mode === 'otp' && otpPending) || (mode === 'signup' && signupPending)) && <button type="button" className="text-link" disabled={busy} onClick={() => void resendOtp()}>Kirim ulang kode</button>}
+          {mode !== 'login' && <button type="button" className="text-link" onClick={() => switchAuthMode('login')}>Login dengan password</button>}
           {mode !== 'signup' && <button type="button" className="text-link" onClick={() => switchAuthMode('signup')}>Buat akun baru</button>}
           {mode === 'signup' && <button type="button" className="text-link" onClick={() => switchAuthMode('login')}>Sudah punya akun? Login</button>}
         </div>
