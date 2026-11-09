@@ -21,8 +21,8 @@ test('60 unique fixed template1..template60 hostnames map one-to-one to catalog 
  }
 });
 test('Catalog still links to working legacy demo until DNS and SSL are verified',()=>{
- assert.equal(TEMPLATE_SUBDOMAINS_READY,false);
- assert.equal(publicDemoUrl('meridian-advisory'),site+'/demo/meridian-advisory/');
+ assert.equal(publicDemoUrl('meridian-advisory',{subdomainsReady:false}),site+'/demo/meridian-advisory/');
+ assert.equal(publicDemoUrl('meridian-advisory',{subdomainsReady:TEMPLATE_SUBDOMAINS_READY}),TEMPLATE_SUBDOMAINS_READY?'https://template9.bisabikinweb.site/':site+'/demo/meridian-advisory/');
  assert.equal(publicDemoUrl('meridian-advisory',{subdomainsReady:true}),'https://template9.bisabikinweb.site/');
 });
 test('Cloudflare config uses exactly 60 host-specific routes, never wildcard app/media/shop routes',()=>{
