@@ -4,7 +4,7 @@
   "type": "module",
   "scripts": {
     "build": "node build-pages.mjs",
-    "test": "node --test tests/ecommerce-preview.test.mjs tests/merch-images.test.mjs tests/legal-policies.test.mjs tests/security.test.mjs tests/editorial-posts.test.mjs tests/news.test.mjs tests/app-subdomain.test.mjs tests/subdomain-build.test.mjs tests/doku-snap.test.mjs tests/website-store.test.mjs tests/website-demos-60.test.mjs tests/brand-motif-removal.test.mjs tests/website-sales-dashboard.test.mjs tests/website-doku.test.mjs tests/website-email.test.mjs tests/seo-cluster.test.mjs && node tests/geo-editorial-integrity.test.mjs",
+    "test": "node --test tests/ui-contract.test.mjs tests/ecommerce-preview.test.mjs tests/merch-images.test.mjs tests/legal-policies.test.mjs tests/security.test.mjs tests/editorial-posts.test.mjs tests/news.test.mjs tests/app-subdomain.test.mjs tests/subdomain-build.test.mjs tests/doku-snap.test.mjs tests/website-store.test.mjs tests/website-demos-60.test.mjs tests/brand-motif-removal.test.mjs tests/website-sales-dashboard.test.mjs tests/website-doku.test.mjs tests/website-email.test.mjs tests/seo-cluster.test.mjs && node tests/geo-editorial-integrity.test.mjs",
     "test:output": "node tests/output-security.mjs && node tests/seo-output.test.mjs && node tests/website-demos-output.test.mjs && node tests/brand-motif-output.test.mjs && node --test tests/seo-keywords-600.test.mjs && node tests/seo-landing-pages.test.mjs && node tests/geo-readiness.test.mjs",
     "build:app": "npm run build && node scripts/build-app.mjs",
     "build:media": "npm run build && node scripts/build-subdomain.mjs media",
