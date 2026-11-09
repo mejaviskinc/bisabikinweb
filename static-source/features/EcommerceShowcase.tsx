@@ -1,8 +1,14 @@
-import {useEffect,useRef,useState} from 'react';
+import {useState} from 'react';
 import {ArrowUpRight,ArrowRight,PackageCheck,Layers3,ShieldCheck,Boxes,Headphones,Paintbrush,Truck,Settings2,Check,MessageCircle,ClipboardList,LockKeyhole} from 'lucide-react';
 import './ecommerce-showcase.css';
 
 const MEJAVI_SITE='https://mejaviskinc.github.io/mejavi-skin/';
+const MEJAVI_ASSET='https://raw.githubusercontent.com/mejaviskinc/mejavi-skin/main/site/';
+const mejaviProducts=[
+ {name:'Brightening Gentle Cleanser',type:'Face Cleanser',image:'images/cleaner.jpg'},
+ {name:'Plump+Bright Serumiser',type:'Face Serum',image:'images/serum.jpg'},
+ {name:'Lumiere Essence Hydra Cream',type:'Hydra Cream',image:'images/cream.jpg'}
+];
 const capabilities=[
  {icon:Layers3,title:'Katalog yang mudah dijelajahi',copy:'Kategori, pencarian, foto produk, varian ukuran atau warna, dan detail yang membantu pembeli memilih.'},
  {icon:PackageCheck,title:'Keranjang & checkout',copy:'Dari memilih produk sampai membuat pesanan dengan alur yang jelas dan responsif di perangkat seluler.'},
@@ -27,23 +33,6 @@ const questions=[
 
 export default function EcommerceShowcase(){
  const [mode,setMode]=useState<'desktop'|'mobile'>('desktop');
- const viewportRef=useRef<HTMLDivElement>(null);
- const [viewportWidth,setViewportWidth]=useState(680);
- useEffect(()=>{
-  const element=viewportRef.current;
-  if(!element)return;
-  const resize=()=>setViewportWidth(Math.max(1,element.clientWidth));
-  resize();
-  if(typeof ResizeObserver!=='undefined'){
-   const observer=new ResizeObserver(resize);observer.observe(element);
-   return ()=>observer.disconnect();
-  }
-  window.addEventListener('resize',resize);
-  return ()=>window.removeEventListener('resize',resize);
- },[]);
- const nativeWidth=mode==='desktop'?1366:390;
- const nativeHeight=mode==='desktop'?1300:950;
- const scale=Math.min(1,viewportWidth/nativeWidth);
  return <div className="ec-showcase">
   <section className="section ec-intro" aria-labelledby="ec-intro-heading">
    <div className="ec-intro-copy">
@@ -54,15 +43,27 @@ export default function EcommerceShowcase(){
     <div className="ec-cta-row"><a href="/beli-website/" className="btn primary">Rancang toko saya <ArrowUpRight size={17}/></a><a href="/portfolio/" className="btn">Lihat portofolio <ArrowRight size={17}/></a></div>
    </div>
    <div className="ec-preview-shell ec-mejavi-shell">
-    <div className="ec-preview-head"><div><span className="ec-live-dot"/> MEJAVI SKIN+ / WEBSITE ASLI</div><div className="ec-view-controls" role="group" aria-label="Tampilan website Mejavi"><button type="button" className={mode==='desktop'?'selected':''} aria-pressed={mode==='desktop'} onClick={()=>setMode('desktop')}>Desktop</button><button type="button" className={mode==='mobile'?'selected':''} aria-pressed={mode==='mobile'} onClick={()=>setMode('mobile')}>Mobile</button></div></div>
-    <div className={'ec-browser '+(mode==='mobile'?'ec-browser-mobile':'')}>
+    <div className="ec-preview-head"><div><span className="ec-live-dot"/> MEJAVI SKIN+ / PREVIEW VISUAL</div><div className="ec-view-controls" role="group" aria-label="Tampilan contoh website Mejavi"><button type="button" className={mode==='desktop'?'selected':''} aria-pressed={mode==='desktop'} onClick={()=>setMode('desktop')}>Desktop</button><button type="button" className={mode==='mobile'?'selected':''} aria-pressed={mode==='mobile'} onClick={()=>setMode('mobile')}>Mobile</button></div></div>
+    <div className={'ec-browser ec-mejavi-browser '+(mode==='mobile'?'ec-browser-mobile ec-mejavi-mobile':'')}>
      <div className="ec-browser-bar"><div className="ec-browser-dots"><i/><i/><i/></div><span>mejaviskinc.github.io/mejavi-skin/</span><LockKeyhole size={12}/></div>
-     <div ref={viewportRef} className="ec-mejavi-viewport" style={{height:Math.ceil(nativeHeight*scale)}}>
-      <iframe key="mejavi-website" className="ec-mejavi-iframe" src={MEJAVI_SITE} title="Preview website resmi Mejavi Skin+" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox" style={{width:nativeWidth,height:nativeHeight,transform:'scale('+scale+')'}}/>
+     <div className="ec-mejavi-page">
+      <div className="ec-mejavi-navigation">
+       <div className="ec-mejavi-brand"><img src={MEJAVI_ASSET+'logo-mejavi.png'} alt="Logo Mejavi Skin+" loading="lazy"/><span><strong>MEJAVI SKIN+</strong><small>SKIN & BODY CARE</small></span></div>
+       <div className="ec-mejavi-menu"><span>Home</span><span>Tentang</span><span>Produk</span><span>Ingredients</span></div>
+       <span className="ec-mejavi-language">ID / EN</span>
+      </div>
+      <div className="ec-mejavi-hero">
+       <div className="ec-mejavi-hero-content"><span className="ec-mejavi-kicker">✦ Everyday Skin Ritual</span><h3><i>Rawat kulitmu.</i><br/>Temukan glow-mu.</h3><p>Mejavi Skin menghadirkan rangkaian skincare dan body care yang dirancang untuk membantu merawat kulit sensitif agar tampak sehat, lembap, cerah dan terawat setiap hari.</p><div className="ec-mejavi-actions"><span>Belanja Sekarang</span><span>▶ Lihat Video</span></div><small>✓ Pilihan skincare harian &nbsp; ✓ Made with care</small></div>
+       <div className="ec-mejavi-hero-photo"><img src={MEJAVI_ASSET+'produk.png'} loading="lazy" alt="Produk asli Mejavi Skin+"/><div className="ec-mejavi-photo-caption">Your daily skin ritual <small>Skincare · Body Care · Self Care</small></div></div>
+      </div>
+      <div className="ec-mejavi-products">
+       <div className="ec-mejavi-product-heading"><span>MEJAVI COLLECTION</span><strong>Daily skincare essentials</strong><small>Produk dari katalog resmi Mejavi Skin+</small></div>
+       <div className="ec-mejavi-product-grid">{mejaviProducts.map(p=><div className="ec-mejavi-product" key={p.name}><div className="ec-mejavi-product-image"><img src={MEJAVI_ASSET+p.image} alt={p.name} loading="lazy"/></div><span>{p.type}</span><strong>{p.name}</strong></div>)}</div>
+      </div>
      </div>
     </div>
-    <div className="ec-preview-note"><span><span className="ec-live-dot"/> WEBSITE ASLI / BUKAN MOCKUP</span><a href={MEJAVI_SITE} target="_blank" rel="noopener noreferrer">Buka website Mejavi <ArrowUpRight size={14}/></a></div>
-    <p className="ec-mejavi-frame-help">Tampilan diambil langsung dari website Mejavi Skin+. Jika browser memblokir pratinjau tersemat, gunakan tautan “Buka website Mejavi” untuk melihat situs sepenuhnya.</p>
+    <div className="ec-preview-note"><span><span className="ec-live-dot"/> PREVIEW DARI ASET & KONTEN RESMI MEJAVI</span><a href={MEJAVI_SITE} target="_blank" rel="noopener noreferrer">Kunjungi website Mejavi <ArrowUpRight size={14}/></a></div>
+    <p className="ec-mejavi-frame-help">Ini pratinjau visual berbasis aset dan konten website Mejavi Skin+, bukan halaman live yang disematkan. Untuk melihat fitur dan interaksi aslinya, buka website Mejavi.</p>
    </div>
   </section>
 
