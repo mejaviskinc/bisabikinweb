@@ -5,6 +5,7 @@ on:
     branches: [main]
     paths:
       - '.github/workflows/template-dns-audit.yml'
+      - 'scripts/audit-template-dns.mjs'
   workflow_dispatch:
 
 permissions:
