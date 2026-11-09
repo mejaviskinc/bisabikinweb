@@ -64,3 +64,45 @@ test('Catalog cards use actual live demo pages instead of repeating placeholder 
  assert.match(studio,/ws-template-visual-link/);
  assert.match(studio,/href=\{safeUrl\(t\.demo_url\)/);
 });
+
+test('All 60 industry showcases have independent visual identity and editorial identity',async()=>{
+ const {creativeDirections,galleryPhotoFor}=await import('../static-source/lib/demo-creative.mjs');
+ const {industryExperiences,brandPositioning}=await import('../static-source/lib/demo-industries.mjs');
+ assert.equal(Object.keys(creativeDirections).length,60);
+ assert.equal(new Set(websiteDemos.map(d=>d.image)).size,60,'Hero images must not be repeated across the 60 concept brands');
+ assert.equal(Object.keys(industryExperiences).length,8);
+ const keys=new Set(websiteDemos.map(d=>d.slug));
+ assert.deepEqual(new Set(Object.keys(creativeDirections)),keys);
+ for(const d of websiteDemos){
+  const creative=creativeDirections[d.slug];
+  assert.equal(creative.hero,d.image,d.slug);
+  assert.ok(creative.story.length>55&&creative.headline.length>12,d.slug);
+  assert.ok(galleryPhotoFor(d,0).startsWith('https://images.unsplash.com/photo-'),d.slug);
+  const profile=brandPositioning(d);
+  assert.equal(profile.nav.length,5,d.slug);
+  assert.equal(profile.specialties.length,3,d.slug);
+  assert.equal(profile.steps.length,3,d.slug);
+  assert.ok(profile.fields.length>=3,d.slug);
+  assert.ok(profile.specialties.every(x=>x.detail.length>50),d.slug);
+ }
+});
+test('Each demo offers real multipage navigation and item detail interactions without fake checkout',()=>{
+ const creative=source('static-source/lib/demo-creative.mjs');
+ const sectors=source('static-source/lib/demo-industries.mjs');
+ const styles=source('static-source/features/website-live-demo.css');
+ const cards=source('static-source/features/WebsiteStore.tsx');
+ assert.match(demo,/activePage==='detail'/);
+ assert.match(demo,/navigate\('detail',i\)/);
+ assert.match(demo,/wd-detail-page/);
+ assert.match(demo,/galleryPhotoFor\(d,i\)/);
+ assert.match(demo,/history\.pushState/);
+ assert.match(demo,/popstate/);
+ assert.match(sectors,/Request RFQ/);
+ assert.match(sectors,/Size Guide/);
+ assert.match(sectors,/Itinerary/);
+ assert.match(sectors,/Kurikulum/);
+ assert.match(styles,/\.wd-detail-grid/);
+ assert.match(styles,/@media\(max-width:560px\)/);
+ assert.match(cards,/ws-real-preview/);
+ assert.ok(!demo.includes('window.open('),'No false merchant checkout should open');
+});
