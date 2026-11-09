@@ -41,7 +41,7 @@ export const websiteDemos=[
       "paper": "#f2f1e7",
       "deep": "#17352a"
     },
-    "image": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=1600&q=85",
     "layout": 0,
     "sectionTitle": "Pilihan dari kami",
     "action": "Jelajahi koleksi",
@@ -89,7 +89,7 @@ export const websiteDemos=[
       "paper": "#f3f6fb",
       "deep": "#274e87"
     },
-    "image": "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1600&q=85",
     "layout": 1,
     "sectionTitle": "Pilihan dari kami",
     "action": "Jelajahi koleksi",
@@ -137,7 +137,7 @@ export const websiteDemos=[
       "paper": "#fff4ec",
       "deep": "#6c3742"
     },
-    "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1490750967868-88aa4486c946?auto=format&fit=crop&w=1600&q=85",
     "layout": 2,
     "sectionTitle": "Pilihan dari kami",
     "action": "Jelajahi koleksi",
@@ -185,7 +185,7 @@ export const websiteDemos=[
       "paper": "#f8f3e4",
       "deep": "#356653"
     },
-    "image": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&q=85",
     "layout": 3,
     "sectionTitle": "Pilihan dari kami",
     "action": "Jelajahi koleksi",
@@ -233,7 +233,7 @@ export const websiteDemos=[
       "paper": "#f7ede1",
       "deep": "#65452f"
     },
-    "image": "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1493106641515-6b5631de4bb9?auto=format&fit=crop&w=1600&q=85",
     "layout": 4,
     "sectionTitle": "Pilihan dari kami",
     "action": "Jelajahi koleksi",
@@ -281,7 +281,7 @@ export const websiteDemos=[
       "paper": "#f4f0ff",
       "deep": "#50466f"
     },
-    "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1600&q=85",
     "layout": 5,
     "sectionTitle": "Pilihan dari kami",
     "action": "Jelajahi koleksi",
@@ -329,7 +329,7 @@ export const websiteDemos=[
       "paper": "#f8f6ee",
       "deep": "#366272"
     },
-    "image": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1545173168-9f1947eebb7f?auto=format&fit=crop&w=1600&q=85",
     "layout": 0,
     "sectionTitle": "Pilihan dari kami",
     "action": "Jelajahi koleksi",
@@ -377,7 +377,7 @@ export const websiteDemos=[
       "paper": "#f7f7ec",
       "deep": "#696d3e"
     },
-    "image": "https://images.unsplash.com/photo-1494438639946-1ebd1d20bf85?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1600&q=85",
     "layout": 1,
     "sectionTitle": "Pilihan dari kami",
     "action": "Jelajahi koleksi",
@@ -425,7 +425,7 @@ export const websiteDemos=[
       "paper": "#fff4ec",
       "deep": "#6c3742"
     },
-    "image": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1600&q=85",
     "layout": 1,
     "sectionTitle": "Layanan kami",
     "action": "Diskusikan proyek",
@@ -473,7 +473,7 @@ export const websiteDemos=[
       "paper": "#f8f3e4",
       "deep": "#356653"
     },
-    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1487958449943-2429e8be8625?auto=format&fit=crop&w=1600&q=85",
     "layout": 2,
     "sectionTitle": "Layanan kami",
     "action": "Diskusikan proyek",
@@ -521,7 +521,7 @@ export const websiteDemos=[
       "paper": "#f7ede1",
       "deep": "#65452f"
     },
-    "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&w=1600&q=85",
     "layout": 3,
     "sectionTitle": "Layanan kami",
     "action": "Diskusikan proyek",
@@ -569,7 +569,7 @@ export const websiteDemos=[
       "paper": "#f4f0ff",
       "deep": "#50466f"
     },
-    "image": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1589829545856-d10d557cf95f?auto=format&fit=crop&w=1600&q=85",
     "layout": 4,
     "sectionTitle": "Layanan kami",
     "action": "Diskusikan proyek",
@@ -617,7 +617,7 @@ export const websiteDemos=[
       "paper": "#f8f6ee",
       "deep": "#366272"
     },
-    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1600&q=85",
     "layout": 5,
     "sectionTitle": "Layanan kami",
     "action": "Diskusikan proyek",
@@ -665,7 +665,7 @@ export const websiteDemos=[
       "paper": "#f7f7ec",
       "deep": "#696d3e"
     },
-    "image": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1556761175-b413da4baf72?auto=format&fit=crop&w=1600&q=85",
     "layout": 0,
     "sectionTitle": "Layanan kami",
     "action": "Diskusikan proyek",
@@ -713,7 +713,7 @@ export const websiteDemos=[
       "paper": "#faf6ef",
       "deep": "#775a40"
     },
-    "image": "https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1586528116311-ad8dd3c8310d?auto=format&fit=crop&w=1600&q=85",
     "layout": 1,
     "sectionTitle": "Layanan kami",
     "action": "Diskusikan proyek",
@@ -761,7 +761,7 @@ export const websiteDemos=[
       "paper": "#f0f8f5",
       "deep": "#245d63"
     },
-    "image": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?auto=format&fit=crop&w=1600&q=85",
     "layout": 2,
     "sectionTitle": "Layanan kami",
     "action": "Diskusikan proyek",
@@ -809,7 +809,7 @@ export const websiteDemos=[
       "paper": "#f7ede1",
       "deep": "#65452f"
     },
-    "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1600&q=85",
     "layout": 2,
     "sectionTitle": "Shop the collection",
     "action": "Jelajahi koleksi",
@@ -857,7 +857,7 @@ export const websiteDemos=[
       "paper": "#f4f0ff",
       "deep": "#50466f"
     },
-    "image": "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1472396961693-142e6e269027?auto=format&fit=crop&w=1600&q=85",
     "layout": 3,
     "sectionTitle": "Shop the collection",
     "action": "Jelajahi koleksi",
@@ -905,7 +905,7 @@ export const websiteDemos=[
       "paper": "#f8f6ee",
       "deep": "#366272"
     },
-    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1608248543803-ba4f8c70ae0b?auto=format&fit=crop&w=1600&q=85",
     "layout": 4,
     "sectionTitle": "Shop the collection",
     "action": "Jelajahi koleksi",
@@ -953,7 +953,7 @@ export const websiteDemos=[
       "paper": "#f7f7ec",
       "deep": "#696d3e"
     },
-    "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1455390582262-044cdead277a?auto=format&fit=crop&w=1600&q=85",
     "layout": 5,
     "sectionTitle": "Shop the collection",
     "action": "Jelajahi koleksi",
@@ -1001,7 +1001,7 @@ export const websiteDemos=[
       "paper": "#faf6ef",
       "deep": "#775a40"
     },
-    "image": "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1534438327276-14e5300c3a48?auto=format&fit=crop&w=1600&q=85",
     "layout": 0,
     "sectionTitle": "Shop the collection",
     "action": "Jelajahi koleksi",
@@ -1049,7 +1049,7 @@ export const websiteDemos=[
       "paper": "#f0f8f5",
       "deep": "#245d63"
     },
-    "image": "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1524504388940-b1c1722653e1?auto=format&fit=crop&w=1600&q=85",
     "layout": 1,
     "sectionTitle": "Shop the collection",
     "action": "Jelajahi koleksi",
@@ -1097,7 +1097,7 @@ export const websiteDemos=[
       "paper": "#f2f1e7",
       "deep": "#17352a"
     },
-    "image": "https://images.unsplash.com/photo-1441986300917-64674bd600d8?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1505740420928-5e560c06d30e?auto=format&fit=crop&w=1600&q=85",
     "layout": 2,
     "sectionTitle": "Shop the collection",
     "action": "Jelajahi koleksi",
@@ -1145,7 +1145,7 @@ export const websiteDemos=[
       "paper": "#f3f6fb",
       "deep": "#274e87"
     },
-    "image": "https://images.unsplash.com/photo-1472851294608-062f824d29cc?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1515488042361-ee00e0ddd4e4?auto=format&fit=crop&w=1600&q=85",
     "layout": 3,
     "sectionTitle": "Shop the collection",
     "action": "Jelajahi koleksi",
@@ -1193,7 +1193,7 @@ export const websiteDemos=[
       "paper": "#f8f6ee",
       "deep": "#366272"
     },
-    "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1596040033229-a9821ebd058d?auto=format&fit=crop&w=1600&q=85",
     "layout": 3,
     "sectionTitle": "Explore our trade portfolio",
     "action": "Request a quotation",
@@ -1241,7 +1241,7 @@ export const websiteDemos=[
       "paper": "#f7f7ec",
       "deep": "#696d3e"
     },
-    "image": "https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1531835551805-16d864c8d311?auto=format&fit=crop&w=1600&q=85",
     "layout": 4,
     "sectionTitle": "Explore our trade portfolio",
     "action": "Request a quotation",
@@ -1289,7 +1289,7 @@ export const websiteDemos=[
       "paper": "#faf6ef",
       "deep": "#775a40"
     },
-    "image": "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1447933601403-0c6688de566e?auto=format&fit=crop&w=1600&q=85",
     "layout": 5,
     "sectionTitle": "Explore our trade portfolio",
     "action": "Request a quotation",
@@ -1337,7 +1337,7 @@ export const websiteDemos=[
       "paper": "#f0f8f5",
       "deep": "#245d63"
     },
-    "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1519915028121-7d3463d20b13?auto=format&fit=crop&w=1600&q=85",
     "layout": 0,
     "sectionTitle": "Explore our trade portfolio",
     "action": "Request a quotation",
@@ -1385,7 +1385,7 @@ export const websiteDemos=[
       "paper": "#f2f1e7",
       "deep": "#17352a"
     },
-    "image": "https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1470252649378-9c29740c9fa8?auto=format&fit=crop&w=1600&q=85",
     "layout": 1,
     "sectionTitle": "Explore our trade portfolio",
     "action": "Request a quotation",
@@ -1433,7 +1433,7 @@ export const websiteDemos=[
       "paper": "#f3f6fb",
       "deep": "#274e87"
     },
-    "image": "https://images.unsplash.com/photo-1464226184884-fa280b87c399?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1519708227418-c8fd9a32b7a2?auto=format&fit=crop&w=1600&q=85",
     "layout": 2,
     "sectionTitle": "Explore our trade portfolio",
     "action": "Request a quotation",
@@ -1481,7 +1481,7 @@ export const websiteDemos=[
       "paper": "#fff4ec",
       "deep": "#6c3742"
     },
-    "image": "https://images.unsplash.com/photo-1542838132-92c53300491e?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1501004318641-b39e6451bec6?auto=format&fit=crop&w=1600&q=85",
     "layout": 3,
     "sectionTitle": "Explore our trade portfolio",
     "action": "Request a quotation",
@@ -1529,7 +1529,7 @@ export const websiteDemos=[
       "paper": "#f8f3e4",
       "deep": "#356653"
     },
-    "image": "https://images.unsplash.com/photo-1494412519320-aa613dfb7738?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1600&q=85",
     "layout": 4,
     "sectionTitle": "Explore our trade portfolio",
     "action": "Request a quotation",
@@ -1577,7 +1577,7 @@ export const websiteDemos=[
       "paper": "#faf6ef",
       "deep": "#775a40"
     },
-    "image": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1537996194471-e657df975ab4?auto=format&fit=crop&w=1600&q=85",
     "layout": 4,
     "sectionTitle": "Perjalanan untuk setiap cerita",
     "action": "Rencanakan perjalanan",
@@ -1625,7 +1625,7 @@ export const websiteDemos=[
       "paper": "#f0f8f5",
       "deep": "#245d63"
     },
-    "image": "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?auto=format&fit=crop&w=1600&q=85",
     "layout": 5,
     "sectionTitle": "Perjalanan untuk setiap cerita",
     "action": "Rencanakan perjalanan",
@@ -1673,7 +1673,7 @@ export const websiteDemos=[
       "paper": "#f2f1e7",
       "deep": "#17352a"
     },
-    "image": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1600&q=85",
     "layout": 0,
     "sectionTitle": "Perjalanan untuk setiap cerita",
     "action": "Rencanakan perjalanan",
@@ -1721,7 +1721,7 @@ export const websiteDemos=[
       "paper": "#f3f6fb",
       "deep": "#274e87"
     },
-    "image": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1480714378408-67cf0d13bc1b?auto=format&fit=crop&w=1600&q=85",
     "layout": 1,
     "sectionTitle": "Perjalanan untuk setiap cerita",
     "action": "Rencanakan perjalanan",
@@ -1769,7 +1769,7 @@ export const websiteDemos=[
       "paper": "#fff4ec",
       "deep": "#6c3742"
     },
-    "image": "https://images.unsplash.com/photo-1500534623283-312aade485b7?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1544551763-46a013bb70d5?auto=format&fit=crop&w=1600&q=85",
     "layout": 2,
     "sectionTitle": "Perjalanan untuk setiap cerita",
     "action": "Rencanakan perjalanan",
@@ -1817,7 +1817,7 @@ export const websiteDemos=[
       "paper": "#f8f3e4",
       "deep": "#356653"
     },
-    "image": "https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1548013146-72479768bada?auto=format&fit=crop&w=1600&q=85",
     "layout": 3,
     "sectionTitle": "Perjalanan untuk setiap cerita",
     "action": "Rencanakan perjalanan",
@@ -1865,7 +1865,7 @@ export const websiteDemos=[
       "paper": "#f7ede1",
       "deep": "#65452f"
     },
-    "image": "https://images.unsplash.com/photo-1488646953014-85cb44e25828?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?auto=format&fit=crop&w=1600&q=85",
     "layout": 4,
     "sectionTitle": "Perjalanan untuk setiap cerita",
     "action": "Rencanakan perjalanan",
@@ -1913,7 +1913,7 @@ export const websiteDemos=[
       "paper": "#f2f1e7",
       "deep": "#17352a"
     },
-    "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=1600&q=85",
     "layout": 5,
     "sectionTitle": "Pilihan dari dapur",
     "action": "Lihat menu",
@@ -1961,7 +1961,7 @@ export const websiteDemos=[
       "paper": "#f3f6fb",
       "deep": "#274e87"
     },
-    "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1512621776951-a57141f2eefd?auto=format&fit=crop&w=1600&q=85",
     "layout": 0,
     "sectionTitle": "Pilihan dari dapur",
     "action": "Lihat menu",
@@ -2009,7 +2009,7 @@ export const websiteDemos=[
       "paper": "#fff4ec",
       "deep": "#6c3742"
     },
-    "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&q=85",
     "layout": 1,
     "sectionTitle": "Pilihan dari dapur",
     "action": "Lihat menu",
@@ -2057,7 +2057,7 @@ export const websiteDemos=[
       "paper": "#f8f3e4",
       "deep": "#356653"
     },
-    "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1565299624946-b28f40a0ae38?auto=format&fit=crop&w=1600&q=85",
     "layout": 2,
     "sectionTitle": "Pilihan dari dapur",
     "action": "Lihat menu",
@@ -2153,7 +2153,7 @@ export const websiteDemos=[
       "paper": "#f4f0ff",
       "deep": "#50466f"
     },
-    "image": "https://images.unsplash.com/photo-1414235077428-338989a2e8c0?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1579871494447-9811cf80d66c?auto=format&fit=crop&w=1600&q=85",
     "layout": 4,
     "sectionTitle": "Pilihan dari dapur",
     "action": "Lihat menu",
@@ -2201,7 +2201,7 @@ export const websiteDemos=[
       "paper": "#f8f6ee",
       "deep": "#366272"
     },
-    "image": "https://images.unsplash.com/photo-1517248135467-4c7edcad34c4?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&w=1600&q=85",
     "layout": 5,
     "sectionTitle": "Pilihan dari dapur",
     "action": "Lihat menu",
@@ -2249,7 +2249,7 @@ export const websiteDemos=[
       "paper": "#fff4ec",
       "deep": "#6c3742"
     },
-    "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1600&q=85",
     "layout": 0,
     "sectionTitle": "Featured collection",
     "action": "Jelajahi koleksi",
@@ -2297,7 +2297,7 @@ export const websiteDemos=[
       "paper": "#f8f3e4",
       "deep": "#356653"
     },
-    "image": "https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1525507119028-ed4c629a60a3?auto=format&fit=crop&w=1600&q=85",
     "layout": 1,
     "sectionTitle": "Featured collection",
     "action": "Jelajahi koleksi",
@@ -2345,7 +2345,7 @@ export const websiteDemos=[
       "paper": "#f7ede1",
       "deep": "#65452f"
     },
-    "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1539109136881-3be0616acf4b?auto=format&fit=crop&w=1600&q=85",
     "layout": 2,
     "sectionTitle": "Featured collection",
     "action": "Jelajahi koleksi",
@@ -2393,7 +2393,7 @@ export const websiteDemos=[
       "paper": "#f4f0ff",
       "deep": "#50466f"
     },
-    "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1503341455253-b2e723bb3dbb?auto=format&fit=crop&w=1600&q=85",
     "layout": 3,
     "sectionTitle": "Featured collection",
     "action": "Jelajahi koleksi",
@@ -2441,7 +2441,7 @@ export const websiteDemos=[
       "paper": "#f8f6ee",
       "deep": "#366272"
     },
-    "image": "https://images.unsplash.com/photo-1445205170230-053b83016050?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1523398002811-999ca8dec234?auto=format&fit=crop&w=1600&q=85",
     "layout": 4,
     "sectionTitle": "Featured collection",
     "action": "Jelajahi koleksi",
@@ -2489,7 +2489,7 @@ export const websiteDemos=[
       "paper": "#f7f7ec",
       "deep": "#696d3e"
     },
-    "image": "https://images.unsplash.com/photo-1490481651871-ab68de25d43d?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1496747611176-843222e1e57c?auto=format&fit=crop&w=1600&q=85",
     "layout": 5,
     "sectionTitle": "Featured collection",
     "action": "Jelajahi koleksi",
@@ -2537,7 +2537,7 @@ export const websiteDemos=[
       "paper": "#faf6ef",
       "deep": "#775a40"
     },
-    "image": "https://images.unsplash.com/photo-1483985988355-763728e1935b?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1515562141207-7a88fb7ce338?auto=format&fit=crop&w=1600&q=85",
     "layout": 0,
     "sectionTitle": "Featured collection",
     "action": "Jelajahi koleksi",
@@ -2585,7 +2585,7 @@ export const websiteDemos=[
       "paper": "#f7ede1",
       "deep": "#65452f"
     },
-    "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1600&q=85",
     "layout": 1,
     "sectionTitle": "Program yang bisa kamu pilih",
     "action": "Tanya program",
@@ -2633,7 +2633,7 @@ export const websiteDemos=[
       "paper": "#f4f0ff",
       "deep": "#50466f"
     },
-    "image": "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?auto=format&fit=crop&w=1600&q=85",
     "layout": 2,
     "sectionTitle": "Program yang bisa kamu pilih",
     "action": "Tanya program",
@@ -2681,7 +2681,7 @@ export const websiteDemos=[
       "paper": "#f8f6ee",
       "deep": "#366272"
     },
-    "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?auto=format&fit=crop&w=1600&q=85",
     "layout": 3,
     "sectionTitle": "Program yang bisa kamu pilih",
     "action": "Tanya program",
@@ -2729,7 +2729,7 @@ export const websiteDemos=[
       "paper": "#f7f7ec",
       "deep": "#696d3e"
     },
-    "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?auto=format&fit=crop&w=1600&q=85",
     "layout": 4,
     "sectionTitle": "Program yang bisa kamu pilih",
     "action": "Tanya program",
@@ -2777,7 +2777,7 @@ export const websiteDemos=[
       "paper": "#faf6ef",
       "deep": "#775a40"
     },
-    "image": "https://images.unsplash.com/photo-1427504494785-3a9ca7044f45?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1434030216411-0b793f4b4173?auto=format&fit=crop&w=1600&q=85",
     "layout": 5,
     "sectionTitle": "Program yang bisa kamu pilih",
     "action": "Tanya program",
@@ -2825,7 +2825,7 @@ export const websiteDemos=[
       "paper": "#f0f8f5",
       "deep": "#245d63"
     },
-    "image": "https://images.unsplash.com/photo-1503676260728-1c00da094a0b?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1511379938547-c1f69419868d?auto=format&fit=crop&w=1600&q=85",
     "layout": 0,
     "sectionTitle": "Program yang bisa kamu pilih",
     "action": "Tanya program",
@@ -2873,7 +2873,7 @@ export const websiteDemos=[
       "paper": "#f2f1e7",
       "deep": "#17352a"
     },
-    "image": "https://images.unsplash.com/photo-1509062522246-3755977927d7?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1513364776144-60967b0f800f?auto=format&fit=crop&w=1600&q=85",
     "layout": 1,
     "sectionTitle": "Program yang bisa kamu pilih",
     "action": "Tanya program",
