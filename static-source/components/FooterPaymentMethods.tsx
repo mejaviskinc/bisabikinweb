@@ -1,57 +1,84 @@
 import React from 'react';
+import {CalendarClock, CreditCard, Landmark, QrCode, ShieldCheck, Store, Wallet} from 'lucide-react';
 
 /**
- * Informational channel logos (not a guarantee that every option is activated).
- * Brand assets are loaded from their sources; text-only cards are descriptive,
- * not fabricated logos. DOKU Checkout determines actual merchant channels.
- * Trademarks belong to their respective owners.
+ * Payment categories supported by DOKU. Categories do not imply that every
+ * individual merchant channel is activated. DOKU Checkout is the source of
+ * truth for available payment choices.
  */
-const paymentChannels = [
-  {label:'BNI VA', detail:'BNI Virtual Account', file:'Bank_Negara_Indonesia_logo_(2004).svg'},
-  {label:'BRIVA', detail:'BRI Virtual Account', file:'BRI_2025.svg'},
-  {label:'Alfamart', detail:'Retail payment', file:'Alfamart_logo.svg'},
-  {label:'CIMB Niaga', detail:'Bank transfer', file:'CIMB_Niaga_logo.svg'},
-  {label:'Maybank', detail:'Bank transfer', file:'Logo_wordmark_Bank_Maybank_Indonesia.png'},
-  {label:'Indomaret', detail:'Retail payment', file:'Indomaret.svg'},
-  {label:'Danamon', detail:'Bank transfer', file:'Danamon_(2024).svg'},
-  {label:'PermataBank', detail:'Bank transfer', file:'Permata_Bank_(2024).svg'},
-  {label:'Mandiri VA', detail:'Mandiri Virtual Account', file:'Bank_Mandiri_logo_2016.svg'},
-  {label:'BCA VA', detail:'BCA Virtual Account', file:'Bank_Central_Asia.svg'},
-  {label:'QRIS', detail:'QR payment', file:'Logo_QRIS.svg'},
-  {label:'OVO', detail:'E-wallet', src:'https://cdn.prod.website-files.com/674ab654de930b217c6389c1/6768ffe4b3a0965dc1ecc388_ovo.avif'},
-  {label:'DANA', detail:'E-wallet'},
-  {label:'ShopeePay', detail:'E-wallet'},
-  {label:'Kartu debit / kredit', detail:'Pembayaran kartu'},
-  {label:'PayLater', detail:'Cicilan jika tersedia di DOKU'}
+const paymentCategories=[
+  {
+    id:'qris',
+    icon:QrCode,
+    nameId:'QRIS',nameEn:'QRIS',
+    detailId:'Bayar dengan aplikasi yang mendukung QRIS.',
+    detailEn:'Pay with a QRIS-compatible payment app.'
+  },
+  {
+    id:'virtual-account',
+    icon:Landmark,
+    nameId:'Virtual Account',nameEn:'Virtual Account',
+    detailId:'Transfer melalui bank yang tersedia.',
+    detailEn:'Transfer through an available bank.'
+  },
+  {
+    id:'e-wallet',
+    icon:Wallet,
+    nameId:'Dompet Digital',nameEn:'E-Wallet',
+    detailId:'OVO, DANA, ShopeePay, dan mitra lainnya.',
+    detailEn:'OVO, DANA, ShopeePay and other providers.'
+  },
+  {
+    id:'cards',
+    icon:CreditCard,
+    nameId:'Kartu Debit / Kredit',nameEn:'Debit / Credit Cards',
+    detailId:'Pembayaran kartu sesuai dukungan penerbit.',
+    detailEn:'Card payments, subject to issuer support.'
+  },
+  {
+    id:'retail',
+    icon:Store,
+    nameId:'Gerai Ritel',nameEn:'Retail Outlets',
+    detailId:'Alfamart, Indomaret, dan gerai mitra.',
+    detailEn:'Alfamart, Indomaret and participating outlets.'
+  },
+  {
+    id:'paylater',
+    icon:CalendarClock,
+    nameId:'PayLater',nameEn:'PayLater',
+    detailId:'Opsi cicilan jika diaktifkan dan memenuhi syarat.',
+    detailEn:'Installments if enabled and eligible.'
+  }
 ] as const;
 
-function logoUrl(item:(typeof paymentChannels)[number]) {
-  return 'src' in item ? item.src : 'file' in item
-    ? 'https://commons.wikimedia.org/wiki/Special:FilePath/'+item.file : '';
-}
-
-export default function FooterPaymentMethods({english=false}:{english?:boolean}) {
-  return <section className="footer-payment" aria-labelledby="footer-payment-title">
-    <div className="footer-payment-heading">
-      <div>
-        <small>PAYMENT CHANNELS</small>
-        <h3 id="footer-payment-title">{english?'Payment Methods via DOKU':'Metode Pembayaran via DOKU'}</h3>
-      </div>
-      <p>{english
-        ? 'Available methods depend on the DOKU channels activated for our merchant account. Final choices appear in DOKU Checkout.'
-        : 'Kanal aktif mengikuti pengaturan akun merchant. Pilihan final tersedia di halaman resmi DOKU Checkout.'}</p>
-    </div>
-    <div className="footer-payment-grid" aria-label={english?'Payment channel logos':'Logo kanal pembayaran'}>
-      {paymentChannels.map(item=>
-        <div className={'footer-payment-logo '+(logoUrl(item)?'':'payment-image-unavailable')} key={item.label} role="group"
-          aria-label={`${item.label} — ${item.detail}`}>
-          {logoUrl(item)&&<img src={logoUrl(item)} alt={item.label}
-            loading="lazy" decoding="async" referrerPolicy="no-referrer"
-            onError={(event)=>event.currentTarget.parentElement?.classList.add('payment-image-unavailable')}/>}
-          <span className="footer-payment-name">{item.label}</span>
-        </div>
-      )}
-    </div>
-    <p className="footer-payment-credit">{english?'Logos belong to their respective owners.':'Logo merupakan merek milik masing-masing pemilik.'}</p>
-  </section>;
+export default function FooterPaymentMethods({english=false}:{english?:boolean}){
+ return <section className="footer-payment" aria-labelledby="footer-payment-title">
+   <div className="footer-payment-heading">
+     <div>
+       <small>{english?'PAYMENT METHODS / DOKU':'METODE BAYAR / DOKU'}</small>
+       <h3 id="footer-payment-title">{english?'Payment Methods via DOKU':'Metode Pembayaran via DOKU'}</h3>
+     </div>
+     <p>{english
+       ? 'A secure checkout, with payment options provided by DOKU according to the active merchant channels.'
+       : 'Pembayaran melalui DOKU Checkout, dengan pilihan sesuai kanal yang aktif pada akun merchant.'}</p>
+   </div>
+   <div className="footer-payment-grid" aria-label={english?'DOKU payment method categories':'Kategori metode pembayaran DOKU'}>
+     {paymentCategories.map(item=>{
+       const Icon=item.icon;
+       return <div className="footer-payment-channel" key={item.id}>
+         <span className="footer-payment-icon" aria-hidden="true"><Icon size={22} strokeWidth={1.75}/></span>
+         <div className="footer-payment-copy">
+           <strong className="footer-payment-name">{english?item.nameEn:item.nameId}</strong>
+           <span className="footer-payment-description">{english?item.detailEn:item.detailId}</span>
+         </div>
+       </div>
+     })}
+   </div>
+   <p className="footer-payment-note">
+     <ShieldCheck size={16} strokeWidth={1.8} aria-hidden="true"/>
+     <span>{english
+       ? 'Categories are examples, not a guarantee of activation. Your final choices and instructions appear on the official DOKU Checkout page.'
+       : 'Kategori di atas bukan jaminan semua kanal aktif. Metode dan instruksi pembayaran final ditampilkan pada halaman resmi DOKU Checkout.'}</span>
+   </p>
+ </section>;
 }
