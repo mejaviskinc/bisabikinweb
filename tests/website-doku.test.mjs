@@ -46,6 +46,19 @@ test('Customer and admin pages show real DOKU payment state without manual paid 
  assert.match(admin,/admin_doku_config/);
  assert.match(admin,/Status lunas hanya berasal dari notifikasi DOKU/);
 });
+test('Verified website payment automatically opens WhatsApp with client identity and order number',()=>{
+ const studio=read('static-source/features/Studio.tsx');
+ assert.match(api,/callback='https:\/\/bisabikinweb\.site\/client\/dashboard\/\?consult='/);
+ assert.match(api,/select=id,order_no,full_name,email,phone,company,category,package_slug,template_slug/);
+ assert.match(client,/order\.id===consultOrderId&&order\.payment_status==='paid'/);
+ assert.match(client,/window\.location\.assign\(whatsapp\(whatsappNumber,websitePaidConsultationMessage\(paidOrder\)\)\)/);
+ assert.match(client,/sessionStorage\.removeItem\(pendingConsultationKey\)/);
+ assert.match(client,/Nomor pesanan/);
+ assert.match(client,/Nama klien/);
+ assert.match(client,/Nama bisnis/);
+ assert.match(client,/WhatsApp klien/);
+ assert.match(studio,/WebsiteClientProjects whatsappNumber=\{data\.settings\.whatsapp\|\|''\}/);
+});
 const oldDeno=globalThis.Deno,oldFetch=globalThis.fetch;
 const env={DOKU_CLIENT_ID:'MCH-TEST-0001',DOKU_SECRET_KEY:'webhook-test-secret',DOKU_ENV:'sandbox',
  SUPABASE_URL:'https://example.supabase.co',SUPABASE_SERVICE_ROLE_KEY:'service-test'};
