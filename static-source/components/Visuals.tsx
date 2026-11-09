@@ -10,9 +10,13 @@ export function PortfolioVisual({project}:{project:any}){
  const realPreview=Boolean(live)&&['gooninks','gojogja-travel'].includes(project.id);
  const mejaviPreview=project.id==='mejavi-skin'&&Boolean(safeHttpsUrl(live,['https://mejaviskincare.co.id','https://www.mejaviskincare.co.id']));
  const [screenshotFailed,setScreenshotFailed]=useState(false);
+ const [mejaviVideoFailed,setMejaviVideoFailed]=useState(false);
  const [mejaviScreenshotStage,setMejaviScreenshotStage]=useState(0);
+ const mejaviMode=project.previewMode==='mobile'?'mobile':'desktop';
+ const mejaviVideo='/portfolio/mejavi-home-'+mejaviMode+'.mp4';
+ const mejaviPoster='/portfolio/mejavi-home-'+mejaviMode+'.png';
  const mejaviScreenshotUrls=[
-  '/portfolio/mejavi-home-desktop.png',
+  mejaviPoster,
   'https://s0.wp.com/mshots/v1/'+encodeURIComponent('https://mejaviskincare.co.id/')+'?w=1280&h=900',
   'https://s0.wp.com/mshots/v1/'+encodeURIComponent('https://mejaviskinc.github.io/mejavi-skin/')+'?w=1280&h=900'
  ];
@@ -22,9 +26,11 @@ export function PortfolioVisual({project}:{project:any}){
   <div className="portfolio-domain-bar"><span><i/><i/><i/></span><span>{domain}</span><span>↗</span></div>
   <div className="portfolio-site-preview">
    {mejaviPreview
-    ? mejaviScreenshotStage<mejaviScreenshotUrls.length
-      ? <img className="portfolio-live-screenshot" src={mejaviScreenshotUrls[mejaviScreenshotStage]} alt={'Screenshot asli website '+project.name+' — '+domain} width="1440" height="1000" loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={()=>setMejaviScreenshotStage(stage=>Math.min(stage+1,mejaviScreenshotUrls.length))}/>
-      : <div className="portfolio-screenshot-fallback"><b>Website Mejavi Skin+</b><p>Pratinjau gambar belum tersedia. Buka website resminya melalui kartu ini.</p></div>
+    ? !mejaviVideoFailed
+      ? <video className="portfolio-live-video" key={mejaviMode} src={mejaviVideo} poster={mejaviPoster} aria-label={'Video rekaman homepage asli '+project.name+' — '+mejaviMode} autoPlay muted loop playsInline preload="metadata" controls={false} disablePictureInPicture onError={()=>setMejaviVideoFailed(true)}/>
+      : mejaviScreenshotStage<mejaviScreenshotUrls.length
+        ? <img className="portfolio-live-screenshot" src={mejaviScreenshotUrls[mejaviScreenshotStage]} alt={'Screenshot asli website '+project.name+' — '+domain} width={mejaviMode==='mobile'?420:1440} height={mejaviMode==='mobile'?844:900} loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={()=>setMejaviScreenshotStage(stage=>Math.min(stage+1,mejaviScreenshotUrls.length))}/>
+        : <div className="portfolio-screenshot-fallback"><b>Website Mejavi Skin+</b><p>Pratinjau video dan gambar belum tersedia. Kunjungi website resminya melalui kartu ini.</p></div>
     : realPreview
     ? !screenshotFailed
       ? <img className="portfolio-live-screenshot" src={screenshot} alt={'Tangkapan layar halaman website '+project.name+' — '+domain} width="1440" height="1000" loading="lazy" decoding="async" referrerPolicy="no-referrer" onError={()=>setScreenshotFailed(true)}/>
