@@ -15,12 +15,12 @@ test('DOKU customer-facing methods do not advertise PayPal or unavailable local 
  const footer=read('static-source/components/FooterPaymentMethods.tsx');
  const channels=read('static-source/components/DokuPaymentChannels.tsx');
  const merch=read('static-source/features/Commerce.tsx');
- for(const category of ['QRIS','Virtual Account','E-wallet','Kartu debit / kredit','Gerai ritel']){
+ for(const category of ['QRIS','Virtual Account','E-wallet','Kartu debit / kredit','Gerai ritel','PayLater']){
   assert.ok(channels.includes(category),'Missing DOKU category: '+category);
  }
  assert.match(channels,/akun merchant/);
  assert.match(footer,/Metode Pembayaran via DOKU/);
- assert.doesNotMatch(footer,/PayPal/);
+ assert.doesNotMatch(footer,/PayPal|Bank Sinarmas/);
  assert.doesNotMatch(merch,/name="payment_method"/);
  assert.match(merch,/payment_method:'all'/);
  assert.match(merch,/DokuPaymentChannels/);
