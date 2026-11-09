@@ -1,0 +1,31 @@
+/*
+ * BisaBikinWeb UI tokens, layer 1.
+ * Existing global variables stay canonical until components are migrated and approved.
+ * This file does not override existing global colors/layout.
+ */
+:root{
+ --ds-bg:var(--bg,#080a09);
+ --ds-panel:var(--panel,#111411);
+ --ds-card:var(--card,#131613);
+ --ds-text:var(--text,#f2f3ee);
+ --ds-text-muted:var(--muted,#8d948c);
+ --ds-border:var(--line,#272c26);
+ --ds-accent:var(--accent,#c3f85c);
+ --ds-accent-text:var(--accent-ink,#18220b);
+ --ds-radius-xs:4px;
+ --ds-radius-sm:7px;
+ --ds-radius-md:9px;
+ --ds-radius-lg:12px;
+ --ds-radius-xl:19px;
+ --ds-space-1:4px;
+ --ds-space-2:8px;
+ --ds-space-3:12px;
+ --ds-space-4:16px;
+ --ds-space-5:24px;
+ --ds-space-6:32px;
+ --ds-space-7:48px;
+ --ds-space-8:64px;
+ --ds-container:1600px;
+ --ds-font:Arial,Helvetica,sans-serif;
+ --ds-focus-ring:var(--accent,#c3f85c);
+}
