@@ -29,14 +29,28 @@
       "summary": "Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
       "event_date": null,
       "source_published_at": null,
-      "researched_at": "2026-11-10T01:20:00+07:00",
+      "researched_at": "2026-11-10T04:34:15+07:00",
       "geography": "Indonesia dan pasar tujuan",
-      "facts": [],
-      "sources": [],
+      "facts": [
+        {
+          "claim": "Google mendukung structured data Article, NewsArticle, dan BlogPosting untuk membantu memahami judul, gambar, tanggal, serta penulis artikel; implementasi harus cocok dengan konten yang tampak.",
+          "source_urls": [
+            "https://developers.google.com/search/docs/appearance/structured-data/article?hl=id"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://developers.google.com/search/docs/appearance/structured-data/article?hl=id",
+          "publisher": "Google Search Central",
+          "source_published_at": null,
+          "accessed_at": "2026-11-10T04:34:15+07:00"
+        }
+      ],
       "practical_impact": "Jangan mengambil keputusan usaha dari temuan lama sebelum melakukan verifikasi sumber dan tanggal.",
       "content_angle": "Pantau rilis Komdigi dan OSS mengenai layanan usaha digital.",
       "keyword_intent": "digitalisasi UMKM Indonesia",
-      "editorial_status": "needs_verification",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-10",
@@ -47,9 +61,10 @@
         "search_intent": "informational technical",
         "reader_pain_point": "Website bisnis memiliki metadata artikel tidak lengkap atau canonical saling bertentangan",
         "source_url": "https://developers.google.com/search/docs/appearance/structured-data/article",
-        "verification": "official_google_guidance_verified; current_site_implementation_not_tested",
+        "verification": "primary_source_checked_2026-11-10; country_specific_or_live_implementation_not_checked",
         "status": "research_only_not_published"
-      }
+      },
+      "verification_note": "Belum menguji schema dan canonical di URL produksi BisaBikinWeb."
     },
     {
       "id": "furniture-kayu-2026-11-10",
@@ -58,14 +73,28 @@
       "summary": "Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
       "event_date": null,
       "source_published_at": null,
-      "researched_at": "2026-11-10T01:20:00+07:00",
+      "researched_at": "2026-11-10T04:34:15+07:00",
       "geography": "Indonesia dan pasar tujuan",
-      "facts": [],
-      "sources": [],
+      "facts": [
+        {
+          "claim": "ISPM 15 mengatur langkah fitosanitari untuk material kemasan kayu mentah dalam perdagangan internasional, termasuk dunnage; kayu olahan tertentu seperti plywood dikecualikan dari cakupan yang dijelaskan.",
+          "source_urls": [
+            "https://www.ippc.int/en/publications/640/"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.ippc.int/en/publications/640/",
+          "publisher": "International Plant Protection Convention (IPPC)",
+          "source_published_at": "2021-07-13",
+          "accessed_at": "2026-11-10T04:34:15+07:00"
+        }
+      ],
       "practical_impact": "Jangan mengambil keputusan usaha dari temuan lama sebelum melakukan verifikasi sumber dan tanggal.",
       "content_angle": "Panduan membaca dampak HPE pada penawaran ekspor kayu.",
       "keyword_intent": "HPE kayu November 2026",
-      "editorial_status": "needs_verification",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-10",
@@ -76,9 +105,10 @@
         "search_intent": "informational compliance",
         "reader_pain_point": "Eksportir furnitur tidak tahu kapan palet dan peti kayu harus diberi perlakuan/marking",
         "source_url": "https://www.ippc.int/en/publications/640/",
-        "verification": "source_standard_verified; destination_rules_need_verification",
+        "verification": "primary_source_checked_2026-11-10; country_specific_or_live_implementation_not_checked",
         "status": "research_only_not_published"
-      }
+      },
+      "verification_note": "Panduan IPPC 2023: https://www.ippc.int/en/publications/92080/; persyaratan negara tujuan dan penanda pemasok masih perlu diperiksa."
     },
     {
       "id": "kakao-coklat-2026-11-10",
@@ -144,14 +174,28 @@
       "summary": "Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
       "event_date": null,
       "source_published_at": null,
-      "researched_at": "2026-11-10T01:20:00+07:00",
+      "researched_at": "2026-11-10T04:34:15+07:00",
       "geography": "Indonesia dan pasar tujuan",
-      "facts": [],
-      "sources": [],
+      "facts": [
+        {
+          "claim": "Commercial invoice menjelaskan barang yang dijual dan nilai yang harus dibayar; packing list merinci paket, berat, jumlah, dimensi dan penandaan. Packing list tidak menggantikan commercial invoice.",
+          "source_urls": [
+            "https://www.trade.gov/common-export-documents"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.trade.gov/common-export-documents",
+          "publisher": "International Trade Administration (U.S. Department of Commerce)",
+          "source_published_at": null,
+          "accessed_at": "2026-11-10T04:34:15+07:00"
+        }
+      ],
       "practical_impact": "Jangan mengambil keputusan usaha dari temuan lama sebelum melakukan verifikasi sumber dan tanggal.",
       "content_angle": "Implikasi impor produktif bagi perencanaan stok UMKM manufaktur.",
       "keyword_intent": "impor barang modal Indonesia September 2026",
-      "editorial_status": "needs_verification",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-10",
@@ -162,9 +206,10 @@
         "search_intent": "informational transactional",
         "reader_pain_point": "Dokumen buyer dan freight forwarder tidak konsisten sehingga pengiriman tertahan",
         "source_url": "https://www.trade.gov/common-export-documents",
-        "verification": "general_guide_verified; Indonesian_rules_need_verification",
+        "verification": "primary_source_checked_2026-11-10; country_specific_or_live_implementation_not_checked",
         "status": "research_only_not_published"
-      }
+      },
+      "verification_note": "Panduan bersifat umum dan bukan penetapan aturan ekspor Indonesia; verifikasi ketentuan Bea Cukai dan negara tujuan sebelum publikasi klaim kepatuhan."
     },
     {
       "id": "manajemen-risiko-2026-11-10",
@@ -449,5 +494,19 @@
       ],
       "correction": "Do not count repository-committed articles as live; do not call externally linked Unsplash images generated/local WebP; official source material above is evergreen, not a new 24-hour news event."
     }
-  }
+  },
+  "last_incremental_check_at": "2026-11-10T04:34:15+07:00",
+  "incremental_run_log": [
+    {
+      "run_key": "2026-11-10-0434-source-audit",
+      "at": "2026-11-10T04:34:15+07:00",
+      "action": "Verified evergreen reference sources for ISPM15, export commercial documents, and Google Article structured data. No new article published because required locally verifiable 16:9 WebP covers and CMS/live checks are incomplete.",
+      "verified_categories": [
+        "Furniture & Kayu",
+        "Logistik & Pengiriman",
+        "Digitalisasi & Website"
+      ],
+      "pending": "Four researched candidates need full writing, legal visual generation, CMS duplicate verification, build and live verification."
+    }
+  ]
 }
