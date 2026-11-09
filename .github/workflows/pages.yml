@@ -2,16 +2,16 @@ name: Deploy GitHub Pages
 on:
   push:
     branches: [main]
-  pull_request:
-    branches: [main]
   workflow_dispatch:
   schedule:
     - cron: '17 * * * *'
 permissions:
   contents: read
 concurrency:
-  group: pages-${{ github.event.pull_request.number || github.ref }}
-  cancel-in-progress: true
+  # Let an active publication finish when content jobs push several commits close together.
+  # GitHub keeps at most one pending run in this group; the latest push wins.
+  group: production-pages-${{ github.ref }}
+  cancel-in-progress: false
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -35,7 +35,6 @@ jobs:
           name: github-pages-${{ github.run_id }}-${{ github.run_attempt }}
           path: site-dist
   deploy:
-    if: github.event_name != 'pull_request'
     needs: build
     runs-on: ubuntu-latest
     timeout-minutes: 10
