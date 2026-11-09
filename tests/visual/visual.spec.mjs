@@ -8,7 +8,7 @@ const criticalRoutes=[
  {id:'website-store',path:'/beli-website/'}
 ];
 const protectedComponents=[
- {id:'ecommerce-mejavi-preview',path:'/jasa/ecommerce/',selector:'.ec-mejavi-shell'},
+ {id:'ecommerce-mejavi-media',path:'/jasa/ecommerce/',selector:'.ec-mejavi-shot-link'},
  {id:'payment-methods',path:'/',selector:'#bbw-doku-methods'}
 ];
 const stabilizationCSS=[
