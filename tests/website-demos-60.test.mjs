@@ -54,3 +54,13 @@ test('60 website template slugs are backed by catalog rows for authenticated quo
  assert.equal((seed.match(/https:\/\/bisabikinweb\.site\/demo\/[a-z0-9-]+\//g)||[]).length,60);
  assert.match(seed,/on conflict \(slug\) do nothing/);
 });
+
+
+test('Catalog cards use actual live demo pages instead of repeating placeholder photos',()=>{
+ assert.match(studio,/function LiveSitePreview/);
+ assert.match(studio,/IntersectionObserver/);
+ assert.match(studio,/<iframe src=\{url\}/);
+ assert.match(studio,/internalLiveDemo\?<LiveSitePreview/);
+ assert.match(studio,/ws-template-visual-link/);
+ assert.match(studio,/href=\{safeUrl\(t\.demo_url\)/);
+});
