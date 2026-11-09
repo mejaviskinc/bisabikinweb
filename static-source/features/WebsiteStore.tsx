@@ -59,8 +59,6 @@ function LiveSitePreview({slug}:{slug:string}){
      </div>
      <div className={'wd-visual wd-visual-'+d.layout}>
       <img src={d.image} alt="" loading="lazy" decoding="async" onError={e=>{e.currentTarget.style.display='none'}}/>
-      <div className="wd-visual-halo" aria-hidden="true"><i/><i/><i/></div>
-      <div className="wd-visual-note"><span>{d.tagline.toUpperCase()}</span><strong>01 / 03</strong></div>
      </div>
     </section>
     <div className="wd-ticker"><span>{d.tagline}</span>{d.highlights.map(h=><span key={h}>{h}</span>)}</div>
