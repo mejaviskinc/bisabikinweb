@@ -32,7 +32,7 @@ Buka `https://supabase.com/dashboard/project/kdlrobdzlxpjlkxbvzsd/auth/templates
 - Subject: `Kode aktivasi akun — BisaBikinWeb`
 - HTML: salin `docs/templates/customer-signup-otp.html`.
 
-**Penting:** kedua template harus berisi `{{ .Token }}`, bukan hanya `{{ .ConfirmationURL }}`. Jika template masih hanya menggunakan confirmation URL, Supabase akan mengirim tautan, bukan kode 6 digit.
+**Penting:** kedua template harus berisi `{{ .Token }}`, bukan hanya `{{ .ConfirmationURL }}`. Untuk **Magic Link / OTP login** harus menggunakan kode tanpa link. Untuk **Confirm Sign Up**, template menempatkan kode sebagai verifikasi utama pembeli namun mempertahankan tautan konfirmasi cadangan agar pendaftaran seller/admin yang masih memakai tautan tidak terputus. Template ini dipakai bersama di satu proyek Supabase.
 
 Pengubahan template Supabase berlaku di semua aplikasi yang menggunakan proyek Auth ini, termasuk seller/admin. Verifikasi dampaknya pada alur seller dan admin sebelum deploy. URL Configuration: Site URL `https://bisabikinweb.site`, dan redirect yang benar untuk `/account/`.
 
