@@ -125,7 +125,7 @@ export function WebsiteClientProjects({whatsappNumber}:{whatsappNumber:string}){
   if(!consultOrderId||!logged||busy||redirectedToConsultation.current)return;
   const paidOrder=orders.find(order=>order.id===consultOrderId&&order.payment_status==='paid');
   if(!paidOrder)return;
-  const digits=whatsappNumber.replace(/\\D/g,'');
+  const digits=whatsappNumber.replace(/\D/g,'');
   if(digits.length<10||digits.length>15){setError('Nomor WhatsApp konsultasi belum valid. Hubungi admin BisaBikinWeb.');return;}
   redirectedToConsultation.current=true;
   try{
