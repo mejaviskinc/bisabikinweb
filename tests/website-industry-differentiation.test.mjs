@@ -25,9 +25,15 @@ test('Catalog minisites have eight genuinely different sector-specific structure
  const categories=[...new Set(websiteDemos.map(d=>d.category))];
  assert.equal(categories.length,8);
  assert.deepEqual(new Set(categories),new Set(Object.keys(industryExperiences)));
+ const visualClasses={
+   umkm:'ws-ip-local','company-profile':'ws-ip-corporate','toko-online':'ws-ip-commerce',
+   ekspor:'ws-ip-export',travel:'ws-ip-travel',restoran:'ws-ip-restaurant',
+   fashion:'ws-ip-fashion',pendidikan:'ws-ip-education'
+ };
  for(const category of categories){
    assert.ok(architecture.includes("d.category==='"+category+"'"),category+' needs its own visual structure');
-   assert.ok(css.includes('.ws-ip-'+category),category+' needs dedicated visual styling');
+   assert.ok(architecture.includes(visualClasses[category]),category+' needs dedicated markup');
+   assert.ok(css.includes('.'+visualClasses[category]),category+' needs dedicated styling');
  }
  assert.match(architecture,/profile.nav.slice\(0,4\)/);
  assert.match(architecture,/data-industry-preview=/);
@@ -51,8 +57,8 @@ test('E-Commerce renders shopping collection, real demo product names and exampl
 });
 test('Shared live demo includes visible industry signatures without changing checkout',()=>{
  assert.match(live,/DemoIndustrySignature demo=\{d\}/);
- assert.match(architecture,/wd-signature-company-profile/);
- assert.match(architecture,/wd-signature-toko-online/);
+ assert.match(css,/\.wd-signature-company-profile/);
+ assert.match(css,/\.wd-signature-toko-online/);
  assert.match(css,/\.wd-industry-signature/);
  assert.doesNotMatch(architecture,/checkout\s*\(/);
 });
