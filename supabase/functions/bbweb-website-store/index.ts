@@ -80,6 +80,17 @@ const allowedStatuses=new Set(['requested','reviewing','proposal','awaiting_paym
 const allowedDomainStatuses=new Set(['unchecked','manual_review','available','unavailable','registered']);
 const builtInConcepts=new Set(['studio-umkm','corporate-grid','shop-essentials','global-trade','tour-story','cafe-menu','atelier','campus-info']);
 const categories=new Set(['umkm','company-profile','toko-online','ekspor','travel','restoran','fashion','pendidikan']);
+async function notifyWebsiteEmail(orderId:string){
+ // No consumer data or email credentials enter the browser.
+ if(!Deno.env.get('HOSTINGER_MAIL_API_TOKEN'))return;
+ const root=Deno.env.get('SUPABASE_URL')||'',secret=secretKey();
+ if(!root||!secret)return;
+ try{
+  await fetch(root+'/functions/v1/bbweb-website-email',{method:'POST',
+   headers:{'Content-Type':'application/json',Authorization:'Bearer '+secret},
+   body:JSON.stringify({order_id:orderId}),signal:AbortSignal.timeout(9000)});
+ }catch(error){console.error('Website order email queued; worker unavailable',String(error).slice(0,80));}
+}
 function requireAdmin(admin:boolean){if(!admin)fail('Akses admin diperlukan.',403)}
 function shortHex(bytes=6){return Array.from(crypto.getRandomValues(new Uint8Array(bytes))).map(x=>x.toString(16).padStart(2,'0')).join('').toUpperCase()}
 function bodyObject(x:any){return x&&typeof x==='object'&&!Array.isArray(x)?x:fail('Body tidak valid.')}
@@ -119,6 +130,7 @@ Deno.serve(async(req:Request)=>{
    const inserted=await db('bbweb_website_orders',{method:'POST',headers:{Prefer:'return=representation'},body:JSON.stringify(payload)});
    const order=Array.isArray(inserted)?inserted[0]:null;if(!order)fail('Permintaan belum tersimpan.',503);
    await db('bbweb_website_order_events',{method:'POST',headers:{Prefer:'return=minimal'},body:JSON.stringify({order_id:order.id,actor_user_id:user.id,event_type:'requested',note:'Brief pesanan website diterima.'})}).catch(()=>{});
+   await notifyWebsiteEmail(order.id);
    return response({order:{id:order.id,order_no:orderNo,status:'requested',payment_status:'not_invoiced'}},200,origin);
   }
   if(action==='my_orders'){
