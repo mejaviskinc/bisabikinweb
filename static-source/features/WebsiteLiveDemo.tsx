@@ -4,6 +4,7 @@ import {ArrowRight,ArrowUpRight,Menu,X,ShoppingBag,Minus,Plus,Check,Globe2,Chevr
 import {demoBySlug,websiteDemos} from '../lib/website-demos.mjs';
 import {brandPositioning} from '../lib/demo-industries.mjs';
 import {creativeFor,galleryPhotoFor} from '../lib/demo-creative.mjs';
+import {DemoIndustrySignature} from '../components/IndustrySitePreview';
 
 type Demo={slug:string;title:string;category:string;description:string;headline:string;tagline:string;highlights:string[];offerings:{name:string;description:string;price:number}[];palette:{ink:string;accent:string;paper:string;deep:string};image:string;layout:number;sectionTitle:string;action:string;packageSlug:string};
 const categories:Record<string,string>={'umkm':'Local & lifestyle','company-profile':'Company & professional','toko-online':'Curated online shop','ekspor':'International trade','travel':'Journeys & experiences','restoran':'Dining & coffee','fashion':'Fashion & design','pendidikan':'Education & learning'};
@@ -59,7 +60,7 @@ export default function WebsiteLiveDemo({path}:{path:string}){
    {activePage==='home'?<main id="atas">
     <section className="wd-hero"><div className="wd-hero-copy"><div className="wd-kicker"><i/>{categories[d.category]} <span>/ NO. {String(websiteDemos.findIndex(x=>x.slug===d.slug)+1).padStart(2,'0')}</span></div>
       <h1>{creative?.headline||d.headline}</h1><p>{creative?.story||d.description}</p><div className="wd-hero-actions"><a href="?halaman=catalog" onClick={e=>{e.preventDefault();navigate("catalog")}} className="wd-main-button">{d.action} <ArrowUpRight size={19}/></a><a href="?halaman=about" onClick={e=>{e.preventDefault();navigate("about")}} className="wd-secondary-button">Kenali kami <ArrowRight size={17}/></a></div>
-      <div className="wd-hero-caption"><span>THOUGHTFULLY PRESENTED</span><span aria-hidden="true">—</span><span>MADE FOR THE EVERYDAY</span></div>
+      <div className="wd-hero-caption"><span>{d.category==='company-profile'?'CORPORATE / CAPABILITIES / PROJECTS':d.category==='toko-online'?'SHOP / PRODUCTS / CHECKOUT DEMO':experience.meta}</span><span aria-hidden="true">—</span><span>{d.tagline}</span></div><DemoIndustrySignature demo={d}/>
      </div><DemoVisual d={d}/></section>
     <section className="wd-ticker" aria-label="Bidang utama">{[d.tagline,d.highlights[0],d.highlights[1],d.highlights[2],d.tagline].filter(Boolean).map((label,i)=><span key={i}>{label}</span>)}</section>
     <section className="wd-offerings" id="koleksi"><div className="wd-section-top"><div><span className="wd-label">01 / THE SELECTION</span><h2>{d.sectionTitle}<span>.</span></h2><p>{d.category==='ekspor'?'Telusuri spesifikasi produk dan ajukan permintaan penawaran untuk kebutuhan bisnis Anda.':d.category==='company-profile'?'Layanan pilihan untuk kebutuhan profesional dengan ruang lingkup yang dapat dikonsultasikan.':'Temukan pilihan yang sesuai kebutuhan dan kenali tiap penawaran lebih dekat.'}</p></div><span className="wd-vertical-word">DISCOVER THE DETAILS ↗</span></div>
