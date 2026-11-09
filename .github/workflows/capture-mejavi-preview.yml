@@ -19,33 +19,17 @@ jobs:
         with:
           fetch-depth: 0
           persist-credentials: true
-      - name: Capture actual public Mejavi website in Chrome
-        shell: bash
-        run: |
-          set -euo pipefail
-          CHROME=$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)
-          test -n "$CHROME" || { echo "No Chromium available on runner"; exit 1; }
-          URL=''
-          for candidate in https://mejaviskincare.co.id/ https://mejaviskinc.github.io/mejavi-skin/; do
-            if curl -fsSL --connect-timeout 8 --max-time 20 -o /dev/null "$candidate"; then URL="$candidate"; break; fi
-          done
-          test -n "$URL" || { echo "Neither verified Mejavi homepage is reachable"; exit 1; }
-          echo "Website screenshot source: $URL"
-          mkdir -p public-assets/portfolio
-          for format in desktop mobile; do
-            if [ "$format" = desktop ]; then viewport=1440,1000; else viewport=390,844; fi
-            path="public-assets/portfolio/mejavi-home-${format}.png"
-            timeout 55s "$CHROME" --headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage --hide-scrollbars --window-size="$viewport" --force-device-scale-factor=1 --virtual-time-budget=14000 --screenshot="$PWD/$path" "$URL" >/tmp/mejavi-browser.log 2>&1 || { cat /tmp/mejavi-browser.log; exit 1; }
-            test -s "$path" || { echo "Screenshot file empty: $path"; exit 1; }
-            file "$path"
-          done
       - name: Install FFmpeg recording tools
         shell: bash
         run: |
           sudo apt-get update -qq
           sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg
           ffmpeg -version | head -n 1
-      - name: Record actual moving website desktop and mobile (silent MP4)
+      - name: Set up Node for local Chrome DevTools capture
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+      - name: Record authentic loaded Mejavi homepage desktop and mobile (silent MP4 and poster)
         shell: bash
         run: |
           set -euo pipefail
@@ -66,10 +50,15 @@ jobs:
             Xvfb :97 -screen 0 "${width}x${height}x24" -nolisten tcp >/tmp/mejavi-xvfb-${format}.log 2>&1 &
             xvfb_pid=$!
             sleep 2
-            "$CHROME" --no-sandbox --no-first-run --no-default-browser-check --disable-dev-shm-usage --disable-extensions --disable-gpu --autoplay-policy=no-user-gesture-required --mute-audio --kiosk --window-position=0,0 --window-size="${width},${height}" --user-data-dir="/tmp/mejavi-capture-${format}" "$URL" >/tmp/mejavi-chrome-${format}.log 2>&1 &
+            "$CHROME" --no-sandbox --no-first-run --no-default-browser-check --disable-dev-shm-usage --disable-extensions --disable-gpu --remote-debugging-port=9223 --remote-allow-origins='*' --autoplay-policy=no-user-gesture-required --mute-audio --kiosk --window-position=0,0 --window-size="${width},${height}" --user-data-dir="/tmp/mejavi-capture-${format}" "$URL" >/tmp/mejavi-chrome-${format}.log 2>&1 &
             chrome_pid=$!
-            # Let site loader, fonts, and original autoplay homepage video initialize.
-            sleep 13
+            # Give network assets time to start, then hide any loader blocking the original hero.
+            sleep 9
+            node scripts/prepare-mejavi-capture.mjs
+            sleep 2
+            poster="public-assets/portfolio/mejavi-home-${format}.png"
+            ffmpeg -hide_banner -loglevel error -nostdin -y -f x11grab -video_size "${width}x${height}" -i :97.0+0,0 -frames:v 1 "$poster"
+            test -s "$poster" || { echo "Poster capture missing: $poster"; exit 1; }
             video="public-assets/portfolio/mejavi-home-${format}.mp4"
             ffmpeg -hide_banner -loglevel error -nostdin -y -f x11grab -framerate 12 -video_size "${width}x${height}" -i :97.0+0,0 -t 9 -an -c:v libx264 -preset veryfast -crf 30 -pix_fmt yuv420p -movflags +faststart "$video"
             test -s "$video"
