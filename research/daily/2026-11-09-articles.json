@@ -1,0 +1,564 @@
+{
+  "research_date": "2026-11-09",
+  "timezone": "Asia/Jakarta",
+  "researched_at": "2026-11-09T07:10:02+07:00",
+  "source_archive": "research/daily/2026-11-09-news.json",
+  "methodology": "Reuse 15-cluster internal news research and inspect existing editorial modules; no independent fresh source validation or CMS query was completed in this run.",
+  "entries": [
+    {
+      "id": "briket-energi-evergreen-2026-11-09",
+      "category": "Briket & Energi",
+      "topic": "Kebijakan ketahanan energi dan bioetanol E20",
+      "summary": "Catatan artikel evergreen diturunkan dari arsip riset berita yang tersedia; verifikasi mandiri sumber primer dan perubahan 24–72 jam belum selesai pada eksekusi ini. Arsip ESDM memuat penyiapan penyimpanan minyak hingga 60 hari dan bioetanol E20. Rilis yang ditemukan bertanggal 3 November, sehingga belum layak diposisikan sebagai kejadian 24 jam terakhir.",
+      "event_date": "2026-11-03",
+      "source_published_at": "2026-11-03",
+      "researched_at": "2026-11-09T07:10:02+07:00",
+      "geography": "Indonesia",
+      "facts": [
+        {
+          "claim": "Arsip ESDM menampilkan berita mengenai storage minyak hingga 60 hari dan bioetanol E20 pada 3 November 2026.",
+          "source_urls": [
+            "https://esdm.go.id/id/media-center/arsip-berita?Filter%5Bcategory%5D=general"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://esdm.go.id/id/media-center/arsip-berita?Filter%5Bcategory%5D=general",
+          "publisher": "Kementerian ESDM",
+          "accessed_at": "2026-11-09T10:30:00+07:00"
+        }
+      ],
+      "practical_impact": "Spesifikasi nilai kalor, kadar air, abu, dan dokumentasi pengujian sebelum menawarkan briket kepada buyer.",
+      "content_angle": "Pantau dokumen kebijakan E20 dan dampaknya terhadap bahan baku serta distribusi.",
+      "keyword_intent": "cara menilai kualitas briket untuk ekspor | informational",
+      "reader_pain_point": "Spesifikasi nilai kalor, kadar air, abu, dan dokumentasi pengujian sebelum menawarkan briket kepada buyer.",
+      "evergreen_idea": "cara menilai kualitas briket untuk ekspor",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-10",
+      "verification_note": "Diturunkan dari arsip 2026-11-09-news.json; belum ada verifikasi independen sumber primer pada run ini."
+    },
+    {
+      "id": "digitalisasi-website-evergreen-2026-11-09",
+      "category": "Digitalisasi & Website",
+      "topic": "Tidak ada rilis primer baru yang relevan dalam rentang penelusuran",
+      "summary": "Catatan artikel evergreen diturunkan dari arsip riset berita yang tersedia; verifikasi mandiri sumber primer dan perubahan 24–72 jam belum selesai pada eksekusi ini. Tidak ditemukan pembaruan primer 24–72 jam yang cukup spesifik untuk berita digitalisasi UMKM dan berbeda dari artikel situs yang telah ada.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-09T07:10:02+07:00",
+      "geography": "Indonesia",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Buyer memerlukan spesifikasi, kapasitas dan jalur RFQ yang jelas.",
+      "content_angle": "Pantau rilis Komdigi dan OSS mengenai layanan usaha digital.",
+      "keyword_intent": "katalog produk b2b untuk ekspor | informational-commercial",
+      "reader_pain_point": "Buyer memerlukan spesifikasi, kapasitas dan jalur RFQ yang jelas.",
+      "evergreen_idea": "katalog produk b2b untuk ekspor",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-10",
+      "verification_note": "Diturunkan dari arsip 2026-11-09-news.json; belum ada verifikasi independen sumber primer pada run ini."
+    },
+    {
+      "id": "furniture-kayu-evergreen-2026-11-09",
+      "category": "Furniture & Kayu",
+      "topic": "Perubahan HPE sebagian produk kayu November 2026",
+      "summary": "Catatan artikel evergreen diturunkan dari arsip riset berita yang tersedia; verifikasi mandiri sumber primer dan perubahan 24–72 jam belum selesai pada eksekusi ini. Kemendag melaporkan HPE sejumlah produk kayu berubah pada November; halaman yang ditemukan terbit 2 November dan memerlukan dokumen keputusan untuk rincian per pos tarif.",
+      "event_date": "2026-11-01",
+      "source_published_at": "2026-11-02",
+      "researched_at": "2026-11-09T07:10:02+07:00",
+      "geography": "Indonesia",
+      "facts": [
+        {
+          "claim": "Kemendag menyebut HPE veneer, kayu lapis untuk kotak kemasan, dan beberapa kayu olahan mengalami perubahan pada November 2026.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/pojok-media/harga-cpo-dan-kakao-turun-pungutan-ekspor-november-2026-tetap-125"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/pojok-media/harga-cpo-dan-kakao-turun-pungutan-ekspor-november-2026-tetap-125",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-09T10:30:00+07:00"
+        }
+      ],
+      "practical_impact": "Penjual harus mencocokkan kode HS dan periode HPE sebelum menyusun penawaran.",
+      "content_angle": "Panduan membaca dampak HPE pada penawaran ekspor kayu.",
+      "keyword_intent": "cara membaca HPE ekspor produk kayu | informational",
+      "reader_pain_point": "Penjual harus mencocokkan kode HS dan periode HPE sebelum menyusun penawaran.",
+      "evergreen_idea": "cara membaca HPE ekspor produk kayu",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Diturunkan dari arsip 2026-11-09-news.json; belum ada verifikasi independen sumber primer pada run ini."
+    },
+    {
+      "id": "kakao-coklat-evergreen-2026-11-09",
+      "category": "Kakao & Coklat",
+      "topic": "Harga referensi kakao November 2026",
+      "summary": "Catatan artikel evergreen diturunkan dari arsip riset berita yang tersedia; verifikasi mandiri sumber primer dan perubahan 24–72 jam belum selesai pada eksekusi ini. Kemendag menetapkan harga referensi biji kakao November 2026 sebesar USD5.613,60 per MT dan HPE USD5.242 per MT; sumber terbit 2 November.",
+      "event_date": "2026-11-01",
+      "source_published_at": "2026-11-02",
+      "researched_at": "2026-11-09T07:10:02+07:00",
+      "geography": "Indonesia",
+      "facts": [
+        {
+          "claim": "Harga referensi biji kakao November 2026 tercantum USD5.613,60 per MT dan HPE USD5.242 per MT pada rilis Kemendag.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/pojok-media/harga-cpo-dan-kakao-turun-pungutan-ekspor-november-2026-tetap-125"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/pojok-media/harga-cpo-dan-kakao-turun-pungutan-ekspor-november-2026-tetap-125",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-09T10:30:00+07:00"
+        }
+      ],
+      "practical_impact": "Perubahan harga referensi perlu dibedakan dari harga kontrak dan biaya transaksi.",
+      "content_angle": "Dampak HPE kakao bagi kontrak dan margin eksportir.",
+      "keyword_intent": "cara menghitung biaya ekspor biji kakao | informational",
+      "reader_pain_point": "Perubahan harga referensi perlu dibedakan dari harga kontrak dan biaya transaksi.",
+      "evergreen_idea": "cara menghitung biaya ekspor biji kakao",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-12-01",
+      "verification_note": "Diturunkan dari arsip 2026-11-09-news.json; belum ada verifikasi independen sumber primer pada run ini."
+    },
+    {
+      "id": "kelapa-turunan-evergreen-2026-11-09",
+      "category": "Kelapa & Turunannya",
+      "topic": "Tidak ada pembaruan primer baru yang terverifikasi",
+      "summary": "Catatan artikel evergreen diturunkan dari arsip riset berita yang tersedia; verifikasi mandiri sumber primer dan perubahan 24–72 jam belum selesai pada eksekusi ini. Penelusuran ini tidak menemukan rilis primer baru yang cukup spesifik untuk kelapa dan turunannya.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-09T07:10:02+07:00",
+      "geography": "Indonesia",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Kebutuhan dokumen dan spesifikasi berbeda menurut produk serta negara tujuan.",
+      "content_angle": "Pantau referensi ekspor dan ketentuan karantina negara tujuan.",
+      "keyword_intent": "dokumen ekspor produk turunan kelapa | informational",
+      "reader_pain_point": "Kebutuhan dokumen dan spesifikasi berbeda menurut produk serta negara tujuan.",
+      "evergreen_idea": "dokumen ekspor produk turunan kelapa",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-10",
+      "verification_note": "Diturunkan dari arsip 2026-11-09-news.json; belum ada verifikasi independen sumber primer pada run ini."
+    },
+    {
+      "id": "kopi-evergreen-2026-11-09",
+      "category": "Kopi",
+      "topic": "Tidak ada pembaruan primer baru yang terverifikasi",
+      "summary": "Catatan artikel evergreen diturunkan dari arsip riset berita yang tersedia; verifikasi mandiri sumber primer dan perubahan 24–72 jam belum selesai pada eksekusi ini. Tidak ditemukan perkembangan primer 24–72 jam yang cukup berbeda dan dapat dibuktikan untuk sektor kopi.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-09T07:10:02+07:00",
+      "geography": "Indonesia",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Pemasok perlu menjelaskan grade, proses, kadar air, lot, dan kemampuan pasok.",
+      "content_angle": "Pantau regulasi negara tujuan dan harga referensi.",
+      "keyword_intent": "spesifikasi green coffee untuk buyer ekspor | informational",
+      "reader_pain_point": "Pemasok perlu menjelaskan grade, proses, kadar air, lot, dan kemampuan pasok.",
+      "evergreen_idea": "spesifikasi green coffee untuk buyer ekspor",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-10",
+      "verification_note": "Diturunkan dari arsip 2026-11-09-news.json; belum ada verifikasi independen sumber primer pada run ini."
+    },
+    {
+      "id": "logistik-pengiriman-evergreen-2026-11-09",
+      "category": "Logistik & Pengiriman",
+      "topic": "Kenaikan impor barang modal dan bahan baku September",
+      "summary": "Catatan artikel evergreen diturunkan dari arsip riset berita yang tersedia; verifikasi mandiri sumber primer dan perubahan 24–72 jam belum selesai pada eksekusi ini. Kemendag menyebut impor September 2026 meningkat, dengan barang modal dan bahan baku sebagai pendorong; rilis terbit 3 November.",
+      "event_date": "2026-09-30",
+      "source_published_at": "2026-11-03",
+      "researched_at": "2026-11-09T07:10:02+07:00",
+      "geography": "Indonesia",
+      "facts": [
+        {
+          "claim": "Rilis Kemendag mencatat impor September 2026 naik 5,09 persen dibanding bulan sebelumnya dan menyebut barang modal serta bahan baku sebagai pendorong.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/tren-positif-perdagangan-luar-negeri-hingga-september-2026-tunjukkan-ketahanan-eksternal-indonesia"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/tren-positif-perdagangan-luar-negeri-hingga-september-2026-tunjukkan-ketahanan-eksternal-indonesia",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-09T10:30:00+07:00"
+        }
+      ],
+      "practical_impact": "Kesalahan dokumen dan pembagian tanggung jawab pengiriman dapat menghambat transaksi.",
+      "content_angle": "Implikasi impor produktif bagi perencanaan stok UMKM manufaktur.",
+      "keyword_intent": "checklist dokumen pengiriman ekspor umkm | informational",
+      "reader_pain_point": "Kesalahan dokumen dan pembagian tanggung jawab pengiriman dapat menghambat transaksi.",
+      "evergreen_idea": "checklist dokumen pengiriman ekspor umkm",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-12-01",
+      "verification_note": "Diturunkan dari arsip 2026-11-09-news.json; belum ada verifikasi independen sumber primer pada run ini."
+    },
+    {
+      "id": "manajemen-risiko-evergreen-2026-11-09",
+      "category": "Manajemen Risiko",
+      "topic": "Rating pialang berjangka triwulan III 2026",
+      "summary": "Catatan artikel evergreen diturunkan dari arsip riset berita yang tersedia; verifikasi mandiri sumber primer dan perubahan 24–72 jam belum selesai pada eksekusi ini. Kemendag/Bappebti mengumumkan hasil penilaian pialang berjangka triwulan III 2026 pada 6 November; detail per pialang perlu dibaca pada rilis lengkap.",
+      "event_date": "2026-11-06",
+      "source_published_at": "2026-11-06",
+      "researched_at": "2026-11-09T07:10:02+07:00",
+      "geography": "Indonesia",
+      "facts": [
+        {
+          "claim": "Daftar siaran pers Kemendag memuat pengumuman rating pialang berjangka triwulan III 2026 oleh Bappebti.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-09T10:30:00+07:00"
+        }
+      ],
+      "practical_impact": "Risiko gagal bayar, kurs, dan konsentrasi pelanggan perlu dinilai sebelum kontrak.",
+      "content_angle": "Cara membaca pengumuman regulator sebelum memilih pialang.",
+      "keyword_intent": "mitigasi risiko pembayaran buyer ekspor | informational",
+      "reader_pain_point": "Risiko gagal bayar, kurs, dan konsentrasi pelanggan perlu dinilai sebelum kontrak.",
+      "evergreen_idea": "mitigasi risiko pembayaran buyer ekspor",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Diturunkan dari arsip 2026-11-09-news.json; belum ada verifikasi independen sumber primer pada run ini."
+    },
+    {
+      "id": "peluang-usaha-evergreen-2026-11-09",
+      "category": "Peluang Usaha",
+      "topic": "Campuspreneur dan eksportir muda di Mataram",
+      "summary": "Catatan artikel evergreen diturunkan dari arsip riset berita yang tersedia; verifikasi mandiri sumber primer dan perubahan 24–72 jam belum selesai pada eksekusi ini. Kemendag memuat kegiatan Campuspreneur di Universitas Muhammadiyah Mataram pada 6 November. Ini adalah kegiatan program, bukan bukti transaksi atau pendapatan pelaku usaha.",
+      "event_date": "2026-11-06",
+      "source_published_at": "2026-11-06",
+      "researched_at": "2026-11-09T07:10:02+07:00",
+      "geography": "Mataram, Nusa Tenggara Barat, Indonesia",
+      "facts": [
+        {
+          "claim": "Daftar siaran pers Kemendag memuat kegiatan dorongan eksportir muda melalui Campuspreneur di Mataram.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-09T10:30:00+07:00"
+        }
+      ],
+      "practical_impact": "Peluang perlu diuji melalui permintaan pasar, kemampuan pasok, dan margin.",
+      "content_angle": "Tahapan praktis dari pelatihan ekspor menuju buyer yang terverifikasi.",
+      "keyword_intent": "cara memvalidasi peluang usaha ekspor | informational",
+      "reader_pain_point": "Peluang perlu diuji melalui permintaan pasar, kemampuan pasok, dan margin.",
+      "evergreen_idea": "cara memvalidasi peluang usaha ekspor",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Diturunkan dari arsip 2026-11-09-news.json; belum ada verifikasi independen sumber primer pada run ini."
+    },
+    {
+      "id": "pertanian-buah-evergreen-2026-11-09",
+      "category": "Pertanian & Buah",
+      "topic": "Harga dan stok bapok NTB jelang Nataru",
+      "summary": "Catatan artikel evergreen diturunkan dari arsip riset berita yang tersedia; verifikasi mandiri sumber primer dan perubahan 24–72 jam belum selesai pada eksekusi ini. Kemendag memuat pemantauan harga dan stok bahan pokok di Mataram pada 5 November, tetapi tidak ditemukan pembaruan 24 jam yang cukup untuk berita baru.",
+      "event_date": "2026-11-05",
+      "source_published_at": "2026-11-05",
+      "researched_at": "2026-11-09T07:10:02+07:00",
+      "geography": "Mataram, Nusa Tenggara Barat, Indonesia",
+      "facts": [
+        {
+          "claim": "Daftar siaran pers Kemendag mencantumkan pemantauan pasar Kebon Roek Mataram menjelang Nataru.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-09T10:30:00+07:00"
+        }
+      ],
+      "practical_impact": "Mutu, suhu, traceability, dan persyaratan fitosanitari perlu disesuaikan dengan tujuan.",
+      "content_angle": "Pantau data harga pangan resmi NTB untuk verifikasi lanjutan.",
+      "keyword_intent": "pengemasan buah segar untuk ekspor | informational",
+      "reader_pain_point": "Mutu, suhu, traceability, dan persyaratan fitosanitari perlu disesuaikan dengan tujuan.",
+      "evergreen_idea": "pengemasan buah segar untuk ekspor",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-10",
+      "verification_note": "Diturunkan dari arsip 2026-11-09-news.json; belum ada verifikasi independen sumber primer pada run ini."
+    },
+    {
+      "id": "regulasi-sertifikasi-evergreen-2026-11-09",
+      "category": "Regulasi & Sertifikasi",
+      "topic": "Minyak nilam sebagai komoditas Sistem Resi Gudang",
+      "summary": "Catatan artikel evergreen diturunkan dari arsip riset berita yang tersedia; verifikasi mandiri sumber primer dan perubahan 24–72 jam belum selesai pada eksekusi ini. Kemendag menyatakan minyak nilam ditetapkan sebagai komoditas yang dapat disimpan dalam Sistem Resi Gudang pada 5 November. Implementasi dan persyaratan operasional perlu diverifikasi dari regulasi teknis.",
+      "event_date": "2026-11-05",
+      "source_published_at": "2026-11-05",
+      "researched_at": "2026-11-09T07:10:02+07:00",
+      "geography": "Indonesia",
+      "facts": [
+        {
+          "claim": "Daftar siaran pers Kemendag memuat penetapan minyak nilam sebagai komoditas Sistem Resi Gudang.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-09T10:30:00+07:00"
+        }
+      ],
+      "practical_impact": "Pelaku usaha perlu memisahkan perizinan domestik dari persyaratan negara tujuan.",
+      "content_angle": "Apa yang perlu diperiksa sebelum menggunakan SRG untuk minyak nilam.",
+      "keyword_intent": "checklist sertifikasi dan dokumen eksportir | informational",
+      "reader_pain_point": "Pelaku usaha perlu memisahkan perizinan domestik dari persyaratan negara tujuan.",
+      "evergreen_idea": "checklist sertifikasi dan dokumen eksportir",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Diturunkan dari arsip 2026-11-09-news.json; belum ada verifikasi independen sumber primer pada run ini."
+    },
+    {
+      "id": "rempah-atsiri-evergreen-2026-11-09",
+      "category": "Rempah & Minyak Atsiri",
+      "topic": "Minyak nilam masuk Sistem Resi Gudang",
+      "summary": "Catatan artikel evergreen diturunkan dari arsip riset berita yang tersedia; verifikasi mandiri sumber primer dan perubahan 24–72 jam belum selesai pada eksekusi ini. Topik sama dicatat secara khusus untuk klaster minyak atsiri, dengan sumber dan batasan verifikasi yang sama.",
+      "event_date": "2026-11-05",
+      "source_published_at": "2026-11-05",
+      "researched_at": "2026-11-09T07:10:02+07:00",
+      "geography": "Indonesia",
+      "facts": [
+        {
+          "claim": "Kemendag mencantumkan minyak nilam sebagai komoditas Sistem Resi Gudang dalam daftar siaran pers 5 November.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-09T10:30:00+07:00"
+        }
+      ],
+      "practical_impact": "Parameter mutu, sampling, COA, dan lot penting untuk transaksi B2B.",
+      "content_angle": "Kesiapan pelaku atsiri untuk gudang dan standardisasi mutu.",
+      "keyword_intent": "spesifikasi minyak nilam untuk pembeli industri | informational",
+      "reader_pain_point": "Parameter mutu, sampling, COA, dan lot penting untuk transaksi B2B.",
+      "evergreen_idea": "spesifikasi minyak nilam untuk pembeli industri",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Diturunkan dari arsip 2026-11-09-news.json; belum ada verifikasi independen sumber primer pada run ini."
+    },
+    {
+      "id": "walet-evergreen-2026-11-09",
+      "category": "Sarang Burung Walet",
+      "topic": "Tidak ada pembaruan primer baru yang terverifikasi",
+      "summary": "Catatan artikel evergreen diturunkan dari arsip riset berita yang tersedia; verifikasi mandiri sumber primer dan perubahan 24–72 jam belum selesai pada eksekusi ini. Tidak ditemukan rilis baru yang memadai untuk peristiwa atau regulasi sarang burung walet dalam rentang penelusuran.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-09T07:10:02+07:00",
+      "geography": "Indonesia",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Persyaratan registrasi dan sanitasi berbeda per negara tujuan dan perlu verifikasi terbaru.",
+      "content_angle": "Pantau pembaruan karantina dan persyaratan negara tujuan.",
+      "keyword_intent": "persiapan dokumen ekspor sarang burung walet | informational",
+      "reader_pain_point": "Persyaratan registrasi dan sanitasi berbeda per negara tujuan dan perlu verifikasi terbaru.",
+      "evergreen_idea": "persiapan dokumen ekspor sarang burung walet",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-10",
+      "verification_note": "Diturunkan dari arsip 2026-11-09-news.json; belum ada verifikasi independen sumber primer pada run ini."
+    },
+    {
+      "id": "seafood-perikanan-evergreen-2026-11-09",
+      "category": "Seafood & Perikanan",
+      "topic": "Bazar Harkannas melibatkan 66 UMKM produk perikanan",
+      "summary": "Catatan artikel evergreen diturunkan dari arsip riset berita yang tersedia; verifikasi mandiri sumber primer dan perubahan 24–72 jam belum selesai pada eksekusi ini. Bursa Ikan KKP melaporkan bazar Harkannas 4–5 November di Jakarta melibatkan 66 UMKM. Foto dicantumkan sebagai dokumentasi KKP, tetapi izin komersial penggunaan ulang tidak ditemukan pada halaman sehingga bukan kandidat publikasi bergambar.",
+      "event_date": "2026-11-04",
+      "source_published_at": "2026-11-06",
+      "researched_at": "2026-11-09T07:10:02+07:00",
+      "geography": "Jakarta, Indonesia",
+      "facts": [
+        {
+          "claim": "Bursa Ikan KKP menyebut bazar Harkannas 2026 di Jakarta melibatkan 66 UMKM produk perikanan.",
+          "source_urls": [
+            "https://bursaikan.kkp.go.id/berita/bazar-spesial-harkannas-2026-hadirkan-66-peserta-perkenalkan-ragam-produk-kelautan-dan-perikanan"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://bursaikan.kkp.go.id/berita/bazar-spesial-harkannas-2026-hadirkan-66-peserta-perkenalkan-ragam-produk-kelautan-dan-perikanan",
+          "publisher": "Bursa Ikan KKP",
+          "accessed_at": "2026-11-09T10:30:00+07:00"
+        }
+      ],
+      "practical_impact": "Rantai dingin dan asal-usul produk penting untuk pengendalian mutu.",
+      "content_angle": "Peta kanal promosi resmi untuk UMKM perikanan.",
+      "keyword_intent": "traceability produk seafood untuk ekspor | informational",
+      "reader_pain_point": "Rantai dingin dan asal-usul produk penting untuk pengendalian mutu.",
+      "evergreen_idea": "traceability produk seafood untuk ekspor",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Diturunkan dari arsip 2026-11-09-news.json; belum ada verifikasi independen sumber primer pada run ini."
+    },
+    {
+      "id": "tren-pasar-evergreen-2026-11-09",
+      "category": "Tren & Analisis Pasar",
+      "topic": "Surplus perdagangan September 2026",
+      "summary": "Catatan artikel evergreen diturunkan dari arsip riset berita yang tersedia; verifikasi mandiri sumber primer dan perubahan 24–72 jam belum selesai pada eksekusi ini. Kemendag melaporkan surplus perdagangan September sebesar USD3,36 miliar. Data dirilis 3 November dan bukan peristiwa baru hari ini.",
+      "event_date": "2026-09-30",
+      "source_published_at": "2026-11-03",
+      "researched_at": "2026-11-09T07:10:02+07:00",
+      "geography": "Indonesia",
+      "facts": [
+        {
+          "claim": "Kemendag melaporkan surplus neraca perdagangan September 2026 sebesar USD3,36 miliar.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/tren-positif-perdagangan-luar-negeri-hingga-september-2026-tunjukkan-ketahanan-eksternal-indonesia"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/tren-positif-perdagangan-luar-negeri-hingga-september-2026-tunjukkan-ketahanan-eksternal-indonesia",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-09T10:30:00+07:00"
+        }
+      ],
+      "practical_impact": "Angka agregat tidak langsung menunjukkan peluang margin per produk.",
+      "content_angle": "Membaca tren ekspor tanpa menyamakan data nasional dengan peluang tiap perusahaan.",
+      "keyword_intent": "cara membaca data ekspor BPS untuk riset pasar | informational",
+      "reader_pain_point": "Angka agregat tidak langsung menunjukkan peluang margin per produk.",
+      "evergreen_idea": "cara membaca data ekspor BPS untuk riset pasar",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-12-01",
+      "verification_note": "Diturunkan dari arsip 2026-11-09-news.json; belum ada verifikasi independen sumber primer pada run ini."
+    }
+  ],
+  "article_selection": [
+    {
+      "title": "Struktur Website Company Profile B2B: Dari Kredibilitas hingga Permintaan Penawaran",
+      "slug": "struktur-website-company-profile-b2b-rfq",
+      "keyword": "struktur website company profile b2b rfq",
+      "intent": "informational-commercial",
+      "status": "committed_previous_run",
+      "published_at": "2026-11-09T02:00:00+07:00",
+      "article_url": "https://bisabikinweb.site/artikel/struktur-website-company-profile-b2b-rfq/",
+      "live_verified": false,
+      "word_count": 570,
+      "image_url": "https://images.unsplash.com/photo-1497366811353-6870744d04b2?fm=webp&fit=crop&w=1600&h=900&q=80",
+      "image_verified": false,
+      "reason": "Sudah ada di modul editorial hari ini; tidak dibuat ulang untuk mencegah duplikasi."
+    },
+    {
+      "title": "Website Brand Skincare: Katalog, Komposisi, Cara Pakai, dan Informasi Produk yang Jelas",
+      "slug": "website-skincare-katalog-komposisi-kepercayaan",
+      "keyword": "website skincare katalog komposisi kepercayaan",
+      "intent": "informational-commercial",
+      "status": "committed_previous_run",
+      "published_at": "2026-11-09T02:00:00+07:00",
+      "article_url": "https://bisabikinweb.site/artikel/website-skincare-katalog-komposisi-kepercayaan/",
+      "live_verified": false,
+      "word_count": 484,
+      "image_url": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?fm=webp&fit=crop&w=1600&h=900&q=80",
+      "image_verified": false,
+      "reason": "Sudah ada di modul editorial hari ini; tidak dibuat ulang untuk mencegah duplikasi."
+    },
+    {
+      "title": "Website Fashion yang Siap Dijelajahi: Size Chart, Varian, Stok, dan Preorder",
+      "slug": "website-fashion-size-chart-stok-preorder",
+      "keyword": "website fashion size chart stok preorder",
+      "intent": "informational-commercial",
+      "status": "committed_previous_run",
+      "published_at": "2026-11-09T02:00:00+07:00",
+      "article_url": "https://bisabikinweb.site/artikel/website-fashion-size-chart-stok-preorder/",
+      "live_verified": false,
+      "word_count": 449,
+      "image_url": "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?fm=webp&fit=crop&w=1600&h=900&q=80",
+      "image_verified": false,
+      "reason": "Sudah ada di modul editorial hari ini; tidak dibuat ulang untuk mencegah duplikasi."
+    },
+    {
+      "title": "Biaya Pembuatan Website Bisnis: Apa Saja yang Dibayar di Awal dan Setiap Tahun?",
+      "slug": "biaya-website-bisnis-domain-hosting-maintenance",
+      "keyword": "biaya website bisnis domain hosting maintenance",
+      "intent": "informational-commercial",
+      "status": "committed_previous_run",
+      "published_at": "2026-11-09T02:00:00+07:00",
+      "article_url": "https://bisabikinweb.site/artikel/biaya-website-bisnis-domain-hosting-maintenance/",
+      "live_verified": false,
+      "word_count": 450,
+      "image_url": "https://images.unsplash.com/photo-1460925895917-afdab827c52f?fm=webp&fit=crop&w=1600&h=900&q=80",
+      "image_verified": false,
+      "reason": "Sudah ada di modul editorial hari ini; tidak dibuat ulang untuk mencegah duplikasi."
+    },
+    {
+      "title": "Website Travel dan Wisata: Menyusun Paket, Itinerary, Harga, dan Form Booking",
+      "slug": "website-travel-paket-wisata-booking-jelas",
+      "keyword": "website travel paket wisata booking jelas",
+      "intent": "informational-commercial",
+      "status": "committed_previous_run",
+      "published_at": "2026-11-09T02:00:00+07:00",
+      "article_url": "https://bisabikinweb.site/artikel/website-travel-paket-wisata-booking-jelas/",
+      "live_verified": false,
+      "word_count": 431,
+      "image_url": "https://images.unsplash.com/photo-1454165804606-c3d57bc86b40?fm=webp&fit=crop&w=1600&h=900&q=80",
+      "image_verified": false,
+      "reason": "Sudah ada di modul editorial hari ini; tidak dibuat ulang untuk mencegah duplikasi."
+    }
+  ],
+  "article_count_existing_repo": 5,
+  "article_count_new_this_run": 0,
+  "limitations": [
+    "Source URLs and 24–72h claims not independently revalidated.",
+    "Supabase CMS count not checked in this run.",
+    "Image HTTP/visual and live article URLs not verified.",
+    "Existing five articles are below 700 words and all are digital website topics.",
+    "GitHub Pages does not guarantee per-post embargo at requested WIB slots."
+  ],
+  "corrections": []
+}
