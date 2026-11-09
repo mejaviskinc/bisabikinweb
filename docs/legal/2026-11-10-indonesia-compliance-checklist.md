@@ -17,7 +17,7 @@ Status: DRAFT IMPLEMENTASI / REVIEW DIBUTUHKAN. Ini daftar penyesuaian operasion
 5. Tes konten legal ditambahkan.
 
 ## STOP-SHIP / PENYESUAIAN OPERASIONAL PENTING
-- [ ] Verifikasi identitas pelaku usaha yang benar: nama badan usaha/perseorangan, alamat usaha, email resmi untuk pengaduan/privacy, nomor identifikasi usaha/NIB bila wajib; tambahkan detail yang tervalidasi di kebijakan & invoice. Jangan menebak PT atau NIB dari riwayat percakapan.
+- [ ] Nama badan usaha disampaikan langsung oleh owner: **PT GHAZALI DIGITAL INDONESIA**, dengan **BisaBikinWeb** sebagai brand/layanan. Verifikasi dokumen pendirian dan data badan usaha (termasuk nama persis sesuai akta/OSS), NIB/izin terkait, alamat korespondensi, dan email resmi pengaduan/privacy sebelum menyatakan verifikasi legal selesai. Identitas nama PT sudah dimasukkan ke kebijakan, tetapi nomor izin maupun alamat belum dicantumkan karena belum tersedia.
 - [ ] Periksa apakah BisaBikinWeb bertindak sebagai pedagang, PPMSE/marketplace, atau PSP pada tiap produk. Kewajiban izin, identitas penjual, data kontrak, penyimpanan catatan, pengelolaan penjual dan moderasi berbeda menurut peran. Permendag 19/2026 berlaku sejak 8 Juni 2026.
 - [ ] Validasi checkbox persetujuan kontrak di checkout dan kemampuan mengunduh/menyimpan ringkasan pesanan serta versi ketentuan saat transaksi. Jangan anggap kalimat pasif 'dengan memesan kamu setuju' cukup untuk semua tindakan.
 - [ ] Audit CookieYes/tag manager, pengaktifan cookie non-esensial, consent dan withdrawal pada kenyataan. Kebijakan tertulis saja tidak membuktikan pemblokiran cookie otomatis.
