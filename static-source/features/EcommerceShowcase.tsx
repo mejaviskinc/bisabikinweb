@@ -1,12 +1,8 @@
-import {useState} from 'react';
-import {ArrowUpRight,ArrowRight,ShoppingBag,PackageCheck,Layers3,ShieldCheck,Boxes,Headphones,Smartphone,Store,Paintbrush,Truck,Settings2,Check,MessageCircle,ClipboardList,LockKeyhole} from 'lucide-react';
+import {useEffect,useRef,useState} from 'react';
+import {ArrowUpRight,ArrowRight,PackageCheck,Layers3,ShieldCheck,Boxes,Headphones,Paintbrush,Truck,Settings2,Check,MessageCircle,ClipboardList,LockKeyhole} from 'lucide-react';
 import './ecommerce-showcase.css';
 
-const demoProducts=[
- {name:'Essential Carry Bag',kind:'Fashion',price:'Rp 329.000',image:'https://images.unsplash.com/photo-1548036328-c9fa89d128fa?auto=format&fit=crop&w=520&q=80'},
- {name:'Classic Timepiece',kind:'Lifestyle',price:'Rp 489.000',image:'https://images.unsplash.com/photo-1523275335684-37898b6baf30?auto=format&fit=crop&w=520&q=80'},
- {name:'Everyday Collection',kind:'Fashion',price:'Rp 259.000',image:'https://images.unsplash.com/photo-1543163521-1bf539c55dd2?auto=format&fit=crop&w=520&q=80'}
-];
+const MEJAVI_SITE='https://mejaviskinc.github.io/mejavi-skin/';
 const capabilities=[
  {icon:Layers3,title:'Katalog yang mudah dijelajahi',copy:'Kategori, pencarian, foto produk, varian ukuran atau warna, dan detail yang membantu pembeli memilih.'},
  {icon:ShoppingBag,title:'Keranjang & checkout',copy:'Dari memilih produk sampai membuat pesanan dengan alur yang jelas dan responsif di perangkat seluler.'},
@@ -31,9 +27,23 @@ const questions=[
 
 export default function EcommerceShowcase(){
  const [mode,setMode]=useState<'desktop'|'mobile'>('desktop');
- const [category,setCategory]=useState('Semua');
- const [cart,setCart]=useState(0);
- const shown=demoProducts.filter(p=>category==='Semua'||p.kind===category);
+ const viewportRef=useRef<HTMLDivElement>(null);
+ const [viewportWidth,setViewportWidth]=useState(680);
+ useEffect(()=>{
+  const element=viewportRef.current;
+  if(!element)return;
+  const resize=()=>setViewportWidth(Math.max(1,element.clientWidth));
+  resize();
+  if(typeof ResizeObserver!=='undefined'){
+   const observer=new ResizeObserver(resize);observer.observe(element);
+   return ()=>observer.disconnect();
+  }
+  window.addEventListener('resize',resize);
+  return ()=>window.removeEventListener('resize',resize);
+ },[]);
+ const nativeWidth=mode==='desktop'?1366:390;
+ const nativeHeight=mode==='desktop'?1300:950;
+ const scale=Math.min(1,viewportWidth/nativeWidth);
  return <div className="ec-showcase">
   <section className="section ec-intro" aria-labelledby="ec-intro-heading">
    <div className="ec-intro-copy">
@@ -43,17 +53,16 @@ export default function EcommerceShowcase(){
     <div className="ec-intro-points"><span><Check size={15}/> Sesuai identitas brand</span><span><Check size={15}/> Responsif di ponsel</span><span><Check size={15}/> Bertahap sesuai kebutuhan</span></div>
     <div className="ec-cta-row"><a href="/beli-website/" className="btn primary">Rancang toko saya <ArrowUpRight size={17}/></a><a href="/portfolio/" className="btn">Lihat portofolio <ArrowRight size={17}/></a></div>
    </div>
-   <div className="ec-preview-shell">
-    <div className="ec-preview-head"><div><span className="ec-live-dot"/> CONCEPT STORE / INTERACTIVE PREVIEW</div><div className="ec-view-controls" role="group" aria-label="Tampilan contoh toko"><button type="button" className={mode==='desktop'?'selected':''} aria-pressed={mode==='desktop'} onClick={()=>setMode('desktop')}>Desktop</button><button type="button" className={mode==='mobile'?'selected':''} aria-pressed={mode==='mobile'} onClick={()=>setMode('mobile')}>Mobile</button></div></div>
+   <div className="ec-preview-shell ec-mejavi-shell">
+    <div className="ec-preview-head"><div><span className="ec-live-dot"/> MEJAVI SKIN+ / WEBSITE ASLI</div><div className="ec-view-controls" role="group" aria-label="Tampilan website Mejavi"><button type="button" className={mode==='desktop'?'selected':''} aria-pressed={mode==='desktop'} onClick={()=>setMode('desktop')}>Desktop</button><button type="button" className={mode==='mobile'?'selected':''} aria-pressed={mode==='mobile'} onClick={()=>setMode('mobile')}>Mobile</button></div></div>
     <div className={'ec-browser '+(mode==='mobile'?'ec-browser-mobile':'')}>
-     <div className="ec-browser-bar"><div className="ec-browser-dots"><i/><i/><i/></div><span>studio-goods.example / demo</span><LockKeyhole size={12}/></div>
-     <div className="ec-store">
-      <div className="ec-store-nav"><strong>STUDIO<span>GOODS.</span></strong><span>NEW IN / COLLECTIONS</span><div><ShoppingBag size={15}/><b>{cart}</b></div></div>
-      <div className="ec-store-hero"><span>CURATED ESSENTIALS / EDITION 01</span><h3>Objects for<br/><i>every day.</i></h3><p>Simple choices. Thoughtful details.</p></div>
-      <div className="ec-store-shop"><div className="ec-store-shop-top"><b>Discover the collection</b><div role="group" aria-label="Filter produk demo">{['Semua','Fashion','Lifestyle'].map(t=><button type="button" key={t} className={category===t?'active':''} onClick={()=>setCategory(t)}>{t}</button>)}</div></div><div className="ec-demo-products">{shown.map(p=><article key={p.name}><div className="ec-demo-image"><img src={p.image} loading="lazy" alt={'Ilustrasi produk '+p.name}/></div><span>{p.kind}</span><h4>{p.name}</h4><div className="ec-demo-buy"><b>{p.price}</b><button type="button" onClick={()=>setCart(c=>c+1)} aria-label={'Tambahkan '+p.name+' ke keranjang demo'}>+</button></div></article>)}</div></div>
+     <div className="ec-browser-bar"><div className="ec-browser-dots"><i/><i/><i/></div><span>mejaviskinc.github.io/mejavi-skin/</span><LockKeyhole size={12}/></div>
+     <div ref={viewportRef} className="ec-mejavi-viewport" style={{height:Math.ceil(nativeHeight*scale)}}>
+      <iframe key="mejavi-website" className="ec-mejavi-iframe" src={MEJAVI_SITE} title="Preview website resmi Mejavi Skin+" loading="lazy" referrerPolicy="strict-origin-when-cross-origin" sandbox="allow-scripts allow-same-origin allow-forms allow-popups allow-popups-to-escape-sandbox" style={{width:nativeWidth,height:nativeHeight,transform:'scale('+scale+')'}}/>
      </div>
     </div>
-    <div className="ec-preview-note"><span><span className="ec-live-dot"/> UI DEMO — BUKAN TOKO AKTIF</span><span>{cart} item di keranjang simulasi</span></div>
+    <div className="ec-preview-note"><span><span className="ec-live-dot"/> WEBSITE ASLI / BUKAN MOCKUP</span><a href={MEJAVI_SITE} target="_blank" rel="noopener noreferrer">Buka website Mejavi <ArrowUpRight size={14}/></a></div>
+    <p className="ec-mejavi-frame-help">Tampilan diambil langsung dari website Mejavi Skin+. Jika browser memblokir pratinjau tersemat, gunakan tautan “Buka website Mejavi” untuk melihat situs sepenuhnya.</p>
    </div>
   </section>
 
