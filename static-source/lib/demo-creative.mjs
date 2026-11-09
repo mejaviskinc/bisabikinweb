@@ -32,7 +32,7 @@ export const creativeDirections={
     "story": "Tekstur alami, pilihan bahan dan jejak pengrajin menjadi bagian penting setiap karya."
   },
   "saji-lokal": {
-    "hero": "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1600&q=85",
+    "hero": "https://images.unsplash.com/photo-1555939594-58d7cb561ad1?auto=format&fit=crop&w=1600&q=85",
     "mood": "Bold local flavors",
     "headline": "Rasa yang dekat dengan rumah",
     "story": "Resep, karakter bumbu dan informasi produk disampaikan dengan bahasa yang sederhana."
@@ -248,7 +248,7 @@ export const creativeDirections={
     "story": "Informasi menu dan komposisi membantu orang memilih sesuai preferensi makan."
   },
   "hearth-bakery": {
-    "hero": "https://images.unsplash.com/photo-1509440159596-0249088772ff?auto=format&fit=crop&w=1600&q=85",
+    "hero": "https://images.unsplash.com/photo-1565958011703-44f9829ba187?auto=format&fit=crop&w=1600&q=85",
     "mood": "Bakery dining",
     "headline": "Bukan sekadar pastry",
     "story": "Pilihan roti, ketersediaan harian dan catatan bahan membantu keputusan pelanggan."
