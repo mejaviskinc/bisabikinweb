@@ -4,7 +4,7 @@ import {ShieldCheck} from 'lucide-react';
 /** Authentic payment brands: artwork served by DOKU's official site or Commons.
  * These are informational examples, not confirmation of merchant activation.
  */
-const paymentStyles=`#bbw-doku-methods{margin-top:42px;padding:34px 0 31px;border-top:1px solid var(--line,#293027);border-bottom:1px solid var(--line,#293027);color:var(--text,#f2f3ee)}
+const paymentStyles=`#bbw-doku-methods{display:block;width:100%;margin-top:24px;padding:18px 0 24px;border-top:1px solid var(--line,#293027);border-bottom:1px solid var(--line,#293027);color:var(--text,#f2f3ee)}
 #bbw-doku-methods *{box-sizing:border-box}
 #bbw-doku-methods .bbw-payment-group{margin:0 0 25px}
 #bbw-doku-methods .bbw-payment-group:last-of-type{margin-bottom:18px}
@@ -19,7 +19,7 @@ const paymentStyles=`#bbw-doku-methods{margin-top:42px;padding:34px 0 31px;borde
 #bbw-doku-methods .bbw-doku-note svg{flex:0 0 16px;margin-top:1px;color:var(--accent,#c3f85c)}
 @media(min-width:981px){#bbw-doku-methods .bbw-payment-tile:hover{border-color:color-mix(in srgb,var(--accent,#c3f85c) 36%,var(--line,#293027))}}
 @media(max-width:1020px){#bbw-doku-methods .bbw-payment-grid{grid-template-columns:repeat(3,minmax(0,1fr))}}
-@media(max-width:640px){#bbw-doku-methods{margin-top:30px;padding:28px 0 24px}#bbw-doku-methods .bbw-payment-group{margin-bottom:21px}#bbw-doku-methods .bbw-payment-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}#bbw-doku-methods .bbw-payment-tile{min-height:108px;padding:10px;gap:8px}#bbw-doku-methods .bbw-payment-plate{height:55px;padding:9px}#bbw-doku-methods .bbw-payment-plate img{max-height:33px}}`;
+@media(max-width:640px){#bbw-doku-methods{margin-top:18px;padding:12px 0 20px}#bbw-doku-methods .bbw-payment-group{margin-bottom:21px}#bbw-doku-methods .bbw-payment-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:9px}#bbw-doku-methods .bbw-payment-tile{min-height:108px;padding:10px;gap:8px}#bbw-doku-methods .bbw-payment-plate{height:55px;padding:9px}#bbw-doku-methods .bbw-payment-plate img{max-height:33px}}`;
 const paymentGroups=[
   {id:"bank",titleId:"Transfer Bank / Virtual Account",titleEn:"Bank Transfer / Virtual Account",methods:[
    {id:"bca",name:"BCA",logos:["https://cdn.prod.website-files.com/674ab654de930b217c6389c1/685cf08fec80ea69f98ffc47_BCA.svg","https://commons.wikimedia.org/wiki/Special:FilePath/Bank_Central_Asia.svg"]},
