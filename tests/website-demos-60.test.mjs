@@ -56,13 +56,17 @@ test('60 website template slugs are backed by catalog rows for authenticated quo
 });
 
 
-test('Catalog cards use actual live demo pages instead of repeating placeholder photos',()=>{
+test('Catalog renders true demo first-fold UI without blocked cross-page iframes',()=>{
  assert.match(studio,/function LiveSitePreview/);
- assert.match(studio,/IntersectionObserver/);
- assert.match(studio,/<iframe src=\{url\}/);
- assert.match(studio,/internalLiveDemo\?<LiveSitePreview/);
+ assert.match(studio,/creativeFor\(d\.slug\)/);
+ assert.match(studio,/wd-root wd-layout-/);
+ assert.match(studio,/hasLivePreview\?<LiveSitePreview/);
+ assert.doesNotMatch(studio,/<iframe/);
  assert.match(studio,/ws-template-visual-link/);
  assert.match(studio,/href=\{safeUrl\(t\.demo_url\)/);
+ const css=source('static-source/features/website-store.css');
+ assert.match(css,/\.ws-demo-mini-site/);
+ assert.match(css,/\.ws-root \.ws-toolbar>label>input/);
 });
 
 test('All 60 industry showcases have independent visual identity and editorial identity',async()=>{
