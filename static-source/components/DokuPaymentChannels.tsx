@@ -6,7 +6,8 @@ const categories=[
  {name:'Virtual Account',description:'Transfer bank, misalnya BCA, BRI, BNI, atau Mandiri.'},
  {name:'E-wallet',description:'OVO, DANA, atau ShopeePay jika tersedia.'},
  {name:'Kartu debit / kredit',description:'Pembayaran kartu yang didukung DOKU dan bank penerbit.'},
- {name:'Gerai ritel',description:'Pembayaran melalui gerai mitra apabila kanal aktif.'}
+ {name:'Gerai ritel',description:'Pembayaran melalui gerai mitra apabila kanal aktif.'},
+ {name:'PayLater',description:'Cicilan melalui mitra DOKU jika akun merchant dan pelanggan memenuhi syarat.'}
 ] as const;
 
 export default function DokuPaymentChannels(){
