@@ -28,3 +28,12 @@
 .ws-client-payment{margin:16px 0;padding:18px;background:var(--panel);border:1px solid var(--line);border-radius:9px;display:flex;flex-direction:column;gap:9px;align-items:flex-start}
 .ws-client-payment>small{font:10px monospace;letter-spacing:1px;color:var(--accent)}.ws-client-payment p{font-size:12px;margin:0;line-height:1.7}.ws-client-payment .btn{font-size:12px;min-height:42px}
 .ws-payment-paid{display:flex;align-items:center;gap:8px;color:var(--accent);font-weight:700}
+
+/* Catalog previews now resemble site browser windows instead of unframed stock photography. */
+.ws-demo-window{height:100%;display:flex;flex-direction:column;background:#f7f5ed;color:#1b241e;overflow:hidden;font-family:Arial,Helvetica,sans-serif}
+.ws-demo-window-head{height:31px;flex-shrink:0;background:#efeee9;color:#4d554b;border-bottom:1px solid #d3d4ca;display:flex;align-items:center;justify-content:space-between;gap:12px;padding:0 13px;font-size:9px}
+.ws-demo-window-head>span:first-child{letter-spacing:4px;color:#a0a6a0}.ws-demo-window-head strong{font-size:11px;font-weight:800;letter-spacing:-.04em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.ws-demo-window-head>span:last-child{font-size:7px;font-weight:800;letter-spacing:1px}
+.ws-demo-window-visual{height:calc(100% - 31px);position:relative;overflow:hidden;background:#d8d8ce}.ws-preview .ws-demo-window-visual img{width:100%;height:100%;object-fit:cover;filter:saturate(.82) brightness(.75)}.ws-demo-window-visual:after{content:'';position:absolute;inset:0;background:linear-gradient(90deg,#141b1baa,transparent 95%)}
+.ws-demo-window-visual>div{position:absolute;left:8%;right:8%;bottom:13%;z-index:2;display:flex;flex-direction:column;gap:7px;color:#fff;text-shadow:0 3px 16px #0006}.ws-demo-window-visual small{font-size:8px;color:#fff;font-weight:700;letter-spacing:1.3px;text-transform:uppercase}.ws-demo-window-visual strong{font-family:Georgia,serif;font-weight:400;font-size:clamp(19px,2.7vw,42px);line-height:1;letter-spacing:-.05em}.ws-demo-window-visual span{font-size:8px;letter-spacing:.2px}
+.ws-hero-visual .ws-demo-window-visual strong{font-size:clamp(28px,4vw,68px)}
+@media(max-width:550px){.ws-demo-window-head{height:26px}.ws-demo-window-visual{height:calc(100% - 26px)}.ws-demo-window-visual strong{font-size:26px}}
