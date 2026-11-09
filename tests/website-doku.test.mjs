@@ -29,6 +29,18 @@ test('DOKU customer-facing methods do not advertise PayPal or unavailable local 
 });
 
 
+test('Payment Gateway Admin uses DOKU as the current provider while supporting legacy status checks',()=>{
+ const gateway=read('static-source/features/PaymentGatewayAdmin.tsx');
+ const apiAdmin=read('supabase/functions/bbweb-payment-admin/index.ts');
+ assert.match(gateway,/PAYMENT OPERATIONS \/ DOKU/);
+ assert.match(gateway,/configured=Boolean\(data\?\.doku\?\.credentials_configured\)/);
+ assert.match(gateway,/data\?\.doku\?\.webhook_url/);
+ assert.match(gateway,/Cek DOKU/);
+ assert.doesNotMatch(gateway,/Midtrans Snap|Midtrans Dashboard|Server Key belum terdeteksi/);
+ assert.match(apiAdmin,/if\(payment\.provider==='doku'\) return refreshDoku/);
+ assert.match(apiAdmin,/doku: \{/);
+});
+
 test('Website orders pay only against server-side admin-approved price, not browser-submitted amount',()=>{
  assert.match(api,/if\(action==='create_payment'\)/);
  assert.match(api,/order\.status!=='awaiting_payment'/);
