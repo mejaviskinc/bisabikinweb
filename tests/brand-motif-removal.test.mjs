@@ -33,3 +33,19 @@ test('decorative CSS rules for removed asterisk are not shipped',()=>{
   assert.ok(!demoCss.includes('.wd-symbol{'));
   assert.match(demoCss,/\.wd-about-mark\{[^}]*text-transform:uppercase/);
 });
+
+test('all 60 website previews and live demos are free of concentric ring overlays',()=>{
+  const demo=source('static-source/features/WebsiteLiveDemo.tsx');
+  const catalog=source('static-source/features/WebsiteStore.tsx');
+  const styles=source('static-source/features/website-live-demo.css');
+  // The shared renderers cover the whole 60-site catalog: no item-by-item patches.
+  assert.match(demo,/function DemoVisual/);
+  assert.match(catalog,/function LiveSitePreview/);
+  assert.match(demo,/wd-visual/);
+  assert.match(catalog,/wd-visual/);
+  for(const [path,content] of [['Live demo JSX',demo],['Catalog JSX',catalog],['Demo CSS',styles]]){
+    assert.doesNotMatch(content,/wd-visual-halo|wd-visual-note/,path+' must not introduce decorative circles');
+  }
+  assert.match(styles,/\.wd-visual img\{[^}]*object-fit:cover/);
+  assert.match(styles,/\.wd-visual img\{[^}]*filter:none/);
+});
