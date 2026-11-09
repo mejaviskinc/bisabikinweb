@@ -122,7 +122,7 @@ Deno.serve(async(req:Request)=>{
    return response({order:{id:order.id,order_no:orderNo,status:'requested',payment_status:'not_invoiced'}},200,origin);
   }
   if(action==='my_orders'){
-   const orders=await db('bbweb_website_orders?select=id,order_no,package_slug,template_slug,company,requested_domain,domain_status,quoted_total,status,payment_status,created_at,updated_at&user_id=eq.'+encodeURIComponent(user.id)+'&order=created_at.desc&limit=100');
+   const orders=await db('bbweb_website_orders?select=id,order_no,full_name,email,phone,company,category,package_slug,template_slug,requested_domain,domain_status,quoted_total,status,payment_status,created_at,updated_at&user_id=eq.'+encodeURIComponent(user.id)+'&order=created_at.desc&limit=100');
    const list=Array.isArray(orders)?orders:[];
    if(!list.length)return response({orders:[]},200,origin);
    const ids=list.map((o:any)=>o.id).filter(Boolean);
@@ -153,7 +153,7 @@ Deno.serve(async(req:Request)=>{
     if(priorUrl&&payment.status==='pending')return response({redirect_url:priorUrl,invoice,amount:payment.amount,environment:settings.environment,status:'pending'},200,origin);
     fail('Invoice sebelumnya masih perlu pemeriksaan admin. Jangan membuat pembayaran ganda.',409);
    }
-   const callback='https://bisabikinweb.site/client/dashboard/';
+   const callback='https://bisabikinweb.site/client/dashboard/?consult='+encodeURIComponent(order.id);
    const notification=(Deno.env.get('SUPABASE_URL')||'')+'/functions/v1/bbweb-website-doku-webhook';
    const body={
     order:{invoice_number:invoice,amount:Number(payment.amount),currency:'IDR',callback_url:callback,callback_url_cancel:callback,callback_url_result:callback,auto_redirect:true,disable_retry_payment:true,
