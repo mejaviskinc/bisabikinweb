@@ -21,6 +21,15 @@ test('DOKU customer-facing methods do not advertise PayPal or unavailable local 
  assert.match(channels,/akun merchant/);
  assert.match(footer,/Metode Pembayaran via DOKU/);
  assert.doesNotMatch(footer,/PayPal|Bank Sinarmas/);
+ assert.match(footer,/paymentCategories/);
+ assert.match(footer,/footer-payment-channel/);
+ assert.match(footer,/DOKU Checkout/);
+ assert.doesNotMatch(footer,/<img|commons\.wikimedia|Special:FilePath|paymentChannels/);
+ const styles=read('static-source/styles.css');
+ assert.match(styles,/\.footer-payment-grid\{display:grid;grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
+ assert.match(styles,/@media\(max-width:650px\).*?\.footer-payment-grid\{grid-template-columns:minmax\(0,1fr\)/);
+ assert.doesNotMatch(styles,/\.footer-payment-logo\{|grid-template-columns:repeat\(8,minmax\(0,1fr\)\)/);
+
  assert.doesNotMatch(merch,/name="payment_method"/);
  assert.match(merch,/payment_method:'all'/);
  assert.match(merch,/DokuPaymentChannels/);
