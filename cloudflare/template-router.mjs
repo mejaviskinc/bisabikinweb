@@ -53,4 +53,4 @@ export async function handleTemplateRequest(request,fetchOrigin=fetch){
    return new Response('Template temporarily unavailable',{status:502,headers:{'Content-Type':'text/plain; charset=utf-8','X-Robots-Tag':'noindex, nofollow'}});
  }
 }
-export default {fetch:handleTemplateRequest};
+export default {fetch(request){return handleTemplateRequest(request);}};
