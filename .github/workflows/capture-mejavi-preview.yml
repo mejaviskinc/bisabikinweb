@@ -39,15 +39,57 @@ jobs:
             test -s "$path" || { echo "Screenshot file empty: $path"; exit 1; }
             file "$path"
           done
-      - name: Commit captured real screenshots
+      - name: Record actual moving website desktop and mobile (silent MP4)
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME=$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)
+          command -v Xvfb
+          command -v ffmpeg
+          command -v ffprobe
+          test -n "$CHROME"
+          URL=''
+          for candidate in https://mejaviskincare.co.id/ https://mejaviskinc.github.io/mejavi-skin/; do
+            if curl -fsSL --connect-timeout 8 --max-time 20 -o /dev/null "$candidate"; then URL="$candidate"; break; fi
+          done
+          test -n "$URL" || { echo "Mejavi is unreachable; refusing to generate fictional previews"; exit 1; }
+          mkdir -p public-assets/portfolio
+          for format in desktop mobile; do
+            if [ "$format" = desktop ]; then width=1440; height=900; else width=420; height=844; fi
+            export DISPLAY=:97
+            Xvfb :97 -screen 0 "${width}x${height}x24" -nolisten tcp >/tmp/mejavi-xvfb-${format}.log 2>&1 &
+            xvfb_pid=$!
+            sleep 2
+            "$CHROME" --no-sandbox --no-first-run --no-default-browser-check --disable-dev-shm-usage --disable-extensions --disable-gpu --autoplay-policy=no-user-gesture-required --mute-audio --kiosk --window-position=0,0 --window-size="${width},${height}" --user-data-dir="/tmp/mejavi-capture-${format}" "$URL" >/tmp/mejavi-chrome-${format}.log 2>&1 &
+            chrome_pid=$!
+            # Let site loader, fonts, and original autoplay homepage video initialize.
+            sleep 13
+            video="public-assets/portfolio/mejavi-home-${format}.mp4"
+            ffmpeg -hide_banner -loglevel error -nostdin -y -f x11grab -framerate 12 -video_size "${width}x${height}" -i :97.0+0,0 -t 9 -an -c:v libx264 -preset veryfast -crf 30 -pix_fmt yuv420p -movflags +faststart "$video"
+            test -s "$video"
+            ffprobe -v error -select_streams v:0 -show_entries stream=codec_name,width,height,duration -of default=noprint_wrappers=1 "$video"
+            # Do not publish a blank capture or a still masquerading as motion.
+            ffmpeg -hide_banner -loglevel error -y -ss 1 -i "$video" -frames:v 1 "/tmp/mejavi-${format}-f1.png"
+            ffmpeg -hide_banner -loglevel error -y -ss 7 -i "$video" -frames:v 1 "/tmp/mejavi-${format}-f7.png"
+            if cmp -s "/tmp/mejavi-${format}-f1.png" "/tmp/mejavi-${format}-f7.png"; then
+              echo "Capture did not move (${format}); refusing a frozen video"
+              exit 1
+            fi
+            kill "$chrome_pid" 2>/dev/null || true
+            kill "$xvfb_pid" 2>/dev/null || true
+            pkill -f "/tmp/mejavi-capture-${format}" || true
+            sleep 2
+            echo "Recorded $video from $URL"
+          done
+      - name: Commit captured screenshots and moving video previews
         shell: bash
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add public-assets/portfolio/mejavi-home-desktop.png public-assets/portfolio/mejavi-home-mobile.png
-          if git diff --cached --quiet; then echo "Screenshots unchanged"; exit 0; fi
-          git commit -m "Capture authentic Mejavi website desktop and mobile screenshots"
+          git add public-assets/portfolio/mejavi-home-desktop.png public-assets/portfolio/mejavi-home-mobile.png public-assets/portfolio/mejavi-home-desktop.mp4 public-assets/portfolio/mejavi-home-mobile.mp4
+          if git diff --cached --quiet; then echo "Mejavi screenshots and videos unchanged"; exit 0; fi
+          git commit -m "Capture authentic Mejavi website previews with motion"
           for attempt in 1 2 3 4 5; do
             git fetch origin main
             git rebase origin/main
