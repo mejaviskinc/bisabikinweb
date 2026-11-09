@@ -11,6 +11,24 @@ const sql=read('supabase/patches/website_doku_20261108.sql');
 const client=read('static-source/features/WebsiteStore.tsx');
 const admin=read('static-source/features/WebsiteSalesDashboard.tsx');
 
+test('DOKU customer-facing methods do not advertise PayPal or unavailable local method selectors',()=>{
+ const footer=read('static-source/components/FooterPaymentMethods.tsx');
+ const channels=read('static-source/components/DokuPaymentChannels.tsx');
+ const merch=read('static-source/features/Commerce.tsx');
+ for(const category of ['QRIS','Virtual Account','E-wallet','Kartu debit / kredit','Gerai ritel']){
+  assert.ok(channels.includes(category),'Missing DOKU category: '+category);
+ }
+ assert.match(channels,/akun merchant/);
+ assert.match(footer,/Metode Pembayaran via DOKU/);
+ assert.doesNotMatch(footer,/PayPal/);
+ assert.doesNotMatch(merch,/name="payment_method"/);
+ assert.match(merch,/payment_method:'all'/);
+ assert.match(merch,/DokuPaymentChannels/);
+ assert.match(client,/DokuPaymentChannels/);
+ assert.match(api,/payment:\{payment_due_date:60,type:'SALE'\}/);
+});
+
+
 test('Website orders pay only against server-side admin-approved price, not browser-submitted amount',()=>{
  assert.match(api,/if\(action==='create_payment'\)/);
  assert.match(api,/order\.status!=='awaiting_payment'/);
