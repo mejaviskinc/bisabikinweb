@@ -57,3 +57,18 @@
 .ws-template:hover .ws-real-hero img{transform:scale(1.03);transition:transform .4s ease}
 @media(max-width:700px){.ws-real-topbar{height:14px}.ws-real-header{height:33px}.ws-real-header span{font-size:6px}.ws-real-hero strong{font-size:clamp(13px,4.3vw,22px)}.ws-real-hero em{font-size:7px}.ws-real-bottom{min-height:27px;padding:6px 3%}}
 @media(prefers-reduced-motion:reduce){.ws-template:hover .ws-real-hero img{transition:none;transform:none}}
+
+
+/* A real, scaled desktop website is rendered in each demo card (not a repeated stock image). */
+.ws-live-canvas{position:absolute;inset:0;overflow:hidden;background:#f8f8f5;pointer-events:none}
+.ws-live-canvas iframe{position:absolute;top:0;left:0;width:320%;height:320%;border:0;background:#fff;transform:scale(.3125);transform-origin:top left;pointer-events:none}
+.ws-live-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;flex-direction:column;gap:10px;color:#3c443d;background:linear-gradient(135deg,#f3f4ee 0%,#d6e0d1 54%,#eff1ea 100%)}
+.ws-live-placeholder span{font:700 12px/1.2 monospace;letter-spacing:.22em}
+.ws-live-placeholder small{font-size:11px;color:#657367}
+.ws-template-visual{position:relative}
+.ws-template-visual-link{position:absolute;inset:0;z-index:3;display:flex;justify-content:flex-end;align-items:flex-end;padding:14px;outline-offset:-3px}
+.ws-template-visual-link>span{display:inline-flex;align-items:center;gap:7px;padding:9px 12px;background:var(--accent);color:var(--accent-ink);border-radius:5px;font-size:11px;font-weight:700;opacity:0;transform:translateY(7px);transition:opacity .2s ease,transform .2s ease}
+.ws-template-visual-link:hover>span,.ws-template-visual-link:focus-visible>span{opacity:1;transform:translateY(0)}
+.ws-preview .ws-demo-tag{z-index:1;pointer-events:none}
+@media (hover:none){.ws-template-visual-link>span{opacity:1;transform:none}}
+@media (prefers-reduced-motion:reduce){.ws-template-visual-link>span{transition:none}}
