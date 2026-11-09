@@ -24,11 +24,18 @@ test('DOKU customer-facing methods do not advertise PayPal or unavailable local 
  assert.match(footer,/const paymentStyles=/);
  assert.match(footer,/id="bbw-doku-methods"/);
  assert.match(footer,/<style>\{paymentStyles\}<\/style>/);
- assert.match(footer,/className="bbw-doku-card"/);
- assert.match(footer,/#bbw-doku-methods .bbw-doku-grid\{display:grid;grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
- assert.match(footer,/@media\(max-width:980px\).*?grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
- assert.match(footer,/@media\(max-width:640px\).*?grid-template-columns:minmax\(0,1fr\)/);
- assert.doesNotMatch(footer,/<img|commons\.wikimedia|Special:FilePath|paymentChannels/);
+ assert.match(footer,/className="bbw-payment-tile"/);
+ assert.match(footer,/className="bbw-payment-plate"/);
+ assert.match(footer,/onError=\{\(\)=>setIndex/);
+ assert.match(footer,/cdn\.prod\.website-files\.com/);
+ assert.match(footer,/www\.wikimedia|commons\.wikimedia/);
+ assert.match(footer,/#bbw-doku-methods .bbw-payment-grid\{display:grid;grid-template-columns:repeat\(4,minmax\(0,1fr\)\)/);
+ assert.match(footer,/@media\(max-width:1020px\).*?grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
+ assert.match(footer,/@media\(max-width:640px\).*?grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
+ for(const brand of ['BCA','BRI','BNI','Mandiri','PermataBank','CIMB Niaga','Danamon','Maybank','QRIS','OVO','DANA','ShopeePay','LinkAja','Visa','Mastercard','Alfamart','Indomaret','Akulaku','Indodana']){
+  assert.ok(footer.includes('name:'+JSON.stringify(brand)),brand+' logo missing');
+ }
+ assert.doesNotMatch(footer,/idn-finlogos|<QrCode|<Wallet|<CreditCard/);
  const styles=read('static-source/styles.css');
  assert.doesNotMatch(styles,/\.footer-payment-grid\{|\.footer-payment-channel\{|\.footer-payment-logo\{/);
 
