@@ -39,6 +39,12 @@ jobs:
             test -s "$path" || { echo "Screenshot file empty: $path"; exit 1; }
             file "$path"
           done
+      - name: Install FFmpeg recording tools
+        shell: bash
+        run: |
+          sudo apt-get update -qq
+          sudo DEBIAN_FRONTEND=noninteractive apt-get install -y -qq ffmpeg
+          ffmpeg -version | head -n 1
       - name: Record actual moving website desktop and mobile (silent MP4)
         shell: bash
         run: |
