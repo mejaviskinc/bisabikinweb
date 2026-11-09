@@ -677,3 +677,8 @@
  .industry-story-end{padding-top:25px}
  .industry-detail .industry-editorial{margin-top:35px;padding-top:40px}
 }
+
+/* Genuine silent screen recording of the Mejavi Skin+ website. Same preview component is used in portfolio and e-commerce. */
+.portfolio-site-preview .portfolio-live-video{display:block;width:100%;height:100%;object-fit:cover;object-position:center top;background:#f5f3ed;pointer-events:none}
+.portfolio-site-preview .portfolio-live-video::-webkit-media-controls{display:none!important}
+@media(prefers-reduced-motion:reduce){.project-card:hover .portfolio-live-video{transform:none}}
