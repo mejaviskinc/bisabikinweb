@@ -1,11 +1,11 @@
 import {useEffect,useRef,useState} from 'react';
-import {ArrowUpRight,ArrowRight,ShoppingBag,PackageCheck,Layers3,ShieldCheck,Boxes,Headphones,Paintbrush,Truck,Settings2,Check,MessageCircle,ClipboardList,LockKeyhole} from 'lucide-react';
+import {ArrowUpRight,ArrowRight,PackageCheck,Layers3,ShieldCheck,Boxes,Headphones,Paintbrush,Truck,Settings2,Check,MessageCircle,ClipboardList,LockKeyhole} from 'lucide-react';
 import './ecommerce-showcase.css';
 
 const MEJAVI_SITE='https://mejaviskinc.github.io/mejavi-skin/';
 const capabilities=[
  {icon:Layers3,title:'Katalog yang mudah dijelajahi',copy:'Kategori, pencarian, foto produk, varian ukuran atau warna, dan detail yang membantu pembeli memilih.'},
- {icon:ShoppingBag,title:'Keranjang & checkout',copy:'Dari memilih produk sampai membuat pesanan dengan alur yang jelas dan responsif di perangkat seluler.'},
+ {icon:PackageCheck,title:'Keranjang & checkout',copy:'Dari memilih produk sampai membuat pesanan dengan alur yang jelas dan responsif di perangkat seluler.'},
  {icon:Boxes,title:'Dashboard toko & stok',copy:'Kelola katalog, status pesanan, inventori, promo, serta akses admin sesuai kebutuhan operasional.'},
  {icon:ShieldCheck,title:'Pembayaran terverifikasi',copy:'Integrasi gateway dan status pembayaran dari sistem penyedia, bukan sekadar mengandalkan tampilan berhasil.'},
  {icon:Truck,title:'Pengiriman & notifikasi',copy:'Rencana metode ongkir, alamat pelanggan, status pengiriman, serta pemberitahuan sesuai integrasi yang disepakati.'},
