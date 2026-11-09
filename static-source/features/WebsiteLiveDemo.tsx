@@ -19,8 +19,6 @@ function DemoVisual({d,small=false}:{d:Demo,small?:boolean}){
  const [broken,setBroken]=useState(false);
  return <div className={'wd-visual wd-visual-'+d.layout+(small?' wd-visual-small':'')}>
   {!broken&&<img src={d.image} alt={'Ilustrasi visual untuk '+d.title} loading={small?'lazy':'eager'} onError={()=>setBroken(true)} />}
-  <div className="wd-visual-halo" aria-hidden="true"><i/><i/><i/></div>
-  <div className="wd-visual-note"><span>{d.category==='ekspor'?'GLOBAL SOURCING':d.tagline.toUpperCase()}</span><strong>01 / 03</strong></div>
  </div>;
 }
 export default function WebsiteLiveDemo({path}:{path:string}){
