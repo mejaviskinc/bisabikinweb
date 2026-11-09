@@ -34,6 +34,16 @@ async function verify(req:Request,raw:string){
  const key=await crypto.subtle.importKey('raw',encoder.encode(merchant.secret),{name:'HMAC',hash:'SHA-256'},false,['verify']);
  return crypto.subtle.verify('HMAC',key,bytes,encoder.encode(payload));
 }
+async function notifyWebsiteEmail(orderId:string){
+ if(!Deno.env.get('HOSTINGER_MAIL_API_TOKEN'))return;
+ const root=Deno.env.get('SUPABASE_URL')||'',secret=key();
+ if(!root||!secret)return;
+ try{
+  await fetch(root+'/functions/v1/bbweb-website-email',{method:'POST',
+   headers:{'Content-Type':'application/json',Authorization:'Bearer '+secret},
+   body:JSON.stringify({order_id:orderId}),signal:AbortSignal.timeout(9000)});
+ }catch(error){console.error('Website payment email queued; worker unavailable',String(error).slice(0,80));}
+}
 function classify(result:any){
  const status=String(result?.transaction?.status||'').toUpperCase(),type=String(result?.transaction?.type||'').toUpperCase();
  // DOKU Checkout supports retrying FAILED channels. FAILED must not close the order.
@@ -59,7 +69,7 @@ Deno.serve(async(req:Request)=>{
  const status=classify(input);
  if(!status)return answer({message:'Notification acknowledged (no website settlement change)'});
  try{
-  const rows=await db('bbweb_website_payments?select=id,merchant_order_id,amount,environment&merchant_order_id=eq.'+encodeURIComponent(invoice)+'&limit=1');
+  const rows=await db('bbweb_website_payments?select=id,order_id,merchant_order_id,amount,environment&merchant_order_id=eq.'+encodeURIComponent(invoice)+'&limit=1');
   const payment=Array.isArray(rows)?rows[0]:null;
   if(!payment)return answer({error:'Invoice not found'},404);
   if(payment.environment!==config().environment||Number(payment.amount)!==amount)return answer({error:'Payment environment or amount mismatch'},409);
@@ -69,6 +79,7 @@ Deno.serve(async(req:Request)=>{
     p_payment_type:String(input?.channel?.id||input?.service?.id||'').slice(0,100)
   })});
   if(!settled?.id)throw Error('No settlement response');
+  if(status==='paid'&&payment.order_id)await notifyWebsiteEmail(payment.order_id);
   return answer({message:'Notification received'});
  }catch(error){
   console.error('Website DOKU settlement error',String(error).slice(0,140));
