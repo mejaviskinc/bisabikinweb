@@ -363,3 +363,70 @@ export const creativeDirections={
   }
 };
 export const creativeFor=(slug)=>creativeDirections[slug]||null;
+
+// Visual references are assigned by business sector, avoiding text-only product placeholders.
+export const industryPhotoSets={
+  "umkm": [
+    "photo-1600210492486-724fe5c67fb0",
+    "photo-1547592180-85f173990554",
+    "photo-1517849845537-4d257902454a",
+    "photo-1490750967868-88aa4486c946",
+    "photo-1509440159596-0249088772ff",
+    "photo-1545173168-9f1947eebb7f"
+  ],
+  "company-profile": [
+    "photo-1497366754035-f200968a6e72",
+    "photo-1486406146926-c627a92ad1ab",
+    "photo-1556761175-b413da4baf72",
+    "photo-1551288049-bebda4e38f71",
+    "photo-1508514177221-188b1cf16e9d"
+  ],
+  "toko-online": [
+    "photo-1600210492486-724fe5c67fb0",
+    "photo-1542291026-7eec264c27ff",
+    "photo-1608248543803-ba4f8c70ae0b",
+    "photo-1515886657613-9f3515b0c78f",
+    "photo-1455390582262-044cdead277a"
+  ],
+  "ekspor": [
+    "photo-1596040033229-a9821ebd058d",
+    "photo-1447933601403-0c6688de566e",
+    "photo-1470252649378-9c29740c9fa8",
+    "photo-1519915028121-7d3463d20b13",
+    "photo-1501004318641-b39e6451bec6"
+  ],
+  "travel": [
+    "photo-1537996194471-e657df975ab4",
+    "photo-1500375592092-40eb2168fd21",
+    "photo-1464822759023-fed622ff2c3b",
+    "photo-1480714378408-67cf0d13bc1b",
+    "photo-1544551763-46a013bb70d5"
+  ],
+  "restoran": [
+    "photo-1495474472287-4d71bcdd2085",
+    "photo-1512621776951-a57141f2eefd",
+    "photo-1509440159596-0249088772ff",
+    "photo-1565299624946-b28f40a0ae38",
+    "photo-1579871494447-9811cf80d66c"
+  ],
+  "fashion": [
+    "photo-1483985988355-763728e1935b",
+    "photo-1525507119028-ed4c629a60a3",
+    "photo-1539109136881-3be0616acf4b",
+    "photo-1523398002811-999ca8dec234",
+    "photo-1496747611176-843222e1e57c"
+  ],
+  "pendidikan": [
+    "photo-1427504494785-3a9ca7044f45",
+    "photo-1516321318423-f06f85e504b3",
+    "photo-1456513080510-7bf3a84b82f8",
+    "photo-1503454537195-1dcabb73ffb9",
+    "photo-1511379938547-c1f69419868d"
+  ]
+};
+export function galleryPhotoFor(d,index){
+ const pool=industryPhotoSets[d.category]||industryPhotoSets.umkm;
+ const offset=Math.abs([...d.slug].reduce((n,c)=>n+c.charCodeAt(0),0))%pool.length;
+ const id=pool[(offset+index)%pool.length];
+ return index===0&&creativeDirections[d.slug]?.hero?creativeDirections[d.slug].hero:`https://images.unsplash.com/${id}?auto=format&fit=crop&w=900&q=80`;
+}
