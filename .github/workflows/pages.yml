@@ -10,6 +10,10 @@ on:
       # Showcase/shop changes deploy immediately without waiting for the 15-minute content batch.
       - 'static-source/features/WebsiteLiveDemo.tsx'
       - 'static-source/features/WebsiteStore.tsx'
+      - 'static-source/components/DokuPaymentChannels.tsx'
+      - 'static-source/components/FooterPaymentMethods.tsx'
+      - 'static-source/features/Commerce.tsx'
+      - 'tests/website-doku.test.mjs'
       - 'static-source/features/website-live-demo.css'
       - 'static-source/features/website-store.css'
       - 'static-source/features/Studio.tsx'
