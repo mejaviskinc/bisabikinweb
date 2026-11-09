@@ -12,6 +12,7 @@ on:
       - 'static-source/features/WebsiteStore.tsx'
       - 'static-source/components/DokuPaymentChannels.tsx'
       - 'static-source/components/FooterPaymentMethods.tsx'
+      - 'static-source/styles.css'
       - 'static-source/features/Commerce.tsx'
       - 'static-source/features/PaymentGatewayAdmin.tsx'
       - 'tests/website-doku.test.mjs'
