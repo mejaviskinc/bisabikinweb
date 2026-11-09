@@ -20,7 +20,9 @@ test('DOKU customer-facing methods do not advertise PayPal or unavailable local 
  }
  assert.match(channels,/akun merchant/);
  assert.doesNotMatch(footer,/Metode Pembayaran via DOKU|PAYMENT CHANNELS \/ DOKU|className="bbw-doku-head"|className="bbw-doku-intro"/);
- assert.match(footer,/aria-label=\{english\?'Available payment methods':'Pilihan metode pembayaran'\}/);
+ assert.match(footer,/id="bbw-doku-title" className="bbw-payment-heading"/);
+ assert.match(footer,/\{english\?'Payment Methods':'Metode Pembayaran'\}/);
+ assert.match(footer,/aria-labelledby="bbw-doku-title"/);
  assert.doesNotMatch(footer,/PayPal|Bank Sinarmas/);
  assert.match(footer,/const paymentStyles=/);
  assert.match(footer,/id="bbw-doku-methods"/);
