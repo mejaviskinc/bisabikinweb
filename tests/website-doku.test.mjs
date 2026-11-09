@@ -21,14 +21,16 @@ test('DOKU customer-facing methods do not advertise PayPal or unavailable local 
  assert.match(channels,/akun merchant/);
  assert.match(footer,/Metode Pembayaran via DOKU/);
  assert.doesNotMatch(footer,/PayPal|Bank Sinarmas/);
- assert.match(footer,/paymentCategories/);
- assert.match(footer,/footer-payment-channel/);
- assert.match(footer,/DOKU Checkout/);
+ assert.match(footer,/const paymentStyles=/);
+ assert.match(footer,/id="bbw-doku-methods"/);
+ assert.match(footer,/<style>\{paymentStyles\}<\/style>/);
+ assert.match(footer,/className="bbw-doku-card"/);
+ assert.match(footer,/#bbw-doku-methods .bbw-doku-grid\{display:grid;grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
+ assert.match(footer,/@media\(max-width:980px\).*?grid-template-columns:repeat\(2,minmax\(0,1fr\)\)/);
+ assert.match(footer,/@media\(max-width:640px\).*?grid-template-columns:minmax\(0,1fr\)/);
  assert.doesNotMatch(footer,/<img|commons\.wikimedia|Special:FilePath|paymentChannels/);
  const styles=read('static-source/styles.css');
- assert.match(styles,/\.footer-payment-grid\{display:grid;grid-template-columns:repeat\(3,minmax\(0,1fr\)\)/);
- assert.match(styles,/@media\(max-width:650px\).*?\.footer-payment-grid\{grid-template-columns:minmax\(0,1fr\)/);
- assert.doesNotMatch(styles,/\.footer-payment-logo\{|grid-template-columns:repeat\(8,minmax\(0,1fr\)\)/);
+ assert.doesNotMatch(styles,/\.footer-payment-grid\{|\.footer-payment-channel\{|\.footer-payment-logo\{/);
 
  assert.doesNotMatch(merch,/name="payment_method"/);
  assert.match(merch,/payment_method:'all'/);
