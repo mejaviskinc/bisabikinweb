@@ -21,3 +21,10 @@
  .ec-mejavi-shell .portfolio-domain-foot{padding:11px 13px}
  .ec-mejavi-shell .portfolio-preview-link{font-size:9px;padding:8px}
 }
+
+/* Portrait recording follows the actual mobile viewport; keep cards and controls accessible. */
+.ec-mejavi-mobile-shot{display:block;max-width:330px;margin:0 auto}
+.ec-mejavi-mobile-shot .portfolio-site-preview{aspect-ratio:420/844}
+.ec-mejavi-mobile-shot .portfolio-site-preview .portfolio-live-video,
+.ec-mejavi-mobile-shot .portfolio-site-preview .portfolio-live-screenshot{object-position:center top}
+.ec-mejavi-shell .ec-view-controls{margin-left:auto}
