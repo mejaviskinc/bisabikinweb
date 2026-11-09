@@ -26,6 +26,9 @@ test('DOKU customer-facing methods do not advertise PayPal or unavailable local 
  assert.match(footer,/id="bbw-doku-methods"/);
  assert.match(footer,/<style>\{paymentStyles\}<\/style>/);
  assert.match(footer,/className="bbw-payment-tile"/);
+ assert.match(footer,/paymentGroups\.map\(group=>/);
+ assert.match(footer,/group\.methods\.map\(method=>/);
+ assert.doesNotMatch(footer,/<header className="bbw-doku-head"|Metode Pembayaran via DOKU/);
  assert.match(footer,/className="bbw-payment-plate"/);
  assert.match(footer,/onError=\{\(\)=>setIndex/);
  assert.match(footer,/cdn\.prod\.website-files\.com/);
