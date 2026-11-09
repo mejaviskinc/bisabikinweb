@@ -1,5 +1,5 @@
 'use client';
-import React,{useState} from 'react';
+import React,{useEffect,useState} from 'react';
 import {ArrowRight,ArrowUpRight,Menu,X,ShoppingBag,Minus,Plus,Check,Globe2,ChevronRight,Mail,Phone,MapPin,CheckCircle2} from 'lucide-react';
 import {demoBySlug,websiteDemos} from '../lib/website-demos.mjs';
 import {brandPositioning} from '../lib/demo-industries.mjs';
@@ -33,6 +33,7 @@ export default function WebsiteLiveDemo({path}:{path:string}){
  const pages=['home','catalog','services','about','contact'];
  const initialPage=()=>{if(typeof window==='undefined')return 'home';const v=new URLSearchParams(window.location.search).get('halaman')||'home';return pages.includes(v)?v:'home'};
  const [activePage,setActivePage]=useState(initialPage);
+ useEffect(()=>{const onBack=()=>setActivePage(initialPage());window.addEventListener('popstate',onBack);return()=>window.removeEventListener('popstate',onBack)},[d.slug]);
  const navigate=(page:string)=>{setActivePage(page);setMobile(false);if(typeof window!=='undefined'){const url=new URL(window.location.href);if(page==='home')url.searchParams.delete('halaman');else url.searchParams.set('halaman',page);window.history.pushState({},'',url);window.scrollTo({top:0,behavior:'instant'});}};
  const style={'--wd-ink':d.palette.ink,'--wd-accent':d.palette.accent,'--wd-paper':d.palette.paper,'--wd-deep':d.palette.deep} as React.CSSProperties;
  const websiteCart=cartEnabled.has(d.category);
