@@ -83,3 +83,50 @@
 .wd-sector-toko-online .wd-inner-product{background:linear-gradient(125deg,#50414a,#a28a93)}
 @media(max-width:850px){.wd-inner-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.wd-inner-services,.wd-inner-about,.wd-inner-contact{grid-template-columns:1fr}.wd-inner-about img{height:360px}.wd-inner-services{gap:25px}}
 @media(max-width:560px){.wd-inner-grid{grid-template-columns:1fr}.wd-inner-product{min-height:225px}.wd-inner-card-copy{min-height:0}.wd-inner-heading{padding-top:55px}.wd-inner-services,.wd-inner-about,.wd-inner-contact{padding-top:40px;padding-bottom:45px}}
+
+/* Industry editorial upgrades: actual photographic product cards and dedicated detail views */
+.wd-offer-art{overflow:hidden;isolation:isolate}
+.wd-offer-art>img,.wd-inner-product>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;filter:saturate(.85);transition:transform .6s ease,filter .6s ease}
+.wd-offer-art:after,.wd-inner-product:before{content:'';position:absolute;inset:0;background:linear-gradient(180deg,#0002 0%,#0000 35%,#0009 100%);pointer-events:none;z-index:1}
+.wd-offer-card:hover .wd-offer-art>img,.wd-inner-card:hover .wd-inner-product>img{transform:scale(1.05);filter:saturate(1)}
+.wd-offer-art .wd-offer-no,.wd-offer-art .wd-offer-label{color:#fff;z-index:2;text-shadow:0 1px 8px #0009}
+.wd-offer-art .wd-art-caption{z-index:2;color:#fff!important;text-shadow:0 2px 10px #000a;position:absolute;bottom:22px;left:20px;right:20px;font-weight:800;font-size:clamp(17px,2vw,27px);letter-spacing:-.03em;transform:none!important;background:none!important;max-width:75%;line-height:1.15;text-align:left}
+.wd-inner-product{isolation:isolate}
+.wd-inner-product>img{z-index:0}
+.wd-inner-product>strong,.wd-inner-product>span{z-index:2;text-shadow:0 1px 8px #0009;color:#fff}
+.wd-inner-product:after{z-index:0}
+.wd-inner-grid+.wd-disclaimer{max-width:1600px;margin:0 auto;padding:0 max(5.4vw,22px) 55px}
+.wd-sector-fashion .wd-offer-art{aspect-ratio:3/4;min-height:340px}
+.wd-sector-restoran .wd-offer-art{aspect-ratio:4/3}
+.wd-sector-travel .wd-offer-art{aspect-ratio:5/4}
+.wd-sector-pendidikan .wd-offer-art{aspect-ratio:4/3}
+.wd-sector-ekspor .wd-offer-art{aspect-ratio:5/3}
+.wd-sector-company-profile .wd-offer-art{aspect-ratio:16/9}
+.wd-detail-page{max-width:1650px;margin:0 auto;padding:28px max(5.4vw,22px) 90px}
+.wd-text-back{display:inline-flex;align-items:center;gap:11px;border:0;background:none;color:var(--wd-ink);font-size:12px;font-weight:700;padding:12px 0;cursor:pointer}
+.wd-text-back svg{transform:rotate(180deg)}
+.wd-detail-grid{display:grid;grid-template-columns:1fr 1fr;gap:clamp(25px,5vw,100px);align-items:start;margin-top:28px}
+.wd-detail-image{min-height:550px;position:relative;background:var(--wd-deep);overflow:hidden}
+.wd-detail-image img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.wd-detail-image span{position:absolute;bottom:20px;left:20px;right:20px;padding:10px 15px;background:#111a;color:#fff;font:10px/1.5 monospace;letter-spacing:.06em}
+.wd-detail-info{padding-top:30px}
+.wd-detail-info>small{font:11px/1.6 monospace;letter-spacing:.08em;opacity:.7}
+.wd-detail-info h2{font-size:clamp(36px,5vw,75px);margin:15px 0 27px}
+.wd-detail-info h3{font-size:clamp(22px,2vw,34px);margin:37px 0 18px}
+.wd-detail-info p{font-size:15px;line-height:1.8}
+.wd-detail-info ul{list-style:none;margin:22px 0 34px;padding:0;display:grid;gap:11px}
+.wd-detail-info li{display:flex;gap:11px;align-items:center;font-size:13px}
+.wd-detail-info li svg{flex-shrink:0;color:var(--wd-deep)}
+.wd-detail-price{font-size:25px;display:block;margin-top:20px}.wd-detail-price small{font-weight:400;font-size:12px}
+.wd-detail-actions{display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+.wd-detail-actions button:not(.wd-main-button){border:0;border-bottom:1px solid var(--wd-ink);padding:12px 3px;background:transparent;display:inline-flex;align-items:center;gap:10px;color:var(--wd-ink);font-weight:bold;font-size:12px}
+.wd-detail-related{border-top:1px solid color-mix(in srgb,var(--wd-ink),transparent 70%);margin-top:70px;padding-top:40px}
+.wd-detail-related h2{font-size:clamp(26px,3vw,46px);margin:0 0 22px}
+.wd-detail-related>div{display:flex;flex-wrap:wrap;gap:12px}
+.wd-detail-related button{display:inline-flex;gap:13px;align-items:center;padding:13px 16px;border:1px solid color-mix(in srgb,var(--wd-ink),transparent 65%);background:transparent;color:var(--wd-ink);font-size:13px}
+.wd-detail-related button[aria-current="true"]{background:var(--wd-ink);color:var(--wd-paper)}
+.wd-sector-fashion .wd-detail-image{min-height:700px}
+.wd-sector-ekspor .wd-detail-image{min-height:480px}
+@media(max-width:900px){.wd-detail-grid{grid-template-columns:1fr}.wd-detail-image,.wd-sector-fashion .wd-detail-image{min-height:430px}.wd-detail-info{padding-top:0}}
+@media(max-width:560px){.wd-detail-page{padding-bottom:50px}.wd-detail-image,.wd-sector-fashion .wd-detail-image{min-height:320px}.wd-detail-info h2{font-size:39px}.wd-sector-fashion .wd-offer-art{min-height:220px}.wd-inner-product>img{height:100%}.wd-detail-related{margin-top:42px}.wd-offer-art .wd-art-caption{font-size:22px}}
+@media(prefers-reduced-motion:reduce){.wd-offer-art>img,.wd-inner-product>img{transition:none!important}}
