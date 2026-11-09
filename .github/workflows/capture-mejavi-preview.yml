@@ -1,0 +1,58 @@
+name: Capture authentic Mejavi homepage preview
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/capture-mejavi-preview.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: mejavi-portfolio-snapshot
+  cancel-in-progress: false
+jobs:
+  snapshot:
+    runs-on: ubuntu-latest
+    timeout-minutes: 8
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          fetch-depth: 0
+          persist-credentials: true
+      - name: Capture actual public Mejavi website in Chrome
+        shell: bash
+        run: |
+          set -euo pipefail
+          CHROME=$(command -v google-chrome || command -v google-chrome-stable || command -v chromium || true)
+          test -n "$CHROME" || { echo "No Chromium available on runner"; exit 1; }
+          URL=''
+          for candidate in https://mejaviskincare.co.id/ https://mejaviskinc.github.io/mejavi-skin/; do
+            if curl -fsSL --connect-timeout 8 --max-time 20 -o /dev/null "$candidate"; then URL="$candidate"; break; fi
+          done
+          test -n "$URL" || { echo "Neither verified Mejavi homepage is reachable"; exit 1; }
+          echo "Website screenshot source: $URL"
+          mkdir -p public-assets/portfolio
+          for format in desktop mobile; do
+            if [ "$format" = desktop ]; then viewport=1440,1000; else viewport=390,844; fi
+            path="public-assets/portfolio/mejavi-home-${format}.png"
+            timeout 55s "$CHROME" --headless=new --no-sandbox --disable-gpu --disable-dev-shm-usage --hide-scrollbars --window-size="$viewport" --force-device-scale-factor=1 --virtual-time-budget=14000 --screenshot="$PWD/$path" "$URL" >/tmp/mejavi-browser.log 2>&1 || { cat /tmp/mejavi-browser.log; exit 1; }
+            test -s "$path" || { echo "Screenshot file empty: $path"; exit 1; }
+            file "$path"
+          done
+      - name: Commit captured real screenshots
+        shell: bash
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add public-assets/portfolio/mejavi-home-desktop.png public-assets/portfolio/mejavi-home-mobile.png
+          if git diff --cached --quiet; then echo "Screenshots unchanged"; exit 0; fi
+          git commit -m "Capture authentic Mejavi website desktop and mobile screenshots"
+          for attempt in 1 2 3 4 5; do
+            git fetch origin main
+            git rebase origin/main
+            if git push origin HEAD:main; then echo "Snapshots saved in main"; exit 0; fi
+            sleep 3
+          done
+          echo "Could not push captured screenshots after retries"
+          exit 1
