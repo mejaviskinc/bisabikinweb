@@ -48,6 +48,32 @@ export async function customerSignIn(email: string, password: string): Promise<C
   return saveSession(payload);
 }
 
+/**
+ * Email OTP login for existing customer accounts only.
+ * Delivery is managed by Supabase Auth SMTP, never by browser-side credentials.
+ */
+export async function customerRequestEmailOtp(email: string): Promise<void> {
+  const address = email.trim().toLowerCase();
+  if (!address) throw new Error('Masukkan alamat email akun.');
+  await request('/auth/v1/otp', {
+    method: 'POST',
+    body: { email: address, create_user: false }
+  });
+}
+
+export async function customerVerifyEmailOtp(email: string, otp: string): Promise<CustomerSession> {
+  const token = otp.trim();
+  if (!/^\d{6}$/.test(token)) throw new Error('Kode OTP harus berisi 6 digit angka.');
+  const payload = await request('/auth/v1/verify', {
+    method: 'POST',
+    body: { email: email.trim().toLowerCase(), token, type: 'email' }
+  });
+  if (!payload?.access_token || !payload?.refresh_token) {
+    throw new Error('Kode tidak dapat diverifikasi. Coba minta kode baru.');
+  }
+  return saveSession(payload);
+}
+
 export async function customerSignUp(email: string, password: string, metadata: { full_name: string; phone: string; company?: string }): Promise<{ session: CustomerSession | null; user: any }> {
   const redirect = typeof window !== 'undefined' ? window.location.origin + '/account/' : 'https://bisabikinweb.site/account/';
   const payload = await request('/auth/v1/signup?redirect_to=' + encodeURIComponent(redirect), {
@@ -55,6 +81,14 @@ export async function customerSignUp(email: string, password: string, metadata: 
     body: { email: email.trim().toLowerCase(), password, data: metadata }
   });
   return { session: payload?.access_token ? saveSession(payload) : null, user: payload?.user || payload };
+}
+
+/** Re-send the signup confirmation token using Supabase Auth's signup template. */
+export async function customerResendSignupOtp(email: string): Promise<void> {
+  await request('/auth/v1/resend', {
+    method: 'POST',
+    body: { email: email.trim().toLowerCase(), type: 'signup' }
+  });
 }
 
 export async function customerSendPasswordReset(email: string): Promise<void> {
