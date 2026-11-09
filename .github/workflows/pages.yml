@@ -25,6 +25,8 @@ on:
       - 'tests/ecommerce-preview.test.mjs'
       - 'public-assets/portfolio/mejavi-home-desktop.png'
       - 'public-assets/portfolio/mejavi-home-mobile.png'
+      - 'public-assets/portfolio/mejavi-home-desktop.mp4'
+      - 'public-assets/portfolio/mejavi-home-mobile.mp4'
       - 'static-source/lib/demo-creative.mjs'
       - 'static-source/lib/demo-industries.mjs'
       - 'static-source/lib/website-demos.mjs'
