@@ -36,23 +36,33 @@ function websitePaidConsultationMessage(order:any){
  ].join('\n');
 }
 function safeUrl(raw:any){try{const u=new URL(String(raw||''));return u.protocol==='https:'&&!u.username&&!u.password?u.href:''}catch{return ''}}
+function LiveSitePreview({url,title}:{url:string;title:string}){
+ const holder=useRef<HTMLDivElement>(null);
+ const [inView,setInView]=useState(false);
+ useEffect(()=>{
+  const node=holder.current;
+  if(!node)return;
+  if(typeof IntersectionObserver==='undefined'){setInView(true);return}
+  const observer=new IntersectionObserver(entries=>setInView(entries.some(entry=>entry.isIntersecting)),{rootMargin:'420px 0px'});
+  observer.observe(node);
+  return()=>observer.disconnect();
+ },[url]);
+ return <div className="ws-live-canvas" ref={holder} aria-label={'Preview halaman website '+title}>
+  {inView?<iframe src={url} title={'Preview langsung '+title} loading="lazy" tabIndex={-1} aria-hidden="true"/>:<div className="ws-live-placeholder" aria-hidden="true"><span>LIVE WEBSITE</span><small>Pratinjau situs interaktif</small></div>}
+ </div>;
+}
 function Preview({item}:{item:Template}){
  const src=safeUrl(item.image_url);
- const sample=websiteDemos.find(d=>d.slug===item.slug);
- const sector=websiteCategories.find(c=>c.slug===item.category);
- const style=sample?{'--site-ink':sample.palette.ink,'--site-paper':sample.palette.paper,'--site-accent':sample.palette.accent} as React.CSSProperties:undefined;
- return <div className={'ws-preview ws-preview-'+(item.theme||'graphite')} style={style}>
-  {src?<div className="ws-real-preview" aria-label={'Cuplikan layout website '+item.title}>
-   <div className="ws-real-topbar"><i/><i/><i/><span>{item.slug}.demo</span></div>
-   <div className="ws-real-header"><strong>{item.title}</strong><span>HOME&nbsp; / &nbsp;{item.category==='ekspor'?'PRODUCTS':item.category==='travel'?'TOURS':item.category==='pendidikan'?'PROGRAM':item.category==='restoran'?'MENU':'COLLECTION'}&nbsp; / &nbsp;ABOUT</span><b>↗</b></div>
-   <div className="ws-real-hero"><div><small>{(sample?.tagline||sector?.label||'PROFESSIONAL WEBSITE').toUpperCase()}</small><strong>{sample?.headline||item.title}</strong><em>{item.category==='ekspor'?'Request quotation':item.category==='travel'?'Explore our trips':item.category==='company-profile'?'Our solutions':item.category==='restoran'?'Discover our menu':'Explore collection'} ↗</em></div><img src={src} alt={'Foto ilustrasi desain '+item.title} loading="lazy" width="700" height="420"/></div>
-   <div className="ws-real-bottom"><span>{sample?.highlights?.[0]||'Detail layanan'}</span><span>{sample?.highlights?.[1]||'Profil bisnis'}</span><span>{sample?.highlights?.[2]||'Kontak'}</span></div>
-  </div>:
+ const demoUrl=safeUrl(item.demo_url);
+ const internalLiveDemo=/^https:\/\/bisabikinweb\.site\/demo\/[a-z0-9-]+\/$/.test(demoUrl);
+ return <div className={'ws-preview ws-preview-'+(item.theme||'graphite')}>
+  {internalLiveDemo?<LiveSitePreview url={demoUrl} title={item.title}/>:
+  src?<img src={src} alt={'Pratinjau '+item.title} loading="lazy" width="700" height="420"/>:
   <div className="ws-faux-browser" aria-label="Ilustrasi konsep desain, bukan screenshot situs jadi">
    <span className="ws-browser-chrome"><i/><i/><i/><b>DESIGN CONCEPT</b></span>
    <div className="ws-browser-body"><span className="ws-mini-brand">YOUR BRAND <span>↗</span></span><div className="ws-shapes"><div><strong>Make your<br/>mark online.</strong><small>Professional digital presence</small><em/></div><div className="ws-art-shape"><span>WEB</span></div></div><div className="ws-mini-cards"><span/><span/><span/></div></div>
   </div>}
-  {item.concept?<span className="ws-concept-tag">Ilustrasi konsep</span>:safeUrl(item.demo_url)&&<span className="ws-concept-tag ws-demo-tag">LIVE DEMO TERSEDIA</span>}
+  {item.concept?<span className="ws-concept-tag">Ilustrasi konsep</span>:demoUrl&&<span className="ws-concept-tag ws-demo-tag">LIVE DEMO TERSEDIA</span>}
  </div>
 }
 function PriceCards({items}:{items:Package[]}){
@@ -84,7 +94,7 @@ export default function WebsiteStore({path}:{path:string}){
  }
  return <div className="ws-root"><section className="section ws-hero"><div className="ws-hero-layout"><div><small>BISABIKINWEB.ID / 60 LIVE WEBSITE DEMOS</small><h1>Website impianmu.<br/><em>Pilih, pesan, jadi.</em></h1><p>Jelajahi 60 konsep website multipage dalam delapan industri. Setiap demo memperlihatkan struktur navigasi dan layanan yang relevan dengan cara bisnis bekerja, lalu pilih desain untuk mengirim brief. Tim kami akan meninjau detail dan mengirim penawaran sebelum pengerjaan dimulai.</p><div className="ws-actions"><a className="btn primary" href="#koleksi">Cari desain website <ArrowRight size={17}/></a><a className="btn" href="/harga-website/">Bandingkan paket</a></div></div><div className="ws-hero-visual"><Preview item={conceptTemplates[1]}/><span>DESIGN FOR YOUR BUSINESS</span></div></div></section>
  <section className="ws-steps section" aria-label="Cara memesan website">{[['01','Pilih desain','Temukan ide tampilan yang cocok.'],['02','Pilih paket','Sesuaikan fitur dan kisaran biaya.'],['03','Kirim brief','Jelaskan bisnis dan domain pilihan.'],['04','Terima penawaran','Tim mengonfirmasi scope serta invoice.']].map(step=><article key={step[0]}><small>{step[0]}</small><h3>{step[1]}</h3><p>{step[2]}</p></article>)}</section>
- <section className="section ws-section" id="koleksi"><div className="ws-section-heading"><div><small>KATALOG DESAIN WEBSITE</small><h2>Desain untuk<br/><em>setiap bisnis.</em></h2><p>60 konsep ini ditata sebagai website multipage sesuai industrinya, dengan halaman katalog, layanan, cerita usaha dan inquiry simulasi. Fitur produksi dan integrasi dijelaskan pada penawaran.</p></div><a className="text-link" href="/harga-website/">Lihat daftar harga <ArrowUpRight size={17}/></a></div><div className="ws-toolbar"><label><Search size={18}/><input type="search" value={search} onChange={e=>setSearch(e.target.value)} placeholder="Cari desain atau industri..." aria-label="Cari desain website"/></label><select value={category} onChange={e=>setCategory(e.target.value)} aria-label="Filter kategori website"><option value="semua">Semua kategori</option>{websiteCategories.map(c=><option value={c.slug} key={c.slug}>{c.label}</option>)}</select></div><div className="ws-template-grid">{visible.map(t=><article className="ws-template" key={t.slug}><a href={'/desain/'+t.slug+'/'} aria-label={'Detail desain '+t.title}><Preview item={t}/></a><div className="ws-template-copy"><small>{websiteCategories.find(c=>c.slug===t.category)?.label||t.category}</small><h3>{t.title}</h3><p>{t.description}</p><div>{safeUrl(t.demo_url)&&<a className="ws-live-link" href={safeUrl(t.demo_url)} target="_blank" rel="noopener noreferrer">Buka demo <ArrowUpRight size={15}/></a>}<a href={'/desain/'+t.slug+'/'}>Detail desain <ArrowUpRight size={15}/></a><a href={'/pesan-website/?desain='+encodeURIComponent(t.slug)}>Pesan <ArrowRight size={15}/></a></div></div></article>)}</div>{!visible.length&&<p className="ws-empty">Belum ada desain di kategori ini. Coba kategori lain atau <a href="/kontak/">konsultasikan desain custom.</a></p>}</section>
+ <section className="section ws-section" id="koleksi"><div className="ws-section-heading"><div><small>KATALOG DESAIN WEBSITE</small><h2>Desain untuk<br/><em>setiap bisnis.</em></h2><p>60 konsep ini ditata sebagai website multipage sesuai industrinya, dengan halaman katalog, layanan, cerita usaha dan inquiry simulasi. Fitur produksi dan integrasi dijelaskan pada penawaran.</p></div><a className="text-link" href="/harga-website/">Lihat daftar harga <ArrowUpRight size={17}/></a></div><div className="ws-toolbar"><label><Search size={18}/><input type="search" value={search} onChange={e=>setSearch(e.target.value)} placeholder="Cari desain atau industri..." aria-label="Cari desain website"/></label><select value={category} onChange={e=>setCategory(e.target.value)} aria-label="Filter kategori website"><option value="semua">Semua kategori</option>{websiteCategories.map(c=><option value={c.slug} key={c.slug}>{c.label}</option>)}</select></div><div className="ws-template-grid">{visible.map(t=><article className="ws-template" key={t.slug}><div className="ws-template-visual"><Preview item={t}/><a className="ws-template-visual-link" href={safeUrl(t.demo_url)||'/desain/'+t.slug+'/'} target={safeUrl(t.demo_url)?'_blank':undefined} rel={safeUrl(t.demo_url)?'noopener noreferrer':undefined} aria-label={(safeUrl(t.demo_url)?'Buka website demo ':'Detail desain ')+t.title}><span>Buka website <ArrowUpRight size={16}/></span></a></div><div className="ws-template-copy"><small>{websiteCategories.find(c=>c.slug===t.category)?.label||t.category}</small><h3>{t.title}</h3><p>{t.description}</p><div>{safeUrl(t.demo_url)&&<a className="ws-live-link" href={safeUrl(t.demo_url)} target="_blank" rel="noopener noreferrer">Buka demo <ArrowUpRight size={15}/></a>}<a href={'/desain/'+t.slug+'/'}>Detail desain <ArrowUpRight size={15}/></a><a href={'/pesan-website/?desain='+encodeURIComponent(t.slug)}>Pesan <ArrowRight size={15}/></a></div></div></article>)}</div>{!visible.length&&<p className="ws-empty">Belum ada desain di kategori ini. Coba kategori lain atau <a href="/kontak/">konsultasikan desain custom.</a></p>}</section>
  <section className="section ws-categories"><div className="ws-section-heading"><div><small>PILIH BERDASARKAN INDUSTRI</small><h2>Website sesuai<br/><em>cara bisnismu bekerja.</em></h2></div></div><div className="ws-category-grid">{websiteCategories.map(c=><a href={'/beli-website/'+c.slug+'/'} key={c.slug}><span>{c.label}</span><p>{c.lead}</p><ArrowUpRight size={19}/></a>)}</div></section>
  <section className="section ws-section"><div className="ws-section-heading"><div><small>PAKET PENGERJAAN</small><h2>Pilih yang masuk<br/><em>ke anggaranmu.</em></h2></div></div><PriceCards items={packages}/></section>
  <section className="section ws-closing"><Globe2 size={28}/><h2>Masih belum menemukan desain yang cocok?</h2><p>Website custom selalu bisa dibicarakan. Jelaskan kebutuhanmu, kami bantu susun scope dan penawarannya.</p><a className="btn primary" href="/pesan-website/?paket=custom">Pesan website custom <ArrowUpRight size={17}/></a></section></div>;
