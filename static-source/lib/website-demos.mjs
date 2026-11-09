@@ -2105,7 +2105,7 @@ export const websiteDemos=[
       "paper": "#f7ede1",
       "deep": "#65452f"
     },
-    "image": "https://images.unsplash.com/photo-1552566626-52f8b828add9?auto=format&fit=crop&w=1450&q=80",
+    "image": "https://images.unsplash.com/photo-1473093295043-cdd812d0e601?auto=format&fit=crop&w=1600&q=85",
     "layout": 3,
     "sectionTitle": "Pilihan dari dapur",
     "action": "Lihat menu",
