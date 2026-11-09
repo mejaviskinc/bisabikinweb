@@ -38,14 +38,19 @@ test('all 60 website previews and live demos are free of concentric ring overlay
   const demo=source('static-source/features/WebsiteLiveDemo.tsx');
   const catalog=source('static-source/features/WebsiteStore.tsx');
   const styles=source('static-source/features/website-live-demo.css');
+  const industryPreview=source('static-source/components/IndustrySitePreview.tsx');
+  const industryCss=source('static-source/components/industry-site-preview.css');
   // The shared renderers cover the whole 60-site catalog: no item-by-item patches.
   assert.match(demo,/function DemoVisual/);
   assert.match(catalog,/function LiveSitePreview/);
   assert.match(demo,/wd-visual/);
-  assert.match(catalog,/wd-visual/);
-  for(const [path,content] of [['Live demo JSX',demo],['Catalog JSX',catalog],['Demo CSS',styles]]){
+  assert.match(catalog,/IndustrySitePreview/);
+  assert.match(industryPreview,/ws-ip-corp-services/);
+  assert.match(industryPreview,/ws-ip-products/);
+  for(const [path,content] of [['Live demo JSX',demo],['Catalog JSX',catalog],['Demo CSS',styles],['Industry preview JSX',industryPreview],['Industry preview CSS',industryCss]]){
     assert.doesNotMatch(content,/wd-visual-halo|wd-visual-note/,path+' must not introduce decorative circles');
   }
   assert.match(styles,/\.wd-visual img\{[^}]*object-fit:cover/);
   assert.match(styles,/\.wd-visual img\{[^}]*filter:none/);
+  assert.doesNotMatch(industryCss,/radial-gradient|conic-gradient/,'New industry previews must not bring back circular decorative motifs');
 });
