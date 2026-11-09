@@ -274,7 +274,7 @@
       "recheck_after": "2026-11-10",
       "reader_pain_point": "UMKM makanan ringan memerlukan katalog SKU, bukti mutu, spesifikasi kemasan, dan alur RFQ sebelum menghubungi buyer internasional.",
       "evergreen_idea": "Checklist penawaran ekspor makanan ringan untuk UMKM: validasi label, buyer, sampel, kapasitas, katalog B2B, dan logistik.",
-      "verification_note": "Rilis Kemendag 9 November 2026 ditemukan melalui penelusuran sumber primer 10 November; volume 24,9 ton dan nilai USD56.979 adalah transaksi PT Dua Kelinci, bukan standar minimum UMKM. Gambar artikel yang tersedia masih hotlink Unsplash dan belum diverifikasi sebagai file WebP lokal; status live tidak diklaim."
+      "verification_note": "Rilis Kemendag 9 November 2026 ditemukan melalui penelusuran sumber primer 10 November; volume 24,9 ton dan nilai USD56.979 adalah transaksi PT Dua Kelinci, bukan standar minimum UMKM. Gambar artikel yang tersedia masih hotlink Unsplash dan belum diverifikasi sebagai file WebP lokal; status live tidak diklaim. | 05:25 WIB: file editorial memuat slug, CMS bbweb_articles tidak memuat artikel bertanggal 10 November WIB; URL publik tidak dapat dibuka untuk verifikasi. Status live belum terbukti."
     },
     {
       "id": "pertanian-buah-2026-11-10",
@@ -495,7 +495,7 @@
       "correction": "Do not count repository-committed articles as live; do not call externally linked Unsplash images generated/local WebP; official source material above is evergreen, not a new 24-hour news event."
     }
   },
-  "last_incremental_check_at": "2026-11-10T04:34:15+07:00",
+  "last_incremental_check_at": "2026-11-10T05:25:35+07:00",
   "incremental_run_log": [
     {
       "run_key": "2026-11-10-0434-source-audit",
@@ -507,6 +507,21 @@
         "Digitalisasi & Website"
       ],
       "pending": "Four researched candidates need full writing, legal visual generation, CMS duplicate verification, build and live verification."
+    },
+    {
+      "checked_at": "2026-11-10T05:25:35+07:00",
+      "kind": "cms_and_publication_audit",
+      "repo_editorial_evergreen_count": 1,
+      "repo_editorial_evergreen_slug": "panduan-ekspor-makanan-ringan-umkm-katalog-buyer-australia",
+      "cms_project": "kdlrobdzlxpjlkxbvzsd",
+      "cms_table": "public.bbweb_articles",
+      "cms_published_date_window_wib": "2026-11-10",
+      "cms_rows_for_date": 0,
+      "verified_live_count": 0,
+      "live_verification": "public URL not accessible through web checker",
+      "image_status": "external Unsplash URL in repo, no verified local WebP",
+      "next_action": "Create and QA four nonduplicate 700-1500-word guides with genuinely licensed/generated 16:9 WebP before publication; verify scheduler, build and live URLs.",
+      "source_status": "No new primary-source development confirmed in this incremental check."
     }
   ]
 }
