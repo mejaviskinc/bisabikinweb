@@ -228,3 +228,24 @@ for(const route of ['en/jasa/ecommerce','en/jasa/company-profile']){
  assert.equal(service?.areaServed?.name,'Worldwide',route+' global service details should use remote coverage');
 }
 console.log('Global conversion and international SEO verified: metadata, contextual links, English buyer path, and remote service schema.');
+
+
+// The English version must retain the Indonesian site's main visual and lead flow,
+// rather than rendering a disconnected minimal landing page.
+assert.match(enHomeHtml,/class="hero"/,'English homepage must use the shared hero design');
+assert.match(enHomeHtml,/class="hero-showcase"/,'English hero must keep the shared visual design');
+assert.match(enHomeHtml,/class="sitelink-grid"/,'English site needs a service navigation hub');
+assert.match(enHomeHtml,/class="portfolio-grid"/,'English homepage needs project previews');
+assert.match(enHomeHtml,/class="project-card"/,'English and Indonesian portfolio cards should match');
+assert.match(enHomeHtml,/class="pricing-grid"/,'English pricing must use the same visual grid');
+assert.match(enPortfolioHtml,/class="portfolio-live-card"/,'English portfolio needs actual live website previews');
+assert.match(enContactHtml,/class="consult-form"/,'English contacts must offer the real inquiry form');
+for(const field of ['name','company','phone','email','type','budget','domain','deadline','features','reference','message']){
+ assert.ok(enContactHtml.includes('name="'+field+'"'),'English inquiry form lacks field '+field);
+}
+assert.ok(enContactHtml.includes('privacy policy (Indonesian)'),'Translated consent must identify the policy language');
+assert.ok(enPricingHtml.includes('IDR')&&enPricingHtml.includes('800,000'),'Prices must stay in IDR with no 3.5x English markup');
+assert.ok(enHomeHtml.includes('href="/beli-website/" lang="id"'),'Untranslated catalog link must be labelled Indonesian');
+assert.ok(enHomeHtml.includes('href="/artikel/" lang="id"'),'Untranslated article link must be labelled Indonesian');
+assert.ok(nationwideHome.includes('this page is currently in Indonesian')||nationwideHome.includes('View this page in English'),'Language switch should describe its destination');
+console.log('Bilingual UI parity verified: shared visual components, same price, bidirectional locale links and functional translated consultation form.');
