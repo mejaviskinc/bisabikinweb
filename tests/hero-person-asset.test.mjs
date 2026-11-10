@@ -30,5 +30,6 @@ test('single-photo hero has mobile styling and does not block interaction',()=>{
   assert.ok(css.includes('.hero-showcase.hero-dummy-photo{'));
   assert.ok(css.includes('object-fit:cover'));
   assert.ok(css.includes('pointer-events:none'));
-  assert.match(css,/@media\\(max-width:650px\\)[\\s\\S]*?\\.hero-showcase\\.hero-dummy-photo/);
+  const smallScreenStyles=css.slice(css.lastIndexOf('@media(max-width:650px)'));
+  assert.ok(smallScreenStyles.includes('.hero-showcase.hero-dummy-photo{'),'Mobile breakpoint must style the photo');
 });
