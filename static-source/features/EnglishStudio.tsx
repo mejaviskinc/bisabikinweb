@@ -58,6 +58,7 @@ function EnglishContent({path}: {path: string}) {
       <div className="breadcrumbs"><a href={englishHref('/jasa')}>Services</a><span>/</span>{name}</div>
       <div className="page-intro"><h1>{name}<em>↗</em></h1><p>{description}</p></div>
       <h2>Available features</h2><ul>{features.map(feature => <li key={feature}>{feature}</li>)}</ul>
+      <div className="case-study-links"><h2>Planning a project from another country?</h2><p>We coordinate website briefs, design reviews, and project updates remotely. Share your business country, preferred language, required pages, integrations, budget range, and timeline. Your proposal sets out the agreed scope and delivery process.</p><div className="seo-related"><a href={englishHref('/portfolio')}>See selected work <ArrowUpRight size={15}/></a><a href={englishHref('/harga')}>Compare starting prices <ArrowUpRight size={15}/></a></div></div>
       <a className="btn primary" href={contact}>Discuss your project <ArrowUpRight size={17}/></a>
     </section>;
   }
@@ -65,33 +66,33 @@ function EnglishContent({path}: {path: string}) {
     const {email, whatsapp: phone} = defaults.settings;
     return <section className="section">
       <div className="page-intro"><span className="eyebrow">FREE WEBSITE CONSULTATION</span><h1>Tell us what you want to <em>build.</em></h1>
-        <p>Share what your business does, what your website should achieve, and any budget or timeline you have in mind.</p></div>
+        <p>We welcome remote project inquiries from Indonesia and other countries. Tell us your business location, goals, required pages or integrations, preferred language, approximate budget, and timeline. We will discuss availability and confirm the scope before any project begins.</p></div>
       <div className="hero-actions"><a className="btn primary" href={whatsapp(phone, 'Hello BisaBikinWeb, I would like to discuss a website project.')}>Chat on WhatsApp <ArrowUpRight size={17}/></a>
         <a className="btn" href={'mailto:' + email}>Email the studio <ArrowUpRight size={17}/></a></div>
     </section>;
   }
   if (path === '/tentang') return <section className="section about-page">
     <div className="page-intro"><span className="eyebrow">YOGYAKARTA, INDONESIA</span><h1>Websites for people <em>building a business.</em></h1>
-      <p>BisaBikinWeb is an independent digital studio in Yogyakarta. We help small businesses, personal brands, and companies build websites that make it easy for visitors to understand what they offer and take the next step.</p></div>
+      <p>BisaBikinWeb is an independent digital studio based in Yogyakarta, Indonesia. We collaborate remotely with small businesses, brands, and companies in Indonesia and internationally to build websites that communicate clearly and help visitors take the next step.</p></div>
     <div className="about-statement"><span className="about-statement-label">HOW WE WORK.</span><div><p>We start with your business goals, agree on the pages and features, then design, build, and test the website before launch.</p>
       <a className="text-link" href={contact}>Talk to the studio <ArrowUpRight size={17}/></a></div></div>
   </section>;
   if (path === '/jasa') return <section className="section">
     <div className="page-intro"><span className="eyebrow">WEBSITE DEVELOPMENT</span><h1>What can we <em>build for you?</em></h1>
-      <p>From a single campaign page to an internal web app, choose the service that fits your goals.</p></div><Services/>
+      <p>From company websites and online stores to custom web apps, choose a service aligned with your business goals. We discuss requirements and manage website projects remotely with clients in Indonesia and abroad.</p></div><Services/><div className="case-study-links"><h2>How remote website projects work</h2><p>Share your brief and existing brand materials. We clarify the pages, features, language, timelines, and any third-party integrations; agree on the scope; review the design together; and test the agreed experience before launch.</p><div className="seo-related"><a href={englishHref('/portfolio')}>Explore example projects <ArrowUpRight size={15}/></a><a href={englishHref('/harga')}>View website packages <ArrowUpRight size={15}/></a><a href={contact}>Request a project quote <ArrowUpRight size={15}/></a></div></div>
   </section>;
   if (path === '/harga') return <section className="section pricing-section">
     <div className="page-intro"><span className="eyebrow">WEBSITE PACKAGES</span><h1>Choose a package <em>that fits.</em></h1>
-      <p>Compare starting prices in US dollars and features for your website project.</p></div><Pricing/>
+      <p>Compare indicative starting prices in US dollars and discuss a written quote for your specific website, location, and required integrations. Pricing and scope are confirmed before work begins.</p></div><Pricing/><div className="case-study-links"><h2>Need an estimate for your business?</h2><p>Tell us whether you need a company profile, online store, landing page, or custom web app, and which country your business operates in. We can clarify scope and third-party fees during consultation.</p><div className="seo-related"><a href={englishHref('/jasa')}>Compare services <ArrowUpRight size={15}/></a><a href={contact}>Request a tailored quote <ArrowUpRight size={15}/></a></div></div>
   </section>;
   if (path === '/portfolio') return <section className="section work-section">
     <div className="page-intro"><span className="eyebrow">SELECTED WORK</span><h1>Our website <em>portfolio.</em></h1>
-      <p>Explore selected projects in fashion, beauty, furniture, travel, and more.</p></div><Portfolio/>
+      <p>Explore selected live websites in fashion, beauty, furniture, travel, and business services. Project descriptions below are examples, not guarantees of commercial results.</p></div><Portfolio/><div className="case-study-links"><h2>Learn more about the projects</h2><p>The detailed case studies are currently in Indonesian; the live sites can be explored directly.</p><div className="seo-related"><a href="/portfolio/mejavi-skin/">Mejavi Skin+ case study (ID) <ArrowUpRight size={15}/></a><a href="/portfolio/gooninks/">GoO Ninks case study (ID) <ArrowUpRight size={15}/></a><a href="/portfolio/gojogja-travel/">GoJogja Travel case study (ID) <ArrowUpRight size={15}/></a><a href={contact}>Discuss a similar website <ArrowUpRight size={15}/></a></div></div>
   </section>;
   return <><section className="section">
     <div className="page-intro"><span className="eyebrow">INDEPENDENT DIGITAL STUDIO · INDONESIA</span>
       <h1>Professional websites <em>for growing businesses.</em></h1>
-      <p>We design and build responsive company websites, online stores, and custom web apps. Based in Yogyakarta, we work with businesses across Indonesia.</p></div>
+      <p>We design and build responsive company websites, online stores, and custom web apps. Based in Yogyakarta, Indonesia, our studio welcomes remote website projects from businesses worldwide, with scope and delivery agreed before work begins.</p></div>
     <div className="hero-actions"><a className="btn primary" href={contact}>Free consultation <ArrowUpRight size={17}/></a>
       <a className="btn" href={englishHref('/portfolio')}>View portfolio <ArrowUpRight size={17}/></a></div>
   </section><section className="section services-section"><div className="section-heading"><h2>Website services</h2></div><Services/></section>

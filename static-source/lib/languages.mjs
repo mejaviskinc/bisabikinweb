@@ -1,10 +1,10 @@
 export const englishPages = {
-  '/': ['Professional Website Development Across Indonesia', 'BisaBikinWeb creates professional websites for businesses across Indonesia, from landing pages and online stores to custom web applications.'],
-  '/jasa': ['Website Development Services', 'Explore landing page design, company websites, e-commerce, portfolio sites, custom web applications, and website maintenance.'],
-  '/harga': ['Website Packages and Pricing', 'Compare BisaBikinWeb website packages priced in US dollars. Find the right scope for your business and request a tailored quote.'],
-  '/portfolio': ['Website Design and Development Portfolio', 'Explore selected BisaBikinWeb projects across beauty, fashion, furniture, travel, and business websites in Indonesia.'],
-  '/tentang': ['About BisaBikinWeb Digital Studio', 'Meet BisaBikinWeb, an independent digital studio in Yogyakarta that builds websites around the needs of businesses and their customers.'],
-  '/kontak': ['Contact and Free Website Consultation', 'Contact BisaBikinWeb on WhatsApp or by email to discuss your website goals, project requirements, budget, and preferred timeline.'],
+  '/': ['Website Development Services for Businesses Worldwide', 'BisaBikinWeb designs company websites, online stores, and custom web apps for Indonesian and international businesses. Discuss your project remotely from anywhere.'],
+  '/jasa': ['Website Design & Development Services for Businesses', 'Explore company website design, e-commerce development, landing pages, custom web apps, and maintenance. Request a tailored remote project consultation.'],
+  '/harga': ['Website Development Pricing & Project Packages', 'Compare starting package prices and scope for business websites, online stores, and custom projects. Request an international quote before committing.'],
+  '/portfolio': ['Website Design Portfolio: E-commerce & Business Sites', 'Explore real websites from BisaBikinWeb across fashion, skincare, furniture, travel, and business services, with project examples and a consultation option.'],
+  '/tentang': ['About BisaBikinWeb | Remote Website Development Studio', 'Meet BisaBikinWeb, a Yogyakarta-based website development studio offering remote project collaboration for businesses in Indonesia and internationally.'],
+  '/kontak': ['Contact BisaBikinWeb | Website Project Consultation', 'Discuss a website project from anywhere. Send your goals, business country, requirements, approximate budget, and timeline by WhatsApp or email.'],
 };
 
 export const englishServices = {
