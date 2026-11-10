@@ -889,3 +889,69 @@
 @media(prefers-reduced-motion:reduce){
   .hero-photo-services .hero-service-card{transition:none}
 }
+
+
+/* Homepage hero placeholder: one clean editorial photo, no layered fake mockups. */
+.hero-showcase.hero-dummy-photo{
+  position:relative;
+  isolation:isolate;
+  display:block;
+  width:100%;
+  height:440px;
+  min-height:320px;
+  margin:0;
+  overflow:hidden;
+  border:1px solid rgba(194,249,91,.24);
+  border-radius:24px;
+  background:#172015;
+  box-shadow:0 26px 64px rgba(0,0,0,.28);
+}
+.hero-showcase.hero-dummy-photo::before{display:none}
+.hero-showcase.hero-dummy-photo::after{
+  content:'';
+  position:absolute;
+  inset:0;
+  z-index:1;
+  pointer-events:none;
+  background:linear-gradient(180deg,rgba(6,10,8,.04) 38%,rgba(6,10,8,.8) 100%);
+}
+.hero-dummy-photo .hero-dummy-photo-image{
+  display:block;
+  width:100%;
+  height:100%;
+  object-fit:cover;
+  object-position:center;
+  filter:saturate(.9);
+}
+.hero-dummy-photo .hero-dummy-photo-caption{
+  position:absolute;
+  z-index:2;
+  bottom:24px;
+  left:24px;
+  right:24px;
+  display:flex;
+  align-items:center;
+  gap:10px;
+  color:#fff;
+  font-size:11px;
+  font-weight:700;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  text-shadow:0 1px 12px rgba(0,0,0,.6);
+}
+.hero-dummy-photo .hero-dummy-photo-caption svg{margin-left:auto;color:#c5f96a}
+.hero-dummy-photo .hero-dummy-photo-indicator{
+  flex:0 0 8px;
+  width:8px;
+  height:8px;
+  border-radius:50%;
+  background:#c5f96a;
+  box-shadow:0 0 0 4px rgba(197,249,106,.17);
+}
+@media(max-width:900px){
+  .hero-showcase.hero-dummy-photo{height:370px;border-radius:20px}
+}
+@media(max-width:650px){
+  .hero-showcase.hero-dummy-photo{height:320px;min-height:0;max-width:500px;margin-inline:auto;border-radius:16px}
+  .hero-dummy-photo .hero-dummy-photo-caption{bottom:18px;left:18px;right:18px;font-size:9px;letter-spacing:.08em}
+}
