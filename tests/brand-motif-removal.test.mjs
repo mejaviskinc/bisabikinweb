@@ -5,7 +5,7 @@ import {readFileSync} from 'node:fs';
 const source=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 const affected=[
   'static-source/features/Studio.tsx',
-  'static-source/features/EnglishStudio.tsx',
+  'static-source/lib/inline-translation.mjs',
   'static-source/features/WebsiteLiveDemo.tsx',
   'static-source/features/WebsiteStore.tsx',
   'static-source/features/SeoSolutions.tsx',
@@ -13,7 +13,7 @@ const affected=[
   'static-source/lib/data.ts'
 ];
 
-test('eight-ray asterisk artwork is absent from main site, English pages, SEO and all 60 demos',()=>{
+test('eight-ray asterisk artwork is absent from main site, inline translations, SEO and all 60 demos',()=>{
   const asterisks=/[\u2733\u2731\u2734\u274b\u2735\u273a]/u;
   for(const path of affected)assert.doesNotMatch(source(path),asterisks,path);
 });

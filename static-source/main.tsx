@@ -1,8 +1,6 @@
 import React,{useEffect,useState} from 'react';
 import {createRoot,hydrateRoot} from 'react-dom/client';
 import Studio from './features/Studio';
-import EnglishStudio from './features/EnglishStudio';
-import {hasEnglishPage} from './lib/languages.mjs';
 import Admin from './features/Admin';
 import AdsManager from './features/AdsManager';
 import SellerDashboard from './features/SellerDashboard';
@@ -169,8 +167,7 @@ function AdminWithAdsMenu(){
 }
 
 const storefrontMatch=path.match(/^\/toko\/([a-z0-9-]+)$/i);
-const englishPath=path==='/en'?'/':path.startsWith('/en/')?path.slice(3):null;
-const app=path.startsWith('/demo/')?<WebsiteLiveDemo path={path}/>:englishPath && hasEnglishPage(englishPath)?<EnglishStudio path={englishPath}/>:path==='/seller'?<SellerDashboard/>:path==='/admin/digital-store'?<DigitalOrdersAdmin/>:path==='/admin/website-store'?<WebsiteStoreAdmin/>:path.startsWith('/admin/sellers')?<SellerAdmin/>:path.startsWith('/admin/iklan')?<AdsManager/>:path.startsWith('/admin/payments')?<PaymentGatewayAdmin/>:path.startsWith('/admin')?<AdminWithAdsMenu/>:storefrontMatch?<Storefront slug={storefrontMatch[1].toLowerCase()}/>:<PublicClient/>;
+const app=path.startsWith('/demo/')?<WebsiteLiveDemo path={path}/>:path==='/seller'?<SellerDashboard/>:path==='/admin/digital-store'?<DigitalOrdersAdmin/>:path==='/admin/website-store'?<WebsiteStoreAdmin/>:path.startsWith('/admin/sellers')?<SellerAdmin/>:path.startsWith('/admin/iklan')?<AdsManager/>:path.startsWith('/admin/payments')?<PaymentGatewayAdmin/>:path.startsWith('/admin')?<AdminWithAdsMenu/>:storefrontMatch?<Storefront slug={storefrontMatch[1].toLowerCase()}/>:<PublicClient/>;
 const root=document.getElementById('root')!;
 // A non-home query param cannot hydrate the static demo homepage markup.
 const templateDeepLink=Boolean(activeTemplate&&new URLSearchParams(location.search).get('halaman'));
