@@ -58,7 +58,7 @@ jobs:
           path: social/instagram/.runtime/editorial-preview/*.jpg
           retention-days: 7
   publish:
-    if: ${{ github.ref == 'refs/heads/main' && (github.event_name != 'schedule' || vars.IG_AUTOPUBLISH_PAUSED != 'true') }}
+    if: ${{ false }} # TEMPORARY DESIGN HOLD: previews rejected; do not publish until approved
     runs-on: ubuntu-latest
     timeout-minutes: 12
     env:
