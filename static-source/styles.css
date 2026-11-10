@@ -721,10 +721,6 @@
 .bbw-hero-dot{height:7px;width:7px;border-radius:999px;border:0;padding:0;background:var(--muted);opacity:.35;transition:width .3s ease,opacity .3s ease,background .3s ease}
 .bbw-hero-dot.is-active{width:27px;opacity:1;background:var(--accent)}
 .bbw-hero-slide-counter{font-size:10px;font-weight:650;letter-spacing:.08em;color:var(--muted);font-variant-numeric:tabular-nums;margin-right:auto}
-.bbw-hero-slider-arrow,.bbw-hero-slider-pause{display:grid;place-items:center;width:34px;height:34px;border:1px solid var(--line);border-radius:50%;background:var(--panel);color:var(--text);transition:background .2s ease,border-color .2s ease}
-.bbw-hero-slider-arrow:hover,.bbw-hero-slider-pause:hover{background:var(--soft);border-color:var(--accent)}
-.bbw-hero-prev svg{transform:rotate(180deg)}
-.bbw-hero-slider-pause{font-size:11px}
 .bbw-hero-slide-controls button:focus-visible{outline:2px solid var(--accent);outline-offset:3px}
 @media(min-width:1600px){.hero .bbw-hero-title{font-size:80px}}
 @media(max-width:1150px){.hero .bbw-hero-title{font-size:5.6vw}}
