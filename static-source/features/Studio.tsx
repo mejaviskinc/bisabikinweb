@@ -4,6 +4,7 @@ import AnnouncementTicker from '../components/AnnouncementTicker';
 import {sitelinkTargets} from '../lib/sitelinks.mjs';
 import {restoreCart,restoreWishlist} from '../lib/security.mjs';
 import { PortfolioVisual, BrandShowcase } from '../components/Visuals';
+import {heroPersonImage} from '../lib/hero-person-image.mjs';
 import {useState,useEffect,useRef,lazy,Suspense} from 'react';
 import {ArrowUpRight,ArrowRight,ArrowDown,Search,ShoppingBag,Sun,Moon,Menu,X,Check,Plus,ChevronRight,ChevronDown,MessageCircle,Command,Globe,Code2,Layers,ShieldCheck,Zap,Heart,UserRound} from 'lucide-react';
 import {Logo,ProjectVisual,MerchArt} from '../components/Visuals';
@@ -143,7 +144,7 @@ function AnimatedHeroShowcase(){
   <div className="orbit-text">GOOD DESIGN. REAL PURPOSE.</div>
   <div className="showcase-main"><BrandShowcase/></div>
   <div className="showcase-float"><BrandShowcase compact/></div>
-  <img className="hero-person-cutout" src="/images/bisabikinweb-hero-person.svg" alt="Perempuan menunjukkan tampilan BisaBikinWeb di ponsel" width="240" height="315" decoding="async" loading="eager"/>
+  <img className="hero-person-cutout" src={heroPersonImage} alt="Perempuan menunjukkan tampilan BisaBikinWeb di ponsel" width="240" height="315" decoding="async" loading="eager"/>
   <div className="showcase-tag"><span className="status-dot"/> Made for real businesses <ArrowUpRight size={15}/></div>
  </div>;
 }
