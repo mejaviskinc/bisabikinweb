@@ -115,7 +115,7 @@ export function WebsiteCheckout(){
  const [fields,setFields]=useState({full_name:'',email:'',phone:'',company:'',category:'umkm',domain:'',reference_url:'',brief:''});
  const [step,setStep]=useState(0),[startingPoint,setStartingPoint]=useState<'domain'|'design'>('design');
  const [serviceTerm,setServiceTerm]=useState('12'),[acceptedTerms,setAcceptedTerms]=useState(false),[domainLater,setDomainLater]=useState(false);
- const [busy,setBusy]=useState(false),[error,setError]=useState(''),[result,setResult]=useState<any>(null),[logged,setLogged]=useState<boolean|null>(null);
+ const [busy,setBusy]=useState(false),[error,setError]=useState(''),[paymentError,setPaymentError]=useState(''),[result,setResult]=useState<any>(null),[logged,setLogged]=useState<boolean|null>(null);
  useEffect(()=>{
   const query=new URLSearchParams(location.search);
   const pkg=query.get('paket'),design=query.get('desain'),fromDomain=query.get('mulai')==='domain';
@@ -133,7 +133,9 @@ export function WebsiteCheckout(){
   getWebsiteCatalog().then(rows=>{if(rows?.packages.length)setPackages(rows.packages.map(p=>({...p,base_price:p.base_price==null?null:Number(p.base_price)})))});
  },[]);
  const current=packages.find(p=>p.slug===packageSlug);
+ const directCheckout=Boolean(current&&['starter','business','commerce'].includes(packageSlug)&&current.base_price!==null&&Number.isSafeInteger(Number(current.base_price))&&Number(current.base_price)>0);
  const selectedDesign=websiteDemos.find(d=>d.slug===templateSlug);
+ const safeDokuUrl=(raw:unknown,mode:string)=>{try{const u=new URL(String(raw||''));return u.protocol==='https:'&&!u.username&&!u.password&&(mode==='production'?['checkout.doku.com','jokul.doku.com']:['sandbox.doku.com']).includes(u.hostname)?u.href:''}catch{return ''}};
  const setField=(key:keyof typeof fields,value:string)=>setFields(p=>({...p,[key]:value}));
  const normalizedDomain=fields.domain.trim().toLowerCase().replace(/^https?:\/\//,'').replace(/\/.*$/,'');
  const domainValid=!normalizedDomain||/^(?=.{4,253}$)[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)+$/.test(normalizedDomain);
@@ -161,23 +163,52 @@ export function WebsiteCheckout(){
   if(typeof window!=='undefined')window.scrollTo({top:0,behavior:'smooth'});
  }
  function goBack(){setError('');setStep(s=>Math.max(s-1,0))}
+ async function openDokuCheckout(orderId:string){
+  const payment=await websiteStoreApi('create_payment',{id:orderId});
+  const url=safeDokuUrl(payment.redirect_url,payment.environment);
+  if(!url)throw Error('DOKU belum memberikan tautan pembayaran yang valid. Lihat pesanan atau hubungi admin.');
+  rememberPaidConsultation(orderId);
+  window.location.assign(url);
+ }
+ async function retryPayment(){
+  if(busy||!result?.id||!result.checkout_ready)return;
+  setBusy(true);setPaymentError('');
+  try{await openDokuCheckout(result.id)}
+  catch(e:any){setPaymentError(String(e.message||'Gagal membuka DOKU. Pesanan tetap tersimpan.'))}
+  finally{setBusy(false)}
+ }
  async function submit(e:React.FormEvent<HTMLFormElement>){
-  e.preventDefault();if(busy)return;
+  e.preventDefault();if(busy||result)return;
   for(let i=0;i<3;i++){const message=validate(i);if(message){setStep(i);setError(message);return}}
   if(!acceptedTerms){setError('Setujui syarat layanan dan kebijakan privasi sebelum memesan.');return}
   if(!logged){setError('Silakan masuk ke akun pembeli terlebih dahulu.');return}
-  setBusy(true);setError('');
+  setBusy(true);setError('');setPaymentError('');
   try{
-   const brief=fields.brief.trim()+'\n\nPreferensi durasi layanan: '+serviceTerm+' bulan (konfirmasi akhir dalam penawaran).';
+   const brief=fields.brief.trim()+'\n\nPreferensi durasi layanan: '+serviceTerm+' bulan (bukan biaya perpanjangan otomatis).';
    const response=await websiteStoreApi('create_order',{
+    checkout_mode:directCheckout?'instant':'quote',
+    expected_base_price:directCheckout?Number(current?.base_price):null,
     package_slug:packageSlug,template_slug:templateSlug||null,
     ...fields,domain:normalizedDomain,brief
    });
-   setResult(response.order);
+   const order=response.order;
+   setResult(order);
+   if(order.checkout_ready){
+    try{await openDokuCheckout(order.id)}
+    catch(e:any){setPaymentError(String(e.message||'Checkout DOKU tidak dapat dibuka. Pesanan tetap tersimpan dan bisa dilanjutkan dari dashboard pelanggan.'))}
+   }
   }catch(e:any){setError(String(e.message||'Permintaan gagal disimpan.'))}
   finally{setBusy(false)}
  }
- if(result)return <section className="section ws-root ws-confirmation"><ShieldCheck size={42}/><small>PESANAN BERHASIL DIBUAT</small><h1>Pesanan diterima.</h1><p>Nomor pesanan: <strong>{result.order_no}</strong>. Status: {websiteStatusLabel[result.status]||'Menunggu tinjauan'}. Data sudah dikirim ke sistem. Tim akan memeriksa domain, fitur, dan harga final. Belum ada tagihan; pembayaran baru tersedia setelah kamu menyetujui penawaran.</p><div className="ws-actions"><a className="btn primary" href="/client/dashboard/">Pantau pesanan saya <ArrowUpRight size={17}/></a><a className="btn" href="/beli-website/">Lihat desain lain</a></div></section>;
+ if(result)return <section className="section ws-root ws-confirmation"><ShieldCheck size={42}/><small>PESANAN BERHASIL DIBUAT</small><h1>{result.checkout_ready?'Lanjut ke pembayaran DOKU.':'Pesanan Custom diterima.'}</h1>
+  <p>Nomor pesanan: <strong>{result.order_no}</strong>. {result.checkout_ready?'Harga paket telah dikunci pada pesanan. Domain dan layanan tambahan tetap perlu pengecekan terpisah.':'Tim akan meninjau kebutuhan website Custom dan mengirim penawaran sebelum pembayaran.'}</p>
+  {result.checkout_ready&&<p role="status">{busy?'Menyiapkan halaman pembayaran DOKU...':'Apabila belum dialihkan, lanjutkan pembayaran dari tombol berikut.'}</p>}
+  {paymentError&&<p className="ws-error" role="alert">{paymentError}</p>}
+  <div className="ws-actions">
+   {result.checkout_ready&&<button className="btn primary" type="button" disabled={busy} onClick={()=>void retryPayment()}>{busy?'Membuka DOKU...':'Lanjutkan pembayaran DOKU'} <ArrowUpRight size={17}/></button>}
+   <a className={result.checkout_ready?'btn':'btn primary'} href="/client/dashboard/">Lihat pesanan saya <ArrowUpRight size={17}/></a>
+  </div>
+ </section>;
  return <div className="ws-root"><section className="section ws-order">
   <nav aria-label="Breadcrumb" className="ws-breadcrumb"><a href="/beli-website/">Beli Website</a><span>/</span>Checkout website</nav>
   <small>WEBSITE ORDER / 4 LANGKAH</small><h1>Pesan website.<br/><em>Lebih mudah.</em></h1>
