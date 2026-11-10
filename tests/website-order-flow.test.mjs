@@ -46,3 +46,49 @@ test('website email quote is recorded once per order and only sent by protected 
  assert.match(email,/Tinjau & setujui penawaran/);
  assert.match(backend,/if\(next==='proposal'&&current\.status!=='proposal'\)await notifyWebsiteEmail\(id\)/);
 });
+
+test('quote approval refuses stale amounts and requires matching order ownership before changing status',async()=>{
+ const {stripTypeScriptTypes}=await import('node:module');
+ const oldDeno=globalThis.Deno,oldFetch=globalThis.fetch;
+ const owner='11111111-1111-4111-8111-111111111111',id='aaaaaaaa-aaaa-4aaa-8aaa-aaaaaaaaaaaa';
+ const env={SUPABASE_URL:'https://example.supabase.co',SUPABASE_SERVICE_ROLE_KEY:'local-test-service'};
+ let handler=null,patchCount=0,eventCount=0;
+ globalThis.Deno={env:{get:key=>env[key]},serve:callback=>{handler=callback}};
+ try{
+  await import('data:text/javascript;base64,'+Buffer.from(stripTypeScriptTypes(backend)).toString('base64'));
+  globalThis.fetch=async(url,options={})=>{
+   const u=new URL(String(url));
+   if(u.pathname==='/auth/v1/user')return Response.json({id:owner,email:'buyer@example.com',email_confirmed_at:'2026-11-01T00:00:00Z'});
+   if(u.pathname==='/rest/v1/bbweb_website_orders'){
+    if(options.method==='PATCH'){
+     patchCount++;
+     assert.match(u.search,/user_id=eq\./);
+     assert.match(u.search,/status=eq\.proposal/);
+     assert.match(u.search,/quoted_total=eq\.850000/);
+     assert.equal(JSON.parse(options.body).status,'awaiting_payment');
+     return Response.json([{id,status:'awaiting_payment',quoted_total:850000}]);
+    }
+    return Response.json([{id,status:'proposal',payment_status:'not_invoiced',quoted_total:850000,requested_domain:'',domain_status:'unchecked'}]);
+   }
+   if(u.pathname==='/rest/v1/bbweb_website_order_events'){
+    eventCount++;return new Response('',{status:201});
+   }
+   throw Error('Unexpected remote API: '+u.pathname);
+  };
+  const invoke=async expected_total=>handler(new Request('https://example.supabase.co/functions/v1/bbweb-website-store',{
+   method:'POST',headers:{Origin:'https://bisabikinweb.site',Authorization:'Bearer test-owner-session','Content-Type':'application/json'},
+   body:JSON.stringify({action:'approve_quote',id,expected_total})
+  }));
+  let result=await invoke(900000);
+  assert.equal(result.status,409);
+  assert.equal(patchCount,0,'Stale quote must not be updated');
+  result=await invoke(850000);
+  assert.equal(result.status,200);
+  assert.equal((await result.json()).order.status,'awaiting_payment');
+  assert.equal(patchCount,1);
+  assert.equal(eventCount,1);
+  // No payment status is altered by approving a quote.
+ }finally{
+  globalThis.Deno=oldDeno;globalThis.fetch=oldFetch;
+ }
+});
