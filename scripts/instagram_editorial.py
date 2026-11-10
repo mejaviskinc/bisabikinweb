@@ -17,7 +17,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from instagram_autopost import SafeStop, SLOTS, eligible
-from instagram_prepare import render_image, upload_original_image, github_state, load_font
+from instagram_prepare import upload_original_image, github_state, load_font, wrap_lines
 
 ROOT = Path("social/instagram")
 BANK = ROOT / "editorial/content.json"
@@ -126,19 +126,61 @@ def write_output(**kwargs):
 
 
 def render_editorial_image(item: dict, destination: Path) -> None:
-    """Use the existing branded JPEG renderer, with neutral CTA for news."""
-    render_image(item["category"], item["headline"], item["summary"], destination)
-    if item["type"] != "promotion":
-        from PIL import Image, ImageDraw
-        with Image.open(destination) as original:
-            canvas = original.convert("RGB")
-        draw = ImageDraw.Draw(canvas)
-        draw.rounded_rectangle((75, 1170, 1005, 1248), radius=30, fill="#111C25")
-        draw.text((110, 1187), "KONTEKS + SUMBER DI CAPTION", fill="#FFFFFF", font=load_font(28, True))
-        canvas.save(destination, format="JPEG", quality=94, subsampling=0, optimize=True)
-        with Image.open(destination) as check:
-            if check.format != "JPEG" or check.size != (1080, 1350):
-                raise SafeStop("Generated editorial artwork must be 1080x1350 JPEG")
+    """Original premium editorial graphic; no external photos or quote-asset dependency."""
+    from PIL import Image, ImageDraw
+    width, height = 1080, 1350
+    canvas = Image.new("RGB", (width, height), "#F6F3EB")
+    draw = ImageDraw.Draw(canvas)
+    ink, cream, gold = "#111C25", "#F6F3EB", "#D9B887"
+
+    # Keep decoration clear of headlines and body text.
+    draw.rectangle((0, 0, width, 770), fill=ink)
+    draw.ellipse((775, -195, 1350, 380), fill="#233641")
+    draw.ellipse((-225, 777, 255, 1160), fill="#E8DCC0")
+    draw.ellipse((920, 730, 1330, 1110), fill="#ECE5D7")
+    draw.rounded_rectangle((75, 77, 1005, 139), radius=14, fill="#263641")
+    draw.text((102, 86), "</> BISABIKINWEB", font=load_font(34, True), fill="#FFFFFF")
+    draw.rounded_rectangle((78, 194, 525, 255), radius=28, fill=gold)
+    draw.text((109, 203), item["category"], font=load_font(28, True), fill=ink)
+
+    headline = item["headline"]
+    for size in range(78, 49, -2):
+        font = load_font(size, True)
+        lines = wrap_lines(draw, headline, font, 904)
+        leading = size + 18
+        if len(lines) <= 4 and 309 + len(lines) * leading < 750:
+            break
+    else:
+        raise SafeStop("Headline cannot fit legibly without overlapping design")
+    for idx, line in enumerate(lines):
+        draw.text((82, 309 + idx * leading), line, font=font, fill="#FFFFFF")
+
+    draw.rounded_rectangle((76, 809, 1004, 1134), radius=30, fill="#FFFFFF")
+    draw.rounded_rectangle((76, 809, 90, 1134), radius=5, fill=gold)
+    for size in range(41, 27, -2):
+        info_font = load_font(size, False)
+        info_lines = wrap_lines(draw, item["summary"], info_font, 810)
+        body_leading = size + 16
+        if len(info_lines) <= 5 and 848 + len(info_lines) * body_leading < 1119:
+            break
+    else:
+        raise SafeStop("Summary cannot fit without overlapping the footer")
+    for idx, line in enumerate(info_lines):
+        draw.text((123, 848 + idx * body_leading), line, font=info_font, fill="#293542")
+
+    draw.rounded_rectangle((75, 1170, 1005, 1248), radius=30, fill=ink)
+    cta = "PUNYA IDE WEBSITE? KONSULTASI YUK" if item["type"] == "promotion" else "KONTEKS + SUMBER DI CAPTION"
+    draw.text((110, 1187), cta, fill="#FFFFFF", font=load_font(28, True))
+    draw.text((83, 1280), "bisabikinweb.site", fill="#354650", font=load_font(24, True))
+    draw.text((740, 1280), "@bisabikinweb.id", fill="#354650", font=load_font(23))
+
+    destination.parent.mkdir(parents=True, exist_ok=True)
+    canvas.save(destination, format="JPEG", quality=94, subsampling=0, optimize=True)
+    with Image.open(destination) as check:
+        if check.format != "JPEG" or check.size != (1080, 1350):
+            raise SafeStop("Original editorial artwork must be 1080x1350 JPEG")
+    if destination.stat().st_size > 8_000_000:
+        raise SafeStop("Editorial JPEG exceeds Meta's safe media size")
 
 
 def prepare(item: dict, now: dt.datetime) -> None:
