@@ -1,67 +1,134 @@
 #!/usr/bin/env bash
-# Manual, opt-in publication: create 60 PUBLIC GitHub Pages repositories.
-# GH_TOKEN must come from GitHub Actions Secrets, never from code or chat.
-set -euo pipefail
-if [[ "$#" -ne 1 || "$1" != "--publish" ]]; then
-  echo "Dry run. Pass --publish only after reviewing the website bundles."
+# GitHub Pages publisher for template1..template60.
+# No network writes happen in --check mode.
+# Requires explicit --publish and an owner-provided token via Actions Secrets.
+set -Eeuo pipefail
+
+mode="${1:---check}"
+if [[ "$mode" != "--check" && "$mode" != "--publish" ]]; then
+  echo "Usage: bash scripts/publish-template-pages.sh [--check|--publish]" >&2
+  exit 2
+fi
+
+root="$(cd "$(dirname "$0")/.." && pwd)"
+bundle="$root/template-pages-dist"
+[[ -f "$bundle/manifest.json" ]] || {
+  echo "No bundles found. First run: BBWEB_OFFLINE_BUILD=1 npm run build && node scripts/build-template-pages.mjs" >&2
+  exit 1
+}
+for i in $(seq 1 60); do
+  site="$bundle/template$i"
+  host="template$i.bisabikinweb.site"
+  [[ -f "$site/index.html" && -f "$site/.bbweb-template-id" && -f "$site/CNAME" ]] || {
+    echo "Incomplete template bundle: $site" >&2; exit 1;
+  }
+  [[ "$(cat "$site/CNAME")" == "$host" ]] || {
+    echo "Unexpected custom domain for template$i" >&2; exit 1;
+  }
+  [[ "$(cut -d ' ' -f 1 "$site/.bbweb-template-id")" == "$i" ]] || {
+    echo "Template ownership marker is missing or incorrect: $site" >&2; exit 1;
+  }
+done
+echo "Preflight passed: 60 unique Pages bundles with correct CNAME and ownership markers."
+
+if [[ "$mode" == "--check" ]]; then
+  echo "Read-only check complete. No GitHub repositories or DNS records were changed."
   exit 0
 fi
-if [[ ! -v GH_TOKEN || ! -v GH_OWNER ]]; then
-  echo "GH_TOKEN and GH_OWNER must be set by the protected GitHub Actions workflow." >&2
+
+if [[ -z "${GH_TOKEN:-}" ]]; then
+  echo "Missing TEMPLATE_PAGES_PAT Actions secret; publication stopped before creating repositories." >&2
   exit 1
 fi
-if [[ "$GH_OWNER" != "mejaviskinc" ]]; then
-  echo "Refusing unexpected repository owner" >&2
+if [[ "${GH_OWNER:-}" != "mejaviskinc" ]]; then
+  echo "Refusing unexpected GitHub repository owner." >&2
   exit 1
 fi
-for cmd in gh git rsync; do command -v "$cmd" >/dev/null || { echo "Missing $cmd" >&2; exit 1; }; done
+for cmd in gh git rsync; do
+  command -v "$cmd" >/dev/null || { echo "Missing dependency: $cmd" >&2; exit 1; }
+done
+
+# Confirm the credential belongs to the account that owns the domains.
+logged_in="$(gh api user --jq .login)"
+if [[ "$logged_in" != "$GH_OWNER" ]]; then
+  echo "Publishing token belongs to '$logged_in', expected '$GH_OWNER'. No repositories changed." >&2
+  exit 1
+fi
 gh auth setup-git >/dev/null
-ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-PACKAGE_DIR="$ROOT/template-pages-dist"
-[[ -f "$PACKAGE_DIR/manifest.json" ]] || { echo "Build the 60 sites first." >&2; exit 1; }
-count=0
+
+# Retry transient GitHub API propagation/rate-limit errors without force-pushing.
+try_api() {
+  local attempt=1
+  while ! gh api "$@"; do
+    if ((attempt >= 4)); then
+      echo "GitHub Pages API failed after $attempt attempts. Rerun safely after inspecting permissions/rate limits." >&2
+      return 1
+    fi
+    echo "GitHub Pages API retry $attempt/3 after delay..." >&2
+    sleep $((attempt * 15))
+    attempt=$((attempt+1))
+  done
+}
+published=0
 for i in $(seq 1 60); do
   name="bisabikinweb-template$i"
   fullname="$GH_OWNER/$name"
   host="template$i.bisabikinweb.site"
-  from="$PACKAGE_DIR/template$i"
-  expected="$(cat "$from/.bbweb-template-id")"
-  [[ "$(cat "$from/CNAME")" == "$host" ]] || { echo "Incorrect CNAME for $host" >&2; exit 1; }
+  source="$bundle/template$i"
+  expected="$(cat "$source/.bbweb-template-id")"
+
   if gh repo view "$fullname" --json name >/dev/null 2>&1; then
-    echo "Repository exists: $fullname"
+    visibility="$(gh repo view "$fullname" --json visibility --jq .visibility)"
+    if [[ "$visibility" != "PUBLIC" ]]; then
+      echo "Refusing to update a non-public repository: $fullname" >&2
+      exit 1
+    fi
   else
-    gh repo create "$fullname" --public --description "BisaBikinWeb website demo $i - $host" >/dev/null
+    gh repo create "$fullname" --public --description "BisaBikinWeb interactive website template $i for $host" >/dev/null
     echo "Created $fullname"
   fi
-  tmp="$(mktemp -d)"
-  git clone --quiet "https://github.com/$fullname.git" "$tmp"
-  if [[ -f "$tmp/.bbweb-template-id" ]]; then
-    [[ "$(cat "$tmp/.bbweb-template-id")" == "$expected" ]] || {
-      echo "Refusing overwrite: $fullname belongs to another template" >&2
-      rm -rf "$tmp"; exit 1;
-    }
-  elif [[ -n "$(find "$tmp" -mindepth 1 -maxdepth 1 ! -name '.git' -print -quit)" ]]; then
-    echo "Refusing overwrite: $fullname contains unrelated files" >&2
-    rm -rf "$tmp"; exit 1;
+
+  workdir="$(mktemp -d)"
+  git clone --quiet "https://github.com/$fullname.git" "$workdir"
+  if [[ -f "$workdir/.bbweb-template-id" ]]; then
+    if [[ "$(cat "$workdir/.bbweb-template-id")" != "$expected" ]]; then
+      echo "Refusing unrelated repository (ownership marker mismatch): $fullname" >&2
+      rm -rf "$workdir"
+      exit 1
+    fi
+  elif [[ -n "$(find "$workdir" -mindepth 1 -maxdepth 1 ! -name .git -print -quit)" ]]; then
+    echo "Refusing to overwrite existing unrelated files: $fullname" >&2
+    rm -rf "$workdir"
+    exit 1
   fi
-  rsync -a --delete --exclude '.git' "$from/" "$tmp/"
-  git -C "$tmp" config user.name "github-actions[bot]"
-  git -C "$tmp" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-  git -C "$tmp" switch -C main >/dev/null
-  git -C "$tmp" add -A
-  if ! git -C "$tmp" diff --cached --quiet; then
-    git -C "$tmp" commit -qm "Publish BisaBikinWeb template $i"
-    git -C "$tmp" push -q origin main
+
+  rsync -a --delete --exclude '.git' "$source/" "$workdir/"
+  git -C "$workdir" config user.name "github-actions[bot]"
+  git -C "$workdir" config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+  git -C "$workdir" switch -C main >/dev/null
+  git -C "$workdir" add -A
+  if ! git -C "$workdir" diff --cached --quiet; then
+    git -C "$workdir" commit -qm "Publish BisaBikinWeb website template $i"
+    git -C "$workdir" push -q origin main
   fi
-  rm -rf "$tmp"
+  rm -rf "$workdir"
+
+  # Explicitly fix the source branch too if this is a rerun on an older Pages repo.
   if gh api "repos/$fullname/pages" >/dev/null 2>&1; then
-    gh api -X PUT "repos/$fullname/pages" -f "cname=$host" >/dev/null
+    try_api -X PUT "repos/$fullname/pages" -f "cname=$host" -f "source[branch]=main" -f "source[path]=/" >/dev/null
   else
-    gh api -X POST "repos/$fullname/pages" -f "source[branch]=main" -f "source[path]=/" >/dev/null
-    gh api -X PUT "repos/$fullname/pages" -f "cname=$host" >/dev/null
+    try_api -X POST "repos/$fullname/pages" -f "source[branch]=main" -f "source[path]=/" >/dev/null
+    try_api -X PUT "repos/$fullname/pages" -f "cname=$host" -f "source[branch]=main" -f "source[path]=/" >/dev/null
   fi
-  echo "Published and configured Pages: $host"
-  count=$((count+1))
-  sleep 2
+
+  actual="$(gh api "repos/$fullname/pages" --jq .cname)"
+  if [[ "$actual" != "$host" ]]; then
+    echo "Pages custom domain did not persist for $fullname; expected $host, got '$actual'." >&2
+    exit 1
+  fi
+  published=$((published+1))
+  echo "Configured GitHub Pages $published/60: $host"
+  # Avoid aggressive bursts of GitHub repository creation and Pages API calls.
+  sleep 8
 done
-echo "Requested publication for $count of 60 sites. HTTPS certificates require separate verification."
+echo "Requested publication for all $published sites. HTTPS certificates and public site content still require validation."
