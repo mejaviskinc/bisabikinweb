@@ -1,0 +1,50 @@
+name: Verify 60 published template sites (HTTPS + desktop/mobile)
+on:
+  workflow_dispatch:
+  workflow_run:
+    workflows:
+      - Publish 60 GitHub Pages template sites (manual approval)
+    types: [completed]
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/template-pages-live-verify.yml'
+      - 'scripts/verify-published-template-sites.mjs'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: template-pages-live-qa
+  cancel-in-progress: false
+
+jobs:
+  verify:
+    if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 60
+    steps:
+      - name: Checkout source mappings
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Install locked dependencies and Playwright
+        run: |
+          npm ci --ignore-scripts --no-audit --no-fund
+          npm install --no-save --package-lock=false @playwright/test@1.56.1
+          npx playwright install --with-deps chromium
+      - name: Test all 60 public hostnames, strict TLS and both viewports
+        run: node scripts/verify-published-template-sites.mjs
+      - name: Upload screenshots and per-host verification report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: published-template-sites-live-qa
+          path: template-live-qa/
+          retention-days: 30
+          if-no-files-found: warn
