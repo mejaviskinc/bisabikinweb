@@ -682,3 +682,25 @@
 .portfolio-site-preview .portfolio-live-video{display:block;width:100%;height:100%;object-fit:cover;object-position:center top;background:#f5f3ed;pointer-events:none}
 .portfolio-site-preview .portfolio-live-video::-webkit-media-controls{display:none!important}
 @media(prefers-reduced-motion:reduce){.project-card:hover .portfolio-live-video{transform:none}}
+
+
+/* Human product demo cutout: sits over the right side of the existing hero artwork. */
+.hero-showcase .hero-person-cutout{
+  position:absolute;
+  z-index:3;
+  display:block;
+  width:min(48%,280px);
+  height:auto;
+  right:-4%;
+  bottom:-8px;
+  object-fit:contain;
+  pointer-events:none;
+  user-select:none;
+  filter:drop-shadow(0 18px 18px rgba(0,0,0,.36));
+}
+@media(max-width:900px){
+  .hero-showcase .hero-person-cutout{width:47%;right:-3%;bottom:0}
+}
+@media(max-width:650px){
+  .hero-showcase .hero-person-cutout{width:42%;right:-1%;bottom:4px}
+}
