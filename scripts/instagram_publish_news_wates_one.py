@@ -42,7 +42,8 @@ def get_picture(url: str) -> Image.Image:
     if not 50_000 <= len(body) <= 8_000_000:
         raise SafeStop("Licensed source photo download size not acceptable")
     with Image.open(io.BytesIO(body)) as picture:
-        if picture.format != "JPEG" or min(picture.size) < 1000:
+        print("LICENSED_SOURCE_IMAGE_DIAGNOSTICS",picture.format,picture.size,"bytes=",len(body),flush=True)
+        if picture.format not in ("JPEG","PNG","WEBP") or min(picture.size) < 720:
             raise SafeStop("Licensed photo not suitable for Instagram")
         return ImageOps.exif_transpose(picture).convert("RGB")
 
