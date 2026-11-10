@@ -26,7 +26,7 @@ jobs:
       - name: Install original brand typeface and image renderer
         run: |
           sudo apt-get update -qq
-          sudo apt-get install -y -qq fonts-inter
+          sudo apt-get install -y -qq fonts-inter librsvg2-bin
           python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
       - name: Verify news source/rights and publish exactly one three-slide carousel
         run: python3 scripts/instagram_publish_news_wates_one.py
