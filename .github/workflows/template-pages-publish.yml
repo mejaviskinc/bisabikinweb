@@ -49,11 +49,7 @@ jobs:
           BBWEB_OFFLINE_BUILD=1 npm run build
           node scripts/build-template-pages.mjs
           node tests/template-pages-packages.test.mjs
-      - name: Require repository-creation credentials from GitHub Secrets
-        env:
-          GH_TOKEN: ${{ secrets.TEMPLATE_PAGES_PAT }}
-        run: |
-          test -n "$GH_TOKEN" || { echo "TEMPLATE_PAGES_PAT GitHub Actions secret is missing. Nothing was published."; exit 1; }
+          bash scripts/publish-template-pages.sh --check
       - name: Create or safely update 60 public template repositories and configure Pages
         env:
           GH_TOKEN: ${{ secrets.TEMPLATE_PAGES_PAT }}

@@ -12,13 +12,14 @@
 - `scripts/build-template-pages.mjs` creates 60 complete static sites from one source build.
 - `tests/template-pages-packages.test.mjs` verifies 60 unique titles, CNAME, compiled JS/CSS, anti-duplication noindex, and the original demo URL compatibility.
 - GitHub Actions **Export 60 GitHub Pages template sites** generates download-ready `template1.tar.gz` ... `template60.tar.gz` in one artifact for review or manual upload.
-- `scripts/publish-template-pages.sh` can create/update 60 PUBLIC repos and configure their Pages custom domains, **but ONLY after explicit manual workflow launch and a secret provided by the owner.**
+- `scripts/publish-template-pages.sh --check` performs a **read-only bundle preflight** without a token, then `--publish` creates/updates only the named 60 PUBLIC repos and confirms each custom Pages domain through GitHub API read-back. Publishing stops on a missing/incorrect token, private repo, wrong owner or unrecognized existing files.
+- GitHub API transient errors are retried with pauses, with an eight-second delay between repos to reduce secondary rate limits; reruns resume safely without a force push. It never manages Hostinger DNS.
 - GitHub Actions **Publish 60 GitHub Pages template sites (manual approval)** is manual-only, has a Boolean confirmation, never runs on push, and refuses to overwrite repositories without a matching ownership marker. It can safely resume partial publication.
 
 ## Owner action required once
-1. On GitHub, create a short-lived token authorized to create PUBLIC repositories in the `mejaviskinc` account, push content and edit Pages settings. GitHub REST Pages settings update requires a classic PAT with `repo` scope, or a suitable fine-grained token with repository creation, Contents write, Administration write, and Pages write access. Prefer the smallest supported permissions and a short expiration; confirm the token can administer newly created repositories.
+1. On GitHub, create a short-lived token **under the `mejaviskinc` account** authorized to create PUBLIC repositories, push content, and edit Pages settings. GitHub REST Pages settings update requires a classic PAT with `repo` scope, or a suitable fine-grained token granted access to **all repositories (including newly created ones)** and Repository creation, Contents write, Administration write, and Pages write permissions. Prefer least privilege and a short expiration.
 2. Store it in the `mejaviskinc/bisabikinweb` repository **Settings → Secrets and variables → Actions → New repository secret** as `TEMPLATE_PAGES_PAT`. Do NOT paste the token into chat, an issue, source code or PR.
-3. In **Actions**, choose **Publish 60 GitHub Pages template sites (manual approval)** on the `main` branch; check the explicit `publish` box and run it. GitHub will create or update `bisabikinweb-template1` to `bisabikinweb-template60`.
+3. In **Actions**, choose **Publish 60 GitHub Pages template sites (manual approval)** on the `main` branch; check the explicit `publish` box and run it. If the secret is absent, the workflow will **fail before creating a repository**, with a clear diagnostic. If the token belongs to a different GitHub account, publication will also stop. Once permitted, the workflow creates or updates `bisabikinweb-template1` through `bisabikinweb-template60`.
 4. The workflow publishes each standalone `index.html`, assets, `CNAME`, `robots.txt`, `.nojekyll`, and compatibility `/demo/<slug>/`; then configures GitHub Pages custom domain to `templateN.bisabikinweb.site`.
 5. Allow GitHub to provision each TLS certificate, open all 60 HTTPS URLs, and verify distinct brands and functionality. The SSL option can take time to become enabled. Never use insecure HTTP as the public demo.
 6. **Only after live HTTPS verification**, change `TEMPLATE_SUBDOMAINS_READY` in `static-source/lib/template-subdomains.mjs` to `true`, build/deploy main catalog, and verify every catalog link.
@@ -40,3 +41,6 @@
 - `https://template60.bisabikinweb.site/` — Kreativa Learning, Education
 
 Source inventory: `docs/template-subdomain-map.csv`.
+
+## Troubleshooting 2026-11-10 attempted activation
+The previous workflow run stopped at the first permission preflight with `TEMPLATE_PAGES_PAT secret is not configured`. This is **not a failure of the 60 website bundles** and cannot be fixed by adjusting the CNAME records. The latest run should use the workflow on `main`, with the secret added as a *repository* secret (or an environment secret on `template-sites-production`). The GitHub Actions `GITHUB_TOKEN` is limited to the source repository and cannot create 60 sibling repositories automatically. Never place a personal token in the git history or the chat.

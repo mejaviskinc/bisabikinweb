@@ -5,6 +5,7 @@ on:
     paths:
       - 'scripts/build-template-pages.mjs'
       - 'tests/template-pages-packages.test.mjs'
+      - 'scripts/publish-template-pages.sh'
       - '.github/workflows/template-pages-export.yml'
   push:
     branches: [main]
@@ -43,6 +44,8 @@ jobs:
         run: node scripts/build-template-pages.mjs
       - name: Verify domains, brands, Vite assets and demo hydration
         run: node tests/template-pages-packages.test.mjs
+      - name: Verify publisher dry-run is safe without credentials
+        run: bash scripts/publish-template-pages.sh --check
       - name: Archive one deployable site per custom hostname
         run: |
           mkdir -p template-page-archives
