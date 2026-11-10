@@ -4,7 +4,6 @@ import AnnouncementTicker from '../components/AnnouncementTicker';
 import {sitelinkTargets} from '../lib/sitelinks.mjs';
 import {restoreCart,restoreWishlist} from '../lib/security.mjs';
 import { PortfolioVisual } from '../components/Visuals';
-import {heroPersonImage} from '../lib/hero-person-image.mjs';
 import {useState,useEffect,useRef,lazy,Suspense} from 'react';
 import {ArrowUpRight,ArrowRight,ArrowDown,Search,ShoppingBag,Sun,Moon,Menu,X,Check,Plus,ChevronRight,ChevronDown,MessageCircle,Command,Globe,Code2,Layers,ShieldCheck,Zap,Heart,UserRound} from 'lucide-react';
 import {Logo,ProjectVisual,MerchArt} from '../components/Visuals';
@@ -103,66 +102,10 @@ function Process(){const [selected,setSelected]=useState(0);const steps=[['Konsu
 function BeforeAfter(){const [pos,setPos]=useState(50);return <div className="beforeafter"><div className="ba-labels"><span>BEFORE / Ilustrasi</span><span>AFTER BISABIKINWEB / Konsep</span></div><div className="comparison"><div className="before-site"><small>My Business</small><h3>Selamat datang di website kami</h3><p>Informasi bisnis ada di sini.</p><span className="mock-before-button">Hubungi kami</span><div>PRODUK & LAYANAN</div></div><div className="after-site" style={{clipPath:`inset(0 0 0 ${pos}%)`}}><span>YOUR BRAND® <ArrowUpRight size={18}/></span><h3>Good business.<br/><em>Great first impression.</em></h3><b>Let’s get started ↗</b></div><div className="slider-line" style={{left:pos+'%'}}><span>↔</span></div><input type="range" min="5" max="95" value={pos} onChange={e=>setPos(+e.target.value)} aria-label="Bandingkan tampilan sebelum dan sesudah"/></div><small>Simulasi perbedaan pendekatan desain. Bukan studi hasil konversi.</small></div>}
 function FinalCTA({settings}:{settings:any}){return <section className="final-cta"><span className="eyebrow">LET'S MAKE IT HAPPEN.</span><h2>Ada ide? Jangan cuma jadi<br/>tab browser yang nggak<br/>pernah dibuka lagi<span>↗</span></h2><div><p>Ceritakan project kamu. Kita bantu ubah dari ide menjadi website yang benar-benar bisa digunakan.</p><a className="btn primary" href="/kontak" onClick={()=>event('consultation_click')}>Mulai Project <ArrowUpRight size={18}/></a>{settings.whatsapp&&<a className="text-link" href={whatsapp(settings.whatsapp,'Halo Bisabikinweb, saya ingin konsultasi pembuatan website.')} onClick={()=>event('whatsapp_click')}>Chat WhatsApp ↗</a>}</div></section>}
 function AnimatedHeroShowcase(){
- const showcaseRef=useRef<HTMLDivElement>(null);
- useEffect(()=>{
-  const node=showcaseRef.current;
-  if(!node||!window.matchMedia('(hover: hover) and (pointer: fine)').matches||window.matchMedia('(prefers-reduced-motion: reduce)').matches)return;
-  let frame=0;
-  const update=(event:PointerEvent)=>{
-   const bounds=node.getBoundingClientRect();
-   const x=((event.clientX-bounds.left)/bounds.width-.5)*24;
-   const y=((event.clientY-bounds.top)/bounds.height-.5)*20;
-   cancelAnimationFrame(frame);
-   frame=requestAnimationFrame(()=>{
-    node.style.setProperty('--hero-parallax-x',x.toFixed(1)+'px');
-    node.style.setProperty('--hero-parallax-y',y.toFixed(1)+'px');
-    node.style.setProperty('--hero-parallax-neg-x',(-x).toFixed(1)+'px');
-    node.style.setProperty('--hero-parallax-neg-y',(-y).toFixed(1)+'px');
-   });
-  };
-  const reset=()=>{
-   cancelAnimationFrame(frame);
-   node.style.setProperty('--hero-parallax-x','0px');
-   node.style.setProperty('--hero-parallax-y','0px');
-   node.style.setProperty('--hero-parallax-neg-x','0px');
-   node.style.setProperty('--hero-parallax-neg-y','0px');
-  };
-  node.addEventListener('pointermove',update,{passive:true});
-  node.addEventListener('pointerleave',reset);
-  return()=>{
-   cancelAnimationFrame(frame);
-   node.removeEventListener('pointermove',update);
-   node.removeEventListener('pointerleave',reset);
-  };
- },[]);
- return <div className="hero-showcase hero-photo-services" ref={showcaseRef} aria-label="Foto promosi dan pilihan layanan BisaBikinWeb">
-  <div className="showcase-grid-overlay" aria-hidden="true"/>
-  <div className="showcase-orbit showcase-orbit-one" aria-hidden="true"><i/></div>
-  <div className="showcase-orbit showcase-orbit-two" aria-hidden="true"><i/></div>
-  <div className="hero-photo-accent" aria-hidden="true"/>
-  <img className="hero-person-cutout" src={heroPersonImage} alt="Perempuan berhijab menunjukkan website BisaBikinWeb di ponsel" width="240" height="315" decoding="async" loading="eager"/>
-  <span className="hero-photo-overline">GOOD DESIGN. REAL PURPOSE.</span>
-  <a className="hero-service-card hero-service-website" href="/jasa/landing-page/" aria-label="Jelajahi layanan Landing Page">
-    <span className="hero-service-icon"><Code2 size={19}/></span>
-    <span className="hero-service-text"><small>LAYANAN DIGITAL</small><strong>Landing Page</strong><span>Promosi lebih fokus</span></span><ArrowUpRight className="hero-service-arrow" size={16}/>
-  </a>
-  <a className="hero-service-card hero-service-company" href="/jasa/company-profile/" aria-label="Jelajahi layanan Company Profile">
-    <span className="hero-service-icon"><Layers size={19}/></span>
-    <span className="hero-service-text"><small>WEBSITE BISNIS</small><strong>Company Profile</strong><span>Profil usaha profesional</span></span><ArrowUpRight className="hero-service-arrow" size={16}/>
-  </a>
-  <a className="hero-service-card hero-service-shop" href="/jasa/ecommerce/" aria-label="Jelajahi layanan Toko Online">
-    <span className="hero-service-icon"><ShoppingBag size={19}/></span>
-    <span className="hero-service-text"><small>ONLINE STORE</small><strong>Toko Online</strong><span>Katalog dan checkout</span></span><ArrowUpRight className="hero-service-arrow" size={16}/>
-  </a>
-  <a className="hero-service-card hero-service-app" href="/jasa/custom-website/" aria-label="Jelajahi layanan Custom Web App">
-    <span className="hero-service-icon"><Zap size={19}/></span>
-    <span className="hero-service-text"><small>SOLUSI DIGITAL</small><strong>Custom Web App</strong><span>Dashboard dan integrasi</span></span><ArrowUpRight className="hero-service-arrow" size={16}/>
-  </a>
-  <a className="hero-service-card hero-service-support" href="/jasa/maintenance/" aria-label="Jelajahi layanan Website Maintenance">
-    <span className="hero-service-icon"><ShieldCheck size={19}/></span>
-    <span className="hero-service-text"><small>SUPPORT</small><strong>Website Maintenance</strong><span>Perawatan website</span></span><ArrowUpRight className="hero-service-arrow" size={16}/>
-  </a>
- </div>;
+ return <figure className="hero-showcase hero-dummy-photo" aria-label="Foto ilustrasi workspace digital">
+  <img className="hero-dummy-photo-image" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85" alt="Foto ilustrasi laptop dan area kerja pengembangan website" width="1200" height="900" loading="eager" decoding="async"/>
+  <figcaption className="hero-dummy-photo-caption"><span className="hero-dummy-photo-indicator" aria-hidden="true"/>DARI IDE KE WEBSITE <ArrowUpRight size={16}/></figcaption>
+ </figure>;
 }
 
 function Home({data,wish,toggleWish}:{data:any,wish:string[],toggleWish:(id:string)=>void}){
