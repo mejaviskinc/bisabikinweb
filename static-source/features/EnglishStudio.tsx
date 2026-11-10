@@ -1,14 +1,15 @@
 import FooterPaymentMethods from '../components/FooterPaymentMethods';
 import {useEffect, useState} from 'react';
-import {ArrowUpRight, Menu, X} from 'lucide-react';
-import {Logo} from '../components/Visuals';
+import {ArrowUpRight, Check, Menu, MessageCircle, X} from 'lucide-react';
+import {BrandShowcase, Logo, PortfolioVisual} from '../components/Visuals';
+import {Consultation} from './Forms';
 import {defaults} from '../lib/data';
 import {whatsapp} from '../lib/client';
-import {englishHref, englishServices, formatEnglishPrice} from '../lib/languages.mjs';
+import {englishHref, englishServices, formatEnglishPrice, indonesianSwitchHref} from '../lib/languages.mjs';
 
 const navigation = [
-  ['Services', '/jasa'], ['Portfolio', '/portfolio'], ['Pricing', '/harga'],
-  ['About', '/tentang'], ['Contact', '/kontak'],
+  ['Services', '/jasa'], ['Pricing', '/harga'], ['Online Store', '/jasa/ecommerce'],
+  ['Portfolio', '/portfolio'], ['About', '/tentang'], ['Contact', '/kontak'],
 ];
 
 const plans: Record<string, string[]> = {
@@ -21,8 +22,8 @@ const plans: Record<string, string[]> = {
 function Services() {
   return <div className="services-grid">{Object.entries(englishServices).map(([id, [name, description, features]]) =>
     <a className="service-card" href={englishHref('/jasa/' + id)} key={id}>
-      <div className="service-top"><span className="service-icon service-text-icon" aria-hidden="true">WEB</span><ArrowUpRight size={20}/></div>
-      <h3>{name}</h3><p>{description}</p>
+      <div className="service-top"><span className="service-icon" aria-hidden="true">{defaults.services.find((s: {id:string;icon:string})=>s.id===id)?.icon||'↗'}</span><ArrowUpRight size={20}/></div>
+      <small>{defaults.services.find((s: {id:string;tag:string})=>s.id===id)?.tag}</small><h3>{name}</h3><p>{description}</p>
       <div className="service-features">{features.slice(0, 3).map(feature => <span key={feature}>{feature}</span>)}</div>
     </a>
   )}</div>;
@@ -33,20 +34,20 @@ function Pricing() {
     <div className={'price-card ' + (plan.featured ? 'featured' : '')} key={plan.id}>
       <small>{plan.name.toUpperCase()}</small>
       <h3>{plan.price ? formatEnglishPrice(plan.price) : 'Request a quote'}</h3>
-      {plan.price && <span className="price-note">Starting price in USD per project</span>}
-      <div>{plans[plan.id].map(feature => <p className="price-feature" key={feature}>{feature}</p>)}</div>
-      <a className="btn" href={englishHref('/kontak')}>Discuss this package <ArrowUpRight size={16}/></a>
+      <span className="price-note">{plan.price?'Starting price / project (IDR)':'Scope-based estimate'}</span>
+      <div>{plans[plan.id].map(feature => <p className="price-feature" key={feature}><Check size={15}/>{feature}</p>)}</div>
+      <a className={'btn '+(plan.featured?'primary':'')} href={englishHref('/kontak')+'?estimate='+encodeURIComponent('Website package: '+plan.name)}>Discuss this package <ArrowUpRight size={16}/></a>
     </div>
-  )}</div><p className="pricing-disclaimer">Your proposal covers scope, revisions, domain, hosting, and integration costs. We agree on the final price before work starts.</p></>;
+  )}</div><p className="pricing-disclaimer">Published prices are the same IDR amounts in both languages, not multiplied for English visitors. Other currencies, scope, revisions, domain, hosting, and integrations are agreed in a written quote.</p></>;
 }
 
 function Portfolio() {
-  return <div className="services-grid">{defaults.portfolio.map((project: {id: string; name: string; category: string; domain?: string; live?: string}) => {
-    const details = <><small>{project.category}</small><h3>{project.name}</h3>{project.domain && <p>{project.domain}</p>}</>;
-    return project.live?.startsWith('https://')
-      ? <a className="service-card" href={project.live} key={project.id} target="_blank" rel="noopener noreferrer">{details}<span className="text-link">Visit website <ArrowUpRight size={16}/></span></a>
-      : <div className="service-card" key={project.id}>{details}</div>;
-  })}</div>;
+  return <div className="portfolio-grid">{defaults.portfolio.map((project: {id:string;name:string;category:string;tag?:string;year?:string;live?:string;domain?:string}) =>
+    <a className="project-card" key={project.id} href={project.live||'/portfolio/'+project.id+'/'} target={project.live?'_blank':undefined} rel={project.live?'noopener noreferrer':undefined}>
+      <PortfolioVisual project={project}/>
+      <div className="project-caption"><div><small>{project.tag||project.category}</small><h3>{project.name}</h3></div><span className="circle-link"><ArrowUpRight size={20}/></span></div>
+    </a>
+  )}</div>;
 }
 
 function EnglishContent({path}: {path: string}) {
@@ -57,18 +58,21 @@ function EnglishContent({path}: {path: string}) {
     return <section className="section service-detail">
       <div className="breadcrumbs"><a href={englishHref('/jasa')}>Services</a><span>/</span>{name}</div>
       <div className="page-intro"><h1>{name}<em>↗</em></h1><p>{description}</p></div>
-      <h2>Available features</h2><ul>{features.map(feature => <li key={feature}>{feature}</li>)}</ul>
+      <div className="service-detail-grid"><h2>Features for your<br/>website project.</h2><div>{features.map((feature,i) => <div className="feature-line" key={feature}><span>0{i+1}</span><h3>{feature}</h3><Check size={20}/></div>)}</div></div>
       <div className="case-study-links"><h2>Planning a project from another country?</h2><p>We coordinate website briefs, design reviews, and project updates remotely. Share your business country, preferred language, required pages, integrations, budget range, and timeline. Your proposal sets out the agreed scope and delivery process.</p><div className="seo-related"><a href={englishHref('/portfolio')}>See selected work <ArrowUpRight size={15}/></a><a href={englishHref('/harga')}>Compare starting prices <ArrowUpRight size={15}/></a></div></div>
       <a className="btn primary" href={contact}>Discuss your project <ArrowUpRight size={17}/></a>
     </section>;
   }
   if (path === '/kontak') {
     const {email, whatsapp: phone} = defaults.settings;
-    return <section className="section">
-      <div className="page-intro"><span className="eyebrow">FREE WEBSITE CONSULTATION</span><h1>Tell us what you want to <em>build.</em></h1>
-        <p>We welcome remote project inquiries from Indonesia and other countries. Tell us your business location, goals, required pages or integrations, preferred language, approximate budget, and timeline. We will discuss availability and confirm the scope before any project begins.</p></div>
-      <div className="hero-actions"><a className="btn primary" href={whatsapp(phone, 'Hello BisaBikinWeb, I would like to discuss a website project.')}>Chat on WhatsApp <ArrowUpRight size={17}/></a>
-        <a className="btn" href={'mailto:' + email}>Email the studio <ArrowUpRight size={17}/></a></div>
+    return <section className="section contact-page">
+      <div><span className="eyebrow">YOUR NEXT BIG THING STARTS HERE.</span><h1>Tell us.<br/>We'll <em>build it.</em></h1>
+        <p>We welcome remote projects from Indonesia and other countries. Share your business location, the pages or features you need, your budget range, and preferred launch date.</p>
+        <div className="contact-notes"><p><Check size={17}/>Free initial consultation</p><p><Check size={17}/>No technical background required</p><p><Check size={17}/>Written scope before a project begins</p></div>
+        <a className="text-link" href={whatsapp(phone,'Hello BisaBikinWeb, I would like to discuss a website project.')}><MessageCircle size={18}/>Chat on WhatsApp <ArrowUpRight size={17}/></a>
+        <p><a href={'mailto:'+email}>{email}</a></p>
+      </div>
+      <Consultation locale="en"/>
     </section>;
   }
   if (path === '/tentang') return <section className="section about-page">
