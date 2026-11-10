@@ -22,7 +22,7 @@ async function database(path:string,method='GET',body?:unknown){
  if(!r.ok)throw Error('DATABASE_HTTP_'+r.status);
  return r.status===204?null:r.json().catch(()=>null);
 }
-function emailContent(item:any,order:any,isSandbox:boolean){
+function emailContent(item:any,order:any,isSandbox:boolean,paymentDetails:any=null){
  const admin=item.recipient_role==='admin',paid=item.event_type==='payment_paid',quoteReady=item.event_type==='quote_ready';
  const headline=paid?(isSandbox?'Pembayaran uji coba tercatat.':'Pembayaran berhasil dikonfirmasi.'):quoteReady?'Penawaran harga website sudah siap.':'Pesanan website sudah kami terima.';
  const heading=admin?(paid?'Pemberitahuan penjualan website':quoteReady?'Penawaran final website telah diterbitkan':'Pesanan website baru masuk'):headline;
@@ -36,6 +36,7 @@ function emailContent(item:any,order:any,isSandbox:boolean){
   ['Email klien',order.email],['WhatsApp',order.phone],['Industri',order.category],
   ['Paket',order.package_slug],['Desain',order.template_slug||'Custom / belum dipilih'],
   ['Domain diinginkan',order.requested_domain||'Belum ditentukan'],
+  ...(paid&&paymentDetails?.merchant_order_id?[['Nomor invoice DOKU',paymentDetails.merchant_order_id]]:[]),
   [paid?'Total pembayaran':quoteReady?'Penawaran final':'Harga awal',(paid||quoteReady)?cash(order.quoted_total):cash(order.base_price_snapshot)]
  ];
  const rows=lines.map(([label,value])=>'<tr><td style="padding:11px 16px;border-bottom:1px solid #e6e9df;color:#60675b;font-size:13px;vertical-align:top;width:42%">'+esc(label)+'</td><td style="padding:11px 16px;border-bottom:1px solid #e6e9df;color:#1a1e18;font-size:13px;font-weight:600;vertical-align:top;overflow-wrap:anywhere">'+esc(value)+'</td></tr>').join('');
@@ -93,14 +94,14 @@ Deno.serve(async(req:Request)=>{
     const order=Array.isArray(orders)?orders[0]:null;
     if(!order||job.event_type==='payment_paid'&&order.payment_status!=='paid')throw Error('ORDER_STATUS_NOT_VERIFIED');
     if(job.event_type==='quote_ready'&&(!['proposal','awaiting_payment'].includes(order.status)||!(Number(order.quoted_total)>0)))throw Error('QUOTE_NOT_READY');
-    let sandbox=false;
+    let sandbox=false,paymentDetails:any=null;
     if(job.event_type==='payment_paid'){
-     const payments=await database('bbweb_website_payments?select=environment,status&order_id=eq.'+encodeURIComponent(order.id)+'&limit=1');
+     const payments=await database('bbweb_website_payments?select=environment,status,merchant_order_id,paid_at&order_id=eq.'+encodeURIComponent(order.id)+'&limit=1');
      const payment=Array.isArray(payments)?payments[0]:null;
      if(!payment||payment.status!=='paid')throw Error('PAYMENT_NOT_VERIFIED');
-     sandbox=payment.environment!=='production';
+     sandbox=payment.environment!=='production';paymentDetails=payment;
     }
-    const mail=emailContent(job,order,sandbox);
+    const mail=emailContent(job,order,sandbox,paymentDetails);
     await sendMail(job.recipient_email,mail,apiToken);
     await database('bbweb_website_email_outbox?id=eq.'+encodeURIComponent(job.id)+'&status=eq.sending','PATCH',{status:'sent',sent_at:new Date().toISOString(),last_error:''});
     sent++;
