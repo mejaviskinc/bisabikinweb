@@ -225,12 +225,23 @@ export function applyInlineLanguage(root,locale){
  document.documentElement.lang=locale==='en'?'en':'id';
  if(!root||locale!=='en')return;
  translateTree(root);
- observer=new MutationObserver(()=>{
+ observer=new MutationObserver((records)=>{
   if(pending)return;
   pending=true;
   queueMicrotask(()=>{
    pending=false;
-   if(observer&&activeRoot)translateTree(activeRoot);
+   if(!observer||!activeRoot||currentLocale!=='en')return;
+   // Process only changed CMS nodes. Rewalking entire articles after every
+   // translation response caused O(n²) work and occasional typing delays.
+   for(const record of records){
+    if(record.type==='childList'){
+     for(const added of record.addedNodes){
+      if(added.nodeType===Node.TEXT_NODE)translateNode(added);
+      else if(added.nodeType===Node.ELEMENT_NODE)translateTree(added);
+     }
+    }else if(record.type==='characterData')translateNode(record.target);
+    else if(record.type==='attributes')translateAttributes(record.target);
+   }
   });
  });
  observer.observe(root,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['placeholder','title','aria-label']});
