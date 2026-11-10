@@ -238,7 +238,7 @@ assert.match(enHomeHtml,/class="sitelink-grid"/,'English site needs a service na
 assert.match(enHomeHtml,/class="portfolio-grid"/,'English homepage needs project previews');
 assert.match(enHomeHtml,/class="project-card"/,'English and Indonesian portfolio cards should match');
 assert.match(enHomeHtml,/class="pricing-grid"/,'English pricing must use the same visual grid');
-assert.match(enPortfolioHtml,/class="portfolio-live-card"/,'English portfolio needs actual live website previews');
+assert.match(enPortfolioHtml,/class="portfolio-domain-card portfolio-live-card/,'English portfolio needs actual live website previews');
 assert.match(enContactHtml,/class="consult-form"/,'English contacts must offer the real inquiry form');
 for(const field of ['name','company','phone','email','type','budget','domain','deadline','features','reference','message']){
  assert.ok(enContactHtml.includes('name="'+field+'"'),'English inquiry form lacks field '+field);
