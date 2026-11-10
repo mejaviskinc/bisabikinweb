@@ -1,7 +1,7 @@
 {
   "research_date": "2026-11-11",
   "timezone": "Asia/Jakarta",
-  "researched_at": "2026-11-11T01:34:06+07:00",
+  "researched_at": "2026-11-11T02:34:01+07:00",
   "entries": [
     {
       "id": "briket-energi-2026-11-11",
@@ -30,7 +30,7 @@
       "summary": "Konteks dibawa dari arsip 10 November; tidak ada klaim fakta baru yang diverifikasi pada putaran ini. Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
       "event_date": null,
       "source_published_at": null,
-      "researched_at": "2026-11-11T00:33:51+07:00",
+      "researched_at": "2026-11-11T02:34:01+07:00",
       "geography": "Indonesia dan pasar tujuan",
       "facts": [
         {
@@ -50,6 +50,12 @@
           "source_urls": [
             "https://developers.google.com/search/docs/appearance/structured-data/article"
           ]
+        },
+        {
+          "claim": "Google Search Central menjelaskan bahwa BlogPosting/Article structured data dapat membantu pemahaman konten, dengan headline, image, author dan tanggal sebagai properti yang direkomendasikan; bukan jaminan rich result.",
+          "source_urls": [
+            "https://developers.google.com/search/docs/appearance/structured-data/article"
+          ]
         }
       ],
       "sources": [
@@ -64,14 +70,14 @@
           "url": "https://developers.google.com/search/docs/appearance/structured-data/article",
           "publisher": "Google Search Central",
           "source_published_at": null,
-          "accessed_at": "2026-11-10T06:26:11+07:00",
+          "accessed_at": "2026-11-11T02:34:01+07:00",
           "previously_checked_at": "2026-11-10T06:26:11+07:00"
         }
       ],
       "practical_impact": "Jangan mengambil keputusan usaha dari temuan lama sebelum melakukan verifikasi sumber dan tanggal.",
       "content_angle": "Pantau rilis Komdigi dan OSS mengenai layanan usaha digital.",
       "keyword_intent": "digitalisasi UMKM Indonesia",
-      "editorial_status": "needs_verification",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-11",
@@ -85,7 +91,7 @@
         "verification": "primary_source_checked_2026-11-10; country_specific_or_live_implementation_not_checked",
         "status": "research_only_not_published"
       },
-      "verification_note": "Sumber dan tanggal dari arsip sebelumnya, belum diperiksa ulang hari ini; jangan ditafsirkan sebagai berita 24 jam terakhir."
+      "verification_note": "Sumber primer diperiksa ulang 11 November 02.34 WIB; informasi standar evergreen, bukan perkembangan 24 jam atau verifikasi implementasi negara tujuan."
     },
     {
       "id": "furniture-kayu-2026-11-11",
@@ -94,7 +100,7 @@
       "summary": "Konteks dibawa dari arsip 10 November; tidak ada klaim fakta baru yang diverifikasi pada putaran ini. Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
       "event_date": null,
       "source_published_at": null,
-      "researched_at": "2026-11-11T00:33:51+07:00",
+      "researched_at": "2026-11-11T02:34:01+07:00",
       "geography": "Indonesia dan pasar tujuan",
       "facts": [
         {
@@ -108,6 +114,12 @@
           "source_urls": [
             "https://www.ippc.int/es/core-activities/standards-setting/ispms/"
           ]
+        },
+        {
+          "claim": "IPPC ISPM 15 mencakup kemasan kayu mentah termasuk dunnage, sedangkan material olahan seperti plywood termasuk pengecualian yang dijelaskan dalam standar.",
+          "source_urls": [
+            "https://www.ippc.int/en/publications/640/"
+          ]
         }
       ],
       "sources": [
@@ -115,7 +127,7 @@
           "url": "https://www.ippc.int/en/publications/640/",
           "publisher": "International Plant Protection Convention (IPPC)",
           "source_published_at": "2021-07-13",
-          "accessed_at": "2026-11-10T04:34:15+07:00",
+          "accessed_at": "2026-11-11T02:34:01+07:00",
           "previously_checked_at": "2026-11-10T04:34:15+07:00"
         },
         {
@@ -129,7 +141,7 @@
       "practical_impact": "Jangan mengambil keputusan usaha dari temuan lama sebelum melakukan verifikasi sumber dan tanggal.",
       "content_angle": "Panduan membaca dampak HPE pada penawaran ekspor kayu.",
       "keyword_intent": "HPE kayu November 2026",
-      "editorial_status": "needs_verification",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-11",
@@ -143,7 +155,7 @@
         "verification": "primary_source_checked_2026-11-10; country_specific_or_live_implementation_not_checked",
         "status": "research_only_not_published"
       },
-      "verification_note": "Sumber dan tanggal dari arsip sebelumnya, belum diperiksa ulang hari ini; jangan ditafsirkan sebagai berita 24 jam terakhir."
+      "verification_note": "Sumber primer diperiksa ulang 11 November 02.34 WIB; informasi standar evergreen, bukan perkembangan 24 jam atau verifikasi implementasi negara tujuan."
     },
     {
       "id": "kakao-coklat-2026-11-11",
@@ -530,5 +542,6 @@
       "at": "2026-11-11T00:33:51+07:00",
       "action": "Read research README, previous articles/news archives, editorial module, build, image policy; check CMS and recent commits; carry forward 15 clusters without claiming new primary-source verification."
     }
-  ]
+  ],
+  "editorial_run_note": "CMS bbweb_articles 11 November WIB: 0 baris dibuat/diterbitkan (query 02.34 WIB); belum ada verifikasi static live, cover WebP, jadwal per-post atau build/deploy. Sumber primer Google Search Central dan IPPC ISPM15 diperiksa ulang. Tidak ada artikel dipublikasikan pada putaran ini."
 }
