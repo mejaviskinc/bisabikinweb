@@ -1,0 +1,57 @@
+name: One-time publish 60 BisaBikinWeb GitHub Pages demos
+# Approved by repository owner on 2026-11-10. One-time path-specific push trigger.
+# Publishes only 60 named repos. No Hostinger DNS, main website, mail, Netlify or Cloudflare.
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/publish-template-pages-once-20261110.yml'
+
+permissions:
+  contents: read
+
+concurrency:
+  group: template-pages-publication
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-24.04
+    timeout-minutes: 90
+    environment: template-sites-production
+    steps:
+      - name: Checkout source
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          persist-credentials: false
+      - name: Setup Node
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        with:
+          node-version: '22'
+          cache: npm
+      - name: Fail closed when repository creation credential is missing
+        env:
+          GH_TOKEN: ${{ secrets.TEMPLATE_PAGES_PAT }}
+        run: |
+          if test -z "$GH_TOKEN"; then
+            echo "::error::Missing TEMPLATE_PAGES_PAT; no template repos were created."
+            exit 1
+          fi
+          echo "Publishing credential present (value redacted)."
+      - name: Install locked dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Verify templates and build
+        run: |
+          npm test
+          BBWEB_OFFLINE_BUILD=1 npm run build
+          node scripts/build-template-pages.mjs
+          node tests/template-pages-packages.test.mjs
+          bash scripts/publish-template-pages.sh --check
+      - name: Publish all 60 public repos and configure GitHub Pages domains
+        env:
+          GH_TOKEN: ${{ secrets.TEMPLATE_PAGES_PAT }}
+          GH_OWNER: mejaviskinc
+          GH_PROMPT_DISABLED: '1'
+        run: bash scripts/publish-template-pages.sh --publish
+      - name: Final note
+        run: echo "GitHub Pages requested. Wait for certificates and verify all 60 live URLs before switching catalog links."
