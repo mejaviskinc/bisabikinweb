@@ -43,8 +43,12 @@ def get_picture(url: str) -> Image.Image:
         raise SafeStop("Licensed source photo download size not acceptable")
     with Image.open(io.BytesIO(body)) as picture:
         print("LICENSED_SOURCE_IMAGE_DIAGNOSTICS",picture.format,picture.size,"bytes=",len(body),flush=True)
-        if picture.format not in ("JPEG","PNG","WEBP") or min(picture.size) < 720:
+        if picture.format not in ("JPEG","MPO","PNG","WEBP") or min(picture.size) < 720:
             raise SafeStop("Licensed photo not suitable for Instagram")
+        # Wikimedia JPEGs with MPF metadata are decoded by Pillow as MPO.
+        # Their first full-resolution photographic frame is the licensed work.
+        if picture.format == "MPO":
+            picture.seek(0)
         return ImageOps.exif_transpose(picture).convert("RGB")
 
 def fit_lines(draw, phrase, max_width=900, max_height=290):
