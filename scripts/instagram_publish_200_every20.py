@@ -55,6 +55,24 @@ def main():
     due_count = min(len(rows), int((now - START).total_seconds() // INTERVAL_SECONDS) + 1)
     state, _ = github_state(REPO, os.environ["GITHUB_TOKEN"])
     entries = state["entries"]
+    # A primary and fallback GitHub cron for the same 20-minute window must
+    # never create two different posts. State is the authority across runs.
+    recent_attempts = []
+    for key, value in entries.items():
+        if not key.startswith("bbweb-quotes-200-20261111-") or not isinstance(value, dict):
+            continue
+        timestamp = value.get("claimed_at")
+        if isinstance(timestamp, str):
+            try:
+                recent_attempts.append(dt.datetime.fromisoformat(timestamp))
+            except ValueError:
+                pass
+    if recent_attempts:
+        last = max(recent_attempts)
+        seconds_since = (dt.datetime.now(dt.timezone.utc) - last).total_seconds()
+        if seconds_since < 17 * 60:
+            print(f"WAIT_NEXT_20MIN_WINDOW: {round((17*60-seconds_since)/60,1)} minutes", flush=True)
+            return
     selected = None
     for index, item in enumerate(rows[:due_count], start=1):
         if item["id"] in entries:
