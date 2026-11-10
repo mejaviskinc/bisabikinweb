@@ -130,3 +130,67 @@
 @media(max-width:900px){.wd-detail-grid{grid-template-columns:1fr}.wd-detail-image,.wd-sector-fashion .wd-detail-image{min-height:430px}.wd-detail-info{padding-top:0}}
 @media(max-width:560px){.wd-detail-page{padding-bottom:50px}.wd-detail-image,.wd-sector-fashion .wd-detail-image{min-height:320px}.wd-detail-info h2{font-size:39px}.wd-sector-fashion .wd-offer-art{min-height:220px}.wd-inner-product>img{height:100%}.wd-detail-related{margin-top:42px}.wd-offer-art .wd-art-icon{font-size:22px}}
 @media(prefers-reduced-motion:reduce){.wd-offer-art>img,.wd-inner-product>img{transition:none!important}}
+
+
+/* Teras Rona: a bespoke Japandi home-living editorial storefront.
+   Strictly isolated from all 59 other BisaBikinWeb showcase brands. */
+.wd-root.wd-teras-rona{font-family:Inter,Arial,Helvetica,sans-serif;background:#f8f4ed}
+.wd-teras-rona .wd-preview-ribbon{background:#392e26;color:#fff9ef}
+.wd-teras-rona .wd-preview-ribbon .wd-ribbon-buy{background:#e9d4b5;color:#322920}
+.wd-teras-rona .wd-header{height:96px;background:#f8f4ed;padding-inline:clamp(20px,5.8vw,100px)}
+.wd-teras-rona .wd-logo{font-family:Georgia,'Times New Roman',serif;font-size:clamp(26px,2.7vw,37px)!important;font-weight:500!important;letter-spacing:-.045em;text-transform:none}
+.wd-teras-rona .wd-logo small{font-family:Arial,sans-serif;font-size:9px}
+.wd-teras-rona .wd-nav a{font-weight:500;letter-spacing:.025em}
+.wd-teras-rona .wd-header-contact{background:#322920;border-radius:0;font-weight:500;letter-spacing:.03em}
+.wd-teras-rona .wd-hero{grid-template-columns:46% 54%;min-height:680px;background:#f8f4ed}
+.wd-teras-rona .wd-hero-copy{padding:clamp(60px,7vw,120px) clamp(26px,5.8vw,110px) 52px;justify-content:center}
+.wd-teras-rona .wd-kicker{color:#806149;font-size:10px;letter-spacing:.22em}
+.wd-teras-rona .wd-hero h1{font-family:Georgia,'Times New Roman',serif;font-size:clamp(58px,6vw,102px);font-weight:400;line-height:1.08;letter-spacing:-.055em;max-width:590px;margin:26px 0 27px}
+.wd-teras-rona .wd-hero-copy>p{font-size:15px;max-width:460px;line-height:1.9;color:#65574b;opacity:1}
+.wd-teras-rona .wd-hero-actions{margin-top:39px}
+.wd-teras-rona .wd-main-button,.wd-teras-rona a.wd-main-button{background:#322920;color:#f8f4ed;border-color:#322920;border-radius:0;font-weight:500;padding:17px 25px;transition:background .2s ease,color .2s ease,transform .2s ease}
+.wd-teras-rona .wd-main-button:hover,.wd-teras-rona a.wd-main-button:hover{background:#806149;color:#fff}
+.wd-teras-rona .wd-secondary-button{font-weight:500;color:#806149;border-color:#806149}
+.wd-teras-rona .wd-hero-caption{color:#806149;opacity:1;letter-spacing:.1em}
+.wd-teras-rona .wd-visual{background:#d8c9b7;min-height:680px}
+.wd-teras-rona .wd-visual img{object-position:center 56%;filter:saturate(.79) contrast(.97)}
+.wd-teras-rona .wd-visual:after{content:'A SLOWER WAY OF LIVING  /  01';position:absolute;z-index:2;bottom:28px;right:25px;background:#f8f4edec;color:#322920;font:10px/1.4 Arial,sans-serif;letter-spacing:.15em;padding:12px 15px}
+.wd-teras-rona .wd-ticker{background:#806149;color:#f8f4ed;padding-block:18px;letter-spacing:.16em;text-transform:uppercase}
+.wd-teras-rona .wd-offerings{padding-top:115px;padding-bottom:115px}
+.wd-teras-rona .wd-section-top h2,.wd-teras-rona .wd-about h2,.wd-teras-rona .wd-promise h2,.wd-teras-rona .wd-contact h2,.wd-teras-rona .wd-inner-heading h1{font-family:Georgia,'Times New Roman',serif;letter-spacing:-.055em;font-weight:400}
+.wd-teras-rona .wd-section-top h2 span{color:#a98769}
+.wd-teras-rona .wd-label{color:#806149;letter-spacing:.2em}
+.wd-teras-rona .wd-filters button{border-radius:0;border-color:#d9cbbc;color:#564638}
+.wd-teras-rona .wd-filters button.active{background:#806149;border-color:#806149;color:#fff}
+.wd-teras-rona .wd-offer-grid{gap:22px}
+.wd-teras-rona .wd-offer-card{background:#fffdf9;border-color:#e8ded2;box-shadow:0 15px 35px #5b41200b}
+.wd-teras-rona .wd-offer-art,.wd-teras-rona .wd-offer-card:nth-child(2) .wd-offer-art,.wd-teras-rona .wd-offer-card:nth-child(3) .wd-offer-art{min-height:330px;background:#e9e0d4}
+.wd-teras-rona .wd-offer-art>img{filter:saturate(.72);transition:transform .4s ease}
+.wd-teras-rona .wd-offer-card:hover .wd-offer-art>img{transform:scale(1.04)}
+.wd-teras-rona .wd-offer-content{padding:30px}
+.wd-teras-rona .wd-offer-content h3,.wd-teras-rona .wd-inner-card-copy h2,.wd-teras-rona .wd-detail-info h2{font-family:Georgia,'Times New Roman',serif;font-weight:400;letter-spacing:-.04em}
+.wd-teras-rona .wd-offer-content strong{color:#806149}
+.wd-teras-rona .wd-about{background:#322920;color:#f8f4ed}
+.wd-teras-rona .wd-about-art{background:linear-gradient(180deg,#231c1555,#231c15a5),url('https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?auto=format&fit=crop&w=1200&q=80') center/cover;min-height:620px}
+.wd-teras-rona .wd-about-art>span:last-child{color:#f8f4ed}
+.wd-teras-rona .wd-about-copy>small,.wd-teras-rona .wd-about-copy a{color:#e9d4b5}
+.wd-teras-rona .wd-contact{background:#eae0d1}
+.wd-teras-rona .wd-contact-form,.wd-teras-rona .wd-form-success{background:#fffdf9;border-color:#d8c8b5}
+.wd-teras-rona .wd-inner-card{background:#fffdf9;border-color:#e8ded2}
+.wd-teras-rona .wd-inner-product{background:#d4c2ac}
+.wd-teras-rona .wd-footer{background:#322920}
+@media(max-width:770px){
+ .wd-teras-rona .wd-header{height:72px;padding-inline:19px}
+ .wd-teras-rona .wd-hero{grid-template-columns:1fr;min-height:0}
+ .wd-teras-rona .wd-hero-copy{padding:64px 25px 52px}
+ .wd-teras-rona .wd-hero h1{font-size:clamp(55px,10vw,76px);margin:22px 0}
+ .wd-teras-rona .wd-visual{min-height:480px}
+ .wd-teras-rona .wd-hero-caption{margin-top:38px}
+ .wd-teras-rona .wd-offerings{padding-top:72px;padding-bottom:72px}
+ .wd-teras-rona .wd-offer-art,.wd-teras-rona .wd-offer-card:nth-child(2) .wd-offer-art,.wd-teras-rona .wd-offer-card:nth-child(3) .wd-offer-art{min-height:285px}
+}
+@media(max-width:480px){
+ .wd-teras-rona .wd-hero h1{font-size:55px}
+ .wd-teras-rona .wd-visual{min-height:380px}
+ .wd-teras-rona .wd-visual:after{font-size:8px;padding:9px;right:12px;bottom:12px}
+}
