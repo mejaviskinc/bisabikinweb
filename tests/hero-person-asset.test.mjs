@@ -4,37 +4,32 @@ import {readFileSync} from 'node:fs';
 
 const source=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 
-test('homepage uses the photo cutout with linked, factual service cards',()=>{
+test('homepage right hero uses one accessible dummy workspace photo',()=>{
   const studio=source('static-source/features/Studio.tsx');
   const hero=studio.slice(studio.indexOf('function AnimatedHeroShowcase()'),studio.indexOf('function Home({data',studio.indexOf('function AnimatedHeroShowcase()')));
-  assert.ok(hero.includes('className="hero-person-cutout"'));
-  assert.ok(hero.includes('src={heroPersonImage}'));
-  assert.ok(studio.includes("import {heroPersonImage} from '../lib/hero-person-image.mjs'"));
-  assert.ok(!hero.includes('<BrandShowcase/>'),'Old illustrated mockup must be removed from hero');
-  assert.ok(!hero.includes('<BrandShowcase compact/>'),'Old secondary mockup must be removed from hero');
-  for(const route of ['/jasa/landing-page/','/jasa/company-profile/','/jasa/ecommerce/','/jasa/custom-website/','/jasa/maintenance/']){
-    assert.ok(hero.includes('href="'+route+'"'),route+' must be clickable');
-  }
-  for(const label of ['Landing Page','Company Profile','Toko Online','Custom Web App','Website Maintenance']){
-    assert.ok(hero.includes(label),'Service should be prominently listed: '+label);
-  }
-  assert.ok(!/500\+|10M\+|klien puas/i.test(hero),'Unverified performance figures should not be shown');
+  assert.ok(hero.includes('className="hero-showcase hero-dummy-photo"'));
+  assert.ok(hero.includes('className="hero-dummy-photo-image"'));
+  assert.ok(hero.includes('images.unsplash.com/photo-1498050108023-c5249f4df085'));
+  assert.ok(hero.includes('alt="Foto ilustrasi laptop dan area kerja pengembangan website"'));
+  assert.ok(!hero.includes('hero-person-cutout'),'Previous portrait must be removed');
+  assert.ok(!hero.includes('showcase-orbit'),'Previous decorative orbit must be removed');
+  assert.ok(!hero.includes('hero-service-card'),'Previous floating service cards must be removed');
+  assert.ok(!hero.includes('<BrandShowcase'),'Previous layered mockup must be removed');
+  assert.ok(!/500\\+|10M\\+|klien puas/i.test(hero),'Unverified performance figures should not be shown');
 });
 
-test('native WebP data image is valid and compact',()=>{
-  const sourceModule=source('static-source/lib/hero-person-image.mjs');
-  const match=sourceModule.match(/data:image\/webp;base64,([A-Za-z0-9+/=]+)/);
-  assert.ok(match,'Data URI must embed WebP content');
-  const bytes=Buffer.from(match[1],'base64');
-  assert.equal(bytes.toString('ascii',0,4),'RIFF');
-  assert.equal(bytes.toString('ascii',8,12),'WEBP');
-  assert.equal(bytes.readUInt32LE(4)+8,bytes.length,'Image must not be truncated');
-  assert.ok(bytes.length<20000,'Keep the image lightweight');
+test('hero placeholder leaves main sales carousel and its CTA intact',()=>{
+  const studio=source('static-source/features/Studio.tsx');
+  assert.ok(studio.includes('className="bbw-hero-slides"'));
+  assert.ok(studio.includes('Bikin Website Sekarang'));
+  assert.ok(studio.includes('Lihat Portfolio'));
 });
 
-test('hero cutout remains visible and does not intercept click events',()=>{
+test('single-photo hero has mobile styling and does not block interaction',()=>{
   const css=source('static-source/styles.css');
-  assert.ok(css.includes('.hero-showcase .hero-person-cutout{'));
+  assert.ok(css.includes('.hero-showcase.hero-dummy-photo{'));
+  assert.ok(css.includes('object-fit:cover'));
   assert.ok(css.includes('pointer-events:none'));
-  assert.match(css,/@media\(max-width:650px\)[\s\S]*?\.hero-showcase \.hero-person-cutout/);
+  const smallScreenStyles=css.slice(css.lastIndexOf('@media(max-width:650px)'));
+  assert.ok(smallScreenStyles.includes('.hero-showcase.hero-dummy-photo{'),'Mobile breakpoint must style the photo');
 });
