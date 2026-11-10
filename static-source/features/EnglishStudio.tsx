@@ -98,7 +98,7 @@ function EnglishContent({path}: {path: string}) {
       <div className="hero-top"><span className="eyebrow"><i className="status-dot"/>INDEPENDENT DIGITAL STUDIO · INDONESIA</span><span className="hero-availability">Remote projects worldwide <span>↗</span></span></div>
       <div className="hero-layout"><div className="hero-copy">
         <h1>Website development<br/>for growing businesses<br/><span>around the world.</span></h1>
-        <p>We build professional websites, online stores, and custom web apps. Based in Yogyakarta, Indonesia, our studio works remotely with Indonesian and international businesses.</p>
+        <p>We build professional websites, online stores, and custom web apps. Based in Yogyakarta, Indonesia, our studio works remotely with businesses worldwide, including companies across Indonesia.</p>
         <div className="hero-actions"><a className="btn primary" href={contact}>Start your website project <ArrowUpRight size={18}/></a><a className="btn plain" href={englishHref('/portfolio')}>Explore our work <ArrowUpRight size={17}/></a></div>
         <div className="hero-foot"><span>DESIGN · DEVELOPMENT · SUPPORT</span><span>INDONESIA / GLOBAL</span></div>
       </div><div className="hero-showcase"><BrandShowcase/></div></div>
