@@ -34,3 +34,20 @@ test('mobile actions are intentionally compact and all hidden actions remain in 
   assert.match(css,/\.site-header\.scrolled~\.mobile-menu \{top:72px\}/);
   assert.match(css,/@media \(max-width:650px\)/);
 });
+
+test('desktop menu is grouped like the reference, with a functional second-level flyout',()=>{
+  assert.match(source,/const headerNav:HeaderLink\[\]/);
+  assert.match(source,/label:'Layanan'/);
+  assert.match(source,/label:'Media'/);
+  assert.match(source,/site-nav-dropdown-panel/);
+  assert.match(source,/site-nav-flyout/);
+  assert.match(css,/\.site-nav-submenu:focus-within/);
+  assert.match(css,/\.site-header \.reference-main-nav \.site-nav-dropdown-panel/);
+});
+
+test('mobile menu exposes the same groups via native disclosure controls',()=>{
+  assert.match(source,/className="mobile-menu-group"/);
+  assert.match(source,/className="mobile-menu-subgroup"/);
+  assert.match(css,/\.mobile-menu \.mobile-menu-group>summary/);
+  assert.match(css,/@media \(max-width:900px\)/);
+});
