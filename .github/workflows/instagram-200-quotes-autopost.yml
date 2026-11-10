@@ -1,7 +1,9 @@
 name: Instagram BisaBikinWeb 200 Quotes Every 20 Minutes
 on:
   schedule:
+    # Primary every 20 minutes (UTC minutes 15,35,55), with a +3-minute fallback.
     - cron: '15,35,55 * * * *'
+    - cron: '18,38,58 * * * *'
   push:
     branches: [main]
     paths:
