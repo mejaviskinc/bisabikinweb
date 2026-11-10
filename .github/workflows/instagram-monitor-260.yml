@@ -1,0 +1,20 @@
+name: Instagram BisaBikinWeb 260-Post Delivery Monitor
+on:
+  schedule:
+    - cron: '25 * * * *'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/instagram-monitor-260.yml'
+      - 'scripts/instagram_monitor_260.py'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  read_only_audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Verify content queues and Meta confirmed publication IDs, alert on delays
+        run: python3 scripts/instagram_monitor_260.py
