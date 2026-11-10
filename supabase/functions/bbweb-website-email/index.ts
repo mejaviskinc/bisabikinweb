@@ -23,12 +23,13 @@ async function database(path:string,method='GET',body?:unknown){
  return r.status===204?null:r.json().catch(()=>null);
 }
 function emailContent(item:any,order:any,isSandbox:boolean,paymentDetails:any=null){
- const admin=item.recipient_role==='admin',paid=item.event_type==='payment_paid',quoteReady=item.event_type==='quote_ready';
+ const admin=item.recipient_role==='admin',paid=item.event_type==='payment_paid',quoteReady=item.event_type==='quote_ready',instantOrder=item.event_type==='order_received'&&order.status==='awaiting_payment'&&Number(order.quoted_total)>0;
  const headline=paid?(isSandbox?'Pembayaran uji coba tercatat.':'Pembayaran berhasil dikonfirmasi.'):quoteReady?'Penawaran harga website sudah siap.':'Pesanan website sudah kami terima.';
  const heading=admin?(paid?'Pemberitahuan penjualan website':quoteReady?'Penawaran final website telah diterbitkan':'Pesanan website baru masuk'):headline;
  const intro=admin?'Ada aktivitas pesanan website yang membutuhkan pemantauan tim BisaBikinWeb.':paid
   ?'Pembayaran website telah tercatat pada sistem. Tim kami akan menindaklanjuti konsultasi desain dan kebutuhan domain.':quoteReady
-  ?'Penawaran dan harga final siap ditinjau di dashboard pelanggan. Periksa detail paket dan domain, setujui penawaran, lalu lanjutkan pembayaran melalui DOKU. Ini belum merupakan bukti pembayaran.'
+  ?'Penawaran dan harga final siap ditinjau di dashboard pelanggan. Periksa detail paket dan domain, setujui penawaran, lalu lanjutkan pembayaran melalui DOKU. Ini belum merupakan bukti pembayaran.':instantOrder
+  ?'Pesanan paket website standar sudah dibuat. Kamu bisa langsung melanjutkan pembayaran melalui DOKU dari halaman checkout atau dashboard. Domain, hosting, dan layanan tambahan tidak termasuk dalam nominal paket serta perlu persetujuan terpisah.'
   :'Terima kasih sudah memilih BisaBikinWeb. Brief pesananmu tersimpan dan akan diperiksa tim sebelum kami menerbitkan penawaran final.';
  const subject=(isSandbox?'[SANDBOX / UJI COBA] ':'')+'BisaBikinWeb — '+(paid?'Konfirmasi pembayaran':quoteReady?'Penawaran website siap ditinjau':'Konfirmasi pesanan')+' '+clean(order.order_no);
  const lines=[
@@ -37,7 +38,7 @@ function emailContent(item:any,order:any,isSandbox:boolean,paymentDetails:any=nu
   ['Paket',order.package_slug],['Desain',order.template_slug||'Custom / belum dipilih'],
   ['Domain diinginkan',order.requested_domain||'Belum ditentukan'],
   ...(paid&&paymentDetails?.merchant_order_id?[['Nomor invoice DOKU',paymentDetails.merchant_order_id]]:[]),
-  [paid?'Total pembayaran':quoteReady?'Penawaran final':'Harga awal',(paid||quoteReady)?cash(order.quoted_total):cash(order.base_price_snapshot)]
+  [paid?'Total pembayaran':quoteReady?'Penawaran final':instantOrder?'Total paket standar':'Harga awal',(paid||quoteReady||instantOrder)?cash(order.quoted_total):cash(order.base_price_snapshot)]
  ];
  const rows=lines.map(([label,value])=>'<tr><td style="padding:11px 16px;border-bottom:1px solid #e6e9df;color:#60675b;font-size:13px;vertical-align:top;width:42%">'+esc(label)+'</td><td style="padding:11px 16px;border-bottom:1px solid #e6e9df;color:#1a1e18;font-size:13px;font-weight:600;vertical-align:top;overflow-wrap:anywhere">'+esc(value)+'</td></tr>').join('');
  const flag=isSandbox?'<div style="padding:12px 16px;background:#fff3db;color:#795000;font-size:12px;border-radius:8px;margin:18px 0">Ini simulasi DOKU sandbox, bukan bukti pembayaran uang sungguhan.</div>':'';
@@ -55,7 +56,7 @@ function emailContent(item:any,order:any,isSandbox:boolean,paymentDetails:any=nu
  '<tr><td style="padding:26px 26px 18px">'+flag+
  '<div style="font-size:12px;font-weight:700;letter-spacing:1px;color:#596057;margin:0 0 14px">RINGKASAN PESANAN</div>'+
  '<table role="presentation" cellpadding="0" cellspacing="0" style="width:100%;border:1px solid #e6e9df;border-radius:10px;border-collapse:separate;border-spacing:0">'+rows+'</table>'+
- '<div style="margin:25px 0 18px"><a href="'+SITE+'/client/dashboard/" style="display:inline-block;background:#c3f85c;color:#18220b;padding:15px 21px;text-decoration:none;font-size:13px;font-weight:700;border-radius:7px">'+(quoteReady?'Tinjau & setujui penawaran':'Lihat detail proyek')+' ↗</a></div>'+ 
+ '<div style="margin:25px 0 18px"><a href="'+SITE+'/client/dashboard/" style="display:inline-block;background:#c3f85c;color:#18220b;padding:15px 21px;text-decoration:none;font-size:13px;font-weight:700;border-radius:7px">'+(quoteReady?'Tinjau & setujui penawaran':instantOrder?'Lanjutkan pembayaran':'Lihat detail proyek')+' ↗</a></div>'+ 
  '<p style="font-size:12px;line-height:1.7;color:#666d60">Untuk layanan pelanggan dan konsultasi, balas email ini atau kunjungi website resmi BisaBikinWeb. Kami tidak pernah meminta PIN, OTP, atau kata sandi melalui email.</p>'+
  '</td></tr><tr><td style="background:#f5f5ef;padding:25px 32px;border-top:1px solid #e6e9df">'+
  '<div style="color:#222820;font-size:12px;font-weight:700">PT GHAZALI DIGITAL INDONESIA</div>'+
