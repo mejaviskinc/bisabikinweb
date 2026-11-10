@@ -689,20 +689,23 @@
   position:absolute;
   z-index:3;
   display:block;
-  width:min(48%,280px);
+  width:min(54%,310px);
+  max-height:94%;
   height:auto;
-  right:-4%;
-  bottom:-8px;
+  right:-2%;
+  bottom:0;
   object-fit:contain;
+  opacity:1;
+  visibility:visible;
   pointer-events:none;
   user-select:none;
   filter:drop-shadow(0 18px 18px rgba(0,0,0,.36));
 }
 @media(max-width:900px){
-  .hero-showcase .hero-person-cutout{width:47%;right:-3%;bottom:0}
+  .hero-showcase .hero-person-cutout{width:50%;right:-1%;bottom:0}
 }
 @media(max-width:650px){
-  .hero-showcase .hero-person-cutout{width:42%;right:-1%;bottom:4px}
+  .hero-showcase .hero-person-cutout{width:48%;right:0;bottom:0}
 }
 
 
