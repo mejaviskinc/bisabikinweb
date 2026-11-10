@@ -50,5 +50,5 @@ test('catalog illustrations and manual domain status are labeled honestly',()=>{
  assert.match(storefront,/Ilustrasi konsep/);
  assert.match(storefront,/perlu verifikasi manual/);
  assert.match(storefront,/langsung diarahkan ke pembayaran resmi DOKU/);
- assert.match(storefront,/harga mulai|Harga mulai|Estimasi harga mulai/);
+ assert.match(storefront,/Harga paket standar|harga paket standar|Harga awal \(penawaran\)/);
 });
