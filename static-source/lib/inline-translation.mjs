@@ -1,3 +1,4 @@
+import {cachedDynamicTranslation,shouldTranslatePublicText,queuePublicTranslation,clearDynamicTranslationQueue,primeDynamicTranslator} from './live-content-translation.mjs';
 // In-place user-interface language switcher. This deliberately does NOT navigate,
 // alter SEO canonicals, send page content to third parties, or rewrite user input.
 // Text for which a reviewed translation is unavailable remains unchanged.
@@ -126,6 +127,7 @@ const blockedTags=new Set(['SCRIPT','STYLE','NOSCRIPT','SVG','CODE','PRE','TEXTA
 let observer=null;
 let pending=false;
 let activeRoot=null;
+let currentLocale='id';
 let textOriginals=new Map();
 let attributeOriginals=new Map();
 
@@ -136,7 +138,7 @@ export function translateInterfaceText(source){
  const value=String(source??'');
  const trimmed=value.trim();
  if(!trimmed)return value;
- const result=translations.get(trimmed)||lower.get(trimmed.toLocaleLowerCase('id'));
+ const result=translations.get(trimmed)||lower.get(trimmed.toLocaleLowerCase('id'))||cachedDynamicTranslation(trimmed);
  if(!result)return value;
  const from=value.indexOf(trimmed);
  return value.slice(0,from)+result+value.slice(from+trimmed.length);
@@ -158,7 +160,21 @@ function translateNode(node){
   textOriginals.set(node,original);
  }
  const translated=translateInterfaceText(original);
- if(translated===original)return;
+ if(translated===original){
+  if(currentLocale==='en'&&shouldTranslatePublicText(original,element)){
+   // Async translation is tied to the originating React text node and locale;
+   // stale responses must never replace freshly published content or form input.
+   const source=original;
+   queuePublicTranslation(source.trim(),()=>{
+    if(currentLocale==='en'&&node.isConnected&&textOriginals.get(node)===source&&node.nodeValue===source){
+     const next=translateInterfaceText(source);
+     if(next!==source)node.nodeValue=next;
+    }
+   });
+   textOriginals.set(node,source);
+  }
+  return;
+ }
  textOriginals.set(node,original);
  if(node.nodeValue!==translated)node.nodeValue=translated;
 }
@@ -202,17 +218,32 @@ function restoreOriginal(){
 export function applyInlineLanguage(root,locale){
  if(observer){observer.disconnect();observer=null}
  pending=false;
+ clearDynamicTranslationQueue();
  if(activeRoot)restoreOriginal();
  activeRoot=root;
+ currentLocale=locale;
  document.documentElement.lang=locale==='en'?'en':'id';
  if(!root||locale!=='en')return;
+ // Also attempt to use an already downloaded browser language pack after navigation.
+ primeDynamicTranslator();
  translateTree(root);
- observer=new MutationObserver(()=>{
+ observer=new MutationObserver((records)=>{
   if(pending)return;
   pending=true;
   queueMicrotask(()=>{
    pending=false;
-   if(observer&&activeRoot)translateTree(activeRoot);
+   if(!observer||!activeRoot||currentLocale!=='en')return;
+   // Process only changed CMS nodes. Rewalking entire articles after every
+   // translation response caused O(n²) work and occasional typing delays.
+   for(const record of records){
+    if(record.type==='childList'){
+     for(const added of record.addedNodes){
+      if(added.nodeType===Node.TEXT_NODE)translateNode(added);
+      else if(added.nodeType===Node.ELEMENT_NODE)translateTree(added);
+     }
+    }else if(record.type==='characterData')translateNode(record.target);
+    else if(record.type==='attributes')translateAttributes(record.target);
+   }
   });
  });
  observer.observe(root,{childList:true,subtree:true,characterData:true,attributes:true,attributeFilter:['placeholder','title','aria-label']});
@@ -220,6 +251,8 @@ export function applyInlineLanguage(root,locale){
 export function stopInlineLanguage(){
  if(observer){observer.disconnect();observer=null}
  pending=false;
+ clearDynamicTranslationQueue();
+ currentLocale='id';
  restoreOriginal();
  activeRoot=null;
  document.documentElement.lang='id';
