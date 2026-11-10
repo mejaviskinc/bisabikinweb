@@ -17,7 +17,7 @@ from pathlib import Path
 from zoneinfo import ZoneInfo
 
 from instagram_autopost import SafeStop, SLOTS, eligible
-from instagram_prepare import render_image, upload_original_image, github_state
+from instagram_prepare import render_image, upload_original_image, github_state, load_font
 
 ROOT = Path("social/instagram")
 BANK = ROOT / "editorial/content.json"
@@ -124,6 +124,23 @@ def write_output(**kwargs):
                 stream.write(key + "=" + str(val) + "\n")
 
 
+
+def render_editorial_image(item: dict, destination: Path) -> None:
+    """Use the existing branded JPEG renderer, with neutral CTA for news."""
+    render_image(item["category"], item["headline"], item["summary"], destination)
+    if item["type"] != "promotion":
+        from PIL import Image, ImageDraw
+        with Image.open(destination) as original:
+            canvas = original.convert("RGB")
+        draw = ImageDraw.Draw(canvas)
+        draw.rounded_rectangle((75, 1170, 1005, 1248), radius=30, fill="#111C25")
+        draw.text((110, 1187), "KONTEKS + SUMBER DI CAPTION", fill="#FFFFFF", font=load_font(28, True))
+        canvas.save(destination, format="JPEG", quality=94, subsampling=0, optimize=True)
+        with Image.open(destination) as check:
+            if check.format != "JPEG" or check.size != (1080, 1350):
+                raise SafeStop("Generated editorial artwork must be 1080x1350 JPEG")
+
+
 def prepare(item: dict, now: dt.datetime) -> None:
     if os.getenv("GITHUB_REF") != "refs/heads/main" or os.getenv("IG_AUTOPUBLISH_ENABLED") != "true":
         raise SafeStop("Cannot upload editorial media outside active main workflow")
@@ -138,7 +155,7 @@ def prepare(item: dict, now: dt.datetime) -> None:
     if item["id"] in state["entries"]:
         raise SafeStop("Editorial item already claimed/published; no duplicate")
     output_path = RUNTIME / (item["id"] + ".jpg")
-    render_image(item["category"], item["headline"], item["summary"], output_path)
+    render_editorial_image(item, output_path)
     asset_path = "social/instagram/generated/" + item["id"] + ".jpg"
     image_url = upload_original_image(
         os.environ["GITHUB_REPOSITORY"], os.environ["GITHUB_TOKEN"], output_path, asset_path
@@ -162,6 +179,7 @@ def main() -> int:
     group.add_argument("--validate-only", action="store_true")
     group.add_argument("--select", action="store_true")
     group.add_argument("--prepare", action="store_true")
+    group.add_argument("--render-preview", action="store_true")
     parser.add_argument("--date")
     parser.add_argument("--slot")
     args = parser.parse_args()
@@ -170,6 +188,12 @@ def main() -> int:
         validate(items)
         if args.validate_only:
             print("VALIDATE_ONLY; old quote queue untouched; no publication")
+            return 0
+        if args.render_preview:
+            for item in items:
+                output = RUNTIME / "editorial-preview" / (item["id"] + ".jpg")
+                render_editorial_image(item, output)
+                print("PREVIEW_READY", output, output.stat().st_size)
             return 0
         now = dt.datetime.now(TZ)
         state = read_state()
