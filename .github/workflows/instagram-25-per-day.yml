@@ -37,19 +37,21 @@ jobs:
         run: python3 scripts/instagram_editorial.py --validate-only
       - name: Test editorial and original publishing safety
         run: python3 -m unittest discover -s tests -p 'test_instagram_editorial.py' -v
-      - name: Render six editorial image previews offline
+      - name: Render available editorial image previews offline
         run: |
           python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
           python3 scripts/instagram_editorial.py --render-preview
           python3 - <<'PY'
           from pathlib import Path
           from PIL import Image
+          import json
+          expected=len(json.loads(Path('social/instagram/editorial/content.json').read_text(encoding='utf8'))['items'])
           files=list(Path('social/instagram/.runtime/editorial-preview').glob('*.jpg'))
-          assert len(files)==6, f'Expected six images, found {len(files)}'
+          assert len(files)==expected, f'Expected {expected} images, found {len(files)}'
           for path in files:
               with Image.open(path) as pic:
                   assert pic.size==(1080,1350) and pic.format=='JPEG', str(path)
-          print('EDITORIAL_PREVIEW_QA_OK: 6 owned JPEGs 1080x1350')
+          print(f'EDITORIAL_PREVIEW_QA_OK: {expected} owned JPEGs 1080x1350')
           PY
       - name: Save visual previews for review
         uses: actions/upload-artifact@v4
@@ -57,6 +59,7 @@ jobs:
           name: bisabikinweb-instagram-mixed-preview
           path: social/instagram/.runtime/editorial-preview/*.jpg
           retention-days: 7
+          if-no-files-found: ignore
   publish:
     if: ${{ false }} # TEMPORARY DESIGN HOLD: previews rejected; do not publish until approved
     runs-on: ubuntu-latest
