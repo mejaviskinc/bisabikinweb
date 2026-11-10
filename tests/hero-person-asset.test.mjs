@@ -4,13 +4,21 @@ import {readFileSync} from 'node:fs';
 
 const source=path=>readFileSync(new URL('../'+path,import.meta.url),'utf8');
 
-test('homepage hero contains the WebP cutout alongside existing mockups',()=>{
+test('homepage uses the photo cutout with linked, factual service cards',()=>{
   const studio=source('static-source/features/Studio.tsx');
-  assert.ok(studio.includes('<BrandShowcase/>'));
-  assert.ok(studio.includes('<BrandShowcase compact/>'));
-  assert.ok(studio.includes('className="hero-person-cutout"'));
-  assert.ok(studio.includes('src={heroPersonImage}'));
+  const hero=studio.slice(studio.indexOf('function AnimatedHeroShowcase()'),studio.indexOf('function Home({data',studio.indexOf('function AnimatedHeroShowcase()')));
+  assert.ok(hero.includes('className="hero-person-cutout"'));
+  assert.ok(hero.includes('src={heroPersonImage}'));
   assert.ok(studio.includes("import {heroPersonImage} from '../lib/hero-person-image.mjs'"));
+  assert.ok(!hero.includes('<BrandShowcase/>'),'Old illustrated mockup must be removed from hero');
+  assert.ok(!hero.includes('<BrandShowcase compact/>'),'Old secondary mockup must be removed from hero');
+  for(const route of ['/jasa/landing-page/','/jasa/company-profile/','/jasa/ecommerce/','/jasa/custom-website/','/jasa/maintenance/']){
+    assert.ok(hero.includes('href="'+route+'"'),route+' must be clickable');
+  }
+  for(const label of ['Landing Page','Company Profile','Toko Online','Custom Web App','Website Maintenance']){
+    assert.ok(hero.includes(label),'Service should be prominently listed: '+label);
+  }
+  assert.ok(!/500\+|10M\+|klien puas/i.test(hero),'Unverified performance figures should not be shown');
 });
 
 test('native WebP data image is valid and compact',()=>{
