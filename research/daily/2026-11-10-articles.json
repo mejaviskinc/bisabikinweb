@@ -565,5 +565,18 @@
     "site_check": "URL artikel snack ekspor tidak dapat diakses melalui pemeriksa web; status live belum terkonfirmasi",
     "publication_check": "Tidak ada perubahan status artikel yang diklaim pada putaran ini",
     "editorial_note": "Sumber yang diverifikasi bersifat panduan evergreen; tidak dianggap perkembangan industri 24-72 jam."
-  }
+  },
+  "operational_checks": [
+    {
+      "id": "cms-recheck-2026-11-10-0734",
+      "checked_at": "2026-11-10T07:34:16+07:00",
+      "kind": "cms_and_live_audit",
+      "result": "Supabase project kdlrobdzlxpjlkxbvzsd ACTIVE_HEALTHY. Query public.bbweb_articles for published_at/created_at local date 2026-11-10 returned 0 rows. Repository static-source/lib/editorial-20261110.mjs still contains one evergreen article, 'panduan-ekspor-makanan-ringan-umkm-katalog-buyer-australia'. Direct URL check via web tool inaccessible; no live claim. GitHub workflow generate-editorial-covers.yml requires OPENAI_API_KEY and dispatch; no generation was attempted, no image files verified. Scheduling per post not confirmed. ITA common export documents verified 2026-11-10; packing list is not a substitute for commercial invoice and importer/forwarder should confirm destination-specific requirements.",
+      "sources": [
+        "https://www.trade.gov/common-export-documents"
+      ],
+      "next_action": "Complete four nonduplicated substantive drafts with verifiable visual assets, verify CMS scheduling support and test live URLs before publication.",
+      "status": "verified_cms_zero;repo_one;live_unverified"
+    }
+  ]
 }
