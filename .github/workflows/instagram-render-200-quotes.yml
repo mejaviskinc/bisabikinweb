@@ -1,0 +1,44 @@
+name: Instagram BisaBikinWeb Render 200 Original Quotes
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/instagram-render-200-quotes.yml'
+      - 'scripts/instagram_render_200_quotes.py'
+      - 'social/instagram/drafts/2026-11-11-200-quotes.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: bisabikinweb-instagram-render-200
+  cancel-in-progress: false
+jobs:
+  render:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install source-pinned Pillow and Inter
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-inter
+          python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
+      - name: Render and validate exactly 200 Canva-style quotes offline
+        run: python3 scripts/instagram_render_200_quotes.py
+      - name: Validate dates and unique image files
+        run: |
+          python3 -c 'from pathlib import Path; import json; root=Path("social/instagram"); queue=json.loads((root/"quotes_200_queue.json").read_text())["items"]; images=list((root/"rendered/quotes-200-20261111").glob("*.jpg")); assert len(images)==200 and len(queue)==200; assert len({q["id"] for q in queue})==200; assert len({(q["date"],q["slot"]) for q in queue})==200; print("VALIDATED_200_UNIQUE")'
+      - name: Commit prepared images and future queue (do not publish)
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add social/instagram/rendered/quotes-200-20261111/ social/instagram/quotes_200_queue.json
+          if git diff --cached --quiet; then
+            echo 'ALREADY_RENDERED; nothing changed'
+            exit 0
+          fi
+          git commit -m 'media(instagram): 200 ready original brand quote images for staggered posting'
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo '200_ASSETS_QUEUED; NO_POST_OCCURRED_DURING_RENDER'
