@@ -173,7 +173,7 @@ for(const label of ['Beranda','Beli Website','Portofolio','FAQ']){
  assert.ok(nationwideHome.includes('>'+label+'</a>'),'Main navigation is missing '+label);
 }
 for(const label of ['Layanan','Media','Tentang']){
- assert.ok(nationwideHome.includes('<summary>'+label+' '),'Main navigation is missing grouped menu '+label);
+ assert.match(nationwideHome,new RegExp('<summary[^>]*>'+label+'(?:\\s|<)'),'Main navigation is missing grouped menu '+label);
 }
 assert.match(nationwideHome,/<details class="site-nav-dropdown">/,'Layanan must offer a dropdown');
 assert.match(nationwideHome,/href="\/jasa\/company-profile\/"/,'Service flyout must link to company profile');
