@@ -79,6 +79,7 @@ async function isAdmin(user:any){
 const allowedStatuses=new Set(['requested','reviewing','proposal','awaiting_payment','in_progress','client_review','revision','completed','cancelled']);
 const allowedDomainStatuses=new Set(['unchecked','manual_review','available','unavailable','registered']);
 const builtInConcepts=new Set(['studio-umkm','corporate-grid','shop-essentials','global-trade','tour-story','cafe-menu','atelier','campus-info']);
+const instantCheckoutPackages=new Set(['starter','business','commerce']);
 const categories=new Set(['umkm','company-profile','toko-online','ekspor','travel','restoran','fashion','pendidikan']);
 async function notifyWebsiteEmail(orderId:string){
  // No consumer data or email credentials enter the browser.
@@ -108,6 +109,15 @@ Deno.serve(async(req:Request)=>{
    const found=await db('bbweb_website_packages?select=slug,base_price,is_active&slug=eq.'+encodeURIComponent(packageSlug)+'&is_active=eq.true&limit=1');
    const pack=Array.isArray(found)?found[0]:null;
    if(!pack)fail('Paket website belum tersedia.');
+   // Only predefined standard packages can skip quotation. Server catalog price is the sole payment amount.
+   const listedPrice=pack.base_price==null?null:Number(pack.base_price);
+   const directCheckout=input.checkout_mode==='instant';
+   if(directCheckout){
+    if(!instantCheckoutPackages.has(packageSlug)||!Number.isSafeInteger(listedPrice)||listedPrice===null||listedPrice<1||listedPrice>999999999999)
+     fail('Paket ini membutuhkan penawaran manual sebelum pembayaran.',409);
+    if(Number(input.expected_base_price)!==listedPrice)
+     fail('Harga paket berubah. Muat ulang halaman dan periksa nominal sebelum pembayaran.',409);
+   }
    if(templateSlug&&!builtInConcepts.has(templateSlug)){
     const rows=await db('bbweb_website_templates?select=slug&slug=eq.'+encodeURIComponent(templateSlug)+'&is_active=eq.true&limit=1');
     if(!Array.isArray(rows)||!rows[0])fail('Desain yang dipilih belum tersedia.');
@@ -125,13 +135,16 @@ Deno.serve(async(req:Request)=>{
    const orderNo='BW-'+shortHex();
    const payload={order_no:orderNo,user_id:user.id,package_slug:packageSlug,template_slug:templateSlug,
     category,full_name:name,email:String(user.email).toLowerCase(),phone,company,requested_domain:domain,
-    reference_url:reference,brief,base_price_snapshot:pack.base_price,status:'requested',
+    reference_url:reference,brief,base_price_snapshot:pack.base_price,
+    quoted_total:directCheckout?listedPrice:null,status:directCheckout?'awaiting_payment':'requested',
     domain_status:domain?'manual_review':'unchecked',payment_status:'not_invoiced',updated_at:now};
    const inserted=await db('bbweb_website_orders',{method:'POST',headers:{Prefer:'return=representation'},body:JSON.stringify(payload)});
    const order=Array.isArray(inserted)?inserted[0]:null;if(!order)fail('Permintaan belum tersimpan.',503);
-   await db('bbweb_website_order_events',{method:'POST',headers:{Prefer:'return=minimal'},body:JSON.stringify({order_id:order.id,actor_user_id:user.id,event_type:'requested',note:'Brief pesanan website diterima.'})}).catch(()=>{});
+   await db('bbweb_website_order_events',{method:'POST',headers:{Prefer:'return=minimal'},body:JSON.stringify({order_id:order.id,actor_user_id:user.id,event_type:'requested',
+    note:directCheckout?'Paket standar siap dibayar. Biaya domain/hosting dan add-on belum termasuk; domain masih perlu pemeriksaan.':'Brief custom diterima untuk penawaran.'})}).catch(()=>{});
    await notifyWebsiteEmail(order.id);
-   return response({order:{id:order.id,order_no:orderNo,status:'requested',payment_status:'not_invoiced'}},200,origin);
+   return response({order:{id:order.id,order_no:orderNo,status:payload.status,payment_status:'not_invoiced',
+    quoted_total:payload.quoted_total,checkout_ready:directCheckout}},200,origin);
   }
   if(action==='my_orders'){
    const orders=await db('bbweb_website_orders?select=id,order_no,full_name,email,phone,company,category,package_slug,template_slug,requested_domain,domain_status,quoted_total,status,payment_status,created_at,updated_at&user_id=eq.'+encodeURIComponent(user.id)+'&order=created_at.desc&limit=100');
@@ -174,7 +187,7 @@ Deno.serve(async(req:Request)=>{
    const rows=await db('bbweb_website_orders?select=id,order_no,user_id,full_name,email,phone,company,package_slug,quoted_total,status,payment_status&id=eq.'+encodeURIComponent(id)+'&user_id=eq.'+encodeURIComponent(user.id)+'&limit=1');
    const order=Array.isArray(rows)?rows[0]:null;
    if(!order)fail('Pesanan tidak ditemukan atau bukan milik akun ini.',404);
-   if(order.status!=='awaiting_payment'||order.payment_status==='paid'||!Number.isSafeInteger(Number(order.quoted_total))||Number(order.quoted_total)<1)fail('Penawaran belum disetujui admin atau sudah lunas.',409);
+   if(order.status!=='awaiting_payment'||order.payment_status==='paid'||!Number.isSafeInteger(Number(order.quoted_total))||Number(order.quoted_total)<1)fail('Pesanan belum siap dibayar atau sudah lunas.',409);
    const invoice='BWS'+String(order.id).replaceAll('-','').slice(0,23).toUpperCase();
    const claim=await rpc('bbweb_claim_website_doku_payment',{p_order_id:order.id,p_invoice:invoice,p_environment:settings.environment});
    const payment=claim?.payment;
