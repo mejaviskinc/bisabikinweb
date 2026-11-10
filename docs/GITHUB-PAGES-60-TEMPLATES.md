@@ -16,6 +16,46 @@
 - GitHub API transient errors are retried with pauses, with an eight-second delay between repos to reduce secondary rate limits; reruns resume safely without a force push. It never manages Hostinger DNS.
 - GitHub Actions **Publish 60 GitHub Pages template sites (manual approval)** is manual-only, has a Boolean confirmation, never runs on push, and refuses to overwrite repositories without a matching ownership marker. It can safely resume partial publication.
 
+## Recommended option: GitHub CLI browser login, no PAT secret
+
+Use this alternative if GitHub Actions keeps failing at the `TEMPLATE_PAGES_PAT` step.
+It uses the existing GitHub account's browser authorization, with no GitHub token copied
+into the project, chat, or Actions Secrets. It does not use Netlify, Cloudflare or
+paid Hostinger web hosting. Existing Hostinger CNAME records stay unchanged.
+
+On your Mac, install Node.js 22+ and GitHub CLI if necessary, then in Terminal:
+
+```bash
+# Install GitHub CLI if it is not installed:
+brew install gh
+
+# Clone the existing single-source GitHub repository:
+git clone https://github.com/mejaviskinc/bisabikinweb.git
+cd bisabikinweb
+
+# Approve access securely in your browser as mejaviskinc:
+gh auth login --hostname github.com --web --git-protocol https --scopes repo
+
+# First verify bundles WITHOUT changing any other repository:
+bash scripts/publish-template-pages-local.sh --check
+
+# Then publish the 60 separate PUBLIC GitHub Pages sites:
+bash scripts/publish-template-pages-local.sh --publish
+```
+
+The publisher checks your authenticated username is `mejaviskinc` before writing;
+an existing unrelated repository is not overwritten. It can be run again safely
+after a partial failure. Each site receives its unique CNAME and custom Pages domain.
+HTTPS certificates are provisioned by GitHub and may not be ready immediately.
+Check all 60 URLs and brands before switching main catalog links.
+
+**Important:** Browser authorization grants GitHub CLI repository permissions.
+Only approve it if you intend to create/update 60 public template repositories.
+If `git clone` reports the target directory already exists, run these commands
+from your existing clean `bisabikinweb` repository after `git pull` instead.
+
+## Alternative option: GitHub Actions secret
+
 ## Owner action required once
 1. On GitHub, create a short-lived token **under the `mejaviskinc` account** authorized to create PUBLIC repositories, push content, and edit Pages settings. GitHub REST Pages settings update requires a classic PAT with `repo` scope, or a suitable fine-grained token granted access to **all repositories (including newly created ones)** and Repository creation, Contents write, Administration write, and Pages write permissions. Prefer least privilege and a short expiration.
 2. Store it in the `mejaviskinc/bisabikinweb` repository **Settings → Secrets and variables → Actions → New repository secret** as `TEMPLATE_PAGES_PAT`. Do NOT paste the token into chat, an issue, source code or PR.

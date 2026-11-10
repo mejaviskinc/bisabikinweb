@@ -36,10 +36,14 @@ if [[ "$mode" == "--check" ]]; then
   exit 0
 fi
 
-if [[ -z "${GH_TOKEN:-}" ]]; then
-  echo "Missing TEMPLATE_PAGES_PAT Actions secret; publication stopped before creating repositories." >&2
+# GitHub Actions uses GH_TOKEN from a protected repository secret.
+# For local deployment, gh auth login --web --scopes repo is sufficient:
+# gh securely manages credentials, no PAT need be pasted into source or chat.
+if [[ -z "${GH_TOKEN:-}" ]] && ! gh auth status --hostname github.com >/dev/null 2>&1; then
+  echo "No authenticated GitHub CLI session. On your Mac run: gh auth login --hostname github.com --web --git-protocol https --scopes repo" >&2
   exit 1
 fi
+GH_OWNER="${GH_OWNER:-mejaviskinc}"
 if [[ "${GH_OWNER:-}" != "mejaviskinc" ]]; then
   echo "Refusing unexpected GitHub repository owner." >&2
   exit 1
