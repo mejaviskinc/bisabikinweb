@@ -49,6 +49,6 @@ test('new Supabase tables have RLS, ownership checks, and no existing merch muta
 test('catalog illustrations and manual domain status are labeled honestly',()=>{
  assert.match(storefront,/Ilustrasi konsep/);
  assert.match(storefront,/perlu verifikasi manual/);
- assert.match(storefront,/bukan pembayaran otomatis/);
+ assert.match(storefront,/langsung diarahkan ke pembayaran resmi DOKU/);
  assert.match(storefront,/harga mulai|Harga mulai|Estimasi harga mulai/);
 });
