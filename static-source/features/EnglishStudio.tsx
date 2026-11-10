@@ -1,14 +1,15 @@
 import FooterPaymentMethods from '../components/FooterPaymentMethods';
 import {useEffect, useState} from 'react';
-import {ArrowUpRight, Menu, X} from 'lucide-react';
-import {Logo} from '../components/Visuals';
+import {ArrowUpRight, Check, Menu, MessageCircle, X} from 'lucide-react';
+import {BrandShowcase, Logo, PortfolioVisual} from '../components/Visuals';
+import {Consultation} from './Forms';
 import {defaults} from '../lib/data';
 import {whatsapp} from '../lib/client';
-import {englishHref, englishServices, formatEnglishPrice} from '../lib/languages.mjs';
+import {englishHref, englishServices, formatEnglishPrice, indonesianSwitchHref} from '../lib/languages.mjs';
 
 const navigation = [
-  ['Services', '/jasa'], ['Portfolio', '/portfolio'], ['Pricing', '/harga'],
-  ['About', '/tentang'], ['Contact', '/kontak'],
+  ['Services', '/jasa'], ['Pricing', '/harga'], ['Online Store', '/jasa/ecommerce'],
+  ['Portfolio', '/portfolio'], ['About', '/tentang'], ['Contact', '/kontak'],
 ];
 
 const plans: Record<string, string[]> = {
@@ -21,8 +22,8 @@ const plans: Record<string, string[]> = {
 function Services() {
   return <div className="services-grid">{Object.entries(englishServices).map(([id, [name, description, features]]) =>
     <a className="service-card" href={englishHref('/jasa/' + id)} key={id}>
-      <div className="service-top"><span className="service-icon service-text-icon" aria-hidden="true">WEB</span><ArrowUpRight size={20}/></div>
-      <h3>{name}</h3><p>{description}</p>
+      <div className="service-top"><span className="service-icon" aria-hidden="true">{defaults.services.find((s: {id:string;icon:string})=>s.id===id)?.icon||'↗'}</span><ArrowUpRight size={20}/></div>
+      <small>{defaults.services.find((s: {id:string;tag:string})=>s.id===id)?.tag}</small><h3>{name}</h3><p>{description}</p>
       <div className="service-features">{features.slice(0, 3).map(feature => <span key={feature}>{feature}</span>)}</div>
     </a>
   )}</div>;
@@ -33,20 +34,20 @@ function Pricing() {
     <div className={'price-card ' + (plan.featured ? 'featured' : '')} key={plan.id}>
       <small>{plan.name.toUpperCase()}</small>
       <h3>{plan.price ? formatEnglishPrice(plan.price) : 'Request a quote'}</h3>
-      {plan.price && <span className="price-note">Starting price in USD per project</span>}
-      <div>{plans[plan.id].map(feature => <p className="price-feature" key={feature}>{feature}</p>)}</div>
-      <a className="btn" href={englishHref('/kontak')}>Discuss this package <ArrowUpRight size={16}/></a>
+      <span className="price-note">{plan.price?'Starting price / project (IDR)':'Scope-based estimate'}</span>
+      <div>{plans[plan.id].map(feature => <p className="price-feature" key={feature}><Check size={15}/>{feature}</p>)}</div>
+      <a className={'btn '+(plan.featured?'primary':'')} href={englishHref('/kontak')+'?estimate='+encodeURIComponent('Website package: '+plan.name)}>Discuss this package <ArrowUpRight size={16}/></a>
     </div>
-  )}</div><p className="pricing-disclaimer">Your proposal covers scope, revisions, domain, hosting, and integration costs. We agree on the final price before work starts.</p></>;
+  )}</div><p className="pricing-disclaimer">Published prices are the same IDR amounts in both languages, not multiplied for English visitors. Other currencies, scope, revisions, domain, hosting, and integrations are agreed in a written quote.</p></>;
 }
 
 function Portfolio() {
-  return <div className="services-grid">{defaults.portfolio.map((project: {id: string; name: string; category: string; domain?: string; live?: string}) => {
-    const details = <><small>{project.category}</small><h3>{project.name}</h3>{project.domain && <p>{project.domain}</p>}</>;
-    return project.live?.startsWith('https://')
-      ? <a className="service-card" href={project.live} key={project.id} target="_blank" rel="noopener noreferrer">{details}<span className="text-link">Visit website <ArrowUpRight size={16}/></span></a>
-      : <div className="service-card" key={project.id}>{details}</div>;
-  })}</div>;
+  return <div className="portfolio-grid">{defaults.portfolio.map((project: {id:string;name:string;category:string;tag?:string;year?:string;live?:string;domain?:string}) =>
+    <a className="project-card" key={project.id} href={project.live||'/portfolio/'+project.id+'/'} target={project.live?'_blank':undefined} rel={project.live?'noopener noreferrer':undefined}>
+      <PortfolioVisual project={project}/>
+      <div className="project-caption"><div><small>{project.tag||project.category}</small><h3>{project.name}</h3></div><span className="circle-link"><ArrowUpRight size={20}/></span></div>
+    </a>
+  )}</div>;
 }
 
 function EnglishContent({path}: {path: string}) {
@@ -57,18 +58,21 @@ function EnglishContent({path}: {path: string}) {
     return <section className="section service-detail">
       <div className="breadcrumbs"><a href={englishHref('/jasa')}>Services</a><span>/</span>{name}</div>
       <div className="page-intro"><h1>{name}<em>↗</em></h1><p>{description}</p></div>
-      <h2>Available features</h2><ul>{features.map(feature => <li key={feature}>{feature}</li>)}</ul>
+      <div className="service-detail-grid"><h2>Features for your<br/>website project.</h2><div>{features.map((feature,i) => <div className="feature-line" key={feature}><span>0{i+1}</span><h3>{feature}</h3><Check size={20}/></div>)}</div></div>
       <div className="case-study-links"><h2>Planning a project from another country?</h2><p>We coordinate website briefs, design reviews, and project updates remotely. Share your business country, preferred language, required pages, integrations, budget range, and timeline. Your proposal sets out the agreed scope and delivery process.</p><div className="seo-related"><a href={englishHref('/portfolio')}>See selected work <ArrowUpRight size={15}/></a><a href={englishHref('/harga')}>Compare starting prices <ArrowUpRight size={15}/></a></div></div>
       <a className="btn primary" href={contact}>Discuss your project <ArrowUpRight size={17}/></a>
     </section>;
   }
   if (path === '/kontak') {
     const {email, whatsapp: phone} = defaults.settings;
-    return <section className="section">
-      <div className="page-intro"><span className="eyebrow">FREE WEBSITE CONSULTATION</span><h1>Tell us what you want to <em>build.</em></h1>
-        <p>We welcome remote project inquiries from Indonesia and other countries. Tell us your business location, goals, required pages or integrations, preferred language, approximate budget, and timeline. We will discuss availability and confirm the scope before any project begins.</p></div>
-      <div className="hero-actions"><a className="btn primary" href={whatsapp(phone, 'Hello BisaBikinWeb, I would like to discuss a website project.')}>Chat on WhatsApp <ArrowUpRight size={17}/></a>
-        <a className="btn" href={'mailto:' + email}>Email the studio <ArrowUpRight size={17}/></a></div>
+    return <section className="section contact-page">
+      <div><span className="eyebrow">YOUR NEXT BIG THING STARTS HERE.</span><h1>Tell us.<br/>We'll <em>build it.</em></h1>
+        <p>We welcome remote projects from Indonesia and other countries. Share your business location, the pages or features you need, your budget range, and preferred launch date.</p>
+        <div className="contact-notes"><p><Check size={17}/>Free initial consultation</p><p><Check size={17}/>No technical background required</p><p><Check size={17}/>Written scope before a project begins</p></div>
+        <a className="text-link" href={whatsapp(phone,'Hello BisaBikinWeb, I would like to discuss a website project.')}><MessageCircle size={18}/>Chat on WhatsApp <ArrowUpRight size={17}/></a>
+        <p><a href={'mailto:'+email}>{email}</a></p>
+      </div>
+      <Consultation locale="en"/>
     </section>;
   }
   if (path === '/tentang') return <section className="section about-page">
@@ -89,14 +93,34 @@ function EnglishContent({path}: {path: string}) {
     <div className="page-intro"><span className="eyebrow">SELECTED WORK</span><h1>Our website <em>portfolio.</em></h1>
       <p>Explore selected live websites in fashion, beauty, furniture, travel, and business services. Project descriptions below are examples, not guarantees of commercial results.</p></div><Portfolio/><div className="case-study-links"><h2>Learn more about the projects</h2><p>The detailed case studies are currently in Indonesian; the live sites can be explored directly.</p><div className="seo-related"><a href="/portfolio/mejavi-skin/">Mejavi Skin+ case study (ID) <ArrowUpRight size={15}/></a><a href="/portfolio/gooninks/">GoO Ninks case study (ID) <ArrowUpRight size={15}/></a><a href="/portfolio/gojogja-travel/">GoJogja Travel case study (ID) <ArrowUpRight size={15}/></a><a href={contact}>Discuss a similar website <ArrowUpRight size={15}/></a></div></div>
   </section>;
-  return <><section className="section">
-    <div className="page-intro"><span className="eyebrow">INDEPENDENT DIGITAL STUDIO · INDONESIA</span>
-      <h1>Professional websites <em>for growing businesses.</em></h1>
-      <p>We design and build responsive company websites, online stores, and custom web apps. Based in Yogyakarta, Indonesia, our studio welcomes remote website projects from businesses worldwide, with scope and delivery agreed before work begins.</p></div>
-    <div className="hero-actions"><a className="btn primary" href={contact}>Free consultation <ArrowUpRight size={17}/></a>
-      <a className="btn" href={englishHref('/portfolio')}>View portfolio <ArrowUpRight size={17}/></a></div>
-  </section><section className="section services-section"><div className="section-heading"><h2>Website services</h2></div><Services/></section>
-  <section className="section pricing-section"><div className="section-heading"><h2>Website packages</h2></div><Pricing/></section></>;
+  return <>
+    <section className="hero">
+      <div className="hero-top"><span className="eyebrow"><i className="status-dot"/>INDEPENDENT DIGITAL STUDIO · INDONESIA</span><span className="hero-availability">Remote projects worldwide <span>↗</span></span></div>
+      <div className="hero-layout"><div className="hero-copy">
+        <h1>Website development<br/>for growing businesses<br/><span>around the world.</span></h1>
+        <p>We build professional websites, online stores, and custom web apps. Based in Yogyakarta, Indonesia, our studio works remotely with businesses worldwide, including companies across Indonesia.</p>
+        <div className="hero-actions"><a className="btn primary" href={contact}>Start your website project <ArrowUpRight size={18}/></a><a className="btn plain" href={englishHref('/portfolio')}>Explore our work <ArrowUpRight size={17}/></a></div>
+        <div className="hero-foot"><span>DESIGN · DEVELOPMENT · SUPPORT</span><span>INDONESIA / GLOBAL</span></div>
+      </div><div className="hero-showcase"><BrandShowcase/></div></div>
+    </section>
+    <section className="section sitelink-hub" aria-labelledby="en-sitelinks-title">
+      <div className="sitelink-heading"><span className="eyebrow">EXPLORE BISABIKINWEB</span><h2 id="en-sitelinks-title">Find the right website service.</h2><p>Compare services, see real projects, review pricing, and contact our team.</p></div>
+      <nav className="sitelink-grid" aria-label="Main website services">
+        {[
+          ['Services','/jasa','Company websites, online stores, and custom web apps'],
+          ['Pricing','/harga','Starting prices and project scope'],
+          ['Online stores','/jasa/ecommerce','Product catalogs, ordering, and agreed integrations'],
+          ['Portfolio','/portfolio','Examples of published website projects'],
+          ['About us','/tentang','Our approach and remote project process'],
+          ['Contact','/kontak','Request a tailored quote online']
+        ].map(([label,route,description])=><a className="sitelink-card" key={route} href={englishHref(route)}><span>{label}</span><p>{description}</p><ArrowUpRight size={19} aria-hidden="true"/></a>)}
+      </nav>
+    </section>
+    <section className="section services-section"><div className="section-heading"><div><span className="eyebrow">WHAT WE BUILD</span><h2>Professional website services.</h2><p>Explore services for different business needs.</p></div><a className="text-link" href={englishHref('/jasa')}>All services <ArrowUpRight size={17}/></a></div><Services/></section>
+    <section className="section work-section"><div className="section-heading"><div><span className="eyebrow">SELECTED WORK</span><h2>Websites with a purpose.</h2><p>Real project examples you can explore.</p></div><a className="text-link" href={englishHref('/portfolio')}>Explore portfolio <ArrowUpRight size={17}/></a></div><Portfolio/></section>
+    <section className="section pricing-section"><div className="section-heading"><div><span className="eyebrow">CLEAR PROJECT SCOPE</span><h2>Website packages & pricing.</h2><p>Identical published starting prices in both languages, quoted in IDR.</p></div><a className="text-link" href={englishHref('/harga')}>Pricing details <ArrowUpRight size={17}/></a></div><Pricing/></section>
+    <section className="final-cta"><span className="eyebrow">LET'S MAKE IT HAPPEN.</span><h2>Ready to build<br/>something <em>useful?</em></h2><div><p>Share your business goals and we'll discuss a website plan that fits.</p><a className="btn primary" href={contact}>Talk to our studio <ArrowUpRight size={18}/></a></div></section>
+  </>;
 }
 
 export default function EnglishStudio({path}: {path: string}) {
@@ -106,21 +130,21 @@ export default function EnglishStudio({path}: {path: string}) {
       document.documentElement.dataset.theme = localStorage.getItem('bbw_theme') === 'light' ? 'light' : 'dark';
     } catch {}
   }, []);
-  const links = navigation.map(([name, route]) => <a href={englishHref(route)} key={route} aria-current={path === route ? 'page' : undefined}>{name}</a>);
+  const links = navigation.map(([name, route]) => <a href={englishHref(route)} key={route} aria-current={path===route||path.startsWith(route+'/')?'page':undefined}>{name}</a>);
   return <><a href="#main" className="skip-link">Skip to content</a>
     <header className="site-header">
       <a href="/en/" aria-label="BisaBikinWeb home"><Logo/></a>
-      <nav aria-label="Main navigation">{links}</nav>
+      <nav aria-label="Main navigation">{links.slice(0,5)}<a href="/beli-website/" lang="id" title="Website catalog is currently in Indonesian">Catalog (ID)</a><a href="/artikel/" lang="id" title="Articles are currently in Indonesian">Articles (ID)</a></nav>
       <div className="nav-actions">
-        <a className="icon-button language-switch" href={path === '/' ? '/' : path + '/'} lang="id" hrefLang="id" aria-label="Bahasa Indonesia">ID</a>
+        <a className="icon-button language-switch" href={indonesianSwitchHref(path)} lang="id" hrefLang="id" aria-label="Lihat halaman ini dalam Bahasa Indonesia" title="Bahasa Indonesia — same page">ID</a><a className="btn nav-cta" href={englishHref('/kontak')}>Free consultation <ArrowUpRight size={16}/></a>
         <button className="icon-button mobile-menu-button" type="button" aria-expanded={menu} aria-controls="english-navigation" aria-label={menu ? 'Close menu' : 'Open menu'} onClick={() => setMenu(!menu)}>{menu ? <X/> : <Menu/>}</button>
       </div>
     </header>
-    {menu && <div className="mobile-menu" id="english-navigation"><div className="mobile-menu-links">{links}</div></div>}
+    {menu && <div className="mobile-menu" id="english-navigation"><div className="mobile-menu-links">{links}<a href="/beli-website/" lang="id">Website catalog (Indonesian)</a><a href="/artikel/" lang="id">Articles (Indonesian)</a></div></div>}
     <main id="main"><EnglishContent path={path}/></main>
     <footer className="site-footer"><div className="footer-top"><div><a href="/en/"><Logo/></a><p>Independent digital studio in Yogyakarta.</p></div>
       <div className="footer-links"><div><small>THE STUDIO</small>{links}</div><div><small>IN INDONESIAN</small>
-        <a href="/artikel/">Articles (ID)</a><a href="/berita/">News (ID)</a><a href="/merch/">Merchandise (ID)</a><a href="/privacy/">Privacy policy (ID)</a>
+        <a href="/beli-website/" lang="id">Website catalog (ID)</a><a href="/artikel/" lang="id">Articles (ID)</a><a href="/berita/" lang="id">News (ID)</a><a href="/merch/">Merchandise (ID)</a><a href="/privacy/">Privacy policy (ID)</a>
       </div></div></div><FooterPaymentMethods english/></footer>
   </>;
 }
