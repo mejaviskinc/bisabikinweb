@@ -1,0 +1,32 @@
+name: Instagram BisaBikinWeb 10 Quotes Approved Immediate Posts
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'social/instagram/commands/publish-quotes-20261110.json'
+permissions:
+  contents: write
+concurrency:
+  group: bisabikinweb-instagram-publish
+  cancel-in-progress: false
+jobs:
+  publish_ten_separate_photos:
+    if: ${{ github.ref == 'refs/heads/main' && vars.IG_AUTOPUBLISH_PAUSED != 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 35
+    env:
+      IG_AUTOPUBLISH_ENABLED: 'true'
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_GRAPH_BASE: ${{ vars.IG_GRAPH_BASE || 'https://graph.facebook.com' }}
+      IG_GRAPH_VERSION: ${{ vars.IG_GRAPH_VERSION || 'v26.0' }}
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install image renderer and font
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-inter
+          python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
+      - name: Publish 10 independent owned branded image posts by Meta Graph API
+        run: python3 scripts/instagram_publish_approved_quotes_20261110.py
