@@ -170,7 +170,10 @@ console.log('National coverage SEO verified: 38 provinces, 14 source-backed loca
 const {sitelinkTargets}=await import('../static-source/lib/sitelinks.mjs');
 assert.equal(sitelinkTargets.length,6,'Homepage should prioritize six core sitelink destinations');
 assert.equal(new Set(sitelinkTargets.map(item=>item.href)).size,6,'Sitelink URLs must be unique');
-assert.match(nationwideHome,/<title>BisaBikinWeb\.id \| Jasa Bikin Website Indonesia &amp; Global<\/title>/,'Branded homepage title must describe national and global availability');
+assert.match(nationwideHome,/<title>BisaBikinWeb Indonesia \\| Jasa Bikin Website Indonesia &amp; Global<\\/title>/,'Branded homepage title must describe national and global availability');
+assert.match(nationwideHome,/<meta property="og:site_name" content="BisaBikinWeb Indonesia"\\/>/,'Open Graph site name should use the chosen brand');
+assert.match(nationwideHome,/<meta name="application-name" content="BisaBikinWeb Indonesia"\\/>/,'Application name should use the chosen brand');
+assert.equal(scripts(nationwideHome).find(s=>s['@type']==='WebSite')?.name,'BisaBikinWeb Indonesia','Google WebSite structured data should use the chosen site name');
 assert.match(nationwideHome,/aria-label="Halaman utama layanan BisaBikinWeb"/,'Homepage must have a clearly labelled priority navigation section');
 for(const target of sitelinkTargets){
  const url=origin+target.href;
