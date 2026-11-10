@@ -181,6 +181,10 @@ assert.match(nationwideHome,/<meta property="og:site_name" content="BisaBikinWeb
 assert.match(nationwideHome,/<meta name="application-name" content="BisaBikinWeb Indonesia"\/>/,'Application name should use the chosen brand');
 assert.equal(scripts(nationwideHome).find(s=>s['@type']==='WebSite')?.name,'BisaBikinWeb Indonesia','Google WebSite structured data should use the chosen site name');
 assert.match(nationwideHome,/aria-label="Halaman utama layanan BisaBikinWeb"/,'Homepage must have a clearly labelled priority navigation section');
+assert.equal((nationwideHome.match(/class="bbw-hero-slide(?: is-active)?"/g)||[]).length,5,'Homepage hero must render five complete slides');
+assert.match(nationwideHome,/aria-label="Slide 5: Siap Berkembang"/,'All hero slides must offer direct navigation');
+assert.match(nationwideHome,/aria-label="Jeda slide otomatis"/,'Hero slider should have an accessible autoplay pause control');
+assert.match(nationwideHome,/YOUR NEXT <b>WEBSITE<\/b>/,'Hero supporting headline should remain steady without rapid text rotation');
 for(const target of sitelinkTargets){
  const url=origin+target.href;
  const route=target.href.replace(/^\/+|\/+$/g,'');
@@ -200,7 +204,7 @@ const jasaHtml=await getHtml('jasa');
 const hargaHtml=await getHtml('harga');
 const portfolioHtml=await getHtml('portfolio');
 const kontakHtml=await getHtml('kontak');
-assert.match(jasaHtml,/<title>Jasa Pembuatan Website untuk Bisnis &amp; Perusahaan \| BisaBikinWeb\.id<\/title>/);
+assert.match(jasaHtml,/<title>Jasa Pembuatan Website untuk Bisnis &amp; Perusahaan \| BisaBikinWeb Indonesia<\/title>/);
 for(const href of ['/harga/','/portfolio/','/artikel/struktur-website-company-profile-b2b-rfq/','/artikel/biaya-website-bisnis-domain-hosting-maintenance/']){
  assert.ok(jasaHtml.includes('href="'+href+'"'),'Jasa page should link to '+href);
 }
