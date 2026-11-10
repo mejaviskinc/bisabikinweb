@@ -42,7 +42,7 @@ async function openaiTranslate(segments:string[],key:string){
 }
 Deno.serve(async(req)=>{
  const origin=req.headers.get('origin')||'';
- if(req.method==='OPTIONS')return ALLOWED_ORIGINS.has(origin)?response({},204,origin):response({error:'origin_not_allowed'},403);
+ if(req.method==='OPTIONS')return ALLOWED_ORIGINS.has(origin)?response({},200,origin):response({error:'origin_not_allowed'},403);
  if(!ALLOWED_ORIGINS.has(origin))return response({error:'origin_not_allowed'},403);
  if(!allowedKey(req.headers.get('apikey')||''))return response({error:'invalid_key'},401,origin);
  const configured=Boolean(Deno.env.get('DEEPL_AUTH_KEY')||Deno.env.get('OPENAI_API_KEY'));
