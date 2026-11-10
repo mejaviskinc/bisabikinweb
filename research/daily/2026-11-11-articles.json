@@ -1,0 +1,522 @@
+{
+  "research_date": "2026-11-11",
+  "timezone": "Asia/Jakarta",
+  "researched_at": "2026-11-11T00:33:51+07:00",
+  "entries": [
+    {
+      "id": "briket-energi-2026-11-11",
+      "category": "Briket & Energi",
+      "topic": "Pemantauan arsip 10 November; belum ada verifikasi sumber primer baru pada putaran awal 11 November",
+      "summary": "Konteks dibawa dari arsip 10 November; tidak ada klaim fakta baru yang diverifikasi pada putaran ini. Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-11T00:33:51+07:00",
+      "geography": "Indonesia dan pasar tujuan",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Jangan mengambil keputusan usaha dari temuan lama sebelum melakukan verifikasi sumber dan tanggal.",
+      "content_angle": "Pantau dokumen kebijakan E20 dan dampaknya terhadap bahan baku serta distribusi.",
+      "keyword_intent": "kebijakan E20 Indonesia 2026",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-11",
+      "verification_note": "Sumber dan tanggal dari arsip sebelumnya, belum diperiksa ulang hari ini; jangan ditafsirkan sebagai berita 24 jam terakhir."
+    },
+    {
+      "id": "digitalisasi-website-2026-11-11",
+      "category": "Digitalisasi & Website",
+      "topic": "Pemantauan arsip 10 November; belum ada verifikasi sumber primer baru pada putaran awal 11 November",
+      "summary": "Konteks dibawa dari arsip 10 November; tidak ada klaim fakta baru yang diverifikasi pada putaran ini. Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-11T00:33:51+07:00",
+      "geography": "Indonesia dan pasar tujuan",
+      "facts": [
+        {
+          "claim": "Google mendukung structured data Article, NewsArticle, dan BlogPosting untuk membantu memahami judul, gambar, tanggal, serta penulis artikel; implementasi harus cocok dengan konten yang tampak.",
+          "source_urls": [
+            "https://developers.google.com/search/docs/appearance/structured-data/article?hl=id"
+          ]
+        },
+        {
+          "claim": "Google merekomendasikan author, headline, image, datePublished dan dateModified untuk Article/BlogPosting, serta pengujian Rich Results Test dan URL Inspection setelah implementasi.",
+          "source_urls": [
+            "https://developers.google.com/search/docs/appearance/structured-data/article"
+          ]
+        },
+        {
+          "claim": "Google menyatakan Article/BlogPosting structured data membantu pemahaman konten, tetapi tidak menjamin rich result; pengujian dianjurkan dengan Rich Results Test dan URL Inspection. Canonical harus konsisten dengan halaman yang dimaksud.",
+          "source_urls": [
+            "https://developers.google.com/search/docs/appearance/structured-data/article"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://developers.google.com/search/docs/appearance/structured-data/article?hl=id",
+          "publisher": "Google Search Central",
+          "source_published_at": null,
+          "accessed_at": "2026-11-10T04:34:15+07:00",
+          "previously_checked_at": "2026-11-10T04:34:15+07:00"
+        },
+        {
+          "url": "https://developers.google.com/search/docs/appearance/structured-data/article",
+          "publisher": "Google Search Central",
+          "source_published_at": null,
+          "accessed_at": "2026-11-10T06:26:11+07:00",
+          "previously_checked_at": "2026-11-10T06:26:11+07:00"
+        }
+      ],
+      "practical_impact": "Jangan mengambil keputusan usaha dari temuan lama sebelum melakukan verifikasi sumber dan tanggal.",
+      "content_angle": "Pantau rilis Komdigi dan OSS mengenai layanan usaha digital.",
+      "keyword_intent": "digitalisasi UMKM Indonesia",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-11",
+      "next_article_candidate": {
+        "title": "Schema BlogPosting dan Canonical Website Bisnis: Implementasi dan Cara Mengujinya",
+        "slug": "schema-blogposting-website-bisnis-canonical-seo",
+        "keyword": "cara pasang schema blogposting canonical website",
+        "search_intent": "informational technical",
+        "reader_pain_point": "Website bisnis memiliki metadata artikel tidak lengkap atau canonical saling bertentangan",
+        "source_url": "https://developers.google.com/search/docs/appearance/structured-data/article",
+        "verification": "primary_source_checked_2026-11-10; country_specific_or_live_implementation_not_checked",
+        "status": "research_only_not_published"
+      },
+      "verification_note": "Sumber dan tanggal dari arsip sebelumnya, belum diperiksa ulang hari ini; jangan ditafsirkan sebagai berita 24 jam terakhir."
+    },
+    {
+      "id": "furniture-kayu-2026-11-11",
+      "category": "Furniture & Kayu",
+      "topic": "Pemantauan arsip 10 November; belum ada verifikasi sumber primer baru pada putaran awal 11 November",
+      "summary": "Konteks dibawa dari arsip 10 November; tidak ada klaim fakta baru yang diverifikasi pada putaran ini. Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-11T00:33:51+07:00",
+      "geography": "Indonesia dan pasar tujuan",
+      "facts": [
+        {
+          "claim": "ISPM 15 mengatur langkah fitosanitari untuk material kemasan kayu mentah dalam perdagangan internasional, termasuk dunnage; kayu olahan tertentu seperti plywood dikecualikan dari cakupan yang dijelaskan.",
+          "source_urls": [
+            "https://www.ippc.int/en/publications/640/"
+          ]
+        },
+        {
+          "claim": "Katalog standar IPPC menampilkan ISPM 15 pada daftar standar yang diadopsi dengan tanggal 28 Juli 2025; halaman publikasi 2021 tidak boleh otomatis dianggap sebagai versi paling baru. Periksa naskah standar yang berlaku dan persyaratan negara tujuan sebelum menerbitkan rincian teknis.",
+          "source_urls": [
+            "https://www.ippc.int/es/core-activities/standards-setting/ispms/"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.ippc.int/en/publications/640/",
+          "publisher": "International Plant Protection Convention (IPPC)",
+          "source_published_at": "2021-07-13",
+          "accessed_at": "2026-11-10T04:34:15+07:00",
+          "previously_checked_at": "2026-11-10T04:34:15+07:00"
+        },
+        {
+          "url": "https://www.ippc.int/es/core-activities/standards-setting/ispms/",
+          "publisher": "IPPC",
+          "source_published_at": null,
+          "accessed_at": "2026-11-10T06:26:11+07:00",
+          "previously_checked_at": "2026-11-10T06:26:11+07:00"
+        }
+      ],
+      "practical_impact": "Jangan mengambil keputusan usaha dari temuan lama sebelum melakukan verifikasi sumber dan tanggal.",
+      "content_angle": "Panduan membaca dampak HPE pada penawaran ekspor kayu.",
+      "keyword_intent": "HPE kayu November 2026",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-11",
+      "next_article_candidate": {
+        "title": "Kemasan Kayu Ekspor: Panduan ISPM 15 untuk Palet, Peti, dan Dokumen Pengiriman",
+        "slug": "panduan-kemasan-kayu-ekspor-ispm15-palet-peti",
+        "keyword": "aturan ISPM 15 kemasan kayu ekspor",
+        "search_intent": "informational compliance",
+        "reader_pain_point": "Eksportir furnitur tidak tahu kapan palet dan peti kayu harus diberi perlakuan/marking",
+        "source_url": "https://www.ippc.int/en/publications/640/",
+        "verification": "primary_source_checked_2026-11-10; country_specific_or_live_implementation_not_checked",
+        "status": "research_only_not_published"
+      },
+      "verification_note": "Sumber dan tanggal dari arsip sebelumnya, belum diperiksa ulang hari ini; jangan ditafsirkan sebagai berita 24 jam terakhir."
+    },
+    {
+      "id": "kakao-coklat-2026-11-11",
+      "category": "Kakao & Coklat",
+      "topic": "Pemantauan arsip 10 November; belum ada verifikasi sumber primer baru pada putaran awal 11 November",
+      "summary": "Konteks dibawa dari arsip 10 November; tidak ada klaim fakta baru yang diverifikasi pada putaran ini. Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-11T00:33:51+07:00",
+      "geography": "Indonesia dan pasar tujuan",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Jangan mengambil keputusan usaha dari temuan lama sebelum melakukan verifikasi sumber dan tanggal.",
+      "content_angle": "Dampak HPE kakao bagi kontrak dan margin eksportir.",
+      "keyword_intent": "HPE kakao November 2026",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-11",
+      "verification_note": "Sumber dan tanggal dari arsip sebelumnya, belum diperiksa ulang hari ini; jangan ditafsirkan sebagai berita 24 jam terakhir."
+    },
+    {
+      "id": "kelapa-turunannya-2026-11-11",
+      "category": "Kelapa & Turunannya",
+      "topic": "Pemantauan arsip 10 November; belum ada verifikasi sumber primer baru pada putaran awal 11 November",
+      "summary": "Konteks dibawa dari arsip 10 November; tidak ada klaim fakta baru yang diverifikasi pada putaran ini. Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-11T00:33:51+07:00",
+      "geography": "Indonesia dan pasar tujuan",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Jangan mengambil keputusan usaha dari temuan lama sebelum melakukan verifikasi sumber dan tanggal.",
+      "content_angle": "Pantau referensi ekspor dan ketentuan karantina negara tujuan.",
+      "keyword_intent": "ekspor kelapa Indonesia",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-11",
+      "verification_note": "Sumber dan tanggal dari arsip sebelumnya, belum diperiksa ulang hari ini; jangan ditafsirkan sebagai berita 24 jam terakhir."
+    },
+    {
+      "id": "kopi-2026-11-11",
+      "category": "Kopi",
+      "topic": "Pemantauan arsip 10 November; belum ada verifikasi sumber primer baru pada putaran awal 11 November",
+      "summary": "Konteks dibawa dari arsip 10 November; tidak ada klaim fakta baru yang diverifikasi pada putaran ini. Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-11T00:33:51+07:00",
+      "geography": "Indonesia dan pasar tujuan",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Jangan mengambil keputusan usaha dari temuan lama sebelum melakukan verifikasi sumber dan tanggal.",
+      "content_angle": "Pantau regulasi negara tujuan dan harga referensi.",
+      "keyword_intent": "ekspor kopi Indonesia",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-11",
+      "verification_note": "Sumber dan tanggal dari arsip sebelumnya, belum diperiksa ulang hari ini; jangan ditafsirkan sebagai berita 24 jam terakhir."
+    },
+    {
+      "id": "logistik-pengiriman-2026-11-11",
+      "category": "Logistik & Pengiriman",
+      "topic": "Pemantauan arsip 10 November; belum ada verifikasi sumber primer baru pada putaran awal 11 November",
+      "summary": "Konteks dibawa dari arsip 10 November; tidak ada klaim fakta baru yang diverifikasi pada putaran ini. Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-11T00:33:51+07:00",
+      "geography": "Indonesia dan pasar tujuan",
+      "facts": [
+        {
+          "claim": "Commercial invoice menjelaskan barang yang dijual dan nilai yang harus dibayar; packing list merinci paket, berat, jumlah, dimensi dan penandaan. Packing list tidak menggantikan commercial invoice.",
+          "source_urls": [
+            "https://www.trade.gov/common-export-documents"
+          ]
+        },
+        {
+          "claim": "International Trade Administration menjelaskan packing list tidak menggantikan commercial invoice; rincian dokumen ekspor perlu dikonfirmasi bersama importir atau freight forwarder untuk tiap tujuan.",
+          "source_urls": [
+            "https://www.trade.gov/common-export-documents"
+          ]
+        },
+        {
+          "claim": "ITA menyarankan mengonfirmasi kebutuhan dokumen dengan importir atau freight forwarder; commercial invoice memuat nilai penjualan, sedangkan packing list merinci kemasan, berat dan dimensi, dan keduanya perlu konsisten. Halaman ITA adalah panduan umum, bukan aturan Indonesia.",
+          "source_urls": [
+            "https://www.trade.gov/common-export-documents"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.trade.gov/common-export-documents",
+          "publisher": "International Trade Administration (U.S. Department of Commerce)",
+          "source_published_at": null,
+          "accessed_at": "2026-11-10T04:34:15+07:00",
+          "previously_checked_at": "2026-11-10T04:34:15+07:00"
+        }
+      ],
+      "practical_impact": "Jangan mengambil keputusan usaha dari temuan lama sebelum melakukan verifikasi sumber dan tanggal.",
+      "content_angle": "Implikasi impor produktif bagi perencanaan stok UMKM manufaktur.",
+      "keyword_intent": "impor barang modal Indonesia September 2026",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-11",
+      "next_article_candidate": {
+        "title": "Commercial Invoice dan Packing List Ekspor: Perbedaan, Kolom Penting, dan Kesalahan Umum",
+        "slug": "cara-membuat-commercial-invoice-packing-list-ekspor",
+        "keyword": "perbedaan commercial invoice packing list ekspor",
+        "search_intent": "informational transactional",
+        "reader_pain_point": "Dokumen buyer dan freight forwarder tidak konsisten sehingga pengiriman tertahan",
+        "source_url": "https://www.trade.gov/common-export-documents",
+        "verification": "primary_source_checked_2026-11-10; country_specific_or_live_implementation_not_checked",
+        "status": "research_only_not_published"
+      },
+      "verification_note": "Sumber dan tanggal dari arsip sebelumnya, belum diperiksa ulang hari ini; jangan ditafsirkan sebagai berita 24 jam terakhir."
+    },
+    {
+      "id": "manajemen-risiko-2026-11-11",
+      "category": "Manajemen Risiko",
+      "topic": "Pemantauan arsip 10 November; belum ada verifikasi sumber primer baru pada putaran awal 11 November",
+      "summary": "Konteks dibawa dari arsip 10 November; tidak ada klaim fakta baru yang diverifikasi pada putaran ini. Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-11T00:33:51+07:00",
+      "geography": "Indonesia dan pasar tujuan",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Jangan mengambil keputusan usaha dari temuan lama sebelum melakukan verifikasi sumber dan tanggal.",
+      "content_angle": "Cara membaca pengumuman regulator sebelum memilih pialang.",
+      "keyword_intent": "rating pialang berjangka 2026",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-11",
+      "next_article_candidate": {
+        "title": "Checklist Verifikasi Buyer Ekspor sebelum Kirim Sampel atau Menyetujui Pembayaran",
+        "slug": "checklist-verifikasi-buyer-ekspor-sebelum-kirim-sampel",
+        "keyword": "cara verifikasi buyer ekspor sebelum transaksi",
+        "search_intent": "informational risk mitigation",
+        "reader_pain_point": "UMKM tidak memiliki proses due diligence untuk permintaan sampel, kontrak, dan syarat pembayaran",
+        "source_url": "https://www.trade.gov/common-export-documents",
+        "verification": "general_export_documentation_verified; country_specific_compliance_unverified",
+        "status": "research_only_not_published"
+      },
+      "verification_note": "Sumber dan tanggal dari arsip sebelumnya, belum diperiksa ulang hari ini; jangan ditafsirkan sebagai berita 24 jam terakhir."
+    },
+    {
+      "id": "peluang-usaha-2026-11-11",
+      "category": "Peluang Usaha",
+      "topic": "Pelepasan ekspor makanan ringan Pati ke Australia 9 November 2026",
+      "summary": "Konteks dibawa dari arsip 10 November; tidak ada klaim fakta baru yang diverifikasi pada putaran ini. Kemendag melaporkan PT Dua Kelinci mengekspor 24,9 ton makanan ringan dalam lima kontainer bernilai USD 56.979.",
+      "event_date": "2026-11-09",
+      "source_published_at": "2026-11-09",
+      "researched_at": "2026-11-11T00:33:51+07:00",
+      "geography": "Indonesia dan pasar tujuan",
+      "facts": [
+        {
+          "claim": "Rilis Kemendag 9 November 2026 melaporkan ekspor lima kontainer makanan ringan PT Dua Kelinci ke Australia, volume 24,9 ton dan nilai USD56.979.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/lepas-ekspor-pt-dua-kelinci-ke-negeri-kanguru-mendag-busan-terus-ajak-pelaku-usaha-manfaatkan-perjanjian-dagang"
+          ]
+        },
+        {
+          "claim": "Siaran pers Kemendag 5 November 2026 menyebut pendampingan peningkatan kualitas produk, desain kemasan, akses pasar, dan jaringan perwakilan perdagangan sebagai dukungan UMKM menjajaki ekspor; ini konteks program, bukan bukti persyaratan ekspor tertentu.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/bincang-mendag-busan-dengan-umkm-di-ntb-dorong-perluasan-pasar-domestik-dan-jajaki-ekspor"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/lepas-ekspor-pt-dua-kelinci-ke-negeri-kanguru-mendag-busan-terus-ajak-pelaku-usaha-manfaatkan-perjanjian-dagang",
+          "publisher": "Kementerian Perdagangan Republik Indonesia",
+          "source_published_at": "2026-11-09",
+          "accessed_at": "2026-11-10T02:34:37+07:00",
+          "previously_checked_at": "2026-11-10T02:34:37+07:00"
+        },
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/bincang-mendag-busan-dengan-umkm-di-ntb-dorong-perluasan-pasar-domestik-dan-jajaki-ekspor",
+          "publisher": "Kementerian Perdagangan RI",
+          "source_published_at": "2026-11-05",
+          "accessed_at": "2026-11-10T18:29:00+07:00",
+          "previously_checked_at": "2026-11-10T18:29:00+07:00"
+        }
+      ],
+      "practical_impact": "Contoh bahwa pengetahuan buyer, spesifikasi, kemasan, dan strategi pasar penting bagi eksportir; bukan indikasi semua UMKM siap mengirim skala sama.",
+      "content_angle": "Panduan evergreen menyiapkan penawaran ekspor makanan ringan dan website B2B.",
+      "keyword_intent": "cara ekspor makanan ringan untuk UMKM | informational-commercial",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-11",
+      "reader_pain_point": "UMKM makanan ringan memerlukan katalog SKU, bukti mutu, spesifikasi kemasan, dan alur RFQ sebelum menghubungi buyer internasional.",
+      "evergreen_idea": "Checklist penawaran ekspor makanan ringan untuk UMKM: validasi label, buyer, sampel, kapasitas, katalog B2B, dan logistik.",
+      "verification_note": "Sumber dan tanggal dari arsip sebelumnya, belum diperiksa ulang hari ini; jangan ditafsirkan sebagai berita 24 jam terakhir.",
+      "next_article_candidate": {
+        "title": "Checklist Kesiapan UMKM Menjajaki Ekspor: Mutu Produk, Kemasan, dan Buyer",
+        "slug": "checklist-kesiapan-umkm-ekspor-mutu-kemasan-buyer",
+        "keyword": "checklist kesiapan ekspor UMKM",
+        "search_intent": "informational practical",
+        "reader_pain_point": "UMKM belum tahu urutan persiapan sebelum menghubungi buyer",
+        "source_url": "https://www.kemendag.go.id/berita/siaran-pers/bincang-mendag-busan-dengan-umkm-di-ntb-dorong-perluasan-pasar-domestik-dan-jajaki-ekspor",
+        "status": "research_only_not_published"
+      }
+    },
+    {
+      "id": "pertanian-buah-2026-11-11",
+      "category": "Pertanian & Buah",
+      "topic": "Pemantauan arsip 10 November; belum ada verifikasi sumber primer baru pada putaran awal 11 November",
+      "summary": "Konteks dibawa dari arsip 10 November; tidak ada klaim fakta baru yang diverifikasi pada putaran ini. Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-11T00:33:51+07:00",
+      "geography": "Indonesia dan pasar tujuan",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Jangan mengambil keputusan usaha dari temuan lama sebelum melakukan verifikasi sumber dan tanggal.",
+      "content_angle": "Pantau data harga pangan resmi NTB untuk verifikasi lanjutan.",
+      "keyword_intent": "harga pangan Mataram November 2026",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-11",
+      "verification_note": "Sumber dan tanggal dari arsip sebelumnya, belum diperiksa ulang hari ini; jangan ditafsirkan sebagai berita 24 jam terakhir."
+    },
+    {
+      "id": "regulasi-sertifikasi-2026-11-11",
+      "category": "Regulasi & Sertifikasi",
+      "topic": "Komisi Eropa memulai investigasi safeguard bahan kimia resin PET",
+      "summary": "Konteks dibawa dari arsip 10 November; tidak ada klaim fakta baru yang diverifikasi pada putaran ini. Pemberitahuan resmi Komisi Eropa dan WTO bertanggal 6 November 2026; investigasi berlangsung, bukan pembatasan impor yang sudah diputuskan.",
+      "event_date": "2026-11-06",
+      "source_published_at": "2026-11-06",
+      "researched_at": "2026-11-11T00:33:51+07:00",
+      "geography": "Uni Eropa",
+      "facts": [
+        {
+          "claim": "Uni Eropa memulai investigasi safeguard pada 6 November 2026 terkait sejumlah bahan kimia resin PET.",
+          "source_urls": [
+            "https://policy.trade.ec.europa.eu/news/commission-initiates-safeguard-investigation-imports-pet-resin-chemicals-2026-11-06_en",
+            "https://www.wto.org/english/news_e/news26_e/safe_eec_06nov26_542_e.htm"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://policy.trade.ec.europa.eu/news/commission-initiates-safeguard-investigation-imports-pet-resin-chemicals-2026-11-06_en",
+          "publisher": "European Commission",
+          "accessed_at": "2026-11-10T01:20:00+07:00",
+          "previously_checked_at": "2026-11-10T01:20:00+07:00"
+        },
+        {
+          "url": "https://www.wto.org/english/news_e/news26_e/safe_eec_06nov26_542_e.htm",
+          "publisher": "WTO",
+          "accessed_at": "2026-11-10T01:20:00+07:00",
+          "previously_checked_at": "2026-11-10T01:20:00+07:00"
+        }
+      ],
+      "practical_impact": "Pelaku usaha yang terkait PET dapat meninjau klasifikasi produk, kontrak, pemasok, dan tenggat partisipasi.",
+      "content_angle": "Berita investigasi PET: bedakan tahap penyelidikan dengan keputusan safeguard.",
+      "keyword_intent": "investigasi safeguard PET Uni Eropa November 2026",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-11",
+      "verification_note": "Sumber dan tanggal dari arsip sebelumnya, belum diperiksa ulang hari ini; jangan ditafsirkan sebagai berita 24 jam terakhir."
+    },
+    {
+      "id": "rempah-minyak-atsiri-2026-11-11",
+      "category": "Rempah & Minyak Atsiri",
+      "topic": "Pemantauan arsip 10 November; belum ada verifikasi sumber primer baru pada putaran awal 11 November",
+      "summary": "Konteks dibawa dari arsip 10 November; tidak ada klaim fakta baru yang diverifikasi pada putaran ini. Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-11T00:33:51+07:00",
+      "geography": "Indonesia dan pasar tujuan",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Jangan mengambil keputusan usaha dari temuan lama sebelum melakukan verifikasi sumber dan tanggal.",
+      "content_angle": "Kesiapan pelaku atsiri untuk gudang dan standardisasi mutu.",
+      "keyword_intent": "SRG minyak nilam",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-11",
+      "verification_note": "Sumber dan tanggal dari arsip sebelumnya, belum diperiksa ulang hari ini; jangan ditafsirkan sebagai berita 24 jam terakhir."
+    },
+    {
+      "id": "sarang-burung-walet-2026-11-11",
+      "category": "Sarang Burung Walet",
+      "topic": "Pemantauan arsip 10 November; belum ada verifikasi sumber primer baru pada putaran awal 11 November",
+      "summary": "Konteks dibawa dari arsip 10 November; tidak ada klaim fakta baru yang diverifikasi pada putaran ini. Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-11T00:33:51+07:00",
+      "geography": "Indonesia dan pasar tujuan",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Jangan mengambil keputusan usaha dari temuan lama sebelum melakukan verifikasi sumber dan tanggal.",
+      "content_angle": "Pantau pembaruan karantina dan persyaratan negara tujuan.",
+      "keyword_intent": "ekspor sarang burung walet Indonesia",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-11",
+      "verification_note": "Sumber dan tanggal dari arsip sebelumnya, belum diperiksa ulang hari ini; jangan ditafsirkan sebagai berita 24 jam terakhir."
+    },
+    {
+      "id": "seafood-perikanan-2026-11-11",
+      "category": "Seafood & Perikanan",
+      "topic": "Pemantauan arsip 10 November; belum ada verifikasi sumber primer baru pada putaran awal 11 November",
+      "summary": "Konteks dibawa dari arsip 10 November; tidak ada klaim fakta baru yang diverifikasi pada putaran ini. Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-11T00:33:51+07:00",
+      "geography": "Indonesia dan pasar tujuan",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Jangan mengambil keputusan usaha dari temuan lama sebelum melakukan verifikasi sumber dan tanggal.",
+      "content_angle": "Peta kanal promosi resmi untuk UMKM perikanan.",
+      "keyword_intent": "UMKM perikanan Harkannas 2026",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-11",
+      "verification_note": "Sumber dan tanggal dari arsip sebelumnya, belum diperiksa ulang hari ini; jangan ditafsirkan sebagai berita 24 jam terakhir."
+    },
+    {
+      "id": "tren-analisis-pasar-2026-11-11",
+      "category": "Tren & Analisis Pasar",
+      "topic": "Pemantauan arsip 10 November; belum ada verifikasi sumber primer baru pada putaran awal 11 November",
+      "summary": "Konteks dibawa dari arsip 10 November; tidak ada klaim fakta baru yang diverifikasi pada putaran ini. Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-11T00:33:51+07:00",
+      "geography": "Indonesia dan pasar tujuan",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Jangan mengambil keputusan usaha dari temuan lama sebelum melakukan verifikasi sumber dan tanggal.",
+      "content_angle": "Membaca tren ekspor tanpa menyamakan data nasional dengan peluang tiap perusahaan.",
+      "keyword_intent": "neraca perdagangan September 2026",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-11",
+      "verification_note": "Sumber dan tanggal dari arsip sebelumnya, belum diperiksa ulang hari ini; jangan ditafsirkan sebagai berita 24 jam terakhir."
+    }
+  ],
+  "selected_topics": [
+    {
+      "kind": "article",
+      "slug": "panduan-ekspor-makanan-ringan-umkm-katalog-buyer-australia",
+      "title": "Panduan Ekspor Makanan Ringan untuk UMKM: Katalog, Label, Buyer, dan Persiapan Pengiriman",
+      "publication_status": "committed_unverified",
+      "repository_path": "static-source/lib/editorial-20261110.mjs",
+      "cover_status": "licensed_stock_published_in_source; original_AI_cover_not_uploaded"
+    }
+  ],
+  "publication_note": "Awal hari WIB: CMS bbweb_articles 0 baris dibuat/diterbitkan pada 11 November berdasarkan query; repo source dan URL produksi belum dikonfirmasi untuk kuota live. Tidak ada artikel atau gambar baru yang dipublikasikan dalam putaran ini.",
+  "operational_checks": {
+    "cms_query": "0 rows matching created_at/published_at WIB 2026-11-11",
+    "repo_latest_commit": "7b4736d292ea08ed5c75d443b7932c1707ce3708",
+    "repo_commit_topic": "Instagram automation, not editorial",
+    "images_verified": 0,
+    "scheduled_posts_verified": 0,
+    "build_verified": false,
+    "live_urls_verified": 0
+  },
+  "execution_log": [
+    {
+      "at": "2026-11-11T00:33:51+07:00",
+      "action": "Read research README, previous articles/news archives, editorial module, build, image policy; check CMS and recent commits; carry forward 15 clusters without claiming new primary-source verification."
+    }
+  ]
+}
