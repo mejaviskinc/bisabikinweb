@@ -51,6 +51,28 @@ try{
   await page.screenshot({path:root+'/all-catalog-'+device.name+'.png',animations:'disabled',fullPage:false});
   assert.deepEqual(errors,[],'Unexpected browser runtime errors');
   report.push({device:device.name,categoryCount:allCategories.length,companyCard:true,ecommerceCard:true,screenshotsDifferent:true,overflowPx:overflow,runtimeErrors:errors});
+  // Verify the real checkout journey at both desktop and mobile breakpoints.
+  const checkoutResponse=await page.goto('http://127.0.0.1:4173/pesan-website/',{waitUntil:'domcontentloaded',timeout:30000});
+  assert.equal(checkoutResponse?.status(),200,device.name+' checkout HTTP status');
+  await page.locator('.ws-checkout-progress').waitFor({state:'visible'});
+  assert.equal(await page.locator('.ws-checkout-progress li').count(),4,'Checkout must have four clear steps');
+  await page.locator('.ws-start-options button').first().click();
+  assert.equal(await page.locator('.ws-start-options button').first().getAttribute('aria-pressed'),'true');
+  await page.getByPlaceholder('namabisnis.com').fill('contohbisnis.com');
+  await page.getByRole('button',{name:/Lanjut ke Paket layanan/}).click();
+  await page.getByRole('button',{name:/Lanjut ke Data bisnis/}).click();
+  await page.locator('input[autocomplete="name"]').fill('Pelanggan Contoh');
+  await page.locator('input[autocomplete="email"]').fill('contoh@example.com');
+  await page.locator('input[autocomplete="tel"]').fill('081234567890');
+  await page.locator('input[autocomplete="organization"]').fill('PT Contoh Usaha');
+  await page.locator('.ws-checkout-wizard textarea').fill('Kami membutuhkan website multi halaman dan formulir penawaran untuk calon pelanggan.');
+  await page.getByRole('button',{name:/Lanjut ke Tinjau pesanan/}).click();
+  assert.equal(await page.locator('.ws-wizard-review dd').first().textContent(),'Desain custom / belum ditentukan');
+  assert.match(await page.locator('.ws-wizard-review').textContent(),/contohbisnis\.com/);
+  await page.screenshot({path:root+'/checkout-'+device.name+'.png',animations:'disabled',fullPage:false});
+  const checkoutOverflow=await page.evaluate(()=>document.documentElement.scrollWidth-window.innerWidth);
+  assert.ok(checkoutOverflow<=3,device.name+' checkout horizontal overflow: '+checkoutOverflow);
+  assert.deepEqual(errors,[],'Checkout browser runtime errors');
   await context.close();
  }
 } finally{

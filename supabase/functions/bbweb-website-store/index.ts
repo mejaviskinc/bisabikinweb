@@ -147,6 +147,25 @@ Deno.serve(async(req:Request)=>{
    if(Array.isArray(payments))for(const payment of payments)byPayment.set(payment.order_id,payment);
    return response({orders:list.map((o:any)=>({...o,events:byOrder.get(o.id)||[],payment:byPayment.get(o.id)||null}))},200,origin);
   }
+  if(action==='approve_quote'){
+   const id=clean(input.id,40),expectedTotal=Number(input.expected_total);
+   if(!/^[a-f0-9-]{36}$/i.test(id))fail('Nomor pesanan tidak valid.');
+   if(!Number.isSafeInteger(expectedTotal)||expectedTotal<1||expectedTotal>999999999999)fail('Harga penawaran tidak valid.');
+   // Match the owner's current quoted amount, not an amount submitted by the browser.
+   const rows=await db('bbweb_website_orders?select=id,status,payment_status,quoted_total,domain_status,requested_domain&user_id=eq.'+encodeURIComponent(user.id)+'&id=eq.'+encodeURIComponent(id)+'&limit=1');
+   const order=Array.isArray(rows)?rows[0]:null;
+   if(!order)fail('Pesanan tidak ditemukan.',404);
+   if(order.status!=='proposal'||order.payment_status!=='not_invoiced')fail('Penawaran sudah berubah atau belum tersedia.',409);
+   if(Number(order.quoted_total)!==expectedTotal)fail('Nominal penawaran diperbarui. Muat ulang untuk meninjau harga terbaru.',409);
+   if(order.requested_domain&&!['available','registered'].includes(order.domain_status))fail('Domain belum disetujui admin. Tunggu pemeriksaan domain.',409);
+   const updated=await db('bbweb_website_orders?id=eq.'+encodeURIComponent(id)+
+    '&user_id=eq.'+encodeURIComponent(user.id)+'&status=eq.proposal&payment_status=eq.not_invoiced&quoted_total=eq.'+expectedTotal,
+    {method:'PATCH',headers:{Prefer:'return=representation'},body:JSON.stringify({status:'awaiting_payment',updated_at:new Date().toISOString()})});
+   if(!Array.isArray(updated)||!updated[0])fail('Penawaran berubah. Perbarui halaman dan periksa kembali.',409);
+   await db('bbweb_website_order_events',{method:'POST',headers:{Prefer:'return=minimal'},
+    body:JSON.stringify({order_id:id,actor_user_id:user.id,event_type:'quote_approved',note:'Klien menyetujui harga final '+expectedTotal+' IDR dan melanjutkan ke pembayaran.'})}).catch(()=>{});
+   return response({order:{id,status:'awaiting_payment',quoted_total:expectedTotal}},200,origin);
+  }
   if(action==='create_payment'){
    const id=clean(input.id,40);
    if(!/^[a-f0-9-]{36}$/i.test(id))fail('ID pesanan tidak valid.');
@@ -265,13 +284,17 @@ Deno.serve(async(req:Request)=>{
    if(!allowedStatuses.has(next)||!allowedDomainStatuses.has(domainStatus))fail('Status tidak valid.');
    const total=input.quoted_total==null||input.quoted_total===''?null:Number(input.quoted_total);
    if(total!==null&&(!Number.isSafeInteger(total)||total<0||total>100000000000))fail('Nilai penawaran tidak valid.');
-   const oldRows=await db('bbweb_website_orders?select=id,status,payment_status&id=eq.'+encodeURIComponent(id)+'&limit=1');
+   const oldRows=await db('bbweb_website_orders?select=id,status,payment_status,quoted_total&id=eq.'+encodeURIComponent(id)+'&limit=1');
    const current=Array.isArray(oldRows)?oldRows[0]:null;if(!current)fail('Order tidak ditemukan.',404);
+   if(next==='proposal'&&(!Number.isSafeInteger(total)||total===null||total<1))fail('Penawaran harus mencantumkan nominal final sebelum dikirim.');
+   if(['awaiting_payment','in_progress','client_review','revision','completed'].includes(current.status)&&total!==Number(current.quoted_total))fail('Harga yang sudah disetujui klien tidak dapat diubah. Buat penawaran baru melalui proses resmi.',409);
+   if(next==='awaiting_payment'&&current.status!=='awaiting_payment')fail('Hanya pelanggan yang dapat menyetujui penawaran sebelum pembayaran.',409);
    // Payment status is never changed here; only a verified payment provider may mark a payment paid.
    const note=clean(input.note,2000);
    const payload={status:next,domain_status:domainStatus,quoted_total:total,updated_at:new Date().toISOString()};
    const rows=await db('bbweb_website_orders?id=eq.'+encodeURIComponent(id),{method:'PATCH',headers:{Prefer:'return=representation'},body:JSON.stringify(payload)});
    await db('bbweb_website_order_events',{method:'POST',headers:{Prefer:'return=minimal'},body:JSON.stringify({order_id:id,actor_user_id:user.id,event_type:next,note})}).catch(()=>{});
+   if(next==='proposal'&&current.status!=='proposal')await notifyWebsiteEmail(id);
    return response({order:rows?.[0]||payload},200,origin);
   }
   return response({error:'Aksi tidak dikenali.'},400,origin);

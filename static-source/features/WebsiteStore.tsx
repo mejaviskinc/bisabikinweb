@@ -97,8 +97,8 @@ export default function WebsiteStore({path}:{path:string}){
   const cat=websiteCategories.find(c=>c.slug===item.category);
   return <div className="ws-root"><section className="section ws-detail"><nav aria-label="Breadcrumb" className="ws-breadcrumb"><a href="/beli-website/">Beli Website</a><span>/</span>{cat?.label||item.category}</nav><div className="ws-detail-grid"><div><small>DESAIN / {String(item.category).toUpperCase()}</small><h1>{item.title}<em>.</em></h1>{safeUrl(item.demo_url)&&<div className="ws-live-status"><span/> Website demo aktif — bisa dibuka di browser</div>}<p>{item.description}</p><ul className="ws-feature-list">{(item.features?.length?item.features:cat?.features||[]).map(f=><li key={f}><Check size={16}/>{f}</li>)}</ul><div className="ws-actions"><a className="btn primary" href={'/pesan-website/?desain='+encodeURIComponent(item.slug)}>Pilih desain <ArrowUpRight size={17}/></a>{safeUrl(item.demo_url)&&<a className="btn ws-live-button" href={safeUrl(item.demo_url)} target="_blank" rel="noopener noreferrer">Buka website demo <ArrowUpRight size={16}/></a>}</div>{item.concept&&<p className="ws-disclaimer">Ini ilustrasi konsep, bukan template siap pakai atau situs live. Detail desain dan ruang lingkup disepakati saat pemesanan.</p>}</div><Preview item={item}/></div></section><section className="section ws-section"><h2>Pilih paket pengerjaan</h2><PriceCards items={packages}/></section></div>;
  }
- return <div className="ws-root"><section className="section ws-hero"><div className="ws-hero-layout"><div><small>BISABIKINWEB.ID / 60 LIVE WEBSITE DEMOS</small><h1>Website impianmu.<br/><em>Pilih, pesan, jadi.</em></h1><p>Jelajahi 60 konsep website multipage dalam delapan industri. Setiap demo memperlihatkan struktur navigasi dan layanan yang relevan dengan cara bisnis bekerja, lalu pilih desain untuk mengirim brief. Tim kami akan meninjau detail dan mengirim penawaran sebelum pengerjaan dimulai.</p><div className="ws-actions"><a className="btn primary" href="#koleksi">Cari desain website <ArrowRight size={17}/></a><a className="btn" href="/harga-website/">Bandingkan paket</a></div></div><div className="ws-hero-visual"><Preview item={conceptTemplates[1]}/><span>DESIGN FOR YOUR BUSINESS</span></div></div></section>
- <section className="ws-steps section" aria-label="Cara memesan website">{[['01','Pilih desain','Temukan ide tampilan yang cocok.'],['02','Pilih paket','Sesuaikan fitur dan kisaran biaya.'],['03','Kirim brief','Jelaskan bisnis dan domain pilihan.'],['04','Terima penawaran','Tim mengonfirmasi scope serta invoice.']].map(step=><article key={step[0]}><small>{step[0]}</small><h3>{step[1]}</h3><p>{step[2]}</p></article>)}</section>
+ return <div className="ws-root"><section className="section ws-hero"><div className="ws-hero-layout"><div><small>BISABIKINWEB.ID / 60 LIVE WEBSITE DEMOS</small><h1>Website impianmu.<br/><em>Pilih, pesan, jadi.</em></h1><p>Jelajahi 60 konsep website multipage dalam delapan industri. Setiap demo memperlihatkan struktur navigasi dan layanan yang relevan dengan cara bisnis bekerja, lalu pilih desain untuk mengirim brief. Tim kami akan meninjau detail dan mengirim penawaran sebelum pengerjaan dimulai.</p><div className="ws-actions"><a className="btn primary" href="/pesan-website/?mulai=domain">Mulai dari domain <ArrowRight size={17}/></a><a className="btn" href="#koleksi">Pilih dari 60 desain</a><a className="btn" href="/harga-website/">Bandingkan paket</a></div></div><div className="ws-hero-visual"><Preview item={conceptTemplates[1]}/><span>DESIGN FOR YOUR BUSINESS</span></div></div></section>
+ <section className="ws-steps section" aria-label="Cara memesan website">{[['01','Domain atau desain','Mulai dari domain atau 60 demo website.'],['02','Paket & data bisnis','Pilih paket, durasi, dan isi kebutuhan.'],['03','Setujui penawaran','Tinjau biaya dan domain final di akun.'],['04','Bayar & pantau progres','Checkout DOKU setelah setuju, lalu lacak pengerjaan.']].map(step=><article key={step[0]}><small>{step[0]}</small><h3>{step[1]}</h3><p>{step[2]}</p></article>)}</section>
  <section className="section ws-section" id="koleksi"><div className="ws-section-heading"><div><small>KATALOG DESAIN WEBSITE</small><h2>Desain untuk<br/><em>setiap bisnis.</em></h2><p>60 konsep ini ditata sebagai website multipage sesuai industrinya, dengan halaman katalog, layanan, cerita usaha dan inquiry simulasi. Fitur produksi dan integrasi dijelaskan pada penawaran.</p></div><a className="text-link" href="/harga-website/">Lihat daftar harga <ArrowUpRight size={17}/></a></div><div className="ws-category-quick" role="group" aria-label="Pilih tipe desain website">
    <button type="button" className={category==='semua'?'active':''} aria-pressed={category==='semua'} onClick={()=>setCategory('semua')}><span>SEMUA DESAIN</span><strong>60 Website</strong><small>Jelajahi delapan industri</small></button>
    <button type="button" className={category==='company-profile'?'active':''} aria-pressed={category==='company-profile'} onClick={()=>setCategory('company-profile')}><span>PROFIL PERUSAHAAN</span><strong>Company Profile</strong><small>Layanan · Proyek · Tentang Perusahaan</small></button>
@@ -113,21 +113,116 @@ export function WebsiteCheckout(){
  const [packageSlug,setPackageSlug]=useState('starter'),[templateSlug,setTemplateSlug]=useState('');
  const [packages,setPackages]=useState<Package[]>(basePackages);
  const [fields,setFields]=useState({full_name:'',email:'',phone:'',company:'',category:'umkm',domain:'',reference_url:'',brief:''});
+ const [step,setStep]=useState(0),[startingPoint,setStartingPoint]=useState<'domain'|'design'>('design');
+ const [serviceTerm,setServiceTerm]=useState('12'),[acceptedTerms,setAcceptedTerms]=useState(false),[domainLater,setDomainLater]=useState(false);
  const [busy,setBusy]=useState(false),[error,setError]=useState(''),[result,setResult]=useState<any>(null),[logged,setLogged]=useState<boolean|null>(null);
- useEffect(()=>{const query=new URLSearchParams(location.search);const pkg=query.get('paket');const design=query.get('desain');if(pkg&&/^[a-z0-9-]+$/.test(pkg))setPackageSlug(pkg);if(design&&/^[a-z0-9-]+$/.test(design)){setTemplateSlug(design);const chosen=websiteDemos.find(d=>d.slug===design);if(chosen){setFields(f=>({...f,category:chosen.category}));if(!pkg)setPackageSlug(chosen.packageSlug)}}customerGetSession().then(s=>{setLogged(Boolean(s));if(s?.user?.email)setFields(f=>({...f,email:s.user.email||f.email,full_name:s.user.user_metadata?.full_name||f.full_name}))}).catch(()=>setLogged(false));getWebsiteCatalog().then(rows=>{if(rows?.packages.length)setPackages(rows.packages.map(p=>({...p,base_price:p.base_price==null?null:Number(p.base_price)})))});},[]);
+ useEffect(()=>{
+  const query=new URLSearchParams(location.search);
+  const pkg=query.get('paket'),design=query.get('desain'),fromDomain=query.get('mulai')==='domain';
+  if(pkg&&/^[a-z0-9-]+$/.test(pkg))setPackageSlug(pkg);
+  if(fromDomain)setStartingPoint('domain');
+  if(design&&/^[a-z0-9-]+$/.test(design)){
+   setTemplateSlug(design);setStartingPoint('design');
+   const chosen=websiteDemos.find(d=>d.slug===design);
+   if(chosen){setFields(f=>({...f,category:chosen.category}));if(!pkg)setPackageSlug(chosen.packageSlug)}
+  }
+  customerGetSession().then(s=>{
+   setLogged(Boolean(s));
+   if(s?.user?.email)setFields(f=>({...f,email:s.user.email||f.email,full_name:s.user.user_metadata?.full_name||f.full_name,phone:s.user.user_metadata?.phone||f.phone}));
+  }).catch(()=>setLogged(false));
+  getWebsiteCatalog().then(rows=>{if(rows?.packages.length)setPackages(rows.packages.map(p=>({...p,base_price:p.base_price==null?null:Number(p.base_price)})))});
+ },[]);
  const current=packages.find(p=>p.slug===packageSlug);
  const selectedDesign=websiteDemos.find(d=>d.slug===templateSlug);
- const setField=(key:string,value:string)=>setFields(p=>({...p,[key]:value}));
- async function submit(e:React.FormEvent<HTMLFormElement>){e.preventDefault();setBusy(true);setError('');try{
-   const response=await websiteStoreApi('create_order',{package_slug:packageSlug,template_slug:templateSlug||null,...fields});
+ const setField=(key:keyof typeof fields,value:string)=>setFields(p=>({...p,[key]:value}));
+ const normalizedDomain=fields.domain.trim().toLowerCase().replace(/^https?:\/\//,'').replace(/\/.*$/,'');
+ const domainValid=!normalizedDomain||/^(?=.{4,253}$)[a-z0-9](?:[a-z0-9-]*[a-z0-9])?(?:\.[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)+$/.test(normalizedDomain);
+ const stepNames=['Domain & desain','Paket layanan','Data bisnis','Tinjau pesanan'];
+ function validate(index:number){
+  if(index===0){
+   if(!domainValid)return 'Format domain tidak valid. Contoh: bisnisanda.com.';
+   if(!templateSlug&&!normalizedDomain&&!domainLater&&packageSlug!=='custom')return 'Pilih desain, isi domain, atau centang bahwa domain akan ditentukan kemudian.';
+   if(templateSlug&&!selectedDesign)return 'Pilih desain yang tersedia dari katalog 60 website.';
+  }
+  if(index===1&&!current)return 'Pilih salah satu paket website yang tersedia.';
+  if(index===2){
+   if(fields.full_name.trim().length<2||fields.company.trim().length<2)return 'Nama lengkap dan nama bisnis wajib diisi.';
+   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(fields.email.trim()))return 'Email akun belum valid.';
+   if(!/^\+?[0-9()\s.-]{7,32}$/.test(fields.phone.trim()))return 'Nomor WhatsApp belum valid.';
+   if(fields.brief.trim().length<20)return 'Jelaskan kebutuhan website minimal 20 karakter.';
+   if(fields.reference_url){try{const u=new URL(fields.reference_url);if(u.protocol!=='https:')return 'Link referensi harus menggunakan HTTPS.'}catch{return 'Link referensi tidak valid.'}}
+  }
+  return '';
+ }
+ function goNext(){
+  const message=validate(step);
+  if(message){setError(message);return}
+  setError('');setStep(s=>Math.min(s+1,3));
+  if(typeof window!=='undefined')window.scrollTo({top:0,behavior:'smooth'});
+ }
+ function goBack(){setError('');setStep(s=>Math.max(s-1,0))}
+ async function submit(e:React.FormEvent<HTMLFormElement>){
+  e.preventDefault();if(busy)return;
+  for(let i=0;i<3;i++){const message=validate(i);if(message){setStep(i);setError(message);return}}
+  if(!acceptedTerms){setError('Setujui syarat layanan dan kebijakan privasi sebelum memesan.');return}
+  if(!logged){setError('Silakan masuk ke akun pembeli terlebih dahulu.');return}
+  setBusy(true);setError('');
+  try{
+   const brief=fields.brief.trim()+'\n\nPreferensi durasi layanan: '+serviceTerm+' bulan (konfirmasi akhir dalam penawaran).';
+   const response=await websiteStoreApi('create_order',{
+    package_slug:packageSlug,template_slug:templateSlug||null,
+    ...fields,domain:normalizedDomain,brief
+   });
    setResult(response.order);
- }catch(e:any){setError(String(e.message||'Permintaan gagal.'))}finally{setBusy(false)}}
- if(result)return <section className="section ws-root ws-confirmation"><ShieldCheck size={42}/><small>PERMINTAAN BERHASIL DISIMPAN</small><h1>Brief diterima.</h1><p>Nomor permintaan: <strong>{result.order_no}</strong>. Status: {websiteStatusLabel[result.status]||'Menunggu tinjauan'}. Belum ada pembayaran yang ditagihkan. Tim akan memeriksa scope dan mengirim penawaran.</p><a className="btn primary" href="/client/dashboard/">Lihat proyek saya <ArrowUpRight size={17}/></a></section>;
- return <div className="ws-root"><section className="section ws-order"><nav aria-label="Breadcrumb" className="ws-breadcrumb"><a href="/beli-website/">Beli Website</a><span>/</span>Pemesanan</nav><small>BRIEF / PESAN WEBSITE</small><h1>Mulai dari<br/><em>cerita bisnismu.</em></h1><p>Pilih paket dan isi brief. Permintaan ini bukan pembayaran otomatis; kami akan memverifikasi detail domain, biaya, dan fitur sebelum menerbitkan invoice.</p>{selectedDesign&&<div className="ws-selected-design"><strong>Desain dipilih: {selectedDesign.title}</strong><span>{websiteCategories.find(c=>c.slug===selectedDesign.category)?.label||selectedDesign.category} · Paket {current?.name||packageSlug}</span><a href={'/demo/'+selectedDesign.slug+'/'} target="_blank" rel="noopener noreferrer">Lihat desain <ArrowUpRight size={15}/></a></div>}<div className="ws-order-layout"><form onSubmit={submit} className="ws-form">
-  {logged===false&&<div className="ws-notice">Silakan <a href="/account/">login atau daftar akun pembeli</a> sebelum mengirim permintaan. Akun yang sama dipakai untuk memantau proyek.</div>}
-  <div className="ws-form-grid"><label>Nama lengkap *<input required maxLength={120} value={fields.full_name} onChange={e=>setField('full_name',e.target.value)}/></label><label>Email *<input type="email" required maxLength={254} value={fields.email} onChange={e=>setField('email',e.target.value)}/></label><label>WhatsApp *<input required maxLength={32} value={fields.phone} onChange={e=>setField('phone',e.target.value)} placeholder="08..."/></label><label>Nama bisnis *<input required maxLength={160} value={fields.company} onChange={e=>setField('company',e.target.value)}/></label><label>Kategori bisnis<select value={fields.category} onChange={e=>setField('category',e.target.value)}>{websiteCategories.map(c=><option value={c.slug} key={c.slug}>{c.label}</option>)}</select></label><label>Paket website *<select required value={packageSlug} onChange={e=>setPackageSlug(e.target.value)}>{packages.map(p=><option key={p.slug} value={p.slug}>{p.name} — {p.base_price===null?'Penawaran':rupiah(p.base_price)}</option>)}</select></label><label className="wide">Desain yang dipilih (opsional)<input maxLength={100} value={templateSlug} onChange={e=>setTemplateSlug(e.target.value.toLowerCase().replace(/[^a-z0-9-]/g,''))} placeholder="Kode desain katalog"/></label><label className="wide">Domain yang diinginkan<input maxLength={253} value={fields.domain} onChange={e=>setField('domain',e.target.value)} placeholder="contohbisnis.com (perlu verifikasi manual)"/></label><label className="wide">Referensi desain (URL, opsional)<input type="url" maxLength={500} value={fields.reference_url} onChange={e=>setField('reference_url',e.target.value)} placeholder="https://..."/></label><label className="wide">Ceritakan kebutuhan website *<textarea required minLength={20} rows={6} maxLength={3500} value={fields.brief} onChange={e=>setField('brief',e.target.value)} placeholder="Tujuan website, halaman, fitur, target pelanggan, dan estimasi deadline..."/></label></div>
-  <p className="ws-disclaimer">Dengan mengirim permintaan, kamu menyetujui <a href="/terms/">Syarat & Ketentuan</a> serta <a href="/privacy/">Kebijakan Privasi</a>. Domain dan harga akhir belum dikonfirmasi.</p>{error&&<p className="ws-error" role="alert">{error}</p>}<button className="btn primary" type="submit" disabled={busy||!logged}>{busy?'Menyimpan permintaan...':'Kirim brief & minta penawaran'} <ArrowUpRight size={16}/></button>
- </form><aside className="ws-order-summary"><small>RINGKASAN PERMINTAAN</small><h3>{current?.name||'Paket tidak tersedia'}</h3><strong>{current?.base_price==null?'Menunggu penawaran':rupiah(current.base_price)}</strong><p>Estimasi harga mulai, belum termasuk biaya tambahan yang disepakati.</p><ul>{(current?.features||[]).map(f=><li key={f}><Check size={14}/>{f}</li>)}</ul><div className="ws-summary-note"><Clock3 size={18}/> Penawaran dan invoice diterbitkan setelah brief diverifikasi.</div></aside></div></section></div>;
+  }catch(e:any){setError(String(e.message||'Permintaan gagal disimpan.'))}
+  finally{setBusy(false)}
+ }
+ if(result)return <section className="section ws-root ws-confirmation"><ShieldCheck size={42}/><small>PESANAN BERHASIL DIBUAT</small><h1>Pesanan diterima.</h1><p>Nomor pesanan: <strong>{result.order_no}</strong>. Status: {websiteStatusLabel[result.status]||'Menunggu tinjauan'}. Data sudah dikirim ke sistem. Tim akan memeriksa domain, fitur, dan harga final. Belum ada tagihan; pembayaran baru tersedia setelah kamu menyetujui penawaran.</p><div className="ws-actions"><a className="btn primary" href="/client/dashboard/">Pantau pesanan saya <ArrowUpRight size={17}/></a><a className="btn" href="/beli-website/">Lihat desain lain</a></div></section>;
+ return <div className="ws-root"><section className="section ws-order">
+  <nav aria-label="Breadcrumb" className="ws-breadcrumb"><a href="/beli-website/">Beli Website</a><span>/</span>Checkout website</nav>
+  <small>WEBSITE ORDER / 4 LANGKAH</small><h1>Pesan website.<br/><em>Lebih mudah.</em></h1>
+  <p>Pilih domain atau desain sebagai titik awal, sesuaikan paket, lalu isi data bisnis. Ini bukan pembayaran otomatis: penawaran final, domain, dan invoice diverifikasi sebelum pembayaran DOKU.</p>
+  <ol className="ws-checkout-progress" aria-label="Tahapan pemesanan website">{stepNames.map((name,index)=><li key={name} className={step===index?'current':step>index?'done':''} aria-current={step===index?'step':undefined}><span>{step>index?<Check size={15}/>:String(index+1).padStart(2,'0')}</span><strong>{name}</strong></li>)}</ol>
+  <div className="ws-order-layout"><form className="ws-form ws-checkout-wizard" onSubmit={submit} noValidate>
+   {logged===false&&<div className="ws-notice">Untuk menyimpan nomor pesanan dan melihat status proyek, <a href="/account/">login atau daftar akun pembeli</a> terlebih dahulu. Kembali ke halaman ini setelah login.</div>}
+   {step===0&&<div className="ws-wizard-panel"><span className="ws-wizard-eyebrow">LANGKAH 01 / PILIH TITIK AWAL</span><h2>Mulai dari kebutuhanmu.</h2><p>Punya nama domain? Masukkan dulu. Sudah suka salah satu demo? Pilih desainnya. Keduanya dapat diisi, dan status domain selalu perlu verifikasi manual.</p>
+    <div className="ws-start-options" role="group" aria-label="Mulai pemesanan dari">
+     <button type="button" className={startingPoint==='domain'?'active':''} aria-pressed={startingPoint==='domain'} onClick={()=>setStartingPoint('domain')}><Globe2 size={21}/><strong>Mulai dari domain</strong><small>Sudah tahu alamat website yang diinginkan</small></button>
+     <button type="button" className={startingPoint==='design'?'active':''} aria-pressed={startingPoint==='design'} onClick={()=>setStartingPoint('design')}><LayoutTemplate size={21}/><strong>Mulai dari desain</strong><small>Jelajahi 60 contoh website berdasarkan industri</small></button>
+    </div>
+    <div className="ws-form-grid">
+     <label className={startingPoint==='domain'?'wide ws-wizard-featured':'wide'}>Nama domain yang diinginkan <input type="text" maxLength={253} inputMode="url" autoComplete="off" value={fields.domain} onChange={e=>setField('domain',e.target.value.toLowerCase())} placeholder="namabisnis.com" aria-describedby="ws-domain-note"/><small id="ws-domain-note">Bukan pengecekan domain real-time — perlu verifikasi manual sebelum dibeli.</small><span className="ws-domain-later"><input type="checkbox" checked={domainLater} onChange={e=>setDomainLater(e.target.checked)}/><span>Saya ingin menentukan domain nanti</span></span></label>
+     <label className={startingPoint==='design'?'wide ws-wizard-featured':'wide'}>Pilih desain website <select value={templateSlug} onChange={e=>{const slug=e.target.value;setTemplateSlug(slug);const d=websiteDemos.find(x=>x.slug===slug);if(d){setField('category',d.category);setPackageSlug(d.packageSlug)}}}><option value="">Belum pilih — bisa custom / konsultasi</option>{websiteDemos.map(d=><option value={d.slug} key={d.slug}>{d.title} — {websiteCategories.find(c=>c.slug===d.category)?.label||d.category}</option>)}</select></label>
+    </div>
+    {selectedDesign&&<div className="ws-selected-design"><strong>{selectedDesign.title}</strong><span>{selectedDesign.category} · 60 website demo resmi BisaBikinWeb</span><a href={publicDemoUrl(selectedDesign.slug,{subdomainsReady:TEMPLATE_SUBDOMAINS_READY})} target="_blank" rel="noopener noreferrer">Lihat website demo <ArrowUpRight size={15}/></a></div>}
+    <p className="ws-wizard-tip">Belum punya domain dan desain? Kamu bisa mulai dengan paket Custom di langkah berikutnya; pilih paket Custom terlebih dahulu pada halaman <a href="/harga-website/">Daftar harga</a>.</p>
+   </div>}
+   {step===1&&<div className="ws-wizard-panel"><span className="ws-wizard-eyebrow">LANGKAH 02 / PAKET LAYANAN</span><h2>Sesuaikan ruang lingkup.</h2><p>Harga di bawah merupakan harga mulai, bukan total tagihan. Fitur, domain, hosting, dan durasi akan dirinci dalam penawaran.</p>
+    <div className="ws-wizard-packages">{packages.map(p=><button key={p.slug} type="button" className={p.slug===packageSlug?'active':''} aria-pressed={p.slug===packageSlug} onClick={()=>setPackageSlug(p.slug)}><span>{p.name}</span><strong>{rupiah(p.base_price)}</strong><small>{p.description}</small></button>)}</div>
+    <div className="ws-form-grid"><label>Jenis industri<select value={fields.category} onChange={e=>setField('category',e.target.value)}>{websiteCategories.map(c=><option key={c.slug} value={c.slug}>{c.label}</option>)}</select></label>
+    <label>Durasi layanan yang diinginkan<select value={serviceTerm} onChange={e=>setServiceTerm(e.target.value)}><option value="12">12 bulan</option><option value="24">24 bulan</option><option value="36">36 bulan</option></select><small>Durasi dan biaya perpanjangan belum termasuk dalam harga awal.</small></label></div>
+   </div>}
+   {step===2&&<div className="ws-wizard-panel"><span className="ws-wizard-eyebrow">LANGKAH 03 / INFORMASI PELANGGAN</span><h2>Ceritakan bisnismu.</h2><p>Informasi pesanan akan tersimpan di akun pembeli; notifikasi transaksional dapat dikirim melalui email resmi BisaBikinWeb.</p>
+    <div className="ws-form-grid">
+     <label>Nama lengkap *<input maxLength={120} value={fields.full_name} onChange={e=>setField('full_name',e.target.value)} autoComplete="name"/></label>
+     <label>Email akun *<input type="email" maxLength={254} value={fields.email} onChange={e=>setField('email',e.target.value)} autoComplete="email" readOnly={logged===true}/><small>Order disimpan menggunakan email akun yang sedang login.</small></label>
+     <label>Nomor WhatsApp *<input maxLength={32} value={fields.phone} onChange={e=>setField('phone',e.target.value)} placeholder="08..." autoComplete="tel"/></label>
+     <label>Nama perusahaan / bisnis *<input maxLength={160} value={fields.company} onChange={e=>setField('company',e.target.value)} autoComplete="organization"/></label>
+     <label className="wide">Contoh website referensi (opsional)<input type="url" maxLength={500} value={fields.reference_url} onChange={e=>setField('reference_url',e.target.value)} placeholder="https://..."/></label>
+     <label className="wide">Brief kebutuhan website *<textarea rows={6} maxLength={3200} value={fields.brief} onChange={e=>setField('brief',e.target.value)} placeholder="Tujuan website, halaman, fitur, target pelanggan, kebutuhan integrasi, dan estimasi deadline..."/></label>
+    </div>
+   </div>}
+   {step===3&&<div className="ws-wizard-panel"><span className="ws-wizard-eyebrow">LANGKAH 04 / KONFIRMASI</span><h2>Periksa sebelum kirim.</h2><p>Pesanan ini belum dikenakan biaya. Setelah admin meninjau, kamu dapat melihat dan menyetujui nominal final sebelum checkout DOKU.</p>
+    <dl className="ws-wizard-review"><div><dt>Desain</dt><dd>{selectedDesign?.title||'Desain custom / belum ditentukan'}</dd></div><div><dt>Domain</dt><dd>{normalizedDomain||'Akan didiskusikan'}</dd></div><div><dt>Paket</dt><dd>{current?.name||'-'}</dd></div><div><dt>Durasi diminta</dt><dd>{serviceTerm} bulan</dd></div><div><dt>Pelanggan</dt><dd>{fields.full_name} · {fields.company}</dd></div><div><dt>Kontak</dt><dd>{fields.email} · {fields.phone}</dd></div><div><dt>Harga awal</dt><dd>{rupiah(current?.base_price)}</dd></div></dl>
+    <label className="ws-wizard-agreement"><input type="checkbox" checked={acceptedTerms} onChange={e=>setAcceptedTerms(e.target.checked)}/><span>Saya memahami harga final dan ketersediaan domain perlu dikonfirmasi. Saya menyetujui <a href="/terms/" target="_blank" rel="noopener noreferrer">Syarat & Ketentuan</a> serta <a href="/privacy/" target="_blank" rel="noopener noreferrer">Kebijakan Privasi</a>.</span></label>
+   </div>}
+   {error&&<p className="ws-error" role="alert">{error}</p>}
+   <div className="ws-wizard-actions">{step>0&&<button type="button" className="btn" onClick={goBack} disabled={busy}>Kembali</button>}
+    {step<3?<button type="button" className="btn primary" onClick={goNext}>Lanjut ke {stepNames[step+1]} <ArrowRight size={16}/></button>:
+    <button type="submit" className="btn primary" disabled={busy||!logged}>{busy?'Menyimpan pesanan...':'Buat pesanan & nomor order'} <ArrowUpRight size={16}/></button>}</div>
+  </form>
+  <aside className="ws-order-summary"><small>RINGKASAN PESANAN</small><h3>{current?.name||'Pilih paket website'}</h3><strong>{current?.base_price==null?'Menunggu penawaran':rupiah(current.base_price)}</strong><p>Estimasi harga mulai; belum termasuk layanan tambahan yang disetujui.</p><ul>{(current?.features||[]).map(f=><li key={f}><Check size={14}/>{f}</li>)}</ul><div className="ws-summary-note"><Clock3 size={18}/> Tidak ada tagihan sebelum penawaran disetujui klien.</div><div className="ws-summary-note"><ShieldCheck size={18}/> Invoice pembayaran DOKU hanya dibuat oleh server setelah persetujuan.</div></aside></div>
+ </section></div>;
 }
 
 export function WebsiteClientProjects({whatsappNumber}:{whatsappNumber:string}){
@@ -143,8 +238,20 @@ export function WebsiteClientProjects({whatsappNumber}:{whatsappNumber:string}){
  const [orders,setOrders]=useState<any[]>([]),[busy,setBusy]=useState(true),[error,setError]=useState(''),[logged,setLogged]=useState<boolean|null>(null);
  const [selected,setSelected]=useState(''),[note,setNote]=useState(''),[sending,setSending]=useState(false),[notice,setNotice]=useState('');
  const [payingId,setPayingId]=useState('');
+ const [approvingId,setApprovingId]=useState(''),[acceptedQuoteId,setAcceptedQuoteId]=useState('');
  const safeDokuUrl=(raw:unknown,mode:string)=>{try{const u=new URL(String(raw||''));return u.protocol==='https:'&&!u.username&&!u.password&&(mode==='production'?['checkout.doku.com','jokul.doku.com']:['sandbox.doku.com']).includes(u.hostname)?u.href:''}catch{return ''}};
  async function payNow(id:string){setPayingId(id);setError('');setNotice('');try{const result=await websiteStoreApi('create_payment',{id});const url=safeDokuUrl(result.redirect_url,result.environment);if(!url)throw Error('Tautan DOKU tidak valid.');rememberPaidConsultation(id);location.assign(url);}catch(e:any){setError(String(e.message||'Pembayaran DOKU belum dapat dibuka.'));setPayingId('');}}
+ async function approveQuote(order:any){
+  if(approvingId||acceptedQuoteId!==order.id)return;
+  setApprovingId(order.id);setError('');setNotice('');
+  try{
+   await websiteStoreApi('approve_quote',{id:order.id,expected_total:Number(order.quoted_total)});
+   setAcceptedQuoteId('');
+   await loadOrders();
+   setNotice('Penawaran disetujui dan tersimpan. Kamu bisa melanjutkan pembayaran resmi DOKU.');
+  }catch(e:any){setError(String(e.message||'Persetujuan penawaran belum dapat disimpan.'))}
+  finally{setApprovingId('')}
+ }
  async function loadOrders(){const session=await customerGetSession();setLogged(Boolean(session));if(!session)return;const r=await websiteStoreApi('my_orders',{},session.access_token);setOrders(r.orders||[]);}
  useEffect(()=>{let alive=true;(async()=>{try{if(alive)await loadOrders()}catch(e:any){if(alive)setError(String(e.message||'Gagal memuat proyek.'))}finally{if(alive)setBusy(false)}})();return()=>{alive=false}},[]);
  // DOKU redirects back here; the webhook, not the callback query, must confirm payment.
@@ -189,6 +296,13 @@ export function WebsiteClientProjects({whatsappNumber}:{whatsappNumber:string}){
    <p>Domain yang diminta: {o.requested_domain||'Belum ditentukan'} (status: {o.domain_status==='manual_review'?'Perlu diperiksa':o.domain_status})</p>
    {o.id===consultOrderId&&o.payment_status!=='paid'&&<p className="ws-notice">Menunggu konfirmasi pembayaran DOKU. Setelah pembayaran benar-benar terverifikasi, WhatsApp konsultasi akan terbuka otomatis.</p>}
    {o.quoted_total!=null&&<strong>Nilai penawaran: {rupiah(Number(o.quoted_total))}</strong>}
+   {o.status==='proposal'&&Number(o.quoted_total)>0&&o.payment_status==='not_invoiced'&&<section className="ws-quote-approval" aria-label="Persetujuan penawaran website">
+    <h4>Penawaran resmi siap ditinjau</h4><p>Admin telah menetapkan harga final untuk pesanan ini. Tidak ada pembayaran yang diproses sebelum persetujuanmu.</p>
+    <strong>{rupiah(Number(o.quoted_total))}</strong>
+    {o.requested_domain&&!['available','registered'].includes(o.domain_status)&&<p>Domain masih dalam proses verifikasi manual. Tunggu admin menyelesaikan pemeriksaan sebelum menyetujui.</p>}
+    <label className="ws-wizard-agreement"><input type="checkbox" checked={acceptedQuoteId===o.id} onChange={e=>setAcceptedQuoteId(e.target.checked?o.id:'')}/><span>Saya telah meninjau dan menyetujui nominal final di atas, paket, serta kebutuhan domain yang tertera.</span></label>
+    <button type="button" className="btn primary" disabled={approvingId===o.id||acceptedQuoteId!==o.id||(!!o.requested_domain&&!['available','registered'].includes(o.domain_status))} onClick={()=>void approveQuote(o)}>{approvingId===o.id?'Menyimpan persetujuan...':'Setujui penawaran & lanjut pembayaran'} <ArrowUpRight size={16}/></button>
+   </section>}
    <div className="ws-client-payment">
      <small>PEMBAYARAN WEBSITE VIA DOKU</small>
      {o.payment_status==='paid'?<p className="ws-payment-paid"><Check size={16}/> Pembayaran DOKU terkonfirmasi. {o.id===consultOrderId?'Membuka WhatsApp konsultasi secara otomatis...':'Pengerjaan dapat dilanjutkan.'}</p>:
