@@ -1,4 +1,4 @@
-import {cachedDynamicTranslation,shouldTranslatePublicText,queuePublicTranslation,clearDynamicTranslationQueue} from './live-content-translation.mjs';
+import {cachedDynamicTranslation,shouldTranslatePublicText,queuePublicTranslation,clearDynamicTranslationQueue,primeDynamicTranslator} from './live-content-translation.mjs';
 // In-place user-interface language switcher. This deliberately does NOT navigate,
 // alter SEO canonicals, send page content to third parties, or rewrite user input.
 // Text for which a reviewed translation is unavailable remains unchanged.
@@ -224,6 +224,8 @@ export function applyInlineLanguage(root,locale){
  currentLocale=locale;
  document.documentElement.lang=locale==='en'?'en':'id';
  if(!root||locale!=='en')return;
+ // Also attempt to use an already downloaded browser language pack after navigation.
+ primeDynamicTranslator();
  translateTree(root);
  observer=new MutationObserver((records)=>{
   if(pending)return;
