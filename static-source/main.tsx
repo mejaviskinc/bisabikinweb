@@ -33,6 +33,7 @@ import './features/website-store.css';
 import './features/website-store-admin.css';
 import './features/website-sales-dashboard.css';
 import './features/website-live-demo.css';
+import './reference-navigation.css';
 
 // A templateN hostname serves the corresponding demo at the hostname root.
 const activeTemplate=templateDemoForHostname(location.hostname);
