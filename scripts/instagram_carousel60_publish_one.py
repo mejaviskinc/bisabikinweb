@@ -188,6 +188,21 @@ def main():
         raise SafeStop("Duplicate IDs")
     # No selection by dates: oldest remaining unclaimed, one per workflow run.
     state, _ = github_state(REPO, os.environ["GITHUB_TOKEN"])
+    # Anchor the next posting to the last carousel attempt, never burst on cron jitter.
+    carousel_attempts = []
+    for key, value in state["entries"].items():
+        if key.startswith("bbweb-carousel60-20261110-") and isinstance(value, dict):
+            timestamp = value.get("claimed_at")
+            if isinstance(timestamp, str):
+                try:
+                    carousel_attempts.append(dt.datetime.fromisoformat(timestamp))
+                except ValueError:
+                    pass
+    if carousel_attempts:
+        elapsed = (dt.datetime.now(dt.timezone.utc) - max(carousel_attempts)).total_seconds()
+        if elapsed < 55*60:
+            print(f"WAIT_NEXT_HOUR: {round((55*60-elapsed)/60)} minutes remaining", flush=True)
+            return
     target = next((x for x in items if x["id"] not in state["entries"]), None)
     if target is None:
         print("COMPLETE: all 60 carousels already claimed or published", flush=True)
