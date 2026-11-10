@@ -1,0 +1,50 @@
+name: BisaBikinWeb 50 News Carousel Daily Research
+on:
+  schedule:
+    - cron: '15 1 * * *'
+  workflow_dispatch:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/instagram-news-carousel-daily.yml'
+permissions:
+  contents: write
+concurrency:
+  group: bisabikinweb-news-carousel-research
+  cancel-in-progress: false
+jobs:
+  collect_sources:
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Collect fresh RSS news from official publishers, no photo scraping, no posting
+        run: python3 scripts/instagram_news_carousel_research.py
+      - name: Validate draft-only status and 50-item ceiling
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+          p=Path('social/instagram/news-carousels/latest.json')
+          data=json.loads(p.read_text(encoding='utf8'))
+          items=data['items']
+          assert data['status']=='RESEARCH_DRAFTS_ONLY_NOT_POSTABLE'
+          assert 1<=len(items)<=50
+          assert len({x['id'] for x in items})==len(items)
+          assert all(x['fact_checked'] is False and x['rights_verified'] is False for x in items)
+          assert all(x['source_url'].startswith('https://') for x in items)
+          print('SAFE_DRAFTS_ONLY:',len(items),'dated sources; NO POSTING')
+          PY
+      - name: Preserve dated research and update current candidate shortlist
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add social/instagram/news-carousels/
+          if git diff --cached --quiet; then
+            echo 'CURRENT_DRAFTS_UNCHANGED'
+            exit 0
+          fi
+          git commit -m 'research(instagram): refresh current news carousel candidates; no publishing'
+          git pull --rebase origin main
+          git push origin HEAD:main
+          echo 'NEWS_CAROUSEL_RESEARCH_SAVED; NOTHING_PUBLISHED'
