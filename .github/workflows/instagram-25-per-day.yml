@@ -12,12 +12,6 @@ on:
       - 'scripts/instagram_editorial.py'
       - 'social/instagram/editorial/content.json'
       - 'scripts/instagram_prepare.py'
-permissions:
-  contents: write
-concurrency:
-  group: bisabikinweb-instagram-publish
-  cancel-in-progress: false
-
   pull_request:
     branches: [main]
     paths:
@@ -25,6 +19,12 @@ concurrency:
       - 'scripts/instagram_editorial.py'
       - 'social/instagram/editorial/content.json'
       - 'tests/test_instagram_editorial.py'
+permissions:
+  contents: write
+concurrency:
+  group: bisabikinweb-instagram-publish
+  cancel-in-progress: false
+
 jobs:
   quality_gate:
     if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
