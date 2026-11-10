@@ -1,0 +1,13 @@
+AUTHORIZED PUBLICATION REQUEST — 2026-11-10
+
+Requested by the owner in this conversation: "kerjakan".
+
+Action: use the safeguarded GitHub Actions workflow to create/maintain
+mejaviskinc/bisabikinweb-template1 through mejaviskinc/bisabikinweb-template60,
+each a PUBLIC GitHub Pages repository with matching custom subdomain
+template1.bisabikinweb.site through template60.bisabikinweb.site.
+
+Source: reviewed and tested packages from the bisabikinweb repository.
+Prerequisites: TEMPLATE_PAGES_PAT Actions secret and existing environment access.
+Safety constraints: leave unrelated repositories, DNS, email, and main website
+unchanged. Fail closed before any changes if publishing secret is missing.
