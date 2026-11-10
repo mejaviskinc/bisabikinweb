@@ -183,7 +183,7 @@ assert.equal(scripts(nationwideHome).find(s=>s['@type']==='WebSite')?.name,'Bisa
 assert.match(nationwideHome,/aria-label="Halaman utama layanan BisaBikinWeb"/,'Homepage must have a clearly labelled priority navigation section');
 assert.equal((nationwideHome.match(/class="bbw-hero-slide(?: is-active)?"/g)||[]).length,5,'Homepage hero must render five complete slides');
 assert.match(nationwideHome,/aria-label="Slide 5: Siap Berkembang"/,'All hero slides must offer direct navigation');
-assert.match(nationwideHome,/aria-label="Jeda slide otomatis"/,'Hero slider should have an accessible autoplay pause control');
+assert.doesNotMatch(nationwideHome,/aria-label="(?:Slide sebelumnya|Slide berikutnya|Jeda slide otomatis)"/,'Hero must not show previous, next, or pause buttons');
 assert.match(nationwideHome,/YOUR NEXT <b>WEBSITE<\/b>/,'Hero supporting headline should remain steady without rapid text rotation');
 for(const target of sitelinkTargets){
  const url=origin+target.href;
