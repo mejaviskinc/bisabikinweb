@@ -169,11 +169,16 @@ console.log('National coverage SEO verified: 38 provinces, 14 source-backed loca
 
 const {sitelinkTargets}=await import('../static-source/lib/sitelinks.mjs');
 assert.match(nationwideHome,/class="reference-main-nav"/,'Desktop reference navigation must render');
-for(const label of ['Cari Design','Akademi','Portofolio','Komunitas','Tutorial','Pertanyaan','Blog']){
+for(const label of ['Beranda','Beli Website','Portofolio','FAQ']){
  assert.ok(nationwideHome.includes('>'+label+'</a>'),'Main navigation is missing '+label);
 }
+for(const label of ['Layanan','Media','Tentang']){
+ assert.ok(nationwideHome.includes('<summary>'+label+' '),'Main navigation is missing grouped menu '+label);
+}
 assert.match(nationwideHome,/<details class="site-nav-dropdown">/,'Layanan must offer a dropdown');
-assert.match(nationwideHome,/<section class="section faq-section" id="faq">/,'Pertanyaan should target the homepage FAQ anchor');
+assert.match(nationwideHome,/href="\/jasa\/company-profile\/"/,'Service flyout must link to company profile');
+assert.match(nationwideHome,/href="\/berita\/"/,'Media dropdown must link to news');
+assert.match(nationwideHome,/<section class="section faq-section" id="faq">/,'FAQ should target the homepage FAQ anchor');
 assert.equal(sitelinkTargets.length,6,'Homepage should prioritize six core sitelink destinations');
 assert.equal(new Set(sitelinkTargets.map(item=>item.href)).size,6,'Sitelink URLs must be unique');
 assert.match(nationwideHome,/<title>BisaBikinWeb Indonesia \| Jasa Bikin Website Indonesia &amp; Global<\/title>/,'Branded homepage title must describe national and global availability');
