@@ -85,12 +85,12 @@ if(!buildArticles.some(article=>article.id===exportArticle.id))buildArticles.uns
 const buildData={...defaults,articles:buildArticles};
 const freshNewsArticles=getFreshNewsArticles(buildArticles);
 const origin='https://bisabikinweb.site';
-const brand='BisaBikinWeb.id';
+const brand='BisaBikinWeb Indonesia';
 const logo=origin+'/brand/bisabikinweb-logo-compact.svg';
 const phone='+62882003740969';
 const email='bisabikinw3b@gmail.com';
 const pages={
-  '/':['BisaBikinWeb.id | Jasa Bikin Website Indonesia & Global','Jasa pembuatan website untuk UMKM, perusahaan, dan toko online di Indonesia maupun proyek internasional. Jelajahi layanan, harga, portofolio, dan konsultasi online.'],
+  '/':['BisaBikinWeb Indonesia | Jasa Bikin Website Indonesia & Global','Jasa pembuatan website untuk UMKM, perusahaan, dan toko online di Indonesia maupun proyek internasional. Jelajahi layanan, harga, portofolio, dan konsultasi online.'],
   '/jasa':['Jasa Pembuatan Website untuk Bisnis & Perusahaan','Butuh website bisnis? Pilih company profile, toko online, landing page, web app, atau maintenance. Lihat contoh proyek dan konsultasi online, termasuk proyek global.'],
   '/wilayah':['Jasa Website Seluruh Indonesia & 38 Provinsi','Lihat daftar layanan jasa bikin web BisaBikinWeb untuk Jakarta, Bandung, Surabaya, Medan, Makassar, seluruh 38 provinsi dan kota/kabupaten lainnya di Indonesia.'],
   '/harga':['Harga Pembuatan Website & Paket Sesuai Kebutuhan','Bandingkan paket dan biaya pembuatan website: landing page, company profile, dan toko online. Tinjau fitur, biaya operasional, lalu minta penawaran.'],
