@@ -1,0 +1,9 @@
+BisaBikinWeb owner approval
+Target: @bisabikinweb.id
+Action: publish exactly ONE 5-slide carousel now
+Title: Kenapa bisnis kecil tetap butuh website
+Provider: Meta Graph API via GitHub Actions
+Ongoing: one carousel each hour
+No Welder, no Metricool. Preserve existing 20-minute quote system.
+Prevent duplicate carousel IDs and respect Meta posting limit.
+Request date: 2026-11-10 WIB
