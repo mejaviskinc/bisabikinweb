@@ -36,7 +36,7 @@ export function primeDynamicTranslator(){
 function isIndonesianPublicText(text){
  if(text.length<12||text.length>11000)return false;
  if(!/[a-z]{3}/i.test(text)||/^\s*(?:https?:\/\/|[\d.,%-]+)\s*$/i.test(text))return false;
- if(/(?:<\s*\/?\w+>|\bsk_[a-z0-9]+\b)/i.test(text))return false;
+ if(/(?:<\s*\/?\w+>|\bsk_[a-z0-9]+\b|https?:\/\/\S+|www\.\S+|[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}|\+62\d{8,})/i.test(text))return false;
  return /\b(yang|dan|untuk|dengan|dari|pada|dalam|adalah|kami|kamu|anda|tersebut|bisa|akan|telah|sudah|agar|sebagai|tentang|melalui|saat|kebutuhan|perusahaan|bisnis|website|produk|layanan|pemerintah|terbaru|ekonomi|artikel|berita|harga|jasa|indonesia|proyek|pengguna|pelanggan|penjualan|pembayaran|konten|panduan|tampilan|pemesanan)\b/i.test(text);
 }
 export function shouldTranslatePublicText(text,element){
