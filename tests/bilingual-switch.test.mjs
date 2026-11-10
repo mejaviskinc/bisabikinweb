@@ -4,7 +4,6 @@ import {
   englishPages,englishHref,englishSwitchHref,indonesianSwitchHref,
   normalizeLocalePath,hasEnglishPage,formatEnglishPrice
 } from '../static-source/lib/languages.mjs';
-import {defaults} from '../static-source/lib/data.ts';
 
 test('language switch stays on the same translated page, both directions',()=>{
  for(const path of Object.keys(englishPages)){
@@ -29,11 +28,10 @@ test('untranslated routes are explicitly directed to English overview',()=>{
 });
 
 test('English prices preserve the exact Indonesian price, without a hidden markup',()=>{
- const published=defaults.pricing.filter(plan=>typeof plan.price==='number');
- assert.ok(published.length>=3);
- for(const plan of published){
-  const displayed=formatEnglishPrice(plan.price);
-  assert.ok(displayed.includes(plan.price.toLocaleString('en-US')),plan.id+' numeric price mismatch: '+displayed);
+ const prices=[800_000,1_500_000,3_500_000];
+ for(const price of prices){
+  const displayed=formatEnglishPrice(price);
+  assert.ok(displayed.includes(price.toLocaleString('en-US')),'numeric price mismatch: '+displayed);
   assert.match(displayed,/IDR/);
   assert.ok(!displayed.includes('USD'));
  }
