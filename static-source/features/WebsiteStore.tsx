@@ -238,8 +238,20 @@ export function WebsiteClientProjects({whatsappNumber}:{whatsappNumber:string}){
  const [orders,setOrders]=useState<any[]>([]),[busy,setBusy]=useState(true),[error,setError]=useState(''),[logged,setLogged]=useState<boolean|null>(null);
  const [selected,setSelected]=useState(''),[note,setNote]=useState(''),[sending,setSending]=useState(false),[notice,setNotice]=useState('');
  const [payingId,setPayingId]=useState('');
+ const [approvingId,setApprovingId]=useState(''),[acceptedQuoteId,setAcceptedQuoteId]=useState('');
  const safeDokuUrl=(raw:unknown,mode:string)=>{try{const u=new URL(String(raw||''));return u.protocol==='https:'&&!u.username&&!u.password&&(mode==='production'?['checkout.doku.com','jokul.doku.com']:['sandbox.doku.com']).includes(u.hostname)?u.href:''}catch{return ''}};
  async function payNow(id:string){setPayingId(id);setError('');setNotice('');try{const result=await websiteStoreApi('create_payment',{id});const url=safeDokuUrl(result.redirect_url,result.environment);if(!url)throw Error('Tautan DOKU tidak valid.');rememberPaidConsultation(id);location.assign(url);}catch(e:any){setError(String(e.message||'Pembayaran DOKU belum dapat dibuka.'));setPayingId('');}}
+ async function approveQuote(order:any){
+  if(approvingId||acceptedQuoteId!==order.id)return;
+  setApprovingId(order.id);setError('');setNotice('');
+  try{
+   await websiteStoreApi('approve_quote',{id:order.id,expected_total:Number(order.quoted_total)});
+   setAcceptedQuoteId('');
+   await loadOrders();
+   setNotice('Penawaran disetujui dan tersimpan. Kamu bisa melanjutkan pembayaran resmi DOKU.');
+  }catch(e:any){setError(String(e.message||'Persetujuan penawaran belum dapat disimpan.'))}
+  finally{setApprovingId('')}
+ }
  async function loadOrders(){const session=await customerGetSession();setLogged(Boolean(session));if(!session)return;const r=await websiteStoreApi('my_orders',{},session.access_token);setOrders(r.orders||[]);}
  useEffect(()=>{let alive=true;(async()=>{try{if(alive)await loadOrders()}catch(e:any){if(alive)setError(String(e.message||'Gagal memuat proyek.'))}finally{if(alive)setBusy(false)}})();return()=>{alive=false}},[]);
  // DOKU redirects back here; the webhook, not the callback query, must confirm payment.
@@ -284,6 +296,13 @@ export function WebsiteClientProjects({whatsappNumber}:{whatsappNumber:string}){
    <p>Domain yang diminta: {o.requested_domain||'Belum ditentukan'} (status: {o.domain_status==='manual_review'?'Perlu diperiksa':o.domain_status})</p>
    {o.id===consultOrderId&&o.payment_status!=='paid'&&<p className="ws-notice">Menunggu konfirmasi pembayaran DOKU. Setelah pembayaran benar-benar terverifikasi, WhatsApp konsultasi akan terbuka otomatis.</p>}
    {o.quoted_total!=null&&<strong>Nilai penawaran: {rupiah(Number(o.quoted_total))}</strong>}
+   {o.status==='proposal'&&Number(o.quoted_total)>0&&o.payment_status==='not_invoiced'&&<section className="ws-quote-approval" aria-label="Persetujuan penawaran website">
+    <h4>Penawaran resmi siap ditinjau</h4><p>Admin telah menetapkan harga final untuk pesanan ini. Tidak ada pembayaran yang diproses sebelum persetujuanmu.</p>
+    <strong>{rupiah(Number(o.quoted_total))}</strong>
+    {o.requested_domain&&!['available','registered'].includes(o.domain_status)&&<p>Domain masih dalam proses verifikasi manual. Tunggu admin menyelesaikan pemeriksaan sebelum menyetujui.</p>}
+    <label className="ws-wizard-agreement"><input type="checkbox" checked={acceptedQuoteId===o.id} onChange={e=>setAcceptedQuoteId(e.target.checked?o.id:'')}/><span>Saya telah meninjau dan menyetujui nominal final di atas, paket, serta kebutuhan domain yang tertera.</span></label>
+    <button type="button" className="btn primary" disabled={approvingId===o.id||acceptedQuoteId!==o.id||(!!o.requested_domain&&!['available','registered'].includes(o.domain_status))} onClick={()=>void approveQuote(o)}>{approvingId===o.id?'Menyimpan persetujuan...':'Setujui penawaran & lanjut pembayaran'} <ArrowUpRight size={16}/></button>
+   </section>}
    <div className="ws-client-payment">
      <small>PEMBAYARAN WEBSITE VIA DOKU</small>
      {o.payment_status==='paid'?<p className="ws-payment-paid"><Check size={16}/> Pembayaran DOKU terkonfirmasi. {o.id===consultOrderId?'Membuka WhatsApp konsultasi secara otomatis...':'Pengerjaan dapat dilanjutkan.'}</p>:
