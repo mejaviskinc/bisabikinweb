@@ -200,7 +200,7 @@ const enServicesHtml=await getHtml('en/jasa');
 const enPricingHtml=await getHtml('en/harga');
 const enPortfolioHtml=await getHtml('en/portfolio');
 const enContactHtml=await getHtml('en/kontak');
-assert.match(jasaHtml,/<title>Jasa Pembuatan Website untuk Bisnis &amp; Perusahaan \| BisaBikinWeb<\/title>/);
+assert.match(jasaHtml,/<title>Jasa Pembuatan Website untuk Bisnis &amp; Perusahaan \| BisaBikinWeb\.id<\/title>/);
 assert.ok(jasaHtml.includes('href="/en/jasa/"'),'Main services must link to English services');
 for(const href of ['/harga/','/portfolio/','/artikel/struktur-website-company-profile-b2b-rfq/','/artikel/biaya-website-bisnis-domain-hosting-maintenance/']){
  assert.ok(jasaHtml.includes('href="'+href+'"'),'Jasa page should link to '+href);
