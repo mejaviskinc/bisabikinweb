@@ -17,7 +17,7 @@ from zoneinfo import ZoneInfo
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 from instagram_autopost import SafeStop, eligible, github_state, live_publish, meta
 from instagram_carousel60_publish_one import upload_once, image_available, quota_available
-from instagram_render_news_pillow import canva_brand_art, paste_canva_ink
+from instagram_news_brand_logo import official_news_logo
 
 REPO = "mejaviskinc/bisabikinweb"
 CMD = Path("social/instagram/news-carousels/commands/publish-manahan-wates-now-20261111.json")
@@ -80,10 +80,10 @@ def render_picture(picture, heading, brand_art):
     drawer = ImageDraw.Draw(surface)
     # Original reference: left-aligned soft-grey badge at the bottom of photo.
     drawer.rounded_rectangle((-16,835,440,934),radius=18,fill=(219,218,216))
-    drawer.rounded_rectangle((17,853,104,918),radius=13,fill=(228,211,186))
-    paste_canva_ink(surface,brand_art,(34,212,80,258),(28,859,98,913))
-    paste_canva_ink(surface,brand_art,(94,191,378,235),(118,852,402,902))
-    paste_canva_ink(surface,brand_art,(94,237,378,260),(118,897,390,923))
+    drawer.rounded_rectangle((28,852,104,920),radius=13,fill=(228,211,186))
+    # Preserve the ORIGINAL official SVG as a single composited unit.
+    # Never redraw individual braces, wordmark, or tagline.
+    surface.paste(brand_art, (28, 846), brand_art)
     drawer=ImageDraw.Draw(surface)
     font,lines,step=fit_lines(drawer,heading)
     ypos=1007
@@ -131,7 +131,7 @@ def main():
         raise SafeStop("Unexpected Meta Instagram profile")
     if not quota_available(os.environ["IG_ACCESS_TOKEN"],os.environ["IG_USER_ID"]):
         raise SafeStop("Meta content publishing quota exceeded, never force post")
-    brand_art,_=canva_brand_art()
+    brand_art=official_news_logo()
     pictures=[get_picture(url) for url in PHOTO_URLS]
     urls=[]
     for number,heading in enumerate(headings,1):
