@@ -3,7 +3,7 @@ import FooterPaymentMethods from '../components/FooterPaymentMethods';
 import AnnouncementTicker from '../components/AnnouncementTicker';
 import {sitelinkTargets} from '../lib/sitelinks.mjs';
 import {restoreCart,restoreWishlist} from '../lib/security.mjs';
-import { PortfolioVisual, BrandShowcase } from '../components/Visuals';
+import { PortfolioVisual } from '../components/Visuals';
 import {heroPersonImage} from '../lib/hero-person-image.mjs';
 import {useState,useEffect,useRef,lazy,Suspense} from 'react';
 import {ArrowUpRight,ArrowRight,ArrowDown,Search,ShoppingBag,Sun,Moon,Menu,X,Check,Plus,ChevronRight,ChevronDown,MessageCircle,Command,Globe,Code2,Layers,ShieldCheck,Zap,Heart,UserRound} from 'lucide-react';
