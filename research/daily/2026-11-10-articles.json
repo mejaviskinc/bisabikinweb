@@ -1,7 +1,7 @@
 {
   "research_date": "2026-11-10",
   "timezone": "Asia/Jakarta",
-  "researched_at": "2026-11-10T01:20:00+07:00",
+  "researched_at": "2026-11-10T08:26:40+07:00",
   "entries": [
     {
       "id": "briket-energi-2026-11-10",
@@ -29,7 +29,7 @@
       "summary": "Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
       "event_date": null,
       "source_published_at": null,
-      "researched_at": "2026-11-10T06:26:11+07:00",
+      "researched_at": "2026-11-10T08:26:40+07:00",
       "geography": "Indonesia dan pasar tujuan",
       "facts": [
         {
@@ -40,6 +40,12 @@
         },
         {
           "claim": "Google merekomendasikan author, headline, image, datePublished dan dateModified untuk Article/BlogPosting, serta pengujian Rich Results Test dan URL Inspection setelah implementasi.",
+          "source_urls": [
+            "https://developers.google.com/search/docs/appearance/structured-data/article"
+          ]
+        },
+        {
+          "claim": "Google menyatakan Article/BlogPosting structured data membantu pemahaman konten, tetapi tidak menjamin rich result; pengujian dianjurkan dengan Rich Results Test dan URL Inspection. Canonical harus konsisten dengan halaman yang dimaksud.",
           "source_urls": [
             "https://developers.google.com/search/docs/appearance/structured-data/article"
           ]
@@ -198,7 +204,7 @@
       "summary": "Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
       "event_date": null,
       "source_published_at": null,
-      "researched_at": "2026-11-10T06:26:11+07:00",
+      "researched_at": "2026-11-10T08:26:40+07:00",
       "geography": "Indonesia dan pasar tujuan",
       "facts": [
         {
@@ -209,6 +215,12 @@
         },
         {
           "claim": "International Trade Administration menjelaskan packing list tidak menggantikan commercial invoice; rincian dokumen ekspor perlu dikonfirmasi bersama importir atau freight forwarder untuk tiap tujuan.",
+          "source_urls": [
+            "https://www.trade.gov/common-export-documents"
+          ]
+        },
+        {
+          "claim": "ITA menyarankan mengonfirmasi kebutuhan dokumen dengan importir atau freight forwarder; commercial invoice memuat nilai penjualan, sedangkan packing list merinci kemasan, berat dan dimensi, dan keduanya perlu konsisten. Halaman ITA adalah panduan umum, bukan aturan Indonesia.",
           "source_urls": [
             "https://www.trade.gov/common-export-documents"
           ]
@@ -577,6 +589,24 @@
       ],
       "next_action": "Complete four nonduplicated substantive drafts with verifiable visual assets, verify CMS scheduling support and test live URLs before publication.",
       "status": "verified_cms_zero;repo_one;live_unverified"
+    }
+  ],
+  "execution_log": [
+    {
+      "at": "2026-11-10T08:26:40+07:00",
+      "action": "incremental_source_validation",
+      "verified_sources": [
+        "https://www.trade.gov/common-export-documents",
+        "https://developers.google.com/search/docs/appearance/structured-data/article"
+      ],
+      "result": "Two evergreen primary references rechecked; no new dated regulatory announcement verified; 15 existing clusters preserved; article and visual publication not claimed.",
+      "blockers": [
+        "four article manuscripts not completed",
+        "five verified local WebP covers unavailable",
+        "per-post scheduling not verified",
+        "live article URLs not verified"
+      ],
+      "content_changes": 0
     }
   ]
 }
