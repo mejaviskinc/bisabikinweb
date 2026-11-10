@@ -1,0 +1,31 @@
+name: BisaBikinWeb News Logo Integrity QA
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/instagram-news-logo-qa.yml'
+      - 'scripts/instagram_news_brand_logo.py'
+      - 'scripts/instagram_news_logo_qa.py'
+      - 'public-assets/brand/bisabikinweb-logo.svg'
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify_official_logo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Install original owner SVG renderer
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq librsvg2-bin
+          python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
+      - name: Render intact original logo, preview only
+        run: python3 scripts/instagram_news_logo_qa.py
+      - name: Save preview, never publish
+        uses: actions/upload-artifact@v4
+        with:
+          name: bisabikinweb-news-original-logo-qa
+          path: social/instagram/news-carousels/qa/logo-original-vs-reference.png
+          retention-days: 14
