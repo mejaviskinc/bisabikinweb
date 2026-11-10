@@ -1,17 +1,24 @@
-# One-time 2026-11-09 through 2026-11-12 Instagram batch, starting at 07:00 WIB.
-# 86 remaining, 25 + 25 + 25 + 11, each as a single Canva-style JPEG.
-# GitHub scheduled events are best effort: poll three times per hour and
-# select one due, unclaimed approved image each time. No Metricool.
-name: Instagram BisaBikinWeb 25 Quotes Daily
+# Replace the legacy 25-quote batch with an editorial selection gate.
+# Keep original Meta Graph API publishing, state file, secrets and concurrency.
+name: Instagram BisaBikinWeb Editorial AutoPost
 on:
   schedule:
-    - cron: '0,20,40 0-16 9-12 11 *'
+    - cron: '7,37 * * * *'
   workflow_dispatch:
   push:
     branches: [main]
     paths:
       - '.github/workflows/instagram-25-per-day.yml'
-      - 'scripts/instagram_schedule_25.py'
+      - 'scripts/instagram_editorial.py'
+      - 'social/instagram/editorial/content.json'
+      - 'scripts/instagram_prepare.py'
+  pull_request:
+    branches: [main]
+    paths:
+      - '.github/workflows/instagram-25-per-day.yml'
+      - 'scripts/instagram_editorial.py'
+      - 'social/instagram/editorial/content.json'
+      - 'tests/test_instagram_editorial.py'
 permissions:
   contents: write
 concurrency:
@@ -19,6 +26,37 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  quality_gate:
+    if: ${{ github.event_name == 'pull_request' || github.event_name == 'push' }}
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Validate editorial queue without secrets or publishing
+        run: python3 scripts/instagram_editorial.py --validate-only
+      - name: Test editorial and original publishing safety
+        run: python3 -m unittest discover -s tests -p 'test_instagram_editorial.py' -v
+      - name: Render six editorial image previews offline
+        run: |
+          python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
+          python3 scripts/instagram_editorial.py --render-preview
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          files=list(Path('social/instagram/.runtime/editorial-preview').glob('*.jpg'))
+          assert len(files)==6, f'Expected six images, found {len(files)}'
+          for path in files:
+              with Image.open(path) as pic:
+                  assert pic.size==(1080,1350) and pic.format=='JPEG', str(path)
+          print('EDITORIAL_PREVIEW_QA_OK: 6 owned JPEGs 1080x1350')
+          PY
+      - name: Save visual previews for review
+        uses: actions/upload-artifact@v4
+        with:
+          name: bisabikinweb-instagram-mixed-preview
+          path: social/instagram/.runtime/editorial-preview/*.jpg
+          retention-days: 7
   publish:
     if: ${{ github.ref == 'refs/heads/main' && (github.event_name != 'schedule' || vars.IG_AUTOPUBLISH_PAUSED != 'true') }}
     runs-on: ubuntu-latest
@@ -31,19 +69,19 @@ jobs:
       IG_GRAPH_VERSION: ${{ vars.IG_GRAPH_VERSION || 'v26.0' }}
       GITHUB_TOKEN: ${{ github.token }}
     steps:
-      - name: Checkout current approved quote queue
+      - name: Checkout current reviewed editorial queue
         uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-      - name: Validate 25+25+25+11 layout and select one due post
+      - name: Select one due editorial item or validate read-only
         id: select
         run: |
           if [ "$GITHUB_EVENT_NAME" = "schedule" ]; then
-            python3 scripts/instagram_schedule_25.py
+            python3 scripts/instagram_editorial.py --select
           else
-            python3 scripts/instagram_schedule_25.py --validate-only
+            python3 scripts/instagram_editorial.py --validate-only
           fi
       - name: Check rolling Meta publishing quota before claiming a post
         id: quota
-        if: ${{ github.event_name == 'push' || (github.event_name == 'schedule' && steps.select.outputs.ready == 'true') }}
+        if: ${{ github.event_name == 'schedule' && steps.select.outputs.ready == 'true' }}
         run: |
           python3 - <<'PY'
           import os
@@ -78,13 +116,23 @@ jobs:
               output.write("allowed="+str(allowed).lower()+"\n")
           print("META_PUBLISH_QUOTA: used="+str(usage)+", total="+str(total)+", allowed="+str(allowed))
           PY
-      - name: Publish one individual quote via official Meta Graph API
+      - name: Render and verify original editorial JPEG
+        id: prepare
         if: ${{ github.event_name == 'schedule' && steps.select.outputs.ready == 'true' && steps.quota.outputs.allowed == 'true' }}
         env:
           DATE: ${{ steps.select.outputs.date }}
           SLOT: ${{ steps.select.outputs.slot }}
         run: |
-          python3 scripts/instagram_autopost.py --publish --date "$DATE" --slot "$SLOT" --queue social/instagram/queue.json
+          python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
+          python3 scripts/instagram_editorial.py --prepare --date "$DATE" --slot "$SLOT"
+      - name: Publish exactly one approved editorial card through Meta Graph API
+        if: ${{ github.event_name == 'schedule' && steps.prepare.outputs.ready == 'true' }}
+        env:
+          DATE: ${{ steps.select.outputs.date }}
+          SLOT: ${{ steps.select.outputs.slot }}
+          PREPARED_QUEUE: ${{ steps.prepare.outputs.queue }}
+        run: |
+          python3 scripts/instagram_autopost.py --publish --date "$DATE" --slot "$SLOT" --queue "$PREPARED_QUEUE"
       - name: Explain quota-limited skip
         if: ${{ github.event_name == 'schedule' && steps.select.outputs.ready == 'true' && steps.quota.outputs.allowed == 'false' }}
         run: |
