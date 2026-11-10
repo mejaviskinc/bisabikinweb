@@ -6,6 +6,7 @@ on:
       - 'scripts/build-template-pages.mjs'
       - 'tests/template-pages-packages.test.mjs'
       - 'scripts/publish-template-pages.sh'
+      - 'scripts/publish-template-pages-local.sh'
       - '.github/workflows/template-pages-export.yml'
   push:
     branches: [main]
@@ -38,6 +39,7 @@ jobs:
         run: |
           npm test
           bash -n scripts/publish-template-pages.sh
+          bash -n scripts/publish-template-pages-local.sh
       - name: Build complete source offline without secrets
         run: BBWEB_OFFLINE_BUILD=1 npm run build
       - name: Generate 60 separate deployable Pages sites
