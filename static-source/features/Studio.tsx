@@ -135,17 +135,33 @@ function AnimatedHeroShowcase(){
    node.removeEventListener('pointerleave',reset);
   };
  },[]);
- return <div className="hero-showcase" ref={showcaseRef} aria-label="Presentasi visual BisaBikinWeb dengan animasi">
+ return <div className="hero-showcase hero-photo-services" ref={showcaseRef} aria-label="Foto promosi dan pilihan layanan BisaBikinWeb">
   <div className="showcase-grid-overlay" aria-hidden="true"/>
   <div className="showcase-orbit showcase-orbit-one" aria-hidden="true"><i/></div>
   <div className="showcase-orbit showcase-orbit-two" aria-hidden="true"><i/></div>
-  <div className="showcase-bubble showcase-bubble-one" aria-hidden="true"/>
-  <div className="showcase-bubble showcase-bubble-two" aria-hidden="true"/>
-  <div className="orbit-text">GOOD DESIGN. REAL PURPOSE.</div>
-  <div className="showcase-main"><BrandShowcase/></div>
-  <div className="showcase-float"><BrandShowcase compact/></div>
-  <img className="hero-person-cutout" src={heroPersonImage} alt="Perempuan menunjukkan tampilan BisaBikinWeb di ponsel" width="240" height="315" decoding="async" loading="eager"/>
-  <div className="showcase-tag"><span className="status-dot"/> Made for real businesses <ArrowUpRight size={15}/></div>
+  <div className="hero-photo-accent" aria-hidden="true"/>
+  <img className="hero-person-cutout" src={heroPersonImage} alt="Perempuan berhijab menunjukkan website BisaBikinWeb di ponsel" width="240" height="315" decoding="async" loading="eager"/>
+  <span className="hero-photo-overline">GOOD DESIGN. REAL PURPOSE.</span>
+  <a className="hero-service-card hero-service-website" href="/jasa/landing-page/" aria-label="Jelajahi layanan Landing Page">
+    <span className="hero-service-icon"><Code2 size={19}/></span>
+    <span className="hero-service-text"><small>LAYANAN DIGITAL</small><strong>Landing Page</strong><span>Promosi lebih fokus</span></span><ArrowUpRight className="hero-service-arrow" size={16}/>
+  </a>
+  <a className="hero-service-card hero-service-company" href="/jasa/company-profile/" aria-label="Jelajahi layanan Company Profile">
+    <span className="hero-service-icon"><Layers size={19}/></span>
+    <span className="hero-service-text"><small>WEBSITE BISNIS</small><strong>Company Profile</strong><span>Profil usaha profesional</span></span><ArrowUpRight className="hero-service-arrow" size={16}/>
+  </a>
+  <a className="hero-service-card hero-service-shop" href="/jasa/ecommerce/" aria-label="Jelajahi layanan Toko Online">
+    <span className="hero-service-icon"><ShoppingBag size={19}/></span>
+    <span className="hero-service-text"><small>ONLINE STORE</small><strong>Toko Online</strong><span>Katalog dan checkout</span></span><ArrowUpRight className="hero-service-arrow" size={16}/>
+  </a>
+  <a className="hero-service-card hero-service-app" href="/jasa/custom-website/" aria-label="Jelajahi layanan Custom Web App">
+    <span className="hero-service-icon"><Zap size={19}/></span>
+    <span className="hero-service-text"><small>SOLUSI DIGITAL</small><strong>Custom Web App</strong><span>Dashboard dan integrasi</span></span><ArrowUpRight className="hero-service-arrow" size={16}/>
+  </a>
+  <a className="hero-service-card hero-service-support" href="/jasa/maintenance/" aria-label="Jelajahi layanan Website Maintenance">
+    <span className="hero-service-icon"><ShieldCheck size={19}/></span>
+    <span className="hero-service-text"><small>SUPPORT</small><strong>Website Maintenance</strong><span>Perawatan website</span></span><ArrowUpRight className="hero-service-arrow" size={16}/>
+  </a>
  </div>;
 }
 
