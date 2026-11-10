@@ -5,9 +5,9 @@ export const websiteDemos=[
     "slug": "teras-rona",
     "title": "Teras Rona",
     "category": "umkm",
-    "description": "Pilihan dekorasi hangat untuk sudut rumah yang ingin kamu hidupkan lagi.",
-    "headline": "Ruang cantik dimulai dari detail kecil.",
-    "tagline": "Earthy home decor",
+    "description": "Koleksi dekorasi rumah berkarakter alami, memadukan tekstur kayu, keramik, dan kehangatan sudut keseharian.",
+    "headline": "Kehangatan dimulai dari rumah.",
+    "tagline": "Objects for a slower living",
     "highlights": [
       "Vas Tanah",
       "Lilin Senja",
@@ -21,30 +21,30 @@ export const websiteDemos=[
     "offerings": [
       {
         "name": "Vas Tanah",
-        "description": "Pilihan vas tanah dari Teras Rona, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
+        "description": "Vas bernuansa tanah dengan bentuk organik untuk bunga kering dan sudut ruang yang lebih tenang. Harga hanya contoh demo.",
         "price": 89000
       },
       {
         "name": "Lilin Senja",
-        "description": "Pilihan lilin senja dari Teras Rona, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
+        "description": "Aksen cahaya hangat untuk meja dan rak, dipilih untuk menciptakan suasana nyaman selepas hari panjang. Produk hanya contoh.",
         "price": 129000
       },
       {
         "name": "Rak Kayu Mini",
-        "description": "Pilihan rak kayu mini dari Teras Rona, disajikan dengan informasi material atau layanan, opsi personalisasi, jumlah pesanan, dan cara pemesanan yang jelas.",
+        "description": "Inspirasi rak kayu berukuran ringkas untuk menyusun buku, vas, dan benda favorit dengan rapi. Spesifikasi hanya ilustrasi.",
         "price": 175000
       }
     ],
     "palette": {
-      "ink": "#101b19",
-      "accent": "#d6f8cb",
-      "paper": "#f2f1e7",
-      "deep": "#17352a"
+      "ink": "#322920",
+      "accent": "#eadac4",
+      "paper": "#f8f4ed",
+      "deep": "#806149"
     },
-    "image": "https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=1600&q=85",
+    "image": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=85",
     "layout": 0,
-    "sectionTitle": "Pilihan dari kami",
-    "action": "Jelajahi koleksi",
+    "sectionTitle": "Objek untuk ruangmu",
+    "action": "Lihat koleksi",
     "order": 1,
     "active": true,
     "packageSlug": "starter"
