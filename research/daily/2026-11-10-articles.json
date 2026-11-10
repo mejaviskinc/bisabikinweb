@@ -289,13 +289,19 @@
       "summary": "Kemendag melaporkan PT Dua Kelinci mengekspor 24,9 ton makanan ringan dalam lima kontainer bernilai USD 56.979.",
       "event_date": "2026-11-09",
       "source_published_at": "2026-11-09",
-      "researched_at": "2026-11-10T01:20:00+07:00",
+      "researched_at": "2026-11-10T18:29:00+07:00",
       "geography": "Indonesia dan pasar tujuan",
       "facts": [
         {
           "claim": "Rilis Kemendag 9 November 2026 melaporkan ekspor lima kontainer makanan ringan PT Dua Kelinci ke Australia, volume 24,9 ton dan nilai USD56.979.",
           "source_urls": [
             "https://www.kemendag.go.id/berita/siaran-pers/lepas-ekspor-pt-dua-kelinci-ke-negeri-kanguru-mendag-busan-terus-ajak-pelaku-usaha-manfaatkan-perjanjian-dagang"
+          ]
+        },
+        {
+          "claim": "Siaran pers Kemendag 5 November 2026 menyebut pendampingan peningkatan kualitas produk, desain kemasan, akses pasar, dan jaringan perwakilan perdagangan sebagai dukungan UMKM menjajaki ekspor; ini konteks program, bukan bukti persyaratan ekspor tertentu.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/bincang-mendag-busan-dengan-umkm-di-ntb-dorong-perluasan-pasar-domestik-dan-jajaki-ekspor"
           ]
         }
       ],
@@ -305,6 +311,12 @@
           "publisher": "Kementerian Perdagangan Republik Indonesia",
           "source_published_at": "2026-11-09",
           "accessed_at": "2026-11-10T02:34:37+07:00"
+        },
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/bincang-mendag-busan-dengan-umkm-di-ntb-dorong-perluasan-pasar-domestik-dan-jajaki-ekspor",
+          "publisher": "Kementerian Perdagangan RI",
+          "source_published_at": "2026-11-05",
+          "accessed_at": "2026-11-10T18:29:00+07:00"
         }
       ],
       "practical_impact": "Contoh bahwa pengetahuan buyer, spesifikasi, kemasan, dan strategi pasar penting bagi eksportir; bukan indikasi semua UMKM siap mengirim skala sama.",
@@ -316,7 +328,16 @@
       "recheck_after": "2026-11-10",
       "reader_pain_point": "UMKM makanan ringan memerlukan katalog SKU, bukti mutu, spesifikasi kemasan, dan alur RFQ sebelum menghubungi buyer internasional.",
       "evergreen_idea": "Checklist penawaran ekspor makanan ringan untuk UMKM: validasi label, buyer, sampel, kapasitas, katalog B2B, dan logistik.",
-      "verification_note": "Rilis Kemendag 9 November 2026 ditemukan melalui penelusuran sumber primer 10 November; volume 24,9 ton dan nilai USD56.979 adalah transaksi PT Dua Kelinci, bukan standar minimum UMKM. Gambar artikel yang tersedia masih hotlink Unsplash dan belum diverifikasi sebagai file WebP lokal; status live tidak diklaim. | 05:25 WIB: file editorial memuat slug, CMS bbweb_articles tidak memuat artikel bertanggal 10 November WIB; URL publik tidak dapat dibuka untuk verifikasi. Status live belum terbukti."
+      "verification_note": "Sumber primer bertanggal 5 November (dalam rentang 7 hari), tidak ada klaim peristiwa baru 24–72 jam. Rincian ketentuan negara tujuan tetap perlu diperiksa.",
+      "next_article_candidate": {
+        "title": "Checklist Kesiapan UMKM Menjajaki Ekspor: Mutu Produk, Kemasan, dan Buyer",
+        "slug": "checklist-kesiapan-umkm-ekspor-mutu-kemasan-buyer",
+        "keyword": "checklist kesiapan ekspor UMKM",
+        "search_intent": "informational practical",
+        "reader_pain_point": "UMKM belum tahu urutan persiapan sebelum menghubungi buyer",
+        "source_url": "https://www.kemendag.go.id/berita/siaran-pers/bincang-mendag-busan-dengan-umkm-di-ntb-dorong-perluasan-pasar-domestik-dan-jajaki-ekspor",
+        "status": "research_only_not_published"
+      }
     },
     {
       "id": "pertanian-buah-2026-11-10",
