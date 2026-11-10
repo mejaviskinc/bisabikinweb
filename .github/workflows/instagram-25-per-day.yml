@@ -140,3 +140,45 @@ jobs:
         if: ${{ github.event_name == 'schedule' && steps.select.outputs.ready == 'true' && steps.quota.outputs.allowed == 'false' }}
         run: |
           echo "SKIP: Meta rolling 24-hour publishing quota reached; no duplicate claim made"
+
+
+  # Recovery route for the separate, owner-approved 200-quotes and 60-carousel
+  # queues. The rejected six editorial drafts remain deleted and publish HOLD
+  # above is deliberately unchanged. Primary schedulers remain intact.
+  fallback_quotes200:
+    if: ${{ github.event_name == 'schedule' && github.ref == 'refs/heads/main' && vars.IG_AUTOPUBLISH_PAUSED != 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 12
+    env:
+      IG_AUTOPUBLISH_ENABLED: 'true'
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_GRAPH_BASE: ${{ vars.IG_GRAPH_BASE || 'https://graph.facebook.com' }}
+      IG_GRAPH_VERSION: ${{ vars.IG_GRAPH_VERSION || 'v26.0' }}
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: One due approved quote only, honoring Meta quota and anti-duplicate state
+        run: python3 scripts/instagram_publish_200_every20.py
+
+  fallback_carousel60:
+    needs: fallback_quotes200
+    if: ${{ always() && github.event_name == 'schedule' && github.ref == 'refs/heads/main' && vars.IG_AUTOPUBLISH_PAUSED != 'true' }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      IG_AUTOPUBLISH_ENABLED: 'true'
+      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+      IG_USER_ID: ${{ secrets.IG_USER_ID }}
+      IG_GRAPH_BASE: ${{ vars.IG_GRAPH_BASE || 'https://graph.facebook.com' }}
+      IG_GRAPH_VERSION: ${{ vars.IG_GRAPH_VERSION || 'v26.0' }}
+      GITHUB_TOKEN: ${{ github.token }}
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - name: Prepare original carousel artwork dependencies
+        run: |
+          sudo apt-get update -qq
+          sudo apt-get install -y -qq fonts-inter
+          python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
+      - name: One approved original carousel only, honoring 55-minute gap and Meta quota
+        run: python3 scripts/instagram_carousel60_publish_one.py
