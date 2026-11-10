@@ -20,19 +20,34 @@ for (const [id, [name, description]] of Object.entries(englishServices)) {
   englishPages['/jasa/' + id] = [name + ' Development and Support', description];
 }
 
+// One route map for both languages. Only matched translations claim to be
+// equivalent; Indonesian-only pages link to the clearly labelled English home.
+export function normalizeLocalePath(path = '/') {
+  const raw = String(path || '/').split(/[?#]/, 1)[0];
+  const clean = raw.replace(/\\/g, '/').replace(/\/+$/, '') || '/';
+  return clean.startsWith('/') ? clean : '/' + clean;
+}
 export function hasEnglishPage(path) {
-  return Object.hasOwn(englishPages, path);
+  return Object.hasOwn(englishPages, normalizeLocalePath(path));
 }
-
 export function englishHref(path) {
-  return path === '/' ? '/en/' : '/en' + path + '/';
+  const clean = normalizeLocalePath(path);
+  return clean === '/' ? '/en/' : '/en' + clean + '/';
+}
+export function englishSwitchHref(path) {
+  const clean = normalizeLocalePath(path);
+  return hasEnglishPage(clean) ? englishHref(clean) : '/en/';
+}
+export function indonesianSwitchHref(path) {
+  const clean = normalizeLocalePath(path);
+  return clean === '/' ? '/' : clean + '/';
 }
 
-// Fixed pricing reference: Bank Indonesia JISDOR, 4 November 2026.
-const rupiahPerUsDollar = 18_140;
-const internationalPriceMultiplier = 3.5;
-const usd = new Intl.NumberFormat('en-US', {style: 'currency', currency: 'USD'});
-
+// Prices use the same IDR source in both languages. An unexplained multiplier
+// and a stale fixed FX rate previously made English prices 3.5x higher.
+const idr = new Intl.NumberFormat('en-US', {
+  style: 'currency', currency: 'IDR', maximumFractionDigits: 0
+});
 export function formatEnglishPrice(priceInRupiah) {
-  return usd.format(priceInRupiah * internationalPriceMultiplier / rupiahPerUsDollar);
+  return idr.format(priceInRupiah);
 }
