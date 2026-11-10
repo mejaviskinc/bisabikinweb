@@ -75,7 +75,7 @@ class EditorialSafetyTests(unittest.TestCase):
         self.assertIsNone(e.select(self.items, {}, dt.datetime(2026, 11, 11, 23, 0, tzinfo=e.TZ)))
 
     def test_validation_never_attempts_upload(self):
-        with patch.object(e, "render_image") as render, patch.object(e, "upload_original_image") as upload:
+        with patch.object(e, "render_editorial_image") as render, patch.object(e, "upload_original_image") as upload:
             e.validate(self.items)
             render.assert_not_called()
             upload.assert_not_called()
