@@ -1,0 +1,9 @@
+BisaBikinWeb 60 GitHub Pages demos — one-time owner publication approval
+Date: 2026-11-10
+Request: publish public repos mejaviskinc/bisabikinweb-template1 .. bisabikinweb-template60,
+serve unique site bundles, and set custom domains template1..template60.bisabikinweb.site.
+Constraints: GitHub Pages only; no Netlify, Cloudflare, user terminal, or edits to
+Hostinger DNS, primary website deployment, or business mail.
+The publish workflow must fail closed before repository creation if its
+GitHub Actions secret TEMPLATE_PAGES_PAT is not configured.
+Verify all 60 HTTPS hostnames and both desktop/mobile views afterward.
