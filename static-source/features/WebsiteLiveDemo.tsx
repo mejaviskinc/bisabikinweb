@@ -50,7 +50,7 @@ export default function WebsiteLiveDemo({path}:{path:string}){
  function change(name:string,n:number){setCart(prev=>({...prev,[name]:Math.max(0,Math.min(25,(prev[name]||0)+n))}))}
  const nav=experience.nav.map((label:string,i:number)=>[label,navPages[i]]);
  function submitContact(e:React.FormEvent<HTMLFormElement>){e.preventDefault();const fields=new FormData(e.currentTarget);setSubmittedName(String(fields.get('name')||'Pelanggan').slice(0,60));setSent(true)}
- return <div className={'wd-root wd-layout-'+d.layout+' wd-sector-'+d.category} style={style}>
+ return <div className={'wd-root wd-layout-'+d.layout+' wd-sector-'+d.category+(d.slug==='teras-rona'?' wd-teras-rona':'')} style={style}>
    <div className="wd-preview-ribbon"><div><span className="wd-live-dot"/>DEMO INTERAKTIF • {d.title.toUpperCase()} <span className="wd-preview-suffix">— Brand contoh, bukan bisnis sungguhan</span></div><div><a href="https://bisabikinweb.site/beli-website/">Semua 60 desain <ArrowUpRight size={13}/></a><a className="wd-ribbon-buy" href={quoteLink}>Pakai desain ini <ArrowRight size={14}/></a></div></div>
    <header className="wd-header"><a className="wd-logo" href={'/demo/'+d.slug+'/'} onClick={e=>{e.preventDefault();navigate('home')}}>{d.title}<small>®</small></a>
     <nav className={mobile?'wd-nav wd-nav-open':'wd-nav'} aria-label={'Navigasi '+d.title}>{nav.map(([label,page])=><a href={'?halaman='+page} aria-current={activePage===page?'page':undefined} key={label} onClick={e=>{e.preventDefault();navigate(page)}}>{label}</a>)}</nav>
