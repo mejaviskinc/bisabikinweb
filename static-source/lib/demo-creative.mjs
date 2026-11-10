@@ -2,10 +2,10 @@
 // Photographs are Unsplash editorial references; never represent fictional brands as genuine businesses.
 export const creativeDirections={
   "teras-rona": {
-    "hero": "https://images.unsplash.com/photo-1540574163026-643ea20ade25?auto=format&fit=crop&w=1600&q=85",
-    "mood": "Japandi interior",
-    "headline": "Ruang yang tumbuh bersama keseharian",
-    "story": "Dekorasi dipilih bukan hanya karena bentuknya; bahan, proporsi dan fungsinya membantu sebuah ruang terasa lebih personal."
+    "hero": "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?auto=format&fit=crop&w=1600&q=85",
+    "mood": "Warm Japandi / natural textures / editorial home living",
+    "headline": "Ruang untuk kembali pulang.",
+    "story": "Ada hangat yang tinggal di setiap detail. Teras Rona merangkai inspirasi dekorasi rumah dari tekstur alami, bentuk sederhana, dan benda-benda kecil yang membuat ruang terasa lebih personal."
   },
   "dapur-pagi": {
     "hero": "https://images.unsplash.com/photo-1547592180-85f173990554?auto=format&fit=crop&w=1600&q=85",
