@@ -11,6 +11,11 @@ on:
       - 'tests/bilingual-switch.test.mjs'
       - 'static-source/features/EnglishStudio.tsx'
       - 'static-source/lib/languages.mjs'
+      - 'static-source/lib/inline-translation.mjs'
+      - 'static-source/lib/live-content-translation.mjs'
+      - 'supabase/functions/bbweb-public-translate/index.ts'
+      - 'tests/dynamic-translation.test.mjs'
+      - 'package.json'
       - 'tests/seo-output.test.mjs'
       - '.github/workflows/seo-pr-quality.yml'
   workflow_dispatch:
