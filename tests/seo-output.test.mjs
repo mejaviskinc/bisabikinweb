@@ -175,7 +175,7 @@ console.log('National coverage SEO verified: 38 provinces, 14 source-backed loca
 const {sitelinkTargets}=await import('../static-source/lib/sitelinks.mjs');
 assert.equal(sitelinkTargets.length,6,'Homepage should prioritize six core sitelink destinations');
 assert.equal(new Set(sitelinkTargets.map(item=>item.href)).size,6,'Sitelink URLs must be unique');
-assert.match(nationwideHome,/<title>BisaBikinWeb\.id \| Jasa Bikin Website Seluruh Indonesia<\/title>/,'Branded homepage title must be stable');
+assert.match(nationwideHome,/<title>BisaBikinWeb\.id \| Jasa Bikin Website Indonesia &amp; Global<\/title>/,'Branded homepage title must describe national and global availability');
 assert.match(nationwideHome,/aria-label="Halaman utama layanan BisaBikinWeb"/,'Homepage must have a clearly labelled priority navigation section');
 for(const target of sitelinkTargets){
  const url=origin+target.href;
@@ -189,3 +189,42 @@ for(const target of sitelinkTargets){
  assert.equal(first(html,/<link rel="canonical" href="([^"]+)"/),url,'Sitelink destination needs self-canonical: '+route);
 }
 console.log('Sitelink navigation verified: six crawlable homepage and footer destinations with indexable pages.');
+
+
+// Global commercial SEO QA: visible offers, internal links, reciprocal metadata and honest remote scope.
+const jasaHtml=await getHtml('jasa');
+const hargaHtml=await getHtml('harga');
+const portfolioHtml=await getHtml('portfolio');
+const enHomeHtml=await getHtml('en');
+const enServicesHtml=await getHtml('en/jasa');
+const enPricingHtml=await getHtml('en/harga');
+const enPortfolioHtml=await getHtml('en/portfolio');
+const enContactHtml=await getHtml('en/kontak');
+assert.match(jasaHtml,/<title>Jasa Pembuatan Website untuk Bisnis &amp; Perusahaan \| BisaBikinWeb<\/title>/);
+assert.ok(jasaHtml.includes('href="/en/jasa/"'),'Main services must link to English services');
+for(const href of ['/harga/','/portfolio/','/artikel/struktur-website-company-profile-b2b-rfq/','/artikel/biaya-website-bisnis-domain-hosting-maintenance/']){
+ assert.ok(jasaHtml.includes('href="'+href+'"'),'Jasa page should link to '+href);
+}
+for(const href of ['/jasa/','/en/harga/','/artikel/biaya-website-bisnis-domain-hosting-maintenance/']){
+ assert.ok(hargaHtml.includes('href="'+href+'"'),'Harga page should link to '+href);
+}
+assert.ok(portfolioHtml.includes('href="/jasa/ecommerce/"'),'Portfolio should lead to relevant e-commerce service');
+assert.ok(portfolioHtml.includes('href="/jasa/company-profile/"'),'Portfolio should lead to company profile service');
+assert.match(enHomeHtml,/businesses worldwide/,'English homepage should explain global remote availability');
+assert.match(enServicesHtml,/How remote website projects work/);
+assert.ok(enServicesHtml.includes('href="/en/kontak/"'),'English service page must have a contact path');
+assert.ok(enServicesHtml.includes('href="/en/portfolio/"'),'English service page must link to portfolio');
+assert.match(enPricingHtml,/international quote|business operates in/i,'English pricing must explain international custom scope');
+assert.ok(enPortfolioHtml.includes('href="/portfolio/mejavi-skin/"'),'English portfolio should offer actual case study context');
+assert.match(enContactHtml,/other countries/,'English contact must support remote clients');
+for(const route of ['en','en/jasa']){
+ const html=await getHtml(route);
+ const service=scripts(html).find(schema=>schema['@type']==='Service');
+ assert.equal(service?.areaServed?.name,'Worldwide',route+' should mark remote global coverage accurately');
+ assert.equal(service?.areaServed?.['@type'],'Place');
+}
+for(const route of ['en/jasa/ecommerce','en/jasa/company-profile']){
+ const service=scripts(await getHtml(route)).find(schema=>schema['@type']==='Service');
+ assert.equal(service?.areaServed?.name,'Worldwide',route+' global service details should use remote coverage');
+}
+console.log('Global conversion and international SEO verified: metadata, contextual links, English buyer path, and remote service schema.');
