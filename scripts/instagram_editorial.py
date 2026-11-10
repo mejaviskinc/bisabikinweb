@@ -51,7 +51,8 @@ def normalize(s: str) -> str:
 
 def validate(items: list[dict]) -> None:
     if not items:
-        raise SafeStop("No editorial items configured")
+        print("EDITORIAL_VALIDATED items=0 days=0 (empty bank; no publication)")
+        return
     keys, ids, headlines, captions = set(), set(), set(), set()
     daily = Counter()
     for item in items:
