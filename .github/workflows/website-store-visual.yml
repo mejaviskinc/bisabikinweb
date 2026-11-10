@@ -32,8 +32,12 @@ jobs:
         run: npm install --no-save --package-lock=false @playwright/test@1.56.1
       - name: Install Chromium
         run: npx playwright install --with-deps chromium
+      - name: Run full website regression tests
+        run: npm test
       - name: Build offline site
         run: BBWEB_OFFLINE_BUILD=1 npm run build
+      - name: Verify generated production HTML
+        run: npm run test:output
       - name: Start local preview server
         run: |
           python3 -m http.server 4173 --bind 127.0.0.1 --directory site-dist > /tmp/preview-http.log 2>&1 &
