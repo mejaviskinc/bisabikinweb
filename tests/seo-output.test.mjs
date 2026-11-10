@@ -1,6 +1,5 @@
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
-import {englishPages,englishHref} from '../static-source/lib/languages.mjs';
 
 const origin='https://bisabikinweb.site';
 const indexable=['','jasa','wilayah','harga','portfolio','merch','tentang','kontak','artikel','berita','redaksi','privacy','terms','refund','shipping'];
@@ -60,21 +59,17 @@ for(const route of ['jasa/landing-page','portfolio/berbeda','artikel/website-eks
  if(route.startsWith('artikel/'))assert.equal(graph.filter(s=>['NewsArticle','BlogPosting'].includes(s['@type'])).length,1,'Article markup must not be duplicated');
  if(route.startsWith('jasa/'))assert.equal(graph.filter(s=>s['@type']==='Service').length,1,'Each service detail needs one Service markup');
 }
-for(const path of Object.keys(englishPages)){
- const en=englishHref(path);
- const id=path==='/'?'/':path+'/';
- const [english,indonesian]=await Promise.all([getHtml(en.slice(1,-1)),getHtml(id.slice(1,-1))]);
- assert.match(english,/<html lang="en">/);
- assert.match(indonesian,/<html lang="id">/);
- assert.equal(first(english,/<link rel="canonical" href="([^"]+)"\/>/),origin+en);
- assert.ok(indexedLocations.has(origin+en),en+' missing from sitemap');
- for(const html of [english,indonesian]){
-  assert.ok(html.includes('hreflang="en" href="'+origin+en+'"'));
-  assert.ok(html.includes('hreflang="id" href="'+origin+id+'"'));
- }
- assert.ok(english.includes('href="'+id+'" lang="id"'));
- assert.ok(indonesian.includes('href="'+en+'" lang="en"'));
+// The language button translates the current page; no standalone /en/ pages or
+// alternate hreflang URLs may be advertised after removing the old route tree.
+assert.ok(!locations.some(url=>url.startsWith(origin+'/en/')),'Old English routes must be absent from sitemap');
+for(const route of ['','jasa','harga','portfolio','kontak']){
+ const html=await getHtml(route);
+ assert.match(html,/<html lang="id">/,'Canonical source remains Indonesian for '+route);
+ assert.ok(!html.includes('hreflang="en"'),'Removed English routes must not be linked in SEO metadata');
+ assert.match(html,/class="icon-button language-switch"/,'Language toggle should exist on current page: '+route);
+ assert.ok(!html.includes('href="/en/'),'Language toggle must never navigate to /en: '+route);
 }
+await assert.rejects(getHtml('en'),{code:'ENOENT'},'Standalone /en/ must not be published');
 const robots=await readFile('site-dist/robots.txt','utf8');
 assert.match(robots,/Allow: \//);
 assert.doesNotMatch(robots,/Disallow: \/(admin|seller|account|cart|checkout|track-order)\//,'Do not hide noindex from crawlers');
@@ -191,61 +186,25 @@ for(const target of sitelinkTargets){
 console.log('Sitelink navigation verified: six crawlable homepage and footer destinations with indexable pages.');
 
 
-// Global commercial SEO QA: visible offers, internal links, reciprocal metadata and honest remote scope.
+// Commercial SEO and on-page bilingual QA.
 const jasaHtml=await getHtml('jasa');
 const hargaHtml=await getHtml('harga');
 const portfolioHtml=await getHtml('portfolio');
-const enHomeHtml=await getHtml('en');
-const enServicesHtml=await getHtml('en/jasa');
-const enPricingHtml=await getHtml('en/harga');
-const enPortfolioHtml=await getHtml('en/portfolio');
-const enContactHtml=await getHtml('en/kontak');
+const kontakHtml=await getHtml('kontak');
 assert.match(jasaHtml,/<title>Jasa Pembuatan Website untuk Bisnis &amp; Perusahaan \| BisaBikinWeb\.id<\/title>/);
-assert.ok(jasaHtml.includes('href="/en/jasa/"'),'Main services must link to English services');
 for(const href of ['/harga/','/portfolio/','/artikel/struktur-website-company-profile-b2b-rfq/','/artikel/biaya-website-bisnis-domain-hosting-maintenance/']){
  assert.ok(jasaHtml.includes('href="'+href+'"'),'Jasa page should link to '+href);
 }
-for(const href of ['/jasa/','/en/harga/','/artikel/biaya-website-bisnis-domain-hosting-maintenance/']){
+for(const href of ['/jasa/','/kontak/','/artikel/biaya-website-bisnis-domain-hosting-maintenance/']){
  assert.ok(hargaHtml.includes('href="'+href+'"'),'Harga page should link to '+href);
 }
-assert.ok(portfolioHtml.includes('href="/jasa/ecommerce/"'),'Portfolio should lead to relevant e-commerce service');
-assert.ok(portfolioHtml.includes('href="/jasa/company-profile/"'),'Portfolio should lead to company profile service');
-assert.match(enHomeHtml,/businesses worldwide/,'English homepage should explain global remote availability');
-assert.match(enServicesHtml,/How remote website projects work/);
-assert.ok(enServicesHtml.includes('href="/en/kontak/"'),'English service page must have a contact path');
-assert.ok(enServicesHtml.includes('href="/en/portfolio/"'),'English service page must link to portfolio');
-assert.match(enPricingHtml,/international quote|business operates in/i,'English pricing must explain international custom scope');
-assert.ok(enPortfolioHtml.includes('href="/portfolio/mejavi-skin/"'),'English portfolio should offer actual case study context');
-assert.match(enContactHtml,/other countries/,'English contact must support remote clients');
-for(const route of ['en','en/jasa']){
- const html=await getHtml(route);
- const service=scripts(html).find(schema=>schema['@type']==='Service');
- assert.equal(service?.areaServed?.name,'Worldwide',route+' should mark remote global coverage accurately');
- assert.equal(service?.areaServed?.['@type'],'Place');
-}
-for(const route of ['en/jasa/ecommerce','en/jasa/company-profile']){
- const service=scripts(await getHtml(route)).find(schema=>schema['@type']==='Service');
- assert.equal(service?.areaServed?.name,'Worldwide',route+' global service details should use remote coverage');
-}
-console.log('Global conversion and international SEO verified: metadata, contextual links, English buyer path, and remote service schema.');
-
-
-// The English version must retain the Indonesian site's main visual and lead flow,
-// rather than rendering a disconnected minimal landing page.
-assert.match(enHomeHtml,/class="hero"/,'English homepage must use the shared hero design');
-assert.match(enHomeHtml,/class="hero-showcase"/,'English hero must keep the shared visual design');
-assert.match(enHomeHtml,/class="sitelink-grid"/,'English site needs a service navigation hub');
-assert.match(enHomeHtml,/class="portfolio-grid"/,'English homepage needs project previews');
-assert.match(enHomeHtml,/class="project-card"/,'English and Indonesian portfolio cards should match');
-assert.match(enHomeHtml,/class="pricing-grid"/,'English pricing must use the same visual grid');
-assert.match(enPortfolioHtml,/class="portfolio-domain-card portfolio-live-card/,'English portfolio needs actual live website previews');
-assert.match(enContactHtml,/class="consult-form"/,'English contacts must offer the real inquiry form');
+assert.ok(portfolioHtml.includes('href="/jasa/ecommerce/"'),'Portfolio should link to e-commerce service');
+assert.ok(portfolioHtml.includes('href="/jasa/company-profile/"'),'Portfolio should link to company profile service');
+assert.match(kontakHtml,/class="consult-form"/,'Same lead form is kept for both client-side languages');
 for(const field of ['name','company','phone','email','type','budget','domain','deadline','features','reference','message']){
- assert.ok(enContactHtml.includes('name="'+field+'"'),'English inquiry form lacks field '+field);
+ assert.ok(kontakHtml.includes('name="'+field+'"'),'Contact form lacks '+field);
 }
-assert.ok(enContactHtml.includes('privacy policy (Indonesian)'),'Translated consent must identify the policy language');
-assert.ok(enPricingHtml.includes('IDR')&&enPricingHtml.includes('800,000'),'Prices must stay in IDR with no 3.5x English markup');
-assert.ok(enHomeHtml.includes('href="/beli-website/" lang="id"'),'Untranslated catalog link must be labelled Indonesian');
-assert.ok(enHomeHtml.includes('href="/artikel/" lang="id"'),'Untranslated article link must be labelled Indonesian');
-assert.ok(nationwideHome.includes('this page is currently in Indonesian')||nationwideHome.includes('View this page in English'),'Language switch should describe its destination');
-console.log('Bilingual UI parity verified: shared visual components, same price, bidirectional locale links and functional translated consultation form.');
+assert.match(jasaHtml,/aria-label=".*language|aria-label="Change this page to English without navigation"/i,'Language control must describe non-navigation intent');
+const service=scripts(await getHtml('jasa/company-profile')).find(schema=>schema['@type']==='Service');
+assert.equal(service?.areaServed?.name,'Worldwide','Remote client coverage belongs to the original URL');
+console.log('Inline bilingual SEO checks passed: no /en routes, canonical ID pages, live switch, public form and commercial links.');
