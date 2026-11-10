@@ -44,7 +44,7 @@ if [[ -z "${GH_TOKEN:-}" ]] && ! gh auth status --hostname github.com >/dev/null
   exit 1
 fi
 GH_OWNER="${GH_OWNER:-mejaviskinc}"
-if [[ "${GH_OWNER:-}" != "mejaviskinc" ]];
+if [[ "${GH_OWNER:-}" != "mejaviskinc" ]]; then
   echo "Refusing unexpected GitHub repository owner." >&2
   exit 1
 fi
