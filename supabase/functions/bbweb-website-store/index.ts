@@ -284,9 +284,10 @@ Deno.serve(async(req:Request)=>{
    if(!allowedStatuses.has(next)||!allowedDomainStatuses.has(domainStatus))fail('Status tidak valid.');
    const total=input.quoted_total==null||input.quoted_total===''?null:Number(input.quoted_total);
    if(total!==null&&(!Number.isSafeInteger(total)||total<0||total>100000000000))fail('Nilai penawaran tidak valid.');
-   const oldRows=await db('bbweb_website_orders?select=id,status,payment_status&id=eq.'+encodeURIComponent(id)+'&limit=1');
+   const oldRows=await db('bbweb_website_orders?select=id,status,payment_status,quoted_total&id=eq.'+encodeURIComponent(id)+'&limit=1');
    const current=Array.isArray(oldRows)?oldRows[0]:null;if(!current)fail('Order tidak ditemukan.',404);
    if(next==='proposal'&&(!Number.isSafeInteger(total)||total===null||total<1))fail('Penawaran harus mencantumkan nominal final sebelum dikirim.');
+   if(['awaiting_payment','in_progress','client_review','revision','completed'].includes(current.status)&&total!==Number(current.quoted_total))fail('Harga yang sudah disetujui klien tidak dapat diubah. Buat penawaran baru melalui proses resmi.',409);
    if(next==='awaiting_payment'&&current.status!=='awaiting_payment')fail('Hanya pelanggan yang dapat menyetujui penawaran sebelum pembayaran.',409);
    // Payment status is never changed here; only a verified payment provider may mark a payment paid.
    const note=clean(input.note,2000);
