@@ -143,6 +143,7 @@ function AnimatedHeroShowcase(){
   <div className="orbit-text">GOOD DESIGN. REAL PURPOSE.</div>
   <div className="showcase-main"><BrandShowcase/></div>
   <div className="showcase-float"><BrandShowcase compact/></div>
+  <img className="hero-person-cutout" src="/images/bisabikinweb-hero-person.svg" alt="Perempuan menunjukkan tampilan BisaBikinWeb di ponsel" width="240" height="315" decoding="async" loading="eager"/>
   <div className="showcase-tag"><span className="status-dot"/> Made for real businesses <ArrowUpRight size={15}/></div>
  </div>;
 }
