@@ -1,9 +1,5 @@
 name: Publish 60 GitHub Pages template sites (manual approval)
 on:
-  push:
-    branches: [main]
-    paths:
-      - 'ops/requests/publish-60-templates-20261110.txt'
   workflow_dispatch:
     inputs:
       publish:
@@ -21,7 +17,7 @@ concurrency:
 
 jobs:
   publish:
-    if: ${{ github.ref == 'refs/heads/main' && ((github.event_name == 'workflow_dispatch' && inputs.publish == true) || (github.event_name == 'push' && github.event.head_commit.message == 'chore(templates): publish 60 GitHub Pages websites (approved)')) }}
+    if: ${{ inputs.publish == true && github.ref == 'refs/heads/main' }}
     runs-on: ubuntu-24.04
     timeout-minutes: 90
     environment: template-sites-production
