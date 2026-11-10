@@ -1,7 +1,7 @@
 {
   "research_date": "2026-11-11",
   "timezone": "Asia/Jakarta",
-  "researched_at": "2026-11-11T00:33:51+07:00",
+  "researched_at": "2026-11-11T01:34:06+07:00",
   "entries": [
     {
       "id": "briket-energi-2026-11-11",
@@ -375,7 +375,7 @@
       "id": "regulasi-sertifikasi-2026-11-11",
       "category": "Regulasi & Sertifikasi",
       "topic": "Komisi Eropa memulai investigasi safeguard bahan kimia resin PET",
-      "summary": "Konteks dibawa dari arsip 10 November; tidak ada klaim fakta baru yang diverifikasi pada putaran ini. Pemberitahuan resmi Komisi Eropa dan WTO bertanggal 6 November 2026; investigasi berlangsung, bukan pembatasan impor yang sudah diputuskan.",
+      "summary": "Pemantauan sumber resmi Kemendag menemukan rilis 10 November tentang penguatan mutu dan standardisasi produk UMKM di Jawa Timur; detail regulasi teknis belum ditelusuri. Catatan lama tetap dipertahankan.",
       "event_date": "2026-11-06",
       "source_published_at": "2026-11-06",
       "researched_at": "2026-11-11T00:33:51+07:00",
@@ -386,6 +386,12 @@
           "source_urls": [
             "https://policy.trade.ec.europa.eu/news/commission-initiates-safeguard-investigation-imports-pet-resin-chemicals-2026-11-06_en",
             "https://www.wto.org/english/news_e/news26_e/safe_eec_06nov26_542_e.htm"
+          ]
+        },
+        {
+          "claim": "Daftar siaran pers resmi Kemendag mencantumkan rilis bertanggal 10 November 2026 mengenai penguatan mutu dan standardisasi produk UMKM Jawa Timur (kegiatan di Situbondo pada 8 November). Persyaratan sertifikasi produk dan negara tujuan belum diverifikasi dari peraturan teknis.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers"
           ]
         }
       ],
@@ -401,16 +407,22 @@
           "publisher": "WTO",
           "accessed_at": "2026-11-10T01:20:00+07:00",
           "previously_checked_at": "2026-11-10T01:20:00+07:00"
+        },
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers",
+          "publisher": "Kementerian Perdagangan RI",
+          "source_published_at": "2026-11-10",
+          "accessed_at": "2026-11-11T01:34:06+07:00"
         }
       ],
-      "practical_impact": "Pelaku usaha yang terkait PET dapat meninjau klasifikasi produk, kontrak, pemasok, dan tenggat partisipasi.",
-      "content_angle": "Berita investigasi PET: bedakan tahap penyelidikan dengan keputusan safeguard.",
-      "keyword_intent": "investigasi safeguard PET Uni Eropa November 2026",
+      "practical_impact": "UMKM perlu memetakan persyaratan mutu dan sertifikasi per jenis produk dan pasar sebelum membuat klaim kepatuhan atau menawarkan ekspor.",
+      "content_angle": "Checklist kesiapan mutu produk UMKM sebelum menawarkan barang ke buyer ekspor, dibedakan dari berita kegiatan Kemendag.",
+      "keyword_intent": "checklist standardisasi mutu produk UMKM ekspor | informational",
       "editorial_status": "needs_verification",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-11",
-      "verification_note": "Sumber dan tanggal dari arsip sebelumnya, belum diperiksa ulang hari ini; jangan ditafsirkan sebagai berita 24 jam terakhir."
+      "verification_note": "Rilis 10 November terlihat pada indeks resmi; naskah lengkap, ketentuan sertifikasi, dan aturan negara tujuan masih perlu diperiksa."
     },
     {
       "id": "rempah-minyak-atsiri-2026-11-11",
