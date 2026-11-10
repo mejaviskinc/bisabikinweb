@@ -302,6 +302,7 @@ Deno.serve(async(req:Request)=>{
    if(next==='proposal'&&(!Number.isSafeInteger(total)||total===null||total<1))fail('Penawaran harus mencantumkan nominal final sebelum dikirim.');
    if(['awaiting_payment','in_progress','client_review','revision','completed'].includes(current.status)&&total!==Number(current.quoted_total))fail('Harga yang sudah disetujui klien tidak dapat diubah. Buat penawaran baru melalui proses resmi.',409);
    if(next==='awaiting_payment'&&current.status!=='awaiting_payment')fail('Hanya pelanggan yang dapat menyetujui penawaran sebelum pembayaran.',409);
+   if(current.status==='awaiting_payment'&&current.payment_status!=='paid'&&next!=='awaiting_payment')fail('Status pesanan yang menunggu pembayaran tidak dapat diubah sebelum konfirmasi DOKU.',409);
    // Payment status is never changed here; only a verified payment provider may mark a payment paid.
    const note=clean(input.note,2000);
    const payload={status:next,domain_status:domainStatus,quoted_total:total,updated_at:new Date().toISOString()};
