@@ -173,12 +173,12 @@ assert.match(nationwideHome,/class="reference-main-nav"/,'Desktop reference navi
 for(const label of ['Beranda','Beli Website','Portofolio','FAQ']){
  assert.ok(nationwideHome.includes('>'+label+'</a>'),'Main navigation is missing '+label);
 }
-for(const label of ['Layanan','Media','Tentang']){
+for(const label of ['Layanan','Tentang']){
  assert.match(nationwideHome,new RegExp('<summary[^>]*>'+label+'(?:\\s|<)'),'Main navigation is missing grouped menu '+label);
 }
 assert.match(nationwideHome,/<details class="site-nav-dropdown">/,'Layanan must offer a dropdown');
 assert.match(nationwideHome,/href="\/jasa\/company-profile\/"/,'Service flyout must link to company profile');
-assert.match(nationwideHome,/href="\/berita\/"/,'Media dropdown must link to news');
+assert.match(nationwideHome,/href="https:\/\/media\.bisabikinweb\.site\/">Media<\/a>/,'Media must link directly to the newsroom subdomain');
 assert.match(nationwideHome,/<section class="section faq-section" id="faq">/,'FAQ should target the homepage FAQ anchor');
 assert.equal(sitelinkTargets.length,6,'Homepage should prioritize six core sitelink destinations');
 assert.equal(new Set(sitelinkTargets.map(item=>item.href)).size,6,'Sitelink URLs must be unique');
