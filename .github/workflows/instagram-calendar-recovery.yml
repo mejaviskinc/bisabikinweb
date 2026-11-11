@@ -1,11 +1,12 @@
 name: BisaBikinWeb Instagram Calendar Recovery
-# Manual recovery trigger: 2026-11-11 16:06 WIB; retain anti-duplicate, cadence, and Meta quota checks.
+# 11 Nov 18:25 WIB: strengthen recovery cadence while preserving the 17/55-minute guards, Meta quota, approved-only gate, and anti-duplicate state.
 
 # Extra triggers help recover dropped GitHub cron events, but GitHub is best-effort.
 # Respect existing Meta quota, claim state, and cooldowns; never republish claims.
 on:
   schedule:
-    - cron: '3,13,23,33,43,53 * * * *'
+    # Every five minutes at off-peak minute marks; actual publishing retains 20-minute quote and hourly carousel cooldowns.
+    - cron: '3,8,13,18,23,28,33,38,43,48,53,58 * * * *'
   push:
     branches: [main]
     paths:
