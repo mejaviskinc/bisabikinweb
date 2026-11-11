@@ -2,6 +2,8 @@
 import {useEffect,useMemo,useRef,useState} from 'react';
 import {ArrowUpRight,ArrowRight,Check,Search,Monitor,Globe2,ShieldCheck,LayoutTemplate,Clock3} from 'lucide-react';
 import {websiteCategories,websitePackages,websiteConcepts,websiteStatusLabel,rupiah} from '../lib/website-store';
+import {maintenancePlans,priceAddons,commercialRules} from '../lib/commercial-offers';
+import './pricing-policy.css';
 import {getWebsiteCatalog,websiteStoreApi} from '../lib/website-store-api';
 import {customerGetSession} from '../lib/customer';
 import {whatsapp} from '../lib/client';
@@ -75,10 +77,26 @@ function Preview({item}:{item:Template}){
 }
 function PriceCards({items}:{items:Package[]}){
  return <div className="ws-package-grid">{items.map(p=><article className="ws-package" key={p.slug}>
-  <small>PAKET / {p.slug.toUpperCase()}</small><h3>{p.name}</h3><strong>{p.base_price===null?'Konsultasi':rupiah(p.base_price)}</strong>
+  <small>PAKET / {p.slug.toUpperCase()}</small><h3>{p.name}</h3><strong>{p.base_price===null?'Mulai '+rupiah(12500000)+' (penawaran)':rupiah(p.base_price)}</strong>
   <p>{p.description}</p><ul>{(p.features||[]).map(f=><li key={f}><Check size={14}/>{f}</li>)}</ul>
   <a className="btn primary" href={'/pesan-website/?paket='+encodeURIComponent(p.slug)}>Pilih paket <ArrowUpRight size={16}/></a>
  </article>)}</div>
+}
+function WebsitePricingDetails(){
+ return <>
+ <section className="section bbw-policy-section" aria-label="Layanan maintenance dan SEO">
+  <div className="bbw-policy-heading"><small>BERLANGGANAN BULANAN</small><h2>Website sudah jadi? Tetap kami rawat.</h2><p>Langganan terpisah dari biaya pembuatan. Pilih dukungan sesuai kebutuhan, tanpa menyisipkan biaya tersembunyi ke paket awal.</p></div>
+  <div className="bbw-care-grid">{maintenancePlans.map(p=><article className="bbw-care-card" key={p.id}><small>{p.name.toUpperCase()}</small><h3>{p.name}</h3><strong>{rupiah(p.price)} <small>/ bulan</small></strong><p>{p.desc}</p><ul>{p.features.map(feature=><li key={feature}>{feature}</li>)}</ul><a className="btn" href={'/kontak/?estimate='+encodeURIComponent('Saya ingin berlangganan '+p.name)}>Konsultasi layanan <ArrowUpRight size={15}/></a></article>)}</div>
+ </section>
+ <section className="section bbw-policy-section" aria-label="Harga fitur tambahan">
+  <div className="bbw-policy-heading"><small>ADD-ON</small><h2>Fitur tambahan dengan biaya terpisah.</h2><p>Pilih hanya fitur yang diperlukan. Harga bersifat mulai dari dan dapat berubah menurut kompleksitas teknis.</p></div>
+  <div className="bbw-addons">{priceAddons.map(([label,price])=><div className="bbw-addon-row" key={label}><span>{label}</span><strong>Mulai {rupiah(price)}</strong></div>)}</div>
+ </section>
+ <section className="section bbw-policy-section" aria-label="Syarat paket pembuatan website">
+  <div className="bbw-policy-heading"><small>SYARAT LAYANAN</small><h2>Scope jelas. Biaya terukur.</h2></div>
+  <ol className="bbw-terms">{commercialRules.map(rule=><li key={rule}>{rule}</li>)}</ol><a className="btn" href="/terms/">Syarat dan ketentuan lengkap <ArrowUpRight size={15}/></a>
+ </section>
+ </>;
 }
 export default function WebsiteStore({path}:{path:string}){
  const [templates,setTemplates]=useState<Template[]>(conceptTemplates);
@@ -94,7 +112,7 @@ export default function WebsiteStore({path}:{path:string}){
  const categorySlug=path.startsWith('/beli-website/')?path.split('/')[2]:null;
  useEffect(()=>{if(categorySlug&&websiteCategories.some(c=>c.slug===categorySlug))setCategory(categorySlug)},[categorySlug]);
  const visible=useMemo(()=>templates.filter(t=>(category==='semua'||t.category===category)&&[t.title,t.description,t.category].join(' ').toLowerCase().includes(search.toLowerCase().trim())),[templates,category,search]);
- if(path==='/harga-website')return <div className="ws-root"><section className="ws-hero section"><small>PAKET WEBSITE / TRANSPARAN</small><h1>Harga website.<br/><em>Jelas dari awal.</em></h1><p>Bandingkan paket berdasarkan kebutuhan usaha. Paket standar dapat langsung dibayar sesuai harga paket yang ditampilkan. Domain, hosting, fitur tambahan, dan perpanjangan tidak termasuk dan memerlukan persetujuan biaya terpisah.</p><div className="ws-actions"><a className="btn primary" href="/beli-website/">Jelajahi desain <ArrowRight size={17}/></a></div></section><section className="section ws-section"><PriceCards items={packages}/><p className="ws-disclaimer">Starter, Business, dan Commerce dapat langsung dibayar melalui DOKU setelah pengisian data. Custom membutuhkan penawaran karena belum ada harga tetap. Domain dan biaya tambahan tidak otomatis termasuk.</p></section></div>;
+ if(path==='/harga-website')return <div className="ws-root"><section className="ws-hero section"><small>PAKET WEBSITE / TRANSPARAN</small><h1>Harga website.<br/><em>Jelas dari awal.</em></h1><p>Starter Rp1.490.000, Business Rp3.490.000, Commerce Rp6.990.000, dan Custom mulai Rp12.500.000 berdasarkan penawaran. Setiap paket punya batas fitur dan revisi yang jelas.</p><div className="ws-actions"><a className="btn primary" href="/beli-website/">Jelajahi desain <ArrowRight size={17}/></a></div></section><section className="section ws-section"><PriceCards items={packages}/><p className="ws-disclaimer">Paket standar dibayar penuh melalui checkout DOKU sesuai nominal yang tampil. Harga belum termasuk domain, hosting, add-on, biaya transaksi dan perpanjangan. Custom membutuhkan penawaran tertulis lebih dulu.</p></section><WebsitePricingDetails/></div>;
  if(match){
   if(!item)return <section className="section ws-root"><h1>Desain belum tersedia.</h1><p>Desain ini mungkin belum dipublikasikan. Silakan kembali ke katalog.</p><a className="btn primary" href="/beli-website/">Lihat katalog</a></section>;
   const cat=websiteCategories.find(c=>c.slug===item.category);
