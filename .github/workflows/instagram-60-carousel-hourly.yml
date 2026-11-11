@@ -28,20 +28,29 @@ jobs:
       GITHUB_TOKEN: ${{ github.token }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-      - name: Install image renderer and Inter font
+      - name: Install original Inter Display Bold from upstream GitHub release and Pillow
         run: |
-          # GitHub runners occasionally hit temporary Ubuntu mirror DNS failures.
-          # Retry dependency setup without weakening publishing/approval safeguards.
-          for attempt in 1 2 3; do
-            if sudo apt-get update -qq && sudo apt-get install -y -qq fonts-inter; then
-              break
-            fi
-            if [ "$attempt" -eq 3 ]; then
-              echo 'DEPENDENCY_SETUP_FAILED_AFTER_3_ATTEMPTS'
-              exit 1
-            fi
-            sleep 20
-          done
+          set -euo pipefail
+          # Preserve the exact Inter Display Bold family from upstream Inter v4.1.
+          # Avoid Ubuntu apt mirrors, whose DNS resolution repeatedly failed on runners.
+          curl --fail --location --silent --show-error --retry 3 --retry-all-errors --retry-delay 3 \
+            --connect-timeout 15 --max-time 150 \
+            'https://github.com/rsms/inter/releases/download/v4.1/Inter-4.1.zip' \
+            --output /tmp/Inter-4.1.zip
+          python3 - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          with ZipFile('/tmp/Inter-4.1.zip') as archive:
+              entries = [n for n in archive.namelist() if n == 'InterDisplay-Bold.otf' or n.endswith('/InterDisplay-Bold.otf')]
+              if len(entries) != 1:
+                  raise SystemExit('SAFE_STOP: original Inter Display Bold OTF missing/ambiguous')
+              font = archive.read(entries[0])
+              if not 100_000 < len(font) < 4_000_000:
+                  raise SystemExit('SAFE_STOP: unexpected font size')
+              Path('/tmp/InterDisplay-Bold.otf').write_bytes(font)
+          PY
+          sudo mkdir -p /usr/share/fonts/opentype/inter
+          sudo install -m 644 /tmp/InterDisplay-Bold.otf /usr/share/fonts/opentype/inter/InterDisplay-Bold.otf
           python3 -m pip install --disable-pip-version-check --no-cache-dir --retries 4 Pillow==12.0.0
       - name: Publish exactly one unclaimed original carousel with Meta quota guard
         run: python3 scripts/instagram_carousel60_publish_one.py
