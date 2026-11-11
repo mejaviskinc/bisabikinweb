@@ -1,4 +1,5 @@
 import assert from 'node:assert/strict';
+import {serviceSeoById} from '../static-source/lib/service-seo.mjs';
 import {readFile} from 'node:fs/promises';
 
 const origin='https://bisabikinweb.site';
@@ -226,3 +227,25 @@ assert.match(jasaHtml,/aria-label=".*language|aria-label="Change this page to En
 const service=scripts(await getHtml('jasa/company-profile')).find(schema=>schema['@type']==='Service');
 assert.equal(service?.areaServed?.name,'Worldwide','Remote client coverage belongs to the original URL');
 console.log('Inline bilingual SEO checks passed: no /en routes, canonical ID pages, live switch, public form and commercial links.');
+
+// Commercial service pages must describe an actual service, not six generic headings.
+// Keep one URL per service topic, with an indexable canonical and helpful crosslinks.
+for(const [slug,seo] of Object.entries(serviceSeoById)){
+ const route='jasa/'+slug;
+ const html=await getHtml(route);
+ const url=origin+'/'+route+'/';
+ const title=first(html,/<title>([^<]+)<\/title>/);
+ const description=first(html,/<meta name="description" content="([^"]+)"/);
+ const service=scripts(html).find(schema=>schema['@type']==='Service');
+ assert.equal(title,seo.title+' | BisaBikinWeb Indonesia',route+' must target real buying intent');
+ assert.ok(description.startsWith(seo.description.slice(0,80)),route+' needs a service-specific summary');
+ assert.equal(first(html,/<link rel="canonical" href="([^"]+)"/),url,route+' canonical mismatch');
+ assert.ok(indexedLocations.has(url),route+' is missing from the public sitemap');
+ assert.equal(service?.name,seo.title,route+' must advertise the matching Service schema');
+ assert.ok(html.includes(seo.heading.replaceAll('&','&amp;')),route+' must render a descriptive H1');
+ for(const related of seo.related){
+  assert.ok(html.includes('href="'+related.href+'"'),route+' missing meaningful internal link: '+related.href);
+  assert.ok(indexedLocations.has(origin+related.href),route+' references a non-indexable sitemap target: '+related.href);
+ }
+}
+console.log('Commercial SEO verified: six focused service pages and crawlable relevant internal links.');

@@ -7,6 +7,7 @@ import {cityLandingPages} from './static-source/lib/city-pages.mjs';
 import {provincePages,localityPages,provinceBySlug,localityByPath} from './static-source/lib/geo-pages.mjs';
 import {industryPages,industryByPath} from './static-source/lib/industry-pages.mjs';
 import {keywordPages,keywordPageByPath} from './static-source/lib/seo-solutions.mjs';
+import {serviceSeoById} from './static-source/lib/service-seo.mjs';
 import {websiteDemos} from './static-source/lib/website-demos.mjs';
 import {readFile,writeFile,mkdir} from 'node:fs/promises';
 const configFile=new URL('./vite.pages.mjs',import.meta.url).pathname;
@@ -138,16 +139,11 @@ for(const locality of localityPages){pages[locality.path]=[locality.title,locali
 for(const [kind,prefix] of [['services','jasa'],['portfolio','portfolio'],['products','merch']]){
  for(const p of defaults[kind]){
   const name=String(p.name||p.title||'').trim();
-  const title=kind==='services'?'Layanan '+name:kind==='portfolio'?'Studi Kasus Website '+name:'Merchandise '+name;
-  const description=kind==='services'?name+': '+(p.description||'')+' Fitur yang tersedia: '+(p.features||[]).slice(0,3).join(', ')+'.':kind==='portfolio'?'Studi kasus '+name+'. '+(p.goal||p.description||'')+' '+(p.solution||''):'Lihat '+name+' di katalog merchandise BisaBikinWeb. '+(p.description||p.summary||'');
+  const title=kind==='services'?(serviceSeoById[p.id]?.title||'Layanan '+name):kind==='portfolio'?'Studi Kasus Website '+name:'Merchandise '+name;
+  const description=kind==='services'?(serviceSeoById[p.id]?.description||name+': '+(p.description||'')+' Fitur yang tersedia: '+(p.features||[]).slice(0,3).join(', ')+'.'):kind==='portfolio'?'Studi kasus '+name+'. '+(p.goal||p.description||'')+' '+(p.solution||''):'Lihat '+name+' di katalog merchandise BisaBikinWeb. '+(p.description||p.summary||'');
   pages['/'+prefix+'/'+p.id]=[title,description];
  }
 }
-// Halaman toko online menjadi tujuan layanan tersendiri, bukan sekadar judul umum "Online Store".
-pages['/jasa/ecommerce']=[
- 'Jasa Pembuatan Toko Online Profesional',
- 'Buat website toko online untuk brand dan UMKM: katalog produk, varian, keranjang, pembayaran sesuai integrasi, dan pengelolaan pesanan.'
-];
 for(const article of buildArticles){
  const firstParagraph=Array.isArray(article.body)?article.body.find(line=>typeof line==='string'&&line.trim()&&!/^#+\\s/.test(line)):null;
  pages['/artikel/'+article.id]=[article.title,article.summary||firstParagraph||'Baca artikel '+article.title+' dari '+(article.author_store_name||'redaksi BisaBikinWeb')+'.'];
