@@ -38,7 +38,8 @@ test('mobile actions are intentionally compact and all hidden actions remain in 
 test('desktop menu is grouped like the reference, with a functional second-level flyout',()=>{
   assert.match(source,/const headerNav:HeaderLink\[\]/);
   assert.match(source,/label:'Layanan'/);
-  assert.match(source,/label:'Media'/);
+  assert.match(source,/label:'Media',href:'https:\/\/media\.bisabikinweb\.site\/'/);
+  assert.doesNotMatch(source,/label:'Media',href:[^\n]*children:/);
   assert.match(source,/site-nav-dropdown-panel/);
   assert.match(source,/site-nav-flyout/);
   assert.match(css,/\.site-nav-submenu:focus-within/);
