@@ -30,8 +30,18 @@ jobs:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
       - name: Install image renderer and Inter font
         run: |
-          sudo apt-get update -qq
-          sudo apt-get install -y -qq fonts-inter
-          python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
+          # GitHub runners occasionally hit temporary Ubuntu mirror DNS failures.
+          # Retry dependency setup without weakening publishing/approval safeguards.
+          for attempt in 1 2 3; do
+            if sudo apt-get update -qq && sudo apt-get install -y -qq fonts-inter; then
+              break
+            fi
+            if [ "$attempt" -eq 3 ]; then
+              echo 'DEPENDENCY_SETUP_FAILED_AFTER_3_ATTEMPTS'
+              exit 1
+            fi
+            sleep 20
+          done
+          python3 -m pip install --disable-pip-version-check --no-cache-dir --retries 4 Pillow==12.0.0
       - name: Publish exactly one unclaimed original carousel with Meta quota guard
         run: python3 scripts/instagram_carousel60_publish_one.py
