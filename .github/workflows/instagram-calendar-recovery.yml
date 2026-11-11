@@ -100,4 +100,5 @@ jobs:
 
       - name: Explain when no post is due
         if: ${{ steps.due.outputs.quotes != 'true' && steps.due.outputs.carousels != 'true' }}
-        run: echo 'NO_SAFE_ITEM_DUE: no posts eligible without bypassing anti-duplicate, quota, or cadence gates.'
+        run: |
+          echo 'NO_SAFE_ITEM_DUE: no posts eligible without bypassing anti-duplicate, quota, or cadence gates.'
