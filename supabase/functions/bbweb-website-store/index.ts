@@ -132,8 +132,16 @@ Deno.serve(async(req:Request)=>{
    const existing=await db('bbweb_website_orders?select=id&user_id=eq.'+encodeURIComponent(user.id)+'&created_at=gte.'+encodeURIComponent(since)+'&limit=4');
    if(Array.isArray(existing)&&existing.length>=3)fail('Maksimal tiga permintaan website per jam. Coba lagi nanti.',429);
    const now=new Date().toISOString();
+   // The browser may supply an attribution code, never an affiliate ID or commission value.
+   const referral=clean(input.referral_code,24).toUpperCase();
+   let affiliateId:string|null=null;
+   if(/^BBW[A-F0-9]{12}$/.test(referral)){
+    const partners=await db('bbweb_affiliates?select=id,user_id,status&referral_code=eq.'+encodeURIComponent(referral)+'&status=eq.active&limit=1');
+    const partner=Array.isArray(partners)?partners[0]:null;
+    if(partner&&partner.user_id!==user.id)affiliateId=partner.id;
+   }
    const orderNo='BW-'+shortHex();
-   const payload={order_no:orderNo,user_id:user.id,package_slug:packageSlug,template_slug:templateSlug,
+   const payload={order_no:orderNo,user_id:user.id,affiliate_id:affiliateId,package_slug:packageSlug,template_slug:templateSlug,
     category,full_name:name,email:String(user.email).toLowerCase(),phone,company,requested_domain:domain,
     reference_url:reference,brief,base_price_snapshot:pack.base_price,
     quoted_total:directCheckout?listedPrice:null,status:directCheckout?'awaiting_payment':'requested',

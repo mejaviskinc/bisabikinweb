@@ -118,6 +118,8 @@ const pages={
   '/admin/iklan':['Ads Manager Bisabikinweb','Panel admin untuk mengatur iklan homepage Bisabikinweb.'],
   '/admin/payments':['Payment Gateway — BisaBikinWeb','Dashboard transaksi DOKU, status pembayaran, rekonsiliasi, dan monitoring checkout merchandise.']
 };
+pages['/affiliate']=['Program Affiliate Partner BisaBikinWeb | Komisi Website 10%','Daftar mitra afiliasi BisaBikinWeb. Perkenalkan jasa pembuatan website kepada pelanggan baru dan dapatkan komisi 10% dari nilai jasa yang memenuhi syarat setelah transaksi terverifikasi.'];
+pages['/admin/affiliates']=['Admin Affiliate Partners — BisaBikinWeb','Panel aman untuk mengelola mitra, menyetujui komisi, dan mencatat pencairan afiliasi.'];
 pages['/beli-website']=['Beli Website & Katalog Desain Profesional','Jelajahi desain website untuk UMKM, company profile, ekspor, toko online, fashion, travel, restoran, dan pendidikan. Pilih desain dan minta penawaran.'];
 pages['/harga-website']=['Paket Harga Website: Starter, Business, Commerce, Custom','Lihat harga mulai dan fitur jasa pembuatan website BisaBikinWeb. Bandingkan paket sebelum memesan website online.'];
 pages['/pesan-website']=['Formulir Pemesanan Website','Isi brief website dan pilih paket untuk menerima penawaran dari BisaBikinWeb.'];

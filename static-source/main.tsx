@@ -2,6 +2,7 @@ import React,{useEffect,useState} from 'react';
 import {createRoot,hydrateRoot} from 'react-dom/client';
 import Studio from './features/Studio';
 import Admin from './features/Admin';
+import AffiliateAdmin from './features/AffiliateAdmin';
 import AdsManager from './features/AdsManager';
 import SellerDashboard from './features/SellerDashboard';
 import Storefront from './features/Storefront';
@@ -13,6 +14,7 @@ import './features/digital-admin.css';
 import WebsiteLiveDemo from './features/WebsiteLiveDemo';
 import {templateDemoForHostname} from './lib/template-subdomains.mjs';
 import {defaults} from './lib/data';
+import {captureAffiliateReferral} from './lib/affiliate-referral.mjs';
 import {mergeEditorialPosts} from './lib/editorial-posts.mjs';
 import {loadPublicContent} from './lib/supabase';
 import {isAdActive,loadPublicAd,safeAdHref,safeAdImages,type AdSettings} from './lib/ads';
@@ -36,6 +38,7 @@ import './features/website-live-demo.css';
 import './reference-navigation.css';
 
 // A templateN hostname serves the corresponding demo at the hostname root.
+captureAffiliateReferral();
 const activeTemplate=templateDemoForHostname(location.hostname);
 const path=activeTemplate?'/demo/'+activeTemplate.slug:(location.pathname.replace(/\/+$/,'')||'/');
 function merchVariants(products:any[]){return (products||[]).filter(p=>Number.isSafeInteger(Number(p.price))&&Number(p.price)>0&&Number.isInteger(Number(p.stock))&&Number(p.stock)>0).map(p=>({id:p.id,product_id:p.id,size:'Standard',color:p.color||'Default',price:Number(p.price),stock:Number(p.stock),active:true}))}
@@ -151,6 +154,12 @@ function AdminWithAdsMenu(){
         const label=document.createElement('span');label.textContent='Layanan Digital';link.append(icon,label);
         if(systemLabel)nav.insertBefore(link,systemLabel);else nav.appendChild(link);
       }
+      if(!nav.querySelector('[data-admin-affiliates-menu]')){
+        const link=document.createElement('a');link.href='/admin/affiliates/';link.className='admin-ads-menu';link.dataset.adminAffiliatesMenu='true';
+        const icon=document.createElement('span');icon.className='admin-ads-menu-icon';icon.textContent='AFF';
+        const label=document.createElement('span');label.textContent='Affiliate Partners';link.append(icon,label);
+        if(systemLabel)nav.insertBefore(link,systemLabel);else nav.appendChild(link);
+      }
       if(!nav.querySelector('[data-admin-payments-menu]')){
         const link=document.createElement('a');link.href='/admin/payments/';link.className='admin-ads-menu';link.dataset.adminPaymentsMenu='true';
         const icon=document.createElement('span');icon.className='admin-ads-menu-icon';icon.textContent='PAY';
@@ -168,7 +177,7 @@ function AdminWithAdsMenu(){
 }
 
 const storefrontMatch=path.match(/^\/toko\/([a-z0-9-]+)$/i);
-const app=path.startsWith('/demo/')?<WebsiteLiveDemo path={path}/>:path==='/seller'?<SellerDashboard/>:path==='/admin/digital-store'?<DigitalOrdersAdmin/>:path==='/admin/website-store'?<WebsiteStoreAdmin/>:path.startsWith('/admin/sellers')?<SellerAdmin/>:path.startsWith('/admin/iklan')?<AdsManager/>:path.startsWith('/admin/payments')?<PaymentGatewayAdmin/>:path.startsWith('/admin')?<AdminWithAdsMenu/>:storefrontMatch?<Storefront slug={storefrontMatch[1].toLowerCase()}/>:<PublicClient/>;
+const app=path.startsWith('/demo/')?<WebsiteLiveDemo path={path}/>:path==='/seller'?<SellerDashboard/>:path==='/admin/digital-store'?<DigitalOrdersAdmin/>:path==='/admin/website-store'?<WebsiteStoreAdmin/>:path.startsWith('/admin/sellers')?<SellerAdmin/>:path.startsWith('/admin/iklan')?<AdsManager/>:path.startsWith('/admin/payments')?<PaymentGatewayAdmin/>:path==='/admin/affiliates'?<AffiliateAdmin/>:path.startsWith('/admin')?<AdminWithAdsMenu/>:storefrontMatch?<Storefront slug={storefrontMatch[1].toLowerCase()}/>:<PublicClient/>;
 const root=document.getElementById('root')!;
 // A non-home query param cannot hydrate the static demo homepage markup.
 const templateDeepLink=Boolean(activeTemplate&&new URLSearchParams(location.search).get('halaman'));
