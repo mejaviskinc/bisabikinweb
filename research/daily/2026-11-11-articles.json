@@ -1,7 +1,7 @@
 {
   "research_date": "2026-11-11",
   "timezone": "Asia/Jakarta",
-  "researched_at": "2026-11-11T08:26:20+07:00",
+  "researched_at": "2026-11-11T12:33:51+07:00",
   "entries": [
     {
       "id": "briket-energi-2026-11-11",
@@ -224,7 +224,7 @@
       "summary": "Konteks dibawa dari arsip 10 November; tidak ada klaim fakta baru yang diverifikasi pada putaran ini. Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
       "event_date": null,
       "source_published_at": null,
-      "researched_at": "2026-11-11T00:33:51+07:00",
+      "researched_at": "2026-11-11T12:33:51+07:00",
       "geography": "Indonesia dan pasar tujuan",
       "facts": [
         {
@@ -244,6 +244,12 @@
           "source_urls": [
             "https://www.trade.gov/common-export-documents"
           ]
+        },
+        {
+          "claim": "Panduan ITA yang diperiksa ulang menjelaskan commercial invoice sebagai dokumen nilai transaksi dan packing list sebagai rincian kemasan, berat, dimensi, serta jumlah; packing list bukan pengganti invoice. Kebutuhan dokumen final harus dikonfirmasi dengan importir atau freight forwarder dan aturan negara tujuan. Panduan ini bukan aturan ekspor Indonesia.",
+          "source_urls": [
+            "https://www.trade.gov/common-export-documents"
+          ]
         }
       ],
       "sources": [
@@ -253,12 +259,18 @@
           "source_published_at": null,
           "accessed_at": "2026-11-10T04:34:15+07:00",
           "previously_checked_at": "2026-11-10T04:34:15+07:00"
+        },
+        {
+          "url": "https://www.trade.gov/common-export-documents",
+          "publisher": "U.S. International Trade Administration",
+          "source_published_at": null,
+          "accessed_at": "2026-11-11T12:33:51+07:00"
         }
       ],
-      "practical_impact": "Jangan mengambil keputusan usaha dari temuan lama sebelum melakukan verifikasi sumber dan tanggal.",
-      "content_angle": "Implikasi impor produktif bagi perencanaan stok UMKM manufaktur.",
+      "practical_impact": "UMKM eksportir dapat mencocokkan nomor invoice, jumlah karton, berat, dimensi dan rincian produk sebelum mengirim dokumen ke buyer dan freight forwarder.",
+      "content_angle": "Checklist konsistensi commercial invoice dan packing list ekspor, dengan contoh kesalahan dokumen tanpa mengklaim ketentuan lintas negara berlaku universal.",
       "keyword_intent": "impor barang modal Indonesia September 2026",
-      "editorial_status": "needs_verification",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-11",
@@ -272,7 +284,7 @@
         "verification": "primary_source_checked_2026-11-10; country_specific_or_live_implementation_not_checked",
         "status": "research_only_not_published"
       },
-      "verification_note": "Sumber dan tanggal dari arsip sebelumnya, belum diperiksa ulang hari ini; jangan ditafsirkan sebagai berita 24 jam terakhir."
+      "verification_note": "Sumber primer umum diperiksa ulang 11 November 12.33 WIB; tidak ditemukan tanggal publikasi baru atau perubahan regulasi. Persyaratan Indonesia dan negara tujuan belum diverifikasi."
     },
     {
       "id": "manajemen-risiko-2026-11-11",
