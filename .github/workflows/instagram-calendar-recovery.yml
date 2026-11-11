@@ -1,22 +1,22 @@
 name: BisaBikinWeb Instagram Calendar Recovery
 
-# Backup schedule only. GitHub cron is best effort and can be delayed.
-# Existing state.json claims + shared concurrency prevent duplicate publishing.
+# Extra triggers help recover dropped GitHub cron events, but GitHub is best-effort.
+# Respect existing Meta quota, claim state, and cooldowns; never republish claims.
 on:
   schedule:
-    # 9 minutes after each 20-minute quote slot (:15/:35/:55), UTC minutes = WIB minutes.
-    - cron: '4,24,44 * * * *'
-    # 14 minutes after each hourly carousel slot (:05).
-    - cron: '19 * * * *'
+    - cron: '3,13,23,33,43,53 * * * *'
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/instagram-calendar-recovery.yml'
   workflow_dispatch:
     inputs:
       stream:
-        description: 'Which AutoPost stream to recover'
+        description: 'Approved publishing stream to recover'
         type: choice
         required: true
-        options:
-          - quotes
-          - carousels
+        default: both
+        options: [both, quotes, carousels]
 
 permissions:
   contents: write
@@ -26,10 +26,10 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  recover_quotes:
-    if: ${{ github.ref == 'refs/heads/main' && vars.IG_AUTOPUBLISH_PAUSED != 'true' && ((github.event_name == 'schedule' && github.event.schedule == '4,24,44 * * * *') || (github.event_name == 'workflow_dispatch' && inputs.stream == 'quotes')) }}
+  recover_due:
+    if: ${{ github.ref == 'refs/heads/main' && vars.IG_AUTOPUBLISH_PAUSED != 'true' }}
     runs-on: ubuntu-latest
-    timeout-minutes: 12
+    timeout-minutes: 25
     env:
       IG_AUTOPUBLISH_ENABLED: 'true'
       IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
@@ -37,28 +37,67 @@ jobs:
       IG_GRAPH_BASE: ${{ vars.IG_GRAPH_BASE || 'https://graph.facebook.com' }}
       IG_GRAPH_VERSION: ${{ vars.IG_GRAPH_VERSION || 'v26.0' }}
       GITHUB_TOKEN: ${{ github.token }}
+      SELECT_STREAM: ${{ inputs.stream || 'both' }}
     steps:
       - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-      - name: Recover one due quote if not already claimed, subject to Meta quota
+      - name: Determine which approved streams are overdue (read only)
+        id: due
+        run: |
+          python3 - <<'PY'
+          import datetime as dt
+          import json
+          import os
+          from pathlib import Path
+          from zoneinfo import ZoneInfo
+          wib=ZoneInfo("Asia/Jakarta")
+          now=dt.datetime.now(wib)
+          entries=json.loads(Path("social/instagram/state.json").read_text(encoding="utf-8"))["entries"]
+          quotes=json.loads(Path("social/instagram/quotes_200_queue.json").read_text(encoding="utf-8"))["items"]
+          carousels=json.loads(Path("social/instagram/carousels/2026-11-10-sixty.json").read_text(encoding="utf-8"))["items"]
+          if len(quotes)!=200 or len(carousels)!=60:
+              raise SystemExit("SAFE_STOP: original approved 200/60 queues missing")
+          def elapsed(prefix):
+              dates=[]
+              for key,record in entries.items():
+                  if key.startswith(prefix) and isinstance(record,dict):
+                      stamp=record.get("claimed_at")
+                      if not isinstance(stamp,str): continue
+                      try: dates.append(dt.datetime.fromisoformat(stamp))
+                      except ValueError: continue
+              if not dates: return float("inf")
+              return (dt.datetime.now(dt.timezone.utc)-max(dates)).total_seconds()
+          quote_start=dt.datetime(2026,11,10,23,35,tzinfo=wib)
+          carousel_start=dt.datetime(2026,11,11,0,5,tzinfo=wib)
+          due=min(200,int((now-quote_start).total_seconds()//1200)+1) if now>=quote_start else 0
+          stream=os.environ.get("SELECT_STREAM","both")
+          qready=(stream in ("both","quotes") and
+                  any(x["id"] not in entries for x in quotes[:due]) and
+                  elapsed("bbweb-quotes-200-20261111-")>=17*60)
+          cready=(stream in ("both","carousels") and now>=carousel_start and
+                  any(x["id"] not in entries for x in carousels) and
+                  elapsed("bbweb-carousel60-20261110-")>=55*60)
+          with open(os.environ["GITHUB_OUTPUT"],"a",encoding="utf-8") as out:
+              out.write(f"quotes={str(qready).lower()}\n")
+              out.write(f"carousels={str(cready).lower()}\n")
+          print(f"RECOVERY_GATE WIB={now.isoformat()} due_quotes={due} "
+                f"quotes_ready={qready} carousels_ready={cready}")
+          PY
+
+      - name: Publish at most one due approved quote
+        if: ${{ steps.due.outputs.quotes == 'true' }}
         run: python3 scripts/instagram_publish_200_every20.py
 
-  recover_carousel:
-    if: ${{ github.ref == 'refs/heads/main' && vars.IG_AUTOPUBLISH_PAUSED != 'true' && ((github.event_name == 'schedule' && github.event.schedule == '19 * * * *') || (github.event_name == 'workflow_dispatch' && inputs.stream == 'carousels')) }}
-    runs-on: ubuntu-latest
-    timeout-minutes: 20
-    env:
-      IG_AUTOPUBLISH_ENABLED: 'true'
-      IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
-      IG_USER_ID: ${{ secrets.IG_USER_ID }}
-      IG_GRAPH_BASE: ${{ vars.IG_GRAPH_BASE || 'https://graph.facebook.com' }}
-      IG_GRAPH_VERSION: ${{ vars.IG_GRAPH_VERSION || 'v26.0' }}
-      GITHUB_TOKEN: ${{ github.token }}
-    steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
-      - name: Install image renderer and Inter font
+      - name: Install carousel dependencies only if due
+        if: ${{ steps.due.outputs.carousels == 'true' }}
         run: |
           sudo apt-get update -qq
           sudo apt-get install -y -qq fonts-inter
           python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
-      - name: Recover one overdue carousel if not claimed, subject to Meta quota
+
+      - name: Publish at most one due approved carousel
+        if: ${{ steps.due.outputs.carousels == 'true' }}
         run: python3 scripts/instagram_carousel60_publish_one.py
+
+      - name: Explain when no post is due
+        if: ${{ steps.due.outputs.quotes != 'true' && steps.due.outputs.carousels != 'true' }}
+        run: echo 'NO_SAFE_ITEM_DUE: no posts eligible without bypassing anti-duplicate, quota, or cadence gates.'
