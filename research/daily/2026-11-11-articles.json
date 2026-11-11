@@ -1,7 +1,7 @@
 {
   "research_date": "2026-11-11",
   "timezone": "Asia/Jakarta",
-  "researched_at": "2026-11-11T02:34:01+07:00",
+  "researched_at": "2026-11-11T08:26:20+07:00",
   "entries": [
     {
       "id": "briket-energi-2026-11-11",
@@ -390,7 +390,7 @@
       "summary": "Pemantauan sumber resmi Kemendag menemukan rilis 10 November tentang penguatan mutu dan standardisasi produk UMKM di Jawa Timur; detail regulasi teknis belum ditelusuri. Catatan lama tetap dipertahankan.",
       "event_date": "2026-11-06",
       "source_published_at": "2026-11-06",
-      "researched_at": "2026-11-11T00:33:51+07:00",
+      "researched_at": "2026-11-11T08:26:20+07:00",
       "geography": "Uni Eropa",
       "facts": [
         {
@@ -404,6 +404,12 @@
           "claim": "Daftar siaran pers resmi Kemendag mencantumkan rilis bertanggal 10 November 2026 mengenai penguatan mutu dan standardisasi produk UMKM Jawa Timur (kegiatan di Situbondo pada 8 November). Persyaratan sertifikasi produk dan negara tujuan belum diverifikasi dari peraturan teknis.",
           "source_urls": [
             "https://www.kemendag.go.id/berita/siaran-pers"
+          ]
+        },
+        {
+          "claim": "Kemendag melaporkan sosialisasi standardisasi pada 6–8 November 2026 di Banyuwangi, Bondowoso, dan Situbondo, diikuti sekitar 300 peserta; ini kegiatan pembekalan, bukan pengumuman persyaratan sertifikasi baru.",
+          "source_urls": [
+            "https://www.kemendag.go.id/index.php/berita/siaran-pers/dorong-umkm-jawa-timur-tembus-pasar-global-kemendag-perkuat-mutu-dan-standardisasi-produk"
           ]
         }
       ],
@@ -425,16 +431,22 @@
           "publisher": "Kementerian Perdagangan RI",
           "source_published_at": "2026-11-10",
           "accessed_at": "2026-11-11T01:34:06+07:00"
+        },
+        {
+          "url": "https://www.kemendag.go.id/index.php/berita/siaran-pers/dorong-umkm-jawa-timur-tembus-pasar-global-kemendag-perkuat-mutu-dan-standardisasi-produk",
+          "publisher": "Kementerian Perdagangan RI",
+          "source_published_at": "2026-11-08",
+          "accessed_at": "2026-11-11T08:26:20+07:00"
         }
       ],
       "practical_impact": "UMKM perlu memetakan persyaratan mutu dan sertifikasi per jenis produk dan pasar sebelum membuat klaim kepatuhan atau menawarkan ekspor.",
       "content_angle": "Checklist kesiapan mutu produk UMKM sebelum menawarkan barang ke buyer ekspor, dibedakan dari berita kegiatan Kemendag.",
       "keyword_intent": "checklist standardisasi mutu produk UMKM ekspor | informational",
-      "editorial_status": "needs_verification",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-11",
-      "verification_note": "Rilis 10 November terlihat pada indeks resmi; naskah lengkap, ketentuan sertifikasi, dan aturan negara tujuan masih perlu diperiksa."
+      "verification_note": "Koreksi: sumber lengkap Kemendag bertanggal 8 November 2026 (kegiatan 6–8 November), bukan otomatis rilis 10 November seperti catatan indeks sebelumnya. Tidak ada perubahan regulasi baru yang dapat disimpulkan. Periksa syarat tiap komoditas/negara tujuan."
     },
     {
       "id": "rempah-minyak-atsiri-2026-11-11",
