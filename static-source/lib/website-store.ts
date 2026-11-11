@@ -9,10 +9,10 @@ export const websiteCategories=[
   {slug:'pendidikan',label:'Sekolah & Pendidikan',lead:'Pusat informasi akademik, pengumuman, dan pendaftaran.',features:['Profil sekolah','Berita dan agenda','Formulir informasi']}
 ] as const;
 export const websitePackages=[
-  {slug:'starter',name:'Starter',description:'Untuk usaha yang mulai serius membangun jejak digital.',base_price:800000,features:['Landing page profesional','Responsif HP & desktop','CTA WhatsApp','SEO dasar']},
-  {slug:'business',name:'Business',description:'Profil bisnis dengan halaman dan struktur informasi lebih lengkap.',base_price:1500000,features:['Multi halaman','Layanan dan portofolio','Formulir kontak','Struktur SEO on-page']},
-  {slug:'commerce',name:'Commerce',description:'Katalog dan sistem penjualan dengan scope yang disepakati.',base_price:3500000,features:['Katalog produk','Keranjang dan pesanan','Dashboard pengelolaan','Integrasi pembayaran berdasarkan kebutuhan']},
-  {slug:'custom',name:'Custom',description:'Web app dan integrasi bisnis sesuai kebutuhan spesifik.',base_price:null,features:['Analisis kebutuhan','Desain khusus','Integrasi API','Dashboard sesuai scope']}
+  {slug:'starter',name:'Starter',description:'Landing page untuk UMKM. Target 4–6 hari kerja setelah materi lengkap.',base_price:1490000,features:['1 halaman landing page responsif','1 template industri dengan penyesuaian brand','CTA WhatsApp dan formulir kontak sederhana','SEO on-page dasar','1 putaran revisi','Garansi bug implementasi 30 hari']},
+  {slug:'business',name:'Business',description:'Company profile profesional. Target 7–12 hari kerja setelah materi lengkap.',base_price:3490000,features:['Maksimal 5 halaman standar','Template bisnis dan penyesuaian brand','Layanan, portofolio, kontak, dan WhatsApp','SEO on-page dasar','2 putaran revisi','Garansi bug implementasi 30 hari']},
+  {slug:'commerce',name:'Commerce',description:'Toko online berbasis sistem teruji. Target 15–25 hari kerja setelah materi lengkap.',base_price:6990000,features:['Maksimal 7 halaman utama','Katalog hingga 20 produk awal','Keranjang, checkout, dan pesanan standar','Admin produk dan pesanan standar','Integrasi 1 payment gateway standar (aktivasi tergantung provider)','2 putaran revisi dan garansi bug 30 hari']},
+  {slug:'custom',name:'Custom',description:'Mulai Rp12.500.000. Harga final berdasarkan analisis kebutuhan dan penawaran tertulis.',base_price:null,features:['Analisis kebutuhan dan estimasi jam kerja','Dashboard, hak akses, atau API sesuai proposal','Timeline dan milestone tertulis','Batas revisi dan garansi sesuai kontrak','Tidak termasuk sistem kompleks tanpa penawaran khusus']}
 ] as const;
 export const websiteConcepts=[
   {slug:'studio-umkm',title:'Studio UMKM',category:'umkm',description:'Konsep landing page dengan profil usaha, produk unggulan, dan tombol konsultasi.',theme:'olive'},
