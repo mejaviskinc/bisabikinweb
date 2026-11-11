@@ -361,6 +361,12 @@
           "source_urls": [
             "https://www.kemendag.go.id/berita/siaran-pers/kemendag-fasilitasi-delapan-perusahaan-indonesia-di-hajj-conference-expo-2026-jeddah"
           ]
+        },
+        {
+          "claim": "Dalam siaran pers bertanggal 2 November 2026, Kemendag menyatakan Hari Ritel Nasional berlangsung 2–11 November 2026 dan menekankan standardisasi produk serta kurasi ritel sebagai jalur penguatan kesiapan UMKM; ini bukan jaminan diterima ritel atau ekspor.",
+          "source_urls": [
+            "https://www.kemendag.go.id/index.php/berita/siaran-pers/buka-hari-ritel-nasional-2026-mendag-busan-ajak-umkm-gencar-masuk-ritel"
+          ]
         }
       ],
       "sources": [
@@ -389,6 +395,12 @@
           "publisher": "Kementerian Perdagangan Republik Indonesia",
           "source_published_at": "2026-11-11",
           "accessed_at": "2026-11-11T15:34:57+07:00"
+        },
+        {
+          "url": "https://www.kemendag.go.id/index.php/berita/siaran-pers/buka-hari-ritel-nasional-2026-mendag-busan-ajak-umkm-gencar-masuk-ritel",
+          "publisher": "Kementerian Perdagangan RI",
+          "source_published_at": "2026-11-02",
+          "accessed_at": "2026-11-11T20:26:33+07:00"
         }
       ],
       "practical_impact": "UMKM kerajinan dapat mengecek syarat kurasi TRISEG melalui kanal resmi; kesiapan produk, kapasitas pasokan, dan profil buyer tetap perlu diperiksa. Pelaku UMKM pemasok kebutuhan haji/umrah dapat menilai kesiapan katalog B2B, kapasitas, dan spesifikasi produk; persyaratan Arab Saudi harus diverifikasi terpisah.",
@@ -400,7 +412,7 @@
       "recheck_after": "2026-11-11",
       "reader_pain_point": "UMKM makanan ringan memerlukan katalog SKU, bukti mutu, spesifikasi kemasan, dan alur RFQ sebelum menghubungi buyer internasional.",
       "evergreen_idea": "Checklist penawaran ekspor makanan ringan untuk UMKM: validasi label, buyer, sampel, kapasitas, katalog B2B, dan logistik.",
-      "verification_note": "Tambahan sumber primer bertanggal 3 November, bukan berita 24 jam. Status pendaftaran dan persyaratan spesifik perlu dicek ulang sebelum rekomendasi tindakan. Tambahan 15.34 WIB: rilis Kemendag 11 November diverifikasi; jangan menyamakan fasilitasi pameran dengan perubahan regulasi.",
+      "verification_note": "Tambahan sumber primer bertanggal 3 November, bukan berita 24 jam. Status pendaftaran dan persyaratan spesifik perlu dicek ulang sebelum rekomendasi tindakan. Tambahan 15.34 WIB: rilis Kemendag 11 November diverifikasi; jangan menyamakan fasilitasi pameran dengan perubahan regulasi. | 20:26 WIB: sumber Kemendag 2 Nov diverifikasi, konteks evergreen kesiapan masuk ritel; tidak diklaim sebagai perubahan aturan.",
       "next_article_candidate": {
         "title": "Checklist Kesiapan UMKM Menjajaki Ekspor: Mutu Produk, Kemasan, dan Buyer",
         "slug": "checklist-kesiapan-umkm-ekspor-mutu-kemasan-buyer",
@@ -617,6 +629,13 @@
       "stage": "source_monitoring",
       "result": "Verified Kemendag 11 Nov Jeddah trade-fair release; CMS published today 0, static count unverified; no article/cover published",
       "source_url": "https://www.kemendag.go.id/berita/siaran-pers/kemendag-fasilitasi-delapan-perusahaan-indonesia-di-hajj-conference-expo-2026-jeddah"
+    },
+    {
+      "at": "2026-11-11T20:26:33+07:00",
+      "action": "verified_primary_source_retail_readiness",
+      "category": "Peluang Usaha",
+      "result": "research_only; no publication claim",
+      "source_url": "https://www.kemendag.go.id/index.php/berita/siaran-pers/buka-hari-ritel-nasional-2026-mendag-busan-ajak-umkm-gencar-masuk-ritel"
     }
   ],
   "editorial_run_note": "CMS bbweb_articles 11 November WIB: 0 baris dibuat/diterbitkan (query 02.34 WIB); belum ada verifikasi static live, cover WebP, jadwal per-post atau build/deploy. Sumber primer Google Search Central dan IPPC ISPM15 diperiksa ulang. Tidak ada artikel dipublikasikan pada putaran ini."
