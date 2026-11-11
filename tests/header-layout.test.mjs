@@ -35,7 +35,7 @@ test('mobile actions are intentionally compact and all hidden actions remain in 
   assert.match(css,/@media \(max-width:650px\)/);
 });
 
-test('desktop menu is grouped like the reference, with a functional second-level flyout',()=>{
+test('desktop menu keeps service flyout and directs Media to the newsroom',()=>{
   assert.match(source,/const headerNav:HeaderLink\[\]/);
   assert.match(source,/label:'Layanan'/);
   assert.match(source,/label:'Media',href:'https:\/\/media\.bisabikinweb\.site\/'/);
