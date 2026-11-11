@@ -46,12 +46,7 @@ const headerNav:HeaderLink[]=[
   ]},
   {label:'Beli Website',href:'/beli-website/'},
   {label:'Portofolio',href:'/portfolio/'},
-  {label:'Media',href:'/berita/',children:[
-    {label:'Berita Terbaru',href:'/berita/'},
-    {label:'Artikel & Edukasi',href:'/artikel/'},
-    {label:'Akademi Digital',href:'/solusi/'},
-    {label:'Redaksi',href:'/redaksi/'}
-  ]},
+  {label:'Media',href:'https://media.bisabikinweb.site/'},
   {label:'Tentang',href:'/tentang/',children:[
     {label:'Tentang BisaBikinWeb',href:'/tentang/'},
     {label:'Kontak Kami',href:'/kontak/'},
