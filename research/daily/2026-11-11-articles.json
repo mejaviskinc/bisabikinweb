@@ -1,7 +1,7 @@
 {
   "research_date": "2026-11-11",
   "timezone": "Asia/Jakarta",
-  "researched_at": "2026-11-11T14:34:19+07:00",
+  "researched_at": "2026-11-11T15:34:57+07:00",
   "entries": [
     {
       "id": "briket-energi-2026-11-11",
@@ -335,7 +335,7 @@
       "summary": "Konteks dibawa dari arsip 10 November; tidak ada klaim fakta baru yang diverifikasi pada putaran ini. Kemendag melaporkan PT Dua Kelinci mengekspor 24,9 ton makanan ringan dalam lima kontainer bernilai USD 56.979.",
       "event_date": "2026-11-09",
       "source_published_at": "2026-11-09",
-      "researched_at": "2026-11-11T00:33:51+07:00",
+      "researched_at": "2026-11-11T15:34:57+07:00",
       "geography": "Indonesia dan pasar tujuan",
       "facts": [
         {
@@ -354,6 +354,12 @@
           "claim": "Kemendag dan TFO Canada meluncurkan program TRISEG pada 3 November 2026 untuk penguatan kapasitas dan akses pasar kerajinan UMKM ke Kanada; periode kurasi peserta diumumkan sampai 15 Desember 2026. Ini informasi program, bukan perubahan regulasi ekspor.",
           "source_urls": [
             "https://www.kemendag.go.id/berita/siaran-pers/kemendag-luncurkan-program-triseg-perkuat-ekspor-kerajinan-umkm-ke-kanada"
+          ]
+        },
+        {
+          "claim": "Kemendag menyatakan pada 11 November 2026 bahwa delapan perusahaan Indonesia difasilitasi dalam Hajj Conference & Expo 2026 di Jeddah pada 8–11 November untuk menjajaki akses pasar ekosistem haji dan umrah; ini bukan pengumuman perubahan syarat ekspor.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/kemendag-fasilitasi-delapan-perusahaan-indonesia-di-hajj-conference-expo-2026-jeddah"
           ]
         }
       ],
@@ -377,9 +383,15 @@
           "publisher": "Kementerian Perdagangan Republik Indonesia",
           "source_published_at": "2026-11-03",
           "accessed_at": "2026-11-11T13:26:07+07:00"
+        },
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/kemendag-fasilitasi-delapan-perusahaan-indonesia-di-hajj-conference-expo-2026-jeddah",
+          "publisher": "Kementerian Perdagangan Republik Indonesia",
+          "source_published_at": "2026-11-11",
+          "accessed_at": "2026-11-11T15:34:57+07:00"
         }
       ],
-      "practical_impact": "UMKM kerajinan dapat mengecek syarat kurasi TRISEG melalui kanal resmi; kesiapan produk, kapasitas pasokan, dan profil buyer tetap perlu diperiksa.",
+      "practical_impact": "UMKM kerajinan dapat mengecek syarat kurasi TRISEG melalui kanal resmi; kesiapan produk, kapasitas pasokan, dan profil buyer tetap perlu diperiksa. Pelaku UMKM pemasok kebutuhan haji/umrah dapat menilai kesiapan katalog B2B, kapasitas, dan spesifikasi produk; persyaratan Arab Saudi harus diverifikasi terpisah.",
       "content_angle": "Panduan evergreen menyiapkan penawaran ekspor makanan ringan dan website B2B.",
       "keyword_intent": "cara ekspor makanan ringan untuk UMKM | informational-commercial",
       "editorial_status": "verified",
@@ -388,7 +400,7 @@
       "recheck_after": "2026-11-11",
       "reader_pain_point": "UMKM makanan ringan memerlukan katalog SKU, bukti mutu, spesifikasi kemasan, dan alur RFQ sebelum menghubungi buyer internasional.",
       "evergreen_idea": "Checklist penawaran ekspor makanan ringan untuk UMKM: validasi label, buyer, sampel, kapasitas, katalog B2B, dan logistik.",
-      "verification_note": "Tambahan sumber primer bertanggal 3 November, bukan berita 24 jam. Status pendaftaran dan persyaratan spesifik perlu dicek ulang sebelum rekomendasi tindakan.",
+      "verification_note": "Tambahan sumber primer bertanggal 3 November, bukan berita 24 jam. Status pendaftaran dan persyaratan spesifik perlu dicek ulang sebelum rekomendasi tindakan. Tambahan 15.34 WIB: rilis Kemendag 11 November diverifikasi; jangan menyamakan fasilitasi pameran dengan perubahan regulasi.",
       "next_article_candidate": {
         "title": "Checklist Kesiapan UMKM Menjajaki Ekspor: Mutu Produk, Kemasan, dan Buyer",
         "slug": "checklist-kesiapan-umkm-ekspor-mutu-kemasan-buyer",
@@ -599,6 +611,12 @@
       "at": "2026-11-11T14:34:19+07:00",
       "stage": "primary_source_verification",
       "result": "Verified Indonesian customs primary explainer on commercial invoice and packing list (published 2025-09-04). No new article, cover, deployment or live URL claimed; current CMS not re-queried."
+    },
+    {
+      "at": "2026-11-11T15:34:57+07:00",
+      "stage": "source_monitoring",
+      "result": "Verified Kemendag 11 Nov Jeddah trade-fair release; CMS published today 0, static count unverified; no article/cover published",
+      "source_url": "https://www.kemendag.go.id/berita/siaran-pers/kemendag-fasilitasi-delapan-perusahaan-indonesia-di-hajj-conference-expo-2026-jeddah"
     }
   ],
   "editorial_run_note": "CMS bbweb_articles 11 November WIB: 0 baris dibuat/diterbitkan (query 02.34 WIB); belum ada verifikasi static live, cover WebP, jadwal per-post atau build/deploy. Sumber primer Google Search Central dan IPPC ISPM15 diperiksa ulang. Tidak ada artikel dipublikasikan pada putaran ini."
