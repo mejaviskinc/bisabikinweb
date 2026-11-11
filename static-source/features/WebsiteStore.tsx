@@ -3,6 +3,7 @@ import {useEffect,useMemo,useRef,useState} from 'react';
 import {ArrowUpRight,ArrowRight,Check,Search,Monitor,Globe2,ShieldCheck,LayoutTemplate,Clock3} from 'lucide-react';
 import {websiteCategories,websitePackages,websiteConcepts,websiteStatusLabel,rupiah} from '../lib/website-store';
 import {getWebsiteCatalog,websiteStoreApi} from '../lib/website-store-api';
+import {getAffiliateReferral} from '../lib/affiliate-referral.mjs';
 import {customerGetSession} from '../lib/customer';
 import {whatsapp} from '../lib/client';
 import {websiteDemos} from '../lib/website-demos.mjs';
@@ -191,7 +192,7 @@ export function WebsiteCheckout(){
    const response=await websiteStoreApi('create_order',{
     checkout_mode:directCheckout?'instant':'quote',
     expected_base_price:directCheckout?Number(current?.base_price):null,
-    package_slug:packageSlug,template_slug:templateSlug||null,
+    package_slug:packageSlug,template_slug:templateSlug||null,referral_code:getAffiliateReferral(),
     ...fields,domain:normalizedDomain,brief
    });
    const order=response.order;
