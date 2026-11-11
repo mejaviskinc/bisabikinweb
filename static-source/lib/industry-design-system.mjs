@@ -44,7 +44,19 @@ const defaultPalettes=Object.freeze({
   fashion:{ink:'#1c1a18',paper:'#f8f5f0',accent:'#ded2c4',deep:'#524838'},
   skincare:{ink:'#28372f',paper:'#faf8f4',accent:'#e4d8d5',deep:'#56645c'},
   technology:{ink:'#13243b',paper:'#f4f7fa',accent:'#c6e6ff',deep:'#274e82'},
-  travel:{ink:'#16362d',paper:'#f8f5ed',accent:'#d2e7d9',deep:'#235e55'}
+  travel:{ink:'#16362d',paper:'#f8f5ed',accent:'#d2e7d9',deep:'#235e55'},
+  'company-profile':{ink:'#182738',paper:'#f6f8fb',accent:'#cddce9',deep:'#365777'},
+  'toko-online':{ink:'#2b2429',paper:'#fbf8f7',accent:'#e9cfd6',deep:'#6b485c'},
+  ekspor:{ink:'#102f40',paper:'#f4f7f5',accent:'#d7e6e6',deep:'#295972'},
+  restoran:{ink:'#39241b',paper:'#faf4ed',accent:'#eacdb2',deep:'#805136'},
+  pendidikan:{ink:'#292654',paper:'#f7f7fd',accent:'#e2ddff',deep:'#5950a1'},
+  hotel:{ink:'#302923',paper:'#faf7f0',accent:'#e8dac5',deep:'#766148'},
+  property:{ink:'#26302b',paper:'#f5f7f4',accent:'#d9dfd2',deep:'#51675a'},
+  healthcare:{ink:'#193e46',paper:'#f5faf9',accent:'#d1ece9',deep:'#336c72'},
+  logistics:{ink:'#203140',paper:'#f6f8fa',accent:'#d4e2e9',deep:'#456579'},
+  automotive:{ink:'#211f24',paper:'#f3f3f5',accent:'#e0dce6',deep:'#544d66'},
+  finance:{ink:'#192834',paper:'#f7f9fa',accent:'#d4e2e6',deep:'#3f6572'},
+  construction:{ink:'#282c29',paper:'#f6f5f0',accent:'#dfd8c9',deep:'#6d6659'}
 });
 /**
  * @param {{title?:string,name?:string,slug?:string,category?:string,industry?:string,layout?:number,palette?:object}} business
