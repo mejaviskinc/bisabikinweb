@@ -30,3 +30,4 @@ export default function AffiliateAdmin(){
    <div className="aff-payout-grid">{rows.filter(a=>approvedByPartner[a.id]>0).map(a=><div className="aff-panel" key={a.id}><div><small>{a.display_name}</small><strong>{money(approvedByPartner[a.id])}</strong></div><label>Referensi bukti transfer<input value={references[a.id]||''} onChange={e=>setReferences({...references,[a.id]:e.target.value})} placeholder="ID transfer bank (setelah transfer)"/></label><button className="btn primary" disabled={!!busy||approvedByPartner[a.id]<100000||(references[a.id]||'').length<5} onClick={()=>act(a.id,'admin_mark_paid',{affiliate_id:a.id,transfer_reference:references[a.id]})}><Wallet size={16}/> Tandai sudah ditransfer</button></div>)}{!rows.some(a=>approvedByPartner[a.id]>0)&&<p>Belum ada saldo yang disetujui.</p>}</div>
   </>}
  </section></div>;
+}
