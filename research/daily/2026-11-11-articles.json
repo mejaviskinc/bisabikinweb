@@ -1,7 +1,7 @@
 {
   "research_date": "2026-11-11",
   "timezone": "Asia/Jakarta",
-  "researched_at": "2026-11-11T13:26:07+07:00",
+  "researched_at": "2026-11-11T14:34:19+07:00",
   "entries": [
     {
       "id": "briket-energi-2026-11-11",
@@ -224,7 +224,7 @@
       "summary": "Konteks dibawa dari arsip 10 November; tidak ada klaim fakta baru yang diverifikasi pada putaran ini. Mengacu arsip sebelumnya untuk konteks; status terbaru kategori ini memerlukan riset dan pemeriksaan sumber lanjutan.",
       "event_date": null,
       "source_published_at": null,
-      "researched_at": "2026-11-11T12:33:51+07:00",
+      "researched_at": "2026-11-11T14:34:19+07:00",
       "geography": "Indonesia dan pasar tujuan",
       "facts": [
         {
@@ -250,6 +250,12 @@
           "source_urls": [
             "https://www.trade.gov/common-export-documents"
           ]
+        },
+        {
+          "claim": "Panduan Bea Cukai yang diterbitkan 4 September 2025 membedakan invoice sebagai rincian transaksi dan packing list sebagai rincian fisik barang, berat serta volume; keduanya saling melengkapi untuk pemeriksaan ekspor-impor.",
+          "source_urls": [
+            "https://kanwilaceh.beacukai.go.id/mandatory/invoice-packing-list.html"
+          ]
         }
       ],
       "sources": [
@@ -265,6 +271,12 @@
           "publisher": "U.S. International Trade Administration",
           "source_published_at": null,
           "accessed_at": "2026-11-11T12:33:51+07:00"
+        },
+        {
+          "url": "https://kanwilaceh.beacukai.go.id/mandatory/invoice-packing-list.html",
+          "publisher": "Direktorat Jenderal Bea dan Cukai, Kanwil Aceh",
+          "source_published_at": "2025-09-04",
+          "accessed_at": "2026-11-11T14:34:19+07:00"
         }
       ],
       "practical_impact": "UMKM eksportir dapat mencocokkan nomor invoice, jumlah karton, berat, dimensi dan rincian produk sebelum mengirim dokumen ke buyer dan freight forwarder.",
@@ -284,7 +296,7 @@
         "verification": "primary_source_checked_2026-11-10; country_specific_or_live_implementation_not_checked",
         "status": "research_only_not_published"
       },
-      "verification_note": "Sumber primer umum diperiksa ulang 11 November 12.33 WIB; tidak ditemukan tanggal publikasi baru atau perubahan regulasi. Persyaratan Indonesia dan negara tujuan belum diverifikasi."
+      "verification_note": "Sumber Indonesia Bea Cukai 4 September 2025 diperiksa 11 November 14.34 WIB sebagai panduan evergreen; bukan perubahan aturan baru. Syarat spesifik komoditas/negara tujuan belum diverifikasi."
     },
     {
       "id": "manajemen-risiko-2026-11-11",
@@ -582,6 +594,11 @@
       "at": "2026-11-11T13:26:07+07:00",
       "stage": "primary_source_monitoring",
       "result": "Verified TRISEG 3 Nov source for Peluang Usaha; CMS 0 published/created on 11 Nov WIB; static total and per-post scheduling not verified; no articles/images deployed."
+    },
+    {
+      "at": "2026-11-11T14:34:19+07:00",
+      "stage": "primary_source_verification",
+      "result": "Verified Indonesian customs primary explainer on commercial invoice and packing list (published 2025-09-04). No new article, cover, deployment or live URL claimed; current CMS not re-queried."
     }
   ],
   "editorial_run_note": "CMS bbweb_articles 11 November WIB: 0 baris dibuat/diterbitkan (query 02.34 WIB); belum ada verifikasi static live, cover WebP, jadwal per-post atau build/deploy. Sumber primer Google Search Central dan IPPC ISPM15 diperiksa ulang. Tidak ada artikel dipublikasikan pada putaran ini."
