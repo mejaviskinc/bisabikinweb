@@ -8,6 +8,8 @@ import {whatsapp} from '../lib/client';
 import {websiteDemos} from '../lib/website-demos.mjs';
 import {publicDemoUrl,TEMPLATE_SUBDOMAINS_READY} from '../lib/template-subdomains.mjs';
 import {creativeFor} from '../lib/demo-creative.mjs';
+import {buildIndustryBlueprint,blueprintCssVariables} from '../lib/industry-design-system.mjs';
+import './industry-blueprint.css';
 import IndustrySitePreview from '../components/IndustrySitePreview';
 import DokuPaymentChannels from '../components/DokuPaymentChannels';
 
@@ -46,10 +48,11 @@ function LiveSitePreview({slug}:{slug:string}){
  const d=websiteDemos.find(demo=>demo.slug===slug);
  if(!d)return null;
  const creative=creativeFor(d.slug);
- const style={'--wd-ink':d.palette.ink,'--wd-accent':d.palette.accent,'--wd-paper':d.palette.paper,'--wd-deep':d.palette.deep} as React.CSSProperties;
+ const blueprint=buildIndustryBlueprint(d,{demo:true});
+ const style=blueprintCssVariables(blueprint) as React.CSSProperties;
  return <div className="ws-live-canvas" aria-label={'Pratinjau website '+d.title+' untuk industri '+d.category}>
   <div className="ws-demo-mini-site ws-demo-industry-shell">
-   <div className={'wd-root wd-layout-'+d.layout+' wd-sector-'+d.category} style={style}>
+   <div className={'wd-root wd-layout-'+d.layout+' wd-sector-'+d.category} data-design-industry={blueprint.industry} data-hero-composition={blueprint.hero.composition} style={style}>
     <IndustrySitePreview demo={d} creative={creative}/>
    </div>
   </div>

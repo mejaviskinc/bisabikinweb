@@ -1,0 +1,44 @@
+/* Industry-adaptive visual layer for the existing 60 interactive demos.
+   All selectors scoped to the website demo, never the BisaBikinWeb storefront. */
+.wd-root[data-design-industry]{font-family:var(--wd-body-font,Arial,Helvetica,sans-serif)}
+.wd-root[data-design-industry] h1,
+.wd-root[data-design-industry] h2,
+.wd-root[data-design-industry] h3{font-family:var(--wd-heading-font,Arial,Helvetica,sans-serif);letter-spacing:var(--wd-heading-tracking,-.06em)}
+.wd-root[data-design-industry] .wd-main-button,
+.wd-root[data-design-industry] .wd-header-contact,
+.wd-root[data-design-industry] .wd-offer-card,
+.wd-root[data-design-industry] .wd-industry-essentials article{border-radius:var(--wd-card-radius,4px)}
+@media(min-width:771px){
+ .wd-root[data-hero-composition="asymmetric"]:not(.wd-layout-4) .wd-hero{grid-template-columns:1.2fr .8fr}
+ .wd-root[data-hero-composition="gallery-led"]:not(.wd-layout-4) .wd-hero{grid-template-columns:.77fr 1.23fr}
+ .wd-root[data-hero-composition="type-led"]:not(.wd-layout-4) .wd-hero{grid-template-columns:1.32fr .68fr}
+ .wd-root[data-hero-composition="full-bleed"]:not(.wd-layout-4) .wd-hero{grid-template-columns:.83fr 1.17fr}
+ .wd-root[data-hero-composition="structured"]:not(.wd-layout-4) .wd-hero{grid-template-columns:1.05fr .95fr}
+ .wd-root[data-design-industry="travel"]:not(.wd-layout-4) .wd-hero,
+ .wd-root[data-design-industry="hotel"]:not(.wd-layout-4) .wd-hero{grid-template-columns:.8fr 1.2fr}
+ .wd-root[data-design-industry="fashion"]:not(.wd-layout-4) .wd-hero{grid-template-columns:.93fr 1.07fr}
+}
+.wd-root[data-design-industry="fashion"] .wd-offer-card{border-radius:0}
+.wd-root[data-design-industry="skincare"] .wd-offer-card{box-shadow:0 12px 30px #2028200b}
+.wd-root[data-design-industry="technology"] .wd-hero h1,
+.wd-root[data-design-industry="company-profile"] .wd-hero h1{font-weight:700}
+.wd-root[data-design-industry="travel"] .wd-hero h1,
+.wd-root[data-design-industry="restoran"] .wd-hero h1{font-weight:400}
+.wd-industry-essentials{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(20px,5vw,90px);padding:clamp(48px,6vw,90px) max(5.4vw,20px);max-width:1650px;margin:0 auto}
+.wd-industry-essentials-intro{max-width:520px}
+.wd-industry-essentials-intro small{display:block;font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:var(--wd-deep)}
+.wd-industry-essentials-intro h2{font-size:clamp(30px,4vw,58px);line-height:1.12;margin:14px 0 23px;overflow-wrap:anywhere}
+.wd-industry-essentials-intro p{font-size:14px;line-height:1.75;opacity:.78}
+.wd-industry-essentials-list{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px;min-width:0}
+.wd-industry-essentials-list article{border:1px solid color-mix(in srgb,var(--wd-ink),transparent 78%);min-width:0;padding:20px 17px;display:flex;flex-direction:column;gap:13px;background:color-mix(in srgb,var(--wd-paper),white 30%)}
+.wd-industry-essentials-list article span{font-size:11px;opacity:.6}
+.wd-industry-essentials-list article h3{font-size:clamp(17px,1.8vw,25px);line-height:1.2;overflow-wrap:anywhere}
+.wd-industry-essentials-list article p{font-size:11px;line-height:1.6;opacity:.75;margin:auto 0 0}
+@media(max-width:980px){.wd-industry-essentials{grid-template-columns:1fr}.wd-industry-essentials-intro{max-width:700px}}
+@media(max-width:600px){
+ .wd-root[data-hero-composition] .wd-hero{grid-template-columns:1fr}
+ .wd-industry-essentials{padding:55px 20px}
+ .wd-industry-essentials-list{grid-template-columns:1fr}
+ .wd-industry-essentials-list article{padding:17px}
+ .wd-industry-essentials-list article h3{font-size:21px}
+}

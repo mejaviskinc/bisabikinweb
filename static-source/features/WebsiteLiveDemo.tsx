@@ -3,6 +3,8 @@ import React,{useEffect,useState} from 'react';
 import {ArrowRight,ArrowUpRight,Menu,X,ShoppingBag,Minus,Plus,Check,Globe2,ChevronRight,Mail,Phone,MapPin,CheckCircle2} from 'lucide-react';
 import {demoBySlug,websiteDemos} from '../lib/website-demos.mjs';
 import {brandPositioning} from '../lib/demo-industries.mjs';
+import {buildIndustryBlueprint,blueprintCssVariables} from '../lib/industry-design-system.mjs';
+import './industry-blueprint.css';
 import {creativeFor,galleryPhotoFor} from '../lib/demo-creative.mjs';
 import {DemoIndustrySignature} from '../components/IndustrySitePreview';
 
@@ -31,6 +33,7 @@ export default function WebsiteLiveDemo({path}:{path:string}){
  const d=demo;
  const experience=brandPositioning(d);
  const creative=creativeFor(d.slug);
+ const blueprint=buildIndustryBlueprint(d,{demo:true});
  const pages=['home','catalog','detail','services','about','contact'];
  const navPages=['home','catalog','services','about','contact'];
  const initialPage=()=>{if(typeof window==='undefined')return 'home';const v=new URLSearchParams(window.location.search).get('halaman')||'home';return pages.includes(v)?v:'home'};
@@ -39,7 +42,7 @@ export default function WebsiteLiveDemo({path}:{path:string}){
  const [activeItem,setActiveItem]=useState(initialItem);
  useEffect(()=>{const onBack=()=>{setActivePage(initialPage());setActiveItem(initialItem())};window.addEventListener('popstate',onBack);return()=>window.removeEventListener('popstate',onBack)},[d.slug]);
  const navigate=(page:string,item?:number)=>{setActivePage(page);if(page==='detail'&&item!==undefined)setActiveItem(item);setMobile(false);setSent(false);if(typeof window!=='undefined'){const url=new URL(window.location.href);if(page==='home')url.searchParams.delete('halaman');else url.searchParams.set('halaman',page);if(page==='detail')url.searchParams.set('item',String(item??activeItem));else url.searchParams.delete('item');window.history.pushState({},'',url);window.scrollTo({top:0,behavior:'instant'});}};
- const style={'--wd-ink':d.palette.ink,'--wd-accent':d.palette.accent,'--wd-paper':d.palette.paper,'--wd-deep':d.palette.deep} as React.CSSProperties;
+ const style=blueprintCssVariables(blueprint) as React.CSSProperties;
  const websiteCart=cartEnabled.has(d.category);
  // Purchases must remain on the apex to reuse buyer login and payment sessions.
  const quoteLink='https://bisabikinweb.site/pesan-website/?desain='+encodeURIComponent(d.slug)+'&paket='+encodeURIComponent(d.packageSlug);
@@ -50,7 +53,7 @@ export default function WebsiteLiveDemo({path}:{path:string}){
  function change(name:string,n:number){setCart(prev=>({...prev,[name]:Math.max(0,Math.min(25,(prev[name]||0)+n))}))}
  const nav=experience.nav.map((label:string,i:number)=>[label,navPages[i]]);
  function submitContact(e:React.FormEvent<HTMLFormElement>){e.preventDefault();const fields=new FormData(e.currentTarget);setSubmittedName(String(fields.get('name')||'Pelanggan').slice(0,60));setSent(true)}
- return <div className={'wd-root wd-layout-'+d.layout+' wd-sector-'+d.category+(d.slug==='teras-rona'?' wd-teras-rona':'')} style={style}>
+ return <div className={'wd-root wd-layout-'+d.layout+' wd-sector-'+d.category+(d.slug==='teras-rona'?' wd-teras-rona':'')} data-design-industry={blueprint.industry} data-hero-composition={blueprint.hero.composition} style={style}>
    <div className="wd-preview-ribbon"><div><span className="wd-live-dot"/>DEMO INTERAKTIF • {d.title.toUpperCase()} <span className="wd-preview-suffix">— Brand contoh, bukan bisnis sungguhan</span></div><div><a href="https://bisabikinweb.site/beli-website/">Semua 60 desain <ArrowUpRight size={13}/></a><a className="wd-ribbon-buy" href={quoteLink}>Pakai desain ini <ArrowRight size={14}/></a></div></div>
    <header className="wd-header"><a className="wd-logo" href={'/demo/'+d.slug+'/'} onClick={e=>{e.preventDefault();navigate('home')}}>{d.title}<small>®</small></a>
     <nav className={mobile?'wd-nav wd-nav-open':'wd-nav'} aria-label={'Navigasi '+d.title}>{nav.map(([label,page])=><a href={'?halaman='+page} aria-current={activePage===page?'page':undefined} key={label} onClick={e=>{e.preventDefault();navigate(page)}}>{label}</a>)}</nav>
@@ -64,6 +67,10 @@ export default function WebsiteLiveDemo({path}:{path:string}){
       <div className="wd-hero-caption"><span>{d.category==='company-profile'?'CORPORATE / CAPABILITIES / PROJECTS':d.category==='toko-online'?'SHOP / PRODUCTS / CHECKOUT DEMO':experience.meta}</span><span aria-hidden="true">—</span><span>{d.tagline}</span></div><DemoIndustrySignature demo={d}/>
      </div><DemoVisual d={d}/></section>
     <section className="wd-ticker" aria-label="Bidang utama">{[d.tagline,d.highlights[0],d.highlights[1],d.highlights[2],d.tagline].filter(Boolean).map((label,i)=><span key={i}>{label}</span>)}</section>
+    <section className="wd-industry-essentials" aria-label={"Prioritas website "+blueprint.industryLabel}>
+      <div className="wd-industry-essentials-intro"><small>BUILT FOR / {blueprint.industryLabel.toUpperCase()}</small><h2>Detail yang penting untuk <em>{blueprint.industryLabel.toLowerCase()}</em>.</h2><p>Setiap industri membutuhkan pengalaman berbeda. Berikut modul yang disiapkan untuk kebutuhan bisnis ini, bukan klaim bahwa layanan sungguhan telah aktif.</p></div>
+      <div className="wd-industry-essentials-list">{blueprint.features.slice(0,3).map((feature,i)=><article key={feature.name}><span>0{i+1}</span><h3>{feature.name}</h3><p>Rancangan fitur. Integrasi dan konten asli diaktifkan setelah diverifikasi bersama pemilik bisnis.</p></article>)}</div>
+    </section>
     <section className="wd-offerings" id="koleksi"><div className="wd-section-top"><div><span className="wd-label">01 / THE SELECTION</span><h2>{d.sectionTitle}<span>.</span></h2><p>{d.category==='ekspor'?'Telusuri spesifikasi produk dan ajukan permintaan penawaran untuk kebutuhan bisnis Anda.':d.category==='company-profile'?'Layanan pilihan untuk kebutuhan profesional dengan ruang lingkup yang dapat dikonsultasikan.':'Temukan pilihan yang sesuai kebutuhan dan kenali tiap penawaran lebih dekat.'}</p></div><span className="wd-vertical-word">DISCOVER THE DETAILS ↗</span></div>
       <div className="wd-filters"><button type="button" className={selected==='all'?'active':''} onClick={()=>setSelected('all')}>Semua pilihan</button>{d.offerings.map(p=><button type="button" className={selected===p.name?'active':''} onClick={()=>setSelected(p.name)} key={p.name}>{p.name}</button>)}<label className="wd-filter-search" aria-label="Cari pilihan"><input type="search" placeholder="Cari..." value={query} onChange={e=>setQuery(e.target.value)}/></label></div>
       <div className="wd-offer-grid">{visible.map((p,i)=><article key={p.name} className="wd-offer-card"><div className="wd-offer-art"><img src={galleryPhotoFor(d,i)} alt={'Foto ilustrasi '+p.name} loading="lazy" decoding="async"/><span className="wd-offer-no">/ {String(d.offerings.findIndex(x=>x.name===p.name)+1).padStart(2,'0')}</span><div className="wd-art-icon" aria-hidden="true">{p.name}</div><span className="wd-offer-label">{d.tagline}</span></div><div className="wd-offer-content"><div><small>FEATURED / {d.title.toUpperCase()}</small><h3>{p.name}</h3><p>{p.description}</p>{p.price>0&&<strong>{rupiah(p.price)} <small>contoh</small></strong>}</div>{websiteCart?<button type="button" onClick={()=>add(p.name)}>Tambah contoh <Plus size={18}/></button>:<a href="#kontak">{d.category==='ekspor'?'Minta RFQ':'Tanya detail'} <ArrowUpRight size={18}/></a>}</div></article>)}</div>
