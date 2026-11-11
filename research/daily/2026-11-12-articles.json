@@ -71,6 +71,12 @@
           "source_urls": [
             "https://www.kemendag.go.id/berita/siaran-pers/kemendag-luncurkan-program-triseg-perkuat-ekspor-kerajinan-umkm-ke-kanada"
           ]
+        },
+        {
+          "claim": "Kemenperin menyatakan Pameran Beli Produk IKM 9–12 November 2026 diikuti 64 IKM lintas sektor termasuk furnitur; jumlah tersebut bukan angka peserta khusus furnitur.",
+          "source_urls": [
+            "https://ikm.kemenperin.go.id/dukung-industri-dalam-negeri-kemenperin-gelar-pameran-beli-produk-ikm-2026"
+          ]
         }
       ],
       "sources": [
@@ -78,16 +84,22 @@
           "url": "https://www.kemendag.go.id/berita/siaran-pers/kemendag-luncurkan-program-triseg-perkuat-ekspor-kerajinan-umkm-ke-kanada",
           "publisher": "Kemendag",
           "accessed_at": "2026-11-12T00:33:33+07:00"
+        },
+        {
+          "url": "https://ikm.kemenperin.go.id/dukung-industri-dalam-negeri-kemenperin-gelar-pameran-beli-produk-ikm-2026",
+          "publisher": "Kementerian Perindustrian",
+          "published_at": "2026-11-09",
+          "accessed_at": "2026-11-12T03:34:00+07:00"
         }
       ],
       "practical_impact": "Membantu UMKM menyiapkan informasi produk dan mengevaluasi kesiapan pemasaran.",
-      "content_angle": "Membuat katalog B2B kerajinan untuk calon buyer Kanada",
-      "keyword_intent": "katalog produk kerajinan ekspor kanada | panduan pemasaran ekspor",
+      "content_angle": "Checklist katalog B2B furnitur dan kerajinan: spesifikasi, kapasitas produksi, dokumentasi mutu, dan kesiapan buyer Kanada/ritel.",
+      "keyword_intent": "cara membuat katalog furnitur untuk buyer B2B | panduan praktis",
       "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-12",
-      "verification_note": "Pemeriksaan awal; sumber bertanggal lama bukan perkembangan baru 24 jam. Belum ada audit penuh CMS, slug statis, atau gambar."
+      "verification_note": "Pemeriksaan awal; sumber bertanggal lama bukan perkembangan baru 24 jam. Belum ada audit penuh CMS, slug statis, atau gambar. Pembaruan 03:34 WIB: sumber Kemenperin 9 November ditambahkan dari arsip berita harian; relevan untuk checklist katalog furnitur dan kesiapan kemitraan, bukan berita baru atau angka ekspor."
     },
     {
       "id": "cluster-4-2026-11-12",
