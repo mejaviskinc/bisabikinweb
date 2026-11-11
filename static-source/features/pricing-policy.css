@@ -1,0 +1,21 @@
+.bbw-policy-section{padding-top:36px;padding-bottom:36px}
+.bbw-policy-heading{max-width:760px;margin-bottom:22px}
+.bbw-policy-heading small{display:block;letter-spacing:.14em;text-transform:uppercase;opacity:.65;font-weight:700;margin-bottom:9px}
+.bbw-policy-heading h2{font-size:clamp(26px,3.4vw,42px);line-height:1.12;margin:0 0 10px}
+.bbw-policy-heading p{max-width:65ch;opacity:.78;line-height:1.65}
+.bbw-care-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.bbw-care-card{border:1px solid rgba(128,128,128,.28);border-radius:20px;padding:24px;min-width:0;display:flex;flex-direction:column;gap:12px}
+.bbw-care-card h3{font-size:1.4rem;margin:0}
+.bbw-care-card strong{font-size:clamp(22px,2.5vw,33px);letter-spacing:-.04em}
+.bbw-care-card strong small{font-size:13px;letter-spacing:0;opacity:.65;font-weight:500}
+.bbw-care-card p{opacity:.78;line-height:1.6;margin:0}
+.bbw-care-card ul{padding:0;list-style:none;margin:0 0 12px;display:grid;gap:8px}
+.bbw-care-card li{display:flex;align-items:flex-start;gap:8px;font-size:14px;line-height:1.45}
+.bbw-care-card li:before{content:'✓';color:#b6ff00;font-weight:800;flex:none}
+.bbw-care-card .btn{margin-top:auto;align-self:flex-start}
+.bbw-addons{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 20px}
+.bbw-addon-row{display:flex;align-items:baseline;justify-content:space-between;gap:16px;padding:13px 0;border-bottom:1px solid rgba(128,128,128,.22);line-height:1.5}
+.bbw-addon-row strong{text-align:right;white-space:nowrap}
+.bbw-terms{padding-left:22px;display:grid;gap:11px;max-width:1000px}
+.bbw-terms li{line-height:1.65}
+@media(max-width:850px){.bbw-care-grid{grid-template-columns:1fr}.bbw-addons{grid-template-columns:1fr}.bbw-care-card{padding:20px}.bbw-addon-row{font-size:14px}}
