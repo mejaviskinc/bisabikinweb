@@ -216,6 +216,13 @@
           "source_urls": [
             "https://www.kemendag.go.id/index.php/berita/foto/mendag-pada-national-summit-hrn-dan-bulan-mutu-nasional-2026"
           ]
+        },
+        {
+          "claim": "Dua publikasi resmi Kemendag untuk acara 11 November memuat angka berbeda: siaran pers menyebut 104 barcode GS1 bagi 39 UMKM, sementara galeri foto menyebut 102 barcode bagi 38 UMKM. Angka belum direkonsiliasi; jangan pilih satu sebagai angka final.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/dorong-peningkatan-daya-saing-produk-umkm-kemendag-fasilitasi-pembuatan-104-barcode",
+            "https://www.kemendag.go.id/index.php/berita/foto/mendag-pada-national-summit-hrn-dan-bulan-mutu-nasional-2026"
+          ]
         }
       ],
       "sources": [
@@ -223,16 +230,22 @@
           "url": "https://www.kemendag.go.id/index.php/berita/foto/mendag-pada-national-summit-hrn-dan-bulan-mutu-nasional-2026",
           "publisher": "Kemendag",
           "accessed_at": "2026-11-12T00:33:33+07:00"
+        },
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/dorong-peningkatan-daya-saing-produk-umkm-kemendag-fasilitasi-pembuatan-104-barcode",
+          "publisher": "Kemendag (siaran pers)",
+          "published_at": "2026-11-11",
+          "accessed_at": "2026-11-12T04:33:30+07:00"
         }
       ],
       "practical_impact": "Membantu UMKM menyiapkan informasi produk dan mengevaluasi kesiapan pemasaran.",
       "content_angle": "Checklist kesiapan barcode GS1 dan katalog produk untuk ritel",
       "keyword_intent": "cara menyiapkan barcode produk UMKM masuk ritel | panduan praktis",
-      "editorial_status": "verified",
+      "editorial_status": "needs_verification",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-12",
-      "verification_note": "Pemeriksaan awal; sumber bertanggal lama bukan perkembangan baru 24 jam. Belum ada audit penuh CMS, slug statis, atau gambar."
+      "verification_note": "Pemeriksaan awal; sumber bertanggal lama bukan perkembangan baru 24 jam. Belum ada audit penuh CMS, slug statis, atau gambar. Koreksi 04:33 WIB: angka Kemendag antar halaman resmi tidak konsisten (102/38 vs 104/39). Hindari angka dalam artikel sampai klarifikasi; sumber siaran pers ditambahkan."
     },
     {
       "id": "cluster-10-2026-11-12",
