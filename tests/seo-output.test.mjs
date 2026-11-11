@@ -234,7 +234,7 @@ for(const [slug,seo] of Object.entries(serviceSeoById)){
  const route='jasa/'+slug;
  const html=await getHtml(route);
  const url=origin+'/'+route+'/';
- const title=first(html,/<title>([^<]+)<\\/title>/);
+ const title=first(html,/<title>([^<]+)<\/title>/);
  const description=first(html,/<meta name="description" content="([^"]+)"/);
  const service=scripts(html).find(schema=>schema['@type']==='Service');
  assert.equal(title,seo.title+' | BisaBikinWeb Indonesia',route+' must target real buying intent');
