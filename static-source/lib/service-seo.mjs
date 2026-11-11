@@ -20,7 +20,7 @@ export const serviceSeoById = Object.freeze({
     description: 'Jasa pembuatan toko online untuk brand dan UMKM: katalog produk, varian, keranjang, checkout, pengelolaan pesanan dan opsi pembayaran sesuai kebutuhan.',
     heading: 'Jasa Pembuatan Toko Online',
     introduction: 'Website toko online membantu pelanggan melihat katalog, memilih varian produk, dan melakukan pemesanan melalui alur yang sesuai kebutuhan bisnis. Integrasi pembayaran, pengiriman, dan pengelolaan stok dibahas sejak awal proyek.',
-    related: [{href:'/portfolio/',label:'Lihat portofolio e-commerce'}, {href:'/harga/',label:'Bandingkan biaya toko online'}, {href:'/artikel/checklist-toko-online-umkm/',label:'Checklist sebelum membuka toko online'}]
+    related: [{href:'/portfolio/',label:'Lihat portofolio e-commerce'}, {href:'/harga/',label:'Bandingkan biaya toko online'}, {href:'/artikel/website-fashion-size-chart-stok-preorder/',label:'Panduan fitur toko online fashion'}]
   },
   portfolio: {
     title: 'Jasa Website Portofolio dan Personal Brand',
