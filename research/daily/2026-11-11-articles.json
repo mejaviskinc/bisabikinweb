@@ -1,7 +1,7 @@
 {
   "research_date": "2026-11-11",
   "timezone": "Asia/Jakarta",
-  "researched_at": "2026-11-11T12:33:51+07:00",
+  "researched_at": "2026-11-11T13:26:07+07:00",
   "entries": [
     {
       "id": "briket-energi-2026-11-11",
@@ -337,6 +337,12 @@
           "source_urls": [
             "https://www.kemendag.go.id/berita/siaran-pers/bincang-mendag-busan-dengan-umkm-di-ntb-dorong-perluasan-pasar-domestik-dan-jajaki-ekspor"
           ]
+        },
+        {
+          "claim": "Kemendag dan TFO Canada meluncurkan program TRISEG pada 3 November 2026 untuk penguatan kapasitas dan akses pasar kerajinan UMKM ke Kanada; periode kurasi peserta diumumkan sampai 15 Desember 2026. Ini informasi program, bukan perubahan regulasi ekspor.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/kemendag-luncurkan-program-triseg-perkuat-ekspor-kerajinan-umkm-ke-kanada"
+          ]
         }
       ],
       "sources": [
@@ -353,18 +359,24 @@
           "source_published_at": "2026-11-05",
           "accessed_at": "2026-11-10T18:29:00+07:00",
           "previously_checked_at": "2026-11-10T18:29:00+07:00"
+        },
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/kemendag-luncurkan-program-triseg-perkuat-ekspor-kerajinan-umkm-ke-kanada",
+          "publisher": "Kementerian Perdagangan Republik Indonesia",
+          "source_published_at": "2026-11-03",
+          "accessed_at": "2026-11-11T13:26:07+07:00"
         }
       ],
-      "practical_impact": "Contoh bahwa pengetahuan buyer, spesifikasi, kemasan, dan strategi pasar penting bagi eksportir; bukan indikasi semua UMKM siap mengirim skala sama.",
+      "practical_impact": "UMKM kerajinan dapat mengecek syarat kurasi TRISEG melalui kanal resmi; kesiapan produk, kapasitas pasokan, dan profil buyer tetap perlu diperiksa.",
       "content_angle": "Panduan evergreen menyiapkan penawaran ekspor makanan ringan dan website B2B.",
       "keyword_intent": "cara ekspor makanan ringan untuk UMKM | informational-commercial",
-      "editorial_status": "needs_verification",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-11",
       "reader_pain_point": "UMKM makanan ringan memerlukan katalog SKU, bukti mutu, spesifikasi kemasan, dan alur RFQ sebelum menghubungi buyer internasional.",
       "evergreen_idea": "Checklist penawaran ekspor makanan ringan untuk UMKM: validasi label, buyer, sampel, kapasitas, katalog B2B, dan logistik.",
-      "verification_note": "Sumber dan tanggal dari arsip sebelumnya, belum diperiksa ulang hari ini; jangan ditafsirkan sebagai berita 24 jam terakhir.",
+      "verification_note": "Tambahan sumber primer bertanggal 3 November, bukan berita 24 jam. Status pendaftaran dan persyaratan spesifik perlu dicek ulang sebelum rekomendasi tindakan.",
       "next_article_candidate": {
         "title": "Checklist Kesiapan UMKM Menjajaki Ekspor: Mutu Produk, Kemasan, dan Buyer",
         "slug": "checklist-kesiapan-umkm-ekspor-mutu-kemasan-buyer",
@@ -565,6 +577,11 @@
     {
       "at": "2026-11-11T00:33:51+07:00",
       "action": "Read research README, previous articles/news archives, editorial module, build, image policy; check CMS and recent commits; carry forward 15 clusters without claiming new primary-source verification."
+    },
+    {
+      "at": "2026-11-11T13:26:07+07:00",
+      "stage": "primary_source_monitoring",
+      "result": "Verified TRISEG 3 Nov source for Peluang Usaha; CMS 0 published/created on 11 Nov WIB; static total and per-post scheduling not verified; no articles/images deployed."
     }
   ],
   "editorial_run_note": "CMS bbweb_articles 11 November WIB: 0 baris dibuat/diterbitkan (query 02.34 WIB); belum ada verifikasi static live, cover WebP, jadwal per-post atau build/deploy. Sumber primer Google Search Central dan IPPC ISPM15 diperiksa ulang. Tidak ada artikel dipublikasikan pada putaran ini."
