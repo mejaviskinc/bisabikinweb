@@ -394,22 +394,36 @@
     {
       "id": "cluster-13-2026-11-12",
       "category": "Sarang Burung Walet",
-      "topic": "Pemantauan klaster awal hari, belum ada perkembangan primer baru yang terverifikasi",
-      "summary": "Tidak menganggap arsip kemarin sebagai bukti perubahan 24–72 jam; perlu pemeriksaan sumber resmi lanjutan.",
-      "event_date": null,
-      "source_published_at": null,
+      "topic": "Checklist ketertelusuran dan karantina ekspor sarang burung walet ke Tiongkok",
+      "summary": "Badan Karantina Indonesia pada 19 Juni 2026 menjelaskan sosialisasi SK Deputi Bidang Karantina Hewan Nomor 22 dan 24 Tahun 2026 terkait tindakan karantina dan monitoring pengeluaran sarang burung walet ke RRT. Sumber historis ini tidak membuktikan perubahan aturan pada 12 November.",
+      "event_date": "2026-06-12",
+      "source_published_at": "2026-06-19",
       "researched_at": "2026-11-12T00:33:33+07:00",
-      "geography": "Indonesia dan pasar tujuan",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Jangan membuat keputusan regulasi atau pasar tanpa sumber primer terbaru.",
-      "content_angle": "Perlu pemetaan kebutuhan pembaca dan verifikasi data sebelum menentukan artikel.",
-      "keyword_intent": "belum ditetapkan",
-      "editorial_status": "needs_verification",
+      "geography": "Indonesia dan Tiongkok",
+      "facts": [
+        {
+          "claim": "Badan Karantina Indonesia menyebut SK Nomor 22 Tahun 2026 tentang pedoman tindakan karantina pengeluaran sarang burung walet ke RRT dan SK Nomor 24 Tahun 2026 tentang pedoman monitoring; sosialisasi dilakukan di Jawa Tengah.",
+          "source_urls": [
+            "https://karantinaindonesia.go.id/berita/jamin-keamanan-pangan-sbw-karantina-jawa-tengah-gelar-sosialisasi"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://karantinaindonesia.go.id/berita/jamin-keamanan-pangan-sbw-karantina-jawa-tengah-gelar-sosialisasi",
+          "publisher": "Badan Karantina Indonesia",
+          "published_at": "2026-06-19",
+          "accessed_at": "2026-11-12T19:25:30+07:00"
+        }
+      ],
+      "practical_impact": "Eksportir perlu memetakan persyaratan karantina, ketertelusuran batch, keamanan pangan, serta registrasi fasilitas yang berlaku sebelum kontrak; jangan menganggap berita sosialisasi sebagai dokumen hukum lengkap.",
+      "content_angle": "Panduan persiapan audit dokumen dan ketertelusuran sarang burung walet untuk calon eksportir, dengan daftar pengecekan persyaratan resmi terbaru.",
+      "keyword_intent": "checklist ekspor sarang burung walet ke China | panduan kepatuhan dan persiapan",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-12",
-      "verification_note": "Pemeriksaan awal; sumber bertanggal lama bukan perkembangan baru 24 jam. Belum ada audit penuh CMS, slug statis, atau gambar."
+      "recheck_after": "2026-11-13",
+      "verification_note": "Terverifikasi sebagai sumber primer historis Juni 2026, bukan pembaruan 24–72 jam. Teks lengkap SK 22/2026 dan SK 24/2026, protokol GACC yang aktif, tarif dan status registrasi fasilitas belum diperiksa. Belum ada artikel atau gambar dan tidak ada URL live."
     },
     {
       "id": "cluster-14-2026-11-12",
