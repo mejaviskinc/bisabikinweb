@@ -46,7 +46,7 @@ export default function InstagramManagement({whatsappNumber}:{whatsappNumber:str
     {plan.featured&&<span className="ig-plan-badge">PALING DIREKOMENDASIKAN</span>}
     <span className="ig-plan-label">{plan.name.toUpperCase()}</span><h3>{money(plan.price)}</h3><span className="ig-plan-unit">per bulan / 1 akun Instagram</span><p>{plan.lead}</p>
     <ul>{plan.features.map(feature=><li key={feature}><Check size={16}/><span>{feature}</span></li>)}</ul>
-    <a className={'btn '+(plan.featured?'primary':'')} href={request(plan.name)} target="_blank" rel="noopener noreferrer" onClick={()=>event('pricing_click')}>Pilih paket {plan.name} <ArrowUpRight size={17}/></a>
+    <a className={'btn '+(plan.featured?'primary':'')} href={request(plan.name)} target="_blank" rel="noopener noreferrer" onClick={()=>event('pricing_click')}>{'Pilih paket '+plan.name} <ArrowUpRight size={17}/></a>
    </article>)}</div>
    <p className="ig-fineprint">Materi foto/video mentah disediakan klien. Story sederhana dapat berupa adaptasi feed; Reels berupa editing dasar, bukan produksi video di lokasi. Satu revisi minor per konten. Shooting, desain/animasi kompleks, pengelolaan customer service penuh, dan budget iklan tidak termasuk.</p>
   </section>
