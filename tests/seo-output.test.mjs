@@ -219,7 +219,7 @@ for(const target of sitelinkTargets){
  assert.match(html,/<meta name="robots" content="index,follow/,'Sitelink destination must be indexable: '+route);
  assert.equal(first(html,/<link rel="canonical" href="([^"]+)"/),url,'Sitelink destination needs self-canonical: '+route);
 }
-console.log('Sitelink navigation verified: six crawlable homepage and footer destinations with indexable pages.');
+console.log('Sitelink navigation verified: nine crawlable homepage and footer destinations with indexable pages.');
 
 
 // Commercial SEO and on-page bilingual QA.
@@ -227,7 +227,7 @@ const jasaHtml=await getHtml('jasa');
 const hargaHtml=await getHtml('harga');
 const portfolioHtml=await getHtml('portfolio');
 const kontakHtml=await getHtml('kontak');
-assert.match(jasaHtml,/<title>Jasa Pembuatan Website untuk Bisnis &amp; Perusahaan \| BisaBikinWeb Indonesia<\/title>/);
+assert.ok(jasaHtml.includes('<title>Jasa Bikin Website: Company Profile, Toko Online &amp; Web App | BisaBikinWeb Indonesia</title>'),'Jasa page must use the search-first commercial title');
 for(const href of ['/harga/','/portfolio/','/artikel/struktur-website-company-profile-b2b-rfq/','/artikel/biaya-website-bisnis-domain-hosting-maintenance/']){
  assert.ok(jasaHtml.includes('href="'+href+'"'),'Jasa page should link to '+href);
 }
