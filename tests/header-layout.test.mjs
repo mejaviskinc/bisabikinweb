@@ -23,6 +23,14 @@ test('header follows the current theme and supports an active page indicator',()
   assert.doesNotMatch(css,/background:\s*#fff\b/i);
 });
 
+test('header has only one route-based underline with no permanently highlighted Portfolio',()=>{
+  assert.doesNotMatch(css,/reference-main-nav>a\[href="\/portfolio\/"\]:not\(\.active\)::before/);
+  assert.doesNotMatch(css,/site-nav-dropdown\[open\]>summary::after/);
+  assert.match(css,/reference-main-nav>a\.active::after/);
+  assert.match(css,/site-nav-dropdown\.active>summary::after/);
+  assert.match(css,/mobile-menu-links>a\[aria-current="page"\]/);
+});
+
 test('mobile actions are intentionally compact and all hidden actions remain in menu',()=>{
   assert.match(css,/@media \(max-width:900px\)/);
   assert.match(css,/\.site-header \.nav-actions \.account-toggle/);
