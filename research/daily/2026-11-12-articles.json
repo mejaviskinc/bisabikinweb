@@ -284,22 +284,36 @@
     {
       "id": "cluster-11-2026-11-12",
       "category": "Regulasi & Sertifikasi",
-      "topic": "Pemantauan klaster awal hari, belum ada perkembangan primer baru yang terverifikasi",
-      "summary": "Tidak menganggap arsip kemarin sebagai bukti perubahan 24–72 jam; perlu pemeriksaan sumber resmi lanjutan.",
-      "event_date": null,
-      "source_published_at": null,
-      "researched_at": "2026-11-12T00:33:33+07:00",
+      "topic": "Checklist standar mutu produk UMKM sebelum masuk ritel dan pasar ekspor",
+      "summary": "Kemendag melaporkan sosialisasi standardisasi perdagangan pada 6–8 November 2026 di Banyuwangi, Bondowoso, dan Situbondo untuk sekitar 300 peserta UMKM dan pemangku kepentingan. Ini konteks edukasi, bukan aturan sertifikasi baru.",
+      "event_date": "2026-11-08",
+      "source_published_at": "2026-11-08",
+      "researched_at": "2026-11-12T11:34:09+07:00",
       "geography": "Indonesia dan pasar tujuan",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Jangan membuat keputusan regulasi atau pasar tanpa sumber primer terbaru.",
-      "content_angle": "Perlu pemetaan kebutuhan pembaca dan verifikasi data sebelum menentukan artikel.",
-      "keyword_intent": "belum ditetapkan",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "Kemendag melaporkan sekitar 300 pelaku UMKM dan pemangku kepentingan mengikuti pembekalan standardisasi perdagangan pada 6–8 November 2026 di tiga kabupaten Jawa Timur.",
+          "source_urls": [
+            "https://www.kemendag.go.id/index.php/berita/siaran-pers/dorong-umkm-jawa-timur-tembus-pasar-global-kemendag-perkuat-mutu-dan-standardisasi-produk"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/index.php/berita/siaran-pers/dorong-umkm-jawa-timur-tembus-pasar-global-kemendag-perkuat-mutu-dan-standardisasi-produk",
+          "publisher": "Kementerian Perdagangan",
+          "published_at": "2026-11-08",
+          "accessed_at": "2026-11-12T11:34:09+07:00"
+        }
+      ],
+      "practical_impact": "UMKM perlu memetakan standar mutu, dokumen pengujian, label dan ketentuan pasar berdasarkan kategori produk dan negara tujuan, bukan menganggap semua produk memiliki satu sertifikat universal.",
+      "content_angle": "Panduan evergreen audit kesiapan standar mutu produk UMKM sebelum ritel atau ekspor, dengan matriks produk, persyaratan, bukti kepatuhan, dan langkah pemeriksaan resmi.",
+      "keyword_intent": "checklist standar mutu produk UMKM sebelum ekspor | informational/how-to",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-12",
-      "verification_note": "Pemeriksaan awal; sumber bertanggal lama bukan perkembangan baru 24 jam. Belum ada audit penuh CMS, slug statis, atau gambar."
+      "recheck_after": "2026-11-13",
+      "verification_note": "Pembaruan 11:34 WIB: rilis Kemendag 8 November terverifikasi; angka sekitar 300 adalah peserta lintas UMKM dan pemangku kepentingan, bukan sertifikat terbit. Belum memverifikasi aturan spesifik per produk dan negara tujuan. Tidak ada klaim artikel terbit."
     },
     {
       "id": "cluster-12-2026-11-12",
