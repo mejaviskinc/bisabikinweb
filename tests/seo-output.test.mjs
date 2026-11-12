@@ -25,6 +25,11 @@ assert.match(serviceMarkup,/jasa pembuatan website untuk bisnis/i);
 const instagramMarkup=await getHtml('jasa/kelola-instagram');
 assert.match(instagramMarkup,/<title>Jasa Kelola Instagram Bulanan untuk UMKM &amp; Brand/);
 assert.match(instagramMarkup,/<meta name="robots" content="index,follow/);
+assert.match(instagramMarkup,/<h1[^>]*id="ig-hero-title"/,'Instagram page must render its main heading');
+for(const packageName of ['Starter','Growth','Premium'])assert.ok(instagramMarkup.includes('Pilih paket '+packageName),'Instagram page must show a working CTA for '+packageName);
+for(const price of ['1.290.000','2.490.000','3.990.000'])assert.ok(instagramMarkup.includes(price),'Instagram package price missing: '+price);
+assert.ok(instagramMarkup.includes('META ADS MANAGEMENT'),'Instagram page must explain optional Meta Ads management');
+assert.ok(instagramMarkup.includes('https://wa.me/'),'Instagram page must provide a consultation destination');
 
 
 const sitemap=await readFile('site-dist/sitemap.xml','utf8');
