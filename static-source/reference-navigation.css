@@ -43,34 +43,19 @@
     text-decoration:none;
     transition:color .18s ease;
   }
-  /* Portofolio is a primary destination, not a link hidden under Layanan. */
-  .site-header .reference-main-nav>a[href="/portfolio/"] {
-    color:var(--text);
-    font-weight:800;
-  }
-  .site-header .reference-main-nav>a[href="/portfolio/"]:not(.active)::before {
-    content:"";
-    position:absolute;
-    left:0;
-    right:0;
-    bottom:18px;
-    height:2px;
-    background:var(--accent);
-    border-radius:2px;
-  }
+  /* Portofolio remains a first-level link, but is highlighted only on its own page. */
   .site-header .reference-main-nav>a:hover,
   .site-header .reference-main-nav>a.active,
   .site-header .reference-main-nav .site-nav-dropdown>summary:hover,
   .site-header .reference-main-nav .site-nav-dropdown.active>summary,
   .site-header .reference-main-nav .site-nav-dropdown[open]>summary {color:var(--text)}
   .site-header .reference-main-nav>a.active::after,
-  .site-header .reference-main-nav .site-nav-dropdown.active>summary::after,
-  .site-header .reference-main-nav .site-nav-dropdown[open]>summary::after {
+  .site-header .reference-main-nav .site-nav-dropdown.active>summary::after {
     content:"";
     position:absolute;
     left:0;right:0;bottom:0;
-    height:3px;
-    border-radius:4px 4px 0 0;
+    height:2px;
+    border-radius:2px 2px 0 0;
     background:var(--accent);
   }
   .site-header .reference-main-nav .site-nav-dropdown {position:relative;align-self:stretch}
@@ -225,8 +210,8 @@
     letter-spacing:-.04em;
     border-bottom:1px solid var(--line);
   }
-  .mobile-menu-links>a[href="/portfolio/"] {
-    font-weight:800;
+  .mobile-menu-links>a[aria-current="page"] {
+    font-weight:700;
     color:var(--text);
     border-bottom-color:var(--accent);
   }
