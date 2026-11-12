@@ -513,6 +513,16 @@
     "verified_published_count": null,
     "cover_webp_verified": 0,
     "scheduled_posts_verified": 0,
-    "note": "Jangan menyimpulkan kuota 0 sebelum audit gabungan CMS dan static selesai."
+    "note": "CMS bbweb_articles audit complete for WIB date: zero rows with published_at in date window. Static and live audit incomplete; do not infer total zero.",
+    "cms_audit": {
+      "checked_at": "2026-11-12T21:33:25+07:00",
+      "table": "public.bbweb_articles",
+      "project": "kdlrobdzlxpjlkxbvzsd",
+      "window_wib": "2026-11-12 00:00–23:59:59",
+      "published_at_utc_window": "2026-11-11T17:00:00Z to 2026-11-12T17:00:00Z (exclusive)",
+      "rows_with_published_at_in_window": 0,
+      "scope": "CMS only; includes all statuses; static sources not yet exhaustively counted",
+      "conclusion": "CMS has zero rows with publication timestamp on 12 Nov WIB; overall evergreen published count remains unknown until static source and live verification"
+    }
   }
 }
