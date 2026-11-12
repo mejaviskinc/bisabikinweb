@@ -1,5 +1,6 @@
 import React from 'react';
-import {ArrowUpRight,Check,Instagram,CalendarDays,PenTool,BarChart3,Megaphone,MessageCircle,ShieldCheck} from 'lucide-react';
+// Lucide removes brand-specific logos in current releases; use the supported camera icon.
+import {ArrowUpRight,Check,Camera as Instagram,CalendarDays,PenTool,BarChart3,Megaphone,MessageCircle,ShieldCheck} from 'lucide-react';
 import {money} from '../lib/data';
 import {whatsapp,event} from '../lib/client';
 
