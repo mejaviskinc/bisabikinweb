@@ -36,6 +36,13 @@ export const serviceSeoById = Object.freeze({
     introduction: 'Aplikasi web cocok saat proses bisnis membutuhkan lebih dari halaman informasi: misalnya pemesanan, dashboard, inventori, atau integrasi sistem. Pengembangan dimulai dari alur pengguna, hak akses, kebutuhan data, dan batasan integrasi.',
     related: [{href:'/jasa/',label:'Bandingkan jenis website'}, {href:'/harga/',label:'Pahami biaya pengembangan'}, {href:'/kontak/',label:'Diskusikan kebutuhan sistem'}]
   },
+  'all-in-one': {
+    title: 'Layanan All in One Website, Digital Marketing & Branding Rp25 Juta | BisaBikinWeb',
+    description: 'Paket All in One BisaBikinWeb mulai Rp25 juta: website company profile dan toko online terintegrasi, SEO, setup Google Ads, Instagram, desain grafis serta maintenance 30 hari. Konsultasikan proposal dan ruang lingkup.',
+    heading: 'Layanan All in One untuk Bisnis',
+    introduction: 'Satu paket digital untuk website, branding, SEO, setup iklan, pengelolaan Instagram, dan maintenance website. Budget mulai Rp25 juta dengan ruang lingkup tertulis; anggaran iklan serta biaya pihak ketiga terpisah.',
+    related: [{href:'/jasa/',label:'Layanan digital lainnya'}, {href:'/portfolio/',label:'Lihat proyek website'}, {href:'/kontak/',label:'Minta penawaran All in One'}]
+  },
   maintenance: {
     title: 'Jasa Maintenance dan Perawatan Website',
     description: 'Jasa maintenance website bulanan untuk pembaruan konten, backup, perbaikan bug, pemeriksaan keamanan dan performa sesuai ruang lingkup paket yang disepakati.',
