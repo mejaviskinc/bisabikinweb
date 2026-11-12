@@ -11,6 +11,9 @@ on:
       - 'build-pages.mjs'
       - 'static-source/lib/sitelinks.mjs'
       - 'static-source/features/Studio.tsx'
+      - 'static-source/features/homepage-conversion.css'
+      - 'static-source/lib/inline-translation.mjs'
+      - 'tests/hero-person-asset.test.mjs'
       - 'static-source/features/InstagramManagement.tsx'
       - 'tests/seo-output.test.mjs'
       # Showcase/shop changes deploy immediately without waiting for the 15-minute content batch.
