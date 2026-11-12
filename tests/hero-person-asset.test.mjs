@@ -30,7 +30,7 @@ test('homepage has one stable sales headline, working purchase and WhatsApp path
   assert.ok(home.includes('href="/portfolio/"'));
   assert.ok(home.includes('heroSlides.map((panel,index)=>'),'Five supporting carousel dots must remain');
   assert.ok(home.includes('id="paket-website"'),'Price comparison should be near the top');
-  assert.equal(home.split('<Pricing items={data.pricing}/> ').length-1,0);
+  assert.equal(home.split('<Pricing items={data.pricing}/>').length-1,1,'Homepage must show one pricing section');
   assert.ok(home.includes('<Pricing items={data.pricing}/>'));
   assert.ok(css.includes('.bbw-mobile-close-bar'),'Mobile conversion CTA needs responsive styling');
 });
