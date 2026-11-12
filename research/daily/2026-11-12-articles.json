@@ -164,22 +164,36 @@
     {
       "id": "cluster-7-2026-11-12",
       "category": "Logistik & Pengiriman",
-      "topic": "Pemantauan klaster awal hari, belum ada perkembangan primer baru yang terverifikasi",
-      "summary": "Tidak menganggap arsip kemarin sebagai bukti perubahan 24–72 jam; perlu pemeriksaan sumber resmi lanjutan.",
-      "event_date": null,
-      "source_published_at": null,
+      "topic": "Checklist kesiapan logistik ekspor UMKM melalui kanal digital",
+      "summary": "Kemendag melaporkan peluncuran program Jalan Global Kreasi Lokal pada 27 Oktober 2026, termasuk rute pasar Asia Tenggara dan kolaborasi platform digital dengan mitra logistik. Ini konteks historis, bukan berita 12 November.",
+      "event_date": "2026-10-27",
+      "source_published_at": "2026-10-27",
       "researched_at": "2026-11-12T00:33:33+07:00",
       "geography": "Indonesia dan pasar tujuan",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Jangan membuat keputusan regulasi atau pasar tanpa sumber primer terbaru.",
-      "content_angle": "Perlu pemetaan kebutuhan pembaca dan verifikasi data sebelum menentukan artikel.",
-      "keyword_intent": "belum ditetapkan",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "Kemendag melaporkan program Jalan Global Kreasi Lokal membuka rute ekspor ke Filipina, Singapura, Thailand, dan Vietnam melalui kolaborasi Shopee dengan Anteraja dan JNE.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/foto/peluncuran-program-jalan-global-kreasi-lokal-untuk-perluas-akses-ekspor-umkm"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/foto/peluncuran-program-jalan-global-kreasi-lokal-untuk-perluas-akses-ekspor-umkm",
+          "publisher": "Kementerian Perdagangan",
+          "published_at": "2026-10-27",
+          "accessed_at": "2026-11-12T09:33:32+07:00"
+        }
+      ],
+      "practical_impact": "UMKM dapat menyusun checklist kesiapan pengiriman lintas negara: klasifikasi produk, pengemasan, dokumen, estimasi ongkir, retur, dan ketentuan negara tujuan; tarif dan kelayakan produk harus diperiksa per rute.",
+      "content_angle": "Panduan evergreen memilih jalur logistik ekspor UMKM dan menyiapkan informasi pengiriman pada katalog e-commerce.",
+      "keyword_intent": "checklist logistik ekspor UMKM ke Asia Tenggara | informational/how-to",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-12",
-      "verification_note": "Pemeriksaan awal; sumber bertanggal lama bukan perkembangan baru 24 jam. Belum ada audit penuh CMS, slug statis, atau gambar."
+      "recheck_after": "2026-11-13",
+      "verification_note": "Tambahan sumber primer 09:33 WIB: rilis Kemendag 27 Oktober, bukan perubahan 24–72 jam. Belum memverifikasi biaya, cakupan layanan aktual, atau syarat negara tujuan. Artikel belum ditulis, gambar belum dibuat, dan belum live."
     },
     {
       "id": "cluster-8-2026-11-12",
