@@ -330,22 +330,36 @@
     {
       "id": "cluster-14-2026-11-12",
       "category": "Seafood & Perikanan",
-      "topic": "Pemantauan klaster awal hari, belum ada perkembangan primer baru yang terverifikasi",
-      "summary": "Tidak menganggap arsip kemarin sebagai bukti perubahan 24–72 jam; perlu pemeriksaan sumber resmi lanjutan.",
-      "event_date": null,
-      "source_published_at": null,
+      "topic": "Checklist sertifikasi mutu dan kesiapan ekspor produk perikanan",
+      "summary": "Rilis KKP 12 September 2026 menjelaskan sertifikasi mutu produk perikanan ekspor dan data semester I 2026; bukan perkembangan baru 24 jam.",
+      "event_date": "2026-09-12",
+      "source_published_at": "2026-09-12",
       "researched_at": "2026-11-12T00:33:33+07:00",
       "geography": "Indonesia dan pasar tujuan",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Jangan membuat keputusan regulasi atau pasar tanpa sumber primer terbaru.",
-      "content_angle": "Perlu pemetaan kebutuhan pembaca dan verifikasi data sebelum menentukan artikel.",
-      "keyword_intent": "belum ditetapkan",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "KKP melaporkan ekspor produk perikanan Januari–Juni 2026 sebanyak 566,25 ribu ton senilai sekitar USD 3 miliar; angka merupakan periode semester I, bukan capaian November.",
+          "source_urls": [
+            "https://www.kkp.go.id/news/news-detail/ekspor-produk-perikanan-semester-i-2026-capai-rp-526-triliun-kkp-perkuat-sertifikasi-mutu-z7kZ.html"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kkp.go.id/news/news-detail/ekspor-produk-perikanan-semester-i-2026-capai-rp-526-triliun-kkp-perkuat-sertifikasi-mutu-z7kZ.html",
+          "publisher": "Kementerian Kelautan dan Perikanan",
+          "published_at": "2026-09-12",
+          "accessed_at": "2026-11-12T07:25:00+07:00"
+        }
+      ],
+      "practical_impact": "Eksportir perlu menyiapkan catatan ketertelusuran, pengendalian mutu, dokumen fasilitas produksi, dan mengecek persyaratan spesifik negara tujuan sebelum menawarkan produk.",
+      "content_angle": "Panduan checklist sertifikasi mutu dan dokumen penelusuran produk perikanan untuk calon eksportir, tanpa menganggap sertifikasi Indonesia otomatis memenuhi semua syarat negara tujuan.",
+      "keyword_intent": "persiapan sertifikasi mutu ekspor ikan | panduan informasional",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-12",
-      "verification_note": "Pemeriksaan awal; sumber bertanggal lama bukan perkembangan baru 24 jam. Belum ada audit penuh CMS, slug statis, atau gambar."
+      "verification_note": "Pemeriksaan awal; sumber bertanggal lama bukan perkembangan baru 24 jam. Belum ada audit penuh CMS, slug statis, atau gambar. Pembaruan 07:25 WIB: referensi primer KKP September untuk konteks evergreen; tidak ada klaim perkembangan November."
     },
     {
       "id": "cluster-15-2026-11-12",
