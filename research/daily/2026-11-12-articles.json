@@ -118,22 +118,36 @@
     {
       "id": "cluster-4-2026-11-12",
       "category": "Kakao & Coklat",
-      "topic": "Pemantauan klaster awal hari, belum ada perkembangan primer baru yang terverifikasi",
-      "summary": "Tidak menganggap arsip kemarin sebagai bukti perubahan 24–72 jam; perlu pemeriksaan sumber resmi lanjutan.",
-      "event_date": null,
-      "source_published_at": null,
+      "topic": "Cara membaca harga referensi dan HPE biji kakao sebelum menyusun penawaran ekspor",
+      "summary": "Kemendag pada 30 Oktober menetapkan HR biji kakao November 2026 USD5.613,60/MT dan HPE USD5.242/MT; keduanya berbeda dari harga transaksi aktual buyer. Ini konteks regulasi bulanan, bukan berita baru 12 November.",
+      "event_date": "2026-10-30",
+      "source_published_at": "2026-10-30",
       "researched_at": "2026-11-12T00:33:33+07:00",
       "geography": "Indonesia dan pasar tujuan",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Jangan membuat keputusan regulasi atau pasar tanpa sumber primer terbaru.",
-      "content_angle": "Perlu pemetaan kebutuhan pembaca dan verifikasi data sebelum menentukan artikel.",
-      "keyword_intent": "belum ditetapkan",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "Kemendag menetapkan harga referensi biji kakao November 2026 sebesar USD5.613,60/MT dan HPE USD5.242/MT, turun dibanding Oktober.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/periode-november-2026-hr-cpo-dan-hpe-biji-kakao-terkoreksi-hpe-komoditas-lainnya-bervariasi"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/periode-november-2026-hr-cpo-dan-hpe-biji-kakao-terkoreksi-hpe-komoditas-lainnya-bervariasi",
+          "publisher": "Kementerian Perdagangan",
+          "published_at": "2026-10-30",
+          "accessed_at": "2026-11-12T15:25:28+07:00"
+        }
+      ],
+      "practical_impact": "Eksportir kakao perlu membedakan HR, HPE, bea/pungutan ekspor, dan harga kontrak; periksa klasifikasi HS dan peraturan aktif sebelum menghitung quotation.",
+      "content_angle": "Panduan membedakan harga referensi, HPE, dan harga jual aktual dalam kalkulasi ekspor biji kakao, dengan contoh formula tanpa menyamakan HPE dengan harga pasar.",
+      "keyword_intent": "perbedaan harga referensi dan HPE biji kakao | informational/how-to",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-12",
-      "verification_note": "Pemeriksaan awal; sumber bertanggal lama bukan perkembangan baru 24 jam. Belum ada audit penuh CMS, slug statis, atau gambar."
+      "recheck_after": "2026-11-13",
+      "verification_note": "Sumber primer 30 Oktober 2026 untuk periode November. Tarif per HS, biaya logistik dan harga kontrak buyer belum diverifikasi; belum ada artikel, cover, atau URL live."
     },
     {
       "id": "cluster-5-2026-11-12",
