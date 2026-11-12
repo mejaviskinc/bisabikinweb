@@ -21,5 +21,16 @@
   ],
   "selected_topics": ["Pembiayaan UMKM Kemendag (11 Nov)","Potensi transaksi produk boga-rempah-perikanan Shanghai (11 Nov)","Pameran Beli Produk IKM Kemenperin (9–12 Nov)","Fasilitasi perusahaan Indonesia di Hajj Conference & Expo (11 Nov)","SNPI 27 KKP (12 Nov)"],
   "monitoring_ideas": ["Temukan rilis lengkap dan bukti lisensi foto komersial untuk setiap peristiwa kandidat.","Pantau hasil realisasi transaksi, bukan hanya potensi, dari pameran Shanghai dan Hajj Expo.","Verifikasi syarat akses program HACCP, SNI, ISO, dan Kredit Industri Padat Karya untuk IKM."],
+  "incremental_updates": [
+    {
+      "checked_at": "2026-11-12T07:05:00+07:00",
+      "category": "Digitalisasi & Website",
+      "topic": "Pembaruan syarat dan ketentuan DataHub Komdigi",
+      "source_url": "https://datahub.komdigi.go.id/public/syarat-dan-ketentuan",
+      "source_published_at": "2026-11-12",
+      "status": "needs_verification",
+      "note": "Halaman menyatakan terakhir diperbarui 12 November, tetapi dampak atau perubahan materiil belum dapat diverifikasi; tidak dijadikan berita."
+    }
+  ],
   "publication_note": "Tidak ada berita baru diterbitkan dari kandidat ini karena belum ada bukti izin komersial eksplisit untuk foto dokumentasi peristiwa; tidak ada gambar AI dipakai untuk berita bisnis."
 }
