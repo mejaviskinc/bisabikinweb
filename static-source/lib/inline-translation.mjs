@@ -171,6 +171,40 @@ for(const [id,en] of [
  ['Lihat Paket','View Packages'],
  ['DESIGNED FOR YOUR BUSINESS. BUILT TO WORK.','DESIGNED FOR YOUR BUSINESS. BUILT TO WORK.']
 ]) translations.set(id,en);
+// Service-specific bilingual labels for the new All in One offer.
+for(const [id,en] of [
+ ['Layanan All in One','All in One Services'],
+ ['All in One','All in One'],
+ ['All in One · Mulai Rp25 Juta','All in One · From IDR 25 Million'],
+ ['Budget mulai Rp25.000.000','Starting budget IDR 25,000,000'],
+ ['Mulai Rp25.000.000','From IDR 25,000,000'],
+ ['Jelajahi paket','Explore the Package'],
+ ['Website + digital marketing + desain grafis + branding dalam satu paket.','Website, digital marketing, graphic design and branding in one package.'],
+ ['Satu paket untuk','One package for'],
+ ['website, branding, dan promosi.','website, branding, and promotion.'],
+ ['PAKET DIGITAL TERINTEGRASI','INTEGRATED DIGITAL PACKAGE'],
+ ['Budget paket mulai','Package budget from'],
+ ['Proyek sesuai ruang lingkup tertulis, bukan biaya iklan.','Project scope is agreed in writing; advertising spend is excluded.'],
+ ['Konsultasi Paket via WhatsApp','Discuss the Package on WhatsApp'],
+ ['Minta Proposal','Request a Proposal'],
+ ['Lihat Portofolio','View Portfolio'],
+ ['Satu koordinasi proyek','One project coordinator'],
+ ['Ruang lingkup tertulis','Written project scope'],
+ ['Biaya pihak ketiga transparan','Transparent third-party costs'],
+ ['YANG DIDAPAT','WHAT IS INCLUDED'],
+ ['Enam layanan untuk satu tujuan bisnis.','Six services for one business goal.'],
+ ['Website Company Profile + Toko Online','Company Website + Online Store'],
+ ['SEO & Google Ads','SEO & Google Ads'],
+ ['Social Media Management','Social Media Management'],
+ ['Branding & Desain Grafis','Branding & Graphic Design'],
+ ['Maintenance Website','Website Maintenance'],
+ ['Strategi & Pelaporan','Strategy & Reporting'],
+ ['PROSES KERJA','HOW IT WORKS'],
+ ['TRANSPARANSI BUDGET','BUDGET TRANSPARENCY'],
+ ['Apa yang belum termasuk?','What Is Not Included?'],
+ ['SIAP MULAI?','READY TO BEGIN?'],
+ ['Diskusikan Budget Rp25 Juta','Discuss the IDR 25 Million Budget']
+]) translations.set(id,en);
 const lower=new Map([...translations].map(([k,v])=>[k.toLocaleLowerCase('id'),v]));
 const blockedPath=/^\/(?:admin|seller|account|cart|checkout|payment|track-order|client|pesan-website|privacy|terms|refund|shipping)(?:\/|$)/;
 const blockedTags=new Set(['SCRIPT','STYLE','NOSCRIPT','SVG','CODE','PRE','TEXTAREA','OPTION','TITLE','IFRAME']);
