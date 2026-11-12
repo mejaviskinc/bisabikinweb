@@ -13,6 +13,7 @@ on:
       - 'static-source/components/DokuPaymentChannels.tsx'
       - 'static-source/components/FooterPaymentMethods.tsx'
       - 'static-source/styles.css'
+      - 'static-source/features/InstagramManagement.tsx'
       - 'static-source/reference-navigation.css'
       - 'tests/header-layout.test.mjs'
       - 'static-source/features/Commerce.tsx'
