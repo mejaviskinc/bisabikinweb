@@ -43,6 +43,21 @@
     text-decoration:none;
     transition:color .18s ease;
   }
+  /* Portofolio is a primary destination, not a link hidden under Layanan. */
+  .site-header .reference-main-nav>a[href="/portfolio/"] {
+    color:var(--text);
+    font-weight:800;
+  }
+  .site-header .reference-main-nav>a[href="/portfolio/"]:not(.active)::before {
+    content:"";
+    position:absolute;
+    left:0;
+    right:0;
+    bottom:18px;
+    height:2px;
+    background:var(--accent);
+    border-radius:2px;
+  }
   .site-header .reference-main-nav>a:hover,
   .site-header .reference-main-nav>a.active,
   .site-header .reference-main-nav .site-nav-dropdown>summary:hover,
@@ -209,6 +224,11 @@
     font-size:clamp(20px,3.8vw,25px);
     letter-spacing:-.04em;
     border-bottom:1px solid var(--line);
+  }
+  .mobile-menu-links>a[href="/portfolio/"] {
+    font-weight:800;
+    color:var(--text);
+    border-bottom-color:var(--accent);
   }
   .mobile-menu-links a small {width:24px;flex:0 0 auto}
   .mobile-menu-extra {
