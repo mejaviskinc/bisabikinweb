@@ -1,0 +1,368 @@
+{
+  "research_date": "2026-11-13",
+  "timezone": "Asia/Jakarta",
+  "researched_at": "2026-11-13T01:03:42+07:00",
+  "entries": [
+    {
+      "id": "briket-energi-2026-11-13",
+      "category": "Briket & Energi",
+      "topic": "Belum ada rilis primer baru",
+      "summary": "Penelusuran sumber primer 24–72 jam tidak menemukan pembaruan yang cukup spesifik dan dapat diverifikasi untuk dijadikan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-13T01:03:42+07:00",
+      "geography": "Indonesia",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Tidak ada perubahan operasional atau kepatuhan yang dapat disimpulkan.",
+      "content_angle": "Lanjutkan pemantauan sumber primer.",
+      "keyword_intent": "Briket & Energi",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-14"
+    },
+    {
+      "id": "digitalisasi-website-2026-11-13",
+      "category": "Digitalisasi & Website",
+      "topic": "Belum ada rilis primer baru",
+      "summary": "Penelusuran sumber primer 24–72 jam tidak menemukan pembaruan yang cukup spesifik dan dapat diverifikasi untuk dijadikan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-13T01:03:42+07:00",
+      "geography": "Indonesia",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Tidak ada perubahan operasional atau kepatuhan yang dapat disimpulkan.",
+      "content_angle": "Lanjutkan pemantauan sumber primer.",
+      "keyword_intent": "Digitalisasi & Website",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-14"
+    },
+    {
+      "id": "furniture-kayu-2026-11-13",
+      "category": "Furniture & Kayu",
+      "topic": "Tidak ada pembaruan spesifik pascapameran IKM",
+      "summary": "Rilis Kemenperin yang dipantau belum memuat hasil atau transaksi khusus sektor furnitur setelah pameran IKM berakhir.",
+      "event_date": null,
+      "source_published_at": "2026-11-09",
+      "researched_at": "2026-11-13T01:03:42+07:00",
+      "geography": "Jakarta, Indonesia",
+      "facts": [
+        {
+          "claim": "Kemenperin sebelumnya mengumumkan pameran IKM berlangsung 9–12 November 2026.",
+          "source_urls": [
+            "https://ikm.kemenperin.go.id/dukung-industri-dalam-negeri-kemenperin-gelar-pameran-beli-produk-ikm-2026"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://ikm.kemenperin.go.id/dukung-industri-dalam-negeri-kemenperin-gelar-pameran-beli-produk-ikm-2026",
+          "publisher": "Kementerian Perindustrian",
+          "accessed_at": "2026-11-13T01:03:42+07:00"
+        }
+      ],
+      "practical_impact": "Pelaku furnitur belum dapat memakai klaim transaksi baru dari pameran tersebut.",
+      "content_angle": "Tindak lanjut pameran dan kesiapan katalog B2B.",
+      "keyword_intent": "IKM furnitur",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-14"
+    },
+    {
+      "id": "kakao-coklat-2026-11-13",
+      "category": "Kakao & Coklat",
+      "topic": "Belum ada rilis primer baru",
+      "summary": "Penelusuran sumber primer 24–72 jam tidak menemukan pembaruan yang cukup spesifik dan dapat diverifikasi untuk dijadikan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-13T01:03:42+07:00",
+      "geography": "Indonesia",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Tidak ada perubahan operasional atau kepatuhan yang dapat disimpulkan.",
+      "content_angle": "Lanjutkan pemantauan sumber primer.",
+      "keyword_intent": "Kakao & Coklat",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-14"
+    },
+    {
+      "id": "kelapa-turunan-2026-11-13",
+      "category": "Kelapa & Turunannya",
+      "topic": "Belum ada rilis primer baru",
+      "summary": "Penelusuran sumber primer 24–72 jam tidak menemukan pembaruan yang cukup spesifik dan dapat diverifikasi untuk dijadikan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-13T01:03:42+07:00",
+      "geography": "Indonesia",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Tidak ada perubahan operasional atau kepatuhan yang dapat disimpulkan.",
+      "content_angle": "Lanjutkan pemantauan sumber primer.",
+      "keyword_intent": "Kelapa & Turunannya",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-14"
+    },
+    {
+      "id": "kopi-2026-11-13",
+      "category": "Kopi",
+      "topic": "Belum ada rilis primer baru",
+      "summary": "Penelusuran sumber primer 24–72 jam tidak menemukan pembaruan yang cukup spesifik dan dapat diverifikasi untuk dijadikan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-13T01:03:42+07:00",
+      "geography": "Indonesia",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Tidak ada perubahan operasional atau kepatuhan yang dapat disimpulkan.",
+      "content_angle": "Lanjutkan pemantauan sumber primer.",
+      "keyword_intent": "Kopi",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-14"
+    },
+    {
+      "id": "logistik-pengiriman-2026-11-13",
+      "category": "Logistik & Pengiriman",
+      "topic": "Program ekspor UMKM melalui rute baru dan mitra logistik",
+      "summary": "Rilis Kemendag akhir Oktober tetap menjadi konteks; tidak ditemukan pembaruan 24–72 jam tentang pelaksanaan atau hasil rute ekspor baru.",
+      "event_date": "2026-10-27",
+      "source_published_at": "2026-10-27",
+      "researched_at": "2026-11-13T01:03:42+07:00",
+      "geography": "Indonesia",
+      "facts": [
+        {
+          "claim": "Kemendag mencatat program Jalan Global Kreasi Lokal membuka rute ekspor ke Filipina, Singapura, Thailand, dan Vietnam melalui mitra logistik.",
+          "source_urls": [
+            "https://ditjenpen.kemendag.go.id/berita/kemendag-dan-shopee-indonesia-luncurkan-program-jalan-global-kreasi-lokal-untuk-perluas-akses-ekspor-umkm"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://ditjenpen.kemendag.go.id/berita/kemendag-dan-shopee-indonesia-luncurkan-program-jalan-global-kreasi-lokal-untuk-perluas-akses-ekspor-umkm",
+          "publisher": "Kemendag",
+          "accessed_at": "2026-11-13T01:03:42+07:00"
+        }
+      ],
+      "practical_impact": "Bukan dasar untuk menyatakan kinerja rute baru; pelaku perlu memeriksa biaya dan syarat layanan langsung.",
+      "content_angle": "Checklist ekspor e-commerce lintas negara.",
+      "keyword_intent": "logistik ekspor UMKM",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-14"
+    },
+    {
+      "id": "manajemen-risiko-2026-11-13",
+      "category": "Manajemen Risiko",
+      "topic": "Belum ada rilis primer baru",
+      "summary": "Penelusuran sumber primer 24–72 jam tidak menemukan pembaruan yang cukup spesifik dan dapat diverifikasi untuk dijadikan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-13T01:03:42+07:00",
+      "geography": "Indonesia",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Tidak ada perubahan operasional atau kepatuhan yang dapat disimpulkan.",
+      "content_angle": "Lanjutkan pemantauan sumber primer.",
+      "keyword_intent": "Manajemen Risiko",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-14"
+    },
+    {
+      "id": "peluang-usaha-2026-11-13",
+      "category": "Peluang Usaha",
+      "topic": "Kemendag memfasilitasi pembuatan 104 barcode UMKM",
+      "summary": "Kemendag menampilkan rilis pada 11 November tentang fasilitasi pembuatan 104 barcode untuk peningkatan daya saing produk UMKM; persyaratan dan hasil implementasi per peserta perlu ditelusuri sebelum menjadi panduan layanan.",
+      "event_date": "2026-11-11",
+      "source_published_at": "2026-11-11",
+      "researched_at": "2026-11-13T01:03:42+07:00",
+      "geography": "Indonesia",
+      "facts": [
+        {
+          "claim": "Daftar berita Kemendag mencantumkan rilis berjudul fasilitasi pembuatan 104 barcode.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-13T01:03:42+07:00"
+        }
+      ],
+      "practical_impact": "Barcode dapat menjadi komponen kesiapan ritel, tetapi pelaku perlu memeriksa skema serta pendaftarannya.",
+      "content_angle": "Kesiapan barcode, katalog, dan data produk untuk ritel.",
+      "keyword_intent": "barcode UMKM",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-14"
+    },
+    {
+      "id": "pertanian-buah-2026-11-13",
+      "category": "Pertanian & Buah",
+      "topic": "Belum ada rilis primer baru",
+      "summary": "Penelusuran sumber primer 24–72 jam tidak menemukan pembaruan yang cukup spesifik dan dapat diverifikasi untuk dijadikan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-13T01:03:42+07:00",
+      "geography": "Indonesia",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Tidak ada perubahan operasional atau kepatuhan yang dapat disimpulkan.",
+      "content_angle": "Lanjutkan pemantauan sumber primer.",
+      "keyword_intent": "Pertanian & Buah",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-14"
+    },
+    {
+      "id": "regulasi-sertifikasi-2026-11-13",
+      "category": "Regulasi & Sertifikasi",
+      "topic": "Peluang akses pasar JFEX 2026",
+      "summary": "Laman Kemenperin mencantumkan JFEX di Tokyo pada 11–13 November dan menekankan standar kualitas pasar Jepang, namun tidak memuat keputusan regulasi baru.",
+      "event_date": "2026-11-11",
+      "source_published_at": null,
+      "researched_at": "2026-11-13T01:03:42+07:00",
+      "geography": "Tokyo, Jepang",
+      "facts": [
+        {
+          "claim": "Laman Kemenperin mencantumkan JFEX berlangsung 11–13 November 2026 di Tokyo.",
+          "source_urls": [
+            "https://pameranln.kemenperin.go.id/pameran/japan-intl-food-beverage-expo-jfex"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://pameranln.kemenperin.go.id/pameran/japan-intl-food-beverage-expo-jfex",
+          "publisher": "Kementerian Perindustrian",
+          "accessed_at": "2026-11-13T01:03:42+07:00"
+        }
+      ],
+      "practical_impact": "Eksportir pangan perlu memeriksa ketentuan impor Jepang secara resmi, bukan mengandalkan laman promosi pameran.",
+      "content_angle": "Persiapan sertifikasi dan buyer meeting pasar Jepang.",
+      "keyword_intent": "JFEX 2026",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-14"
+    },
+    {
+      "id": "rempah-atsiri-2026-11-13",
+      "category": "Rempah & Minyak Atsiri",
+      "topic": "Belum ada realisasi transaksi baru",
+      "summary": "Penelusuran sumber primer 24–72 jam tidak menemukan pembaruan yang cukup spesifik dan dapat diverifikasi untuk dijadikan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-13T01:03:42+07:00",
+      "geography": "Indonesia",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Tidak ada perubahan operasional atau kepatuhan yang dapat disimpulkan.",
+      "content_angle": "Lanjutkan pemantauan sumber primer.",
+      "keyword_intent": "Rempah & Minyak Atsiri",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-14"
+    },
+    {
+      "id": "walet-2026-11-13",
+      "category": "Sarang Burung Walet",
+      "topic": "Belum ada rilis primer baru",
+      "summary": "Penelusuran sumber primer 24–72 jam tidak menemukan pembaruan yang cukup spesifik dan dapat diverifikasi untuk dijadikan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-13T01:03:42+07:00",
+      "geography": "Indonesia",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Tidak ada perubahan operasional atau kepatuhan yang dapat disimpulkan.",
+      "content_angle": "Lanjutkan pemantauan sumber primer.",
+      "keyword_intent": "Sarang Burung Walet",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-14"
+    },
+    {
+      "id": "seafood-perikanan-2026-11-13",
+      "category": "Seafood & Perikanan",
+      "topic": "Belum ada rilis primer baru",
+      "summary": "Penelusuran sumber primer 24–72 jam tidak menemukan pembaruan yang cukup spesifik dan dapat diverifikasi untuk dijadikan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-13T01:03:42+07:00",
+      "geography": "Indonesia",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Tidak ada perubahan operasional atau kepatuhan yang dapat disimpulkan.",
+      "content_angle": "Lanjutkan pemantauan sumber primer.",
+      "keyword_intent": "Seafood & Perikanan",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-14"
+    },
+    {
+      "id": "tren-pasar-2026-11-13",
+      "category": "Tren & Analisis Pasar",
+      "topic": "Peluang ekspor pangan ke Jepang melalui JFEX",
+      "summary": "JFEX adalah agenda akses pasar, bukan bukti kenaikan ekspor atau transaksi Indonesia; tidak dijadikan berita pasar sampai ada hasil terverifikasi.",
+      "event_date": "2026-11-11",
+      "source_published_at": null,
+      "researched_at": "2026-11-13T01:03:42+07:00",
+      "geography": "Tokyo, Jepang",
+      "facts": [
+        {
+          "claim": "Kemenperin menyebut JFEX memberi akses kepada buyer, distributor, dan retailer Jepang.",
+          "source_urls": [
+            "https://pameranln.kemenperin.go.id/pameran/japan-intl-food-beverage-expo-jfex"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://pameranln.kemenperin.go.id/pameran/japan-intl-food-beverage-expo-jfex",
+          "publisher": "Kementerian Perindustrian",
+          "accessed_at": "2026-11-13T01:03:42+07:00"
+        }
+      ],
+      "practical_impact": "Pelaku usaha perlu menilai kesiapan mutu, dokumen, dan distribusi sebelum mengejar peluang pameran.",
+      "content_angle": "Mengukur kesiapan ekspor Jepang.",
+      "keyword_intent": "pasar ekspor Jepang",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-14"
+    }
+  ],
+  "selected_topics": [
+    "Fasilitasi 104 barcode UMKM Kemendag (11 November)",
+    "JFEX 2026 Tokyo (11–13 November)",
+    "Pemantauan hasil Pameran Beli Produk IKM"
+  ],
+  "monitoring_ideas": [
+    "Cari rilis dan hasil terverifikasi program barcode UMKM.",
+    "Pantau hasil konkret atau kontrak JFEX, bukan agenda promosi.",
+    "Verifikasi hak pakai komersial foto dokumentasi untuk setiap kandidat."
+  ],
+  "publication_note": "Tidak ada berita diterbitkan dari temuan ini: belum ada kandidat dengan foto dokumentasi peristiwa yang hak penggunaan komersialnya terverifikasi. Tidak ada gambar AI dipakai untuk berita bisnis."
+}
