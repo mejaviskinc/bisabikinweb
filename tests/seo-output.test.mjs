@@ -209,10 +209,11 @@ assert.match(nationwideHome,/<meta property="og:site_name" content="BisaBikinWeb
 assert.match(nationwideHome,/<meta name="application-name" content="BisaBikinWeb Indonesia"\/>/,'Application name should use the chosen brand');
 assert.equal(scripts(nationwideHome).find(s=>s['@type']==='WebSite')?.name,'BisaBikinWeb Indonesia','Google WebSite structured data should use the chosen site name');
 assert.match(nationwideHome,/aria-label="Halaman utama layanan BisaBikinWeb"/,'Homepage must have a clearly labelled priority navigation section');
-assert.equal((nationwideHome.match(/class="bbw-hero-slide(?: is-active)?"/g)||[]).length,5,'Homepage hero must render five complete slides');
-assert.match(nationwideHome,/aria-label="Slide 5: Siap Berkembang"/,'All hero slides must offer direct navigation');
+assert.match(nationwideHome,/class="bbw-hero-mini-slider"[^>]*aria-label="5 solusi website unggulan"/,'Homepage must expose the five-solution carousel');
+assert.equal((nationwideHome.match(/class="bbw-hero-dot(?: is-active)?"/g)||[]).length,5,'Homepage hero must offer five directly selectable solutions');
+assert.match(nationwideHome,/aria-label="Slide 5: Dukungan Setelah Online"/,'All five hero solutions must offer direct navigation');
 assert.doesNotMatch(nationwideHome,/aria-label="(?:Slide sebelumnya|Slide berikutnya|Jeda slide otomatis)"/,'Hero must not show previous, next, or pause buttons');
-assert.match(nationwideHome,/YOUR NEXT <b>WEBSITE<\/b>/,'Hero supporting headline should remain steady without rapid text rotation');
+assert.match(nationwideHome,/<h1 id="bbw-hero-title" class="bbw-hero-primary-title">Website profesional yang bikin bisnis/,'Hero primary headline should remain steady without rapid text rotation');
 for(const target of sitelinkTargets){
  const url=origin+target.href;
  const route=target.href.replace(/^\/+|\/+$/g,'');
