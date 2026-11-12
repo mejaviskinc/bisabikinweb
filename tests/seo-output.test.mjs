@@ -10,6 +10,23 @@ const first=(html,re)=>html.match(re)?.[1]||'';
 const scripts=html=>[...html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map(m=>JSON.parse(m[1]));
 const titleSet=new Set(),descriptionSet=new Set();
 
+// Jalur pencarian dari homepage harus menuju halaman layanan utama yang indexable.
+const searchIntentTargets=[
+ '/jasa/','/jasa/company-profile/','/jasa/landing-page/',
+ '/jasa/ecommerce/','/jasa/kelola-instagram/','/harga/','/portfolio/','/wilayah/'
+];
+const homeMarkup=await getHtml('');
+for(const target of searchIntentTargets){
+ assert.ok(homeMarkup.includes('href="'+target+'"'),'Homepage should link directly to '+target);
+}
+assert.match(homeMarkup,/<h2 id="sitelinks-title">Jasa bikin website untuk kebutuhan bisnismu\.<\/h2>/);
+const serviceMarkup=await getHtml('jasa');
+assert.match(serviceMarkup,/jasa pembuatan website untuk bisnis/i);
+const instagramMarkup=await getHtml('jasa/kelola-instagram');
+assert.match(instagramMarkup,/<title>Jasa Kelola Instagram Bulanan untuk UMKM &amp; Brand/);
+assert.match(instagramMarkup,/<meta name="robots" content="index,follow/);
+
+
 const sitemap=await readFile('site-dist/sitemap.xml','utf8');
 const locations=[...sitemap.matchAll(/<loc>([^<]+)<\/loc>/g)].map(m=>m[1]);
 assert.equal(new Set(locations).size,locations.length,'Sitemap contains duplicate URLs');

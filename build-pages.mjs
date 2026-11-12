@@ -91,8 +91,8 @@ const logo=origin+'/brand/bisabikinweb-logo-compact.svg';
 const phone='+62882003740969';
 const email='bisabikinw3b@gmail.com';
 const pages={
-  '/':['BisaBikinWeb Indonesia | Jasa Bikin Website Indonesia & Global','Jasa pembuatan website untuk UMKM, perusahaan, dan toko online di Indonesia maupun proyek internasional. Jelajahi layanan, harga, portofolio, dan konsultasi online.'],
-  '/jasa':['Jasa Pembuatan Website untuk Bisnis & Perusahaan','Butuh website bisnis? Pilih company profile, toko online, landing page, web app, atau maintenance. Lihat contoh proyek dan konsultasi online, termasuk proyek global.'],
+  '/':['Jasa Pembuatan Website & Bikin Web | BisaBikinWeb Indonesia','Jasa bikin website profesional untuk UMKM dan perusahaan: company profile, landing page, toko online, dan web app. Lihat harga, portofolio, dan konsultasi online.'],
+  '/jasa':['Jasa Bikin Website: Company Profile, Toko Online & Web App','Jasa pembuatan website untuk bisnis, UMKM dan perusahaan. Pilih company profile, landing page, toko online, web app custom, atau maintenance dengan cakupan jelas.'],
   '/wilayah':['Jasa Website Seluruh Indonesia & 38 Provinsi','Lihat daftar layanan jasa bikin web BisaBikinWeb untuk Jakarta, Bandung, Surabaya, Medan, Makassar, seluruh 38 provinsi dan kota/kabupaten lainnya di Indonesia.'],
   '/harga':['Harga Pembuatan Website & Paket Sesuai Kebutuhan','Bandingkan paket dan biaya pembuatan website: landing page, company profile, dan toko online. Tinjau fitur, biaya operasional, lalu minta penawaran.'],
   '/portfolio':['Portofolio Website Bisnis, Skincare, Fashion & Travel','Jelajahi contoh website nyata BisaBikinWeb untuk Berbeda, Karpenter, Mejavi Skin+, GoO Ninks, dan GoJogja Travel. Lihat studi kasus dan layanan terkait.'],
@@ -144,7 +144,7 @@ for(const [kind,prefix] of [['services','jasa'],['portfolio','portfolio'],['prod
   pages['/'+prefix+'/'+p.id]=[title,description];
  }
 }
-pages['/jasa/kelola-instagram']=['Jasa Kelola Instagram: Feed, Story & Reels','Jasa kelola Instagram BisaBikinWeb untuk UMKM dan brand. Paket Starter Rp1.290.000, Growth Rp2.490.000, Premium Rp3.990.000 per bulan. Desain feed, Story, Reels sederhana, caption, penjadwalan, laporan, dan opsi Meta Ads.'];
+pages['/jasa/kelola-instagram']=['Jasa Kelola Instagram Bulanan untuk UMKM & Brand','Layanan admin Instagram dan desain konten bisnis: feed, Story, Reels sederhana, caption, penjadwalan, laporan insight, serta opsi pengelolaan Meta Ads.'];
 for(const article of buildArticles){
  const firstParagraph=Array.isArray(article.body)?article.body.find(line=>typeof line==='string'&&line.trim()&&!/^#+\\s/.test(line)):null;
  pages['/artikel/'+article.id]=[article.title,article.summary||firstParagraph||'Baca artikel '+article.title+' dari '+(article.author_store_name||'redaksi BisaBikinWeb')+'.'];

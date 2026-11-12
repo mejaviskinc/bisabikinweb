@@ -7,6 +7,11 @@ on:
     paths:
       - '.github/workflows/pages.yml'
       - 'static-source/lib/legal-policies.ts'
+      # SEO templates, editorial navigation and checks should publish immediately.
+      - 'build-pages.mjs'
+      - 'static-source/lib/sitelinks.mjs'
+      - 'static-source/features/Studio.tsx'
+      - 'tests/seo-output.test.mjs'
       # Showcase/shop changes deploy immediately without waiting for the 15-minute content batch.
       - 'static-source/features/WebsiteLiveDemo.tsx'
       - 'static-source/features/WebsiteStore.tsx'
