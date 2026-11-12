@@ -60,3 +60,16 @@ test('mobile menu exposes the same groups via native disclosure controls',()=>{
   assert.match(css,/\.mobile-menu \.mobile-menu-group>summary/);
   assert.match(css,/@media \(max-width:900px\)/);
 });
+
+test('navigation motion is short, consistent, and accessible',()=>{
+  assert.match(css,/@keyframes bbw-nav-dropdown-enter/);
+  assert.match(css,/@keyframes bbw-nav-flyout-enter/);
+  assert.match(css,/@keyframes bbw-mobile-navigation-enter/);
+  assert.match(css,/@keyframes bbw-mobile-accordion-enter/);
+  assert.match(css,/site-nav-dropdown\[open\]>.site-nav-dropdown-panel/);
+  assert.match(css,/site-nav-submenu\[open\]>.site-nav-flyout/);
+  assert.match(css,/@media \(prefers-reduced-motion:reduce\)/);
+  assert.match(css,/animation:none !important/);
+  assert.match(css,/transition:none !important/);
+  assert.doesNotMatch(css,/reference-main-nav>a\[href="\/portfolio\/"\]:not\(\.active\)::before/);
+});
