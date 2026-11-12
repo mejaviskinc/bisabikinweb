@@ -158,22 +158,36 @@
     {
       "id": "cluster-6-2026-11-12",
       "category": "Kopi",
-      "topic": "Pemantauan klaster awal hari, belum ada perkembangan primer baru yang terverifikasi",
-      "summary": "Tidak menganggap arsip kemarin sebagai bukti perubahan 24–72 jam; perlu pemeriksaan sumber resmi lanjutan.",
-      "event_date": null,
-      "source_published_at": null,
+      "topic": "Checklist katalog ekspor green bean kopi untuk buyer internasional",
+      "summary": "Kemendag melaporkan pelepasan ekspor 10 ton green bean Java Halu Coffee dari Jawa Barat ke Inggris senilai USD155 ribu pada 18 Agustus 2026. Ini contoh historis, bukan perubahan pasar 12 November.",
+      "event_date": "2026-08-18",
+      "source_published_at": "2026-08-22",
       "researched_at": "2026-11-12T00:33:33+07:00",
       "geography": "Indonesia dan pasar tujuan",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Jangan membuat keputusan regulasi atau pasar tanpa sumber primer terbaru.",
-      "content_angle": "Perlu pemetaan kebutuhan pembaca dan verifikasi data sebelum menentukan artikel.",
-      "keyword_intent": "belum ditetapkan",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "Kemendag melaporkan ekspor 10 ton biji kopi mentah Java Halu Coffee dari Jawa Barat ke Inggris senilai USD155 ribu, dilepas pada 18 Agustus 2026.",
+          "source_urls": [
+            "https://www.kemendag.go.id/index.php/berita/siaran-pers/kemendag-perkuat-kolaborasi-ekspor-dengan-pemerintah-daerah-lepas-ekspor-kopi-jawa-barat-senilai-rp264-miliar-ke-inggris"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/index.php/berita/siaran-pers/kemendag-perkuat-kolaborasi-ekspor-dengan-pemerintah-daerah-lepas-ekspor-kopi-jawa-barat-senilai-rp264-miliar-ke-inggris",
+          "publisher": "Kementerian Perdagangan",
+          "published_at": "2026-08-22",
+          "accessed_at": "2026-11-12T14:36:12+07:00"
+        }
+      ],
+      "practical_impact": "Eksportir kopi perlu menyiapkan katalog yang menjelaskan asal biji, proses pascapanen, grade, kapasitas pasok, traceability, kemasan dan ketentuan penawaran; angka transaksi satu perusahaan tidak mewakili harga pasar.",
+      "content_angle": "Panduan katalog B2B green bean kopi untuk calon buyer internasional, mencakup lembar spesifikasi, sampel, penawaran dan verifikasi persyaratan negara tujuan.",
+      "keyword_intent": "cara membuat katalog ekspor green bean kopi | informational/how-to",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-12",
-      "verification_note": "Pemeriksaan awal; sumber bertanggal lama bukan perkembangan baru 24 jam. Belum ada audit penuh CMS, slug statis, atau gambar."
+      "recheck_after": "2026-11-13",
+      "verification_note": "Sumber primer Kemendag 22 Agustus 2026 adalah konteks historis; tidak ditemukan rilis baru 24–72 jam yang cukup kuat untuk klaster ini. Harga kopi terkini, tarif, dan syarat impor negara tujuan belum diverifikasi. Artikel, gambar dan URL live belum dibuat."
     },
     {
       "id": "cluster-7-2026-11-12",
