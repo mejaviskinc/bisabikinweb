@@ -6,22 +6,36 @@
     {
       "id": "cluster-1-2026-11-12",
       "category": "Briket & Energi",
-      "topic": "Pemantauan klaster awal hari, belum ada perkembangan primer baru yang terverifikasi",
-      "summary": "Tidak menganggap arsip kemarin sebagai bukti perubahan 24–72 jam; perlu pemeriksaan sumber resmi lanjutan.",
-      "event_date": null,
-      "source_published_at": null,
+      "topic": "Membedakan acuan harga batubara dari harga jual briket biomassa",
+      "summary": "ESDM menerbitkan Harga Batubara Acuan periode 1–14 November 2026. Data batubara ini bukan harga acuan briket biomassa; jangan menggunakannya untuk menghitung penawaran ekspor briket tempurung kelapa.",
+      "event_date": "2026-11-03",
+      "source_published_at": "2026-11-03",
       "researched_at": "2026-11-12T00:33:33+07:00",
       "geography": "Indonesia dan pasar tujuan",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Jangan membuat keputusan regulasi atau pasar tanpa sumber primer terbaru.",
-      "content_angle": "Perlu pemetaan kebutuhan pembaca dan verifikasi data sebelum menentukan artikel.",
-      "keyword_intent": "belum ditetapkan",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "ESDM menyatakan HBA utama periode pertama November 2026 sebesar USD125,60/ton dan berlaku untuk perhitungan harga patokan batubara, bukan harga briket biomassa.",
+          "source_urls": [
+            "https://esdm.go.id/id/media-center/arsip-berita/hba-november-turun-tipis-harga-batu-bara-kalori-rendah-justru-naik"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://esdm.go.id/id/media-center/arsip-berita/hba-november-turun-tipis-harga-batu-bara-kalori-rendah-justru-naik",
+          "publisher": "Kementerian ESDM",
+          "published_at": "2026-11-03",
+          "accessed_at": "2026-11-12T12:27:00+07:00"
+        }
+      ],
+      "practical_impact": "Eksportir briket biomassa harus menghitung harga dari biaya bahan baku, pengeringan, pengujian kualitas, kemasan, logistik, dan permintaan buyer, bukan menyamakan harga dengan HBA batubara.",
+      "content_angle": "Panduan menyusun quotation ekspor briket tempurung kelapa dan memeriksa spesifikasi buyer, dengan pembeda tegas antara briket biomassa dan batubara.",
+      "keyword_intent": "cara menghitung harga ekspor briket tempurung kelapa | panduan komersial",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-12",
-      "verification_note": "Pemeriksaan awal; sumber bertanggal lama bukan perkembangan baru 24 jam. Belum ada audit penuh CMS, slug statis, atau gambar."
+      "recheck_after": "2026-11-13",
+      "verification_note": "Sumber primer ESDM 3 November adalah konteks pasar batubara, bukan perubahan khusus briket biomassa dalam 24–72 jam. Belum memverifikasi harga pasar briket, tarif ekspor, atau persyaratan negara tujuan. Tidak ada artikel/gambar baru yang diterbitkan."
     },
     {
       "id": "cluster-2-2026-11-12",
