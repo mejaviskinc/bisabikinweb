@@ -54,7 +54,7 @@ function PublicClient(){
         portfolio:remote.portfolio?.length
           ? [...remote.portfolio, ...defaults.portfolio.filter((p:any)=>!remote.portfolio.some((r:any)=>r.id===p.id))]
           : defaults.portfolio,
-        services:remote.services?.length?[...remote.services,...defaults.services.filter((s:any)=>s.id==='kelola-instagram'&&!remote.services.some((r:any)=>r.id===s.id))]:defaults.services,
+        services:remote.services?.length?[...remote.services,...defaults.services.filter((s:any)=>['kelola-instagram','all-in-one'].includes(s.id)&&!remote.services.some((r:any)=>r.id===s.id))]:defaults.services,
         pricing:remote.pricing?.length?remote.pricing:defaults.pricing,
         products:remote.products?.length?remote.products:defaults.products,
         articles:mergeEditorialPosts(remote.articles?.length?remote.articles:defaults.articles)
