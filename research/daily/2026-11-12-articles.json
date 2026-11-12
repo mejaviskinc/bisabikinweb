@@ -320,22 +320,36 @@
     {
       "id": "cluster-10-2026-11-12",
       "category": "Pertanian & Buah",
-      "topic": "Pemantauan klaster awal hari, belum ada perkembangan primer baru yang terverifikasi",
-      "summary": "Tidak menganggap arsip kemarin sebagai bukti perubahan 24–72 jam; perlu pemeriksaan sumber resmi lanjutan.",
-      "event_date": null,
-      "source_published_at": null,
-      "researched_at": "2026-11-12T00:33:33+07:00",
+      "topic": "Checklist ketertelusuran dan persyaratan fitosanitari ekspor buah tropis ke China",
+      "summary": "Barantin pada 23 Oktober 2026 melaporkan estimasi nilai ekspor lima komoditas buah Indonesia ke China berdasarkan sertifikasi periode 2025–2026 sebesar Rp5,94 triliun; angka lintas periode ini bukan realisasi ekspor khusus 2026.",
+      "event_date": "2026-10-23",
+      "source_published_at": "2026-10-23",
+      "researched_at": "2026-11-12T20:30:00+07:00",
       "geography": "Indonesia dan pasar tujuan",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Jangan membuat keputusan regulasi atau pasar tanpa sumber primer terbaru.",
-      "content_angle": "Perlu pemetaan kebutuhan pembaca dan verifikasi data sebelum menentukan artikel.",
-      "keyword_intent": "belum ditetapkan",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "Barantin pada 23 Oktober 2026 melaporkan estimasi nilai ekspor lima komoditas buah Indonesia ke China berdasarkan sertifikasi periode 2025–2026 sebesar Rp5,94 triliun; angka lintas periode ini bukan realisasi ekspor khusus 2026.",
+          "source_urls": [
+            "https://karantinaindonesia.go.id/berita/ekspor-durian-manggis-salak-ke-china-capai-rp594-triliun-barantin-perluas-pasar-buah-tropis"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://karantinaindonesia.go.id/berita/ekspor-durian-manggis-salak-ke-china-capai-rp594-triliun-barantin-perluas-pasar-buah-tropis",
+          "publisher": "Badan Karantina Indonesia",
+          "published_at": "2026-10-23",
+          "accessed_at": "2026-11-12T20:30:00+07:00"
+        }
+      ],
+      "practical_impact": "Eksportir buah perlu memeriksa registrasi fasilitas, ketertelusuran kebun, pengemasan, pemeriksaan karantina dan protokol komoditas negara tujuan, bukan menganggap semua buah memiliki persyaratan identik.",
+      "content_angle": "Checklist ketertelusuran dan persyaratan fitosanitari ekspor buah tropis ke China",
+      "keyword_intent": "checklist ekspor buah tropis ke China | panduan kesiapan eksportir",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-12",
-      "verification_note": "Pemeriksaan awal; sumber bertanggal lama bukan perkembangan baru 24 jam. Belum ada audit penuh CMS, slug statis, atau gambar."
+      "recheck_after": "2026-11-13",
+      "verification_note": "Sumber primer historis, bukan temuan 24–72 jam. Syarat komoditas/negara tujuan terkini, HS dan tarif belum diverifikasi. Belum ada naskah, gambar, jadwal, atau URL live terverifikasi."
     },
     {
       "id": "cluster-11-2026-11-12",
@@ -374,22 +388,36 @@
     {
       "id": "cluster-12-2026-11-12",
       "category": "Rempah & Minyak Atsiri",
-      "topic": "Pemantauan klaster awal hari, belum ada perkembangan primer baru yang terverifikasi",
-      "summary": "Tidak menganggap arsip kemarin sebagai bukti perubahan 24–72 jam; perlu pemeriksaan sumber resmi lanjutan.",
-      "event_date": null,
-      "source_published_at": null,
-      "researched_at": "2026-11-12T00:33:33+07:00",
+      "topic": "Checklist mutu dan penanganan rempah untuk buyer ekspor",
+      "summary": "Barantin pada 16 Mei 2026 melaporkan peninjauan instalasi karantina tumbuhan untuk rempah di Mojokerto, mencakup penanganan, pengemasan, dan mutu rempah seperti kayu manis, jahe, kunyit dan cengkeh; ini contoh historis bukan perubahan aturan November.",
+      "event_date": "2026-05-16",
+      "source_published_at": "2026-05-16",
+      "researched_at": "2026-11-12T20:30:00+07:00",
       "geography": "Indonesia dan pasar tujuan",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Jangan membuat keputusan regulasi atau pasar tanpa sumber primer terbaru.",
-      "content_angle": "Perlu pemetaan kebutuhan pembaca dan verifikasi data sebelum menentukan artikel.",
-      "keyword_intent": "belum ditetapkan",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "Barantin pada 16 Mei 2026 melaporkan peninjauan instalasi karantina tumbuhan untuk rempah di Mojokerto, mencakup penanganan, pengemasan, dan mutu rempah seperti kayu manis, jahe, kunyit dan cengkeh; ini contoh historis bukan perubahan aturan November.",
+          "source_urls": [
+            "https://karantinaindonesia.go.id/gorontalo/berita/kepala-barantin-tinjau-instalasi-karantina-tumbuhan-komoditas-rempah-di-mojokerto"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://karantinaindonesia.go.id/gorontalo/berita/kepala-barantin-tinjau-instalasi-karantina-tumbuhan-komoditas-rempah-di-mojokerto",
+          "publisher": "Badan Karantina Indonesia",
+          "published_at": "2026-05-16",
+          "accessed_at": "2026-11-12T20:30:00+07:00"
+        }
+      ],
+      "practical_impact": "Eksportir rempah perlu dokumentasi batch, kebersihan, kadar air atau spesifikasi relevan, kemasan, dan verifikasi ketentuan negara tujuan; persyaratan berbeda menurut produk dan negara.",
+      "content_angle": "Checklist mutu dan penanganan rempah untuk buyer ekspor",
+      "keyword_intent": "checklist mutu rempah untuk ekspor | panduan persiapan buyer",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-12",
-      "verification_note": "Pemeriksaan awal; sumber bertanggal lama bukan perkembangan baru 24 jam. Belum ada audit penuh CMS, slug statis, atau gambar."
+      "recheck_after": "2026-11-13",
+      "verification_note": "Sumber primer historis, bukan temuan 24–72 jam. Syarat komoditas/negara tujuan terkini, HS dan tarif belum diverifikasi. Belum ada naskah, gambar, jadwal, atau URL live terverifikasi."
     },
     {
       "id": "cluster-13-2026-11-12",
