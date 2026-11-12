@@ -144,6 +144,7 @@ for(const [kind,prefix] of [['services','jasa'],['portfolio','portfolio'],['prod
   pages['/'+prefix+'/'+p.id]=[title,description];
  }
 }
+pages['/jasa/kelola-instagram']=['Jasa Kelola Instagram: Feed, Story & Reels','Jasa kelola Instagram BisaBikinWeb untuk UMKM dan brand. Paket Starter Rp1.290.000, Growth Rp2.490.000, Premium Rp3.990.000 per bulan. Desain feed, Story, Reels sederhana, caption, penjadwalan, laporan, dan opsi Meta Ads.'];
 for(const article of buildArticles){
  const firstParagraph=Array.isArray(article.body)?article.body.find(line=>typeof line==='string'&&line.trim()&&!/^#+\\s/.test(line)):null;
  pages['/artikel/'+article.id]=[article.title,article.summary||firstParagraph||'Baca artikel '+article.title+' dari '+(article.author_store_name||'redaksi BisaBikinWeb')+'.'];
