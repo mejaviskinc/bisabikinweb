@@ -1,7 +1,7 @@
 {
   "research_date": "2026-11-13",
   "timezone": "Asia/Jakarta",
-  "researched_at": "2026-11-13T01:03:42+07:00",
+  "researched_at": "2026-11-13T05:06:00+07:00",
   "entries": [
     {
       "id": "briket-energi-2026-11-13",
@@ -362,7 +362,42 @@
   "monitoring_ideas": [
     "Cari rilis dan hasil terverifikasi program barcode UMKM.",
     "Pantau hasil konkret atau kontrak JFEX, bukan agenda promosi.",
-    "Verifikasi hak pakai komersial foto dokumentasi untuk setiap kandidat."
+    "Pantau tindak lanjut Forum Strategi Pengembangan Ekspor Nasional Bali dan verifikasi hak gambar peristiwa."
   ],
-  "publication_note": "Tidak ada berita diterbitkan dari temuan ini: belum ada kandidat dengan foto dokumentasi peristiwa yang hak penggunaan komersialnya terverifikasi. Tidak ada gambar AI dipakai untuk berita bisnis."
+  "publication_note": "Tidak ada berita diterbitkan dari temuan ini: belum ada kandidat dengan foto dokumentasi peristiwa yang hak penggunaan komersialnya terverifikasi. Tidak ada gambar AI dipakai untuk berita bisnis.",
+  "incremental_updates": [
+    {
+      "id": "tren-pasar-ekspor-bali-2026-11-12",
+      "category": "Tren & Analisis Pasar",
+      "topic": "Forum Strategi Pengembangan Ekspor Nasional di Bali",
+      "summary": "Rilis Ditjen PEN Kemendag pada 12 November mencatat forum di Denpasar yang diikuti sekitar 100 pelaku usaha dan menempatkan pertumbuhan ekspor Bali Januari–September 2026 sebagai konteks. Ini adalah forum penguatan ekspor, bukan catatan transaksi atau perubahan regulasi.",
+      "event_date": "2026-11-12",
+      "source_published_at": "2026-11-12T10:18:00+07:00",
+      "researched_at": "2026-11-13T05:06:00+07:00",
+      "geography": "Denpasar, Bali, Indonesia",
+      "facts": [
+        {
+          "claim": "Forum diikuti sekitar 100 pelaku usaha; Kemendag mencatat nilai ekspor Bali Januari–September 2026 sebesar USD415,96 juta, tumbuh 1,17% secara tahunan.",
+          "source_urls": [
+            "https://ditjenpen.kemendag.go.id/berita/kemendag-dorong-penguatan-ekspor-daerah-melalui-forum-strategi-pengembangan-ekspor-nasional-di-bali"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://ditjenpen.kemendag.go.id/berita/kemendag-dorong-penguatan-ekspor-daerah-melalui-forum-strategi-pengembangan-ekspor-nasional-di-bali",
+          "publisher": "Direktorat Jenderal Pengembangan Ekspor Nasional, Kemendag",
+          "accessed_at": "2026-11-13T05:06:00+07:00"
+        }
+      ],
+      "practical_impact": "UMKM Bali dapat menindaklanjuti fasilitas pengembangan ekspor, tetapi tidak boleh menganggap forum sebagai bukti pembiayaan, kontrak, atau kemudahan kepatuhan baru.",
+      "content_angle": "Langkah praktis mengubah forum ekspor menjadi kesiapan katalog, standar, dan buyer follow-up.",
+      "keyword_intent": "ekspor Bali UMKM 2026",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-14",
+      "cross_check": "Klaim dibatasi pada rilis resmi; tidak ditemukan bukti lisensi komersial eksplisit untuk foto dokumentasi acara, sehingga belum layak diterbitkan sebagai berita bisnis bergambar."
+    }
+  ]
 }
