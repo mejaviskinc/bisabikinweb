@@ -6,7 +6,7 @@ import {serviceSeoById} from '../lib/service-seo.mjs';
 import {restoreCart,restoreWishlist} from '../lib/security.mjs';
 import { PortfolioVisual } from '../components/Visuals';
 import {useState,useEffect,useRef,lazy,Suspense} from 'react';
-import {ArrowUpRight,ArrowRight,ArrowDown,Search,ShoppingBag,Sun,Moon,Menu,X,Check,Plus,ChevronRight,ChevronDown,MessageCircle,Command,Globe,Code2,Layers,ShieldCheck,Zap,Heart,UserRound,Monitor,RefreshCw,Package,Wrench,Instagram,Target,FileText,Building2,LayoutTemplate,ShoppingCart,GraduationCap,Newspaper} from 'lucide-react';
+import {ArrowUpRight,ArrowRight,ArrowDown,Search,ShoppingBag,Sun,Moon,Menu,X,Check,Plus,ChevronRight,ChevronDown,MessageCircle,Command,Globe,Code2,Layers,ShieldCheck,Zap,Heart,UserRound,Monitor,RefreshCw,Package,Wrench,Camera,Target,FileText,Building2,LayoutTemplate,ShoppingCart,GraduationCap,Newspaper} from 'lucide-react';
 import {Logo,ProjectVisual,MerchArt} from '../components/Visuals';
 import {Calculator,Consultation,Newsletter,FAQ} from './Forms';
 import {MerchStore,ProductCard,ProductDetail,Cart,Checkout,TrackOrder} from './Commerce';
@@ -69,7 +69,7 @@ const headerNav:HeaderLink[]=[
 ];
 const navServiceIcons:Record<string,any>={
   monitor:Monitor,globe:Globe,refresh:RefreshCw,package:Package,wrench:Wrench,search:Search,
-  instagram:Instagram,target:Target,file:FileText,building:Building2,layout:LayoutTemplate,
+  instagram:Camera,target:Target,file:FileText,building:Building2,layout:LayoutTemplate,
   message:MessageCircle,cart:ShoppingCart,heart:Heart,graduation:GraduationCap,
   newspaper:Newspaper,user:UserRound,code:Code2
 };
