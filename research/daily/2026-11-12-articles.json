@@ -513,7 +513,7 @@
     "verified_published_count": null,
     "cover_webp_verified": 0,
     "scheduled_posts_verified": 0,
-    "note": "CMS bbweb_articles audit complete for WIB date: zero rows with published_at in date window. Static and live audit incomplete; do not infer total zero.",
+    "note": "CMS audit zero published_at rows for 12 Nov WIB; ten checked static modules/build script contain no 2026-11-12 literal date. Dynamic sources and live routes remain unverified; overall count unknown.",
     "cms_audit": {
       "checked_at": "2026-11-12T21:33:25+07:00",
       "table": "public.bbweb_articles",
@@ -523,6 +523,23 @@
       "rows_with_published_at_in_window": 0,
       "scope": "CMS only; includes all statuses; static sources not yet exhaustively counted",
       "conclusion": "CMS has zero rows with publication timestamp on 12 Nov WIB; overall evergreen published count remains unknown until static source and live verification"
+    },
+    "static_source_audit": {
+      "checked_at": "2026-11-12T22:33:56+07:00",
+      "checked_files": [
+        "static-source/lib/editorial-posts.mjs",
+        "static-source/lib/editorial-20261110.mjs",
+        "static-source/lib/published-business-20261109.mjs",
+        "static-source/lib/published-news-20261107.mjs",
+        "static-source/lib/published-20261104.mjs",
+        "static-source/lib/published-20261107.mjs",
+        "static-source/lib/published-20261108.mjs",
+        "static-source/lib/seo-cluster-20261109.mjs",
+        "static-source/lib/geo-guides.mjs",
+        "build-pages.mjs"
+      ],
+      "date_string_occurrences_2026_11_12": 0,
+      "conclusion": "No literal 2026-11-12 dates in checked static article modules or build script; not exhaustive of dynamic sources or live content; overall count remains unverified."
     }
   }
 }
