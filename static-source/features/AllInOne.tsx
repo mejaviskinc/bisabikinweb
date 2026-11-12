@@ -16,7 +16,7 @@ export default function AllInOne({settings,service}:{settings:any,service:any}){
  const price=Number(service?.price||25000000);
  const message='Halo BisaBikinWeb, saya tertarik dengan Layanan All in One budget mulai Rp25.000.000. Bisa kirim rincian scope, jadwal, dan proposal?';
  const waLink=settings?.whatsapp?whatsapp(settings.whatsapp,message):'/kontak/?estimate='+encodeURIComponent('Layanan All in One Rp25.000.000');
- return <main className="aio-page" id="aio-main">
+ return <div className="aio-page" id="aio-main">
   <section className="section aio-hero" aria-labelledby="aio-title">
    <nav className="aio-breadcrumb" aria-label="Breadcrumb"><a href="/">Beranda</a><span>/</span><a href="/jasa/">Layanan</a><span>/</span><span>All in One</span></nav>
    <div className="aio-hero-grid">
@@ -57,5 +57,5 @@ export default function AllInOne({settings,service}:{settings:any,service:any}){
   <section className="section aio-terms" aria-labelledby="aio-terms-title"><div><span className="eyebrow">TRANSPARANSI BUDGET</span><h2 id="aio-terms-title">Apa yang belum termasuk?</h2></div><p>Anggaran tayang Google Ads/Meta Ads, domain, hosting, lisensi berbayar, produksi foto/video khusus, integrasi kompleks, dan pengelolaan di luar 30 hari awal tidak otomatis termasuk dalam Rp25 juta. Website company profile dan toko online merupakan satu proyek terintegrasi, bukan dua website terpisah. Semua biaya tambahan hanya dikerjakan setelah disetujui.</p></section>
 
   <section className="section aio-cta" aria-labelledby="aio-cta-title"><div><span className="eyebrow">SIAP MULAI?</span><h2 id="aio-cta-title">Cerita dulu. Biar paketnya tepat sasaran.</h2><p>Konsultasi awal gratis. Kami bantu menyusun proposal berdasarkan bisnis dan prioritasmu.</p></div><a className="btn primary" href={waLink} onClick={()=>event('all_in_one_whatsapp_click')}>{settings?.whatsapp?'Diskusikan Budget Rp25 Juta':'Minta Penawaran'} <MessageCircle size={17}/></a></section>
- </main>;
+ </div>;
 }
