@@ -18,11 +18,21 @@ test('homepage right hero uses one accessible dummy workspace photo',()=>{
   assert.ok(!/500\\+|10M\\+|klien puas/i.test(hero),'Unverified performance figures should not be shown');
 });
 
-test('hero placeholder leaves main sales carousel and its CTA intact',()=>{
+test('homepage has one stable sales headline, working purchase and WhatsApp paths, and five supporting slides',()=>{
   const studio=source('static-source/features/Studio.tsx');
-  assert.ok(studio.includes('className="bbw-hero-slides"'));
-  assert.ok(studio.includes('Bikin Website Sekarang'));
-  assert.ok(studio.includes('Lihat Portfolio'));
+  const home=studio.slice(studio.indexOf('function Home({data'),studio.indexOf('\nfunction ',studio.indexOf('function Home({data')+10));
+  const css=source('static-source/features/homepage-conversion.css');
+  assert.ok(home.includes('className="bbw-hero-primary-title"'),'Headline should be fixed, not rotate');
+  assert.ok(!home.includes('className="bbw-hero-slides"'),'Rotating large hero headings should not distract buyers');
+  assert.ok(home.includes('Lihat Paket & Pesan'));
+  assert.ok(home.includes('Konsultasi via WhatsApp'));
+  assert.ok(home.includes('href="/beli-website/"'));
+  assert.ok(home.includes('href="/portfolio/"'));
+  assert.ok(home.includes('heroSlides.map((panel,index)=>'),'Five supporting carousel dots must remain');
+  assert.ok(home.includes('id="paket-website"'),'Price comparison should be near the top');
+  assert.equal(home.split('<Pricing items={data.pricing}/> ').length-1,0);
+  assert.ok(home.includes('<Pricing items={data.pricing}/>'));
+  assert.ok(css.includes('.bbw-mobile-close-bar'),'Mobile conversion CTA needs responsive styling');
 });
 
 test('single-photo hero has mobile styling and does not block interaction',()=>{
