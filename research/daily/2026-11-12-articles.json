@@ -152,22 +152,36 @@
     {
       "id": "cluster-5-2026-11-12",
       "category": "Kelapa & Turunannya",
-      "topic": "Pemantauan klaster awal hari, belum ada perkembangan primer baru yang terverifikasi",
-      "summary": "Tidak menganggap arsip kemarin sebagai bukti perubahan 24–72 jam; perlu pemeriksaan sumber resmi lanjutan.",
-      "event_date": null,
-      "source_published_at": null,
+      "topic": "Checklist mutu dan karantina ekspor tempurung kelapa",
+      "summary": "Badan Karantina Indonesia melaporkan pemeriksaan 75 ton tempurung kelapa tujuan China pada 17 Oktober 2026; ini contoh historis pemeriksaan fitosanitari, bukan perubahan regulasi November.",
+      "event_date": "2026-10-17",
+      "source_published_at": "2026-10-17",
       "researched_at": "2026-11-12T00:33:33+07:00",
       "geography": "Indonesia dan pasar tujuan",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Jangan membuat keputusan regulasi atau pasar tanpa sumber primer terbaru.",
-      "content_angle": "Perlu pemetaan kebutuhan pembaca dan verifikasi data sebelum menentukan artikel.",
-      "keyword_intent": "belum ditetapkan",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "Karantina Sulawesi Selatan memeriksa 75 ton tempurung kelapa dalam 3.750 kantong untuk ekspor ke China, termasuk pemeriksaan fisik dan risiko OPTK.",
+          "source_urls": [
+            "https://karantinaindonesia.go.id/berita/pastikan-kualitas-ekspor-perdana-karantina-sulsel-periksa-75-ton-tempurung-kelapa-tujuan-china"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://karantinaindonesia.go.id/berita/pastikan-kualitas-ekspor-perdana-karantina-sulsel-periksa-75-ton-tempurung-kelapa-tujuan-china",
+          "publisher": "Badan Karantina Indonesia",
+          "published_at": "2026-10-17",
+          "accessed_at": "2026-11-12T16:33:26+07:00"
+        }
+      ],
+      "practical_impact": "Eksportir perlu menyiapkan spesifikasi tempurung, kebersihan, kemasan, ketertelusuran, serta memeriksa persyaratan fitosanitari negara tujuan untuk tiap pengiriman.",
+      "content_angle": "Panduan checklist ekspor tempurung kelapa: spesifikasi buyer, pengemasan, inspeksi karantina, dan dokumen yang perlu dikonfirmasi.",
+      "keyword_intent": "syarat karantina ekspor tempurung kelapa ke China | panduan praktis",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-12",
-      "verification_note": "Pemeriksaan awal; sumber bertanggal lama bukan perkembangan baru 24 jam. Belum ada audit penuh CMS, slug statis, atau gambar."
+      "recheck_after": "2026-11-13",
+      "verification_note": "Rilis 17 Oktober adalah contoh historis; tidak membuktikan syarat universal atau perubahan 24–72 jam. Ketentuan fitosanitari China terkini, HS, tarif, dan biaya belum diverifikasi. Artikel dan gambar belum diproduksi."
     },
     {
       "id": "cluster-6-2026-11-12",
