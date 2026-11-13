@@ -509,26 +509,42 @@
       "source_published_at": null,
       "researched_at": "2026-11-13T00:27:46+07:00",
       "geography": "Indonesia dan pasar tujuan",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Jangan membuat keputusan regulasi atau pasar tanpa sumber primer terbaru.",
-      "content_angle": "Perlu pemetaan kebutuhan pembaca dan verifikasi data sebelum menentukan artikel.",
-      "keyword_intent": "belum ditetapkan",
+      "facts": [
+        {
+          "claim": "Kemendag melaporkan 797 business matching Januari–September 2026 dengan potensi transaksi USD361,55 juta; angka potensi bukan realisasi transaksi dan merupakan konteks historis 23 Oktober, bukan perkembangan 72 jam terakhir.",
+          "source_urls": [
+            "https://www.kemendag.go.id/index.php/berita/siaran-pers/dua-tahun-kabinet-tiga-program-prioritas-kemendag-berkontribusi-dorong-kinerja-perdagangan"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/index.php/berita/siaran-pers/dua-tahun-kabinet-tiga-program-prioritas-kemendag-berkontribusi-dorong-kinerja-perdagangan",
+          "publisher": "Kementerian Perdagangan",
+          "published_at": "2026-10-23",
+          "accessed_at": "2026-11-13T14:37:24+07:00"
+        }
+      ],
+      "practical_impact": "UMKM sebaiknya memisahkan nilai prospek, quotation, pesanan terkonfirmasi, dan pembayaran diterima dalam evaluasi ekspor.",
+      "content_angle": "Panduan membedakan potensi transaksi, realisasi penjualan, dan metrik buyer pipeline UMKM ekspor.",
+      "keyword_intent": "cara mengukur hasil business matching ekspor UMKM | informational",
       "editorial_status": "needs_verification",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-14",
-      "verification_note": "Pemeriksaan awal; sumber bertanggal lama bukan perkembangan baru 24 jam. Belum ada audit penuh CMS, slug statis, atau gambar. | Dibawa dari arsip 12 November sebagai konteks historis; belum diverifikasi ulang pada 13 November."
+      "verification_note": "Pemeriksaan awal; sumber bertanggal lama bukan perkembangan baru 24 jam. Belum ada audit penuh CMS, slug statis, atau gambar. | Dibawa dari arsip 12 November sebagai konteks historis; belum diverifikasi ulang pada 13 November. | Tambahan sumber Kemendag 23 Oktober untuk konteks historis; belum ditemukan pembaruan 72 jam yang dapat dikonfirmasi."
     }
   ],
   "production_audit": {
-    "cms_count_2026_11_13": null,
+    "cms_count_2026_11_13": 0,
     "static_count_2026_11_13": null,
     "quota_remaining": null,
     "duplicate_check": "pending full CMS and static audit",
     "image_count_verified": 0,
     "published_urls_verified": [],
     "per_post_scheduling": "not verified",
-    "notes": "Belum ada bukti lima naskah final, cover WebP, atau URL live. Jangan menafsirkan null sebagai nol."
+    "notes": "Query langsung Supabase: 50 artikel aktif published, nol bertanggal 13 November WIB. Kuota gabungan belum diketahui karena audit statis belum lengkap; belum ada cover WebP atau URL baru terverifikasi.",
+    "cms_total_published": 50,
+    "cms_checked_at": "2026-11-13T14:37:24+07:00"
   }
 }
