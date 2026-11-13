@@ -545,6 +545,22 @@
     "per_post_scheduling": "not verified",
     "notes": "Query langsung Supabase: 50 artikel aktif published, nol bertanggal 13 November WIB. Kuota gabungan belum diketahui karena audit statis belum lengkap; belum ada cover WebP atau URL baru terverifikasi.",
     "cms_total_published": 50,
-    "cms_checked_at": "2026-11-13T14:37:24+07:00"
+    "cms_checked_at": "2026-11-13T14:37:24+07:00",
+    "static_module_audit": {
+      "checked_at": "2026-11-13T19:33:05+07:00",
+      "checked_modules": [
+        "editorial-posts.mjs",
+        "editorial-20261110.mjs",
+        "published-business-20261109.mjs",
+        "published-news-20261107.mjs",
+        "published-20261104.mjs",
+        "published-20261107.mjs",
+        "published-20261108.mjs",
+        "seo-cluster-20261109.mjs",
+        "geo-guides.mjs"
+      ],
+      "result": "No literal 2026-11-13 date in eight imported content modules; not a complete static live-date audit. CMS not queried again this pass.",
+      "limitations": "Other dynamically assembled article sources and rendered live pages still require date validation."
+    }
   }
 }
