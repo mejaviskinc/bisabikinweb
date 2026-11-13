@@ -1,7 +1,7 @@
 {
   "research_date": "2026-11-13",
   "timezone": "Asia/Jakarta",
-  "researched_at": "2026-11-13T15:00:00+07:00",
+  "researched_at": "2026-11-13T18:05:00+07:00",
   "entries": [
     {
       "id": "briket-energi-2026-11-13",
@@ -355,6 +355,7 @@
     }
   ],
   "selected_topics": [
+    "Realisasi ekspor gula aren Mahorahora ke Malaysia (13 November)",
     "Fasilitasi 104 barcode UMKM Kemendag (11 November)",
     "JFEX 2026 Tokyo (11–13 November)",
     "Pemantauan hasil Pameran Beli Produk IKM"
@@ -431,6 +432,72 @@
       "published_url": null,
       "recheck_after": "2026-11-14",
       "cross_check": "Dibedakan dari rilis Kemendag soal 104 barcode karena sumber dan angka berbeda. Tidak ditemukan bukti lisensi komersial eksplisit untuk foto dokumentasi peristiwa; tidak layak diterbitkan sebagai berita bisnis bergambar."
+    },
+    {
+      "id": "peluang-usaha-gula-aren-mahorahora-malaysia-2026-11-13",
+      "category": "Peluang Usaha",
+      "topic": "Realisasi ekspor perdana gula aren cair Mahorahora ke Malaysia",
+      "summary": "Kemendag melaporkan Mahorahora, produsen gula aren dari Sukabumi, merealisasikan ekspor perdana 4.000 kemasan gula aren cair satu liter senilai USD13.760 ke Malaysia. Produk dikirim 9 November kepada pengelola jaringan Kopi Saigon yang memiliki lebih dari 300 gerai di Malaysia; rilis terbit 13 November.",
+      "event_date": "2026-11-09",
+      "source_published_at": "2026-11-13T16:07:00+07:00",
+      "researched_at": "2026-11-13T18:05:00+07:00",
+      "geography": "Sukabumi, Indonesia–Malaysia",
+      "facts": [
+        {
+          "claim": "Kemendag menyebut realisasi ekspor perdana terdiri dari 4.000 kemasan gula aren cair satu liter bernilai USD13.760; penerimanya Seruni Global Sdn. Bhd.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/srasa-di-tei-berbuah-manis-gula-aren-indonesia-didistribusikan-ke-300-gerai-kopi-malaysia"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/srasa-di-tei-berbuah-manis-gula-aren-indonesia-didistribusikan-ke-300-gerai-kopi-malaysia",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-13T18:05:00+07:00"
+        }
+      ],
+      "practical_impact": "Produsen pangan dapat melihat pentingnya kontrak buyer, ukuran kemasan, dan kesiapan distribusi; satu pengiriman tidak membuktikan permintaan berkelanjutan.",
+      "content_angle": "Dari promosi pameran ke ekspor aktual: hal yang perlu disiapkan UMKM pangan.",
+      "keyword_intent": "ekspor gula aren Indonesia Malaysia",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-14",
+      "cross_check": "Nilai dan volume dibatasi pada rilis primer Kemendag. Foto pada rilis tidak disertai bukti izin penggunaan komersial eksplisit, sehingga belum dapat dipakai untuk berita bisnis bergambar."
+    },
+    {
+      "id": "regulasi-karet-alam-permendag-26-2026-11-13",
+      "category": "Regulasi & Sertifikasi",
+      "topic": "Sosialisasi Permendag 26 Tahun 2026 untuk ekspor karet alam",
+      "summary": "Kemendag menyosialisasikan Permendag 26 Tahun 2026, perubahan atas Permendag 1 Tahun 2026 mengenai ketentuan karet alam spesifikasi teknis yang akan diekspor. Rilis tidak cukup untuk menyimpulkan seluruh persyaratan teknis tanpa membaca naskah peraturannya.",
+      "event_date": "2026-11-12",
+      "source_published_at": "2026-11-13",
+      "researched_at": "2026-11-13T18:05:00+07:00",
+      "geography": "Indonesia",
+      "facts": [
+        {
+          "claim": "Kemendag menyatakan Permendag 26 Tahun 2026 merupakan perubahan atas Permendag 1 Tahun 2026 tentang ketentuan karet alam spesifikasi teknis yang akan diekspor.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/kemendag-perkuat-penerapan-standar-teknis-karet-alam-melalui-permendag-26-tahun-2026"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/kemendag-perkuat-penerapan-standar-teknis-karet-alam-melalui-permendag-26-tahun-2026",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-13T18:05:00+07:00"
+        }
+      ],
+      "practical_impact": "Eksportir karet perlu membaca naskah Permendag dan memeriksa perubahan dokumen/standar teknis sebelum pengapalan.",
+      "content_angle": "Checklist kepatuhan ekspor karet setelah perubahan ketentuan teknis.",
+      "keyword_intent": "Permendag 26 Tahun 2026 karet alam ekspor",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-14",
+      "cross_check": "Rilis primer mengonfirmasi sosialisasi dan nomor regulasi; naskah peraturan perlu ditelaah untuk rincian perubahan. Tidak ada bukti lisensi komersial foto."
     }
   ]
 }
