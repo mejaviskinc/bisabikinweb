@@ -12,6 +12,10 @@ Berlaku untuk konten di `media.bisabikinweb.site` yang berasal dari repository u
 - Simpan metadata sumber, izin/lisensi dan bukti izin dalam arsip editorial. Tampilkan kredit di bawah gambar atau bagian sumber jika persyaratan lisensi mewajibkan.
 - Tidak ada teks `AI` atau `Ilustrasi` yang ditanamkan pada piksel foto.
 
+## Ilustrasi AI untuk berita (pengecualian berlabel)
+
+Atas arahan editorial eksplisit, berita dapat memakai ilustrasi AI orisinal hanya ketika foto dokumentasi berizin tidak tersedia. Ilustrasi harus fotorealistis namun generik, tidak menyerupai dokumentasi peristiwa, tokoh nyata, merek, atau logo. Caption, alt text, dan metadata wajib menyatakan **"Ilustrasi AI — bukan dokumentasi peristiwa"**. Ketentuan ini tidak mengubah kewajiban memverifikasi fakta dan sumber berita.
+
 ## Artikel edukasi dan SEO
 
 - Buat gambar orisinal untuk masing-masing judul menggunakan generator gambar yang benar-benar tersedia, bukan menggunakan foto berita tanpa lisensi.
