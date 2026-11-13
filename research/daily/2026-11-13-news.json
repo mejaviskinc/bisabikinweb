@@ -1,7 +1,7 @@
 {
   "research_date": "2026-11-13",
   "timezone": "Asia/Jakarta",
-  "researched_at": "2026-11-13T05:06:00+07:00",
+  "researched_at": "2026-11-13T15:00:00+07:00",
   "entries": [
     {
       "id": "briket-energi-2026-11-13",
@@ -398,6 +398,39 @@
       "published_url": null,
       "recheck_after": "2026-11-14",
       "cross_check": "Klaim dibatasi pada rilis resmi; tidak ditemukan bukti lisensi komersial eksplisit untuk foto dokumentasi acara, sehingga belum layak diterbitkan sebagai berita bisnis bergambar."
+    },
+    {
+      "id": "peluang-usaha-beli-produk-ikm-barcode-2026-11-11",
+      "category": "Peluang Usaha",
+      "topic": "Fasilitasi 4.100 barcode untuk produk IKM pada Pameran Beli Produk IKM",
+      "summary": "Rilis Kemenperin menyatakan Hippindo memfasilitasi 4.100 barcode berstandar internasional kepada Kemenperin pada Pameran Beli Produk IKM tanggal 9 November. Rilis menjelaskan tujuan kesiapan ritel dan akses pasar, tetapi tidak memuat daftar penerima atau hasil penjualan.",
+      "event_date": "2026-11-09",
+      "source_published_at": "2026-11-11",
+      "researched_at": "2026-11-13T15:00:00+07:00",
+      "geography": "Jakarta, Indonesia",
+      "facts": [
+        {
+          "claim": "Kemenperin menyebut Hippindo memfasilitasi 4.100 barcode berstandar internasional bagi produk IKM pada Pameran Beli Produk IKM.",
+          "source_urls": [
+            "https://ikm.kemenperin.go.id/kemenperin-dan-hippindo-gaungkan-belanja-buatan-indonesia-perkuat-serapan-produk-industri-dalam-negeri"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://ikm.kemenperin.go.id/kemenperin-dan-hippindo-gaungkan-belanja-buatan-indonesia-perkuat-serapan-produk-industri-dalam-negeri",
+          "publisher": "Kementerian Perindustrian",
+          "accessed_at": "2026-11-13T15:00:00+07:00"
+        }
+      ],
+      "practical_impact": "Pelaku IKM perlu memastikan registrasi barcode, master data produk, dan kesiapan pasokan sebelum masuk jaringan ritel; fasilitasi ini bukan jaminan penjualan.",
+      "content_angle": "Kesiapan teknis IKM untuk ritel modern setelah memperoleh barcode.",
+      "keyword_intent": "barcode produk IKM ritel modern",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-14",
+      "cross_check": "Dibedakan dari rilis Kemendag soal 104 barcode karena sumber dan angka berbeda. Tidak ditemukan bukti lisensi komersial eksplisit untuk foto dokumentasi peristiwa; tidak layak diterbitkan sebagai berita bisnis bergambar."
     }
   ]
 }
