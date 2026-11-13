@@ -268,12 +268,16 @@ function translateAttributes(element){
   if(!element.hasAttribute(attr))continue;
   const value=element.getAttribute(attr)||'';
   let snapshot=attributeOriginals.get(element);
-  const original=snapshot?.get(attr)??value;
+  let original=snapshot?.get(attr)??value;
+  // React may update a placeholder or accessible label after the language
+  // switch. Treat genuinely new source copy as new, not the stale snapshot.
+  if(snapshot?.has(attr)&&value!==original&&value!==translateInterfaceText(original)){
+   original=value;
+  }
   const translated=translateInterfaceText(original);
-  if(translated===original)continue;
   if(!snapshot){snapshot=new Map();attributeOriginals.set(element,snapshot)}
   snapshot.set(attr,original);
-  if(value!==translated)element.setAttribute(attr,translated);
+  if(translated!==original&&value!==translated)element.setAttribute(attr,translated);
  }
 }
 function translateTree(root){
