@@ -48,3 +48,11 @@ test('UI language module never calls remote translation API or redirects a page'
  assert.ok(studio.includes("localStorage.setItem('bbweb_locale'"));
  assert.ok(!studio.includes('englishSwitchHref'));
 });
+
+test('translated attributes refresh when React updates their source copy',async()=>{
+ const {readFile}=await import('node:fs/promises');
+ const source=await readFile('static-source/lib/inline-translation.mjs','utf8');
+ assert.match(source,/value!==original&&value!==translateInterfaceText\(original\)/);
+ assert.match(source,/original=value;/);
+ assert.match(source,/snapshot\.set\(attr,original\)/);
+});
