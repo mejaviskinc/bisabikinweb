@@ -202,7 +202,7 @@ assert.match(nationwideHome,/<details class="site-nav-dropdown">/,'Layanan must 
 assert.match(nationwideHome,/href="\/jasa\/company-profile\/"/,'Service flyout must link to company profile');
 assert.match(nationwideHome,/href="https:\/\/media\.bisabikinweb\.site\/">Media<\/a>/,'Media must link directly to the newsroom subdomain');
 assert.match(nationwideHome,/<section class="section faq-section" id="faq">/,'FAQ should target the homepage FAQ anchor');
-assert.equal(sitelinkTargets.length,9,'Homepage should expose nine intent-focused service destinations');
+assert.equal(sitelinkTargets.length,10,'Homepage should expose ten intent-focused service destinations, including All in One');
 assert.equal(new Set(sitelinkTargets.map(item=>item.href)).size,sitelinkTargets.length,'Sitelink URLs must be unique');
 assert.ok(nationwideHome.includes('<title>Jasa Pembuatan Website &amp; Bikin Web | BisaBikinWeb Indonesia</title>'),'Homepage title must prioritize service keywords and selected brand');
 assert.match(nationwideHome,/<meta property="og:site_name" content="BisaBikinWeb Indonesia"\/>/,'Open Graph site name should use the chosen brand');
