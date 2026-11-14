@@ -9,6 +9,10 @@ on:
       - 'static-source/lib/legal-policies.ts'
       # Editorial posts and their locally hosted covers must trigger a deploy;
       # a timestamp in an article record is not a publication scheduler.
+      - 'static-source/lib/city-pages.mjs'
+      - 'static-source/lib/service-areas.mjs'
+      - 'build-pages.mjs'
+      - 'tests/seo-output.test.mjs'
       - 'static-source/lib/editorial-posts.mjs'
       - 'static-source/lib/published-*.mjs'
       - 'public-assets/berita-covers/**'
