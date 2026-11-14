@@ -448,6 +448,64 @@ export const cityLandingPages = [
         "Bisa, dengan pengelompokan dan filter sederhana atau modul katalog lebih lengkap."
       ]
     ]
+  },
+  {
+    "slug": "purworejo",
+    "city": "Purworejo",
+    "isRegency": true,
+    "province": "Jawa Tengah",
+    "focus": "Website UMKM, rental mobil, jasa lokal, dan toko online",
+    "title": "Jasa Pembuatan Website Purworejo | BisaBikinWeb Indonesia",
+    "description": "Jasa pembuatan website Purworejo dan Kutoarjo untuk UMKM, toko online, rental mobil, serta bisnis jasa. SEO dasar, desain mobile, dan konsultasi online.",
+    "intro": "Bisnis di Kabupaten Purworejo, termasuk Kutoarjo, Banyuurip, dan Kaligesing, punya kebutuhan website yang berbeda. Toko perlu katalog yang mudah ditelusuri; jasa rental mobil harus menjelaskan armada dan cara reservasi; sedangkan usaha rumahan memerlukan profil usaha dan alur kontak yang sederhana. BisaBikinWeb membantu merancang website sesuai kebutuhan tersebut, dengan konsultasi dan pengerjaan jarak jauh tanpa mengklaim memiliki kantor cabang di Purworejo.",
+    "scenarioTitle": "Contoh kebutuhan: rental mobil dan layanan antar-jemput di Purworejo",
+    "scenario": "Bayangkan usaha yang melayani sewa mobil dengan sopir, antar-jemput bandara, dan pengiriman barang dari wilayah Purworejo. Pengunjung seharusnya dapat memilih jenis layanan, melihat deskripsi armada atau kapasitas barang, mengisi titik jemput dan tujuan, lalu mengirim permintaan harga. Jika jadwal dan armada belum tersinkron dengan sistem internal, tombol yang tepat adalah 'Tanyakan ketersediaan', bukan checkout otomatis yang bisa menjanjikan mobil padahal sudah dipesan. Setelah proses bisnis stabil, dashboard reservasi dan pembayaran bisa direncanakan sebagai tahap pengembangan.",
+    "steps": [
+      "Tentukan tujuan utama website: menerima konsultasi, menampilkan katalog, atau memproses pemesanan secara online.",
+      "Pisahkan halaman untuk layanan berbeda, misalnya sewa mobil, antar-jemput, pengiriman barang, dan pindahan.",
+      "Siapkan foto asli, cakupan layanan aktual, detail produk atau armada, serta ketentuan pembayaran dan pembatalan.",
+      "Bangun tampilan cepat di ponsel, tombol WhatsApp yang jelas, dan formulir dengan data yang benar-benar dibutuhkan.",
+      "Sediakan judul dan struktur konten SEO yang menjawab pertanyaan pelanggan, lalu ukur klik konsultasi dan formulir masuk."
+    ],
+    "tip": "Website yang rapi tidak otomatis mendatangkan pesanan. Untuk menilai hasilnya, catat jumlah permintaan harga, sumber pengunjung, dan berapa permintaan yang berubah menjadi transaksi.",
+    "faq": [
+      [
+        "Apakah BisaBikinWeb melayani usaha di Kutoarjo dan kecamatan lain di Purworejo?",
+        "Ya, konsultasi dan pengembangan website dapat dilakukan secara online untuk pelaku usaha di seluruh Kabupaten Purworejo. Tidak ada klaim kantor atau cabang fisik BisaBikinWeb di lokasi tersebut."
+      ],
+      [
+        "Berapa biaya jasa pembuatan website di Purworejo?",
+        "Biaya bergantung pada jumlah halaman, desain, kebutuhan katalog atau checkout, integrasi pembayaran, dan maintenance. Lihat halaman harga sebagai referensi awal, lalu minta penawaran tertulis sesuai kebutuhan."
+      ],
+      [
+        "Apakah toko online bisa menerima pembayaran otomatis?",
+        "Bisa jika integrasi payment gateway dan alur pesanan disepakati serta sudah diuji. Website profil atau katalog sederhana tidak otomatis mencakup checkout."
+      ],
+      [
+        "Apakah website bisa ditemukan di Google untuk kata kunci Purworejo?",
+        "Website dapat disiapkan dengan struktur SEO, konten relevan, dan sitemap. Posisi hasil pencarian tidak dijamin karena bergantung pada kompetisi, kualitas konten, dan proses perayapan Google."
+      ]
+    ],
+    "localDetails": {
+      "heading": "Website yang relevan untuk usaha di Purworejo dan Kutoarjo",
+      "intro": "Pilih struktur berdasarkan pekerjaan calon pelanggan, bukan sekadar memasukkan nama daerah ke setiap paragraf. Berikut tiga contoh penerapan, bukan klaim proyek yang sudah kami kerjakan di Purworejo.",
+      "sectors": [
+        {
+          "name": "Toko, distributor, dan UMKM Kutoarjo",
+          "description": "Katalog dengan kategori, foto produk asli, stok yang dikelola, informasi pengiriman, serta tombol pesan. Untuk pemesanan sederhana, gunakan WhatsApp; untuk transaksi besar, pertimbangkan fitur keranjang dan pembayaran setelah diuji."
+        },
+        {
+          "name": "Rental kendaraan, travel, dan jasa pindahan",
+          "description": "Halaman setiap layanan menjelaskan wilayah operasional, armada atau fasilitas, opsi sopir, titik jemput, alur permintaan penawaran, dan syarat layanan. Kalender hanya dipublikasikan sebagai real-time jika datanya memang tersinkron."
+        },
+        {
+          "name": "Kuliner, jasa profesional, dan produk lokal",
+          "description": "Profil usaha, menu atau layanan, harga bila tersedia, jam layanan yang benar, testimoni berizin, dan petunjuk menghubungi penjual. Konten SEO mengikuti produk dan pertanyaan pelanggan yang sebenarnya."
+        }
+      ],
+      "districts": ["Purworejo", "Kutoarjo", "Banyuurip", "Bayan", "Bagelen", "Kaligesing", "Purwodadi", "Pituruh", "Bener", "Gebang", "Loano", "Grabag", "Ngombol", "Butuh", "Kemiri", "Bruno"],
+      "sourceUrl": "https://purworejokab.bps.go.id/id/publication/2026/02/27/3601cbb6fba3c81b05785b57/purworejo-regency-in-figures-2026.html"
+    }
   }
 ];
 export const cityLandingBySlug = Object.fromEntries(cityLandingPages.map(c=>[c.slug,c]));
