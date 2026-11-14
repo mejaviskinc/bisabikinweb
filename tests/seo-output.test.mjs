@@ -115,10 +115,14 @@ assert.equal(scripts(nationwide).filter(schema=>schema['@type']==='Service'&&sch
 console.log('National coverage SEO verified: 38 provinces and selected major cities.');
 
 const {cityLandingPages}=await import('../static-source/lib/city-pages.mjs');
-assert.equal(cityLandingPages.length,16,'Create 16 priority city pages with unique content');
-assert.equal(new Set(cityLandingPages.map(city=>city.title)).size,16,'City titles must be unique');
-assert.equal(new Set(cityLandingPages.map(city=>city.description)).size,16,'City meta descriptions must be unique');
-assert.equal(new Set(cityLandingPages.map(city=>city.scenario)).size,16,'City scenarios must be unique');
+assert.equal(cityLandingPages.length,17,'Create 17 priority city pages with unique content');
+assert.equal(new Set(cityLandingPages.map(city=>city.title)).size,17,'City titles must be unique');
+assert.equal(new Set(cityLandingPages.map(city=>city.description)).size,17,'City meta descriptions must be unique');
+assert.equal(new Set(cityLandingPages.map(city=>city.scenario)).size,17,'City scenarios must be unique');
+const purworejo=cityLandingPages.find(city=>city.slug==='purworejo');
+assert.ok(purworejo?.isRegency,'Purworejo must be marked as a regency');
+assert.equal(purworejo?.localDetails?.districts.length,16,'List all 16 Purworejo districts');
+assert.ok(purworejo?.localDetails?.sourceUrl.includes('purworejokab.bps.go.id'),'Official local evidence required');
 for(const city of cityLandingPages){
  const route='wilayah/'+city.slug;
  const html=await getHtml(route);
@@ -188,7 +192,7 @@ for(const page of localityPages){
 }
 assert.equal(readyCount,14,'Expected 14 individually curated, source-backed locality guides');
 assert.equal(new Set([...provincePages,...localityPages].map(page=>page.title)).size,212,'Generated titles should be unique');
-console.log('National coverage SEO verified: 38 provinces, 14 source-backed localities, 160 remaining drafts, plus 16 priority cities.');
+console.log('National coverage SEO verified: 38 provinces, 14 source-backed localities, 160 remaining drafts, plus 17 priority cities.');
 
 const {sitelinkTargets}=await import('../static-source/lib/sitelinks.mjs');
 assert.match(nationwideHome,/class="reference-main-nav"/,'Desktop reference navigation must render');
