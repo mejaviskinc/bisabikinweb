@@ -373,6 +373,21 @@
       "cms_check": "Supabase public.bbweb_articles: 50 published, 0 published_at pada 2026-11-15 Asia/Jakarta",
       "cover_workflow": "Workflow .github/workflows/generate-editorial-covers.yml tersedia dan membutuhkan OPENAI_API_KEY; keberadaan secret dan eksekusi sukses belum terverifikasi.",
       "publication_status": "research_only; no new articles, images, schedules, commits or live URLs verified"
+    },
+    {
+      "id": "static-modules-date-audit-2026-11-15",
+      "checked_at": "2026-11-15T05:25:14+07:00",
+      "finding": "Pemeriksaan UTF-8 terhadap editorial-posts.mjs dan delapan modul impor artikel/berita menemukan 0 kemunculan literal tanggal 2026-11-15 dalam sembilan sumber tersebut. Ini hanya audit tanggal teks, bukan bukti final jumlah terbit karena tanggal bisa dihitung dinamis; editorial-posts.mjs memiliki push koleksi dan generator konten. File build-pages.mjs berada di root repo dan telah dibaca. Pohon repo berisi 998 path.",
+      "sources": [
+        "https://github.com/mejaviskinc/bisabikinweb/blob/main/static-source/lib/editorial-posts.mjs",
+        "https://github.com/mejaviskinc/bisabikinweb/blob/main/build-pages.mjs"
+      ],
+      "cms_check": "SQL langsung public.bbweb_articles: 50 status published aktif, 0 terbit 2026-11-15 WIB; latest published_at 2026-11-08T20:13:17Z.",
+      "publication_status": "research_only; tidak ada gambar WebP baru, artikel final, jadwal individual atau URL baru diverifikasi",
+      "next_checks": [
+        "Hitung koleksi hasil evaluasi modul JS dan slug gabungan tanpa mengeksekusi side effect",
+        "Periksa dukungan jadwal per-post dan workflow cover sebelum publikasi"
+      ]
     }
   ]
 }
