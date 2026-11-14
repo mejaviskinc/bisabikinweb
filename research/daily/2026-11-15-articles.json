@@ -360,5 +360,19 @@
       "recheck_after": "2026-11-16",
       "verification_note": "Tidak ada klaim artikel telah ditulis atau diterbitkan; audit editorial statis masih terhambat."
     }
+  ],
+  "audit_updates": [
+    {
+      "id": "editorial-source-readable-2026-11-15",
+      "checked_at": "2026-11-15T03:25:25+07:00",
+      "finding": "File static-source/lib/editorial-posts.mjs berhasil dibaca sebagai UTF-8 lewat GitHub fetch_file. Sumber memuat import beberapa koleksi artikel dan berita, sehingga kuota gabungan belum dihitung sampai seluruh koleksi dan CMS diperiksa.",
+      "sources": [
+        "https://github.com/mejaviskinc/bisabikinweb/blob/main/static-source/lib/editorial-posts.mjs",
+        "https://github.com/mejaviskinc/bisabikinweb/blob/main/build-pages.mjs"
+      ],
+      "cms_check": "Supabase public.bbweb_articles: 50 published, 0 published_at pada 2026-11-15 Asia/Jakarta",
+      "cover_workflow": "Workflow .github/workflows/generate-editorial-covers.yml tersedia dan membutuhkan OPENAI_API_KEY; keberadaan secret dan eksekusi sukses belum terverifikasi.",
+      "publication_status": "research_only; no new articles, images, schedules, commits or live URLs verified"
+    }
   ]
 }
