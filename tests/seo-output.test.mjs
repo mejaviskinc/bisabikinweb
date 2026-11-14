@@ -270,7 +270,8 @@ for(const [slug,seo] of Object.entries(serviceSeoById)){
  assert.equal(first(html,/<link rel="canonical" href="([^"]+)"/),url,route+' canonical mismatch');
  assert.ok(indexedLocations.has(url),route+' is missing from the public sitemap');
  assert.equal(service?.name,seo.title,route+' must advertise the matching Service schema');
- assert.ok(html.includes(seo.heading.replaceAll('&','&amp;')),route+' must render a descriptive H1');
+ if(slug==='all-in-one') assert.ok(html.includes('<h1 id="aio-title">Satu paket untuk <em>website, branding, dan promosi.</em></h1>'),route+' must render its dedicated campaign H1');
+ else assert.ok(html.includes(seo.heading.replaceAll('&','&amp;')),route+' must render a descriptive H1');
  for(const related of seo.related){
   assert.ok(html.includes('href="'+related.href+'"'),route+' missing meaningful internal link: '+related.href);
   assert.ok(indexedLocations.has(origin+related.href),route+' references a non-indexable sitemap target: '+related.href);
