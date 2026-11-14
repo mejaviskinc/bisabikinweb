@@ -422,6 +422,7 @@ export const featuredCities = [
   "Surabaya",
   "Yogyakarta",
   "Semarang",
+  "Purworejo",
   "Medan",
   "Tangerang",
   "Bekasi",
