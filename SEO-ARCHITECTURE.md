@@ -75,7 +75,7 @@ Rujukan: https://developers.google.com/search/docs/crawling-indexing/consolidate
 
 ## Halaman kota prioritas (2026-11-07)
 
-- 16 halaman berisi informasi kebutuhan bisnis yang berbeda untuk Jakarta, Bandung, Surabaya, Yogyakarta, Semarang, Medan, Tangerang, Bekasi, Bogor, Depok, Malang, Denpasar, Batam, Palembang, Balikpapan, dan Makassar.
+- 17 halaman berisi informasi kebutuhan bisnis yang berbeda untuk Jakarta, Bandung, Surabaya, Yogyakarta, Semarang, Medan, Tangerang, Bekasi, Bogor, Depok, Malang, Denpasar, Batam, Palembang, Balikpapan, dan Makassar.
 - Sumber konten terstruktur: `static-source/lib/city-pages.mjs`. Kategorinya ilustrasi kebutuhan, bukan bukti proyek atau cabang fisik di kota tersebut.
 - URL mengikuti `/wilayah/:kota/`, ditautkan langsung dari `/wilayah/`, serta menyertakan tautan ke halaman jasa, harga, portofolio, dan kota terkait.
 - Meta title, meta description, H1, skenario, checklist, catatan praktis dan FAQ spesifik setiap kota berbeda.
@@ -85,7 +85,7 @@ Rujukan: https://developers.google.com/search/docs/crawling-indexing/consolidate
 ## Direktori wilayah nasional tambahan
 - `/wilayah/` memiliki direktori responsif dengan pencarian untuk 38 provinsi dan 189 contoh lokasi, serta 16 kota dengan panduan khusus.
 - 38 halaman `/wilayah/provinsi/:provinsi/` berisi contoh jasa, tautan seluruh lokasi tercantum, proses proyek, dan FAQ.
-- 174 halaman `/wilayah/provinsi/:provinsi/:lokasi/` melengkapi 15 lokasi yang sudah masuk 16 halaman prioritas. Kota Jakarta adalah halaman prioritas yang terpisah dari 189 lokasi dalam direktori.
+- 174 halaman `/wilayah/provinsi/:provinsi/:lokasi/` melengkapi 15 lokasi yang sudah masuk halaman prioritas pada direktori 189 lokasi. Kota Jakarta adalah halaman prioritas yang terpisah dari 189 lokasi dalam direktori.
 - Metadata, canonical, sitemap, BreadcrumbList, dan Service schema ditambahkan untuk seluruh URL. Semua mengacu ke `https://bisabikinweb.site/`, bukan mengganti domain.
 - Konten baru adalah contoh penerapan website, bukan bukti proyek lokal. Jangan menganggap banyaknya halaman otomatis meningkatkan ranking; tambahkan studi kasus nyata dan informasi spesifik setelah verifikasi.
 - UI dirancang dengan tipografi premium, ringkasan cakupan, pencarian wilayah, daftar tautan daerah, CTA, dan tampilan responsif.
@@ -111,3 +111,10 @@ Rujukan: https://developers.google.com/search/docs/crawling-indexing/consolidate
 - Indeksasi wilayah mengikuti data editorial terbaru pada `geo-pages.mjs`; halaman draft tidak otomatis dibuka untuk indeks.
 
 Perubahan ini merapikan arsitektur dan kesesuaian konten; bukan laporan keberhasilan ranking. Penilaian traffic dilakukan dari Search Console setelah perayapan ulang.
+
+## Fokus Purworejo (15 November 2026)
+
+- `/wilayah/purworejo/` adalah halaman Kabupaten Purworejo yang ditambahkan sebagai halaman prioritas ke-17, melayani konsultasi online tanpa klaim kantor fisik.
+- Konten unik mencakup bisnis Kutoarjo, katalog UMKM, layanan rental/antar-jemput, jasa pindahan, dan pertanyaan pembayaran/SEO. Referensi administratif: BPS Kabupaten Purworejo Dalam Angka 2026.
+- Tautan dari homepage dan direktori wilayah, canonical dan sitemap otomatis mengikuti sistem build. Schema `Service.areaServed` memakai `AdministrativeArea` untuk kabupaten, tidak memalsukan alamat usaha.
+- Direktori 189 lokasi tidak diubah agar data editorial dan halaman draft yang telah diaudit tetap konsisten. Halaman Purworejo hadir sebagai prioritas baru di luar daftar contoh tersebut.
