@@ -1,0 +1,364 @@
+{
+  "research_date": "2026-11-15",
+  "timezone": "Asia/Jakarta",
+  "researched_at": "2026-11-15T00:34:51+07:00",
+  "method_note": "Putaran awal: audit repo/CMS dan pemantauan sumber primer Kemendag, KKP, Google; 15 klaster dicatat dengan status konservatif. Sumber lain belum ditelusuri menyeluruh. Tidak ada publikasi. CMS 0 artikel terbit 15 November, total 50 published; sumber editorial statis belum terbaca andal.",
+  "entries": [
+    {
+      "id": "cluster-1-2026-11-15",
+      "category": "Briket & Energi",
+      "topic": "Pemantauan Briket & Energi",
+      "summary": "Belum ada perubahan 24–72 jam yang dapat diverifikasi pada pemeriksaan terbatas ini; konteks historis perlu dibaca dari arsip sebelumnya.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-15T00:34:51+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Belum ada rekomendasi berbasis perubahan baru; perlu verifikasi sumber primer.",
+      "content_angle": "Tunda penetapan sudut pandang sampai ada sumber primer yang relevan.",
+      "keyword_intent": "belum ditetapkan | perlu riset",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Tidak ada klaim artikel telah ditulis atau diterbitkan; audit editorial statis masih terhambat."
+    },
+    {
+      "id": "cluster-2-2026-11-15",
+      "category": "Digitalisasi & Website",
+      "topic": "Validasi struktur Article dan BlogPosting",
+      "summary": "Konteks rujukan untuk ide evergreen: Panduan Google menjelaskan penggunaan structured data Article untuk membantu memahami halaman artikel.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-15T00:34:51+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Panduan Google menjelaskan penggunaan structured data Article untuk membantu memahami halaman artikel.",
+          "source_urls": [
+            "https://developers.google.com/search/docs/appearance/structured-data/article"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://developers.google.com/search/docs/appearance/structured-data/article",
+          "publisher": "Google Search Central",
+          "accessed_at": "2026-11-15T00:34:51+07:00",
+          "published_at": null
+        }
+      ],
+      "practical_impact": "Membantu UMKM dan eksportir menyusun pemeriksaan kesiapan sebelum mengambil keputusan bisnis.",
+      "content_angle": "Checklist schema artikel dan canonical untuk website UMKM",
+      "keyword_intent": "cara validasi schema artikel website | informasional",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Tidak ada klaim artikel telah ditulis atau diterbitkan; audit editorial statis masih terhambat."
+    },
+    {
+      "id": "cluster-3-2026-11-15",
+      "category": "Furniture & Kayu",
+      "topic": "Pemantauan Furniture & Kayu",
+      "summary": "Belum ada perubahan 24–72 jam yang dapat diverifikasi pada pemeriksaan terbatas ini; konteks historis perlu dibaca dari arsip sebelumnya.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-15T00:34:51+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Belum ada rekomendasi berbasis perubahan baru; perlu verifikasi sumber primer.",
+      "content_angle": "Tunda penetapan sudut pandang sampai ada sumber primer yang relevan.",
+      "keyword_intent": "belum ditetapkan | perlu riset",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Tidak ada klaim artikel telah ditulis atau diterbitkan; audit editorial statis masih terhambat."
+    },
+    {
+      "id": "cluster-4-2026-11-15",
+      "category": "Kakao & Coklat",
+      "topic": "Pemantauan Kakao & Coklat",
+      "summary": "Belum ada perubahan 24–72 jam yang dapat diverifikasi pada pemeriksaan terbatas ini; konteks historis perlu dibaca dari arsip sebelumnya.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-15T00:34:51+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Belum ada rekomendasi berbasis perubahan baru; perlu verifikasi sumber primer.",
+      "content_angle": "Tunda penetapan sudut pandang sampai ada sumber primer yang relevan.",
+      "keyword_intent": "belum ditetapkan | perlu riset",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Tidak ada klaim artikel telah ditulis atau diterbitkan; audit editorial statis masih terhambat."
+    },
+    {
+      "id": "cluster-5-2026-11-15",
+      "category": "Kelapa & Turunannya",
+      "topic": "Pemantauan Kelapa & Turunannya",
+      "summary": "Belum ada perubahan 24–72 jam yang dapat diverifikasi pada pemeriksaan terbatas ini; konteks historis perlu dibaca dari arsip sebelumnya.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-15T00:34:51+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Belum ada rekomendasi berbasis perubahan baru; perlu verifikasi sumber primer.",
+      "content_angle": "Tunda penetapan sudut pandang sampai ada sumber primer yang relevan.",
+      "keyword_intent": "belum ditetapkan | perlu riset",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Tidak ada klaim artikel telah ditulis atau diterbitkan; audit editorial statis masih terhambat."
+    },
+    {
+      "id": "cluster-6-2026-11-15",
+      "category": "Kopi",
+      "topic": "Pemantauan Kopi",
+      "summary": "Belum ada perubahan 24–72 jam yang dapat diverifikasi pada pemeriksaan terbatas ini; konteks historis perlu dibaca dari arsip sebelumnya.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-15T00:34:51+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Belum ada rekomendasi berbasis perubahan baru; perlu verifikasi sumber primer.",
+      "content_angle": "Tunda penetapan sudut pandang sampai ada sumber primer yang relevan.",
+      "keyword_intent": "belum ditetapkan | perlu riset",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Tidak ada klaim artikel telah ditulis atau diterbitkan; audit editorial statis masih terhambat."
+    },
+    {
+      "id": "cluster-7-2026-11-15",
+      "category": "Logistik & Pengiriman",
+      "topic": "Pemantauan Logistik & Pengiriman",
+      "summary": "Belum ada perubahan 24–72 jam yang dapat diverifikasi pada pemeriksaan terbatas ini; konteks historis perlu dibaca dari arsip sebelumnya.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-15T00:34:51+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Belum ada rekomendasi berbasis perubahan baru; perlu verifikasi sumber primer.",
+      "content_angle": "Tunda penetapan sudut pandang sampai ada sumber primer yang relevan.",
+      "keyword_intent": "belum ditetapkan | perlu riset",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Tidak ada klaim artikel telah ditulis atau diterbitkan; audit editorial statis masih terhambat."
+    },
+    {
+      "id": "cluster-8-2026-11-15",
+      "category": "Manajemen Risiko",
+      "topic": "Pemantauan Manajemen Risiko",
+      "summary": "Belum ada perubahan 24–72 jam yang dapat diverifikasi pada pemeriksaan terbatas ini; konteks historis perlu dibaca dari arsip sebelumnya.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-15T00:34:51+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Belum ada rekomendasi berbasis perubahan baru; perlu verifikasi sumber primer.",
+      "content_angle": "Tunda penetapan sudut pandang sampai ada sumber primer yang relevan.",
+      "keyword_intent": "belum ditetapkan | perlu riset",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Tidak ada klaim artikel telah ditulis atau diterbitkan; audit editorial statis masih terhambat."
+    },
+    {
+      "id": "cluster-9-2026-11-15",
+      "category": "Peluang Usaha",
+      "topic": "Pemantauan Peluang Usaha",
+      "summary": "Belum ada perubahan 24–72 jam yang dapat diverifikasi pada pemeriksaan terbatas ini; konteks historis perlu dibaca dari arsip sebelumnya.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-15T00:34:51+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Belum ada rekomendasi berbasis perubahan baru; perlu verifikasi sumber primer.",
+      "content_angle": "Tunda penetapan sudut pandang sampai ada sumber primer yang relevan.",
+      "keyword_intent": "belum ditetapkan | perlu riset",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Tidak ada klaim artikel telah ditulis atau diterbitkan; audit editorial statis masih terhambat."
+    },
+    {
+      "id": "cluster-10-2026-11-15",
+      "category": "Pertanian & Buah",
+      "topic": "Pemantauan Pertanian & Buah",
+      "summary": "Belum ada perubahan 24–72 jam yang dapat diverifikasi pada pemeriksaan terbatas ini; konteks historis perlu dibaca dari arsip sebelumnya.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-15T00:34:51+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Belum ada rekomendasi berbasis perubahan baru; perlu verifikasi sumber primer.",
+      "content_angle": "Tunda penetapan sudut pandang sampai ada sumber primer yang relevan.",
+      "keyword_intent": "belum ditetapkan | perlu riset",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Tidak ada klaim artikel telah ditulis atau diterbitkan; audit editorial statis masih terhambat."
+    },
+    {
+      "id": "cluster-11-2026-11-15",
+      "category": "Regulasi & Sertifikasi",
+      "topic": "Persiapan eksportir SDA strategis menjelang 2027",
+      "summary": "Konteks rujukan untuk ide evergreen: Kemendag menjelaskan rencana perantara ekspor PT DSI berlaku penuh 1 Januari 2027 untuk komoditas tertentu; detail aturan perlu diperiksa kembali sebelum dipakai sebagai nasihat kepatuhan.",
+      "event_date": "2026-11-10",
+      "source_published_at": "2026-11-10",
+      "researched_at": "2026-11-15T00:34:51+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Kemendag menjelaskan rencana perantara ekspor PT DSI berlaku penuh 1 Januari 2027 untuk komoditas tertentu; detail aturan perlu diperiksa kembali sebelum dipakai sebagai nasihat kepatuhan.",
+          "source_urls": [
+            "https://www.kemendag.go.id/index.php/berita/siaran-pers/kebijakan-tata-kelola-ekspor-sda-akan-berlaku-mendag-busan-tekankan-aktivitas-ekspor-tetap-sama"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/index.php/berita/siaran-pers/kebijakan-tata-kelola-ekspor-sda-akan-berlaku-mendag-busan-tekankan-aktivitas-ekspor-tetap-sama",
+          "publisher": "Kemendag",
+          "accessed_at": "2026-11-15T00:34:51+07:00",
+          "published_at": "2026-11-10"
+        }
+      ],
+      "practical_impact": "Membantu UMKM dan eksportir menyusun pemeriksaan kesiapan sebelum mengambil keputusan bisnis.",
+      "content_angle": "Daftar pemeriksaan perubahan proses ekspor SDA strategis",
+      "keyword_intent": "persiapan ekspor SDA 2027 | informasional",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Tidak ada klaim artikel telah ditulis atau diterbitkan; audit editorial statis masih terhambat."
+    },
+    {
+      "id": "cluster-12-2026-11-15",
+      "category": "Rempah & Minyak Atsiri",
+      "topic": "Pemantauan Rempah & Minyak Atsiri",
+      "summary": "Belum ada perubahan 24–72 jam yang dapat diverifikasi pada pemeriksaan terbatas ini; konteks historis perlu dibaca dari arsip sebelumnya.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-15T00:34:51+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Belum ada rekomendasi berbasis perubahan baru; perlu verifikasi sumber primer.",
+      "content_angle": "Tunda penetapan sudut pandang sampai ada sumber primer yang relevan.",
+      "keyword_intent": "belum ditetapkan | perlu riset",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Tidak ada klaim artikel telah ditulis atau diterbitkan; audit editorial statis masih terhambat."
+    },
+    {
+      "id": "cluster-13-2026-11-15",
+      "category": "Sarang Burung Walet",
+      "topic": "Pemantauan Sarang Burung Walet",
+      "summary": "Belum ada perubahan 24–72 jam yang dapat diverifikasi pada pemeriksaan terbatas ini; konteks historis perlu dibaca dari arsip sebelumnya.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-15T00:34:51+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Belum ada rekomendasi berbasis perubahan baru; perlu verifikasi sumber primer.",
+      "content_angle": "Tunda penetapan sudut pandang sampai ada sumber primer yang relevan.",
+      "keyword_intent": "belum ditetapkan | perlu riset",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Tidak ada klaim artikel telah ditulis atau diterbitkan; audit editorial statis masih terhambat."
+    },
+    {
+      "id": "cluster-14-2026-11-15",
+      "category": "Seafood & Perikanan",
+      "topic": "Sertifikasi mutu dan kesiapan pemasok perikanan",
+      "summary": "Konteks rujukan untuk ide evergreen: KKP melaporkan nilai ekspor perikanan semester I 2026 sebesar USD 3 miliar, dan menjelaskan layanan sertifikasi mutu.",
+      "event_date": "2026-09-12",
+      "source_published_at": "2026-09-12",
+      "researched_at": "2026-11-15T00:34:51+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "KKP melaporkan nilai ekspor perikanan semester I 2026 sebesar USD 3 miliar, dan menjelaskan layanan sertifikasi mutu.",
+          "source_urls": [
+            "https://kkp.go.id/news/news-detail/ekspor-produk-perikanan-semester-i-2026-capai-rp-526-triliun-kkp-perkuat-sertifikasi-mutu-z7kZ.html"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://kkp.go.id/news/news-detail/ekspor-produk-perikanan-semester-i-2026-capai-rp-526-triliun-kkp-perkuat-sertifikasi-mutu-z7kZ.html",
+          "publisher": "KKP",
+          "accessed_at": "2026-11-15T00:34:51+07:00",
+          "published_at": "2026-09-12"
+        }
+      ],
+      "practical_impact": "Membantu UMKM dan eksportir menyusun pemeriksaan kesiapan sebelum mengambil keputusan bisnis.",
+      "content_angle": "Checklist dokumen mutu pemasok seafood sebelum menjangkau buyer",
+      "keyword_intent": "sertifikasi mutu ekspor ikan untuk UMKM | informasional",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Tidak ada klaim artikel telah ditulis atau diterbitkan; audit editorial statis masih terhambat."
+    },
+    {
+      "id": "cluster-15-2026-11-15",
+      "category": "Tren & Analisis Pasar",
+      "topic": "Kesiapan katalog B2B eksportir alas kaki",
+      "summary": "Konteks rujukan untuk ide evergreen: Kemendag merilis laporan ekspor kulit dan alas kaki pada 14 November 2026; rincian angka harus diverifikasi di siaran pers lengkap.",
+      "event_date": "2026-11-14",
+      "source_published_at": "2026-11-14",
+      "researched_at": "2026-11-15T00:34:51+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Kemendag merilis laporan ekspor kulit dan alas kaki pada 14 November 2026; rincian angka harus diverifikasi di siaran pers lengkap.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers",
+          "publisher": "Kemendag",
+          "accessed_at": "2026-11-15T00:34:51+07:00",
+          "published_at": "2026-11-14"
+        }
+      ],
+      "practical_impact": "Membantu UMKM dan eksportir menyusun pemeriksaan kesiapan sebelum mengambil keputusan bisnis.",
+      "content_angle": "Struktur katalog digital B2B untuk produsen alas kaki",
+      "keyword_intent": "contoh katalog ekspor alas kaki B2B | informasional",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Tidak ada klaim artikel telah ditulis atau diterbitkan; audit editorial statis masih terhambat."
+    }
+  ]
+}
