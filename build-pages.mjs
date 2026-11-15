@@ -92,9 +92,9 @@ const phone='+62882003740969';
 const email='bisabikinw3b@gmail.com';
 const pages={
   '/':['Jasa Pembuatan Website & Bikin Web | BisaBikinWeb Indonesia','Jasa bikin website profesional untuk UMKM dan perusahaan: company profile, landing page, toko online, dan web app. Lihat harga, portofolio, dan konsultasi online.'],
-  '/jasa':['Jasa Bikin Website: Company Profile, Toko Online & Web App','Jasa pembuatan website untuk bisnis, UMKM dan perusahaan. Pilih company profile, landing page, toko online, web app custom, atau maintenance dengan cakupan jelas.'],
+  '/jasa':['Jasa Pembuatan Website Profesional untuk Bisnis & UMKM','Butuh jasa bikin website profesional? Pilih website company profile, landing page, toko online, aplikasi web, atau maintenance. Lihat portofolio dan konsultasikan kebutuhan bisnis Anda.'],
   '/wilayah':['Jasa Website Seluruh Indonesia & 38 Provinsi','Lihat daftar layanan jasa bikin web BisaBikinWeb untuk Jakarta, Bandung, Surabaya, Medan, Makassar, seluruh 38 provinsi dan kota/kabupaten lainnya di Indonesia.'],
-  '/harga':['Harga Pembuatan Website & Paket Sesuai Kebutuhan','Bandingkan paket dan biaya pembuatan website: landing page, company profile, dan toko online. Tinjau fitur, biaya operasional, lalu minta penawaran.'],
+  '/harga':['Harga Jasa Bikin Website: Paket & Biaya Pembuatan','Bandingkan harga jasa pembuatan website untuk landing page, company profile, dan toko online. Cek cakupan fitur, biaya operasional, opsi maintenance, lalu minta penawaran sesuai kebutuhan.'],
   '/portfolio':['Portofolio Website Bisnis, Skincare, Fashion & Travel','Jelajahi contoh website nyata BisaBikinWeb untuk Berbeda, Karpenter, Mejavi Skin+, GoO Ninks, dan GoJogja Travel. Lihat studi kasus dan layanan terkait.'],
   '/layanan-digital':['Layanan Digital: Pulsa, Data, Token & Travel','Rencana layanan digital BisaBikinWeb meliputi pulsa, paket data, token listrik, dan kebutuhan perjalanan. Fitur masih dalam tahap persiapan.'],
   '/merch':['Merchandise & Koleksi Apparel BisaBikinWeb','Jelajahi koleksi merchandise BisaBikinWeb, desain apparel, dan produk kreatif. Lihat pilihan produk, informasi stok, varian, serta cara pemesanan.'],
