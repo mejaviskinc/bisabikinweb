@@ -350,7 +350,7 @@
       "id": "cluster-15-2026-11-15",
       "category": "Tren & Analisis Pasar",
       "topic": "Kesiapan katalog B2B eksportir alas kaki",
-      "summary": "Konteks rujukan untuk ide evergreen: Kemendag merilis laporan ekspor kulit dan alas kaki pada 14 November 2026; rincian angka harus diverifikasi di siaran pers lengkap.",
+      "summary": "Konteks rujukan untuk ide evergreen: Kemendag merilis laporan ekspor kulit dan alas kaki pada 14 November 2026; rincian angka harus diverifikasi di siaran pers lengkap. Pemeriksaan halaman berita resmi mengonfirmasi judul rilis 14 November tentang nilai ekspor USD 7,22 miliar; periode dan rincian metodologi belum diperiksa.",
       "event_date": "2026-11-14",
       "source_published_at": "2026-11-14",
       "researched_at": "2026-11-15T00:34:51+07:00",
@@ -361,6 +361,12 @@
           "source_urls": [
             "https://www.kemendag.go.id/berita/siaran-pers"
           ]
+        },
+        {
+          "claim": "Pada 14 November 2026, Kemendag memuat siaran pers berjudul 'Ekspor Kulit dan Alas Kaki Tembus USD 7,22 Miliar'; angka tersebut berasal dari judul rilis dan cakupan periode rinci belum dikonfirmasi dari naskah lengkap.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita"
+          ]
         }
       ],
       "sources": [
@@ -369,16 +375,22 @@
           "publisher": "Kemendag",
           "accessed_at": "2026-11-15T00:34:51+07:00",
           "published_at": "2026-11-14"
+        },
+        {
+          "url": "https://www.kemendag.go.id/berita",
+          "publisher": "Kementerian Perdagangan RI",
+          "published_at": "2026-11-14",
+          "accessed_at": "2026-11-15T10:26:06+07:00"
         }
       ],
-      "practical_impact": "Membantu UMKM dan eksportir menyusun pemeriksaan kesiapan sebelum mengambil keputusan bisnis.",
+      "practical_impact": "Pemasok alas kaki dapat menyiapkan katalog grade, bahan, MOQ, kapasitas, lead time dan bukti kepatuhan; angka makro tidak membuktikan peluang kontrak untuk setiap UMKM.",
       "content_angle": "Struktur katalog digital B2B untuk produsen alas kaki",
-      "keyword_intent": "contoh katalog ekspor alas kaki B2B | informasional",
+      "keyword_intent": "contoh katalog ekspor alas kaki B2B | informasional; cara menyiapkan profil pemasok alas kaki ekspor | informasional",
       "editorial_status": "needs_verification",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-16",
-      "verification_note": "Tidak ada klaim artikel telah ditulis atau diterbitkan; audit editorial statis masih terhambat."
+      "verification_note": "Judul dan tanggal siaran pers terverifikasi pada halaman berita Kemendag; periode data, metodologi, dan rincian subsektor belum diverifikasi. Jangan menulis angka sebagai nilai tahunan tanpa memeriksa naskah lengkap."
     }
   ],
   "audit_updates": [
@@ -418,6 +430,12 @@
         "https://github.com/mejaviskinc/bisabikinweb/blob/main/build-pages.mjs"
       ],
       "publication_status": "research_only; belum ada artikel/gambar WebP baru, jadwal per-post, build atau URL live terverifikasi"
+    },
+    {
+      "at": "2026-11-15T10:26:06+07:00",
+      "type": "source_monitoring",
+      "summary": "Konfirmasi judul rilis Kemendag 14 November tentang ekspor kulit dan alas kaki, tanpa menganggap periode angka telah terverifikasi; CMS 50 published dan 0 published hari ini; workflow cover hanya manual, belum ada bukti jadwal per-post.",
+      "publication_status": "no_new_article_or_cover_verified"
     }
   ]
 }
