@@ -245,7 +245,7 @@ const excludedRoutes=new Set(['/cart','/checkout','/payment','/track-order','/se
 const sitemapEntries=Object.keys(pages).filter(path=>!excludedRoutes.has(path)&&!(localityByPath[path]&&!localityByPath[path].indexReady)&&!keywordPageByPath[path]&&!path.startsWith('/admin')&&!path.startsWith('/demo/')&&!path.startsWith('/seller/')).map(path=>{
  const article=articleByPath.get(path);
  const loc=origin+(path==='/'?'/':path+'/');
- const lastmod=article?isoDate(article.updated_at||article.published_at)?.slice(0,10):null;
+ const lastmod=article?isoDate(article.updated_at||article.published_at)?.slice(0,10):cityLandingPages.find(city=>path==='/wilayah/'+city.slug)?.lastmod||null;
  return `  <url><loc>${esc(loc)}</loc>${lastmod?'<lastmod>'+lastmod+'</lastmod>':''}</url>`;
 });
 await writeFile('site-dist/sitemap.xml','<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'+sitemapEntries.join('\n')+'\n</urlset>\n');
