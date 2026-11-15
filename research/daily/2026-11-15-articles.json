@@ -329,15 +329,21 @@
     {
       "id": "cluster-14-2026-11-15",
       "category": "Seafood & Perikanan",
-      "topic": "Sertifikasi mutu dan kesiapan pemasok perikanan",
-      "summary": "Konteks rujukan untuk ide evergreen: KKP melaporkan nilai ekspor perikanan semester I 2026 sebesar USD 3 miliar, dan menjelaskan layanan sertifikasi mutu.",
+      "topic": "Checklist kesiapan mutu dan katalog B2B eksportir perikanan",
+      "summary": "KKP dalam siaran pers 12 September 2026 mencatat ekspor perikanan Januari–Juni 2026 sebanyak 566,25 ribu ton senilai USD 3 miliar. Data ini konteks historis, bukan perkembangan baru 24–72 jam. KKP juga menjelaskan peran sertifikasi mutu dalam kesiapan ekspor.",
       "event_date": "2026-09-12",
       "source_published_at": "2026-09-12",
       "researched_at": "2026-11-15T00:34:51+07:00",
       "geography": "Indonesia dan pasar ekspor",
       "facts": [
         {
-          "claim": "KKP melaporkan nilai ekspor perikanan semester I 2026 sebesar USD 3 miliar, dan menjelaskan layanan sertifikasi mutu.",
+          "claim": "KKP melaporkan ekspor produk perikanan Januari–Juni 2026 mencapai 566,25 ribu ton senilai USD 3 miliar.",
+          "source_urls": [
+            "https://kkp.go.id/news/news-detail/ekspor-produk-perikanan-semester-i-2026-capai-rp-526-triliun-kkp-perkuat-sertifikasi-mutu-z7kZ.html"
+          ]
+        },
+        {
+          "claim": "KKP menyebut sertifikasi mutu diterapkan untuk menjaga mutu dan keamanan hasil perikanan dari hulu ke hilir.",
           "source_urls": [
             "https://kkp.go.id/news/news-detail/ekspor-produk-perikanan-semester-i-2026-capai-rp-526-triliun-kkp-perkuat-sertifikasi-mutu-z7kZ.html"
           ]
@@ -346,19 +352,19 @@
       "sources": [
         {
           "url": "https://kkp.go.id/news/news-detail/ekspor-produk-perikanan-semester-i-2026-capai-rp-526-triliun-kkp-perkuat-sertifikasi-mutu-z7kZ.html",
-          "publisher": "KKP",
-          "accessed_at": "2026-11-15T00:34:51+07:00",
-          "published_at": "2026-09-12"
+          "publisher": "Kementerian Kelautan dan Perikanan RI",
+          "published_at": "2026-09-12",
+          "accessed_at": "2026-11-15T13:29:08+07:00"
         }
       ],
-      "practical_impact": "Membantu UMKM dan eksportir menyusun pemeriksaan kesiapan sebelum mengambil keputusan bisnis.",
-      "content_angle": "Checklist dokumen mutu pemasok seafood sebelum menjangkau buyer",
-      "keyword_intent": "sertifikasi mutu ekspor ikan untuk UMKM | informasional",
-      "editorial_status": "needs_verification",
+      "practical_impact": "UMKM perikanan dapat menyiapkan dokumentasi mutu, alur ketertelusuran, spesifikasi penyimpanan dingin, serta katalog B2B; persyaratan tiap negara tujuan harus diperiksa terpisah.",
+      "content_angle": "Panduan checklist katalog B2B produk perikanan untuk buyer ekspor: spesifikasi, cold chain, bukti mutu, dan permintaan penawaran.",
+      "keyword_intent": "checklist katalog ekspor produk perikanan | informasional praktis",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-16",
-      "verification_note": "Tidak ada klaim artikel telah ditulis atau diterbitkan; audit editorial statis masih terhambat."
+      "verification_note": "Rilis primer bertanggal 12 September 2026, bukan berita baru November. Belum diverifikasi aturan sertifikasi untuk setiap komoditas/negara tujuan. Belum ada artikel live."
     },
     {
       "id": "cluster-15-2026-11-15",
@@ -459,6 +465,15 @@
         "https://www.kemendag.go.id/berita/siaran-pers/kemendag-luncurkan-program-triseg-perkuat-ekspor-kerajinan-umkm-ke-kanada"
       ],
       "publication_status": "research_only; no new article, image, scheduled post or live URL verified"
+    },
+    {
+      "id": "kkp-seafood-context-2026-11-15",
+      "checked_at": "2026-11-15T13:29:08+07:00",
+      "finding": "Memperkaya klaster Seafood & Perikanan dengan data historis primer KKP 12 September 2026, bukan perkembangan 72 jam; workflow cover GitHub Actions hanya workflow_dispatch, tanpa bukti penjadwalan per-post. Tidak ada publikasi yang diklaim.",
+      "sources": [
+        "https://kkp.go.id/news/news-detail/ekspor-produk-perikanan-semester-i-2026-capai-rp-526-triliun-kkp-perkuat-sertifikasi-mutu-z7kZ.html"
+      ],
+      "publication_status": "research_only; no new live article or verified WebP"
     }
   ]
 }
