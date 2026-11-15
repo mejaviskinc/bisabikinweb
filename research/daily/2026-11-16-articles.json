@@ -2,7 +2,7 @@
   "research_date": "2026-11-16",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-16T00:34:18+07:00",
-  "method_note": "Pemeriksaan awal terbatas: baca README, arsip artikel sebelumnya, kode editorial/build, kebijakan visual dan workflow; pemantauan sumber primer BPS dan dokumentasi Google. Belum menyelesaikan pemantauan menyeluruh 15 klaster, audit CMS/slug, atau verifikasi gambar. Tidak ada klaim publikasi.",
+  "method_note": "Pemeriksaan awal terbatas: baca README, arsip artikel sebelumnya, kode editorial/build, kebijakan visual dan workflow; pemantauan sumber primer BPS dan dokumentasi Google. Belum menyelesaikan pemantauan menyeluruh 15 klaster, audit CMS/slug, atau verifikasi gambar. Tidak ada klaim publikasi. Pemantauan lanjutan 02.26 WIB: verifikasi sumber primer KKP bertanggal 30 September untuk klaster Seafood & Perikanan; bukan perubahan 72 jam.",
   "entries": [
     {
       "id": "cluster-1-2026-11-16",
@@ -273,21 +273,34 @@
     {
       "id": "cluster-14-2026-11-16",
       "category": "Seafood & Perikanan",
-      "topic": "Pemantauan awal Seafood & Perikanan",
-      "summary": "Belum ada perubahan 24–72 jam spesifik klaster yang berhasil diverifikasi pada pemeriksaan terbatas ini. Tidak boleh ditafsirkan sebagai tidak adanya perkembangan.",
-      "event_date": null,
-      "source_published_at": null,
-      "researched_at": "2026-11-16T00:34:18+07:00",
+      "topic": "Persiapan katalog dan verifikasi mutu UMKM perikanan untuk InaExport",
+      "summary": "Siaran pers KKP 30 September 2026 menjelaskan kerja sama KKP dan Kemendag untuk mempromosikan produk perikanan UMKM bersertifikasi melalui InaExport. Ini konteks kebijakan sebelumnya, bukan pembaruan 72 jam terakhir.",
+      "event_date": "2026-09-30",
+      "source_published_at": "2026-09-30",
+      "researched_at": "2026-11-16T02:26:31+07:00",
       "geography": "Indonesia dan pasar tujuan ekspor",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Belum ada rekomendasi baru berbasis perkembangan terkini; verifikasi sumber sektoral diperlukan.",
-      "content_angle": "Pendalaman evergreen menunggu pemeriksaan duplikasi repository dan CMS serta sumber primer sektoral.",
-      "keyword_intent": "belum ditetapkan | riset dan audit duplikasi belum lengkap",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "KKP dan Kemendag menyatakan produk perikanan UMKM yang telah mendapat sertifikasi mutu KKP dapat dipromosikan melalui InaExport berdasarkan kerja sama antarlembaga yang diumumkan 30 September 2026.",
+          "source_urls": [
+            "https://www.kkp.go.id/news/news-detail/produk-perikanan-umkm-masuk-inaexport-kkp-kemendag-buka-akses-pasar-global-OP4L.html"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kkp.go.id/news/news-detail/produk-perikanan-umkm-masuk-inaexport-kkp-kemendag-buka-akses-pasar-global-OP4L.html",
+          "publisher": "KKP",
+          "accessed_at": "2026-11-16T02:26:31+07:00"
+        }
+      ],
+      "practical_impact": "UMKM perikanan perlu menyiapkan dokumentasi mutu, spesifikasi produk, katalog, dan kesiapan menanggapi buyer; persyaratan rinci perlu diperiksa di kanal resmi.",
+      "content_angle": "Checklist katalog digital dan kesiapan dokumen mutu produk perikanan untuk menjangkau buyer ekspor",
+      "keyword_intent": "cara menyiapkan katalog produk perikanan untuk ekspor | informasional praktis",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-16"
+      "recheck_after": "2026-11-23"
     },
     {
       "id": "cluster-15-2026-11-16",
