@@ -451,6 +451,7 @@ export const cityLandingPages = [
   },
   {
     "slug": "purworejo",
+    "lastmod": "2026-11-15",
     "city": "Purworejo",
     "isRegency": true,
     "province": "Jawa Tengah",
