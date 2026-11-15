@@ -121,22 +121,42 @@
     {
       "id": "cluster-6-2026-11-15",
       "category": "Kopi",
-      "topic": "Pemantauan Kopi",
-      "summary": "Belum ada perubahan 24–72 jam yang dapat diverifikasi pada pemeriksaan terbatas ini; konteks historis perlu dibaca dari arsip sebelumnya.",
-      "event_date": null,
-      "source_published_at": null,
+      "topic": "Studi kasus ekspor gula aren sebagai bahan baku jaringan kedai kopi Malaysia",
+      "summary": "Siaran pers Kemendag 13 November 2026 melaporkan pengiriman perdana 4.000 kemasan gula aren cair satu liter dari Sukabumi ke mitra jaringan kedai kopi Malaysia. Peristiwa menjadi studi kasus penjualan B2B, bukan bukti seluruh produsen memenuhi syarat ekspor.",
+      "event_date": "2026-11-09",
+      "source_published_at": "2026-11-13",
       "researched_at": "2026-11-15T00:34:51+07:00",
       "geography": "Indonesia dan pasar ekspor",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Belum ada rekomendasi berbasis perubahan baru; perlu verifikasi sumber primer.",
-      "content_angle": "Tunda penetapan sudut pandang sampai ada sumber primer yang relevan.",
-      "keyword_intent": "belum ditetapkan | perlu riset",
-      "editorial_status": "no_meaningful_update",
+      "facts": [
+        {
+          "claim": "Kemendag melaporkan realisasi ekspor perdana 4.000 kemasan gula aren cair satu liter senilai USD 13.760 ke Malaysia, dengan pengiriman 9 November 2026.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/srasa-di-tei-berbuah-manis-gula-aren-indonesia-didistribusikan-ke-300-gerai-kopi-malaysia"
+          ]
+        },
+        {
+          "claim": "Kemendag menyebut pembeli merupakan pengelola jaringan Kopi Saigon dengan lebih dari 300 gerai di Malaysia; ini tidak berarti 300 gerai telah menerima produk.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/srasa-di-tei-berbuah-manis-gula-aren-indonesia-didistribusikan-ke-300-gerai-kopi-malaysia"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/srasa-di-tei-berbuah-manis-gula-aren-indonesia-didistribusikan-ke-300-gerai-kopi-malaysia",
+          "publisher": "Kementerian Perdagangan RI",
+          "published_at": "2026-11-13",
+          "accessed_at": "2026-11-15T07:26:47+07:00"
+        }
+      ],
+      "practical_impact": "Produsen bahan baku minuman dapat menyiapkan spesifikasi, kapasitas, sampel, kemasan dan katalog B2B untuk proses penawaran, tetapi syarat impor Malaysia harus dicek per produk.",
+      "content_angle": "Checklist katalog B2B gula aren cair untuk pemasok jaringan kedai kopi luar negeri, membedakan kesiapan pemasaran dari kepatuhan ekspor.",
+      "keyword_intent": "cara membuat katalog B2B gula aren cair ekspor | informasional",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-16",
-      "verification_note": "Tidak ada klaim artikel telah ditulis atau diterbitkan; audit editorial statis masih terhambat."
+      "verification_note": "Sumber primer telah diperiksa; rincian izin pangan, HS code, dan regulasi Malaysia belum diverifikasi. Belum ada naskah atau gambar final."
     },
     {
       "id": "cluster-7-2026-11-15",
@@ -388,6 +408,16 @@
         "Hitung koleksi hasil evaluasi modul JS dan slug gabungan tanpa mengeksekusi side effect",
         "Periksa dukungan jadwal per-post dan workflow cover sebelum publikasi"
       ]
+    },
+    {
+      "id": "source-kopi-gula-aren-2026-11-15",
+      "checked_at": "2026-11-15T07:26:47+07:00",
+      "finding": "Temuan sumber primer Kemendag 13 November untuk klaster Kopi/bahan baku minuman; 15 klaster dipertahankan. SQL CMS: 50 published, 0 terbit 15 November WIB. build-pages.mjs terkonfirmasi berada di root dan menggabungkan artikel CMS/editorial.",
+      "sources": [
+        "https://www.kemendag.go.id/berita/siaran-pers/srasa-di-tei-berbuah-manis-gula-aren-indonesia-didistribusikan-ke-300-gerai-kopi-malaysia",
+        "https://github.com/mejaviskinc/bisabikinweb/blob/main/build-pages.mjs"
+      ],
+      "publication_status": "research_only; belum ada artikel/gambar WebP baru, jadwal per-post, build atau URL live terverifikasi"
     }
   ]
 }
