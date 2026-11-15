@@ -411,6 +411,51 @@
       "published_url": null,
       "recheck_after": "2026-11-16",
       "verification_note": "Judul dan tanggal siaran pers terverifikasi pada halaman berita Kemendag; periode data, metodologi, dan rincian subsektor belum diverifikasi. Jangan menulis angka sebagai nilai tahunan tanpa memeriksa naskah lengkap."
+    },
+    {
+      "id": "standar-ekspor-karet-alam-permendag-26-2026-11-15",
+      "category": "Regulasi & Sertifikasi",
+      "topic": "Pemeriksaan perubahan ketentuan ekspor karet alam SIR dan ketidaksesuaian metadata JDIH",
+      "summary": "Siaran pers Kemendag bertanggal 13 November 2026 menjelaskan sosialisasi Permendag 26/2026 tentang perubahan aturan ekspor karet alam SIR, mencakup TPP SIR, LoC untuk RRT, serta barang contoh/pameran. Metadata JDIH yang diakses menampilkan tanggal pengundangan 29 November 2026, setelah tanggal riset 15 November; status berlaku dan tanggal efektif tidak boleh diasumsikan sebelum diverifikasi ulang.",
+      "event_date": "2026-11-12",
+      "source_published_at": "2026-11-13",
+      "researched_at": "2026-11-15T16:33:56+07:00",
+      "geography": "Indonesia; RRT",
+      "facts": [
+        {
+          "claim": "Kemendag menyosialisasikan perubahan ketentuan karet alam SIR pada 12 November dan merilis penjelasan 13 November 2026.",
+          "source_urls": [
+            "https://www.kemendag.go.id/index.php/berita/siaran-pers/kemendag-perkuat-penerapan-standar-teknis-karet-alam-melalui-permendag-26-tahun-2026"
+          ]
+        },
+        {
+          "claim": "Halaman JDIH Permendag 26/2026 menampilkan tanggal pengundangan 29 November 2026 yang lebih lambat daripada tanggal riset; metadata memerlukan konfirmasi sebelum klaim status hukum.",
+          "source_urls": [
+            "https://jdih.kemendag.go.id/peraturan/peraturan-menteri-perdagangan-republik-indonesia-nomor-26-tahun-2026-tentang-perubahan-atas-peraturan-menteri-perdagangan-nomor-1-tahun-2026-tentang-ketentuan-karet-alam-spesifikasi-teknis-yang-akan-diekspor"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/index.php/berita/siaran-pers/kemendag-perkuat-penerapan-standar-teknis-karet-alam-melalui-permendag-26-tahun-2026",
+          "publisher": "Kementerian Perdagangan RI",
+          "published_at": "2026-11-13",
+          "accessed_at": "2026-11-15T16:33:56+07:00"
+        },
+        {
+          "url": "https://jdih.kemendag.go.id/peraturan/peraturan-menteri-perdagangan-republik-indonesia-nomor-26-tahun-2026-tentang-perubahan-atas-peraturan-menteri-perdagangan-nomor-1-tahun-2026-tentang-ketentuan-karet-alam-spesifikasi-teknis-yang-akan-diekspor",
+          "publisher": "JDIH Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-15T16:33:56+07:00"
+        }
+      ],
+      "practical_impact": "Eksportir karet perlu memeriksa dokumen TPP SIR, ketentuan LoC dan contoh barang langsung pada naskah aturan terbaru, tanpa mengandalkan ringkasan yang belum jelas tanggal berlakunya.",
+      "content_angle": "Panduan audit dokumen ekspor karet SIR untuk UMKM pemasok dan eksportir, dengan tabel cek TPP SIR, LoC dan sumber resmi, hanya setelah verifikasi tanggal berlaku.",
+      "keyword_intent": "dokumen ekspor karet alam SIR TPP SIR LoC | informasional kepatuhan",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Jangan menyatakan aturan efektif pada 15 November 2026: metadata JDIH menampilkan pengundangan 29 November 2026, tanggal mendatang. Verifikasi naskah asli dan status sebelum publikasi."
     }
   ],
   "audit_updates": [
