@@ -456,6 +456,40 @@
       "published_url": null,
       "recheck_after": "2026-11-16",
       "verification_note": "Jangan menyatakan aturan efektif pada 15 November 2026: metadata JDIH menampilkan pengundangan 29 November 2026, tanggal mendatang. Verifikasi naskah asli dan status sebelum publikasi."
+    },
+    {
+      "id": "retail-barcode-umkm-2026-11-15",
+      "category": "Peluang Usaha",
+      "topic": "Sinergi produk UMKM dengan ritel modern dan kesiapan data katalog",
+      "summary": "Daftar siaran pers Kemendag bertanggal 15 November 2026 menyebut sinergi program Pilihan Busan dengan jaringan Indogrosir untuk 20 produk UMKM potensial. Angka dan mekanisme seleksi perlu dikonfirmasi dari rilis lengkap sebelum menjadi klaim artikel.",
+      "event_date": "2026-11-15",
+      "source_published_at": "2026-11-15",
+      "researched_at": "2026-11-15T20:33:27+07:00",
+      "geography": "Indonesia",
+      "facts": [
+        {
+          "claim": "Daftar siaran pers Kemendag pada 15 November 2026 memuat pengumuman sinergi Pilihan Busan dan Indogrosir terkait 20 produk UMKM potensial.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-15T20:33:27+07:00",
+          "published_at": "2026-11-15"
+        }
+      ],
+      "practical_impact": "UMKM yang ingin masuk ritel perlu mempersiapkan katalog SKU, data produk, kemasan, barcode bila relevan, kapasitas pasok dan kontak pembelian; syarat khusus ritel belum diverifikasi.",
+      "content_angle": "Checklist data produk dan katalog digital UMKM sebelum menawarkan barang ke ritel modern",
+      "keyword_intent": "checklist katalog produk UMKM masuk ritel modern | informasional praktis",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-16",
+      "verification_note": "Baru halaman daftar rilis yang diverifikasi; naskah lengkap, kriteria program dan hasilnya belum diperiksa. Jangan klaim semua produk telah masuk toko."
     }
   ],
   "audit_updates": [
