@@ -140,7 +140,17 @@ for(const city of cityLandingPages){
  const breadcrumb=graph.find(s=>s['@type']==='BreadcrumbList');
  assert.ok(breadcrumb?.itemListElement.some(el=>el.item===origin+'/wilayah/'),route+' missing hub in breadcrumb');
 }
-console.log('City SEO output verified:',cityLandingPages.length,'unique pages, self canonical, index, schema, and hub links.');
+
+const purworejoHtml=await getHtml('wilayah/purworejo');
+const purworejoUrl=origin+'/wilayah/purworejo/';
+assert.ok(sitemap.includes('<loc>'+purworejoUrl+'</loc><lastmod>'+purworejo.lastmod+'</lastmod>'),'Purworejo sitemap entry needs accurate lastmod');
+assert.ok(homeMarkup.includes('href="/wilayah/purworejo/"'),'Homepage should link directly to Purworejo priority page');
+assert.ok(purworejoHtml.includes('Kutoarjo')&&purworejoHtml.includes('Banyuurip'),'Purworejo guide needs relevant local context');
+assert.ok(purworejoHtml.includes('https://purworejokab.bps.go.id/'),'Purworejo guide should cite BPS regional reference');
+assert.equal(scripts(purworejoHtml).find(s=>s['@type']==='Service')?.areaServed?.['@type'],'AdministrativeArea','Regency service must not be marked as a city or fake physical office');
+assert.ok(purworejoHtml.includes('href="/harga/"')&&purworejoHtml.includes('href="/portfolio/"'),'Purworejo guide must provide commercial next steps');
+
+console.log('City SEO output verified:',cityLandingPages.length,'unique pages, self canonical, index, schema, hub links and Purworejo lastmod.');
 
 
 const {provincePages,localityPages,placeLink}=await import('../static-source/lib/geo-pages.mjs');
