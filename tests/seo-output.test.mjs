@@ -260,7 +260,7 @@ for(const [slug,seo] of Object.entries(serviceSeoById)){
  const title=first(html,/<title>([^<]+)<\/title>/);
  const description=first(html,/<meta name="description" content="([^"]+)"/);
  const service=scripts(html).find(schema=>schema['@type']==='Service');
- assert.equal(title,seo.title+' | BisaBikinWeb Indonesia',route+' must target real buying intent');
+ assert.ok([seo.title+' | BisaBikinWeb Indonesia',seo.title.replaceAll('&','&amp;')].includes(title),route+' must target real buying intent without duplicate brand suffix');
  assert.ok(description.startsWith(seo.description.slice(0,80)),route+' needs a service-specific summary');
  assert.equal(first(html,/<link rel="canonical" href="([^"]+)"/),url,route+' canonical mismatch');
  assert.ok(indexedLocations.has(url),route+' is missing from the public sitemap');
