@@ -61,22 +61,36 @@
     {
       "id": "cluster-3-2026-11-15",
       "category": "Furniture & Kayu",
-      "topic": "Pemantauan Furniture & Kayu",
-      "summary": "Belum ada perubahan 24–72 jam yang dapat diverifikasi pada pemeriksaan terbatas ini; konteks historis perlu dibaca dari arsip sebelumnya.",
-      "event_date": null,
-      "source_published_at": null,
+      "topic": "Persiapan katalog dan kurasi produk kerajinan untuk calon pembeli Kanada",
+      "summary": "Kemendag meluncurkan TRISEG pada 3 November 2026 untuk memperkuat kapasitas ekspor kerajinan UMKM ke Kanada. Relevan sebagai konteks panduan evergreen tentang katalog, kesiapan kapasitas produksi, dan komunikasi B2B, bukan klaim seluruh produk kayu memenuhi syarat Kanada.",
+      "event_date": "2026-11-03",
+      "source_published_at": "2026-11-03",
       "researched_at": "2026-11-15T00:34:51+07:00",
       "geography": "Indonesia dan pasar ekspor",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Belum ada rekomendasi berbasis perubahan baru; perlu verifikasi sumber primer.",
-      "content_angle": "Tunda penetapan sudut pandang sampai ada sumber primer yang relevan.",
-      "keyword_intent": "belum ditetapkan | perlu riset",
-      "editorial_status": "no_meaningful_update",
+      "facts": [
+        {
+          "claim": "Kemendag dan TFO Canada meluncurkan TRISEG pada 3 November 2026 dan menyebut masa kurasi UMKM hingga 15 Desember 2026.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/kemendag-luncurkan-program-triseg-perkuat-ekspor-kerajinan-umkm-ke-kanada"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/kemendag-luncurkan-program-triseg-perkuat-ekspor-kerajinan-umkm-ke-kanada",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-15T12:31:04+07:00",
+          "published_at": "2026-11-03"
+        }
+      ],
+      "practical_impact": "Produsen kerajinan dapat menyiapkan profil bisnis, spesifikasi produk, kapasitas produksi, dan katalog buyer sebelum proses kurasi; persyaratan ekspor aktual tetap perlu dicek per produk.",
+      "content_angle": "Checklist katalog B2B kerajinan Indonesia untuk buyer Kanada: foto, spesifikasi, MOQ, kapasitas, dan tindak lanjut inquiry",
+      "keyword_intent": "cara membuat katalog ekspor kerajinan untuk buyer Kanada | informasional praktis",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-16",
-      "verification_note": "Tidak ada klaim artikel telah ditulis atau diterbitkan; audit editorial statis masih terhambat."
+      "verification_note": "Sumber primer tanggal 3 November 2026; syarat negara tujuan dan hasil kurasi peserta belum diverifikasi. Tidak ada artikel live."
     },
     {
       "id": "cluster-4-2026-11-15",
@@ -436,6 +450,15 @@
       "type": "source_monitoring",
       "summary": "Konfirmasi judul rilis Kemendag 14 November tentang ekspor kulit dan alas kaki, tanpa menganggap periode angka telah terverifikasi; CMS 50 published dan 0 published hari ini; workflow cover hanya manual, belum ada bukti jadwal per-post.",
       "publication_status": "no_new_article_or_cover_verified"
+    },
+    {
+      "id": "triseg-furniture-monitoring-2026-11-15",
+      "checked_at": "2026-11-15T12:31:04+07:00",
+      "finding": "Rilis primer Kemendag 3 November tentang TRISEG untuk kerajinan UMKM Kanada; pemantauan lintas 15 klaster dilanjutkan, tanpa menyatakan perubahan 72 jam. SQL bbweb_articles: 50 published aktif dan 0 terbit hari WIB ini; kuota gabungan editorial dinamis belum terkonfirmasi.",
+      "sources": [
+        "https://www.kemendag.go.id/berita/siaran-pers/kemendag-luncurkan-program-triseg-perkuat-ekspor-kerajinan-umkm-ke-kanada"
+      ],
+      "publication_status": "research_only; no new article, image, scheduled post or live URL verified"
     }
   ]
 }
