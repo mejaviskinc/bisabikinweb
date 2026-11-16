@@ -1,0 +1,109 @@
+{
+  "review_date": "2026-11-11",
+  "source_ref": "b3eb57bff82ba80cf924362d8d914ec1ee2a0db5",
+  "status": "draft_only_not_approved",
+  "publication_hold_required": true,
+  "archive_total": 95,
+  "archived_published": 12,
+  "archived_unpublished": 83,
+  "design_status": "rejected_pending_new_preview",
+  "items": [
+    {
+      "legacy_id": "bbweb-q013",
+      "review_status": "rework",
+      "proposed_headline": "Pelayanan publik digital: cepat di layar, mudah juga di lapangan?",
+      "proposed_caption": "Pelayanan digital bukan hanya soal punya aplikasi. Ukur juga kemudahan akses, kejelasan informasi, dan waktu penyelesaian. Menurutmu, bagian mana yang paling perlu ditingkatkan?",
+      "approved": false,
+      "fact_checked": false,
+      "rights_verified": false,
+      "visual_preview": "pending_official_brand_renderer_review"
+    },
+    {
+      "legacy_id": "bbweb-q014",
+      "review_status": "rework",
+      "proposed_headline": "Ekonomi terasa berbeda di setiap dompet",
+      "proposed_caption": "Indikator ekonomi penting, tetapi pengalaman tiap rumah tangga bisa berbeda. Yuk, belajar membedakan data makro dan kondisi pengeluaran sehari-hari.",
+      "approved": false,
+      "fact_checked": false,
+      "rights_verified": false,
+      "visual_preview": "pending_official_brand_renderer_review"
+    },
+    {
+      "legacy_id": "bbweb-q015",
+      "review_status": "reject",
+      "proposed_headline": "Tolak generalisasi terhadap pejabat",
+      "proposed_caption": "Materi lama menyamaratakan pejabat dan tidak relevan langsung dengan layanan BisaBikinWeb. Tidak disarankan dipublikasikan.",
+      "approved": false,
+      "fact_checked": false,
+      "rights_verified": false,
+      "visual_preview": "pending_official_brand_renderer_review"
+    },
+    {
+      "legacy_id": "bbweb-q018",
+      "review_status": "rework",
+      "proposed_headline": "Janji layanan publik perlu ukuran yang jelas",
+      "proposed_caption": "Kualitas pelayanan publik lebih mudah dievaluasi lewat target, waktu layanan, dan kanal pengaduan yang transparan. Ini ajakan evaluasi, bukan tuduhan kepada instansi tertentu.",
+      "approved": false,
+      "fact_checked": false,
+      "rights_verified": false,
+      "visual_preview": "pending_official_brand_renderer_review"
+    },
+    {
+      "legacy_id": "bbweb-q019",
+      "review_status": "rework",
+      "proposed_headline": "Cara mengecek informasi bantuan sosial",
+      "proposed_caption": "Jangan percaya pesan bantuan sosial yang meminta OTP atau data sensitif. Periksa kanal resmi instansi terkait sebelum membagikan informasi.",
+      "approved": false,
+      "fact_checked": false,
+      "rights_verified": false,
+      "visual_preview": "pending_official_brand_renderer_review"
+    },
+    {
+      "legacy_id": "bbweb-q020",
+      "review_status": "rework",
+      "proposed_headline": "Biaya hidup dan literasi keuangan digital",
+      "proposed_caption": "Catat pengeluaran rutin, bedakan kebutuhan dan keinginan, lalu evaluasi biaya langganan digital agar anggaran lebih terukur.",
+      "approved": false,
+      "fact_checked": false,
+      "rights_verified": false,
+      "visual_preview": "pending_official_brand_renderer_review"
+    },
+    {
+      "legacy_id": "bbweb-q021",
+      "review_status": "rework",
+      "proposed_headline": "Website proyek publik perlu informasi yang mudah diakses",
+      "proposed_caption": "Halaman informasi proyek yang baik menjelaskan tujuan, jadwal, progres, dan kontak resmi. Transparansi dimulai dari informasi yang dapat diperiksa.",
+      "approved": false,
+      "fact_checked": false,
+      "rights_verified": false,
+      "visual_preview": "pending_official_brand_renderer_review"
+    },
+    {
+      "legacy_id": "bbweb-q022",
+      "review_status": "rework",
+      "proposed_headline": "Masukan pengguna adalah bahan perbaikan website",
+      "proposed_caption": "Kritik dan laporan bug membantu bisnis memperbaiki pengalaman pelanggan. Sediakan kanal umpan balik yang jelas dan respons yang terukur.",
+      "approved": false,
+      "fact_checked": false,
+      "rights_verified": false,
+      "visual_preview": "pending_official_brand_renderer_review"
+    },
+    {
+      "legacy_id": "bbweb-q023",
+      "review_status": "reject",
+      "proposed_headline": "Hindari generalisasi respons pemerintah",
+      "proposed_caption": "Materi lama terlalu mirip q013/q018 dan mengulang stereotip tanpa informasi spesifik; jangan dipublikasikan.",
+      "approved": false,
+      "fact_checked": false,
+      "rights_verified": false,
+      "visual_preview": "pending_official_brand_renderer_review"
+    }
+  ],
+  "notes": [
+    "Never import directly to editorial/content.json",
+    "No slots assigned or retroactive scheduling",
+    "No claims of verified news; educational drafts only",
+    "Keep if: ${{ false }} hold in publisher workflow",
+    "No change to queue/state or Meta secrets"
+  ]
+}
