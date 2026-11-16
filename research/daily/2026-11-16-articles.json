@@ -2,7 +2,7 @@
   "research_date": "2026-11-16",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-16T00:34:18+07:00",
-  "method_note": "Pemeriksaan awal terbatas: baca README, arsip artikel sebelumnya, kode editorial/build, kebijakan visual dan workflow; pemantauan sumber primer BPS dan dokumentasi Google. Belum menyelesaikan pemantauan menyeluruh 15 klaster, audit CMS/slug, atau verifikasi gambar. Tidak ada klaim publikasi. Pemantauan lanjutan 02.26 WIB: verifikasi sumber primer KKP bertanggal 30 September untuk klaster Seafood & Perikanan; bukan perubahan 72 jam.",
+  "method_note": "Pemeriksaan awal terbatas: baca README, arsip artikel sebelumnya, kode editorial/build, kebijakan visual dan workflow; pemantauan sumber primer BPS dan dokumentasi Google. Belum menyelesaikan pemantauan menyeluruh 15 klaster, audit CMS/slug, atau verifikasi gambar. Tidak ada klaim publikasi. Pemantauan lanjutan 02.26 WIB: verifikasi sumber primer KKP bertanggal 30 September untuk klaster Seafood & Perikanan; bukan perubahan 72 jam. Pemantauan 12.26 WIB: sumber Kemendag terbit 10 November diverifikasi untuk klaster Regulasi & Sertifikasi; tidak ada klaim perubahan 72 jam atau artikel live.",
   "entries": [
     {
       "id": "cluster-1-2026-11-16",
@@ -216,21 +216,34 @@
     {
       "id": "cluster-11-2026-11-16",
       "category": "Regulasi & Sertifikasi",
-      "topic": "Pemantauan awal Regulasi & Sertifikasi",
-      "summary": "Belum ada perubahan 24–72 jam spesifik klaster yang berhasil diverifikasi pada pemeriksaan terbatas ini. Tidak boleh ditafsirkan sebagai tidak adanya perkembangan.",
-      "event_date": null,
-      "source_published_at": null,
-      "researched_at": "2026-11-16T00:34:18+07:00",
+      "topic": "Checklist standardisasi mutu UMKM sebelum menawarkan produk ke pasar ekspor",
+      "summary": "Kemendag melaporkan sosialisasi standardisasi bidang perdagangan di Banyuwangi, Bondowoso, dan Situbondo pada 6–8 November 2026 untuk sekitar 300 pelaku UMKM dan pemangku kepentingan. Ini konteks pelatihan, bukan bukti bahwa seluruh peserta telah tersertifikasi.",
+      "event_date": "2026-11-08",
+      "source_published_at": "2026-11-10",
+      "researched_at": "2026-11-16T12:26:29+07:00",
       "geography": "Indonesia dan pasar tujuan ekspor",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Belum ada rekomendasi baru berbasis perkembangan terkini; verifikasi sumber sektoral diperlukan.",
-      "content_angle": "Pendalaman evergreen menunggu pemeriksaan duplikasi repository dan CMS serta sumber primer sektoral.",
-      "keyword_intent": "belum ditetapkan | riset dan audit duplikasi belum lengkap",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "Kemendag menyelenggarakan sosialisasi standardisasi bidang perdagangan pada 6–8 November 2026 di tiga kabupaten Jawa Timur, dengan sekitar 300 peserta UMKM dan pemangku kepentingan.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/dorong-umkm-jawa-timur-tembus-pasar-global-kemendag-perkuat-mutu-dan-standardisasi-produk"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/dorong-umkm-jawa-timur-tembus-pasar-global-kemendag-perkuat-mutu-dan-standardisasi-produk",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-16T12:26:29+07:00"
+        }
+      ],
+      "practical_impact": "UMKM perlu memetakan standar produk, bukti mutu, persyaratan negara tujuan, dan dokumentasi katalog sebelum menghubungi calon buyer; ketentuan per produk/negara tetap harus diperiksa.",
+      "content_angle": "Panduan menyusun matriks standar mutu dan dokumen katalog untuk UMKM calon eksportir, bukan laporan acara sosialisasi.",
+      "keyword_intent": "checklist standar mutu produk UMKM untuk ekspor | informasional praktis",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-16"
+      "recheck_after": "2026-11-23"
     },
     {
       "id": "cluster-12-2026-11-16",
