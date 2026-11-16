@@ -360,6 +360,18 @@
       "article_written": false,
       "images_verified": false,
       "deploy_verified": false
+    },
+    {
+      "id": "cms_publication_count_2026-11-16_1327",
+      "checked_at": "2026-11-16T13:27:40+07:00",
+      "type": "cms_publication_count",
+      "source": "Supabase project kdlrobdzlxpjlkxbvzsd, public.bbweb_articles",
+      "findings": "SQL count status=published AND is_active=true: 50 total; 0 with published_at in 2026-11-16 Asia/Jakarta [2026-11-15T17:00:00Z,2026-11-16T17:00:00Z). News-vs-evergreen classification and full static source dates not independently audited.",
+      "cms_checked": true,
+      "publication_count_verified": false,
+      "article_written": false,
+      "images_verified": false,
+      "deploy_verified": false
     }
   ]
 }
