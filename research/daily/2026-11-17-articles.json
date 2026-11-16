@@ -2,7 +2,7 @@
   "research_date": "2026-11-17",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-17T00:29:22+07:00",
-  "method_note": "Pemantauan awal 15 klaster pada pergantian tanggal WIB. Lima klaster memiliki sumber primer historis; sepuluh belum memiliki sumber spesifik terverifikasi pada putaran ini. Tidak ada perkembangan 24–72 jam yang diklaim. Audit gabungan CMS, deduplikasi dan gambar belum tuntas; tidak ada klaim publikasi.",
+  "method_note": "Pemantauan awal 15 klaster pada pergantian tanggal WIB. Lima klaster memiliki sumber primer historis; sepuluh belum memiliki sumber spesifik terverifikasi pada putaran ini. Tidak ada perkembangan 24–72 jam yang diklaim. Audit gabungan CMS, deduplikasi dan gambar belum tuntas; tidak ada klaim publikasi. Pemantauan pukul 03.34 WIB menambah sumber resmi 13 November pada klaster Peluang Usaha; bukan perkembangan 72 jam. Tidak ada klaim publikasi.",
   "entries": [
     {
       "id": "cluster-1-2026-11-17",
@@ -198,21 +198,34 @@
     {
       "id": "cluster-9-2026-11-17",
       "category": "Peluang Usaha",
-      "topic": "Pemantauan awal Peluang Usaha",
-      "summary": "Belum ada perkembangan 24–72 jam yang terverifikasi pada pemeriksaan terbatas ini; bukan berarti tidak ada perkembangan.",
-      "event_date": null,
-      "source_published_at": null,
+      "topic": "Panduan menyiapkan profil usaha dan katalog untuk program business matching ekspor",
+      "summary": "Kemendag pada 13 November 2026 menjelaskan pendampingan UMKM BISA Ekspor, termasuk identifikasi produk, pertemuan calon buyer, presentasi bisnis dan penerjemahan. Rujukan berumur empat hari, bukan pembaruan 72 jam.",
+      "event_date": "2026-11-13",
+      "source_published_at": "2026-11-13",
       "researched_at": "2026-11-17T00:29:22+07:00",
       "geography": "Indonesia dan pasar ekspor",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Perlu riset sektoral sebelum membuat rekomendasi bisnis.",
-      "content_angle": "Menunggu sumber primer dan audit duplikasi CMS/repository.",
-      "keyword_intent": "belum ditetapkan | riset belum lengkap",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "Kemendag menjelaskan program UMKM BISA Ekspor mencakup identifikasi produk potensial, penjajakan buyer, pendampingan presentasi bisnis, dan penerjemahan.",
+          "source_urls": [
+            "https://ppid.kemendag.go.id/berita/2026-11-13-mendag-busan-pastikan-keterbukaan-informasi-publik-dalam-tiga-program-kemendag"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://ppid.kemendag.go.id/berita/2026-11-13-mendag-busan-pastikan-keterbukaan-informasi-publik-dalam-tiga-program-kemendag",
+          "publisher": "PPID Kementerian Perdagangan",
+          "accessed_at": "2026-11-17T03:34:51+07:00"
+        }
+      ],
+      "practical_impact": "UMKM dapat menyiapkan katalog produk, kapasitas produksi, dan profil bisnis sebelum mengikuti pendampingan; angka transaksi program tidak otomatis berarti seluruhnya realisasi penjualan.",
+      "content_angle": "Checklist profil perusahaan dan katalog ekspor sebelum business matching",
+      "keyword_intent": "persiapan business matching ekspor UMKM | informasional dan checklist",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-18"
+      "recheck_after": "2026-11-24"
     },
     {
       "id": "cluster-10-2026-11-17",
