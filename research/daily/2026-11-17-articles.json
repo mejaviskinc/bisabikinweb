@@ -1,0 +1,358 @@
+{
+  "research_date": "2026-11-17",
+  "timezone": "Asia/Jakarta",
+  "researched_at": "2026-11-17T00:29:22+07:00",
+  "method_note": "Pemantauan awal 15 klaster pada pergantian tanggal WIB. Lima klaster memiliki sumber primer historis; sepuluh belum memiliki sumber spesifik terverifikasi pada putaran ini. Tidak ada perkembangan 24–72 jam yang diklaim. Audit gabungan CMS, deduplikasi dan gambar belum tuntas; tidak ada klaim publikasi.",
+  "entries": [
+    {
+      "id": "cluster-1-2026-11-17",
+      "category": "Briket & Energi",
+      "topic": "Pemantauan awal Briket & Energi",
+      "summary": "Belum ada perkembangan 24–72 jam yang terverifikasi pada pemeriksaan terbatas ini; bukan berarti tidak ada perkembangan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-17T00:29:22+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Perlu riset sektoral sebelum membuat rekomendasi bisnis.",
+      "content_angle": "Menunggu sumber primer dan audit duplikasi CMS/repository.",
+      "keyword_intent": "belum ditetapkan | riset belum lengkap",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-18"
+    },
+    {
+      "id": "cluster-2-2026-11-17",
+      "category": "Digitalisasi & Website",
+      "topic": "Pemantauan awal Digitalisasi & Website",
+      "summary": "Belum ada perkembangan 24–72 jam yang terverifikasi pada pemeriksaan terbatas ini; bukan berarti tidak ada perkembangan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-17T00:29:22+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Perlu riset sektoral sebelum membuat rekomendasi bisnis.",
+      "content_angle": "Menunggu sumber primer dan audit duplikasi CMS/repository.",
+      "keyword_intent": "belum ditetapkan | riset belum lengkap",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-18"
+    },
+    {
+      "id": "cluster-3-2026-11-17",
+      "category": "Furniture & Kayu",
+      "topic": "Pemantauan awal Furniture & Kayu",
+      "summary": "Belum ada perkembangan 24–72 jam yang terverifikasi pada pemeriksaan terbatas ini; bukan berarti tidak ada perkembangan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-17T00:29:22+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Perlu riset sektoral sebelum membuat rekomendasi bisnis.",
+      "content_angle": "Menunggu sumber primer dan audit duplikasi CMS/repository.",
+      "keyword_intent": "belum ditetapkan | riset belum lengkap",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-18"
+    },
+    {
+      "id": "cluster-4-2026-11-17",
+      "category": "Kakao & Coklat",
+      "topic": "Pemantauan awal Kakao & Coklat",
+      "summary": "Belum ada perkembangan 24–72 jam yang terverifikasi pada pemeriksaan terbatas ini; bukan berarti tidak ada perkembangan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-17T00:29:22+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Perlu riset sektoral sebelum membuat rekomendasi bisnis.",
+      "content_angle": "Menunggu sumber primer dan audit duplikasi CMS/repository.",
+      "keyword_intent": "belum ditetapkan | riset belum lengkap",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-18"
+    },
+    {
+      "id": "cluster-5-2026-11-17",
+      "category": "Kelapa & Turunannya",
+      "topic": "Cara membaca data ekspor minyak kelapa dan menilai kesiapan katalog produk",
+      "summary": "Sumber resmi historis untuk bahan artikel evergreen; tidak ada pembaruan 24–72 jam yang dikonfirmasi.",
+      "event_date": null,
+      "source_published_at": "2026-09-21",
+      "researched_at": "2026-11-17T00:29:22+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "BPS menyediakan tabel nilai ekspor bulanan minyak kelapa tahun 2026; data pada tabel yang diakses tidak lengkap hingga November.",
+          "source_urls": [
+            "https://www.bps.go.id/id/statistics-table/2/MjMxMiMy/nilai-ekspor-bulanan-hasil-industri-menurut-komoditas-juta-us.html"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.bps.go.id/id/statistics-table/2/MjMxMiMy/nilai-ekspor-bulanan-hasil-industri-menurut-komoditas-juta-us.html",
+          "publisher": "BPS",
+          "accessed_at": "2026-11-17T00:29:22+07:00"
+        }
+      ],
+      "practical_impact": "UMKM dapat memakai sumber resmi sebagai titik awal evaluasi pasar, lalu memeriksa aturan dan kebutuhan buyer terkini.",
+      "content_angle": "Cara membaca data ekspor minyak kelapa dan menilai kesiapan katalog produk",
+      "keyword_intent": "data ekspor minyak kelapa Indonesia | informasional",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-18"
+    },
+    {
+      "id": "cluster-6-2026-11-17",
+      "category": "Kopi",
+      "topic": "Checklist membaca statistik volume ekspor kopi sebelum mencari buyer",
+      "summary": "Sumber resmi historis untuk bahan artikel evergreen; tidak ada pembaruan 24–72 jam yang dikonfirmasi.",
+      "event_date": null,
+      "source_published_at": "2026-09-21",
+      "researched_at": "2026-11-17T00:29:22+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "BPS menyediakan tabel berat bersih ekspor bulanan kopi tahun 2026, dengan cakupan bulan yang belum lengkap.",
+          "source_urls": [
+            "https://www.bps.go.id/id/statistics-table/2/MjMxMSMy/monthly-net-weight-exports-of-agricultural-product.html"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.bps.go.id/id/statistics-table/2/MjMxMSMy/monthly-net-weight-exports-of-agricultural-product.html",
+          "publisher": "BPS",
+          "accessed_at": "2026-11-17T00:29:22+07:00"
+        }
+      ],
+      "practical_impact": "UMKM dapat memakai sumber resmi sebagai titik awal evaluasi pasar, lalu memeriksa aturan dan kebutuhan buyer terkini.",
+      "content_angle": "Checklist membaca statistik volume ekspor kopi sebelum mencari buyer",
+      "keyword_intent": "cara membaca data ekspor kopi | informasional",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-18"
+    },
+    {
+      "id": "cluster-7-2026-11-17",
+      "category": "Logistik & Pengiriman",
+      "topic": "Checklist memilih mitra logistik ekspor UMKM",
+      "summary": "Sumber resmi historis untuk bahan artikel evergreen; tidak ada pembaruan 24–72 jam yang dikonfirmasi.",
+      "event_date": null,
+      "source_published_at": "2026-10-27",
+      "researched_at": "2026-11-17T00:29:22+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Kemendag melaporkan program Jalan Global Kreasi Lokal dan kerja sama logistik untuk rute ekspor ASEAN pada 27 Oktober 2026.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/foto/peluncuran-program-jalan-global-kreasi-lokal-untuk-perluas-akses-ekspor-umkm"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/foto/peluncuran-program-jalan-global-kreasi-lokal-untuk-perluas-akses-ekspor-umkm",
+          "publisher": "Kemendag",
+          "accessed_at": "2026-11-17T00:29:22+07:00"
+        }
+      ],
+      "practical_impact": "UMKM dapat memakai sumber resmi sebagai titik awal evaluasi pasar, lalu memeriksa aturan dan kebutuhan buyer terkini.",
+      "content_angle": "Checklist memilih mitra logistik ekspor UMKM",
+      "keyword_intent": "cara memilih jasa logistik ekspor UMKM | panduan",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-18"
+    },
+    {
+      "id": "cluster-8-2026-11-17",
+      "category": "Manajemen Risiko",
+      "topic": "Pemantauan awal Manajemen Risiko",
+      "summary": "Belum ada perkembangan 24–72 jam yang terverifikasi pada pemeriksaan terbatas ini; bukan berarti tidak ada perkembangan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-17T00:29:22+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Perlu riset sektoral sebelum membuat rekomendasi bisnis.",
+      "content_angle": "Menunggu sumber primer dan audit duplikasi CMS/repository.",
+      "keyword_intent": "belum ditetapkan | riset belum lengkap",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-18"
+    },
+    {
+      "id": "cluster-9-2026-11-17",
+      "category": "Peluang Usaha",
+      "topic": "Pemantauan awal Peluang Usaha",
+      "summary": "Belum ada perkembangan 24–72 jam yang terverifikasi pada pemeriksaan terbatas ini; bukan berarti tidak ada perkembangan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-17T00:29:22+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Perlu riset sektoral sebelum membuat rekomendasi bisnis.",
+      "content_angle": "Menunggu sumber primer dan audit duplikasi CMS/repository.",
+      "keyword_intent": "belum ditetapkan | riset belum lengkap",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-18"
+    },
+    {
+      "id": "cluster-10-2026-11-17",
+      "category": "Pertanian & Buah",
+      "topic": "Pemantauan awal Pertanian & Buah",
+      "summary": "Belum ada perkembangan 24–72 jam yang terverifikasi pada pemeriksaan terbatas ini; bukan berarti tidak ada perkembangan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-17T00:29:22+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Perlu riset sektoral sebelum membuat rekomendasi bisnis.",
+      "content_angle": "Menunggu sumber primer dan audit duplikasi CMS/repository.",
+      "keyword_intent": "belum ditetapkan | riset belum lengkap",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-18"
+    },
+    {
+      "id": "cluster-11-2026-11-17",
+      "category": "Regulasi & Sertifikasi",
+      "topic": "Cara menyusun daftar persyaratan standar produk berdasarkan negara tujuan",
+      "summary": "Sumber resmi historis untuk bahan artikel evergreen; tidak ada pembaruan 24–72 jam yang dikonfirmasi.",
+      "event_date": null,
+      "source_published_at": "2026-11-10",
+      "researched_at": "2026-11-17T00:29:22+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Kemendag melaporkan sosialisasi standardisasi mutu bagi sekitar 300 pelaku UMKM dan pemangku kepentingan pada 6–8 November 2026.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/dorong-umkm-jawa-timur-tembus-pasar-global-kemendag-perkuat-mutu-dan-standardisasi-produk"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/dorong-umkm-jawa-timur-tembus-pasar-global-kemendag-perkuat-mutu-dan-standardisasi-produk",
+          "publisher": "Kemendag",
+          "accessed_at": "2026-11-17T00:29:22+07:00"
+        }
+      ],
+      "practical_impact": "UMKM dapat memakai sumber resmi sebagai titik awal evaluasi pasar, lalu memeriksa aturan dan kebutuhan buyer terkini.",
+      "content_angle": "Cara menyusun daftar persyaratan standar produk berdasarkan negara tujuan",
+      "keyword_intent": "persyaratan sertifikasi ekspor UMKM | panduan",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-18"
+    },
+    {
+      "id": "cluster-12-2026-11-17",
+      "category": "Rempah & Minyak Atsiri",
+      "topic": "Pemantauan awal Rempah & Minyak Atsiri",
+      "summary": "Belum ada perkembangan 24–72 jam yang terverifikasi pada pemeriksaan terbatas ini; bukan berarti tidak ada perkembangan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-17T00:29:22+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Perlu riset sektoral sebelum membuat rekomendasi bisnis.",
+      "content_angle": "Menunggu sumber primer dan audit duplikasi CMS/repository.",
+      "keyword_intent": "belum ditetapkan | riset belum lengkap",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-18"
+    },
+    {
+      "id": "cluster-13-2026-11-17",
+      "category": "Sarang Burung Walet",
+      "topic": "Pemantauan awal Sarang Burung Walet",
+      "summary": "Belum ada perkembangan 24–72 jam yang terverifikasi pada pemeriksaan terbatas ini; bukan berarti tidak ada perkembangan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-17T00:29:22+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Perlu riset sektoral sebelum membuat rekomendasi bisnis.",
+      "content_angle": "Menunggu sumber primer dan audit duplikasi CMS/repository.",
+      "keyword_intent": "belum ditetapkan | riset belum lengkap",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-18"
+    },
+    {
+      "id": "cluster-14-2026-11-17",
+      "category": "Seafood & Perikanan",
+      "topic": "Checklist dokumen mutu dan informasi produk untuk eksportir seafood",
+      "summary": "Sumber resmi historis untuk bahan artikel evergreen; tidak ada pembaruan 24–72 jam yang dikonfirmasi.",
+      "event_date": null,
+      "source_published_at": "2026-09-14",
+      "researched_at": "2026-11-17T00:29:22+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "KKP merilis data ekspor produk perikanan semester I 2026 dan menjelaskan pentingnya sertifikasi mutu.",
+          "source_urls": [
+            "https://www.kkp.go.id/news/news-detail/ekspor-produk-perikanan-semester-i-2026-capai-rp-526-triliun-kkp-perkuat-sertifikasi-mutu-KLDM.html"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kkp.go.id/news/news-detail/ekspor-produk-perikanan-semester-i-2026-capai-rp-526-triliun-kkp-perkuat-sertifikasi-mutu-KLDM.html",
+          "publisher": "KKP",
+          "accessed_at": "2026-11-17T00:29:22+07:00"
+        }
+      ],
+      "practical_impact": "UMKM dapat memakai sumber resmi sebagai titik awal evaluasi pasar, lalu memeriksa aturan dan kebutuhan buyer terkini.",
+      "content_angle": "Checklist dokumen mutu dan informasi produk untuk eksportir seafood",
+      "keyword_intent": "sertifikasi mutu ekspor perikanan | panduan",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-18"
+    },
+    {
+      "id": "cluster-15-2026-11-17",
+      "category": "Tren & Analisis Pasar",
+      "topic": "Pemantauan awal Tren & Analisis Pasar",
+      "summary": "Belum ada perkembangan 24–72 jam yang terverifikasi pada pemeriksaan terbatas ini; bukan berarti tidak ada perkembangan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-17T00:29:22+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Perlu riset sektoral sebelum membuat rekomendasi bisnis.",
+      "content_angle": "Menunggu sumber primer dan audit duplikasi CMS/repository.",
+      "keyword_intent": "belum ditetapkan | riset belum lengkap",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-18"
+    }
+  ]
+}
