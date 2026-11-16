@@ -140,21 +140,34 @@
     {
       "id": "cluster-7-2026-11-16",
       "category": "Logistik & Pengiriman",
-      "topic": "Pemantauan awal Logistik & Pengiriman",
-      "summary": "Belum ada perubahan 24–72 jam spesifik klaster yang berhasil diverifikasi pada pemeriksaan terbatas ini. Tidak boleh ditafsirkan sebagai tidak adanya perkembangan.",
-      "event_date": null,
-      "source_published_at": null,
-      "researched_at": "2026-11-16T00:34:18+07:00",
+      "topic": "Peran integrasi logistik dan marketplace dalam persiapan ekspor UMKM",
+      "summary": "Kemendag melaporkan peluncuran program Jalan Global Kreasi Lokal pada 27 Oktober 2026 yang melibatkan platform digital dan mitra logistik untuk akses ekspor UMKM. Sumber ini adalah konteks historis, bukan perubahan 24–72 jam.",
+      "event_date": "2026-10-27",
+      "source_published_at": "2026-10-27",
+      "researched_at": "2026-11-16T19:56:59+07:00",
       "geography": "Indonesia dan pasar tujuan ekspor",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Belum ada rekomendasi baru berbasis perkembangan terkini; verifikasi sumber sektoral diperlukan.",
-      "content_angle": "Pendalaman evergreen menunggu pemeriksaan duplikasi repository dan CMS serta sumber primer sektoral.",
-      "keyword_intent": "belum ditetapkan | riset dan audit duplikasi belum lengkap",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "Kemendag melaporkan pembukaan rute ekspor menuju Filipina, Singapura, Thailand, dan Vietnam melalui kolaborasi Shopee Indonesia dengan Anteraja dan JNE.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/foto/peluncuran-program-jalan-global-kreasi-lokal-untuk-perluas-akses-ekspor-umkm"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/foto/peluncuran-program-jalan-global-kreasi-lokal-untuk-perluas-akses-ekspor-umkm",
+          "publisher": "Kementerian Perdagangan Republik Indonesia",
+          "accessed_at": "2026-11-16T19:56:59+07:00"
+        }
+      ],
+      "practical_impact": "UMKM perlu membandingkan kesiapan katalog, pengemasan, biaya pengiriman, aturan negara tujuan, dan mekanisme retur sebelum memilih kanal ekspor.",
+      "content_angle": "Checklist memilih mitra logistik ekspor UMKM: dokumen, estimasi biaya, pelacakan, dan penanganan retur",
+      "keyword_intent": "cara memilih jasa logistik ekspor UMKM | informasional praktis",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-16"
+      "recheck_after": "2026-11-23"
     },
     {
       "id": "cluster-8-2026-11-16",
@@ -372,6 +385,11 @@
       "article_written": false,
       "images_verified": false,
       "deploy_verified": false
+    },
+    {
+      "at": "2026-11-16T19:56:59+07:00",
+      "action": "research_enrichment",
+      "note": "Menambahkan sumber primer Kemendag 27 Oktober pada klaster logistik; bukan temuan 72 jam; tanpa publikasi artikel."
     }
   ]
 }
