@@ -2,7 +2,7 @@
   "research_date": "2026-11-18",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-18T00:34:51+07:00",
-  "method_note": "Putaran pertama tanggal WIB. Meninjau 15 klaster dan arsip 17 November; satu sumber primer terbaru 17 November dikonfirmasi ulang, 14 klaster belum memiliki temuan sektoral baru terverifikasi. Tidak mengklaim pemeriksaan menyeluruh setiap sektor. Audit CMS/build dan gambar belum selesai; tidak ada artikel live yang diklaim. Temuan business matching juga telah dicatat tanggal sebelumnya, tidak dihitung sebagai peristiwa baru.",
+  "method_note": "Putaran pertama tanggal WIB. Meninjau 15 klaster dan arsip 17 November; satu sumber primer terbaru 17 November dikonfirmasi ulang, 14 klaster belum memiliki temuan sektoral baru terverifikasi. Tidak mengklaim pemeriksaan menyeluruh setiap sektor. Audit CMS/build dan gambar belum selesai; tidak ada artikel live yang diklaim. Temuan business matching juga telah dicatat tanggal sebelumnya, tidak dihitung sebagai peristiwa baru. Pemantauan pukul 03.34 WIB: sumber primer Kemendag 17 November tentang JFEX ditemukan dan klaster Rempah diperbarui; belum memverifikasi persyaratan impor Jepang.",
   "entries": [
     {
       "id": "cluster-1-2026-11-18",
@@ -229,18 +229,31 @@
     {
       "id": "cluster-12-2026-11-18",
       "category": "Rempah & Minyak Atsiri",
-      "topic": "Pemantauan awal Rempah & Minyak Atsiri",
-      "summary": "Belum ada perkembangan spesifik 24–72 jam yang berhasil diverifikasi dalam pemeriksaan awal terbatas; bukan berarti tidak ada perkembangan.",
-      "event_date": null,
-      "source_published_at": null,
-      "researched_at": "2026-11-18T00:34:51+07:00",
+      "topic": "Kesiapan katalog B2B dan sampel bumbu/rempah untuk buyer Jepang",
+      "summary": "Kemendag melaporkan potensi transaksi pada JFEX Winter 2026; bukan penjualan terealisasi. Artikel evergreen dapat menjelaskan persiapan spesifikasi, sampel, katalog, dan tindak lanjut buyer.",
+      "event_date": "2026-11-11",
+      "source_published_at": "2026-11-17",
+      "researched_at": "2026-11-18T03:34:27+07:00",
       "geography": "Indonesia dan pasar ekspor",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Perlu sumber sektoral terverifikasi sebelum memberikan rekomendasi spesifik.",
-      "content_angle": "Menunggu sumber primer dan audit duplikasi CMS/repository",
-      "keyword_intent": "belum ditetapkan | perlu riset",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "Paviliun S'RASA di JFEX Winter 2026 (11–13 November) mencatat potensi transaksi USD 303.730, melibatkan 10 produsen dan setidaknya 70 pertemuan bisnis; angka potensi tidak sama dengan realisasi ekspor.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/paviliun-srasa-hadir-di-jfex-2026-jepang-bumbu-nusantara-bukukan-potensi-transaksi-rp54-m"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/paviliun-srasa-hadir-di-jfex-2026-jepang-bumbu-nusantara-bukukan-potensi-transaksi-rp54-m",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-18T03:34:27+07:00"
+        }
+      ],
+      "practical_impact": "Produsen rempah dapat menyiapkan katalog bilingual, spesifikasi mutu, kemasan, contoh produk, kapasitas pasok, dan alur follow-up; ketentuan impor Jepang wajib diperiksa terpisah.",
+      "content_angle": "Checklist katalog ekspor bumbu dan rempah untuk calon buyer Jepang",
+      "keyword_intent": "katalog ekspor rempah ke Jepang | informasional praktis",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-19"
