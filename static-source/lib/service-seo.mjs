@@ -13,14 +13,14 @@ export const serviceSeoById = Object.freeze({
     description: 'Buat website company profile untuk perusahaan, supplier dan jasa profesional. Tampilkan profil, layanan, portofolio dan kontak untuk memudahkan calon klien B2B.',
     heading: 'Jasa Website Company Profile',
     introduction: 'Website company profile membantu calon klien memeriksa identitas perusahaan, layanan, portofolio, dan cara meminta penawaran. Struktur halaman dapat disesuaikan untuk jasa profesional, supplier, kontraktor, maupun bisnis B2B lainnya.',
-    related: [{href:'/artikel/struktur-website-company-profile-b2b-rfq/',label:'Panduan website company profile B2B'}, {href:'/portfolio/',label:'Lihat studi kasus website'}, {href:'/harga/',label:'Bandingkan paket perusahaan'}]
+    related: [{href:'/artikel/struktur-website-company-profile-b2b-rfq/',label:'Panduan website company profile B2B'}, {href:'/portfolio/',label:'Lihat studi kasus website'}, {href:'/harga/',label:'Bandingkan paket perusahaan'}, {href:'/kontak/',label:'Minta penawaran company profile'}]
   },
   ecommerce: {
     title: 'Jasa Pembuatan Website Toko Online',
     description: 'Jasa pembuatan toko online untuk brand dan UMKM: katalog produk, varian, keranjang, checkout, pengelolaan pesanan dan opsi pembayaran sesuai kebutuhan.',
     heading: 'Jasa Pembuatan Toko Online',
     introduction: 'Website toko online membantu pelanggan melihat katalog, memilih varian produk, dan melakukan pemesanan melalui alur yang sesuai kebutuhan bisnis. Integrasi pembayaran, pengiriman, dan pengelolaan stok dibahas sejak awal proyek.',
-    related: [{href:'/portfolio/',label:'Lihat portofolio e-commerce'}, {href:'/harga/',label:'Bandingkan biaya toko online'}, {href:'/artikel/website-fashion-size-chart-stok-preorder/',label:'Panduan fitur toko online fashion'}]
+    related: [{href:'/portfolio/',label:'Lihat portofolio e-commerce'}, {href:'/harga/',label:'Bandingkan biaya toko online'}, {href:'/artikel/website-fashion-size-chart-stok-preorder/',label:'Panduan fitur toko online fashion'}, {href:'/kontak/',label:'Minta penawaran toko online'}]
   },
   portfolio: {
     title: 'Jasa Website Portofolio dan Personal Brand',
