@@ -367,5 +367,21 @@
       "published_url": null,
       "recheck_after": "2026-11-18"
     }
-  ]
+  ],
+  "audit_2026_11_17_1334_wib": {
+    "checked_at": "2026-11-17T13:34:27+07:00",
+    "cms_project": "kdlrobdzlxpjlkxbvzsd",
+    "cms_published_total": 50,
+    "cms_published_today_wib": 0,
+    "cms_scheduled": 0,
+    "repository_tree_complete": true,
+    "repository_tree_sha": "c24dfbad5d502e34c23678af35fd1df5f0679083",
+    "static_modules_checked": 9,
+    "static_modules_with_publication_date_2026_11_16_or_17": 0,
+    "build_output_verified": false,
+    "live_urls_verified": false,
+    "images_verified": 0,
+    "publication_action": "none",
+    "notes": "Pemeriksaan tanggal di modul editorial statis dan query CMS; belum merupakan audit hasil build lengkap. Tidak menganggap artikel terbit tanpa URL live."
+  }
 }
