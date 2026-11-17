@@ -383,5 +383,19 @@
     "images_verified": 0,
     "publication_action": "none",
     "notes": "Pemeriksaan tanggal di modul editorial statis dan query CMS; belum merupakan audit hasil build lengkap. Tidak menganggap artikel terbit tanpa URL live."
+  },
+  "audit_2026_11_17_1429_wib": {
+    "checked_at": "2026-11-17T14:29:52+07:00",
+    "repository_head": "ea9abdd22f3d43e4953582220fdb828c91cc54a5",
+    "latest_checked_pages_run_id": 44021851127,
+    "latest_checked_pages_run_status": "success",
+    "latest_checked_pages_run_head": "c24dfbad5d502e34c23678af35fd1df5f0679083",
+    "pages_run_created_at_utc": "2026-11-17T05:07:27Z",
+    "finding": "The inspected successful scheduled Pages deployment predates the latest research-only commit. It does not prove any new article or cover was deployed.",
+    "cms_rechecked_this_run": false,
+    "article_quota_today_verified": false,
+    "images_verified_this_run": 0,
+    "new_article_publications_verified_this_run": 0,
+    "action": "research audit only; no editorial content or production changes"
   }
 }
