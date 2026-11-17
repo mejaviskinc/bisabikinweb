@@ -2,7 +2,7 @@
   "research_date": "2026-11-17",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-17T00:29:22+07:00",
-  "method_note": "Pemantauan awal 15 klaster pada pergantian tanggal WIB. Lima klaster memiliki sumber primer historis; sepuluh belum memiliki sumber spesifik terverifikasi pada putaran ini. Tidak ada perkembangan 24–72 jam yang diklaim. Audit gabungan CMS, deduplikasi dan gambar belum tuntas; tidak ada klaim publikasi. Pemantauan pukul 03.34 WIB menambah sumber resmi 13 November pada klaster Peluang Usaha; bukan perkembangan 72 jam. Tidak ada klaim publikasi.",
+  "method_note": "Pemantauan awal 15 klaster pada pergantian tanggal WIB. Lima klaster memiliki sumber primer historis; sepuluh belum memiliki sumber spesifik terverifikasi pada putaran ini. Tidak ada perkembangan 24–72 jam yang diklaim. Audit gabungan CMS, deduplikasi dan gambar belum tuntas; tidak ada klaim publikasi. Pemantauan pukul 03.34 WIB menambah sumber resmi 13 November pada klaster Peluang Usaha; bukan perkembangan 72 jam. Tidak ada klaim publikasi. Pemantauan malam 22.33 WIB menemukan rilis Kemendag 17 November; PO dan potensi transaksi dicatat terpisah. Audit CMS langsung menunjukkan tidak ada artikel published bertanggal 17 November (CMS saja).",
   "entries": [
     {
       "id": "cluster-1-2026-11-17",
@@ -199,16 +199,22 @@
       "id": "cluster-9-2026-11-17",
       "category": "Peluang Usaha",
       "topic": "Panduan menyiapkan profil usaha dan katalog untuk program business matching ekspor",
-      "summary": "Kemendag pada 13 November 2026 menjelaskan pendampingan UMKM BISA Ekspor, termasuk identifikasi produk, pertemuan calon buyer, presentasi bisnis dan penerjemahan. Rujukan berumur empat hari, bukan pembaruan 72 jam.",
+      "summary": "Kemendag pada 13 November 2026 menjelaskan pendampingan UMKM BISA Ekspor, termasuk identifikasi produk, pertemuan calon buyer, presentasi bisnis dan penerjemahan. Rujukan berumur empat hari, bukan pembaruan 72 jam. Pembaruan resmi 17 November menguraikan PO terpisah dari potensi transaksi.",
       "event_date": "2026-11-13",
-      "source_published_at": "2026-11-13",
-      "researched_at": "2026-11-17T00:29:22+07:00",
+      "source_published_at": "2026-11-17",
+      "researched_at": "2026-11-17T22:33:17+07:00",
       "geography": "Indonesia dan pasar ekspor",
       "facts": [
         {
           "claim": "Kemendag menjelaskan program UMKM BISA Ekspor mencakup identifikasi produk potensial, penjajakan buyer, pendampingan presentasi bisnis, dan penerjemahan.",
           "source_urls": [
             "https://ppid.kemendag.go.id/berita/2026-11-13-mendag-busan-pastikan-keterbukaan-informasi-publik-dalam-tiga-program-kemendag"
+          ]
+        },
+        {
+          "claim": "Kemendag pada 17 November 2026 melaporkan nilai business matching Januari–Oktober 2026 USD 361,61 juta, terdiri atas PO USD 76,38 juta dan potensi transaksi USD 285,23 juta; potensi bukan transaksi terealisasi.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha"
           ]
         }
       ],
@@ -217,11 +223,16 @@
           "url": "https://ppid.kemendag.go.id/berita/2026-11-13-mendag-busan-pastikan-keterbukaan-informasi-publik-dalam-tiga-program-kemendag",
           "publisher": "PPID Kementerian Perdagangan",
           "accessed_at": "2026-11-17T03:34:51+07:00"
+        },
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-17T22:33:17+07:00"
         }
       ],
-      "practical_impact": "UMKM dapat menyiapkan katalog produk, kapasitas produksi, dan profil bisnis sebelum mengikuti pendampingan; angka transaksi program tidak otomatis berarti seluruhnya realisasi penjualan.",
+      "practical_impact": "UMKM dapat menyiapkan katalog produk, kapasitas produksi, dan profil bisnis sebelum mengikuti pendampingan; angka transaksi program tidak otomatis berarti seluruhnya realisasi penjualan. Pisahkan pesanan yang sudah tercatat dari peluang yang masih perlu ditindaklanjuti dalam proyeksi penjualan.",
       "content_angle": "Checklist profil perusahaan dan katalog ekspor sebelum business matching",
-      "keyword_intent": "persiapan business matching ekspor UMKM | informasional dan checklist",
+      "keyword_intent": "persiapan business matching ekspor UMKM dan follow up buyer | panduan informasional",
       "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
