@@ -267,21 +267,34 @@
     {
       "id": "cluster-14-2026-11-19",
       "category": "Seafood & Perikanan",
-      "topic": "Pemantauan awal Seafood & Perikanan",
-      "summary": "Belum ada perubahan sektoral 24–72 jam yang diverifikasi dalam pemeriksaan terbatas ini; tidak berarti tidak ada perkembangan.",
-      "event_date": null,
-      "source_published_at": null,
-      "researched_at": "2026-11-19T00:34:00+07:00",
-      "geography": "Indonesia dan pasar ekspor",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Perlu verifikasi sumber primer dan audit duplikasi sebelum publikasi.",
-      "content_angle": "Riset evergreen berdasarkan kebutuhan pembaca setelah audit artikel lama",
-      "keyword_intent": "belum ditetapkan | perlu riset",
-      "editorial_status": "needs_verification",
+      "topic": "Sertifikasi mutu dan kesiapan katalog ekspor perikanan",
+      "summary": "KKP pada 20 September 2026 menjelaskan penggunaan Sertifikat Mutu dan Keamanan Hasil Perikanan (SMKHP) dalam ekspor lintas perbatasan NTT–Timor Leste dan Kalimantan Barat–Malaysia. Ini rujukan historis, bukan perkembangan 72 jam terakhir.",
+      "event_date": "2026-09-20",
+      "source_published_at": "2026-09-20",
+      "researched_at": "2026-11-19T04:34:21+07:00",
+      "geography": "Indonesia, Timor Leste, Malaysia",
+      "facts": [
+        {
+          "claim": "KKP menjelaskan SMKHP sebagai dokumen penjamin mutu bagi produk perikanan dalam konteks perdagangan perbatasan NTT–Timor Leste dan Kalimantan Barat–Malaysia.",
+          "source_urls": [
+            "https://www.kkp.go.id/news/news-detail/sertifikat-mutu-kkp-dorong-peningkatan-ekspor-perikanan-di-wilayah-perbatasan-l23g.html"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kkp.go.id/news/news-detail/sertifikat-mutu-kkp-dorong-peningkatan-ekspor-perikanan-di-wilayah-perbatasan-l23g.html",
+          "publisher": "Kementerian Kelautan dan Perikanan RI",
+          "accessed_at": "2026-11-19T04:34:21+07:00"
+        }
+      ],
+      "practical_impact": "Eksportir ikan perlu memastikan standar mutu, ketertelusuran produk, persyaratan otoritas tujuan, dan dokumen yang berlaku untuk komoditas serta rute tertentu.",
+      "content_angle": "Checklist dokumen dan spesifikasi katalog produk perikanan ekspor untuk buyer, termasuk cara memeriksa persyaratan SMKHP per tujuan",
+      "keyword_intent": "dokumen ekspor ikan untuk UMKM | informational",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-20"
+      "recheck_after": "2026-11-26"
     },
     {
       "id": "cluster-15-2026-11-19",
@@ -314,6 +327,12 @@
       "static_repository_audit": "incomplete",
       "image_and_deployment_status": "not verified",
       "note": "No publication performed; continue full deduplication before producing articles."
+    }
+  ],
+  "audit_notes": [
+    {
+      "at": "2026-11-19T04:34:21+07:00",
+      "note": "Rujukan historis KKP ditambahkan pada klaster Seafood & Perikanan. Persyaratan terkini menurut HS code/negara tujuan belum diverifikasi; belum ada publikasi atau gambar."
     }
   ]
 }
