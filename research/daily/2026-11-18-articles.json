@@ -361,5 +361,18 @@
     ],
     "scope": "CMS only; static articles and live pages not exhaustively counted",
     "publication_status": "No new article verified live; do not infer full daily quota from CMS count"
-  }
+  },
+  "execution_checks": [
+    {
+      "checked_at": "2026-11-18T17:30:20+07:00",
+      "cms_published_total": 50,
+      "cms_published_today_wib": 0,
+      "cms_source": "Supabase public.bbweb_articles direct SQL, published active",
+      "repository_review": "editorial-posts.mjs scanned: no 2026-11-18 date literal; imported static modules not exhaustively verified in this run",
+      "news_archive_today": "research/daily/2026-11-18-news.json not found",
+      "research_update": "No new independently verified sector finding; prior 15 clusters retained",
+      "publishing_status": "No article, image, schedule, build, deploy or live URL verified in this run",
+      "remaining": "Complete static article and CMS slug/topic deduplication, covers, QA and per-post scheduling validation"
+    }
+  ]
 }
