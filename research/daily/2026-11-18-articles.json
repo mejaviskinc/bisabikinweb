@@ -2,7 +2,7 @@
   "research_date": "2026-11-18",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-18T00:34:51+07:00",
-  "method_note": "Putaran pertama tanggal WIB. Meninjau 15 klaster dan arsip 17 November; satu sumber primer terbaru 17 November dikonfirmasi ulang, 14 klaster belum memiliki temuan sektoral baru terverifikasi. Tidak mengklaim pemeriksaan menyeluruh setiap sektor. Audit CMS/build dan gambar belum selesai; tidak ada artikel live yang diklaim. Temuan business matching juga telah dicatat tanggal sebelumnya, tidak dihitung sebagai peristiwa baru. Pemantauan pukul 03.34 WIB: sumber primer Kemendag 17 November tentang JFEX ditemukan dan klaster Rempah diperbarui; belum memverifikasi persyaratan impor Jepang. Pemantauan 15.34 WIB: sumber primer BPS 1 Oktober 2026 untuk konteks historis tren ekspor diverifikasi dan klaster Tren & Analisis Pasar diperkaya; bukan perkembangan 72 jam dan bukan artikel terbit. Pemantauan 19.34 WIB: sumber resmi Ditjen PEN bertanggal 27 Oktober tentang rute ekspor e-commerce menambah konteks klaster Logistik, bukan perubahan 72 jam; belum ada artikel/gambar live baru terverifikasi.",
+  "method_note": "Putaran pertama tanggal WIB. Meninjau 15 klaster dan arsip 17 November; satu sumber primer terbaru 17 November dikonfirmasi ulang, 14 klaster belum memiliki temuan sektoral baru terverifikasi. Tidak mengklaim pemeriksaan menyeluruh setiap sektor. Audit CMS/build dan gambar belum selesai; tidak ada artikel live yang diklaim. Temuan business matching juga telah dicatat tanggal sebelumnya, tidak dihitung sebagai peristiwa baru. Pemantauan pukul 03.34 WIB: sumber primer Kemendag 17 November tentang JFEX ditemukan dan klaster Rempah diperbarui; belum memverifikasi persyaratan impor Jepang. Pemantauan 15.34 WIB: sumber primer BPS 1 Oktober 2026 untuk konteks historis tren ekspor diverifikasi dan klaster Tren & Analisis Pasar diperkaya; bukan perkembangan 72 jam dan bukan artikel terbit. Pemantauan 19.34 WIB: sumber resmi Ditjen PEN bertanggal 27 Oktober tentang rute ekspor e-commerce menambah konteks klaster Logistik, bukan perubahan 72 jam; belum ada artikel/gambar live baru terverifikasi. Pemantauan 20.25 WIB: konteks historis Kemendag 15 April tentang minat buyer furnitur dicatat untuk ide katalog B2B, tanpa klaim perkembangan 72 jam.",
   "entries": [
     {
       "id": "cluster-1-2026-11-18",
@@ -45,21 +45,34 @@
     {
       "id": "cluster-3-2026-11-18",
       "category": "Furniture & Kayu",
-      "topic": "Pemantauan awal Furniture & Kayu",
-      "summary": "Belum ada perkembangan spesifik 24–72 jam yang berhasil diverifikasi dalam pemeriksaan awal terbatas; bukan berarti tidak ada perkembangan.",
-      "event_date": null,
-      "source_published_at": null,
-      "researched_at": "2026-11-18T00:34:51+07:00",
+      "topic": "Persiapan katalog dan kapasitas produksi furnitur untuk buyer ekspor",
+      "summary": "Siaran pers Kemendag 15 April 2026 menyebut furnitur dan dekorasi rumah termasuk sektor yang diminati buyer dalam program UMKM BISA Ekspor. Ini konteks historis, bukan perkembangan 24–72 jam atau bukti permintaan untuk semua jenis furnitur.",
+      "event_date": "2026-04-15",
+      "source_published_at": "2026-04-15",
+      "researched_at": "2026-11-18T20:25:19+07:00",
       "geography": "Indonesia dan pasar ekspor",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Perlu sumber sektoral terverifikasi sebelum memberikan rekomendasi spesifik.",
-      "content_angle": "Menunggu sumber primer dan audit duplikasi CMS/repository",
-      "keyword_intent": "belum ditetapkan | perlu riset",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "Kemendag menyebut dekorasi rumah dan furnitur termasuk sektor yang diminati buyer dalam program UMKM BISA Ekspor triwulan I 2026.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/umkm-bisa-ekspor-semakin-efektif-capaian-triwulan-i-2026-tembus-usd-2360-juta"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/umkm-bisa-ekspor-semakin-efektif-capaian-triwulan-i-2026-tembus-usd-2360-juta",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-18T20:25:19+07:00"
+        }
+      ],
+      "practical_impact": "Produsen furnitur perlu menyiapkan spesifikasi material, ukuran, kapasitas, lead time, foto produk dan dokumen legalitas kayu sesuai produk serta pasar tujuan; persyaratan spesifik belum diverifikasi.",
+      "content_angle": "Checklist katalog B2B furnitur ekspor: spesifikasi, MOQ, kapasitas, sampel, dokumentasi bahan dan kesiapan buyer",
+      "keyword_intent": "cara membuat katalog furnitur ekspor untuk buyer | informational",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-19"
+      "recheck_after": "2026-11-25"
     },
     {
       "id": "cluster-4-2026-11-18",
