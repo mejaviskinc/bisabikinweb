@@ -302,5 +302,18 @@
       "published_url": null,
       "recheck_after": "2026-11-20"
     }
+  ],
+  "audit_updates": [
+    {
+      "id": "cms-count-2026-11-19-0133",
+      "checked_at": "2026-11-19T01:33:32+07:00",
+      "source": "Supabase project kdlrobdzlxpjlkxbvzsd, public.bbweb_articles, direct SQL read",
+      "published_active_total": 50,
+      "published_active_today_wib": 0,
+      "scope": "CMS only; excludes repository static articles, other publication tables and news",
+      "static_repository_audit": "incomplete",
+      "image_and_deployment_status": "not verified",
+      "note": "No publication performed; continue full deduplication before producing articles."
+    }
   ]
 }
