@@ -335,5 +335,18 @@
     "verified_new_live_articles": 0,
     "images_verified": 0,
     "per_post_scheduling_verified": false
+  },
+  "cms_audit": {
+    "checked_at": "2026-11-18T10:26:00+07:00",
+    "project": "kdlrobdzlxpjlkxbvzsd",
+    "table": "public.bbweb_articles",
+    "published_active_total": 50,
+    "published_active_today_wib": 0,
+    "day_window_utc": [
+      "2026-11-17T17:00:00Z",
+      "2026-11-18T17:00:00Z"
+    ],
+    "scope": "CMS only; static articles and live pages not exhaustively counted",
+    "publication_status": "No new article verified live; do not infer full daily quota from CMS count"
   }
 }
