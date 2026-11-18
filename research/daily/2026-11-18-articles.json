@@ -2,7 +2,7 @@
   "research_date": "2026-11-18",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-18T00:34:51+07:00",
-  "method_note": "Putaran pertama tanggal WIB. Meninjau 15 klaster dan arsip 17 November; satu sumber primer terbaru 17 November dikonfirmasi ulang, 14 klaster belum memiliki temuan sektoral baru terverifikasi. Tidak mengklaim pemeriksaan menyeluruh setiap sektor. Audit CMS/build dan gambar belum selesai; tidak ada artikel live yang diklaim. Temuan business matching juga telah dicatat tanggal sebelumnya, tidak dihitung sebagai peristiwa baru. Pemantauan pukul 03.34 WIB: sumber primer Kemendag 17 November tentang JFEX ditemukan dan klaster Rempah diperbarui; belum memverifikasi persyaratan impor Jepang. Pemantauan 15.34 WIB: sumber primer BPS 1 Oktober 2026 untuk konteks historis tren ekspor diverifikasi dan klaster Tren & Analisis Pasar diperkaya; bukan perkembangan 72 jam dan bukan artikel terbit.",
+  "method_note": "Putaran pertama tanggal WIB. Meninjau 15 klaster dan arsip 17 November; satu sumber primer terbaru 17 November dikonfirmasi ulang, 14 klaster belum memiliki temuan sektoral baru terverifikasi. Tidak mengklaim pemeriksaan menyeluruh setiap sektor. Audit CMS/build dan gambar belum selesai; tidak ada artikel live yang diklaim. Temuan business matching juga telah dicatat tanggal sebelumnya, tidak dihitung sebagai peristiwa baru. Pemantauan pukul 03.34 WIB: sumber primer Kemendag 17 November tentang JFEX ditemukan dan klaster Rempah diperbarui; belum memverifikasi persyaratan impor Jepang. Pemantauan 15.34 WIB: sumber primer BPS 1 Oktober 2026 untuk konteks historis tren ekspor diverifikasi dan klaster Tren & Analisis Pasar diperkaya; bukan perkembangan 72 jam dan bukan artikel terbit. Pemantauan 19.34 WIB: sumber resmi Ditjen PEN bertanggal 27 Oktober tentang rute ekspor e-commerce menambah konteks klaster Logistik, bukan perubahan 72 jam; belum ada artikel/gambar live baru terverifikasi.",
   "entries": [
     {
       "id": "cluster-1-2026-11-18",
@@ -121,21 +121,34 @@
     {
       "id": "cluster-7-2026-11-18",
       "category": "Logistik & Pengiriman",
-      "topic": "Pemantauan awal Logistik & Pengiriman",
-      "summary": "Belum ada perkembangan spesifik 24–72 jam yang berhasil diverifikasi dalam pemeriksaan awal terbatas; bukan berarti tidak ada perkembangan.",
-      "event_date": null,
-      "source_published_at": null,
-      "researched_at": "2026-11-18T00:34:51+07:00",
+      "topic": "Kesiapan logistik lintas negara untuk UMKM e-commerce",
+      "summary": "Ditjen PEN Kemendag melaporkan peluncuran program Jalan Global Kreasi Lokal pada 27 Oktober 2026, termasuk rute ekspor ke Filipina, Singapura, Thailand, dan Vietnam melalui kolaborasi platform dan mitra logistik. Ini konteks historis, bukan kabar baru 72 jam.",
+      "event_date": "2026-10-27",
+      "source_published_at": "2026-10-27",
+      "researched_at": "2026-11-18T19:34:26+07:00",
       "geography": "Indonesia dan pasar ekspor",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Perlu sumber sektoral terverifikasi sebelum memberikan rekomendasi spesifik.",
-      "content_angle": "Menunggu sumber primer dan audit duplikasi CMS/repository",
-      "keyword_intent": "belum ditetapkan | perlu riset",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "Program diumumkan 27 Oktober 2026 dan mencakup rute ekspor ke Filipina, Singapura, Thailand, Vietnam, bersama mitra logistik Anteraja dan JNE.",
+          "source_urls": [
+            "https://ditjenpen.kemendag.go.id/berita/kemendag-dan-shopee-indonesia-luncurkan-program-jalan-global-kreasi-lokal-untuk-perluas-akses-ekspor-umkm"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://ditjenpen.kemendag.go.id/berita/kemendag-dan-shopee-indonesia-luncurkan-program-jalan-global-kreasi-lokal-untuk-perluas-akses-ekspor-umkm",
+          "publisher": "Ditjen Pengembangan Ekspor Nasional, Kemendag",
+          "accessed_at": "2026-11-18T19:34:26+07:00"
+        }
+      ],
+      "practical_impact": "UMKM perlu menilai kelayakan kemasan, biaya kirim, SLA, retur, kepatuhan produk dan persyaratan pasar tujuan sebelum memilih kanal lintas negara.",
+      "content_angle": "Panduan memilih layanan logistik ekspor untuk UMKM: matriks biaya, waktu, dokumen, risiko retur dan uji pesanan",
+      "keyword_intent": "cara memilih logistik ekspor UMKM | informational/commercial investigation",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-19"
+      "recheck_after": "2026-11-25"
     },
     {
       "id": "cluster-8-2026-11-18",
