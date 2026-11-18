@@ -2,7 +2,7 @@
   "research_date": "2026-11-18",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-18T00:34:51+07:00",
-  "method_note": "Putaran pertama tanggal WIB. Meninjau 15 klaster dan arsip 17 November; satu sumber primer terbaru 17 November dikonfirmasi ulang, 14 klaster belum memiliki temuan sektoral baru terverifikasi. Tidak mengklaim pemeriksaan menyeluruh setiap sektor. Audit CMS/build dan gambar belum selesai; tidak ada artikel live yang diklaim. Temuan business matching juga telah dicatat tanggal sebelumnya, tidak dihitung sebagai peristiwa baru. Pemantauan pukul 03.34 WIB: sumber primer Kemendag 17 November tentang JFEX ditemukan dan klaster Rempah diperbarui; belum memverifikasi persyaratan impor Jepang.",
+  "method_note": "Putaran pertama tanggal WIB. Meninjau 15 klaster dan arsip 17 November; satu sumber primer terbaru 17 November dikonfirmasi ulang, 14 klaster belum memiliki temuan sektoral baru terverifikasi. Tidak mengklaim pemeriksaan menyeluruh setiap sektor. Audit CMS/build dan gambar belum selesai; tidak ada artikel live yang diklaim. Temuan business matching juga telah dicatat tanggal sebelumnya, tidak dihitung sebagai peristiwa baru. Pemantauan pukul 03.34 WIB: sumber primer Kemendag 17 November tentang JFEX ditemukan dan klaster Rempah diperbarui; belum memverifikasi persyaratan impor Jepang. Pemantauan 15.34 WIB: sumber primer BPS 1 Oktober 2026 untuk konteks historis tren ekspor diverifikasi dan klaster Tren & Analisis Pasar diperkaya; bukan perkembangan 72 jam dan bukan artikel terbit.",
   "entries": [
     {
       "id": "cluster-1-2026-11-18",
@@ -299,18 +299,31 @@
     {
       "id": "cluster-15-2026-11-18",
       "category": "Tren & Analisis Pasar",
-      "topic": "Pemantauan awal Tren & Analisis Pasar",
-      "summary": "Belum ada perkembangan spesifik 24–72 jam yang berhasil diverifikasi dalam pemeriksaan awal terbatas; bukan berarti tidak ada perkembangan.",
+      "topic": "Membaca tren ekspor melalui data BPS tanpa mencampur nilai FOB dan peluang transaksi",
+      "summary": "BPS merilis data ekspor Agustus 2026 pada 1 Oktober 2026. Ini konteks historis, bukan perkembangan baru 24–72 jam. Nilai ekspor Januari–Agustus 2026 US$193,64 miliar dan Agustus US$26,61 miliar; bandingkan periode dan definisi sebelum menarik kesimpulan.",
       "event_date": null,
-      "source_published_at": null,
-      "researched_at": "2026-11-18T00:34:51+07:00",
+      "source_published_at": "2026-10-01",
+      "researched_at": "2026-11-18T15:34:38+07:00",
       "geography": "Indonesia dan pasar ekspor",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Perlu sumber sektoral terverifikasi sebelum memberikan rekomendasi spesifik.",
-      "content_angle": "Menunggu sumber primer dan audit duplikasi CMS/repository",
-      "keyword_intent": "belum ditetapkan | perlu riset",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "BPS melaporkan ekspor Januari–Agustus 2026 US$193,64 miliar dan ekspor Agustus 2026 US$26,61 miliar; data historis dirilis 1 Oktober 2026.",
+          "source_urls": [
+            "https://www.bps.go.id/id/pressrelease/2026/10/01/2621/ekspor-dan-impor-indonesia-agustus-2026-masing-masing-tercatat-usd-26-61-miliar-dan-usd-23-06-miliar.html"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.bps.go.id/id/pressrelease/2026/10/01/2621/ekspor-dan-impor-indonesia-agustus-2026-masing-masing-tercatat-usd-26-61-miliar-dan-usd-23-06-miliar.html",
+          "publisher": "Badan Pusat Statistik",
+          "accessed_at": "2026-11-18T15:34:38+07:00"
+        }
+      ],
+      "practical_impact": "UMKM perlu membedakan nilai ekspor terealisasi, purchase order, dan potensi transaksi ketika menilai peluang pasar; data agregat tidak membuktikan permintaan untuk produk tertentu.",
+      "content_angle": "Panduan membaca statistik ekspor BPS untuk memilih pasar: bandingkan periode, klasifikasi komoditas, negara tujuan, dan validasi permintaan buyer sebelum investasi.",
+      "keyword_intent": "cara membaca data ekspor BPS untuk UMKM | informational",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-19"
