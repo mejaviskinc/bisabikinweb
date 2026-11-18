@@ -225,7 +225,7 @@ for(const target of sitelinkTargets){
  assert.match(html,/<meta name="robots" content="index,follow/,'Sitelink destination must be indexable: '+route);
  assert.equal(first(html,/<link rel="canonical" href="([^"]+)"/),url,'Sitelink destination needs self-canonical: '+route);
 }
-console.log('Sitelink navigation verified: nine crawlable homepage and footer destinations with indexable pages.');
+console.log('Sitelink navigation verified: ten crawlable homepage and footer destinations with indexable pages.');
 
 
 // Commercial SEO and on-page bilingual QA.
@@ -260,7 +260,8 @@ for(const [slug,seo] of Object.entries(serviceSeoById)){
  const title=first(html,/<title>([^<]+)<\/title>/);
  const description=first(html,/<meta name="description" content="([^"]+)"/);
  const service=scripts(html).find(schema=>schema['@type']==='Service');
- assert.ok([seo.title+' | BisaBikinWeb Indonesia',seo.title.replaceAll('&','&amp;')].includes(title),route+' must target real buying intent without duplicate brand suffix');
+ const expectedTitle=seo.title.includes('BisaBikinWeb') ? seo.title : seo.title+' | BisaBikinWeb Indonesia';
+ assert.equal(title,expectedTitle.replaceAll('&','&amp;'),route+' must target real buying intent without duplicate brand suffix');
  assert.ok(description.startsWith(seo.description.slice(0,80)),route+' needs a service-specific summary');
  assert.equal(first(html,/<link rel="canonical" href="([^"]+)"/),url,route+' canonical mismatch');
  assert.ok(indexedLocations.has(url),route+' is missing from the public sitemap');
