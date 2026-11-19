@@ -406,5 +406,54 @@
       "published_url": null,
       "recheck_after": "2026-11-21"
     }
-  ]
+  ],
+  "cms_checked_at": "2026-11-20T02:07:18+07:00",
+  "cms_publications": [
+    {
+      "article_id": "form-rfq-website-ekspor-kolom-validasi-dan-alur-follow-up",
+      "category": "Digitalisasi & Website",
+      "cms_status": "published",
+      "is_active": true,
+      "published_date_wib": "2026-11-20",
+      "url_candidate": "https://bisabikinweb.site/artikel/form-rfq-website-ekspor-kolom-validasi-dan-alur-follow-up/",
+      "live_verified": false
+    },
+    {
+      "article_id": "spesifikasi-cocopeat-untuk-buyer-internasional-katalog-dan-uji",
+      "category": "Kelapa & Turunannya",
+      "cms_status": "published",
+      "is_active": true,
+      "published_date_wib": "2026-11-20",
+      "url_candidate": "https://bisabikinweb.site/artikel/spesifikasi-cocopeat-untuk-buyer-internasional-katalog-dan-uji/",
+      "live_verified": false
+    },
+    {
+      "article_id": "dokumentasi-packing-ekspor-foto-label-dan-packing-list",
+      "category": "Logistik & Pengiriman",
+      "cms_status": "published",
+      "is_active": true,
+      "published_date_wib": "2026-11-20",
+      "url_candidate": "https://bisabikinweb.site/artikel/dokumentasi-packing-ekspor-foto-label-dan-packing-list/",
+      "live_verified": false
+    },
+    {
+      "article_id": "matriks-risiko-ekspor-umkm-dari-penilaian-ke-tindakan",
+      "category": "Manajemen Risiko",
+      "cms_status": "published",
+      "is_active": true,
+      "published_date_wib": "2026-11-20",
+      "url_candidate": "https://bisabikinweb.site/artikel/matriks-risiko-ekspor-umkm-dari-penilaian-ke-tindakan/",
+      "live_verified": false
+    },
+    {
+      "article_id": "halaman-produk-furnitur-b2b-dimensi-finishing-dan-lead-time",
+      "category": "Furniture & Kayu",
+      "cms_status": "published",
+      "is_active": true,
+      "published_date_wib": "2026-11-20",
+      "url_candidate": "https://bisabikinweb.site/artikel/halaman-produk-furnitur-b2b-dimensi-finishing-dan-lead-time/",
+      "live_verified": false
+    }
+  ],
+  "cms_publication_note": "Lima artikel telah dibaca balik di bbweb_articles sebagai published/is_active 20 Nov 2026 WIB; GitHub Pages rebuild dipicu melalui static-source/lib/published-20261120.mjs. Verifikasi deploy, HTTP URL, gambar, canonical dan schema di situs masih diperlukan sebelum status live."
 }
