@@ -6,7 +6,7 @@ export const serviceSeoById = Object.freeze({
     description: 'Jasa pembuatan landing page untuk promosi produk, kampanye dan lead bisnis. Lihat fitur, contoh kebutuhan, proses kerja, serta estimasi biaya di BisaBikinWeb.',
     heading: 'Jasa Pembuatan Landing Page',
     introduction: 'Landing page dibuat untuk satu tujuan yang jelas, misalnya konsultasi lewat WhatsApp, permintaan penawaran, atau pendaftaran. Kami membantu menyusun pesan, bagian manfaat, dan tombol aksi agar calon pelanggan mudah mengambil langkah berikutnya.',
-    related: [{href:'/harga/',label:'Bandingkan harga landing page'}, {href:'/portfolio/',label:'Lihat contoh proyek website'}, {href:'/kontak/',label:'Diskusikan target kampanye'}]
+    related: [{href:'/harga/',label:'Bandingkan harga landing page'}, {href:'/portfolio/',label:'Lihat contoh proyek website'}, {href:'/harga/',label:'Bandingkan biaya pembuatan landing page'}, {href:'/kontak/',label:'Minta penawaran landing page'}]
   },
   'company-profile': {
     title: 'Jasa Website Company Profile Perusahaan',
