@@ -562,3 +562,114 @@
     transition:none !important;
   }
 }
+
+/* Mobile-first homepage declutter | 2026-11-20 */
+/* These rules only target the main homepage on phones; internal pages and desktop stay unchanged. */
+@media (max-width:650px) {
+  body:has(.bbw-conversion-hero) .site-header .nav-actions .search-toggle {display:none}
+  body:has(.bbw-conversion-hero) .site-header .nav-actions {gap:3px}
+  body:has(.bbw-conversion-hero) .site-header .brand-logo {width:clamp(126px,35vw,158px)}
+  body:has(.bbw-conversion-hero) .mobile-menu-links a,
+  body:has(.bbw-conversion-hero) .mobile-menu .mobile-menu-group>summary {
+    min-height:45px;font-size:18px;line-height:1.35
+  }
+  body:has(.bbw-conversion-hero) .mobile-menu .mobile-menu-extra {margin-top:13px;padding-top:14px}
+
+  .bbw-conversion-hero {padding:21px 16px 0;background:none}
+  .bbw-conversion-hero .hero-top {margin-bottom:15px}
+  .bbw-conversion-hero .hero-top .eyebrow {font-size:8px;letter-spacing:.05em;line-height:1.5;margin:0}
+  .bbw-conversion-hero .hero-layout {min-height:0;gap:16px}
+  .bbw-conversion-hero .bbw-hero-price {padding:7px 10px;margin-bottom:13px;font-size:10px}
+  .bbw-conversion-hero h1.bbw-hero-primary-title {
+    max-width:580px;font-size:clamp(30px,8.6vw,42px);
+    line-height:1.1;letter-spacing:-.048em;margin-bottom:12px
+  }
+  .bbw-conversion-hero .bbw-hero-primary-description {font-size:12px;line-height:1.65;max-width:460px}
+  .bbw-conversion-hero .hero-actions {display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:9px;margin-top:18px}
+  .bbw-conversion-hero .hero-actions .btn {min-height:48px;padding:10px 8px;font-size:10px;gap:6px;line-height:1.3;overflow-wrap:anywhere}
+  .bbw-conversion-hero .hero-actions .btn svg {width:15px;height:15px}
+  .bbw-hero-portfolio {margin-top:12px;font-size:11px;line-height:1.5}
+  .bbw-conversion-hero .bbw-trust-list {margin-top:14px;gap:6px 12px}
+  .bbw-conversion-hero .bbw-trust-list li {font-size:10px}
+  /* The 5-slide explainer repeats the cards below and overwhelms the first screen on mobile. */
+  .bbw-conversion-hero .bbw-hero-mini-slider {display:none}
+  .bbw-conversion-hero .hero-showcase.hero-dummy-photo {height:215px;min-height:0;border-radius:14px}
+  .bbw-conversion-hero .hero-dummy-photo .hero-dummy-photo-caption {bottom:11px;left:11px;right:11px;padding:9px 11px;font-size:8px}
+  .bbw-conversion-hero .bbw-photo-proof,
+  .bbw-conversion-hero .hero-bottom {display:none}
+
+  /* A compact 3-step strip replaces the tall stacked explainer. */
+  .bbw-fast-path {grid-template-columns:repeat(3,minmax(0,1fr));gap:8px;padding:12px 16px}
+  .bbw-fast-step {flex-direction:column;align-items:center;justify-content:start;gap:7px;text-align:center}
+  .bbw-fast-step>span {width:26px;height:26px;flex-basis:26px;border-radius:8px;font-size:10px}
+  .bbw-fast-step strong {font-size:10px;line-height:1.3}
+  .bbw-fast-step small,
+  .bbw-fast-path>a {display:none}
+
+  main:has(> .bbw-conversion-hero) > .section {padding:43px 16px}
+  main:has(> .bbw-conversion-hero) .section-heading {margin-bottom:21px}
+  main:has(> .bbw-conversion-hero) .section-heading h2 {font-size:clamp(26px,7.2vw,33px);line-height:1.15}
+  main:has(> .bbw-conversion-hero) .section-heading p {margin-top:10px;font-size:12px;line-height:1.6}
+  main:has(> .bbw-conversion-hero) .section-heading .text-link {margin-top:13px}
+
+  .bbw-shortcuts {padding-top:36px;padding-bottom:34px}
+  .bbw-shortcuts-intro h2 {font-size:clamp(26px,7vw,34px);line-height:1.15}
+  .bbw-shortcuts-intro p {font-size:12px;line-height:1.6;margin-top:11px}
+  .bbw-shortcut-grid:has(.bbw-shortcut-all-in-one) {grid-template-columns:repeat(2,minmax(0,1fr));gap:10px;margin-top:20px}
+  .bbw-shortcut {min-height:148px;padding:14px 12px;border-radius:13px}
+  .bbw-shortcut svg {width:21px;height:21px;margin-bottom:12px}
+  .bbw-shortcut strong {font-size:15px;line-height:1.3}
+  .bbw-shortcut p {font-size:11px;line-height:1.45;margin:7px 0 8px;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+  .bbw-shortcut>span {font-size:10px;gap:4px}
+  .bbw-shortcut>span svg {width:12px;height:12px;margin:0}
+  .bbw-shortcut-all-in-one>b {font-size:10px;margin:0 0 7px}
+
+  /* Horizontal, snap-scrolling pricing: no pile of three full-length cards. */
+  .bbw-pricing-early .pricing-toggle {display:flex;max-width:100%;gap:7px;margin-bottom:18px}
+  .bbw-pricing-early .pricing-toggle button {min-width:0;flex:1 1 0;padding:10px 8px;font-size:11px}
+  .bbw-pricing-early .pricing-grid {
+    display:flex;gap:12px;overflow-x:auto;overscroll-behavior-x:contain;
+    scroll-snap-type:x mandatory;scroll-padding-inline:16px;
+    margin-inline:-16px;padding:0 16px 18px;scrollbar-width:thin;
+    -webkit-overflow-scrolling:touch
+  }
+  .bbw-pricing-early .pricing-grid>.price-card {
+    flex:0 0 min(82vw,332px);width:min(82vw,332px);min-width:0;
+    min-height:0;padding:21px;border-radius:14px;scroll-snap-align:start;
+    transform:none
+  }
+  .bbw-pricing-early .price-card h3 {font-size:26px}
+  .bbw-pricing-early .price-card>p {margin:14px 0;padding-bottom:14px}
+  .bbw-pricing-early .price-card>.btn {width:100%;min-height:44px;white-space:normal}
+  .bbw-pricing-early .pricing-disclaimer {font-size:10px;line-height:1.65}
+
+  /* Keep core conversion content, but remove secondary/duplicated landing sections on phones. */
+  main:has(> .bbw-conversion-hero) > :is(
+    .sitelink-hub,.industry-section,.stats,.problems,.services-section,
+    .why-section,.merch-section
+  ) {display:none}
+  main:has(> .bbw-conversion-hero) > .section:has(> .beforeafter) {display:none}
+  body:has(.bbw-conversion-hero) .newsletter-section {display:none}
+
+  main:has(> .bbw-conversion-hero) .work-section .portfolio-grid {gap:22px}
+  main:has(> .bbw-conversion-hero) .project-caption {padding:12px 0}
+  main:has(> .bbw-conversion-hero) .project-caption h3 {font-size:19px}
+  main:has(> .bbw-conversion-hero) .process-list>button {min-width:104px;min-height:76px;padding:12px}
+  main:has(> .bbw-conversion-hero) .process-detail {min-height:245px;padding:20px;border-radius:13px}
+  main:has(> .bbw-conversion-hero) .faq-section {gap:18px}
+  main:has(> .bbw-conversion-hero) .faq-list summary {min-height:48px}
+  main:has(> .bbw-conversion-hero) .final-cta {margin:8px 16px 0;padding:28px 20px}
+  main:has(> .bbw-conversion-hero) .final-cta h2 {font-size:clamp(26px,7vw,33px);line-height:1.15}
+  main:has(> .bbw-conversion-hero) .bbw-mobile-close-bar {gap:8px;padding:9px 12px calc(9px + env(safe-area-inset-bottom,0px))}
+  main:has(> .bbw-conversion-hero) .bbw-mobile-close-bar a {min-height:46px;font-size:11px}
+  body:has(.bbw-conversion-hero) .site-footer {padding-bottom:calc(90px + env(safe-area-inset-bottom,0px))}
+}
+@media (max-width:360px) {
+  .bbw-conversion-hero .hero-actions {grid-template-columns:minmax(0,1fr)}
+  .bbw-conversion-hero .hero-actions .btn {min-height:44px;font-size:11px}
+  .bbw-conversion-hero h1.bbw-hero-primary-title {font-size:29px}
+  .bbw-conversion-hero .hero-showcase.hero-dummy-photo {height:180px}
+  .bbw-shortcut-grid:has(.bbw-shortcut-all-in-one) {gap:8px}
+  .bbw-shortcut {padding:12px 10px}
+  .bbw-shortcut strong {font-size:14px}
+}
