@@ -12,6 +12,7 @@ on:
       - 'static-source/lib/city-pages.mjs'
       - 'static-source/lib/service-areas.mjs'
       - 'build-pages.mjs'
+      - 'portfolio-demos/template01/index.html'
       - 'tests/seo-output.test.mjs'
       - 'static-source/lib/editorial-posts.mjs'
       - 'static-source/lib/published-*.mjs'
