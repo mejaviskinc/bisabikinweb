@@ -279,6 +279,12 @@
           "source_urls": [
             "https://www.kkp.go.id/news/news-detail/sertifikat-mutu-kkp-dorong-peningkatan-ekspor-perikanan-di-wilayah-perbatasan-l23g.html"
           ]
+        },
+        {
+          "claim": "KKP pada 30 September 2026 menyatakan produk perikanan UMKM yang sudah mendapat sertifikasi mutu KKP dapat dipromosikan melalui platform InaExport dalam kerja sama KKP dan Kemendag; syarat rinci perlu diperiksa per produk dan pasar.",
+          "source_urls": [
+            "https://www.kkp.go.id/news/news-detail/produk-perikanan-umkm-masuk-inaexport-kkp-kemendag-buka-akses-pasar-global-OP4L.html"
+          ]
         }
       ],
       "sources": [
@@ -286,10 +292,15 @@
           "url": "https://www.kkp.go.id/news/news-detail/sertifikat-mutu-kkp-dorong-peningkatan-ekspor-perikanan-di-wilayah-perbatasan-l23g.html",
           "publisher": "Kementerian Kelautan dan Perikanan RI",
           "accessed_at": "2026-11-19T04:34:21+07:00"
+        },
+        {
+          "url": "https://www.kkp.go.id/news/news-detail/produk-perikanan-umkm-masuk-inaexport-kkp-kemendag-buka-akses-pasar-global-OP4L.html",
+          "publisher": "Kementerian Kelautan dan Perikanan RI",
+          "accessed_at": "2026-11-19T11:25:27+07:00"
         }
       ],
-      "practical_impact": "Eksportir ikan perlu memastikan standar mutu, ketertelusuran produk, persyaratan otoritas tujuan, dan dokumen yang berlaku untuk komoditas serta rute tertentu.",
-      "content_angle": "Checklist dokumen dan spesifikasi katalog produk perikanan ekspor untuk buyer, termasuk cara memeriksa persyaratan SMKHP per tujuan",
+      "practical_impact": "Eksportir ikan perlu memastikan standar mutu, ketertelusuran produk, persyaratan otoritas tujuan, dan dokumen yang berlaku untuk komoditas serta rute tertentu. Katalog buyer dapat disiapkan untuk asesmen InaExport, namun kelayakan dan prosedur terkini harus diperiksa langsung.",
+      "content_angle": "Checklist dokumen dan spesifikasi katalog produk perikanan ekspor untuk buyer, termasuk cara memeriksa persyaratan SMKHP per tujuan; panduan menyiapkan profil pemasok dan data produk untuk InaExport",
       "keyword_intent": "dokumen ekspor ikan untuk UMKM | informational",
       "editorial_status": "verified",
       "content_status": "research_only",
