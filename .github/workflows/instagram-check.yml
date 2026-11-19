@@ -22,7 +22,7 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 3
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Check Instagram publisher without Meta credentials
         run: python3 -m unittest discover -s tests -p test_instagram_autopost.py -v
   check:
@@ -36,6 +36,6 @@ jobs:
       IG_GRAPH_BASE: ${{ vars.IG_GRAPH_BASE || 'https://graph.facebook.com' }}
       IG_GRAPH_VERSION: ${{ vars.IG_GRAPH_VERSION || 'v26.0' }}
     steps:
-      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
       - name: Diagnose Instagram login host and scopes (no publishing)
         run: python3 scripts/instagram_check_connection.py
