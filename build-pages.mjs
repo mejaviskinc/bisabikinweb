@@ -2,6 +2,7 @@ import {createHash} from 'node:crypto';
 import {build} from 'vite';
 import {isNewsArticle,makeNewsSitemap,getFreshNewsArticles} from './static-source/lib/news.mjs';
 import {mergeEditorialPosts} from './static-source/lib/editorial-posts.mjs';
+import {assessEditorialQuality} from './static-source/lib/editorial-quality.mjs';
 import {geoGuideArticles} from './static-source/lib/geo-guides.mjs';
 import {cityLandingPages} from './static-source/lib/city-pages.mjs';
 import {provincePages,localityPages,provinceBySlug,localityByPath} from './static-source/lib/geo-pages.mjs';
@@ -84,7 +85,10 @@ const exportArticle={id:'website-ekspor-bisnis-internasional',title:'Website Eks
 if(!buildArticles.some(article=>article.id===exportArticle.id))buildArticles.unshift(exportArticle);
 
 const buildData={...defaults,articles:buildArticles};
-const freshNewsArticles=getFreshNewsArticles(buildArticles);
+// Automated length/source checks are only a minimum gate; editors still review originality and factual accuracy.
+const editorialReadiness=new Map(buildArticles.map(article=>[article.id,assessEditorialQuality(article)]));
+const editorialIndexReady=article=>editorialReadiness.get(article.id)?.indexReady===true;
+const freshNewsArticles=getFreshNewsArticles(buildArticles.filter(editorialIndexReady));
 const origin='https://bisabikinweb.site';
 const brand='BisaBikinWeb Indonesia';
 const logo=origin+'/brand/bisabikinweb-logo-compact.svg';
@@ -184,7 +188,7 @@ for(const [path,[name,description]] of Object.entries(pages)){
   const cityPage=cityLandingPages.find(city=>path==='/wilayah/'+city.slug);
   const geoProvince=path.startsWith('/wilayah/provinsi/')&&path.split('/').length===4?provinceBySlug[path.split('/')[3]]:null;
   const geoLocality=localityByPath[path]||null;
-  const noindex=Boolean((geoLocality&&!geoLocality.indexReady)||keywordPageByPath[path])||path==='/cart'||path==='/checkout'||path==='/payment'||path==='/track-order'||path==='/account'||path==='/seller'||path==='/layanan-digital'||path==='/pesan-website'||path==='/client/dashboard'||path.startsWith('/demo/')||path.startsWith('/admin');
+  const noindex=Boolean((geoLocality&&!geoLocality.indexReady)||keywordPageByPath[path]||(article&&!editorialIndexReady(article)))||path==='/cart'||path==='/checkout'||path==='/payment'||path==='/track-order'||path==='/account'||path==='/seller'||path==='/layanan-digital'||path==='/pesan-website'||path==='/client/dashboard'||path.startsWith('/demo/')||path.startsWith('/admin');
   const metaDescription=snippet(description);
   const articleImage=safeHttpsUrl(article?.image);
   const imageUrl=articleImage||origin+'/og.svg';
@@ -226,7 +230,7 @@ for(const [path,[name,description]] of Object.entries(pages)){
   const canonicalMarkup=noindex?'':'<link rel="canonical" href="'+esc(url)+'"/><link rel="sitemap" type="application/xml" href="'+origin+'/sitemap.xml"/>';
   const articleMeta=article?(publishedAt?'<meta property="article:published_time" content="'+esc(publishedAt)+'"/>':'')+(modifiedAt?'<meta property="article:modified_time" content="'+esc(modifiedAt)+'"/>':''):'';
   const seo=`<title>${esc(title)}</title><meta name="description" content="${esc(metaDescription)}"/><meta name="application-name" content="${brand}"/><meta name="author" content="${brand}"/><meta name="robots" content="${noindex?'noindex,nofollow':'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}"/><meta name="googlebot" content="${noindex?'noindex,nofollow':'index,follow,max-image-preview:large,max-snippet:-1,max-video-preview:-1'}"/>${canonicalMarkup}<meta property="og:type" content="${article?'article':'website'}"/><meta property="og:locale" content="id_ID"/><meta property="og:site_name" content="${brand}"/><meta property="og:title" content="${esc(title)}"/><meta property="og:description" content="${esc(metaDescription)}"/><meta property="og:url" content="${url}"/><meta property="og:image" content="${esc(imageUrl)}"/><meta property="og:image:alt" content="${esc(article?.title||'Bisabikinweb — jasa pembuatan website profesional')}"/>${articleMeta}<meta name="twitter:card" content="summary_large_image"/><meta name="twitter:title" content="${esc(title)}"/><meta name="twitter:description" content="${esc(metaDescription)}"/><meta name="twitter:image" content="${esc(imageUrl)}"/>${structured}`;
- const monetized=path==='/'||path==='/artikel'||path==='/berita'||(article&&article.author_type!=='seller');
+ const monetized=!noindex&&(path==='/'||path==='/artikel'||path==='/berita'||(article&&article.author_type!=='seller'));
  const adsense=monetized?'<meta name="google-adsense-account" content="'+adsenseClient+'"/><script async src="'+adsenseScriptUrl+'" crossorigin="anonymous"></script>':'';
  const html=template.replace('<!--SEO-->',seo+adsense).replace('<!--APP-->',render(path,buildData));
  const dir='site-dist'+(path==='/'?'':path);await mkdir(dir,{recursive:true});await writeFile(dir+'/index.html',protectHtml(html));
@@ -242,7 +246,7 @@ if(coverHash!=='1fbaee73e936ba6064cc24c86137184f7ae165be32d7845f5e1c5d06b64ca662
 await writeFile('site-dist/bisabikinweb-gojogja-travel-collaboration.webp',coverBytes);
 await writeFile('site-dist/robots.txt',`User-agent: *\nAllow: /\n\nSitemap: ${origin}/sitemap.xml\n${freshNewsArticles.length?`Sitemap: ${origin}/news-sitemap.xml\n`:''}`);
 const excludedRoutes=new Set(['/cart','/checkout','/payment','/track-order','/seller','/account','/layanan-digital','/pesan-website','/client/dashboard']);
-const sitemapEntries=Object.keys(pages).filter(path=>!excludedRoutes.has(path)&&!(localityByPath[path]&&!localityByPath[path].indexReady)&&!keywordPageByPath[path]&&!path.startsWith('/admin')&&!path.startsWith('/demo/')&&!path.startsWith('/seller/')).map(path=>{
+const sitemapEntries=Object.keys(pages).filter(path=>!excludedRoutes.has(path)&&!(localityByPath[path]&&!localityByPath[path].indexReady)&&!keywordPageByPath[path]&&!(articleByPath.has(path)&&!editorialIndexReady(articleByPath.get(path)))&&!path.startsWith('/admin')&&!path.startsWith('/demo/')&&!path.startsWith('/seller/')).map(path=>{
  const article=articleByPath.get(path);
  const loc=origin+(path==='/'?'/':path+'/');
  const lastmod=article?isoDate(article.updated_at||article.published_at)?.slice(0,10):cityLandingPages.find(city=>path==='/wilayah/'+city.slug)?.lastmod||null;
@@ -283,3 +287,4 @@ const invitationHtml=protectHtml(await readFile(invitationPath,'utf8'))
   .replace("font-src 'self' data:","font-src 'self' data: https://fonts.gstatic.com");
 await writeFile(invitationPath,invitationHtml);
 console.log('Prerendered',Object.keys(pages).length,'pages with SEO metadata and structured data, including',buildArticles.length,'published articles.');
+console.log('Editorial audit:',buildArticles.filter(article=>!editorialIndexReady(article)).length,'articles need review and are excluded from search sitemaps and AdSense scripts.');
