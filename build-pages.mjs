@@ -286,5 +286,10 @@ const invitationHtml=protectHtml(await readFile(invitationPath,'utf8'))
   .replace("style-src 'self' 'unsafe-inline'","style-src 'self' 'unsafe-inline' https://fonts.googleapis.com")
   .replace("font-src 'self' data:","font-src 'self' data: https://fonts.gstatic.com");
 await writeFile(invitationPath,invitationHtml);
+// Isolated, noindex portfolio preview. Never alter the main-site CNAME or demo routing.
+const veloraPreview=await readFile('portfolio-demos/template01/index.html','utf8');
+if(!veloraPreview.includes('<title>VELORA Travel')||!veloraPreview.includes('noindex,nofollow'))throw new Error('VELORA portfolio preview missing or not marked noindex');
+await mkdir('site-dist/template01',{recursive:true});
+await writeFile('site-dist/template01/index.html',veloraPreview);
 console.log('Prerendered',Object.keys(pages).length,'pages with SEO metadata and structured data, including',buildArticles.length,'published articles.');
 console.log('Editorial audit:',buildArticles.filter(article=>!editorialIndexReady(article)).length,'articles need review and are excluded from search sitemaps and AdSense scripts.');
