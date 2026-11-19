@@ -172,21 +172,40 @@
     {
       "id": "cluster-9-2026-11-19",
       "category": "Peluang Usaha",
-      "topic": "Pemantauan awal Peluang Usaha",
-      "summary": "Belum ada perubahan sektoral 24–72 jam yang diverifikasi dalam pemeriksaan terbatas ini; tidak berarti tidak ada perkembangan.",
-      "event_date": null,
-      "source_published_at": null,
-      "researched_at": "2026-11-19T00:34:00+07:00",
+      "topic": "Persiapan UMKM mengikuti business matching ekspor",
+      "summary": "Publikasi Kemendag 19 November 2026 mengutip data Januari–Oktober 2026: nilai penjajakan bisnis USD 361,61 juta, dengan PO USD 76,38 juta dan potensi transaksi USD 285,23 juta. Angka potensi tidak boleh disebut realisasi ekspor.",
+      "event_date": "2026-11-17",
+      "source_published_at": "2026-11-19",
+      "researched_at": "2026-11-19T15:25:30+07:00",
       "geography": "Indonesia dan pasar ekspor",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Perlu verifikasi sumber primer dan audit duplikasi sebelum publikasi.",
-      "content_angle": "Riset evergreen berdasarkan kebutuhan pembaca setelah audit artikel lama",
-      "keyword_intent": "belum ditetapkan | perlu riset",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "Kemendag mengutip 826 kegiatan business matching sepanjang Januari–Oktober 2026, terdiri atas 407 pitching dan 419 pertemuan buyer, melibatkan 1.433 pelaku usaha.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/pojok-media/transaksi-ekspor-umkm-januari-oktober-2026-capai-rp660-triliun"
+          ]
+        },
+        {
+          "claim": "USD 361,61 juta terdiri atas PO USD 76,38 juta dan potensi transaksi USD 285,23 juta; tidak seluruhnya merupakan ekspor terealisasi.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/pojok-media/transaksi-ekspor-umkm-januari-oktober-2026-capai-rp660-triliun"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/pojok-media/transaksi-ekspor-umkm-januari-oktober-2026-capai-rp660-triliun",
+          "publisher": "Kemendag RI (memuat ulang laporan ANTARA)",
+          "accessed_at": "2026-11-19T15:25:30+07:00"
+        }
+      ],
+      "practical_impact": "UMKM perlu menyiapkan profil pemasok, kapasitas, katalog spesifikasi, sampel, harga penawaran dan respons RFQ sebelum pitching; data peluang transaksi bukan jaminan pesanan.",
+      "content_angle": "Checklist persiapan business matching ekspor bagi UMKM: katalog buyer, pitch deck, RFQ, sampel, tindak lanjut dan verifikasi mitra",
+      "keyword_intent": "cara mengikuti business matching ekspor UMKM | informational how-to",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-20"
+      "recheck_after": "2026-11-26"
     },
     {
       "id": "cluster-10-2026-11-19",
@@ -344,6 +363,10 @@
     {
       "at": "2026-11-19T04:34:21+07:00",
       "note": "Rujukan historis KKP ditambahkan pada klaster Seafood & Perikanan. Persyaratan terkini menurut HS code/negara tujuan belum diverifikasi; belum ada publikasi atau gambar."
+    },
+    {
+      "at": "2026-11-19T15:25:30+07:00",
+      "note": "Menambahkan rincian 826 kegiatan dan pemisahan PO/potensi pada klaster Peluang Usaha dari publikasi Kemendag 19 November; data periode Jan–Okt bukan perkembangan baru pada hari ini. Tidak ada artikel diterbitkan."
     }
   ]
 }
