@@ -1,0 +1,410 @@
+{
+  "research_date": "2026-11-20",
+  "timezone": "Asia/Jakarta",
+  "researched_at": "2026-11-20T00:34:45+07:00",
+  "method_note": "Riset awal 15 klaster. Rujukan lintas sektor Kemendag 17 November sudah tercatat 19 November; tidak dihitung sebagai temuan sektoral baru. Sumber KKP Januari/September 2026 ditinjau sebagai konteks, bukan perkembangan 72 jam. Audit CMS/statik, gambar dan publikasi belum selesai.",
+  "entries": [
+    {
+      "id": "cluster-1-2026-11-20",
+      "category": "Briket & Energi",
+      "topic": "Pemantauan awal Briket & Energi",
+      "summary": "Belum ada pembaruan 24–72 jam khusus klaster ini yang diverifikasi pada putaran awal; bukan berarti tidak ada perkembangan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-20T00:34:45+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Perlu cek persyaratan buyer, kualitas, dokumen, kapasitas, dan sumber sektoral sebelum menyusun panduan praktis.",
+      "content_angle": "Perlu riset sektoral tambahan dan audit duplikasi artikel",
+      "keyword_intent": "belum ditetapkan | needs research",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-21"
+    },
+    {
+      "id": "cluster-2-2026-11-20",
+      "category": "Digitalisasi & Website",
+      "topic": "Checklist website katalog eksportir yang siap menerima RFQ",
+      "summary": "Belum ada pembaruan 24–72 jam khusus klaster ini yang diverifikasi pada putaran awal; bukan berarti tidak ada perkembangan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-20T00:34:45+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Perlu cek persyaratan buyer, kualitas, dokumen, kapasitas, dan sumber sektoral sebelum menyusun panduan praktis.",
+      "content_angle": "Checklist website katalog eksportir yang siap menerima RFQ",
+      "keyword_intent": "website katalog ekspor untuk buyer | informational",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-21"
+    },
+    {
+      "id": "cluster-3-2026-11-20",
+      "category": "Furniture & Kayu",
+      "topic": "Pemantauan awal Furniture & Kayu",
+      "summary": "Kemendag 17 November 2026 menyebut sektor ini dalam business matching UMKM; data bersifat lintas sektor, bukan bukti pertumbuhan sektor spesifik.",
+      "event_date": "2026-11-17",
+      "source_published_at": "2026-11-17",
+      "researched_at": "2026-11-20T00:34:45+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Kemendag melaporkan 826 kegiatan business matching Januari–Oktober 2026 melibatkan 1.433 pelaku usaha; USD 361,61 juta terdiri atas PO USD 76,38 juta dan potensi transaksi USD 285,23 juta, bukan seluruhnya realisasi ekspor.",
+          "source_urls": [
+            "https://www.kemendag.go.id/index.php/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/index.php/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-20T00:34:45+07:00"
+        }
+      ],
+      "practical_impact": "Perlu cek persyaratan buyer, kualitas, dokumen, kapasitas, dan sumber sektoral sebelum menyusun panduan praktis.",
+      "content_angle": "Perlu riset sektoral tambahan dan audit duplikasi artikel",
+      "keyword_intent": "belum ditetapkan | needs research",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-21"
+    },
+    {
+      "id": "cluster-4-2026-11-20",
+      "category": "Kakao & Coklat",
+      "topic": "Pemantauan awal Kakao & Coklat",
+      "summary": "Kemendag 17 November 2026 menyebut sektor ini dalam business matching UMKM; data bersifat lintas sektor, bukan bukti pertumbuhan sektor spesifik.",
+      "event_date": "2026-11-17",
+      "source_published_at": "2026-11-17",
+      "researched_at": "2026-11-20T00:34:45+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Kemendag melaporkan 826 kegiatan business matching Januari–Oktober 2026 melibatkan 1.433 pelaku usaha; USD 361,61 juta terdiri atas PO USD 76,38 juta dan potensi transaksi USD 285,23 juta, bukan seluruhnya realisasi ekspor.",
+          "source_urls": [
+            "https://www.kemendag.go.id/index.php/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/index.php/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-20T00:34:45+07:00"
+        }
+      ],
+      "practical_impact": "Perlu cek persyaratan buyer, kualitas, dokumen, kapasitas, dan sumber sektoral sebelum menyusun panduan praktis.",
+      "content_angle": "Perlu riset sektoral tambahan dan audit duplikasi artikel",
+      "keyword_intent": "belum ditetapkan | needs research",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-21"
+    },
+    {
+      "id": "cluster-5-2026-11-20",
+      "category": "Kelapa & Turunannya",
+      "topic": "Checklist katalog spesifikasi cocopeat untuk calon buyer",
+      "summary": "Kemendag 17 November 2026 menyebut sektor ini dalam business matching UMKM; data bersifat lintas sektor, bukan bukti pertumbuhan sektor spesifik.",
+      "event_date": "2026-11-17",
+      "source_published_at": "2026-11-17",
+      "researched_at": "2026-11-20T00:34:45+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Kemendag melaporkan 826 kegiatan business matching Januari–Oktober 2026 melibatkan 1.433 pelaku usaha; USD 361,61 juta terdiri atas PO USD 76,38 juta dan potensi transaksi USD 285,23 juta, bukan seluruhnya realisasi ekspor.",
+          "source_urls": [
+            "https://www.kemendag.go.id/index.php/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/index.php/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-20T00:34:45+07:00"
+        }
+      ],
+      "practical_impact": "Perlu cek persyaratan buyer, kualitas, dokumen, kapasitas, dan sumber sektoral sebelum menyusun panduan praktis.",
+      "content_angle": "Checklist katalog spesifikasi cocopeat untuk calon buyer",
+      "keyword_intent": "katalog ekspor cocopeat buyer | informational",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-21"
+    },
+    {
+      "id": "cluster-6-2026-11-20",
+      "category": "Kopi",
+      "topic": "Pemantauan awal Kopi",
+      "summary": "Kemendag 17 November 2026 menyebut sektor ini dalam business matching UMKM; data bersifat lintas sektor, bukan bukti pertumbuhan sektor spesifik.",
+      "event_date": "2026-11-17",
+      "source_published_at": "2026-11-17",
+      "researched_at": "2026-11-20T00:34:45+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Kemendag melaporkan 826 kegiatan business matching Januari–Oktober 2026 melibatkan 1.433 pelaku usaha; USD 361,61 juta terdiri atas PO USD 76,38 juta dan potensi transaksi USD 285,23 juta, bukan seluruhnya realisasi ekspor.",
+          "source_urls": [
+            "https://www.kemendag.go.id/index.php/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/index.php/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-20T00:34:45+07:00"
+        }
+      ],
+      "practical_impact": "Perlu cek persyaratan buyer, kualitas, dokumen, kapasitas, dan sumber sektoral sebelum menyusun panduan praktis.",
+      "content_angle": "Perlu riset sektoral tambahan dan audit duplikasi artikel",
+      "keyword_intent": "belum ditetapkan | needs research",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-21"
+    },
+    {
+      "id": "cluster-7-2026-11-20",
+      "category": "Logistik & Pengiriman",
+      "topic": "Pemantauan awal Logistik & Pengiriman",
+      "summary": "Belum ada pembaruan 24–72 jam khusus klaster ini yang diverifikasi pada putaran awal; bukan berarti tidak ada perkembangan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-20T00:34:45+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Perlu cek persyaratan buyer, kualitas, dokumen, kapasitas, dan sumber sektoral sebelum menyusun panduan praktis.",
+      "content_angle": "Perlu riset sektoral tambahan dan audit duplikasi artikel",
+      "keyword_intent": "belum ditetapkan | needs research",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-21"
+    },
+    {
+      "id": "cluster-8-2026-11-20",
+      "category": "Manajemen Risiko",
+      "topic": "Pemantauan awal Manajemen Risiko",
+      "summary": "Belum ada pembaruan 24–72 jam khusus klaster ini yang diverifikasi pada putaran awal; bukan berarti tidak ada perkembangan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-20T00:34:45+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Perlu cek persyaratan buyer, kualitas, dokumen, kapasitas, dan sumber sektoral sebelum menyusun panduan praktis.",
+      "content_angle": "Perlu riset sektoral tambahan dan audit duplikasi artikel",
+      "keyword_intent": "belum ditetapkan | needs research",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-21"
+    },
+    {
+      "id": "cluster-9-2026-11-20",
+      "category": "Peluang Usaha",
+      "topic": "Panduan menyiapkan pitching business matching ekspor UMKM",
+      "summary": "Kemendag 17 November 2026 menyebut sektor ini dalam business matching UMKM; data bersifat lintas sektor, bukan bukti pertumbuhan sektor spesifik.",
+      "event_date": "2026-11-17",
+      "source_published_at": "2026-11-17",
+      "researched_at": "2026-11-20T00:34:45+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Kemendag melaporkan 826 kegiatan business matching Januari–Oktober 2026 melibatkan 1.433 pelaku usaha; USD 361,61 juta terdiri atas PO USD 76,38 juta dan potensi transaksi USD 285,23 juta, bukan seluruhnya realisasi ekspor.",
+          "source_urls": [
+            "https://www.kemendag.go.id/index.php/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/index.php/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-20T00:34:45+07:00"
+        }
+      ],
+      "practical_impact": "Perlu cek persyaratan buyer, kualitas, dokumen, kapasitas, dan sumber sektoral sebelum menyusun panduan praktis.",
+      "content_angle": "Panduan menyiapkan pitching business matching ekspor UMKM",
+      "keyword_intent": "cara mengikuti business matching ekspor UMKM | how-to",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-21"
+    },
+    {
+      "id": "cluster-10-2026-11-20",
+      "category": "Pertanian & Buah",
+      "topic": "Pemantauan awal Pertanian & Buah",
+      "summary": "Kemendag 17 November 2026 menyebut sektor ini dalam business matching UMKM; data bersifat lintas sektor, bukan bukti pertumbuhan sektor spesifik.",
+      "event_date": "2026-11-17",
+      "source_published_at": "2026-11-17",
+      "researched_at": "2026-11-20T00:34:45+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Kemendag melaporkan 826 kegiatan business matching Januari–Oktober 2026 melibatkan 1.433 pelaku usaha; USD 361,61 juta terdiri atas PO USD 76,38 juta dan potensi transaksi USD 285,23 juta, bukan seluruhnya realisasi ekspor.",
+          "source_urls": [
+            "https://www.kemendag.go.id/index.php/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/index.php/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-20T00:34:45+07:00"
+        }
+      ],
+      "practical_impact": "Perlu cek persyaratan buyer, kualitas, dokumen, kapasitas, dan sumber sektoral sebelum menyusun panduan praktis.",
+      "content_angle": "Perlu riset sektoral tambahan dan audit duplikasi artikel",
+      "keyword_intent": "belum ditetapkan | needs research",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-21"
+    },
+    {
+      "id": "cluster-11-2026-11-20",
+      "category": "Regulasi & Sertifikasi",
+      "topic": "Pemantauan awal Regulasi & Sertifikasi",
+      "summary": "Belum ada pembaruan 24–72 jam khusus klaster ini yang diverifikasi pada putaran awal; bukan berarti tidak ada perkembangan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-20T00:34:45+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Perlu cek persyaratan buyer, kualitas, dokumen, kapasitas, dan sumber sektoral sebelum menyusun panduan praktis.",
+      "content_angle": "Perlu riset sektoral tambahan dan audit duplikasi artikel",
+      "keyword_intent": "belum ditetapkan | needs research",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-21"
+    },
+    {
+      "id": "cluster-12-2026-11-20",
+      "category": "Rempah & Minyak Atsiri",
+      "topic": "Pemantauan awal Rempah & Minyak Atsiri",
+      "summary": "Kemendag 17 November 2026 menyebut sektor ini dalam business matching UMKM; data bersifat lintas sektor, bukan bukti pertumbuhan sektor spesifik.",
+      "event_date": "2026-11-17",
+      "source_published_at": "2026-11-17",
+      "researched_at": "2026-11-20T00:34:45+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Kemendag melaporkan 826 kegiatan business matching Januari–Oktober 2026 melibatkan 1.433 pelaku usaha; USD 361,61 juta terdiri atas PO USD 76,38 juta dan potensi transaksi USD 285,23 juta, bukan seluruhnya realisasi ekspor.",
+          "source_urls": [
+            "https://www.kemendag.go.id/index.php/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/index.php/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-20T00:34:45+07:00"
+        }
+      ],
+      "practical_impact": "Perlu cek persyaratan buyer, kualitas, dokumen, kapasitas, dan sumber sektoral sebelum menyusun panduan praktis.",
+      "content_angle": "Perlu riset sektoral tambahan dan audit duplikasi artikel",
+      "keyword_intent": "belum ditetapkan | needs research",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-21"
+    },
+    {
+      "id": "cluster-13-2026-11-20",
+      "category": "Sarang Burung Walet",
+      "topic": "Pemantauan awal Sarang Burung Walet",
+      "summary": "Belum ada pembaruan 24–72 jam khusus klaster ini yang diverifikasi pada putaran awal; bukan berarti tidak ada perkembangan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-20T00:34:45+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Perlu cek persyaratan buyer, kualitas, dokumen, kapasitas, dan sumber sektoral sebelum menyusun panduan praktis.",
+      "content_angle": "Perlu riset sektoral tambahan dan audit duplikasi artikel",
+      "keyword_intent": "belum ditetapkan | needs research",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-21"
+    },
+    {
+      "id": "cluster-14-2026-11-20",
+      "category": "Seafood & Perikanan",
+      "topic": "Panduan menyiapkan dokumen mutu perikanan sebelum menghubungi buyer",
+      "summary": "Kemendag 17 November 2026 menyebut sektor ini dalam business matching UMKM; data bersifat lintas sektor, bukan bukti pertumbuhan sektor spesifik.",
+      "event_date": "2026-11-17",
+      "source_published_at": "2026-11-17",
+      "researched_at": "2026-11-20T00:34:45+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Kemendag melaporkan 826 kegiatan business matching Januari–Oktober 2026 melibatkan 1.433 pelaku usaha; USD 361,61 juta terdiri atas PO USD 76,38 juta dan potensi transaksi USD 285,23 juta, bukan seluruhnya realisasi ekspor.",
+          "source_urls": [
+            "https://www.kemendag.go.id/index.php/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/index.php/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-20T00:34:45+07:00"
+        }
+      ],
+      "practical_impact": "Perlu cek persyaratan buyer, kualitas, dokumen, kapasitas, dan sumber sektoral sebelum menyusun panduan praktis.",
+      "content_angle": "Panduan menyiapkan dokumen mutu perikanan sebelum menghubungi buyer",
+      "keyword_intent": "dokumen mutu ekspor perikanan | informational",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-21"
+    },
+    {
+      "id": "cluster-15-2026-11-20",
+      "category": "Tren & Analisis Pasar",
+      "topic": "Cara membedakan purchase order dan potensi transaksi ekspor",
+      "summary": "Kemendag 17 November 2026 menyebut sektor ini dalam business matching UMKM; data bersifat lintas sektor, bukan bukti pertumbuhan sektor spesifik.",
+      "event_date": "2026-11-17",
+      "source_published_at": "2026-11-17",
+      "researched_at": "2026-11-20T00:34:45+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Kemendag melaporkan 826 kegiatan business matching Januari–Oktober 2026 melibatkan 1.433 pelaku usaha; USD 361,61 juta terdiri atas PO USD 76,38 juta dan potensi transaksi USD 285,23 juta, bukan seluruhnya realisasi ekspor.",
+          "source_urls": [
+            "https://www.kemendag.go.id/index.php/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/index.php/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-20T00:34:45+07:00"
+        }
+      ],
+      "practical_impact": "Perlu cek persyaratan buyer, kualitas, dokumen, kapasitas, dan sumber sektoral sebelum menyusun panduan praktis.",
+      "content_angle": "Cara membedakan purchase order dan potensi transaksi ekspor",
+      "keyword_intent": "perbedaan purchase order dan potensi ekspor | informational",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-21"
+    }
+  ]
+}
