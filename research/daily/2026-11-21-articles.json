@@ -1,0 +1,410 @@
+{
+  "research_date": "2026-11-21",
+  "timezone": "Asia/Jakarta",
+  "researched_at": "2026-11-21T00:27:13+07:00",
+  "method_note": "Putaran awal setelah pergantian hari. Audit CMS menunjukkan nol artikel dengan published_at pada tanggal WIB ini. Pemeriksaan sumber terbatas pada rujukan primer Kemendag 17 November dan KKP 14 September; tidak ada bukti baru 24–72 jam yang cukup untuk menyatakan perubahan spesifik per sektor. Belum ada artikel atau gambar baru diproduksi. Arsip 20 November sudah diperiksa.",
+  "entries": [
+    {
+      "id": "cluster-1-2026-11-21",
+      "category": "Briket & Energi",
+      "topic": "Pemantauan dan peluang panduan evergreen Briket & Energi",
+      "summary": "Belum ditemukan pembaruan spesifik 24–72 jam yang terverifikasi dalam pemeriksaan awal; perlu riset lanjutan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-21T00:27:13+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Periksa spesifikasi buyer, dokumen, rantai pasok dan risiko sebelum mengembangkan katalog serta strategi pemasaran.",
+      "content_angle": "Checklist operasional dan dokumen briket & energi untuk UMKM",
+      "keyword_intent": "panduan briket & energi untuk UMKM | informational",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-22"
+    },
+    {
+      "id": "cluster-2-2026-11-21",
+      "category": "Digitalisasi & Website",
+      "topic": "Pemantauan dan peluang panduan evergreen Digitalisasi & Website",
+      "summary": "Belum ditemukan pembaruan spesifik 24–72 jam yang terverifikasi dalam pemeriksaan awal; perlu riset lanjutan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-21T00:27:13+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Periksa spesifikasi buyer, dokumen, rantai pasok dan risiko sebelum mengembangkan katalog serta strategi pemasaran.",
+      "content_angle": "Checklist operasional dan dokumen digitalisasi & website untuk UMKM",
+      "keyword_intent": "panduan digitalisasi & website untuk UMKM | informational",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-22"
+    },
+    {
+      "id": "cluster-3-2026-11-21",
+      "category": "Furniture & Kayu",
+      "topic": "Pemantauan dan peluang panduan evergreen Furniture & Kayu",
+      "summary": "Rujukan Kemendag 17 November 2026 membahas business matching lintas sektor; tidak membuktikan pertumbuhan khusus kategori ini.",
+      "event_date": "2026-11-17",
+      "source_published_at": "2026-11-17",
+      "researched_at": "2026-11-21T00:27:13+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Kemendag mencatat business matching Januari–Oktober 2026 senilai USD 361,61 juta, terdiri atas PO USD 76,38 juta dan potensi USD 285,23 juta; bukan seluruhnya ekspor terealisasi.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha",
+          "publisher": "Kemendag",
+          "accessed_at": "2026-11-21T00:27:13+07:00"
+        }
+      ],
+      "practical_impact": "Periksa spesifikasi buyer, dokumen, rantai pasok dan risiko sebelum mengembangkan katalog serta strategi pemasaran.",
+      "content_angle": "Checklist operasional dan dokumen furniture & kayu untuk UMKM",
+      "keyword_intent": "panduan furniture & kayu untuk UMKM | informational",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-22"
+    },
+    {
+      "id": "cluster-4-2026-11-21",
+      "category": "Kakao & Coklat",
+      "topic": "Pemantauan dan peluang panduan evergreen Kakao & Coklat",
+      "summary": "Rujukan Kemendag 17 November 2026 membahas business matching lintas sektor; tidak membuktikan pertumbuhan khusus kategori ini.",
+      "event_date": "2026-11-17",
+      "source_published_at": "2026-11-17",
+      "researched_at": "2026-11-21T00:27:13+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Kemendag mencatat business matching Januari–Oktober 2026 senilai USD 361,61 juta, terdiri atas PO USD 76,38 juta dan potensi USD 285,23 juta; bukan seluruhnya ekspor terealisasi.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha",
+          "publisher": "Kemendag",
+          "accessed_at": "2026-11-21T00:27:13+07:00"
+        }
+      ],
+      "practical_impact": "Periksa spesifikasi buyer, dokumen, rantai pasok dan risiko sebelum mengembangkan katalog serta strategi pemasaran.",
+      "content_angle": "Checklist operasional dan dokumen kakao & coklat untuk UMKM",
+      "keyword_intent": "panduan kakao & coklat untuk UMKM | informational",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-22"
+    },
+    {
+      "id": "cluster-5-2026-11-21",
+      "category": "Kelapa & Turunannya",
+      "topic": "Pemantauan dan peluang panduan evergreen Kelapa & Turunannya",
+      "summary": "Rujukan Kemendag 17 November 2026 membahas business matching lintas sektor; tidak membuktikan pertumbuhan khusus kategori ini.",
+      "event_date": "2026-11-17",
+      "source_published_at": "2026-11-17",
+      "researched_at": "2026-11-21T00:27:13+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Kemendag mencatat business matching Januari–Oktober 2026 senilai USD 361,61 juta, terdiri atas PO USD 76,38 juta dan potensi USD 285,23 juta; bukan seluruhnya ekspor terealisasi.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha",
+          "publisher": "Kemendag",
+          "accessed_at": "2026-11-21T00:27:13+07:00"
+        }
+      ],
+      "practical_impact": "Periksa spesifikasi buyer, dokumen, rantai pasok dan risiko sebelum mengembangkan katalog serta strategi pemasaran.",
+      "content_angle": "Checklist operasional dan dokumen kelapa & turunannya untuk UMKM",
+      "keyword_intent": "panduan kelapa & turunannya untuk UMKM | informational",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-22"
+    },
+    {
+      "id": "cluster-6-2026-11-21",
+      "category": "Kopi",
+      "topic": "Pemantauan dan peluang panduan evergreen Kopi",
+      "summary": "Rujukan Kemendag 17 November 2026 membahas business matching lintas sektor; tidak membuktikan pertumbuhan khusus kategori ini.",
+      "event_date": "2026-11-17",
+      "source_published_at": "2026-11-17",
+      "researched_at": "2026-11-21T00:27:13+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Kemendag mencatat business matching Januari–Oktober 2026 senilai USD 361,61 juta, terdiri atas PO USD 76,38 juta dan potensi USD 285,23 juta; bukan seluruhnya ekspor terealisasi.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha",
+          "publisher": "Kemendag",
+          "accessed_at": "2026-11-21T00:27:13+07:00"
+        }
+      ],
+      "practical_impact": "Periksa spesifikasi buyer, dokumen, rantai pasok dan risiko sebelum mengembangkan katalog serta strategi pemasaran.",
+      "content_angle": "Checklist operasional dan dokumen kopi untuk UMKM",
+      "keyword_intent": "panduan kopi untuk UMKM | informational",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-22"
+    },
+    {
+      "id": "cluster-7-2026-11-21",
+      "category": "Logistik & Pengiriman",
+      "topic": "Pemantauan dan peluang panduan evergreen Logistik & Pengiriman",
+      "summary": "Belum ditemukan pembaruan spesifik 24–72 jam yang terverifikasi dalam pemeriksaan awal; perlu riset lanjutan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-21T00:27:13+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Periksa spesifikasi buyer, dokumen, rantai pasok dan risiko sebelum mengembangkan katalog serta strategi pemasaran.",
+      "content_angle": "Checklist operasional dan dokumen logistik & pengiriman untuk UMKM",
+      "keyword_intent": "panduan logistik & pengiriman untuk UMKM | informational",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-22"
+    },
+    {
+      "id": "cluster-8-2026-11-21",
+      "category": "Manajemen Risiko",
+      "topic": "Pemantauan dan peluang panduan evergreen Manajemen Risiko",
+      "summary": "Belum ditemukan pembaruan spesifik 24–72 jam yang terverifikasi dalam pemeriksaan awal; perlu riset lanjutan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-21T00:27:13+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Periksa spesifikasi buyer, dokumen, rantai pasok dan risiko sebelum mengembangkan katalog serta strategi pemasaran.",
+      "content_angle": "Checklist operasional dan dokumen manajemen risiko untuk UMKM",
+      "keyword_intent": "panduan manajemen risiko untuk UMKM | informational",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-22"
+    },
+    {
+      "id": "cluster-9-2026-11-21",
+      "category": "Peluang Usaha",
+      "topic": "Pemantauan dan peluang panduan evergreen Peluang Usaha",
+      "summary": "Rujukan Kemendag 17 November 2026 membahas business matching lintas sektor; tidak membuktikan pertumbuhan khusus kategori ini.",
+      "event_date": "2026-11-17",
+      "source_published_at": "2026-11-17",
+      "researched_at": "2026-11-21T00:27:13+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Kemendag mencatat business matching Januari–Oktober 2026 senilai USD 361,61 juta, terdiri atas PO USD 76,38 juta dan potensi USD 285,23 juta; bukan seluruhnya ekspor terealisasi.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha",
+          "publisher": "Kemendag",
+          "accessed_at": "2026-11-21T00:27:13+07:00"
+        }
+      ],
+      "practical_impact": "Periksa spesifikasi buyer, dokumen, rantai pasok dan risiko sebelum mengembangkan katalog serta strategi pemasaran.",
+      "content_angle": "Checklist operasional dan dokumen peluang usaha untuk UMKM",
+      "keyword_intent": "panduan peluang usaha untuk UMKM | informational",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-22"
+    },
+    {
+      "id": "cluster-10-2026-11-21",
+      "category": "Pertanian & Buah",
+      "topic": "Pemantauan dan peluang panduan evergreen Pertanian & Buah",
+      "summary": "Rujukan Kemendag 17 November 2026 membahas business matching lintas sektor; tidak membuktikan pertumbuhan khusus kategori ini.",
+      "event_date": "2026-11-17",
+      "source_published_at": "2026-11-17",
+      "researched_at": "2026-11-21T00:27:13+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Kemendag mencatat business matching Januari–Oktober 2026 senilai USD 361,61 juta, terdiri atas PO USD 76,38 juta dan potensi USD 285,23 juta; bukan seluruhnya ekspor terealisasi.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha",
+          "publisher": "Kemendag",
+          "accessed_at": "2026-11-21T00:27:13+07:00"
+        }
+      ],
+      "practical_impact": "Periksa spesifikasi buyer, dokumen, rantai pasok dan risiko sebelum mengembangkan katalog serta strategi pemasaran.",
+      "content_angle": "Checklist operasional dan dokumen pertanian & buah untuk UMKM",
+      "keyword_intent": "panduan pertanian & buah untuk UMKM | informational",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-22"
+    },
+    {
+      "id": "cluster-11-2026-11-21",
+      "category": "Regulasi & Sertifikasi",
+      "topic": "Pemantauan dan peluang panduan evergreen Regulasi & Sertifikasi",
+      "summary": "Belum ditemukan pembaruan spesifik 24–72 jam yang terverifikasi dalam pemeriksaan awal; perlu riset lanjutan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-21T00:27:13+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Periksa spesifikasi buyer, dokumen, rantai pasok dan risiko sebelum mengembangkan katalog serta strategi pemasaran.",
+      "content_angle": "Checklist operasional dan dokumen regulasi & sertifikasi untuk UMKM",
+      "keyword_intent": "panduan regulasi & sertifikasi untuk UMKM | informational",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-22"
+    },
+    {
+      "id": "cluster-12-2026-11-21",
+      "category": "Rempah & Minyak Atsiri",
+      "topic": "Pemantauan dan peluang panduan evergreen Rempah & Minyak Atsiri",
+      "summary": "Rujukan Kemendag 17 November 2026 membahas business matching lintas sektor; tidak membuktikan pertumbuhan khusus kategori ini.",
+      "event_date": "2026-11-17",
+      "source_published_at": "2026-11-17",
+      "researched_at": "2026-11-21T00:27:13+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Kemendag mencatat business matching Januari–Oktober 2026 senilai USD 361,61 juta, terdiri atas PO USD 76,38 juta dan potensi USD 285,23 juta; bukan seluruhnya ekspor terealisasi.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha",
+          "publisher": "Kemendag",
+          "accessed_at": "2026-11-21T00:27:13+07:00"
+        }
+      ],
+      "practical_impact": "Periksa spesifikasi buyer, dokumen, rantai pasok dan risiko sebelum mengembangkan katalog serta strategi pemasaran.",
+      "content_angle": "Checklist operasional dan dokumen rempah & minyak atsiri untuk UMKM",
+      "keyword_intent": "panduan rempah & minyak atsiri untuk UMKM | informational",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-22"
+    },
+    {
+      "id": "cluster-13-2026-11-21",
+      "category": "Sarang Burung Walet",
+      "topic": "Pemantauan dan peluang panduan evergreen Sarang Burung Walet",
+      "summary": "Belum ditemukan pembaruan spesifik 24–72 jam yang terverifikasi dalam pemeriksaan awal; perlu riset lanjutan.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-21T00:27:13+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Periksa spesifikasi buyer, dokumen, rantai pasok dan risiko sebelum mengembangkan katalog serta strategi pemasaran.",
+      "content_angle": "Checklist operasional dan dokumen sarang burung walet untuk UMKM",
+      "keyword_intent": "panduan sarang burung walet untuk UMKM | informational",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-22"
+    },
+    {
+      "id": "cluster-14-2026-11-21",
+      "category": "Seafood & Perikanan",
+      "topic": "Pemantauan dan peluang panduan evergreen Seafood & Perikanan",
+      "summary": "Rujukan KKP 14 September 2026 menjadi konteks sertifikasi mutu perikanan, bukan perkembangan 72 jam.",
+      "event_date": "2026-09-12",
+      "source_published_at": "2026-09-14",
+      "researched_at": "2026-11-21T00:27:13+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "KKP melaporkan ekspor perikanan Januari–Juni 2026 sekitar USD 3 miliar; laporan diterbitkan September 2026.",
+          "source_urls": [
+            "https://www.kkp.go.id/news/news-detail/ekspor-produk-perikanan-semester-i-2026-capai-rp-526-triliun-kkp-perkuat-sertifikasi-mutu-KLDM.html"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kkp.go.id/news/news-detail/ekspor-produk-perikanan-semester-i-2026-capai-rp-526-triliun-kkp-perkuat-sertifikasi-mutu-KLDM.html",
+          "publisher": "KKP",
+          "accessed_at": "2026-11-21T00:27:13+07:00"
+        }
+      ],
+      "practical_impact": "Periksa spesifikasi buyer, dokumen, rantai pasok dan risiko sebelum mengembangkan katalog serta strategi pemasaran.",
+      "content_angle": "Panduan kesiapan dokumen mutu ekspor perikanan dan verifikasi negara tujuan",
+      "keyword_intent": "panduan seafood & perikanan untuk UMKM | informational",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-22"
+    },
+    {
+      "id": "cluster-15-2026-11-21",
+      "category": "Tren & Analisis Pasar",
+      "topic": "Pemantauan dan peluang panduan evergreen Tren & Analisis Pasar",
+      "summary": "Rujukan Kemendag 17 November 2026 membahas business matching lintas sektor; tidak membuktikan pertumbuhan khusus kategori ini.",
+      "event_date": "2026-11-17",
+      "source_published_at": "2026-11-17",
+      "researched_at": "2026-11-21T00:27:13+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Kemendag mencatat business matching Januari–Oktober 2026 senilai USD 361,61 juta, terdiri atas PO USD 76,38 juta dan potensi USD 285,23 juta; bukan seluruhnya ekspor terealisasi.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha",
+          "publisher": "Kemendag",
+          "accessed_at": "2026-11-21T00:27:13+07:00"
+        }
+      ],
+      "practical_impact": "Periksa spesifikasi buyer, dokumen, rantai pasok dan risiko sebelum mengembangkan katalog serta strategi pemasaran.",
+      "content_angle": "Checklist operasional dan dokumen tren & analisis pasar untuk UMKM",
+      "keyword_intent": "panduan tren & analisis pasar untuk UMKM | informational",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-22"
+    }
+  ]
+}
