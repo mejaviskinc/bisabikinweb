@@ -2,7 +2,7 @@
   "research_date": "2026-11-21",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-21T00:27:13+07:00",
-  "method_note": "Putaran awal setelah pergantian hari. Audit CMS menunjukkan nol artikel dengan published_at pada tanggal WIB ini. Pemeriksaan sumber terbatas pada rujukan primer Kemendag 17 November dan KKP 14 September; tidak ada bukti baru 24–72 jam yang cukup untuk menyatakan perubahan spesifik per sektor. Belum ada artikel atau gambar baru diproduksi. Arsip 20 November sudah diperiksa.",
+  "method_note": "Putaran awal setelah pergantian hari. Audit CMS menunjukkan nol artikel dengan published_at pada tanggal WIB ini. Pemeriksaan sumber terbatas pada rujukan primer Kemendag 17 November dan KKP 14 September; tidak ada bukti baru 24–72 jam yang cukup untuk menyatakan perubahan spesifik per sektor. Belum ada artikel atau gambar baru diproduksi. Arsip 20 November sudah diperiksa. Pemantauan lanjutan menemukan publikasi BPSDMP Kemendag 18 November tentang company profile dan follow-up buyer, ditambahkan pada dua klaster tanpa membuat artikel baru.",
   "entries": [
     {
       "id": "cluster-1-2026-11-21",
@@ -27,17 +27,30 @@
       "id": "cluster-2-2026-11-21",
       "category": "Digitalisasi & Website",
       "topic": "Pemantauan dan peluang panduan evergreen Digitalisasi & Website",
-      "summary": "Belum ditemukan pembaruan spesifik 24–72 jam yang terverifikasi dalam pemeriksaan awal; perlu riset lanjutan.",
-      "event_date": null,
-      "source_published_at": null,
+      "summary": "BPSDMP Kemendag menerbitkan panduan praktis tindak lanjut business matching pada 18 November 2026; bukan perkembangan transaksi ekspor baru.",
+      "event_date": "2026-11-17",
+      "source_published_at": "2026-11-18",
       "researched_at": "2026-11-21T00:27:13+07:00",
       "geography": "Indonesia dan pasar ekspor",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Periksa spesifikasi buyer, dokumen, rantai pasok dan risiko sebelum mengembangkan katalog serta strategi pemasaran.",
-      "content_angle": "Checklist operasional dan dokumen digitalisasi & website untuk UMKM",
-      "keyword_intent": "panduan digitalisasi & website untuk UMKM | informational",
-      "editorial_status": "no_meaningful_update",
+      "facts": [
+        {
+          "claim": "Dalam publikasi 18 November 2026 tentang sesi Bizmatch Hacks 17 November, BPSDMP Kemendag menekankan company profile dengan kapasitas produksi, bukti pengapalan, kontak profesional, CTA jelas, serta tindak lanjut buyer; ini saran pelatihan, bukan bukti tingkat konversi.",
+          "source_urls": [
+            "https://bpsdmp.kemendag.go.id/berita/2026-11-18-bizmatch-hacks"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://bpsdmp.kemendag.go.id/berita/2026-11-18-bizmatch-hacks",
+          "publisher": "BPSDMP Kementerian Perdagangan",
+          "accessed_at": "2026-11-21T01:25:23+07:00"
+        }
+      ],
+      "practical_impact": "UMKM dapat menyiapkan profil ringkas, informasi kapasitas dan alur follow-up yang jelas tanpa menjanjikan transaksi pasti.",
+      "content_angle": "Cara menyusun company profile digital eksportir dengan bukti kapasitas dan CTA yang jelas",
+      "keyword_intent": "contoh company profile eksportir untuk buyer luar negeri | informational",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-22"
@@ -212,9 +225,9 @@
       "id": "cluster-9-2026-11-21",
       "category": "Peluang Usaha",
       "topic": "Pemantauan dan peluang panduan evergreen Peluang Usaha",
-      "summary": "Rujukan Kemendag 17 November 2026 membahas business matching lintas sektor; tidak membuktikan pertumbuhan khusus kategori ini.",
+      "summary": "BPSDMP Kemendag menerbitkan panduan praktis tindak lanjut business matching pada 18 November 2026; bukan perkembangan transaksi ekspor baru.",
       "event_date": "2026-11-17",
-      "source_published_at": "2026-11-17",
+      "source_published_at": "2026-11-18",
       "researched_at": "2026-11-21T00:27:13+07:00",
       "geography": "Indonesia dan pasar ekspor",
       "facts": [
@@ -223,6 +236,12 @@
           "source_urls": [
             "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha"
           ]
+        },
+        {
+          "claim": "Dalam publikasi 18 November 2026 tentang sesi Bizmatch Hacks 17 November, BPSDMP Kemendag menekankan company profile dengan kapasitas produksi, bukti pengapalan, kontak profesional, CTA jelas, serta tindak lanjut buyer; ini saran pelatihan, bukan bukti tingkat konversi.",
+          "source_urls": [
+            "https://bpsdmp.kemendag.go.id/berita/2026-11-18-bizmatch-hacks"
+          ]
         }
       ],
       "sources": [
@@ -230,12 +249,17 @@
           "url": "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha",
           "publisher": "Kemendag",
           "accessed_at": "2026-11-21T00:27:13+07:00"
+        },
+        {
+          "url": "https://bpsdmp.kemendag.go.id/berita/2026-11-18-bizmatch-hacks",
+          "publisher": "BPSDMP Kementerian Perdagangan",
+          "accessed_at": "2026-11-21T01:25:23+07:00"
         }
       ],
-      "practical_impact": "Periksa spesifikasi buyer, dokumen, rantai pasok dan risiko sebelum mengembangkan katalog serta strategi pemasaran.",
-      "content_angle": "Checklist operasional dan dokumen peluang usaha untuk UMKM",
-      "keyword_intent": "panduan peluang usaha untuk UMKM | informational",
-      "editorial_status": "needs_verification",
+      "practical_impact": "UMKM dapat menyiapkan profil ringkas, informasi kapasitas dan alur follow-up yang jelas tanpa menjanjikan transaksi pasti.",
+      "content_angle": "Checklist follow-up buyer setelah business matching: spesifikasi, penawaran, dan bukti kredibilitas",
+      "keyword_intent": "cara follow up buyer setelah business matching ekspor | informational",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-22"
@@ -406,5 +430,6 @@
       "published_url": null,
       "recheck_after": "2026-11-22"
     }
-  ]
+  ],
+  "last_checked_at": "2026-11-21T01:25:23+07:00"
 }
