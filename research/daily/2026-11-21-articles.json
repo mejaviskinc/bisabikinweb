@@ -2,7 +2,7 @@
   "research_date": "2026-11-21",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-21T00:27:13+07:00",
-  "method_note": "Putaran awal setelah pergantian hari. Audit CMS menunjukkan nol artikel dengan published_at pada tanggal WIB ini. Pemeriksaan sumber terbatas pada rujukan primer Kemendag 17 November dan KKP 14 September; tidak ada bukti baru 24–72 jam yang cukup untuk menyatakan perubahan spesifik per sektor. Belum ada artikel atau gambar baru diproduksi. Arsip 20 November sudah diperiksa. Pemantauan lanjutan menemukan publikasi BPSDMP Kemendag 18 November tentang company profile dan follow-up buyer, ditambahkan pada dua klaster tanpa membuat artikel baru.",
+  "method_note": "Putaran awal setelah pergantian hari. Audit CMS menunjukkan nol artikel dengan published_at pada tanggal WIB ini. Pemeriksaan sumber terbatas pada rujukan primer Kemendag 17 November dan KKP 14 September; tidak ada bukti baru 24–72 jam yang cukup untuk menyatakan perubahan spesifik per sektor. Belum ada artikel atau gambar baru diproduksi. Arsip 20 November sudah diperiksa. Pemantauan lanjutan menemukan publikasi BPSDMP Kemendag 18 November tentang company profile dan follow-up buyer, ditambahkan pada dua klaster tanpa membuat artikel baru. Pemeriksaan lanjutan menambahkan konteks standardisasi Kemendag 10 November pada klaster Regulasi & Sertifikasi, tanpa mengklaim pembaruan aturan 72 jam.",
   "entries": [
     {
       "id": "cluster-1-2026-11-21",
@@ -300,17 +300,30 @@
       "id": "cluster-11-2026-11-21",
       "category": "Regulasi & Sertifikasi",
       "topic": "Pemantauan dan peluang panduan evergreen Regulasi & Sertifikasi",
-      "summary": "Belum ditemukan pembaruan spesifik 24–72 jam yang terverifikasi dalam pemeriksaan awal; perlu riset lanjutan.",
-      "event_date": null,
-      "source_published_at": null,
+      "summary": "Rujukan Kemendag terbit 10 November 2026 tentang sosialisasi standardisasi mutu UMKM di Banyuwangi, Bondowoso, dan Situbondo. Ini konteks pelatihan, bukan aturan atau persyaratan ekspor baru dalam 72 jam.",
+      "event_date": "2026-11-08",
+      "source_published_at": "2026-11-10",
       "researched_at": "2026-11-21T00:27:13+07:00",
       "geography": "Indonesia dan pasar ekspor",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Periksa spesifikasi buyer, dokumen, rantai pasok dan risiko sebelum mengembangkan katalog serta strategi pemasaran.",
-      "content_angle": "Checklist operasional dan dokumen regulasi & sertifikasi untuk UMKM",
-      "keyword_intent": "panduan regulasi & sertifikasi untuk UMKM | informational",
-      "editorial_status": "no_meaningful_update",
+      "facts": [
+        {
+          "claim": "Kemendag melaporkan sekitar 300 pelaku UMKM dan pemangku kepentingan mengikuti sosialisasi standardisasi bidang perdagangan pada 6–8 November 2026 di Banyuwangi, Bondowoso, dan Situbondo; sumber tidak menetapkan sertifikasi wajib universal untuk semua produk ekspor.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/dorong-umkm-jawa-timur-tembus-pasar-global-kemendag-perkuat-mutu-dan-standardisasi-produk"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/dorong-umkm-jawa-timur-tembus-pasar-global-kemendag-perkuat-mutu-dan-standardisasi-produk",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-21T04:34:17+07:00"
+        }
+      ],
+      "practical_impact": "UMKM perlu memetakan standar produk dan persyaratan pasar tujuan per komoditas; jangan menganggap sosialisasi sebagai bukti produk telah tersertifikasi.",
+      "content_angle": "Cara memeriksa standar mutu dan sertifikasi produk UMKM sebelum ekspor menurut komoditas dan negara tujuan",
+      "keyword_intent": "cara cek sertifikasi produk untuk ekspor UMKM | informational, checklist",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-22"
@@ -431,5 +444,5 @@
       "recheck_after": "2026-11-22"
     }
   ],
-  "last_checked_at": "2026-11-21T01:25:23+07:00"
+  "last_checked_at": "2026-11-21T04:34:17+07:00"
 }
