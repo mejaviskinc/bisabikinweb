@@ -92,7 +92,7 @@ const phone='+62882003740969';
 const email='bisabikinw3b@gmail.com';
 const pages={
   '/':['Jasa Pembuatan Website & Bikin Web | BisaBikinWeb Indonesia','Jasa bikin website profesional untuk UMKM dan perusahaan: company profile, landing page, toko online, dan web app. Lihat harga, portofolio, dan konsultasi online.'],
-  '/jasa':['Jasa Bikin Website: Company Profile, Toko Online & Web App','Jasa pembuatan website untuk bisnis, UMKM dan perusahaan. Pilih company profile, landing page, toko online, web app custom, atau maintenance dengan cakupan jelas.'],
+  '/jasa':['Jasa Pembuatan Website untuk Bisnis & UMKM | BisaBikinWeb','Jasa bikin website profesional untuk UMKM dan perusahaan: company profile, landing page, toko online, hingga web app. Bandingkan layanan, lihat harga dan konsultasikan kebutuhan.'],
   '/wilayah':['Jasa Website Seluruh Indonesia & 38 Provinsi','Lihat daftar layanan jasa bikin web BisaBikinWeb untuk Jakarta, Bandung, Surabaya, Medan, Makassar, seluruh 38 provinsi dan kota/kabupaten lainnya di Indonesia.'],
   '/harga':['Harga Pembuatan Website & Paket Sesuai Kebutuhan','Bandingkan paket dan biaya pembuatan website: landing page, company profile, dan toko online. Tinjau fitur, biaya operasional, lalu minta penawaran.'],
   '/portfolio':['Portofolio Website Bisnis, Skincare, Fashion & Travel','Jelajahi contoh website nyata BisaBikinWeb untuk Berbeda, Karpenter, Mejavi Skin+, GoO Ninks, dan GoJogja Travel. Lihat studi kasus dan layanan terkait.'],
