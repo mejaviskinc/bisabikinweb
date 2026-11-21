@@ -10,6 +10,10 @@ const arg=(name,fallback)=>{const i=args.indexOf(name);return i<0?fallback:args[
 const offset=Number(arg('--offset','0'));
 const limit=args.includes('--all')?editorialPosts.length:Number(arg('--limit','10'));
 const overwrite=args.includes('--overwrite');
+// Explicit slug allowlist prevents scheduled batches from generating covers for old articles.
+const slugArg=arg('--slugs','');
+const selectedSlugs=slugArg?new Set(slugArg.split(',').map(x=>x.trim()).filter(Boolean)):null;
+if(selectedSlugs&&[...selectedSlugs].some(x=>!/^[a-z0-9][a-z0-9_-]{0,159}$/.test(x)))throw new Error('Invalid --slugs value');
 if(!Number.isInteger(offset)||offset<0||!Number.isInteger(limit)||limit<1||limit>1000)throw new Error('Invalid offset or limit');
 const dir='public-assets/editorial-covers';
 const mapFile='static-source/lib/editorial-cover-map.mjs';
@@ -75,7 +79,9 @@ async function allPublishedPosts(){
 }
 const posts=await allPublishedPosts();
 console.log('Published evergreen article image candidates (news excluded): '+posts.length);
-const batch=posts.slice(offset,offset+limit);
+const candidates=selectedSlugs?posts.filter(p=>selectedSlugs.has(p.id)):posts;
+if(selectedSlugs&&candidates.length!==selectedSlugs.size)throw new Error('Some requested slugs were not found among published evergreen articles');
+const batch=candidates.slice(offset,offset+limit);
 for(const post of batch){
  const id=String(post.id||'');
  if(!/^[a-z0-9][a-z0-9_-]{0,159}$/.test(id)){errors.push(id+':invalid slug');continue;}
