@@ -2,7 +2,7 @@
   "research_date": "2026-11-21",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-21T00:27:13+07:00",
-  "method_note": "Putaran awal setelah pergantian hari. Audit CMS menunjukkan nol artikel dengan published_at pada tanggal WIB ini. Pemeriksaan sumber terbatas pada rujukan primer Kemendag 17 November dan KKP 14 September; tidak ada bukti baru 24–72 jam yang cukup untuk menyatakan perubahan spesifik per sektor. Belum ada artikel atau gambar baru diproduksi. Arsip 20 November sudah diperiksa. Pemantauan lanjutan menemukan publikasi BPSDMP Kemendag 18 November tentang company profile dan follow-up buyer, ditambahkan pada dua klaster tanpa membuat artikel baru. Pemeriksaan lanjutan menambahkan konteks standardisasi Kemendag 10 November pada klaster Regulasi & Sertifikasi, tanpa mengklaim pembaruan aturan 72 jam. Pemeriksaan 09.33 WIB menambah rujukan resmi Kemendag 11 November tentang barcode GS1 pada klaster Regulasi & Sertifikasi; tidak dianggap perubahan regulasi 72 jam. Pemeriksaan 10.26 WIB menemukan sumber primer Kemendag 19 November tentang satu kontainer cocopeat ke Taiwan; catatan hanya pada klaster Kelapa & Turunannya, bukan klaim tren umum.",
+  "method_note": "Putaran awal setelah pergantian hari. Audit CMS menunjukkan nol artikel dengan published_at pada tanggal WIB ini. Pemeriksaan sumber terbatas pada rujukan primer Kemendag 17 November dan KKP 14 September; tidak ada bukti baru 24–72 jam yang cukup untuk menyatakan perubahan spesifik per sektor. Belum ada artikel atau gambar baru diproduksi. Arsip 20 November sudah diperiksa. Pemantauan lanjutan menemukan publikasi BPSDMP Kemendag 18 November tentang company profile dan follow-up buyer, ditambahkan pada dua klaster tanpa membuat artikel baru. Pemeriksaan lanjutan menambahkan konteks standardisasi Kemendag 10 November pada klaster Regulasi & Sertifikasi, tanpa mengklaim pembaruan aturan 72 jam. Pemeriksaan 09.33 WIB menambah rujukan resmi Kemendag 11 November tentang barcode GS1 pada klaster Regulasi & Sertifikasi; tidak dianggap perubahan regulasi 72 jam. Pemeriksaan 10.26 WIB menemukan sumber primer Kemendag 19 November tentang satu kontainer cocopeat ke Taiwan; catatan hanya pada klaster Kelapa & Turunannya, bukan klaim tren umum. Pemeriksaan 11.33 WIB menemukan pengumuman persiapan penandatanganan I-EU CEPA 20 November; status implementasi belum terverifikasi.",
   "entries": [
     {
       "id": "cluster-1-2026-11-21",
@@ -437,7 +437,7 @@
       "id": "cluster-15-2026-11-21",
       "category": "Tren & Analisis Pasar",
       "topic": "Pemantauan dan peluang panduan evergreen Tren & Analisis Pasar",
-      "summary": "Rujukan Kemendag 17 November 2026 membahas business matching lintas sektor; tidak membuktikan pertumbuhan khusus kategori ini.",
+      "summary": "Ada pengumuman resmi persiapan penandatanganan I-EU CEPA pada 20 November; status penandatanganan, ratifikasi, dan jadwal implementasi belum diverifikasi.",
       "event_date": "2026-11-17",
       "source_published_at": "2026-11-17",
       "researched_at": "2026-11-21T00:27:13+07:00",
@@ -448,6 +448,12 @@
           "source_urls": [
             "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha"
           ]
+        },
+        {
+          "claim": "Daftar siaran pers Kemendag memuat pengumuman 20 November 2026 bahwa Mendag bertolak ke Brussels untuk persiapan penandatanganan I-EU CEPA; ini belum membuktikan perjanjian telah ditandatangani atau tarif baru berlaku.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers"
+          ]
         }
       ],
       "sources": [
@@ -455,16 +461,21 @@
           "url": "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha",
           "publisher": "Kemendag",
           "accessed_at": "2026-11-21T00:27:13+07:00"
+        },
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers",
+          "publisher": "Kementerian Perdagangan Republik Indonesia",
+          "accessed_at": "2026-11-21T11:33:41+07:00"
         }
       ],
-      "practical_impact": "Periksa spesifikasi buyer, dokumen, rantai pasok dan risiko sebelum mengembangkan katalog serta strategi pemasaran.",
-      "content_angle": "Checklist operasional dan dokumen tren & analisis pasar untuk UMKM",
-      "keyword_intent": "panduan tren & analisis pasar untuk UMKM | informational",
+      "practical_impact": "Eksportir sebaiknya memantau status resmi perjanjian dan aturan asal barang, bukan mengasumsikan tarif preferensi sudah berlaku.",
+      "content_angle": "Panduan memeriksa status perjanjian dagang dan tarif preferensi sebelum mengutip harga ekspor ke Uni Eropa",
+      "keyword_intent": "cara cek tarif preferensi ekspor ke Uni Eropa I-EU CEPA | informational",
       "editorial_status": "needs_verification",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-22"
     }
   ],
-  "last_checked_at": "2026-11-21T10:26:59+07:00"
+  "last_checked_at": "2026-11-21T11:33:41+07:00"
 }
