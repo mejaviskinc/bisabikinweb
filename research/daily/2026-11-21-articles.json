@@ -2,7 +2,7 @@
   "research_date": "2026-11-21",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-21T00:27:13+07:00",
-  "method_note": "Putaran awal setelah pergantian hari. Audit CMS menunjukkan nol artikel dengan published_at pada tanggal WIB ini. Pemeriksaan sumber terbatas pada rujukan primer Kemendag 17 November dan KKP 14 September; tidak ada bukti baru 24–72 jam yang cukup untuk menyatakan perubahan spesifik per sektor. Belum ada artikel atau gambar baru diproduksi. Arsip 20 November sudah diperiksa. Pemantauan lanjutan menemukan publikasi BPSDMP Kemendag 18 November tentang company profile dan follow-up buyer, ditambahkan pada dua klaster tanpa membuat artikel baru. Pemeriksaan lanjutan menambahkan konteks standardisasi Kemendag 10 November pada klaster Regulasi & Sertifikasi, tanpa mengklaim pembaruan aturan 72 jam.",
+  "method_note": "Putaran awal setelah pergantian hari. Audit CMS menunjukkan nol artikel dengan published_at pada tanggal WIB ini. Pemeriksaan sumber terbatas pada rujukan primer Kemendag 17 November dan KKP 14 September; tidak ada bukti baru 24–72 jam yang cukup untuk menyatakan perubahan spesifik per sektor. Belum ada artikel atau gambar baru diproduksi. Arsip 20 November sudah diperiksa. Pemantauan lanjutan menemukan publikasi BPSDMP Kemendag 18 November tentang company profile dan follow-up buyer, ditambahkan pada dua klaster tanpa membuat artikel baru. Pemeriksaan lanjutan menambahkan konteks standardisasi Kemendag 10 November pada klaster Regulasi & Sertifikasi, tanpa mengklaim pembaruan aturan 72 jam. Pemeriksaan 09.33 WIB menambah rujukan resmi Kemendag 11 November tentang barcode GS1 pada klaster Regulasi & Sertifikasi; tidak dianggap perubahan regulasi 72 jam.",
   "entries": [
     {
       "id": "cluster-1-2026-11-21",
@@ -311,6 +311,12 @@
           "source_urls": [
             "https://www.kemendag.go.id/berita/siaran-pers/dorong-umkm-jawa-timur-tembus-pasar-global-kemendag-perkuat-mutu-dan-standardisasi-produk"
           ]
+        },
+        {
+          "claim": "Kemendag pada 11 November 2026 melaporkan fasilitasi 104 barcode GS1 untuk 39 UMKM; ini contoh penerapan identifikasi produk, bukan persyaratan ekspor universal.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/dorong-peningkatan-daya-saing-produk-umkm-kemendag-fasilitasi-pembuatan-104-barcode"
+          ]
         }
       ],
       "sources": [
@@ -318,11 +324,16 @@
           "url": "https://www.kemendag.go.id/berita/siaran-pers/dorong-umkm-jawa-timur-tembus-pasar-global-kemendag-perkuat-mutu-dan-standardisasi-produk",
           "publisher": "Kementerian Perdagangan RI",
           "accessed_at": "2026-11-21T04:34:17+07:00"
+        },
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/dorong-peningkatan-daya-saing-produk-umkm-kemendag-fasilitasi-pembuatan-104-barcode",
+          "publisher": "Kementerian Perdagangan",
+          "accessed_at": "2026-11-21T09:33:56+07:00"
         }
       ],
-      "practical_impact": "UMKM perlu memetakan standar produk dan persyaratan pasar tujuan per komoditas; jangan menganggap sosialisasi sebagai bukti produk telah tersertifikasi.",
-      "content_angle": "Cara memeriksa standar mutu dan sertifikasi produk UMKM sebelum ekspor menurut komoditas dan negara tujuan",
-      "keyword_intent": "cara cek sertifikasi produk untuk ekspor UMKM | informational, checklist",
+      "practical_impact": "UMKM perlu memetakan standar produk dan persyaratan pasar tujuan per komoditas; jangan menganggap sosialisasi sebagai bukti produk telah tersertifikasi. UMKM perlu membedakan identifikasi produk GS1 dari sertifikasi mutu dan persyaratan ekspor negara tujuan.",
+      "content_angle": "Panduan membedakan barcode GS1, sertifikasi mutu, dan dokumen ekspor untuk UMKM",
+      "keyword_intent": "barcode GS1 untuk produk UMKM dan ekspor | informational",
       "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
