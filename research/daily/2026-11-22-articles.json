@@ -328,5 +328,14 @@
       "published_url": null,
       "recheck_after": "2026-11-23"
     }
+  ],
+  "operational_checks": [
+    {
+      "id": "cms-published-window-2026-11-22-0225-wib",
+      "checked_at": "2026-11-22T02:25:07+07:00",
+      "scope": "Supabase public.bbweb_articles",
+      "result": "0 rows with published_at within 2026-11-22 WIB (2026-11-21T17:00:00Z through 2026-11-22T17:00:00Z); no category filter necessary because no rows",
+      "limitations": "Does not count static repository posts; no publication or image generation performed"
+    }
   ]
 }
