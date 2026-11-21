@@ -475,6 +475,38 @@
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-22"
+    },
+    {
+      "id": "kemendag-bimtek-citra-produk-pangan-olahan-2026-11-21",
+      "category": "Peluang Usaha",
+      "topic": "Pelatihan citra produk ekspor pangan olahan bagi UMKM",
+      "summary": "Daftar siaran pers Kemendag tanggal 21 November 2026 menyebut bimtek citra produk ekspor untuk UMKM pangan olahan di Bandung. Detail materi dan jumlah peserta belum diperiksa; ini sinyal kebutuhan edukasi, bukan bukti peningkatan ekspor.",
+      "event_date": "2026-11-21",
+      "source_published_at": "2026-11-21",
+      "researched_at": "2026-11-21T18:26:26+07:00",
+      "geography": "Bandung, Indonesia",
+      "facts": [
+        {
+          "claim": "Kemendag menampilkan siaran pers 21 November 2026 mengenai bimtek citra produk ekspor UMKM pangan olahan di Bandung.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-21T18:26:26+07:00"
+        }
+      ],
+      "practical_impact": "UMKM pangan olahan dapat menilai kejelasan label, foto produk, katalog dan profil merek sebelum menawarkan produk kepada buyer; persyaratan regulasi harus diverifikasi terpisah.",
+      "content_angle": "Checklist citra produk pangan olahan untuk calon eksportir: kemasan, foto katalog, klaim produk, dan materi penawaran buyer",
+      "keyword_intent": "cara membuat katalog produk makanan untuk buyer ekspor | informational",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-22"
     }
   ],
   "last_checked_at": "2026-11-21T11:33:41+07:00"
