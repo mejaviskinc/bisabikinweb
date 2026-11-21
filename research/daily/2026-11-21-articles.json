@@ -2,7 +2,7 @@
   "research_date": "2026-11-21",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-21T00:27:13+07:00",
-  "method_note": "Putaran awal setelah pergantian hari. Audit CMS menunjukkan nol artikel dengan published_at pada tanggal WIB ini. Pemeriksaan sumber terbatas pada rujukan primer Kemendag 17 November dan KKP 14 September; tidak ada bukti baru 24–72 jam yang cukup untuk menyatakan perubahan spesifik per sektor. Belum ada artikel atau gambar baru diproduksi. Arsip 20 November sudah diperiksa. Pemantauan lanjutan menemukan publikasi BPSDMP Kemendag 18 November tentang company profile dan follow-up buyer, ditambahkan pada dua klaster tanpa membuat artikel baru. Pemeriksaan lanjutan menambahkan konteks standardisasi Kemendag 10 November pada klaster Regulasi & Sertifikasi, tanpa mengklaim pembaruan aturan 72 jam. Pemeriksaan 09.33 WIB menambah rujukan resmi Kemendag 11 November tentang barcode GS1 pada klaster Regulasi & Sertifikasi; tidak dianggap perubahan regulasi 72 jam.",
+  "method_note": "Putaran awal setelah pergantian hari. Audit CMS menunjukkan nol artikel dengan published_at pada tanggal WIB ini. Pemeriksaan sumber terbatas pada rujukan primer Kemendag 17 November dan KKP 14 September; tidak ada bukti baru 24–72 jam yang cukup untuk menyatakan perubahan spesifik per sektor. Belum ada artikel atau gambar baru diproduksi. Arsip 20 November sudah diperiksa. Pemantauan lanjutan menemukan publikasi BPSDMP Kemendag 18 November tentang company profile dan follow-up buyer, ditambahkan pada dua klaster tanpa membuat artikel baru. Pemeriksaan lanjutan menambahkan konteks standardisasi Kemendag 10 November pada klaster Regulasi & Sertifikasi, tanpa mengklaim pembaruan aturan 72 jam. Pemeriksaan 09.33 WIB menambah rujukan resmi Kemendag 11 November tentang barcode GS1 pada klaster Regulasi & Sertifikasi; tidak dianggap perubahan regulasi 72 jam. Pemeriksaan 10.26 WIB menemukan sumber primer Kemendag 19 November tentang satu kontainer cocopeat ke Taiwan; catatan hanya pada klaster Kelapa & Turunannya, bukan klaim tren umum.",
   "entries": [
     {
       "id": "cluster-1-2026-11-21",
@@ -123,7 +123,7 @@
       "id": "cluster-5-2026-11-21",
       "category": "Kelapa & Turunannya",
       "topic": "Pemantauan dan peluang panduan evergreen Kelapa & Turunannya",
-      "summary": "Rujukan Kemendag 17 November 2026 membahas business matching lintas sektor; tidak membuktikan pertumbuhan khusus kategori ini.",
+      "summary": "Kemendag melaporkan ekspor perdana satu kontainer cocopeat COCOKIM ke Taiwan pada 13 November, diumumkan 19 November 2026; perlu pemeriksaan persyaratan pasar tujuan sebelum membuat panduan ekspor.",
       "event_date": "2026-11-17",
       "source_published_at": "2026-11-17",
       "researched_at": "2026-11-21T00:27:13+07:00",
@@ -134,6 +134,12 @@
           "source_urls": [
             "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha"
           ]
+        },
+        {
+          "claim": "Kemendag pada 19 November 2026 melaporkan pengiriman perdana satu kontainer cocopeat merek COCOKIM dari Balikpapan ke Taiwan pada 13 November 2026 senilai Rp138 juta. Ini satu transaksi, bukan ukuran tren seluruh ekspor cocopeat.",
+          "source_urls": [
+            "https://www.kemendag.go.id/index.php/berita/siaran-pers/kdei-taipei-fasilitasi-ekspor-perdana-media-tanam-kokopit-ke-taiwan"
+          ]
         }
       ],
       "sources": [
@@ -141,15 +147,20 @@
           "url": "https://www.kemendag.go.id/berita/siaran-pers/business-matching-kemendag-januari-oktober-2026-catat-transaksi-usd-36161-juta-dan-libatkan-1433-pelaku-usaha",
           "publisher": "Kemendag",
           "accessed_at": "2026-11-21T00:27:13+07:00"
+        },
+        {
+          "url": "https://www.kemendag.go.id/index.php/berita/siaran-pers/kdei-taipei-fasilitasi-ekspor-perdana-media-tanam-kokopit-ke-taiwan",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-21T10:26:59+07:00"
         }
       ],
-      "practical_impact": "Periksa spesifikasi buyer, dokumen, rantai pasok dan risiko sebelum mengembangkan katalog serta strategi pemasaran.",
-      "content_angle": "Checklist operasional dan dokumen kelapa & turunannya untuk UMKM",
-      "keyword_intent": "panduan kelapa & turunannya untuk UMKM | informational",
-      "editorial_status": "needs_verification",
+      "practical_impact": "Produsen cocopeat perlu meminta spesifikasi mutu buyer, mengonfirmasi ketentuan karantina dan dokumen impor Taiwan dengan otoritas berwenang, serta menyiapkan profil pemasok dan penelusuran lot.",
+      "content_angle": "Panduan persiapan ekspor cocopeat: spesifikasi buyer, mutu, dokumen, kemasan, dan tindak lanjut penawaran tanpa mengasumsikan syarat Taiwan berlaku universal.",
+      "keyword_intent": "cara ekspor cocopeat ke Taiwan | informational/commercial investigation",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-22"
+      "recheck_after": "2026-11-24"
     },
     {
       "id": "cluster-6-2026-11-21",
@@ -455,5 +466,5 @@
       "recheck_after": "2026-11-22"
     }
   ],
-  "last_checked_at": "2026-11-21T04:34:17+07:00"
+  "last_checked_at": "2026-11-21T10:26:59+07:00"
 }
