@@ -1,0 +1,332 @@
+{
+  "research_date": "2026-11-22",
+  "timezone": "Asia/Jakarta",
+  "researched_at": "2026-11-22T00:34:41+07:00",
+  "method_note": "Riset awal pergantian hari: membaca README, arsip 21 November, kode editorial/build, kebijakan media, generator; memeriksa sumber primer Kemendag 21 November dan KKP 14 September. Sebagian besar klaster belum memiliki perubahan spesifik yang terverifikasi. Belum ada audit kuota CMS hari ini atau verifikasi cover; tidak mengklaim artikel diterbitkan.",
+  "entries": [
+    {
+      "id": "cluster-1-2026-11-22",
+      "category": "Briket & Energi",
+      "topic": "Pemantauan Briket & Energi",
+      "summary": "Belum ada perubahan spesifik 24–72 jam yang dapat dipastikan untuk klaster ini pada pemeriksaan awal; arsip 21 November menjadi konteks, bukan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-22T00:34:41+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Verifikasi kebutuhan buyer, standar produk, dan dokumen sebelum memutuskan investasi pemasaran atau ekspor.",
+      "content_angle": "Panduan praktis kesiapan briket & energi untuk UMKM",
+      "keyword_intent": "panduan briket & energi UMKM | informational",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-23"
+    },
+    {
+      "id": "cluster-2-2026-11-22",
+      "category": "Digitalisasi & Website",
+      "topic": "Pemantauan Digitalisasi & Website",
+      "summary": "Kemendag menerbitkan pengumuman pelatihan citra produk ekspor UMKM pangan olahan Bandung pada 21 November; tidak membuktikan kenaikan penjualan atau ekspor.",
+      "event_date": "2026-11-21",
+      "source_published_at": "2026-11-21",
+      "researched_at": "2026-11-22T00:34:41+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Siaran pers Kemendag tanggal 21 November 2026 membahas bimtek citra produk ekspor bagi UMKM pangan olahan.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers",
+          "publisher": "Kementerian Perdagangan",
+          "accessed_at": "2026-11-22T00:34:41+07:00"
+        }
+      ],
+      "practical_impact": "Verifikasi kebutuhan buyer, standar produk, dan dokumen sebelum memutuskan investasi pemasaran atau ekspor.",
+      "content_angle": "Checklist foto produk, katalog, kemasan, dan profil buyer untuk UMKM pangan olahan",
+      "keyword_intent": "cara membuat katalog produk ekspor UMKM pangan olahan | informational",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-23"
+    },
+    {
+      "id": "cluster-3-2026-11-22",
+      "category": "Furniture & Kayu",
+      "topic": "Pemantauan Furniture & Kayu",
+      "summary": "Belum ada perubahan spesifik 24–72 jam yang dapat dipastikan untuk klaster ini pada pemeriksaan awal; arsip 21 November menjadi konteks, bukan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-22T00:34:41+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Verifikasi kebutuhan buyer, standar produk, dan dokumen sebelum memutuskan investasi pemasaran atau ekspor.",
+      "content_angle": "Panduan praktis kesiapan furniture & kayu untuk UMKM",
+      "keyword_intent": "panduan furniture & kayu UMKM | informational",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-23"
+    },
+    {
+      "id": "cluster-4-2026-11-22",
+      "category": "Kakao & Coklat",
+      "topic": "Pemantauan Kakao & Coklat",
+      "summary": "Belum ada perubahan spesifik 24–72 jam yang dapat dipastikan untuk klaster ini pada pemeriksaan awal; arsip 21 November menjadi konteks, bukan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-22T00:34:41+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Verifikasi kebutuhan buyer, standar produk, dan dokumen sebelum memutuskan investasi pemasaran atau ekspor.",
+      "content_angle": "Panduan praktis kesiapan kakao & coklat untuk UMKM",
+      "keyword_intent": "panduan kakao & coklat UMKM | informational",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-23"
+    },
+    {
+      "id": "cluster-5-2026-11-22",
+      "category": "Kelapa & Turunannya",
+      "topic": "Pemantauan Kelapa & Turunannya",
+      "summary": "Belum ada perubahan spesifik 24–72 jam yang dapat dipastikan untuk klaster ini pada pemeriksaan awal; arsip 21 November menjadi konteks, bukan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-22T00:34:41+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Verifikasi kebutuhan buyer, standar produk, dan dokumen sebelum memutuskan investasi pemasaran atau ekspor.",
+      "content_angle": "Panduan praktis kesiapan kelapa & turunannya untuk UMKM",
+      "keyword_intent": "panduan kelapa & turunannya UMKM | informational",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-23"
+    },
+    {
+      "id": "cluster-6-2026-11-22",
+      "category": "Kopi",
+      "topic": "Pemantauan Kopi",
+      "summary": "Belum ada perubahan spesifik 24–72 jam yang dapat dipastikan untuk klaster ini pada pemeriksaan awal; arsip 21 November menjadi konteks, bukan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-22T00:34:41+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Verifikasi kebutuhan buyer, standar produk, dan dokumen sebelum memutuskan investasi pemasaran atau ekspor.",
+      "content_angle": "Panduan praktis kesiapan kopi untuk UMKM",
+      "keyword_intent": "panduan kopi UMKM | informational",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-23"
+    },
+    {
+      "id": "cluster-7-2026-11-22",
+      "category": "Logistik & Pengiriman",
+      "topic": "Pemantauan Logistik & Pengiriman",
+      "summary": "Belum ada perubahan spesifik 24–72 jam yang dapat dipastikan untuk klaster ini pada pemeriksaan awal; arsip 21 November menjadi konteks, bukan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-22T00:34:41+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Verifikasi kebutuhan buyer, standar produk, dan dokumen sebelum memutuskan investasi pemasaran atau ekspor.",
+      "content_angle": "Panduan praktis kesiapan logistik & pengiriman untuk UMKM",
+      "keyword_intent": "panduan logistik & pengiriman UMKM | informational",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-23"
+    },
+    {
+      "id": "cluster-8-2026-11-22",
+      "category": "Manajemen Risiko",
+      "topic": "Pemantauan Manajemen Risiko",
+      "summary": "Belum ada perubahan spesifik 24–72 jam yang dapat dipastikan untuk klaster ini pada pemeriksaan awal; arsip 21 November menjadi konteks, bukan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-22T00:34:41+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Verifikasi kebutuhan buyer, standar produk, dan dokumen sebelum memutuskan investasi pemasaran atau ekspor.",
+      "content_angle": "Panduan praktis kesiapan manajemen risiko untuk UMKM",
+      "keyword_intent": "panduan manajemen risiko UMKM | informational",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-23"
+    },
+    {
+      "id": "cluster-9-2026-11-22",
+      "category": "Peluang Usaha",
+      "topic": "Pemantauan Peluang Usaha",
+      "summary": "Kemendag menerbitkan pengumuman pelatihan citra produk ekspor UMKM pangan olahan Bandung pada 21 November; tidak membuktikan kenaikan penjualan atau ekspor.",
+      "event_date": "2026-11-21",
+      "source_published_at": "2026-11-21",
+      "researched_at": "2026-11-22T00:34:41+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "Siaran pers Kemendag tanggal 21 November 2026 membahas bimtek citra produk ekspor bagi UMKM pangan olahan.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers",
+          "publisher": "Kementerian Perdagangan",
+          "accessed_at": "2026-11-22T00:34:41+07:00"
+        }
+      ],
+      "practical_impact": "Verifikasi kebutuhan buyer, standar produk, dan dokumen sebelum memutuskan investasi pemasaran atau ekspor.",
+      "content_angle": "Checklist foto produk, katalog, kemasan, dan profil buyer untuk UMKM pangan olahan",
+      "keyword_intent": "cara membuat katalog produk ekspor UMKM pangan olahan | informational",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-23"
+    },
+    {
+      "id": "cluster-10-2026-11-22",
+      "category": "Pertanian & Buah",
+      "topic": "Pemantauan Pertanian & Buah",
+      "summary": "Belum ada perubahan spesifik 24–72 jam yang dapat dipastikan untuk klaster ini pada pemeriksaan awal; arsip 21 November menjadi konteks, bukan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-22T00:34:41+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Verifikasi kebutuhan buyer, standar produk, dan dokumen sebelum memutuskan investasi pemasaran atau ekspor.",
+      "content_angle": "Panduan praktis kesiapan pertanian & buah untuk UMKM",
+      "keyword_intent": "panduan pertanian & buah UMKM | informational",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-23"
+    },
+    {
+      "id": "cluster-11-2026-11-22",
+      "category": "Regulasi & Sertifikasi",
+      "topic": "Pemantauan Regulasi & Sertifikasi",
+      "summary": "Belum ada perubahan spesifik 24–72 jam yang dapat dipastikan untuk klaster ini pada pemeriksaan awal; arsip 21 November menjadi konteks, bukan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-22T00:34:41+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Verifikasi kebutuhan buyer, standar produk, dan dokumen sebelum memutuskan investasi pemasaran atau ekspor.",
+      "content_angle": "Panduan praktis kesiapan regulasi & sertifikasi untuk UMKM",
+      "keyword_intent": "panduan regulasi & sertifikasi UMKM | informational",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-23"
+    },
+    {
+      "id": "cluster-12-2026-11-22",
+      "category": "Rempah & Minyak Atsiri",
+      "topic": "Pemantauan Rempah & Minyak Atsiri",
+      "summary": "Belum ada perubahan spesifik 24–72 jam yang dapat dipastikan untuk klaster ini pada pemeriksaan awal; arsip 21 November menjadi konteks, bukan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-22T00:34:41+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Verifikasi kebutuhan buyer, standar produk, dan dokumen sebelum memutuskan investasi pemasaran atau ekspor.",
+      "content_angle": "Panduan praktis kesiapan rempah & minyak atsiri untuk UMKM",
+      "keyword_intent": "panduan rempah & minyak atsiri UMKM | informational",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-23"
+    },
+    {
+      "id": "cluster-13-2026-11-22",
+      "category": "Sarang Burung Walet",
+      "topic": "Pemantauan Sarang Burung Walet",
+      "summary": "Belum ada perubahan spesifik 24–72 jam yang dapat dipastikan untuk klaster ini pada pemeriksaan awal; arsip 21 November menjadi konteks, bukan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-22T00:34:41+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Verifikasi kebutuhan buyer, standar produk, dan dokumen sebelum memutuskan investasi pemasaran atau ekspor.",
+      "content_angle": "Panduan praktis kesiapan sarang burung walet untuk UMKM",
+      "keyword_intent": "panduan sarang burung walet UMKM | informational",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-23"
+    },
+    {
+      "id": "cluster-14-2026-11-22",
+      "category": "Seafood & Perikanan",
+      "topic": "Pemantauan Seafood & Perikanan",
+      "summary": "KKP pada 14 September 2026 melaporkan sertifikasi mutu dan data ekspor semester I; konteks lama, bukan perkembangan 72 jam.",
+      "event_date": null,
+      "source_published_at": "2026-09-14",
+      "researched_at": "2026-11-22T00:34:41+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [
+        {
+          "claim": "KKP melaporkan volume ekspor produk perikanan Januari–Juni 2026 sebesar 566,25 ribu ton, senilai sekitar USD 3 miliar.",
+          "source_urls": [
+            "https://www.kkp.go.id/news/news-detail/ekspor-produk-perikanan-semester-i-2026-capai-rp-526-triliun-kkp-perkuat-sertifikasi-mutu-KLDM.html"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kkp.go.id/news/news-detail/ekspor-produk-perikanan-semester-i-2026-capai-rp-526-triliun-kkp-perkuat-sertifikasi-mutu-KLDM.html",
+          "publisher": "KKP",
+          "accessed_at": "2026-11-22T00:34:41+07:00"
+        }
+      ],
+      "practical_impact": "Verifikasi kebutuhan buyer, standar produk, dan dokumen sebelum memutuskan investasi pemasaran atau ekspor.",
+      "content_angle": "Panduan persiapan sertifikasi mutu eksportir perikanan dengan verifikasi persyaratan negara tujuan",
+      "keyword_intent": "panduan seafood & perikanan UMKM | informational",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-23"
+    },
+    {
+      "id": "cluster-15-2026-11-22",
+      "category": "Tren & Analisis Pasar",
+      "topic": "Pemantauan Tren & Analisis Pasar",
+      "summary": "Belum ada perubahan spesifik 24–72 jam yang dapat dipastikan untuk klaster ini pada pemeriksaan awal; arsip 21 November menjadi konteks, bukan berita baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-22T00:34:41+07:00",
+      "geography": "Indonesia dan pasar ekspor",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Verifikasi kebutuhan buyer, standar produk, dan dokumen sebelum memutuskan investasi pemasaran atau ekspor.",
+      "content_angle": "Panduan praktis kesiapan tren & analisis pasar untuk UMKM",
+      "keyword_intent": "panduan tren & analisis pasar UMKM | informational",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-23"
+    }
+  ]
+}
