@@ -47,7 +47,7 @@ export const serviceSeoById = Object.freeze({
     title: 'Jasa Maintenance dan Perawatan Website',
     description: 'Jasa maintenance website bulanan untuk pembaruan konten, backup, perbaikan bug, pemeriksaan keamanan dan performa sesuai ruang lingkup paket yang disepakati.',
     heading: 'Jasa Maintenance Website Bulanan',
-    introduction: 'Website yang sudah terbit tetap perlu dirawat. Layanan maintenance membantu mengatur pembaruan konten, backup, pengecekan bug, dan pemantauan performa secara berkala sesuai paket serta teknologi website yang digunakan.',
+    introduction: 'Jasa maintenance website adalah layanan perawatan berkala setelah website terbit, cocok untuk bisnis yang perlu menjaga konten, keamanan, dan fungsi website tetap terpantau. Cakupan dapat meliputi pembaruan konten, backup, pengecekan bug, dan pemeriksaan performa; frekuensi, akses teknis, serta biaya ditentukan oleh teknologi website dan ruang lingkup yang disepakati. Bandingkan kebutuhan perawatan dan minta penawaran sebelum memilih paket.',
     related: [{href:'/artikel/biaya-website-bisnis-domain-hosting-maintenance/',label:'Panduan biaya maintenance'}, {href:'/harga/',label:'Bandingkan paket perawatan'}, {href:'/kontak/',label:'Diskusikan kebutuhan rutin'}]
   }
 });
