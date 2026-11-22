@@ -337,5 +337,20 @@
       "result": "0 rows with published_at within 2026-11-22 WIB (2026-11-21T17:00:00Z through 2026-11-22T17:00:00Z); no category filter necessary because no rows",
       "limitations": "Does not count static repository posts; no publication or image generation performed"
     }
+  ],
+  "audit_updates": [
+    {
+      "checked_at": "2026-11-22T17:26:05+07:00",
+      "source": "Supabase public.bbweb_articles (read-only)",
+      "published_nonnews": 10,
+      "published_news": 10,
+      "missing_cover_nonnews": 10,
+      "body_characters_range": [
+        1144,
+        1942
+      ],
+      "finding": "Semua 10 artikel nonberita published tanggal WIB memiliki cover_image_url kosong dan panjang body 1144–1942 karakter; belum memenuhi target kedalaman 700–1500 kata, membutuhkan audit kata dan editorial. Tidak ada publikasi baru.",
+      "next_action": "Audit konten, perbaiki cover legal dan kedalaman naskah, validasi URL live; jangan tambah artikel tanggal ini."
+    }
   ]
 }
