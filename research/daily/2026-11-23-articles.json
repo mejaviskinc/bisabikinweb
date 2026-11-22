@@ -2,7 +2,7 @@
   "research_date": "2026-11-23",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-23T00:26:02+07:00",
-  "method_note": "Pemeriksaan awal hari WIB: membaca README, arsip 22 November, kode editorial dan kebijakan gambar; query CMS published 23 November WIB menghasilkan 0 baris. Pemeriksaan sumber primer Kemendag 17 dan 21 November serta indeks KKP 18 November. Pemeriksaan 15 klaster belum menyeluruh; tidak ada klaim perubahan terbaru untuk klaster tanpa bukti. Belum ada naskah, cover, jadwal, atau publikasi baru. Pemantauan lanjutan menambahkan rujukan resmi KKP 20 September untuk konteks sertifikasi perikanan, bukan klaim perkembangan 72 jam. Status CMS belum diperiksa ulang pada putaran ini. Pemeriksaan ulang CMS pada 03:26 WIB: query published aktif rentang 23 November WIB menghasilkan 0 baris; belum membuktikan status semua artikel static repo atau URL live.",
+  "method_note": "Pemeriksaan awal hari WIB: membaca README, arsip 22 November, kode editorial dan kebijakan gambar; query CMS published 23 November WIB menghasilkan 0 baris. Pemeriksaan sumber primer Kemendag 17 dan 21 November serta indeks KKP 18 November. Pemeriksaan 15 klaster belum menyeluruh; tidak ada klaim perubahan terbaru untuk klaster tanpa bukti. Belum ada naskah, cover, jadwal, atau publikasi baru. Pemantauan lanjutan menambahkan rujukan resmi KKP 20 September untuk konteks sertifikasi perikanan, bukan klaim perkembangan 72 jam. Status CMS belum diperiksa ulang pada putaran ini. Pemeriksaan ulang CMS pada 03:26 WIB: query published aktif rentang 23 November WIB menghasilkan 0 baris; belum membuktikan status semua artikel static repo atau URL live. Pemeriksaan 04:32 WIB: sumber primer e-SAJI KKP untuk klaster Seafood & Perikanan, pengajuan kuota November sudah ditutup; tidak dianggap aturan untuk semua produk ikan.",
   "daily_evergreen_published_cms_count": 0,
   "publication_verification": "No new live article verified",
   "entries": [
@@ -283,7 +283,7 @@
       "id": "cluster-14-2026-11-23",
       "category": "Seafood & Perikanan",
       "topic": "Pemantauan Seafood & Perikanan",
-      "summary": "KKP pada 20 September 2026 menjelaskan penggunaan Sertifikat Mutu dan Keamanan Hasil Perikanan (SMKHP) untuk ekspor perbatasan NTT–Timor Leste dan Kalbar–Malaysia. Ini sumber konteks evergreen, bukan perubahan baru 24–72 jam.",
+      "summary": "KKP pada 20 September 2026 menjelaskan penggunaan Sertifikat Mutu dan Keamanan Hasil Perikanan (SMKHP) untuk ekspor perbatasan NTT–Timor Leste dan Kalbar–Malaysia. Ini sumber konteks evergreen, bukan perubahan baru 24–72 jam. Portal e-SAJI KKP mencantumkan pengajuan kuota ekspor November 2026 yang telah ditutup; ini berlaku pada jenis ikan dilindungi/Appendiks CITES, bukan seluruh komoditas seafood.",
       "event_date": "2026-09-20",
       "source_published_at": "2026-09-20",
       "researched_at": "2026-11-23T00:26:02+07:00",
@@ -300,6 +300,12 @@
           "source_urls": [
             "https://www.kkp.go.id/news/news-detail/sertifikat-mutu-kkp-dorong-peningkatan-ekspor-perikanan-di-wilayah-perbatasan-l23g.html"
           ]
+        },
+        {
+          "claim": "Portal e-SAJI KKP menampilkan ketentuan kuota ekspor jenis ikan dilindungi/Appendiks CITES untuk November 2026, dengan batas pengajuan 7 November 2026; status pengajuan November sudah ditutup pada halaman yang diperiksa.",
+          "source_urls": [
+            "https://saji.kkp.go.id/"
+          ]
         }
       ],
       "sources": [
@@ -312,11 +318,16 @@
           "url": "https://www.kkp.go.id/news/news-detail/sertifikat-mutu-kkp-dorong-peningkatan-ekspor-perikanan-di-wilayah-perbatasan-l23g.html",
           "publisher": "Kementerian Kelautan dan Perikanan",
           "accessed_at": "2026-11-23T02:33:20+07:00"
+        },
+        {
+          "url": "https://saji.kkp.go.id/",
+          "publisher": "KKP e-SAJI",
+          "accessed_at": "2026-11-23T04:32:55+07:00"
         }
       ],
       "practical_impact": "Pelaku usaha perikanan perlu mengidentifikasi sertifikasi mutu dan ketentuan negara tujuan sebelum menawarkan produk ke buyer.",
-      "content_angle": "Checklist ketertelusuran dan sertifikasi mutu bagi UMKM eksportir perikanan, dengan pengecekan aturan negara tujuan",
-      "keyword_intent": "sertifikat mutu ekspor ikan SMKHP | informational",
+      "content_angle": "Panduan memeriksa apakah produk perikanan memerlukan SIPJI, kuota, dan SAJI-LN sebelum ekspor; pisahkan dari ketentuan seafood umum.",
+      "keyword_intent": "syarat ekspor ikan dilindungi CITES SAJI-LN Indonesia | informational",
       "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
