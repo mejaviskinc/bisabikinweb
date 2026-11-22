@@ -2,7 +2,7 @@
   "research_date": "2026-11-23",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-23T00:26:02+07:00",
-  "method_note": "Pemeriksaan awal hari WIB: membaca README, arsip 22 November, kode editorial dan kebijakan gambar; query CMS published 23 November WIB menghasilkan 0 baris. Pemeriksaan sumber primer Kemendag 17 dan 21 November serta indeks KKP 18 November. Pemeriksaan 15 klaster belum menyeluruh; tidak ada klaim perubahan terbaru untuk klaster tanpa bukti. Belum ada naskah, cover, jadwal, atau publikasi baru. Pemantauan lanjutan menambahkan rujukan resmi KKP 20 September untuk konteks sertifikasi perikanan, bukan klaim perkembangan 72 jam. Status CMS belum diperiksa ulang pada putaran ini.",
+  "method_note": "Pemeriksaan awal hari WIB: membaca README, arsip 22 November, kode editorial dan kebijakan gambar; query CMS published 23 November WIB menghasilkan 0 baris. Pemeriksaan sumber primer Kemendag 17 dan 21 November serta indeks KKP 18 November. Pemeriksaan 15 klaster belum menyeluruh; tidak ada klaim perubahan terbaru untuk klaster tanpa bukti. Belum ada naskah, cover, jadwal, atau publikasi baru. Pemantauan lanjutan menambahkan rujukan resmi KKP 20 September untuk konteks sertifikasi perikanan, bukan klaim perkembangan 72 jam. Status CMS belum diperiksa ulang pada putaran ini. Pemeriksaan ulang CMS pada 03:26 WIB: query published aktif rentang 23 November WIB menghasilkan 0 baris; belum membuktikan status semua artikel static repo atau URL live.",
   "daily_evergreen_published_cms_count": 0,
   "publication_verification": "No new live article verified",
   "entries": [
@@ -341,5 +341,6 @@
       "published_url": null,
       "recheck_after": "2026-11-24"
     }
-  ]
+  ],
+  "cms_rechecked_at": "2026-11-23T03:26:38+07:00"
 }
