@@ -283,10 +283,10 @@
       "id": "cluster-14-2026-11-23",
       "category": "Seafood & Perikanan",
       "topic": "Pemantauan Seafood & Perikanan",
-      "summary": "KKP pada 20 September 2026 menjelaskan penggunaan Sertifikat Mutu dan Keamanan Hasil Perikanan (SMKHP) untuk ekspor perbatasan NTT–Timor Leste dan Kalbar–Malaysia. Ini sumber konteks evergreen, bukan perubahan baru 24–72 jam. Portal e-SAJI KKP mencantumkan pengajuan kuota ekspor November 2026 yang telah ditutup; ini berlaku pada jenis ikan dilindungi/Appendiks CITES, bukan seluruh komoditas seafood.",
+      "summary": "KKP pada 20 September 2026 menjelaskan penggunaan Sertifikat Mutu dan Keamanan Hasil Perikanan (SMKHP) untuk ekspor perbatasan NTT–Timor Leste dan Kalbar–Malaysia. Ini sumber konteks evergreen, bukan perubahan baru 24–72 jam. Portal e-SAJI KKP mencantumkan pengajuan kuota ekspor November 2026 yang telah ditutup; ini berlaku pada jenis ikan dilindungi/Appendiks CITES, bukan seluruh komoditas seafood. Rilis KKP 14 September memberi konteks data semester I 2026, bukan pembaruan 72 jam.",
       "event_date": "2026-09-20",
       "source_published_at": "2026-09-20",
-      "researched_at": "2026-11-23T00:26:02+07:00",
+      "researched_at": "2026-11-23T08:26:48+07:00",
       "geography": "Indonesia dan pasar ekspor",
       "facts": [
         {
@@ -306,6 +306,12 @@
           "source_urls": [
             "https://saji.kkp.go.id/"
           ]
+        },
+        {
+          "claim": "Rilis KKP 14 September 2026 menyebut ekspor produk perikanan Januari–Juni 2026 sebesar 566,25 ribu ton senilai USD 3 miliar; data historis semester I, bukan perubahan 72 jam.",
+          "source_urls": [
+            "https://www.kkp.go.id/news/news-detail/ekspor-produk-perikanan-semester-i-2026-capai-rp-526-triliun-kkp-perkuat-sertifikasi-mutu-KLDM.html"
+          ]
         }
       ],
       "sources": [
@@ -323,11 +329,16 @@
           "url": "https://saji.kkp.go.id/",
           "publisher": "KKP e-SAJI",
           "accessed_at": "2026-11-23T04:32:55+07:00"
+        },
+        {
+          "url": "https://www.kkp.go.id/news/news-detail/ekspor-produk-perikanan-semester-i-2026-capai-rp-526-triliun-kkp-perkuat-sertifikasi-mutu-KLDM.html",
+          "publisher": "Kementerian Kelautan dan Perikanan",
+          "accessed_at": "2026-11-23T08:26:48+07:00"
         }
       ],
       "practical_impact": "Pelaku usaha perikanan perlu mengidentifikasi sertifikasi mutu dan ketentuan negara tujuan sebelum menawarkan produk ke buyer.",
-      "content_angle": "Panduan memeriksa apakah produk perikanan memerlukan SIPJI, kuota, dan SAJI-LN sebelum ekspor; pisahkan dari ketentuan seafood umum.",
-      "keyword_intent": "syarat ekspor ikan dilindungi CITES SAJI-LN Indonesia | informational",
+      "content_angle": "Checklist kesiapan sertifikasi mutu dan katalog produk perikanan bagi eksportir pemula",
+      "keyword_intent": "persyaratan sertifikasi mutu ekspor ikan Indonesia | informational",
       "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
