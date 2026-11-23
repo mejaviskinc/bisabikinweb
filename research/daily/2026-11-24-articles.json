@@ -2,7 +2,7 @@
   "research_date": "2026-11-24",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-24T00:26:42+07:00",
-  "method_note": "Awal hari WIB: membaca skema README, arsip 23 November, kode editorial, build dan kebijakan visual. Query langsung CMS mencatat 0 artikel published aktif pada 24 November WIB (76 total baris). Pemantauan indeks Kemendag 23 November dan sumber historis Kemendag 17 November; tidak menganggap konteks historis sebagai berita baru. 14 klaster belum diverifikasi khusus. Pemeriksaan artikel statis, gambar, jadwal, build dan live masih tertunda. Tidak ada artikel diterbitkan oleh putaran ini. Pemeriksaan 01:25 WIB: seluruh 9 modul sumber yang diimpor editorial-posts.mjs serta berkas induk diperiksa; tidak ditemukan string tanggal publikasi 2026-11-24 dalam modul-modul tersebut. Ini audit sumber statis, bukan verifikasi deployment; hitungan CMS 0 berasal dari pemeriksaan 00:26 WIB dan tidak di-query ulang. Workflow cover tersedia, tetapi hanya manual workflow_dispatch dan mensyaratkan secret OPENAI_API_KEY; tidak membuktikan gambar telah dihasilkan atau jadwal per-post didukung.",
+  "method_note": "Awal hari WIB: membaca skema README, arsip 23 November, kode editorial, build dan kebijakan visual. Query langsung CMS mencatat 0 artikel published aktif pada 24 November WIB (76 total baris). Pemantauan indeks Kemendag 23 November dan sumber historis Kemendag 17 November; tidak menganggap konteks historis sebagai berita baru. 14 klaster belum diverifikasi khusus. Pemeriksaan artikel statis, gambar, jadwal, build dan live masih tertunda. Tidak ada artikel diterbitkan oleh putaran ini. Pemeriksaan 01:25 WIB: seluruh 9 modul sumber yang diimpor editorial-posts.mjs serta berkas induk diperiksa; tidak ditemukan string tanggal publikasi 2026-11-24 dalam modul-modul tersebut. Ini audit sumber statis, bukan verifikasi deployment; hitungan CMS 0 berasal dari pemeriksaan 00:26 WIB dan tidak di-query ulang. Workflow cover tersedia, tetapi hanya manual workflow_dispatch dan mensyaratkan secret OPENAI_API_KEY; tidak membuktikan gambar telah dihasilkan atau jadwal per-post didukung. Pemeriksaan 02:34 WIB: sumber primer Kemendag 21 November tentang bimtek pangan olahan diverifikasi dan ditambahkan ke klaster Peluang Usaha tanpa mengubah artikel atau CMS. Sumber ini merupakan konteks 7 hari, bukan berita 24 jam. Pemeriksaan statis/CMS lengkap, produksi visual dan URL live masih belum selesai.",
   "daily_evergreen_published_cms_count": 0,
   "publication_verification": "CMS only; static count and live URLs unverified",
   "entries": [
@@ -161,21 +161,40 @@
     {
       "id": "cluster-9-2026-11-24",
       "category": "Peluang Usaha",
-      "topic": "Pemantauan Peluang Usaha",
-      "summary": "Belum ada pembaruan 24–72 jam yang diverifikasi khusus klaster ini pada pemeriksaan awal tanggal 24 November.",
-      "event_date": null,
-      "source_published_at": null,
-      "researched_at": "2026-11-24T00:26:42+07:00",
+      "topic": "Kesiapan ekspor pangan olahan dan kebutuhan informasi buyer",
+      "summary": "Kemendag melalui rilis 21 November 2026 melaporkan bimtek kesiapan ekspor pangan olahan di Bandung pada 19 November, dengan fokus peningkatan daya saing dan akses pasar. Ini konteks untuk panduan evergreen, bukan berita baru 24 November.",
+      "event_date": "2026-11-19",
+      "source_published_at": "2026-11-21",
+      "researched_at": "2026-11-24T02:34:36+07:00",
       "geography": "Indonesia dan pasar ekspor",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Validasi spesifikasi, negara tujuan, izin, dan kesiapan usaha sebelum mengeluarkan biaya.",
-      "content_angle": "Memilih kanal pemasaran ekspor bagi UMKM pemula",
-      "keyword_intent": "memilih kanal pemasaran ekspor bagi umkm pemula | informational",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "Kemendag menyatakan nilai ekspor produk makanan olahan Indonesia Januari–Agustus 2026 sebesar USD 4,49 miliar, meningkat 13,47% dibanding periode sama tahun sebelumnya.",
+          "source_urls": [
+            "https://www.kemendag.go.id/index.php/berita/siaran-pers/kemendag-dorong-umkm-pangan-olahan-go-global-lewat-bimtek-citra-produk-ekspor"
+          ]
+        },
+        {
+          "claim": "Bimbingan teknis kesiapan ekspor pangan olahan dilaksanakan di Bandung pada 19 November 2026 dan diumumkan Kemendag 21 November 2026.",
+          "source_urls": [
+            "https://www.kemendag.go.id/index.php/berita/siaran-pers/kemendag-dorong-umkm-pangan-olahan-go-global-lewat-bimtek-citra-produk-ekspor"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/index.php/berita/siaran-pers/kemendag-dorong-umkm-pangan-olahan-go-global-lewat-bimtek-citra-produk-ekspor",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-24T02:34:36+07:00"
+        }
+      ],
+      "practical_impact": "UMKM pangan olahan perlu menyajikan komposisi, spesifikasi kemasan, kapasitas produksi, ketertelusuran, dan dokumen sesuai persyaratan negara tujuan sebelum mengajukan penawaran.",
+      "content_angle": "Checklist kesiapan katalog dan dokumen produk pangan olahan untuk buyer luar negeri; verifikasi aturan spesifik negara tujuan secara terpisah.",
+      "keyword_intent": "checklist ekspor makanan olahan untuk UMKM | informational",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-24"
+      "recheck_after": "2026-11-30"
     },
     {
       "id": "cluster-10-2026-11-24",
