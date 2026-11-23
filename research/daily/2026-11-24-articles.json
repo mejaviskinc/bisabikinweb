@@ -2,7 +2,7 @@
   "research_date": "2026-11-24",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-24T00:26:42+07:00",
-  "method_note": "Awal hari WIB: membaca skema README, arsip 23 November, kode editorial, build dan kebijakan visual. Query langsung CMS mencatat 0 artikel published aktif pada 24 November WIB (76 total baris). Pemantauan indeks Kemendag 23 November dan sumber historis Kemendag 17 November; tidak menganggap konteks historis sebagai berita baru. 14 klaster belum diverifikasi khusus. Pemeriksaan artikel statis, gambar, jadwal, build dan live masih tertunda. Tidak ada artikel diterbitkan oleh putaran ini. Pemeriksaan 01:25 WIB: seluruh 9 modul sumber yang diimpor editorial-posts.mjs serta berkas induk diperiksa; tidak ditemukan string tanggal publikasi 2026-11-24 dalam modul-modul tersebut. Ini audit sumber statis, bukan verifikasi deployment; hitungan CMS 0 berasal dari pemeriksaan 00:26 WIB dan tidak di-query ulang. Workflow cover tersedia, tetapi hanya manual workflow_dispatch dan mensyaratkan secret OPENAI_API_KEY; tidak membuktikan gambar telah dihasilkan atau jadwal per-post didukung. Pemeriksaan 02:34 WIB: sumber primer Kemendag 21 November tentang bimtek pangan olahan diverifikasi dan ditambahkan ke klaster Peluang Usaha tanpa mengubah artikel atau CMS. Sumber ini merupakan konteks 7 hari, bukan berita 24 jam. Pemeriksaan statis/CMS lengkap, produksi visual dan URL live masih belum selesai.",
+  "method_note": "Awal hari WIB: membaca skema README, arsip 23 November, kode editorial, build dan kebijakan visual. Query langsung CMS mencatat 0 artikel published aktif pada 24 November WIB (76 total baris). Pemantauan indeks Kemendag 23 November dan sumber historis Kemendag 17 November; tidak menganggap konteks historis sebagai berita baru. 14 klaster belum diverifikasi khusus. Pemeriksaan artikel statis, gambar, jadwal, build dan live masih tertunda. Tidak ada artikel diterbitkan oleh putaran ini. Pemeriksaan 01:25 WIB: seluruh 9 modul sumber yang diimpor editorial-posts.mjs serta berkas induk diperiksa; tidak ditemukan string tanggal publikasi 2026-11-24 dalam modul-modul tersebut. Ini audit sumber statis, bukan verifikasi deployment; hitungan CMS 0 berasal dari pemeriksaan 00:26 WIB dan tidak di-query ulang. Workflow cover tersedia, tetapi hanya manual workflow_dispatch dan mensyaratkan secret OPENAI_API_KEY; tidak membuktikan gambar telah dihasilkan atau jadwal per-post didukung. Pemeriksaan 02:34 WIB: sumber primer Kemendag 21 November tentang bimtek pangan olahan diverifikasi dan ditambahkan ke klaster Peluang Usaha tanpa mengubah artikel atau CMS. Sumber ini merupakan konteks 7 hari, bukan berita 24 jam. Pemeriksaan statis/CMS lengkap, produksi visual dan URL live masih belum selesai. Pemeriksaan 03:25 WIB: indeks siaran pers Kemendag 19 November mengonfirmasi berita ekspor perdana cocopeat ke Taiwan; klaster Kelapa & Turunannya diperbarui dengan klaim terbatas. Ketentuan karantina Taiwan dan detail pengiriman belum diverifikasi; tidak ada publikasi artikel atau gambar.",
   "daily_evergreen_published_cms_count": 0,
   "publication_verification": "CMS only; static count and live URLs unverified",
   "entries": [
@@ -85,21 +85,34 @@
     {
       "id": "cluster-5-2026-11-24",
       "category": "Kelapa & Turunannya",
-      "topic": "Pemantauan Kelapa & Turunannya",
-      "summary": "Belum ada pembaruan 24–72 jam yang diverifikasi khusus klaster ini pada pemeriksaan awal tanggal 24 November.",
-      "event_date": null,
-      "source_published_at": null,
-      "researched_at": "2026-11-24T00:26:42+07:00",
+      "topic": "Ekspor perdana cocopeat Indonesia ke Taiwan",
+      "summary": "Indeks siaran pers resmi Kemendag bertanggal 19 November 2026 mencantumkan ekspor perdana media tanam kokopit ke Taiwan. Informasi detail dokumen, spesifikasi, dan aturan impor Taiwan belum diperiksa sehingga tidak boleh dijadikan panduan kepatuhan.",
+      "event_date": "2026-11-19",
+      "source_published_at": "2026-11-19",
+      "researched_at": "2026-11-24T03:25:35+07:00",
       "geography": "Indonesia dan pasar ekspor",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Validasi spesifikasi, negara tujuan, izin, dan kesiapan usaha sebelum mengeluarkan biaya.",
-      "content_angle": "Panduan spesifikasi dan sampel produk turunan kelapa",
-      "keyword_intent": "panduan spesifikasi dan sampel produk turunan kelapa | informational",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "Indeks siaran pers Kemendag 19 November 2026 memuat ekspor perdana media tanam kokopit ke Taiwan.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers",
+          "publisher": "Kementerian Perdagangan RI (indeks siaran pers)",
+          "accessed_at": "2026-11-24T03:25:35+07:00"
+        }
+      ],
+      "practical_impact": "Eksportir cocopeat perlu memeriksa spesifikasi produk, persyaratan karantina negara tujuan, mutu, dan dokumen sebelum menerima pesanan.",
+      "content_angle": "Checklist persiapan spesifikasi cocopeat dan pertanyaan untuk calon buyer Taiwan, tanpa mengasumsikan syarat impor yang belum diverifikasi.",
+      "keyword_intent": "persyaratan ekspor cocopeat ke Taiwan | informational",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-24"
+      "recheck_after": "2026-11-25"
     },
     {
       "id": "cluster-6-2026-11-24",
