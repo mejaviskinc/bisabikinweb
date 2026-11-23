@@ -2,7 +2,7 @@
   "research_date": "2026-11-24",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-24T00:26:42+07:00",
-  "method_note": "Awal hari WIB: membaca skema README, arsip 23 November, kode editorial, build dan kebijakan visual. Query langsung CMS mencatat 0 artikel published aktif pada 24 November WIB (76 total baris). Pemantauan indeks Kemendag 23 November dan sumber historis Kemendag 17 November; tidak menganggap konteks historis sebagai berita baru. 14 klaster belum diverifikasi khusus. Pemeriksaan artikel statis, gambar, jadwal, build dan live masih tertunda. Tidak ada artikel diterbitkan oleh putaran ini.",
+  "method_note": "Awal hari WIB: membaca skema README, arsip 23 November, kode editorial, build dan kebijakan visual. Query langsung CMS mencatat 0 artikel published aktif pada 24 November WIB (76 total baris). Pemantauan indeks Kemendag 23 November dan sumber historis Kemendag 17 November; tidak menganggap konteks historis sebagai berita baru. 14 klaster belum diverifikasi khusus. Pemeriksaan artikel statis, gambar, jadwal, build dan live masih tertunda. Tidak ada artikel diterbitkan oleh putaran ini. Pemeriksaan 01:25 WIB: seluruh 9 modul sumber yang diimpor editorial-posts.mjs serta berkas induk diperiksa; tidak ditemukan string tanggal publikasi 2026-11-24 dalam modul-modul tersebut. Ini audit sumber statis, bukan verifikasi deployment; hitungan CMS 0 berasal dari pemeriksaan 00:26 WIB dan tidak di-query ulang. Workflow cover tersedia, tetapi hanya manual workflow_dispatch dan mensyaratkan secret OPENAI_API_KEY; tidak membuktikan gambar telah dihasilkan atau jadwal per-post didukung.",
   "daily_evergreen_published_cms_count": 0,
   "publication_verification": "CMS only; static count and live URLs unverified",
   "entries": [
@@ -304,5 +304,12 @@
       "published_url": null,
       "recheck_after": "2026-11-24"
     }
-  ]
+  ],
+  "static_editorial_source_date_check": {
+    "checked_at": "2026-11-24T01:25:15+07:00",
+    "modules_checked": 10,
+    "date_string_matches": 0,
+    "scope": "editorial-posts.mjs and its nine imported modules; source-only, not all dynamic CMS or deployed pages",
+    "status": "no_2026_11_24_date_in_checked_modules"
+  }
 }
