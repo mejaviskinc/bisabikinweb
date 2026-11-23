@@ -2,7 +2,7 @@
   "research_date": "2026-11-23",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-23T00:26:02+07:00",
-  "method_note": "Pemeriksaan awal hari WIB: membaca README, arsip 22 November, kode editorial dan kebijakan gambar; query CMS published 23 November WIB menghasilkan 0 baris. Pemeriksaan sumber primer Kemendag 17 dan 21 November serta indeks KKP 18 November. Pemeriksaan 15 klaster belum menyeluruh; tidak ada klaim perubahan terbaru untuk klaster tanpa bukti. Belum ada naskah, cover, jadwal, atau publikasi baru. Pemantauan lanjutan menambahkan rujukan resmi KKP 20 September untuk konteks sertifikasi perikanan, bukan klaim perkembangan 72 jam. Status CMS belum diperiksa ulang pada putaran ini. Pemeriksaan ulang CMS pada 03:26 WIB: query published aktif rentang 23 November WIB menghasilkan 0 baris; belum membuktikan status semua artikel static repo atau URL live. Pemeriksaan 04:32 WIB: sumber primer e-SAJI KKP untuk klaster Seafood & Perikanan, pengajuan kuota November sudah ditutup; tidak dianggap aturan untuk semua produk ikan. Pemeriksaan 09:25 WIB: CMS published aktif 23 November tetap 0; verifikasi rilis KKP 30 September terkait InaExport, bukan kabar 72 jam. Belum ada artikel atau gambar baru.",
+  "method_note": "Pemeriksaan awal hari WIB: membaca README, arsip 22 November, kode editorial dan kebijakan gambar; query CMS published 23 November WIB menghasilkan 0 baris. Pemeriksaan sumber primer Kemendag 17 dan 21 November serta indeks KKP 18 November. Pemeriksaan 15 klaster belum menyeluruh; tidak ada klaim perubahan terbaru untuk klaster tanpa bukti. Belum ada naskah, cover, jadwal, atau publikasi baru. Pemantauan lanjutan menambahkan rujukan resmi KKP 20 September untuk konteks sertifikasi perikanan, bukan klaim perkembangan 72 jam. Status CMS belum diperiksa ulang pada putaran ini. Pemeriksaan ulang CMS pada 03:26 WIB: query published aktif rentang 23 November WIB menghasilkan 0 baris; belum membuktikan status semua artikel static repo atau URL live. Pemeriksaan 04:32 WIB: sumber primer e-SAJI KKP untuk klaster Seafood & Perikanan, pengajuan kuota November sudah ditutup; tidak dianggap aturan untuk semua produk ikan. Pemeriksaan 09:25 WIB: CMS published aktif 23 November tetap 0; verifikasi rilis KKP 30 September terkait InaExport, bukan kabar 72 jam. Belum ada artikel atau gambar baru. Pemeriksaan 13:34 WIB: menambahkan klarifikasi historis KKP 6 Januari tentang sertifikasi ISO unit layanan vs sertifikasi eksportir pada klaster Regulasi & Sertifikasi; bukan perkembangan 72 jam. Belum dilakukan hitung ulang CMS atau publikasi.",
   "daily_evergreen_published_cms_count": 0,
   "publication_verification": "No new live article verified",
   "entries": [
@@ -225,21 +225,34 @@
     {
       "id": "cluster-11-2026-11-23",
       "category": "Regulasi & Sertifikasi",
-      "topic": "Pemantauan Regulasi & Sertifikasi",
-      "summary": "Belum ditemukan perubahan 24–72 jam yang cukup terverifikasi dalam pemeriksaan sumber terbatas; perlu pemeriksaan sumber primer khusus klaster.",
-      "event_date": null,
-      "source_published_at": null,
-      "researched_at": "2026-11-23T00:26:02+07:00",
+      "topic": "Perbedaan ISO lembaga layanan KKP dan sertifikasi produk perikanan",
+      "summary": "Rilis KKP 6 Januari 2026 menyatakan 46 UPT layanan mutu telah bersertifikasi ISO 9001:2015; ini sertifikasi sistem manajemen layanan, bukan sertifikat otomatis bagi setiap produk eksportir. SKP, SMKHP, HACCP dan pengujian mutu disebut sebagai layanan terkait.",
+      "event_date": "2026-01-06",
+      "source_published_at": "2026-01-06",
+      "researched_at": "2026-11-23T13:34:01+07:00",
       "geography": "Indonesia dan pasar ekspor",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "UMKM perlu memvalidasi permintaan pasar, spesifikasi produk, dan persyaratan tujuan sebelum mengeluarkan biaya pemasaran atau ekspor.",
-      "content_angle": "Panduan verifikasi kesiapan usaha pada klaster Regulasi & Sertifikasi",
-      "keyword_intent": "checklist regulasi & sertifikasi UMKM | informational",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "KKP melaporkan 46 UPT mutu telah bersertifikasi ISO 9001:2015 per 1 Januari 2026; layanan mencakup SKP, SMKHP, HACCP dan pengujian mutu. Sertifikasi ISO unit layanan tidak berarti produk eksportir otomatis tersertifikasi.",
+          "source_urls": [
+            "https://ppid.kkp.go.id/upt/balai-ppmkhp-tarakan/news/detail/layanan-mutu-kkp-dilengkapi-sertifikasi-iso-ekspor-komoditas-perikanan-diyakini-tumbuh-positif-di-2026/"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://ppid.kkp.go.id/upt/balai-ppmkhp-tarakan/news/detail/layanan-mutu-kkp-dilengkapi-sertifikasi-iso-ekspor-komoditas-perikanan-diyakini-tumbuh-positif-di-2026/",
+          "publisher": "KKP PPID Badan Mutu",
+          "accessed_at": "2026-11-23T13:34:01+07:00"
+        }
+      ],
+      "practical_impact": "Eksportir harus mengidentifikasi sertifikat yang relevan bagi produk, fasilitas dan negara tujuan; tidak menyamakan sertifikasi mutu lembaga dengan kepatuhan produknya.",
+      "content_angle": "Panduan membedakan SKP, SMKHP, HACCP dan ISO 9001 untuk pelaku ekspor ikan",
+      "keyword_intent": "perbedaan SKP SMKHP HACCP ISO ekspor ikan | informational",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
-      "recheck_after": "2026-11-24"
+      "recheck_after": "2026-11-30"
     },
     {
       "id": "cluster-12-2026-11-23",
