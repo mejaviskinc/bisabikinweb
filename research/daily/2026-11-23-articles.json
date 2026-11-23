@@ -2,7 +2,7 @@
   "research_date": "2026-11-23",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-23T00:26:02+07:00",
-  "method_note": "Pemeriksaan awal hari WIB: membaca README, arsip 22 November, kode editorial dan kebijakan gambar; query CMS published 23 November WIB menghasilkan 0 baris. Pemeriksaan sumber primer Kemendag 17 dan 21 November serta indeks KKP 18 November. Pemeriksaan 15 klaster belum menyeluruh; tidak ada klaim perubahan terbaru untuk klaster tanpa bukti. Belum ada naskah, cover, jadwal, atau publikasi baru. Pemantauan lanjutan menambahkan rujukan resmi KKP 20 September untuk konteks sertifikasi perikanan, bukan klaim perkembangan 72 jam. Status CMS belum diperiksa ulang pada putaran ini. Pemeriksaan ulang CMS pada 03:26 WIB: query published aktif rentang 23 November WIB menghasilkan 0 baris; belum membuktikan status semua artikel static repo atau URL live. Pemeriksaan 04:32 WIB: sumber primer e-SAJI KKP untuk klaster Seafood & Perikanan, pengajuan kuota November sudah ditutup; tidak dianggap aturan untuk semua produk ikan. Pemeriksaan 09:25 WIB: CMS published aktif 23 November tetap 0; verifikasi rilis KKP 30 September terkait InaExport, bukan kabar 72 jam. Belum ada artikel atau gambar baru. Pemeriksaan 13:34 WIB: menambahkan klarifikasi historis KKP 6 Januari tentang sertifikasi ISO unit layanan vs sertifikasi eksportir pada klaster Regulasi & Sertifikasi; bukan perkembangan 72 jam. Belum dilakukan hitung ulang CMS atau publikasi. Pemeriksaan 14:49 WIB: rilis primer Kemendag 10 November tentang edukasi standardisasi UMKM Jawa Timur ditambahkan sebagai konteks historis, bukan perkembangan 72 jam; 15 klaster tetap dipertahankan, publikasi belum diverifikasi.",
+  "method_note": "Pemeriksaan awal hari WIB: membaca README, arsip 22 November, kode editorial dan kebijakan gambar; query CMS published 23 November WIB menghasilkan 0 baris. Pemeriksaan sumber primer Kemendag 17 dan 21 November serta indeks KKP 18 November. Pemeriksaan 15 klaster belum menyeluruh; tidak ada klaim perubahan terbaru untuk klaster tanpa bukti. Belum ada naskah, cover, jadwal, atau publikasi baru. Pemantauan lanjutan menambahkan rujukan resmi KKP 20 September untuk konteks sertifikasi perikanan, bukan klaim perkembangan 72 jam. Status CMS belum diperiksa ulang pada putaran ini. Pemeriksaan ulang CMS pada 03:26 WIB: query published aktif rentang 23 November WIB menghasilkan 0 baris; belum membuktikan status semua artikel static repo atau URL live. Pemeriksaan 04:32 WIB: sumber primer e-SAJI KKP untuk klaster Seafood & Perikanan, pengajuan kuota November sudah ditutup; tidak dianggap aturan untuk semua produk ikan. Pemeriksaan 09:25 WIB: CMS published aktif 23 November tetap 0; verifikasi rilis KKP 30 September terkait InaExport, bukan kabar 72 jam. Belum ada artikel atau gambar baru. Pemeriksaan 13:34 WIB: menambahkan klarifikasi historis KKP 6 Januari tentang sertifikasi ISO unit layanan vs sertifikasi eksportir pada klaster Regulasi & Sertifikasi; bukan perkembangan 72 jam. Belum dilakukan hitung ulang CMS atau publikasi. Pemeriksaan 14:49 WIB: rilis primer Kemendag 10 November tentang edukasi standardisasi UMKM Jawa Timur ditambahkan sebagai konteks historis, bukan perkembangan 72 jam; 15 klaster tetap dipertahankan, publikasi belum diverifikasi. Pemeriksaan 16:14 WIB: sumber primer Kemendag 21 November mengonfirmasi penandatanganan I-EU CEPA; ratifikasi/keberlakuan belum dipastikan. Tidak ada artikel atau gambar yang dipublikasikan pada putaran ini.",
   "daily_evergreen_published_cms_count": 0,
   "publication_verification": "No new live article verified",
   "entries": [
@@ -382,18 +382,31 @@
     {
       "id": "cluster-15-2026-11-23",
       "category": "Tren & Analisis Pasar",
-      "topic": "Pemantauan Tren & Analisis Pasar",
-      "summary": "Belum ditemukan perubahan 24–72 jam yang cukup terverifikasi dalam pemeriksaan sumber terbatas; perlu pemeriksaan sumber primer khusus klaster.",
-      "event_date": null,
-      "source_published_at": null,
-      "researched_at": "2026-11-23T00:26:02+07:00",
+      "topic": "Penandatanganan I-EU CEPA dan kesiapan eksportir",
+      "summary": "Kemendag melaporkan penandatanganan I-EU CEPA pada 21 November 2026. Implementasi dan manfaat tarif masih menunggu proses ratifikasi serta keberlakuan perjanjian; jangan menyebut tarif preferensial sudah berlaku.",
+      "event_date": "2026-11-21",
+      "source_published_at": "2026-11-21",
+      "researched_at": "2026-11-23T16:14:36+07:00",
       "geography": "Indonesia dan pasar ekspor",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "UMKM perlu memvalidasi permintaan pasar, spesifikasi produk, dan persyaratan tujuan sebelum mengeluarkan biaya pemasaran atau ekspor.",
-      "content_angle": "Panduan verifikasi kesiapan usaha pada klaster Tren & Analisis Pasar",
-      "keyword_intent": "checklist tren & analisis pasar UMKM | informational",
-      "editorial_status": "needs_verification",
+      "facts": [
+        {
+          "claim": "Kemendag melaporkan penandatanganan I-EU CEPA pada 21 November 2026 dan menyatakan ratifikasi masih menjadi tahap berikutnya; tidak berarti tarif preferensial telah berlaku.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/eu-cepa-ditandatangani-mendag-busan-optimistis-pasar-uni-eropa-makin-terbuka"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/eu-cepa-ditandatangani-mendag-busan-optimistis-pasar-uni-eropa-makin-terbuka",
+          "publisher": "Kementerian Perdagangan",
+          "accessed_at": "2026-11-23T16:14:36+07:00"
+        }
+      ],
+      "practical_impact": "Eksportir perlu memeriksa status ratifikasi, jadwal pemberlakuan, klasifikasi HS, ketentuan asal barang, serta persyaratan UE sebelum mengutip tarif preferensial dalam penawaran.",
+      "content_angle": "Panduan cek kesiapan ekspor ke Uni Eropa sebelum manfaat I-EU CEPA berlaku",
+      "keyword_intent": "cara mempersiapkan ekspor ke Uni Eropa setelah I-EU CEPA | informational",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-24"
