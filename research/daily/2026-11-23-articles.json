@@ -2,7 +2,7 @@
   "research_date": "2026-11-23",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-23T00:26:02+07:00",
-  "method_note": "Pemeriksaan awal hari WIB: membaca README, arsip 22 November, kode editorial dan kebijakan gambar; query CMS published 23 November WIB menghasilkan 0 baris. Pemeriksaan sumber primer Kemendag 17 dan 21 November serta indeks KKP 18 November. Pemeriksaan 15 klaster belum menyeluruh; tidak ada klaim perubahan terbaru untuk klaster tanpa bukti. Belum ada naskah, cover, jadwal, atau publikasi baru. Pemantauan lanjutan menambahkan rujukan resmi KKP 20 September untuk konteks sertifikasi perikanan, bukan klaim perkembangan 72 jam. Status CMS belum diperiksa ulang pada putaran ini. Pemeriksaan ulang CMS pada 03:26 WIB: query published aktif rentang 23 November WIB menghasilkan 0 baris; belum membuktikan status semua artikel static repo atau URL live. Pemeriksaan 04:32 WIB: sumber primer e-SAJI KKP untuk klaster Seafood & Perikanan, pengajuan kuota November sudah ditutup; tidak dianggap aturan untuk semua produk ikan.",
+  "method_note": "Pemeriksaan awal hari WIB: membaca README, arsip 22 November, kode editorial dan kebijakan gambar; query CMS published 23 November WIB menghasilkan 0 baris. Pemeriksaan sumber primer Kemendag 17 dan 21 November serta indeks KKP 18 November. Pemeriksaan 15 klaster belum menyeluruh; tidak ada klaim perubahan terbaru untuk klaster tanpa bukti. Belum ada naskah, cover, jadwal, atau publikasi baru. Pemantauan lanjutan menambahkan rujukan resmi KKP 20 September untuk konteks sertifikasi perikanan, bukan klaim perkembangan 72 jam. Status CMS belum diperiksa ulang pada putaran ini. Pemeriksaan ulang CMS pada 03:26 WIB: query published aktif rentang 23 November WIB menghasilkan 0 baris; belum membuktikan status semua artikel static repo atau URL live. Pemeriksaan 04:32 WIB: sumber primer e-SAJI KKP untuk klaster Seafood & Perikanan, pengajuan kuota November sudah ditutup; tidak dianggap aturan untuk semua produk ikan. Pemeriksaan 09:25 WIB: CMS published aktif 23 November tetap 0; verifikasi rilis KKP 30 September terkait InaExport, bukan kabar 72 jam. Belum ada artikel atau gambar baru.",
   "daily_evergreen_published_cms_count": 0,
   "publication_verification": "No new live article verified",
   "entries": [
@@ -312,6 +312,12 @@
           "source_urls": [
             "https://www.kkp.go.id/news/news-detail/ekspor-produk-perikanan-semester-i-2026-capai-rp-526-triliun-kkp-perkuat-sertifikasi-mutu-KLDM.html"
           ]
+        },
+        {
+          "claim": "KKP pada 30 September 2026 mengumumkan kerja sama dengan Kemendag untuk membuka akses InaExport bagi produk perikanan UMKM yang sudah mendapat sertifikasi mutu KKP; ini konteks historis, bukan perubahan 72 jam.",
+          "source_urls": [
+            "https://www.kkp.go.id/news/news-detail/produk-perikanan-umkm-masuk-inaexport-kkp-kemendag-buka-akses-pasar-global-OP4L.html"
+          ]
         }
       ],
       "sources": [
@@ -334,11 +340,16 @@
           "url": "https://www.kkp.go.id/news/news-detail/ekspor-produk-perikanan-semester-i-2026-capai-rp-526-triliun-kkp-perkuat-sertifikasi-mutu-KLDM.html",
           "publisher": "Kementerian Kelautan dan Perikanan",
           "accessed_at": "2026-11-23T08:26:48+07:00"
+        },
+        {
+          "url": "https://www.kkp.go.id/news/news-detail/produk-perikanan-umkm-masuk-inaexport-kkp-kemendag-buka-akses-pasar-global-OP4L.html",
+          "publisher": "Kementerian Kelautan dan Perikanan",
+          "accessed_at": "2026-11-23T09:25:21+07:00"
         }
       ],
       "practical_impact": "Pelaku usaha perikanan perlu mengidentifikasi sertifikasi mutu dan ketentuan negara tujuan sebelum menawarkan produk ke buyer.",
-      "content_angle": "Checklist kesiapan sertifikasi mutu dan katalog produk perikanan bagi eksportir pemula",
-      "keyword_intent": "persyaratan sertifikasi mutu ekspor ikan Indonesia | informational",
+      "content_angle": "Panduan menyiapkan profil pemasok perikanan dan sertifikasi mutu sebelum menggunakan InaExport; verifikasi persyaratan per produk dan negara tujuan",
+      "keyword_intent": "cara daftar InaExport produk perikanan UMKM | informational",
       "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
