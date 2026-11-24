@@ -14,5 +14,15 @@ export const editorialCoverMap = {
   "mengenal-geo-generative-engine-optimization": "https://bisabikinweb.site/editorial-covers/mengenal-geo-generative-engine-optimization.webp",
   "cara-menjaga-kualitas-cocopeat-selama-penyimpanan": "https://bisabikinweb.site/editorial-covers/cara-menjaga-kualitas-cocopeat-selama-penyimpanan.webp",
   "checklist-kesiapan-ekspor-makanan-olahan-umkm": "https://bisabikinweb.site/editorial-covers/checklist-kesiapan-ekspor-makanan-olahan-umkm.webp",
-  "cara-menyiapkan-katalog-produk-perikanan-pasar-global": "https://bisabikinweb.site/editorial-covers/cara-menyiapkan-katalog-produk-perikanan-pasar-global.webp"
+  "cara-menyiapkan-katalog-produk-perikanan-pasar-global": "https://bisabikinweb.site/editorial-covers/cara-menyiapkan-katalog-produk-perikanan-pasar-global.webp",
+  "kssk-stabilitas-sistem-keuangan-triwulan-iii-2026": "https://bisabikinweb.site/editorial-covers/kssk-stabilitas-sistem-keuangan-triwulan-iii-2026.webp",
+  "komdigi-talenta-digital-daerah-nezar-patria-2026": "https://bisabikinweb.site/editorial-covers/komdigi-talenta-digital-daerah-nezar-patria-2026.webp",
+  "kemenkeu-pasokan-pangan-stabilitas-harga-november-2026": "https://bisabikinweb.site/editorial-covers/kemenkeu-pasokan-pangan-stabilitas-harga-november-2026.webp",
+  "samarinda-inklusi-keuangan-umkm-keluarga-2026": "https://bisabikinweb.site/editorial-covers/samarinda-inklusi-keuangan-umkm-keluarga-2026.webp",
+  "pp-tunas-komdigi-pelindungan-anak-digital-2026": "https://bisabikinweb.site/editorial-covers/pp-tunas-komdigi-pelindungan-anak-digital-2026.webp",
+  "cara-website-bisnis-muncul-google-pencarian-ai": "https://bisabikinweb.site/editorial-covers/mengenal-geo-generative-engine-optimization.webp",
+  "mengapa-umkm-butuh-website-meski-punya-instagram": "https://bisabikinweb.site/editorial-covers/pentingnya-website-untuk-bisnis.webp",
+  "faktor-biaya-pembuatan-website-profesional": "https://bisabikinweb.site/editorial-covers/jasa-pembuatan-website-profesional.webp",
+  "checklist-landing-page-jasa-untuk-konversi": "https://bisabikinweb.site/editorial-covers/cara-meningkatkan-konversi-website.webp",
+  "checklist-maintenance-website-bisnis-bulanan": "https://bisabikinweb.site/editorial-covers/jasa-pembuatan-website-profesional.webp"
 };
