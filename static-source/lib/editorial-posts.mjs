@@ -651,6 +651,6 @@ export function mergeEditorialPosts(articles = []) {
   const existing = new Set(source.map(article => article.id));
   return [...editorialPosts.filter(article => !existing.has(article.id)), ...source].map(article => {
     const generatedImage = editorialCoverMap[article.id];
-    return generatedImage ? {...article, image:generatedImage, cover_image_url:generatedImage} : article;
+    return generatedImage ? {...article, image:generatedImage, cover_image_url:generatedImage, image_caption:'Ilustrasi AI realistis sesuai topik artikel; bukan dokumentasi peristiwa.'} : article;
   });
 }
