@@ -12,7 +12,7 @@ for (const kind of ['media','shop']) {
     try{
       for(const path of ['assets','brand','artikel','berita','redaksi','merch','cart','checkout','track-order','account','admin','seller','auto-artikel','portfolio']){
         await mkdir(join(source,path),{recursive:true});
-        await writeFile(join(source,path,'index.html'),'<html><head><meta name="robots" content="index,follow"></head><body>'+path+'</body></html>');
+        await writeFile(join(source,path,'index.html'),'<html><head><meta name="robots" content="index,follow"><meta name="google-adsense-account" content="ca-pub-123"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-123" crossorigin="anonymous"></script></head><body>'+path+'</body></html>');
       }
       await writeFile(join(source,'index.html'),'<html><head></head><body>home</body></html>');
       await writeFile(join(source,'assets/client.js'),'test');
@@ -27,6 +27,11 @@ for (const kind of ['media','shop']) {
       assert.match(await readFile(join(out,'robots.txt'),'utf8'),/Allow: \//);
       assert.doesNotMatch(await readFile(join(out,'robots.txt'),'utf8'),/Disallow:/);
       assert.match(await readFile(join(out,'index.html'),'utf8'),/noindex,nofollow/);
+      for(const route of (kind==='media'?['artikel','berita','redaksi']:['merch','cart','checkout','track-order','account'])){
+        const preview=await readFile(join(out,route,'index.html'),'utf8');
+        assert.doesNotMatch(preview,/google-adsense-account|adsbygoogle\.js/);
+        assert.match(preview,/noindex,nofollow/);
+      }
       if(kind==='media'){
         const home=await readFile(join(out,'index.html'),'utf8');
         assert.match(home,/http-equiv="refresh" content="0;url=\/artikel\/"/);

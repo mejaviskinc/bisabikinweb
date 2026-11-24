@@ -622,6 +622,39 @@ const evergreen20261106 = [
   author_type:"editorial",author_store_name:"BisaBikinWeb",published_at:"2026-11-06T08:00:00+07:00",updated_at:"2026-11-06T08:00:00+07:00",sort_order:340+index,
   body:[`## Fokus utama\n${focus} Tetapkan hasil yang dapat diuji, lalu pastikan setiap perubahan mendukung kebutuhan pelanggan dan kemampuan tim.`,`## Langkah pelaksanaan\nMulai dari kondisi saat ini. Buat daftar prioritas, penanggung jawab, dan tenggat kecil. Uji perubahan pada halaman atau proses yang paling sering dipakai sebelum memperluasnya.`,`## Pengukuran dan evaluasi\nPantau pertanyaan pelanggan, tindakan pada halaman, hambatan yang berulang, serta waktu respons tim. Gunakan hasil ini untuk memperbaiki proses secara bertahap.`,`## Risiko yang perlu dijaga\nHindari klaim yang tidak dapat dibuktikan, fitur yang tidak dirawat, dan pengumpulan data yang tidak diperlukan. Dokumentasikan perubahan serta siapkan cadangan bila menyentuh halaman penting.`,"Keterangan gambar: Foto editorial orisinal dibuat khusus untuk panduan ini; bukan dokumentasi peristiwa."]
 }));
+
+ // Expand the two practical guides below with topic-specific editorial material; keep stable URLs.
+ const expandedNovemberGuides={
+ 'backup-website-bisnis':[
+ 'Cadangan website bisnis sebaiknya mencakup kode, database, unggahan pelanggan yang memang perlu disimpan, konfigurasi, dan catatan versi sistem. Salinan kode di Git tidak otomatis menyertakan pesanan, foto produk, atau data formulir yang berada di database terpisah. Catat lokasi tiap komponen dan tentukan siapa yang bertanggung jawab terhadap pemulihannya.',
+ '## Tentukan frekuensi dari risiko bisnis',
+ 'Sebuah toko online yang menerima transaksi setiap hari membutuhkan pencadangan data lebih sering daripada company profile yang jarang berubah. Tentukan berapa banyak perubahan data yang dapat ditoleransi jika terjadi gangguan dan berapa lama layanan boleh berhenti. Angka tersebut menjadi dasar memilih frekuensi pencadangan, bukan sekadar mengikuti jadwal standar.',
+ '## Pisahkan cadangan dari layanan produksi',
+ 'Simpan setidaknya satu salinan di lingkungan yang berbeda dengan akses terbatas. Enkripsi cadangan yang berisi data pelanggan dan jangan menyimpan token, kata sandi, atau file cadangan database dalam repository publik. Batasi akses pemulihan kepada petugas berwenang, dan catat cara mengambil konfigurasi rahasia secara aman.',
+ '## Uji pemulihan secara berkala',
+ 'Gunakan lingkungan pengujian terpisah untuk memulihkan salinan kode dan database. Periksa apakah katalog dapat dibuka, gambar tampil, formulir berjalan, dan data pesanan sesuai. Hindari mengirim email atau memproses pembayaran nyata dari lingkungan uji. Catat durasi pemulihan, versi cadangan, kesalahan yang ditemukan, dan langkah koreksinya.',
+ 'Sebagai contoh, pemilik toko dapat mencatat tanggal cadangan terakhir, menjalankan uji pemulihan pada akhir bulan, dan memastikan akun pemilik masih bisa mengakses penyimpanan cadangan. Dengan prosedur yang terdokumentasi, pergantian pengelola website tidak harus membuat bisnis kehilangan akses atau bergantung pada satu orang.',
+ 'Keterangan gambar: Ilustrasi editorial, bukan dokumentasi peristiwa.'
+ ],
+ 'optimasi-formulir-inquiry-website':[
+ 'Formulir inquiry membantu calon pelanggan menyampaikan kebutuhan tanpa harus menulis pesan panjang dari awal. Untuk jasa website, pertanyaan yang paling berguna adalah jenis bisnis, tujuan website, fitur yang dibutuhkan, perkiraan waktu pengerjaan, dan kontak yang dapat dihubungi. Jangan meminta nomor identitas, informasi kartu pembayaran, atau data sensitif yang tidak dibutuhkan pada tahap konsultasi.',
+ '## Susun pertanyaan sesuai keputusan yang akan diambil',
+ 'Mulai dengan nama dan metode kontak, lalu beri pilihan kebutuhan seperti company profile, toko online, atau pengembangan sistem khusus. Gunakan kolom opsional untuk kisaran anggaran dan tenggat jika belum ditentukan. Kolom penjelasan bebas membantu pelanggan menjelaskan kebutuhan yang tidak cocok dengan pilihan tersedia. Jelaskan tujuan tiap pertanyaan agar pengguna tidak merasa sedang mengisi formulir administrasi yang tidak relevan.',
+ '## Buat pengiriman mudah di ponsel',
+ 'Gunakan label yang tetap terlihat, jenis input sesuai data, serta pesan kesalahan di dekat kolom terkait. Jangan menghapus seluruh isian ketika satu kolom salah. Setelah pengiriman berhasil, tampilkan konfirmasi bahwa permintaan diterima dan jelaskan tahap berikutnya. Uji juga koneksi lambat, pengiriman ganda, dan kegagalan server agar pelanggan tidak menerima konfirmasi palsu.',
+ '## Atur tindak lanjut dan pengukuran',
+ 'Catat inquiry di dashboard dengan status baru, ditinjau, ditindaklanjuti, dan selesai. Batasi akses data kepada tim yang membutuhkan dan sertakan tautan kebijakan privasi. Ukur jumlah formulir yang mulai diisi, jumlah yang berhasil dikirim, dan jumlah konsultasi yang relevan. Tidak semua kenaikan jumlah pengiriman berarti kualitas prospek meningkat.',
+ 'Sebagai contoh, bisnis jasa dapat membandingkan formulir lima kolom dengan versi yang lebih panjang, lalu mencatat pertanyaan yang masih sering muncul saat konsultasi. Tambahkan pertanyaan hanya apabila jawabannya membantu menyiapkan penawaran atau mengurangi komunikasi berulang.',
+ 'Keterangan gambar: Ilustrasi editorial, bukan dokumentasi peristiwa.'
+ ]
+ };
+ for(const post of evergreen20261106){
+  if(expandedNovemberGuides[post.id]){
+   post.body=expandedNovemberGuides[post.id];
+   post.updated_at='2026-11-25T06:43:00+07:00';
+  }
+ }
+
 editorialPosts.push(...evergreen20261106.filter(post => !editorialPosts.some(existing => existing.id === post.id)));
 
 // Batch 7 Nov 2026: individually authored evergreen guides, distinct from daily news.

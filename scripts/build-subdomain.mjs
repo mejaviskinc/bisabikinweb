@@ -52,6 +52,9 @@ async function prepareHtml(directory){
     let html=await readFile(file,'utf8');
     html=html.replace(/<meta\s+name="robots"[^>]*>/gi,'');
     html=html.replace(/<meta\s+name="googlebot"[^>]*>/gi,'');
+    // Preview origins are deliberately noindex: keep Google monetization on canonical pages.
+    html=html.replace(/<meta\b(?=[^>]*\bname=["']google-adsense-account["'])[^>]*>/gi,'');
+    html=html.replace(/<script\b(?=[^>]*\bsrc=["']https:\/\/pagead2\.googlesyndication\.com\/pagead\/js\/adsbygoogle\.js(?:\?[^"']*)?["'])[^>]*>\s*<\/script>/gi,'');
     html=html.replace(/<head([^>]*)>/i,'<head$1><meta name="robots" content="noindex,nofollow"><meta name="googlebot" content="noindex,nofollow">');
     html=html.replace(/<\/body>/i,'<script src="/subdomain-navigation.js" defer></script></body>');
     await writeFile(file,html);
