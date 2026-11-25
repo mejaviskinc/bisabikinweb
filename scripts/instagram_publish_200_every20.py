@@ -85,7 +85,12 @@ def main():
         selected = (index, item)
         break
     if selected is None:
-        print(f"NO_UNPUBLISHED_DUE_POSTS due={due_count}", flush=True)
+        if all(entries.get(x["id"], {}).get("status") == "published" and
+               str(entries[x["id"]].get("instagram_media_id", "")).isdigit() for x in rows):
+            from instagram_publish_300 import publish_next
+            publish_next(entries, quota_available)
+        else:
+            print(f"NO_UNPUBLISHED_DUE_POSTS due={due_count}; REVIEW_UNCONFIRMED_OLD_BATCH", flush=True)
         return
     if not quota_available():
         print("SAFE_QUOTA_SKIP: resume automatically on a later 20-minute tick", flush=True)
