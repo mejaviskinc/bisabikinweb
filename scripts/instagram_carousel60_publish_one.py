@@ -30,6 +30,8 @@ MANIFEST = Path("social/instagram/carousels/2026-11-10-sixty.json")
 BRAND_MASTER = Path("social/instagram/rendered/2026-11-09-original-five-quotes/04.jpg")
 BRANCH = "instagram-assets"
 PREFIX = "instagram-60-carousels/20261110/"
+NEXT_MANIFEST = Path("social/instagram/carousels/2026-11-25-hundred.json")
+NEXT_PREFIX = "instagram-100-carousels/20261125/"
 FONT = "/usr/share/fonts/opentype/inter/InterDisplay-Bold.otf"
 MAX_UPLOAD = 8_000_000
 
@@ -191,7 +193,7 @@ def main():
     # Anchor the next posting to the last carousel attempt, never burst on cron jitter.
     carousel_attempts = []
     for key, value in state["entries"].items():
-        if key.startswith("bbweb-carousel60-20261110-") and isinstance(value, dict):
+        if key.startswith(("bbweb-carousel60-20261110-", "bbweb-carousel100-20261125-")) and isinstance(value, dict):
             timestamp = value.get("claimed_at")
             if isinstance(timestamp, str):
                 try:
@@ -203,10 +205,37 @@ def main():
         if elapsed < 55*60:
             print(f"WAIT_NEXT_HOUR: {round((55*60-elapsed)/60)} minutes remaining", flush=True)
             return
-    target = next((x for x in items if x["id"] not in state["entries"]), None)
+    entries = state["entries"]
+    target = next((x for x in items if x["id"] not in entries), None)
+    prefix, batch_size, max_slides = PREFIX, 60, 6
+    def confirmed(row):
+        value = entries.get(row["id"], {})
+        return value.get("status") == "published" and str(value.get("instagram_media_id", "")).isdigit()
     if target is None:
-        print("COMPLETE: all 60 carousels already claimed or published", flush=True)
-        return
+        if not all(confirmed(x) for x in items):
+            raise SafeStop("Old carousel claims not fully confirmed; review before next batch")
+        if not NEXT_MANIFEST.is_file():
+            print("COMPLETE_60; waiting for next batch")
+            return
+        new = json.loads(NEXT_MANIFEST.read_text(encoding="utf-8"))
+        items = new.get("items", [])
+        if new.get("account") != "bisabikinweb.id" or len(items) != 100:
+            raise SafeStop("Invalid new 100-carousel manifest")
+        if any(x["id"] != f"bbweb-carousel100-20261125-{i:03d}" or x["number"] != i or
+               x["slide_count"] != len(x["slides"]) or not 3 <= len(x["slides"]) <= 5
+               for i, x in enumerate(items, 1)):
+            raise SafeStop("Invalid carousel IDs or slide counts")
+        if any(x["id"] in entries and not confirmed(x) for x in items):
+            raise SafeStop("Unconfirmed new carousel claim; review before resuming")
+        prefix, batch_size, max_slides = NEXT_PREFIX, 100, 5
+        target = next((x for x in items if x["id"] not in entries), None)
+        print(f"BATCH_100_CONFIRMED {sum(confirmed(x) for x in items)}/100", flush=True)
+        if target is None:
+            print("COMPLETE_100", flush=True)
+            return
+        if carousel_attempts and (dt.datetime.now(dt.timezone.utc)-max(carousel_attempts)).total_seconds() < 3600:
+            print("WAIT_NEXT_60MIN_WINDOW", flush=True)
+            return
     token = os.environ["IG_ACCESS_TOKEN"]
     user_id = os.environ["IG_USER_ID"]
     profile = meta("GET", user_id, token, {"fields":"id,username"}, stage="PROFILE_ACCESS")
@@ -216,13 +245,13 @@ def main():
         print("QUOTA_SKIP: Meta publishing quota reached; try next scheduled hour", flush=True)
         return
     pages = target["slides"]
-    if not 3 <= len(pages) <= 6 or any(not 18 <= len(s.strip()) <= 260 for s in pages):
+    if not 3 <= len(pages) <= max_slides or any(not 18 <= len(s.strip()) <= 260 for s in pages):
         raise SafeStop("Carousel slide content out of bounds")
 
     base = get_master()
     urls = []
     for index, text in enumerate(pages, start=1):
-        path = f"{PREFIX}{target['number']:03d}/slide_{index:02d}.jpg"
+        path = f"{prefix}{target['number']:03d}/slide_{index:02d}.jpg"
         url = upload_once(path, image_jpeg(base, text))
         image_available(url)
         urls.append(url)
@@ -240,9 +269,9 @@ def main():
         "caption": target["caption"],
     }
     eligible(record, record["date"], record["slot"])
-    print(f"START_CAROUSEL {target['number']}/60 slides={len(urls)} id={record['id']}", flush=True)
+    print(f"START_CAROUSEL {target['number']}/{batch_size} slides={len(urls)} id={record['id']}", flush=True)
     live_publish(record)
-    print(f"PUBLISHED_CAROUSEL {target['number']}/60 slides={len(urls)}", flush=True)
+    print(f"PUBLISHED_CAROUSEL {target['number']}/{batch_size} slides={len(urls)}", flush=True)
 
 
 if __name__ == "__main__":
