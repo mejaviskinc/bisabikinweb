@@ -1,0 +1,91 @@
+{
+  "date": "2026-11-26",
+  "account": "bisabikinweb.id",
+  "status": "DRAFT_ONLY_PHOTO_RIGHTS_PENDING",
+  "design": {
+    "width": 1080,
+    "height": 1350,
+    "logo": false,
+    "accent": "#BFFF00",
+    "footer": "bisabikinweb.site",
+    "photo": "original licensed photograph only",
+    "credits": "caption only"
+  },
+  "items": [
+    {
+      "id": "bbweb-news-20261126-tarif-as",
+      "category": "EKONOMI",
+      "headline": "RI hadapi usulan tarif impor AS hingga 18%",
+      "summary": "Pemerintah Indonesia menyiapkan negosiasi untuk mengupayakan pengecualian sejumlah produk dari usulan tarif Amerika Serikat hingga 18%. Besaran tersebut masih berupa usulan, bukan tarif final.",
+      "source": "detikFinance",
+      "source_url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8770826/terancam-tarif-as-18-ri-bakal-negosiasi-pengecualian-produk/amp",
+      "date": "2026-11-26",
+      "caption_draft": "RI hadapi usulan tarif impor AS hingga 18%\n\nPemerintah Indonesia menyiapkan negosiasi untuk mengupayakan pengecualian sejumlah produk dari usulan tarif Amerika Serikat hingga 18%. Besaran tersebut masih berupa usulan, bukan tarif final.\n\nSumber berita: detikFinance\nhttps://finance.detik.com/berita-ekonomi-bisnis/d-8770826/terancam-tarif-as-18-ri-bakal-negosiasi-pengecualian-produk/amp\nKredit foto: wajib diisi setelah lisensi foto asli diverifikasi.\n\nbisabikinweb.site",
+      "status": "draft",
+      "fact_checked": true,
+      "rights_verified": false,
+      "image_url": null,
+      "approved_to_publish": false
+    },
+    {
+      "id": "bbweb-news-20261126-pala",
+      "category": "EKSPOR",
+      "headline": "RI dorong pengurangan pemeriksaan ekspor pala ke Uni Eropa",
+      "summary": "Bapanas mendorong kemudahan pemeriksaan pala asal Indonesia di Uni Eropa. Frekuensi pemeriksaan sebelumnya turun dari 50% menjadi 30%.",
+      "source": "ANTARA",
+      "source_url": "https://ambon.antaranews.com/berita/355335/bapanas-usulkan-pemeriksaan-ekspor-pala-ri-ke-eropa-dipermudah",
+      "date": "2026-11-26",
+      "caption_draft": "RI dorong pengurangan pemeriksaan ekspor pala ke Uni Eropa\n\nBapanas mendorong kemudahan pemeriksaan pala asal Indonesia di Uni Eropa. Frekuensi pemeriksaan sebelumnya turun dari 50% menjadi 30%.\n\nSumber berita: ANTARA\nhttps://ambon.antaranews.com/berita/355335/bapanas-usulkan-pemeriksaan-ekspor-pala-ri-ke-eropa-dipermudah\nKredit foto: wajib diisi setelah lisensi foto asli diverifikasi.\n\nbisabikinweb.site",
+      "status": "draft",
+      "fact_checked": true,
+      "rights_verified": false,
+      "image_url": null,
+      "approved_to_publish": false
+    },
+    {
+      "id": "bbweb-news-20261126-srbi",
+      "category": "KEUANGAN",
+      "headline": "Modal asing Rp23 triliun masuk SRBI usai BI-Rate naik",
+      "summary": "Bank Indonesia mencatat arus modal asing sebesar Rp23 triliun ke SRBI setelah suku bunga acuan dinaikkan menjadi 6%.",
+      "source": "ANTARA",
+      "source_url": "https://en.antaranews.com/amp/news/445515/indonesia-posts-us125-bln-foreign-inflows-in-srbi-after-bi-rate-hike",
+      "date": "2026-11-26",
+      "caption_draft": "Modal asing Rp23 triliun masuk SRBI usai BI-Rate naik\n\nBank Indonesia mencatat arus modal asing sebesar Rp23 triliun ke SRBI setelah suku bunga acuan dinaikkan menjadi 6%.\n\nSumber berita: ANTARA\nhttps://en.antaranews.com/amp/news/445515/indonesia-posts-us125-bln-foreign-inflows-in-srbi-after-bi-rate-hike\nKredit foto: wajib diisi setelah lisensi foto asli diverifikasi.\n\nbisabikinweb.site",
+      "status": "draft",
+      "fact_checked": true,
+      "rights_verified": false,
+      "image_url": null,
+      "approved_to_publish": false
+    },
+    {
+      "id": "bbweb-news-20261126-gudang",
+      "category": "BISNIS",
+      "headline": "Layani lebih dari 1.400 toko, MR.D.I.Y. kembangkan teknologi gudang",
+      "summary": "MR.D.I.Y. mengelola stok dan distribusi untuk lebih dari 1.400 toko melalui teknologi dan proses operasional gudang.",
+      "source": "detikFinance",
+      "source_url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8770696/layani-1-400-toko-intip-inovasi-teknologi-di-balik-gudang-mr-d-i-y",
+      "date": "2026-11-26",
+      "caption_draft": "Layani lebih dari 1.400 toko, MR.D.I.Y. kembangkan teknologi gudang\n\nMR.D.I.Y. mengelola stok dan distribusi untuk lebih dari 1.400 toko melalui teknologi dan proses operasional gudang.\n\nSumber berita: detikFinance\nhttps://finance.detik.com/berita-ekonomi-bisnis/d-8770696/layani-1-400-toko-intip-inovasi-teknologi-di-balik-gudang-mr-d-i-y\nKredit foto: wajib diisi setelah lisensi foto asli diverifikasi.\n\nbisabikinweb.site",
+      "status": "draft",
+      "fact_checked": true,
+      "rights_verified": false,
+      "image_url": null,
+      "approved_to_publish": false
+    },
+    {
+      "id": "bbweb-news-20261126-esports",
+      "category": "ESPORTS",
+      "headline": "Indonesia targetkan 1.000 desa ikut turnamen esports 2027",
+      "summary": "Kemendes PDT menargetkan partisipasi sekitar 1.000 desa dalam Turnamen Esport Desa Nasional 2027. Foto arsip, jika digunakan, harus diberi keterangan tanggal kejadian sebenarnya di caption.",
+      "source": "ANTARA",
+      "source_url": "https://www.antaranews.com/berita/5879823/kemendes-pdt-targetkan-1000-desa-ikuti-turnamen-esport-desa-nasional",
+      "date": "2026-11-26",
+      "caption_draft": "Indonesia targetkan 1.000 desa ikut turnamen esports 2027\n\nKemendes PDT menargetkan partisipasi sekitar 1.000 desa dalam Turnamen Esport Desa Nasional 2027. Foto arsip, jika digunakan, harus diberi keterangan tanggal kejadian sebenarnya di caption.\n\nSumber berita: ANTARA\nhttps://www.antaranews.com/berita/5879823/kemendes-pdt-targetkan-1000-desa-ikuti-turnamen-esport-desa-nasional\nKredit foto: wajib diisi setelah lisensi foto asli diverifikasi.\n\nbisabikinweb.site",
+      "status": "draft",
+      "fact_checked": true,
+      "rights_verified": false,
+      "image_url": null,
+      "approved_to_publish": false
+    }
+  ]
+}
