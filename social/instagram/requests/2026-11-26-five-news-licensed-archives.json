@@ -1,0 +1,72 @@
+{
+  "account": "bisabikinweb.id",
+  "batch": "2026-11-26-five-news-licensed-archives",
+  "approved_to_publish_now": true,
+  "items": [
+    {
+      "id": "bbweb-news-20261126-tarif-as",
+      "category": "EKONOMI",
+      "headline": "RI HADAPI USULAN TARIF IMPOR AS HINGGA 18%",
+      "summary": "Pemerintah mengupayakan pengecualian produk dalam proses konsultasi.",
+      "source": "detikFinance",
+      "source_url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8770826/terancam-tarif-as-18-ri-bakal-negosiasi-pengecualian-produk",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/d/d4/Tanjung_Priok_container_terminal_2006.jpg",
+      "photo_page": "https://commons.wikimedia.org/wiki/File:Tanjung_Priok_container_terminal_2006.jpg",
+      "author": "Niels Johannes",
+      "photo_context": "Foto arsip terminal peti kemas Tanjung Priok, 7 April 2006.",
+      "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "bbweb-news-20261126-pala",
+      "category": "EKSPOR",
+      "headline": "RI USULKAN PEMERIKSAAN EKSPOR PALA KE EROPA TURUN JADI 20%",
+      "summary": "Frekuensi pemeriksaan sebelumnya turun dari 50% menjadi 30%.",
+      "source": "ANTARA",
+      "source_url": "https://ambon.antaranews.com/berita/355335/bapanas-usulkan-pemeriksaan-ekspor-pala-ri-ke-eropa-dipermudah",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/5/51/Nutmeg_fruit_with_kernel_and_mace.jpg",
+      "photo_page": "https://commons.wikimedia.org/wiki/File:Nutmeg_fruit_with_kernel_and_mace.jpg",
+      "author": "Slashme",
+      "photo_context": "Foto ilustrasi asli buah pala, 16 Januari 2016; bukan dokumentasi pertemuan Bapanas.",
+      "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "bbweb-news-20261126-srbi",
+      "category": "KEUANGAN",
+      "headline": "DANA ASING RP23 TRILIUN MASUK SRBI USAI BI-RATE NAIK",
+      "summary": "BI mencatat arus masuk modal asing setelah suku bunga acuan menjadi 6%.",
+      "source": "ANTARA",
+      "source_url": "https://jatim.antaranews.com/berita/1123399/bi-catat-dana-asing-rp23-triliun-masuk-srbi-usai-kenaikan-bi-rate",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Gedung_Bank_Indonesia_di_Jakarta_(2026)_02.jpg",
+      "photo_page": "https://commons.wikimedia.org/wiki/File:Gedung_Bank_Indonesia_di_Jakarta_(2026)_02.jpg",
+      "author": "Medelam",
+      "photo_context": "Foto arsip gedung Bank Indonesia, Jakarta, 28 Juni 2026. Berita sumber terbit 25 November 2026.",
+      "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+    },
+    {
+      "id": "bbweb-news-20261126-gudang",
+      "category": "BISNIS",
+      "headline": "MR.D.I.Y. ANDALKAN TEKNOLOGI GUDANG UNTUK LAYANI 1.400 TOKO",
+      "summary": "Teknologi membantu pengelolaan stok dan distribusi produk.",
+      "source": "detikFinance",
+      "source_url": "https://finance.detik.com/berita-ekonomi-bisnis/d-8770696/layani-1-400-toko-intip-inovasi-teknologi-di-balik-gudang-mr-d-i-y",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/d/d1/Automated_Storage_and_Retrieval_System.jpg",
+      "photo_page": "https://commons.wikimedia.org/wiki/File:Automated_Storage_and_Retrieval_System.jpg",
+      "author": "QmcBeQ3G7DZCmY84uPgT",
+      "photo_context": "Foto ilustrasi asli sistem penyimpanan otomatis, 31 Desember 2025; bukan gudang MR.D.I.Y.",
+      "license": "https://creativecommons.org/licenses/by/4.0/"
+    },
+    {
+      "id": "bbweb-news-20261126-esports",
+      "category": "ESPORTS",
+      "headline": "KEMENDES TARGETKAN 1.000 DESA IKUT TURNAMEN ESPORTS 2027",
+      "summary": "Target tersebut ditetapkan untuk memperluas partisipasi desa.",
+      "source": "ANTARA",
+      "source_url": "https://www.antaranews.com/berita/5879823/kemendes-pdt-targetkan-1000-desa-ikuti-turnamen-esport-desa-nasional",
+      "photo_url": "https://upload.wikimedia.org/wikipedia/commons/a/ac/Piala_Presiden_Esports.jpg",
+      "photo_page": "https://commons.wikimedia.org/wiki/File:Piala_Presiden_Esports.jpg",
+      "author": "KINCIR",
+      "photo_context": "Foto arsip Piala Presiden Esports 2019, bukan turnamen desa 2027.",
+      "license": "https://creativecommons.org/licenses/by-sa/4.0/"
+    }
+  ]
+}
