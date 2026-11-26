@@ -18,6 +18,7 @@ on:
       - 'static-source/lib/service-seo.mjs'
       - 'tests/seo-output.test.mjs'
       - '.github/workflows/seo-pr-quality.yml'
+      - '.github/workflows/pages.yml'
   workflow_dispatch:
 permissions:
   contents: read
