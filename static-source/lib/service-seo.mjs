@@ -2,15 +2,15 @@
 // One canonical service URL per topic: no mass-produced keyword variants.
 export const serviceSeoById = Object.freeze({
   'landing-page': {
-    title: 'Jasa Pembuatan Landing Page untuk Bisnis',
-    description: 'Jasa pembuatan landing page untuk promosi produk, kampanye dan lead bisnis. Lihat fitur, contoh kebutuhan, proses kerja, serta estimasi biaya di BisaBikinWeb.',
+    title: 'Jasa Landing Page untuk Bisnis',
+    description: 'Jasa pembuatan landing page untuk promosi produk dan mendapatkan calon pelanggan. Pelajari fitur, proses kerja, dan biaya, lalu konsultasikan kebutuhan.',
     heading: 'Jasa Pembuatan Landing Page',
     introduction: 'Landing page dibuat untuk satu tujuan yang jelas, misalnya konsultasi lewat WhatsApp, permintaan penawaran, atau pendaftaran. Kami membantu menyusun pesan, bagian manfaat, dan tombol aksi agar calon pelanggan mudah mengambil langkah berikutnya.',
     related: [{href:'/harga/',label:'Bandingkan harga landing page'}, {href:'/portfolio/',label:'Lihat contoh proyek website'}, {href:'/kontak/',label:'Diskusikan target kampanye'}]
   },
   'company-profile': {
-    title: 'Jasa Website Company Profile Perusahaan',
-    description: 'Buat website company profile untuk perusahaan, supplier dan jasa profesional. Tampilkan profil, layanan, portofolio dan kontak untuk memudahkan calon klien B2B.',
+    title: 'Jasa Website Company Profile',
+    description: 'Jasa website company profile untuk perusahaan dan supplier. Tampilkan layanan, portofolio, serta kontak bisnis. Konsultasikan kebutuhan website B2B Anda.',
     heading: 'Jasa Website Company Profile',
     introduction: 'Website company profile membantu calon klien memeriksa identitas perusahaan, layanan, portofolio, dan cara meminta penawaran. Struktur halaman dapat disesuaikan untuk jasa profesional, supplier, kontraktor, maupun bisnis B2B lainnya.',
     related: [{href:'/artikel/struktur-website-company-profile-b2b-rfq/',label:'Panduan website company profile B2B'}, {href:'/portfolio/',label:'Lihat studi kasus website'}, {href:'/harga/',label:'Bandingkan paket perusahaan'}]

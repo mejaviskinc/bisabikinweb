@@ -253,7 +253,7 @@ const hargaHtml=await getHtml('harga');
 const portfolioHtml=await getHtml('portfolio');
 const kontakHtml=await getHtml('kontak');
 assert.ok(jasaHtml.includes('<title>Jasa Pembuatan Website Profesional untuk Bisnis &amp; UMKM | BisaBikinWeb Indonesia</title>'),'Jasa page must use the search-first commercial title');
-assert.ok(hargaHtml.includes('<title>Harga Jasa Bikin Website: Paket &amp; Biaya Pembuatan | BisaBikinWeb Indonesia</title>'),'Harga page must use the pricing-intent commercial title');
+assert.ok(hargaHtml.includes('<title>Harga Pembuatan Website | BisaBikinWeb Indonesia</title>'),'Harga page must use the pricing-intent commercial title');
 for(const href of ['/harga/','/portfolio/','/artikel/struktur-website-company-profile-b2b-rfq/','/artikel/biaya-website-bisnis-domain-hosting-maintenance/']){
  assert.ok(jasaHtml.includes('href="'+href+'"'),'Jasa page should link to '+href);
 }
