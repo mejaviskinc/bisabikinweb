@@ -22,6 +22,11 @@ for(const target of searchIntentTargets){
 assert.match(homeMarkup,/<h2 id="sitelinks-title">Jasa bikin website untuk kebutuhan bisnismu\.<\/h2>/);
 const serviceMarkup=await getHtml('jasa');
 assert.match(serviceMarkup,/jasa pembuatan website untuk bisnis/i);
+assert.match(serviceMarkup,/<h1>Jasa pembuatan website<br\s*\/?><em>|<h1>Jasa pembuatan website<br\s*\/?>untuk <em>/,'Service hub should have a descriptive commercial H1');
+const contactMarkup=await getHtml('kontak');
+assert.match(contactMarkup,/<h1>Konsultasi pembuatan/,'Contact page should have a descriptive H1');
+assert.match(contactMarkup,/perkiraan anggaran, dan target waktu/,'Contact page should explain what to prepare');
+assert.match(contactMarkup,/href="\/harga\/">pelajari paket dan biaya/,'Contact page should link to pricing');
 const instagramMarkup=await getHtml('jasa/kelola-instagram');
 assert.match(instagramMarkup,/<title>Jasa Kelola Instagram Bulanan untuk UMKM &amp; Brand/);
 assert.match(instagramMarkup,/<meta name="robots" content="index,follow/);
