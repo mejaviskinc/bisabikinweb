@@ -21,6 +21,8 @@ jobs:
         with:
           ref: main
       - run: python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
+      - name: Run revision safety regression tests
+        run: python3 scripts/test_instagram_studio_revision.py
       - name: Validate revisions without publishing
         run: python3 scripts/instagram_apply_studio_revision.py
       - name: Commit only validated queue and image changes
