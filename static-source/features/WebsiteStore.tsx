@@ -75,12 +75,20 @@ function Preview({item}:{item:Template}){
   {item.concept?<span className="ws-concept-tag">Ilustrasi konsep</span>:demoUrl&&<span className="ws-concept-tag ws-demo-tag">LIVE DEMO TERSEDIA</span>}
  </div>
 }
+const campaignNormalPrices:Record<string,number>={starter:1490000,business:3490000,commerce:6990000};
+function campaignActive(){const now=Date.now();return now>=Date.parse('2026-11-25T00:00:00+07:00')&&now<Date.parse('2026-12-10T00:00:00+07:00')}
+function campaignDiscount(p:Package|undefined){return Boolean(p&&campaignActive()&&campaignNormalPrices[p.slug]&&p.base_price===campaignNormalPrices[p.slug]-500000)}
+function CampaignPrice({item}:{item:Package}){
+ if(campaignDiscount(item))return <><del style={{display:'block',fontSize:'0.8em',opacity:0.75}}>{rupiah(campaignNormalPrices[item.slug])}</del><strong>{rupiah(item.base_price)}</strong><small style={{display:'block',fontWeight:700}}>HEMAT Rp500.000</small></>;
+ return <strong>{item.base_price===null?'Mulai '+rupiah(12500000)+' (penawaran)':rupiah(item.base_price)}</strong>;
+}
 function PriceCards({items}:{items:Package[]}){
- return <div className="ws-package-grid">{items.map(p=><article className="ws-package" key={p.slug}>
-  <small>PAKET / {p.slug.toUpperCase()}</small><h3>{p.name}</h3><strong>{p.base_price===null?'Mulai '+rupiah(12500000)+' (penawaran)':rupiah(p.base_price)}</strong>
+ const promo=items.some(campaignDiscount);
+ return <>{promo&&<div role="status" style={{background:"#111",color:"#fff",padding:"18px",borderRadius:"12px",marginBottom:"20px"}}><strong style={{color:"#b5ff37"}}>WEBSITE UPGRADE FESTIVAL — DISKON Rp500.000</strong><p style={{margin:"8px 0 0"}}>Potongan langsung untuk paket standar hingga 9 Desember 2026, pukul 23.59 WIB. Custom: potongan melalui penawaran tertulis. Tidak berlaku untuk domain, hosting, dan add-on.</p></div>}<div className="ws-package-grid">{items.map(p=><article className="ws-package" key={p.slug}>
+  <small>PAKET / {p.slug.toUpperCase()}</small><h3>{p.name}</h3><CampaignPrice item={p}/>
   <p>{p.description}</p><ul>{(p.features||[]).map(f=><li key={f}><Check size={14}/>{f}</li>)}</ul>
   <a className="btn primary" href={'/pesan-website/?paket='+encodeURIComponent(p.slug)}>Pilih paket <ArrowUpRight size={16}/></a>
- </article>)}</div>
+ </article>)}</div></>
 }
 function WebsitePricingDetails(){
  return <>
@@ -112,7 +120,7 @@ export default function WebsiteStore({path}:{path:string}){
  const categorySlug=path.startsWith('/beli-website/')?path.split('/')[2]:null;
  useEffect(()=>{if(categorySlug&&websiteCategories.some(c=>c.slug===categorySlug))setCategory(categorySlug)},[categorySlug]);
  const visible=useMemo(()=>templates.filter(t=>(category==='semua'||t.category===category)&&[t.title,t.description,t.category].join(' ').toLowerCase().includes(search.toLowerCase().trim())),[templates,category,search]);
- if(path==='/harga-website')return <div className="ws-root"><section className="ws-hero section"><small>PAKET WEBSITE / TRANSPARAN</small><h1>Harga website.<br/><em>Jelas dari awal.</em></h1><p>Starter Rp1.490.000, Business Rp3.490.000, Commerce Rp6.990.000, dan Custom mulai Rp12.500.000 berdasarkan penawaran. Setiap paket punya batas fitur dan revisi yang jelas.</p><div className="ws-actions"><a className="btn primary" href="/beli-website/">Jelajahi desain <ArrowRight size={17}/></a></div></section><section className="section ws-section"><PriceCards items={packages}/><p className="ws-disclaimer">Paket standar dibayar penuh melalui checkout DOKU sesuai nominal yang tampil. Harga belum termasuk domain, hosting, add-on, biaya transaksi dan perpanjangan. Custom membutuhkan penawaran tertulis lebih dulu.</p></section><WebsitePricingDetails/></div>;
+ if(path==='/harga-website')return <div className="ws-root"><section className="ws-hero section"><small>PAKET WEBSITE / TRANSPARAN</small><h1>Harga website.<br/><em>Jelas dari awal.</em></h1><p>Pilih Starter, Business, Commerce, atau Custom sesuai kebutuhan. Harga paket standar mengikuti katalog terbaru. Setiap paket punya batas fitur dan revisi yang jelas.</p><div className="ws-actions"><a className="btn primary" href="/beli-website/">Jelajahi desain <ArrowRight size={17}/></a></div></section><section className="section ws-section"><PriceCards items={packages}/><p className="ws-disclaimer">Paket standar dibayar penuh melalui checkout DOKU sesuai nominal yang tampil. Harga belum termasuk domain, hosting, add-on, biaya transaksi dan perpanjangan. Custom membutuhkan penawaran tertulis lebih dulu.</p></section><WebsitePricingDetails/></div>;
  if(match){
   if(!item)return <section className="section ws-root"><h1>Desain belum tersedia.</h1><p>Desain ini mungkin belum dipublikasikan. Silakan kembali ke katalog.</p><a className="btn primary" href="/beli-website/">Lihat katalog</a></section>;
   const cat=websiteCategories.find(c=>c.slug===item.category);
@@ -250,7 +258,7 @@ export function WebsiteCheckout(){
     <p className="ws-wizard-tip">Belum punya domain dan desain? Kamu bisa mulai dengan paket Custom di langkah berikutnya; pilih paket Custom terlebih dahulu pada halaman <a href="/harga-website/">Daftar harga</a>.</p>
    </div>}
    {step===1&&<div className="ws-wizard-panel"><span className="ws-wizard-eyebrow">LANGKAH 02 / PAKET LAYANAN</span><h2>Sesuaikan ruang lingkup.</h2><p>Harga paket standar di bawah menjadi nominal pembayaran DOKU. Domain, hosting, fitur tambahan, serta perpanjangan belum termasuk dan ditagihkan terpisah hanya setelah disetujui.</p>
-    <div className="ws-wizard-packages">{packages.map(p=><button key={p.slug} type="button" className={p.slug===packageSlug?'active':''} aria-pressed={p.slug===packageSlug} onClick={()=>setPackageSlug(p.slug)}><span>{p.name}</span><strong>{rupiah(p.base_price)}</strong><small>{p.description}</small></button>)}</div>
+    <div className="ws-wizard-packages">{packages.map(p=><button key={p.slug} type="button" className={p.slug===packageSlug?'active':''} aria-pressed={p.slug===packageSlug} onClick={()=>setPackageSlug(p.slug)}><span>{p.name}</span><CampaignPrice item={p}/><small>{p.description}</small></button>)}</div>
     <div className="ws-form-grid"><label>Jenis industri<select value={fields.category} onChange={e=>setField('category',e.target.value)}>{websiteCategories.map(c=><option key={c.slug} value={c.slug}>{c.label}</option>)}</select></label>
     <label>Durasi layanan yang diinginkan<select value={serviceTerm} onChange={e=>setServiceTerm(e.target.value)}><option value="12">12 bulan</option><option value="24">24 bulan</option><option value="36">36 bulan</option></select><small>Durasi dan biaya perpanjangan belum termasuk dalam harga awal.</small></label></div>
    </div>}
@@ -265,7 +273,7 @@ export function WebsiteCheckout(){
     </div>
    </div>}
    {step===3&&<div className="ws-wizard-panel"><span className="ws-wizard-eyebrow">LANGKAH 04 / KONFIRMASI</span><h2>Periksa sebelum kirim.</h2><p>{directCheckout?'Setelah konfirmasi, kamu langsung dialihkan ke DOKU untuk membayar harga paket standar.':'Paket Custom memerlukan penawaran admin sebelum pembayaran.'} Domain, hosting, dan tambahan belum termasuk dan tidak otomatis dibeli.</p>
-    <dl className="ws-wizard-review"><div><dt>Desain</dt><dd>{selectedDesign?.title||'Desain custom / belum ditentukan'}</dd></div><div><dt>Domain</dt><dd>{normalizedDomain||'Akan didiskusikan'}</dd></div><div><dt>Paket</dt><dd>{current?.name||'-'}</dd></div><div><dt>Durasi diminta</dt><dd>{serviceTerm} bulan</dd></div><div><dt>Pelanggan</dt><dd>{fields.full_name} · {fields.company}</dd></div><div><dt>Kontak</dt><dd>{fields.email} · {fields.phone}</dd></div><div><dt>{directCheckout?'Total pembayaran paket':'Harga awal (penawaran)'}</dt><dd>{rupiah(current?.base_price)}</dd></div></dl>
+    <dl className="ws-wizard-review"><div><dt>Desain</dt><dd>{selectedDesign?.title||'Desain custom / belum ditentukan'}</dd></div><div><dt>Domain</dt><dd>{normalizedDomain||'Akan didiskusikan'}</dd></div><div><dt>Paket</dt><dd>{current?.name||'-'}</dd></div><div><dt>Durasi diminta</dt><dd>{serviceTerm} bulan</dd></div><div><dt>Pelanggan</dt><dd>{fields.full_name} · {fields.company}</dd></div><div><dt>Kontak</dt><dd>{fields.email} · {fields.phone}</dd></div><div><dt>{directCheckout?'Total pembayaran paket':'Harga awal (penawaran)'}</dt><dd>{rupiah(current?.base_price)}{campaignDiscount(current)&&<small style={{display:'block'}}>Termasuk potongan Rp500.000</small>}</dd></div></dl>
     <label className="ws-wizard-agreement"><input type="checkbox" checked={acceptedTerms} onChange={e=>setAcceptedTerms(e.target.checked)}/><span>{directCheckout?'Saya setuju membayar harga paket standar di atas melalui DOKU. Biaya domain, hosting, perpanjangan, dan fitur tambahan tidak termasuk serta memerlukan persetujuan terpisah.':'Saya memahami harga Custom masih memerlukan penawaran.'} Saya menyetujui <a href="/terms/" target="_blank" rel="noopener noreferrer">Syarat & Ketentuan</a> serta <a href="/privacy/" target="_blank" rel="noopener noreferrer">Kebijakan Privasi</a>.</span></label>
    </div>}
    {error&&<p className="ws-error" role="alert">{error}</p>}
@@ -273,7 +281,7 @@ export function WebsiteCheckout(){
     {step<3?<button type="button" className="btn primary" onClick={goNext}>Lanjut ke {stepNames[step+1]} <ArrowRight size={16}/></button>:
     <button type="submit" className="btn primary" disabled={busy||!logged}>{busy?'Memproses pesanan...':directCheckout?'Konfirmasi & bayar dengan DOKU':'Kirim permintaan penawaran Custom'} <ArrowUpRight size={16}/></button>}</div>
   </form>
-  <aside className="ws-order-summary"><small>RINGKASAN PESANAN</small><h3>{current?.name||'Pilih paket website'}</h3><strong>{current?.base_price==null?'Menunggu penawaran':rupiah(current.base_price)}</strong><p>{directCheckout?'Nominal yang dibayar melalui DOKU untuk paket standar.':'Harga awal; penawaran final dikirim untuk paket Custom.'} Domain, hosting, add-on, serta perpanjangan belum termasuk.</p><ul>{(current?.features||[]).map(f=><li key={f}><Check size={14}/>{f}</li>)}</ul><div className="ws-summary-note"><Clock3 size={18}/> {directCheckout?'Bayar langsung setelah konfirmasi.':'Custom: tunggu penawaran admin.'}</div><div className="ws-summary-note"><ShieldCheck size={18}/> Nominal DOKU selalu dibuat dan dikunci oleh server.</div></aside></div>
+  <aside className="ws-order-summary"><small>RINGKASAN PESANAN</small><h3>{current?.name||'Pilih paket website'}</h3>{current&&current.base_price!==null?<CampaignPrice item={current}/>:<strong>Menunggu penawaran</strong>}<p>{directCheckout?'Nominal yang dibayar melalui DOKU untuk paket standar.':'Harga awal; penawaran final dikirim untuk paket Custom.'} Domain, hosting, add-on, serta perpanjangan belum termasuk.</p><ul>{(current?.features||[]).map(f=><li key={f}><Check size={14}/>{f}</li>)}</ul><div className="ws-summary-note"><Clock3 size={18}/> {directCheckout?'Bayar langsung setelah konfirmasi.':'Custom: tunggu penawaran admin.'}</div><div className="ws-summary-note"><ShieldCheck size={18}/> Nominal DOKU selalu dibuat dan dikunci oleh server.</div></aside></div>
  </section></div>;
 }
 

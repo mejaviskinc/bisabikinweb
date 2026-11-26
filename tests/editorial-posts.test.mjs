@@ -52,3 +52,13 @@ test('all 40 local news covers are shown in cards and article detail, independen
  assert.match(ui,/instagramPostUrl\(a\)&&<InstagramOriginal article=\{a\}\/>/);
  assert.doesNotMatch(ui,/instagramPostUrl\(a\)\?<InstagramOriginal article=\{a\}\/>:/);
 });
+
+test('editorial quality does not count repeated prose, headings or credit lines as unique content',async()=>{
+ const {assessEditorialQuality}=await import('../static-source/lib/editorial-quality.mjs');
+ const paragraph='Pelanggan perlu membaca informasi layanan yang jelas, meninjau cakupan pekerjaan, membandingkan pilihan dengan kebutuhan mereka, dan memahami proses pemesanan sebelum membuat keputusan pembelian.';
+ const article={title:'Panduan memilih layanan',summary:'Panduan praktis untuk memahami cakupan pekerjaan, harga dan layanan sebelum memesan.',body:Array(12).fill(paragraph).concat(['## '+paragraph,'Keterangan gambar: '+paragraph.repeat(12)])};
+ const result=assessEditorialQuality(article);
+ assert.equal(result.indexReady,false);
+ assert.equal(result.paragraphs,1);
+ assert.ok(result.bodyWords<180);
+});

@@ -9,8 +9,13 @@ const wordCount=value=>(plain(value).match(/[\p{L}\p{N}]+(?:['’-][\p{L}\p{N}]+
 export function assessEditorialQuality(article,now=Date.now()){
   const issues=[];
   const body=Array.isArray(article?.body)?article.body:typeof article?.body==='string'?article.body.split(/\n\s*\n/):[];
-  const paragraphs=body.map(plain).filter(text=>text.length>=80&&!/^(sumber|referensi|keterangan gambar|image credit|foto:)/i.test(text));
-  const bodyWords=wordCount(body.join(' '));
+  // Count distinct substantive prose, not repeated paragraphs, headings or image/source credits.
+  const prose=body.flatMap(block=>String(block??'').split(/\r?\n/))
+    .filter(line=>!/^\s*#{1,6}\s+/.test(line))
+    .map(plain).filter(text=>text&&!/^(?:sumber|referensi|keterangan gambar|image credit|foto)\b/i.test(text));
+  const distinct=[...new Map(prose.map(text=>[text.toLocaleLowerCase('id-ID'),text])).values()];
+  const paragraphs=distinct.filter(text=>text.length>=80);
+  const bodyWords=wordCount(distinct.join(' '));
   if(!plain(article?.title))issues.push('judul kosong');
   if(plain(article?.summary).length<55)issues.push('ringkasan belum cukup informatif');
   if(bodyWords<180)issues.push('teks utama terlalu singkat untuk peninjauan otomatis');

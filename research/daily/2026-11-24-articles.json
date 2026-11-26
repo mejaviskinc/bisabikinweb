@@ -2,9 +2,9 @@
   "research_date": "2026-11-24",
   "timezone": "Asia/Jakarta",
   "researched_at": "2026-11-24T00:26:42+07:00",
-  "method_note": "Awal hari WIB: membaca skema README, arsip 23 November, kode editorial, build dan kebijakan visual. Query langsung CMS mencatat 0 artikel published aktif pada 24 November WIB (76 total baris). Pemantauan indeks Kemendag 23 November dan sumber historis Kemendag 17 November; tidak menganggap konteks historis sebagai berita baru. 14 klaster belum diverifikasi khusus. Pemeriksaan artikel statis, gambar, jadwal, build dan live masih tertunda. Tidak ada artikel diterbitkan oleh putaran ini. Pemeriksaan 01:25 WIB: seluruh 9 modul sumber yang diimpor editorial-posts.mjs serta berkas induk diperiksa; tidak ditemukan string tanggal publikasi 2026-11-24 dalam modul-modul tersebut. Ini audit sumber statis, bukan verifikasi deployment; hitungan CMS 0 berasal dari pemeriksaan 00:26 WIB dan tidak di-query ulang. Workflow cover tersedia, tetapi hanya manual workflow_dispatch dan mensyaratkan secret OPENAI_API_KEY; tidak membuktikan gambar telah dihasilkan atau jadwal per-post didukung. Pemeriksaan 02:34 WIB: sumber primer Kemendag 21 November tentang bimtek pangan olahan diverifikasi dan ditambahkan ke klaster Peluang Usaha tanpa mengubah artikel atau CMS. Sumber ini merupakan konteks 7 hari, bukan berita 24 jam. Pemeriksaan statis/CMS lengkap, produksi visual dan URL live masih belum selesai. Pemeriksaan 03:25 WIB: indeks siaran pers Kemendag 19 November mengonfirmasi berita ekspor perdana cocopeat ke Taiwan; klaster Kelapa & Turunannya diperbarui dengan klaim terbatas. Ketentuan karantina Taiwan dan detail pengiriman belum diverifikasi; tidak ada publikasi artikel atau gambar. Pemeriksaan 04:33 WIB: indeks Kemendag 22 November mencantumkan potensi transaksi Paviliun Indonesia Seoul International Café Show 2026 Rp197,22 miliar; klaster Kopi diperbarui, bukan artikel terbit. Perincian komoditas, realisasi transaksi dan aturan Korea belum diperiksa. Pemeriksaan 05:34 WIB: sumber primer KKP 30 September diverifikasi untuk klaster Seafood & Perikanan; konteks historis, bukan perkembangan 72 jam. Tidak ada publikasi baru. Pemeriksaan 06:26 WIB: rilis primer Kemendag 25 Mei 2026 ditambahkan ke Digitalisasi & Website sebagai konteks historis InaExport dan Cek Ekspor. Tidak ada klaim perkembangan baru, artikel terbit, atau gambar baru. CMS tidak di-query ulang.",
-  "daily_evergreen_published_cms_count": 0,
-  "publication_verification": "CMS only; static count and live URLs unverified",
+  "method_note": "Awal hari WIB: membaca skema README, arsip 23 November, kode editorial, build dan kebijakan visual. Query langsung CMS mencatat 0 artikel published aktif pada 24 November WIB (76 total baris). Pemantauan indeks Kemendag 23 November dan sumber historis Kemendag 17 November; tidak menganggap konteks historis sebagai berita baru. 14 klaster belum diverifikasi khusus. Pemeriksaan artikel statis, gambar, jadwal, build dan live masih tertunda. Tidak ada artikel diterbitkan oleh putaran ini. Pemeriksaan 01:25 WIB: seluruh 9 modul sumber yang diimpor editorial-posts.mjs serta berkas induk diperiksa; tidak ditemukan string tanggal publikasi 2026-11-24 dalam modul-modul tersebut. Ini audit sumber statis, bukan verifikasi deployment; hitungan CMS 0 berasal dari pemeriksaan 00:26 WIB dan tidak di-query ulang. Workflow cover tersedia, tetapi hanya manual workflow_dispatch dan mensyaratkan secret OPENAI_API_KEY; tidak membuktikan gambar telah dihasilkan atau jadwal per-post didukung. Pemeriksaan 02:34 WIB: sumber primer Kemendag 21 November tentang bimtek pangan olahan diverifikasi dan ditambahkan ke klaster Peluang Usaha tanpa mengubah artikel atau CMS. Sumber ini merupakan konteks 7 hari, bukan berita 24 jam. Pemeriksaan statis/CMS lengkap, produksi visual dan URL live masih belum selesai. Pemeriksaan 03:25 WIB: indeks siaran pers Kemendag 19 November mengonfirmasi berita ekspor perdana cocopeat ke Taiwan; klaster Kelapa & Turunannya diperbarui dengan klaim terbatas. Ketentuan karantina Taiwan dan detail pengiriman belum diverifikasi; tidak ada publikasi artikel atau gambar. Pemeriksaan 04:33 WIB: indeks Kemendag 22 November mencantumkan potensi transaksi Paviliun Indonesia Seoul International Café Show 2026 Rp197,22 miliar; klaster Kopi diperbarui, bukan artikel terbit. Perincian komoditas, realisasi transaksi dan aturan Korea belum diperiksa. Pemeriksaan 05:34 WIB: sumber primer KKP 30 September diverifikasi untuk klaster Seafood & Perikanan; konteks historis, bukan perkembangan 72 jam. Tidak ada publikasi baru. Pemeriksaan 06:26 WIB: rilis primer Kemendag 25 Mei 2026 ditambahkan ke Digitalisasi & Website sebagai konteks historis InaExport dan Cek Ekspor. Tidak ada klaim perkembangan baru, artikel terbit, atau gambar baru. CMS tidak di-query ulang. Pemeriksaan 19:26 WIB: query CMS menemukan lima artikel evergreen aktif published pada 19:06 WIB, semua kolom cover kosong. Lima URL publik tidak dapat diakses oleh alat pemeriksaan. Tidak menambah artikel karena kuota tercapai.",
+  "daily_evergreen_published_cms_count": 5,
+  "publication_verification": "CMS published active 5; all cover_image_url empty; public URL checks inaccessible; deployment unverified",
   "entries": [
     {
       "id": "cluster-1-2026-11-24",
@@ -382,5 +382,46 @@
     "date_string_matches": 0,
     "scope": "editorial-posts.mjs and its nine imported modules; source-only, not all dynamic CMS or deployed pages",
     "status": "no_2026_11_24_date_in_checked_modules"
+  },
+  "cms_check": {
+    "checked_at": "2026-11-24T19:26:49+07:00",
+    "published_at": "2026-11-24T19:06:47+07:00",
+    "articles": [
+      {
+        "slug": "cara-menjaga-kualitas-cocopeat-selama-penyimpanan",
+        "status": "cms_published",
+        "cover_status": "missing",
+        "live_verified": false,
+        "expected_url": "https://bisabikinweb.site/artikel/cara-menjaga-kualitas-cocopeat-selama-penyimpanan/"
+      },
+      {
+        "slug": "panduan-menyiapkan-sampel-kopi-untuk-buyer-internasional",
+        "status": "cms_published",
+        "cover_status": "missing",
+        "live_verified": false,
+        "expected_url": "https://bisabikinweb.site/artikel/panduan-menyiapkan-sampel-kopi-untuk-buyer-internasional/"
+      },
+      {
+        "slug": "checklist-kesiapan-ekspor-makanan-olahan-umkm",
+        "status": "cms_published",
+        "cover_status": "missing",
+        "live_verified": false,
+        "expected_url": "https://bisabikinweb.site/artikel/checklist-kesiapan-ekspor-makanan-olahan-umkm/"
+      },
+      {
+        "slug": "cara-menyiapkan-katalog-produk-perikanan-pasar-global",
+        "status": "cms_published",
+        "cover_status": "missing",
+        "live_verified": false,
+        "expected_url": "https://bisabikinweb.site/artikel/cara-menyiapkan-katalog-produk-perikanan-pasar-global/"
+      },
+      {
+        "slug": "perbedaan-purchase-order-dan-potensi-transaksi-ekspor",
+        "status": "cms_published",
+        "cover_status": "missing",
+        "live_verified": false,
+        "expected_url": "https://bisabikinweb.site/artikel/perbedaan-purchase-order-dan-potensi-transaksi-ekspor/"
+      }
+    ]
   }
 }

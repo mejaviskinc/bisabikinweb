@@ -278,7 +278,8 @@ const monitorGithubApi=monitorHtml.replace('connect-src \'self\' https://kdlrobd
 if(monitorGithubApi===monitorHtml)throw new Error('Auto Artikel CSP connection rule not found');
 await writeFile('site-dist/auto-artikel/index.html',monitorGithubApi);
 
-await writeFile('site-dist/ads.txt','google.com, pub-9568884120945028, DIRECT, f08c47fec0942fa0\n');
+// Generate ads.txt from the same publisher ID as the verification tag.
+await writeFile('site-dist/ads.txt',`google.com, ${adsenseClient.replace(/^ca-/,'')}, DIRECT, f08c47fec0942fa0\n`);
 await writeFile('site-dist/.nojekyll','');await writeFile('site-dist/CNAME','bisabikinweb.site\n');
 // Apply the same security policy to the retained standalone invitation demo.
 const invitationPath='site-dist/undangan-jawa-tengah/index.html';

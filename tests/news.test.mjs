@@ -33,13 +33,17 @@ test('only eligible news articles cause a News Sitemap to be published',()=>{
  assert.equal(getFreshNewsArticles([{...news,published_at:'2026-10-24T10:00:00Z'}],now).length,0);
 });
 
-const meaningfulParagraph='Panduan ini menjelaskan langkah yang bisa dilakukan pemilik usaha, dokumen yang diperlukan, biaya yang perlu dibandingkan, dan risiko yang perlu diperiksa sebelum mengambil keputusan. '.repeat(7);
+const meaningfulParagraphs=[
+  "Pemilik usaha perlu menentukan tujuan website sebelum membeli layanan pengembangan. Jika tujuan utamanya menerima pesanan, catat informasi yang diperlukan pelanggan sebelum memesan, metode pembayaran yang tersedia, serta siapa yang akan menindaklanjuti pertanyaan. Pisahkan kebutuhan wajib dari fitur tambahan agar biaya dapat dibandingkan secara wajar. Buat contoh alur pelanggan mulai dari halaman produk hingga konfirmasi pesanan, kemudian bahas bagian yang belum jelas bersama pengembang.",
+  "Setelah tujuan ditentukan, siapkan materi yang dibutuhkan untuk setiap halaman. Kumpulkan deskripsi produk, foto yang memiliki izin penggunaan, identitas usaha, dan informasi kontak yang benar. Tentukan siapa yang dapat memperbarui harga dan stok setelah website diluncurkan. Periksa juga apakah biaya domain, hosting, pemeliharaan, dan perubahan desain telah dijelaskan secara terpisah dalam penawaran. Dengan begitu, pemilik usaha dapat memahami kewajiban jangka panjang sebelum menyetujui proyek.",
+  "Sebelum menerima hasil pekerjaan, lakukan uji coba melalui perangkat ponsel dan komputer. Coba membuka katalog, mengirim formulir, menggunakan navigasi, serta membaca kebijakan privasi tanpa harus masuk akun. Jika ada transaksi, gunakan lingkungan uji agar pelanggan tidak terkena tagihan nyata. Dokumentasikan masalah yang ditemukan, tentukan penanggung jawab perbaikan, dan lakukan pengujian ulang setelah perubahan diterapkan. Simpan akses administrasi dengan aman untuk menjaga kelangsungan operasional usaha."
+];
 const reviewedArticle={
   id:'panduan-bisnis-lengkap',
   title:'Panduan menyiapkan website bisnis yang jelas',
   category:'Bisnis',
   summary:'Uraian praktis tentang kebutuhan website, dokumen usaha, alur pesanan dan biaya yang harus dibandingkan.',
-  body:[meaningfulParagraph,meaningfulParagraph,meaningfulParagraph],
+  body:meaningfulParagraphs,
   published_at:'2026-11-10T08:00:00+07:00',
   author_type:'editorial'
 };

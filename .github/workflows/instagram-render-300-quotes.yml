@@ -1,0 +1,48 @@
+name: Instagram BisaBikinWeb Render 300 Gen Z Quotes
+on:
+  push:
+    branches: [main]
+    paths:
+      - '.github/workflows/instagram-render-300-quotes.yml'
+      - 'scripts/instagram_render_300_quotes.py'
+      - 'social/instagram/drafts/2026-11-25-300-quotes.json'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: bisabikinweb-instagram-render-300
+  cancel-in-progress: false
+jobs:
+  render:
+    if: ${{ github.ref == 'refs/heads/main' }}
+    runs-on: ubuntu-24.04
+    timeout-minutes: 40
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Install Inter Display Bold and Pillow
+        run: |
+          set -euo pipefail
+          curl --fail --location --silent --show-error --retry 3 --retry-all-errors --connect-timeout 15 --max-time 150 'https://github.com/rsms/inter/releases/download/v4.1/Inter-4.1.zip' --output /tmp/inter.zip
+          python3 - <<'PY'
+          from pathlib import Path
+          from zipfile import ZipFile
+          with ZipFile('/tmp/inter.zip') as z:
+              names=[n for n in z.namelist() if n == 'InterDisplay-Bold.otf' or n.endswith('/InterDisplay-Bold.otf')]
+              assert len(names)==1
+              Path('/tmp/InterDisplay-Bold.otf').write_bytes(z.read(names[0]))
+          PY
+          sudo mkdir -p /usr/share/fonts/opentype/inter
+          sudo install -m 644 /tmp/InterDisplay-Bold.otf /usr/share/fonts/opentype/inter/InterDisplay-Bold.otf
+          python3 -m pip install --disable-pip-version-check --no-cache-dir --retries 4 Pillow==12.0.0
+      - name: Render 300 separate 1080x1350 quote JPEGs
+        run: python3 scripts/instagram_render_300_quotes.py
+      - name: Validate and commit only 300-batch assets
+        run: |
+          python3 -c 'import json; from pathlib import Path; q=json.loads(Path("social/instagram/quotes_300_queue.json").read_text())["items"]; assert len(q)==len({x["id"] for x in q})==len(list(Path("social/instagram/rendered/quotes-300-20261125").glob("*.jpg")))==300'
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add social/instagram/rendered/quotes-300-20261125/ social/instagram/quotes_300_queue.json
+          if git diff --cached --quiet; then exit 0; fi
+          git commit -m 'media(instagram): render 300 original Gen Z quote posters'
+          git pull --rebase origin main
+          git push origin HEAD:main
