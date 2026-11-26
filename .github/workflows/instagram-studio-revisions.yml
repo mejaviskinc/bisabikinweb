@@ -1,0 +1,35 @@
+name: Apply Instagram Studio Revisions
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'social/instagram/studio-inbox/*.json'
+      - '.github/workflows/instagram-studio-revisions.yml'
+  workflow_dispatch:
+permissions:
+  contents: write
+concurrency:
+  group: bisabikinweb-instagram-publish
+  cancel-in-progress: false
+jobs:
+  apply:
+    if: github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+        with:
+          ref: main
+      - run: python3 -m pip install --disable-pip-version-check --no-cache-dir Pillow==12.0.0
+      - name: Validate revisions without publishing
+        run: python3 scripts/instagram_apply_studio_revision.py
+      - name: Commit only validated queue and image changes
+        run: |
+          set -euo pipefail
+          git add -A -- social/instagram/
+          if git diff --cached --quiet; then exit 0; fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git commit -m "Apply validated Instagram Studio revisions"
+          # Reject concurrent main changes rather than overwrite queue state.
+          git push origin HEAD:main
