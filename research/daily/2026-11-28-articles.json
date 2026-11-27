@@ -1,0 +1,59 @@
+{
+  "date": "2026-11-28",
+  "research_status": "partial",
+  "entries": [
+    {
+      "id": "2026-11-28-cepa-proyeksi-ekspor",
+      "category": "Tren & Analisis Pasar",
+      "topic": "Proyeksi ekspor Uni Eropa dan kesiapan I-EU CEPA",
+      "summary": "Kemendag pada 24 November memproyeksikan tambahan ekspor USD 3,82–5,78 miliar per tahun selama lima tahun dengan implementasi I-EU CEPA dan langkah pendukung; bukan realisasi atau konfirmasi tarif telah berlaku.",
+      "event_date": "2026-11-24",
+      "source_published_at": "2026-11-24",
+      "researched_at": "2026-11-28T00:33:49+07:00",
+      "geography": "Indonesia dan Uni Eropa",
+      "facts": [
+        {
+          "claim": "Mendag menyampaikan proyeksi tambahan ekspor tahunan USD 3,82–5,78 miliar.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/ekspor-ke-uni-eropa-diproyeksi-bertambah-usd-3-5-miliar-setahun"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/ekspor-ke-uni-eropa-diproyeksi-bertambah-usd-3-5-miliar-setahun",
+          "publisher": "Kemendag",
+          "accessed_at": "2026-11-28T00:33:49+07:00"
+        }
+      ],
+      "practical_impact": "Eksportir perlu memisahkan proyeksi pasar dari kepastian tarif dan kesiapan dokumen.",
+      "content_angle": "Analisis kesiapan eksportir menghadapi CEPA",
+      "keyword_intent": "persiapan ekspor Uni Eropa CEPA",
+      "editorial_status": "verified",
+      "content_status": "drafted",
+      "published_url": null,
+      "recheck_after": "2026-11-29",
+      "draft": {
+        "title": "I-EU CEPA: Apa yang Perlu Disiapkan Eksportir Indonesia?",
+        "meta": "Analisis proyeksi ekspor Uni Eropa dan langkah persiapan UMKM menghadapi I-EU CEPA tanpa mengasumsikan tarif preferensi sudah berlaku.",
+        "slug": "persiapan-eksportir-indonesia-ieu-cepa",
+        "schema": "Article",
+        "body": [
+          "Eksportir Indonesia dapat mempersiapkan akses pasar Uni Eropa dengan memeriksa klasifikasi produk, aturan asal barang, persyaratan pembeli dan biaya pengiriman. Jangan memasukkan penghematan tarif preferensi dalam penawaran final sebelum dasar hukum dan tanggal berlakunya dipastikan.",
+          "## Mengapa peluang ini penting?",
+          "Dalam sosialisasi di Jakarta pada 24 November 2026, Kemendag memproyeksikan tambahan ekspor tahunan sebesar USD 3,82–5,78 miliar selama lima tahun. Angka tersebut merupakan proyeksi bersyarat, bukan pesanan yang sudah diterima eksportir.",
+          "## Langkah persiapan",
+          "### Petakan produk dan biaya",
+          "Identifikasi kode HS bersama pihak kompeten, susun daftar bahan baku dan asalnya, serta hitung biaya produk sampai titik penyerahan yang disepakati. Buat dua skenario harga: tarif normal dan tarif preferensi jika kelak memenuhi syarat.",
+          "### Siapkan katalog dan bukti mutu",
+          "Cantumkan spesifikasi, kapasitas, waktu produksi, kemasan dan dokumen yang benar-benar tersedia. Jangan menjanjikan sertifikasi yang belum dimiliki. Gunakan katalog digital berbahasa Inggris untuk memudahkan pembeli menilai produk.",
+          "## Kesimpulan",
+          "Peluang pasar tidak otomatis menjadi penjualan. Prioritaskan validasi pembeli, kepastian persyaratan dan simulasi margin sebelum meningkatkan kapasitas. Periksa ketentuan resmi terbaru sebelum transaksi."
+        ],
+        "image_status": "pending",
+        "qa_status": "pending_duplicate_image_and_canonical"
+      }
+    }
+  ],
+  "notes": "Riset awal 28 November. Pencarian energi, kakao, kelapa, kopi, buah dan walet belum menemukan pembaruan primer dalam tujuh hari; hasil lama tidak diperlakukan sebagai berita. Pemeriksaan 15 klaster dan duplikasi CMS/media belum lengkap. Draft tidak terhubung ke build."
+}
