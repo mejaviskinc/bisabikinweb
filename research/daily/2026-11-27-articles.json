@@ -161,7 +161,39 @@
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-28"
+    },
+    {
+      "id": "2026-11-27-risiko-karantina-jatim",
+      "category": "Manajemen Risiko",
+      "topic": "Risiko ketidaksesuaian karantina komoditas impor",
+      "summary": "Karantina Jawa Timur melaporkan pemusnahan komoditas impor yang tidak memenuhi persyaratan, termasuk 1,24 ton benih jagung terinfeksi OPTK, pada publikasi 25 November.",
+      "event_date": null,
+      "source_published_at": "2026-11-25",
+      "researched_at": "2026-11-27T19:33:24+07:00",
+      "geography": "Jawa Timur, Indonesia",
+      "facts": [
+        {
+          "claim": "Publikasi resmi 25 November menyebut pemusnahan 1,24 ton benih jagung terinfeksi OPTK.",
+          "source_urls": [
+            "https://karantinaindonesia.go.id/jawa-timur/berita"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://karantinaindonesia.go.id/jawa-timur/berita",
+          "publisher": "Badan Karantina Indonesia",
+          "accessed_at": "2026-11-27T19:33:24+07:00"
+        }
+      ],
+      "practical_impact": "Importir perlu memeriksa persyaratan kesehatan komoditas sebelum pengiriman.",
+      "content_angle": "Analisis biaya risiko ketidaksesuaian karantina; bukan perubahan regulasi.",
+      "keyword_intent": "risiko karantina impor komoditas",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-28"
     }
   ],
-  "notes": "Empat klaster memiliki temuan aktual terverifikasi. Pencarian tambahan kelapa, kakao, buah dan perikanan mengembalikan sumber di luar jendela tujuh hari; belum dianggap pemeriksaan individual lengkap. Duplikasi CMS/media dan izin gambar belum selesai. Pembaruan: klaster perikanan memiliki sumber primer bertanggal 23 November; lima klaster kini memiliki temuan aktual."
+  "notes": "Empat klaster memiliki temuan aktual terverifikasi. Pencarian tambahan kelapa, kakao, buah dan perikanan mengembalikan sumber di luar jendela tujuh hari; belum dianggap pemeriksaan individual lengkap. Duplikasi CMS/media dan izin gambar belum selesai. Pembaruan: klaster perikanan memiliki sumber primer bertanggal 23 November; lima klaster kini memiliki temuan aktual. Pembaruan: enam klaster memiliki temuan; sumber risiko karantina berupa indeks resmi bertanggal, detail perlu diperiksa sebelum naskah."
 }
