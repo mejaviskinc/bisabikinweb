@@ -1,0 +1,103 @@
+{
+  "date": "2026-11-27",
+  "research_status": "partial",
+  "entries": [
+    {
+      "id": "2026-11-27-riset-1",
+      "category": "Rempah & Minyak Atsiri",
+      "topic": "Ekspor kayu manis Jambi",
+      "summary": "Barantin melaporkan 391,7 ton senilai Rp27,5 miliar sepanjang Januari–November 2026; Belanda tercatat 47 pengiriman.",
+      "event_date": "2026-11-23",
+      "source_published_at": "2026-11-26",
+      "researched_at": "2026-11-27T12:26:33+07:00",
+      "geography": "Indonesia",
+      "facts": [
+        {
+          "claim": "Barantin melaporkan 391,7 ton senilai Rp27,5 miliar sepanjang Januari–November 2026; Belanda tercatat 47 pengiriman.",
+          "source_urls": [
+            "https://karantinaindonesia.go.id/berita/ekspor-kayu-manis-jambi-tembus-275-miliar-belanda-jadi-tujuan-pengiriman-terbanyak"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://karantinaindonesia.go.id/berita/ekspor-kayu-manis-jambi-tembus-275-miliar-belanda-jadi-tujuan-pengiriman-terbanyak",
+          "publisher": "Badan Karantina Indonesia",
+          "accessed_at": "2026-11-27T12:26:33+07:00"
+        }
+      ],
+      "practical_impact": "Evaluasi kesiapan mutu dan akses pasar rempah",
+      "content_angle": "Evaluasi kesiapan mutu dan akses pasar rempah",
+      "keyword_intent": "Ekspor kayu manis Jambi",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-28"
+    },
+    {
+      "id": "2026-11-27-riset-2",
+      "category": "Digitalisasi & Website",
+      "topic": "Nilai ekonomi investasi digital",
+      "summary": "Sekjen Komdigi pada 25 November menekankan manfaat investasi digital bagi pertumbuhan industri dan pekerjaan, bukan hanya penghematan.",
+      "event_date": "2026-11-25",
+      "source_published_at": "2026-11-26",
+      "researched_at": "2026-11-27T12:26:33+07:00",
+      "geography": "Indonesia",
+      "facts": [
+        {
+          "claim": "Sekjen Komdigi pada 25 November menekankan manfaat investasi digital bagi pertumbuhan industri dan pekerjaan, bukan hanya penghematan.",
+          "source_urls": [
+            "https://portal.komdigi.go.id/kanal-publik/berita-kini/10747"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://portal.komdigi.go.id/kanal-publik/berita-kini/10747",
+          "publisher": "Komdigi",
+          "accessed_at": "2026-11-27T12:26:33+07:00"
+        }
+      ],
+      "practical_impact": "Analisis pengukuran hasil investasi digital UMKM",
+      "content_angle": "Analisis pengukuran hasil investasi digital UMKM",
+      "keyword_intent": "Nilai ekonomi investasi digital",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-28"
+    },
+    {
+      "id": "2026-11-27-riset-3",
+      "category": "Logistik & Pengiriman",
+      "topic": "Keseimbangan tarif kurir online",
+      "summary": "Komdigi pada 20 November menyampaikan perlunya mempertimbangkan keberlanjutan pengemudi, platform dan UMKM.",
+      "event_date": "2026-11-20",
+      "source_published_at": "2026-11-20",
+      "researched_at": "2026-11-27T12:26:33+07:00",
+      "geography": "Indonesia",
+      "facts": [
+        {
+          "claim": "Komdigi pada 20 November menyampaikan perlunya mempertimbangkan keberlanjutan pengemudi, platform dan UMKM.",
+          "source_urls": [
+            "https://www.komdigi.go.id/berita/siaran-pers/detail/kemkomdigi-jaga-keseimbangan-tarif-kurir-online-agar-umkm-tetap-tumbuh"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.komdigi.go.id/berita/siaran-pers/detail/kemkomdigi-jaga-keseimbangan-tarif-kurir-online-agar-umkm-tetap-tumbuh",
+          "publisher": "Komdigi",
+          "accessed_at": "2026-11-27T12:26:33+07:00"
+        }
+      ],
+      "practical_impact": "Analisis sensitivitas margin terhadap ongkir",
+      "content_angle": "Analisis sensitivitas margin terhadap ongkir",
+      "keyword_intent": "Keseimbangan tarif kurir online",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-28"
+    }
+  ],
+  "notes": "Pencarian awal lintas klaster; 12 klaster belum memiliki pemeriksaan individual lengkap. Tidak ada publikasi. Pemeriksaan duplikasi CMS dan kanal media masih diperlukan."
+}
