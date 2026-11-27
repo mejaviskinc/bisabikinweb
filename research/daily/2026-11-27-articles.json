@@ -129,7 +129,39 @@
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-28"
+    },
+    {
+      "id": "2026-11-27-pengawasan-perikanan-sulawesi",
+      "category": "Seafood & Perikanan",
+      "topic": "Pengawasan penangkapan ikan di Laut Sulawesi",
+      "summary": "KKP melaporkan penindakan terhadap lima kapal berbendera Filipina yang diduga melakukan penangkapan ilegal serta 12 kapal Indonesia yang melanggar aturan dalam operasi 11–17 November.",
+      "event_date": "2026-11-17",
+      "source_published_at": "2026-11-23",
+      "researched_at": "2026-11-27T17:33:58+07:00",
+      "geography": "Laut Sulawesi, Indonesia",
+      "facts": [
+        {
+          "claim": "KKP melaporkan penindakan 17 kapal perikanan dalam operasi 11–17 November 2026.",
+          "source_urls": [
+            "https://www.kkp.go.id/news/news-detail/kkp-tindak-17-kapal-ikan-di-laut-sulawesi-lima-di-antaranya-berbendara-filipina-4zg2.html"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kkp.go.id/news/news-detail/kkp-tindak-17-kapal-ikan-di-laut-sulawesi-lima-di-antaranya-berbendara-filipina-4zg2.html",
+          "publisher": "KKP",
+          "accessed_at": "2026-11-27T17:33:58+07:00"
+        }
+      ],
+      "practical_impact": "Pemasok seafood perlu memeriksa asal tangkapan dan dokumen pemasok; penindakan ini bukan bukti perubahan syarat ekspor.",
+      "content_angle": "Analisis risiko rantai pasok seafood dan pemeriksaan asal tangkapan",
+      "keyword_intent": "ketertelusuran pemasok seafood Indonesia",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-28"
     }
   ],
-  "notes": "Empat klaster memiliki temuan aktual terverifikasi. Pencarian tambahan kelapa, kakao, buah dan perikanan mengembalikan sumber di luar jendela tujuh hari; belum dianggap pemeriksaan individual lengkap. Duplikasi CMS/media dan izin gambar belum selesai."
+  "notes": "Empat klaster memiliki temuan aktual terverifikasi. Pencarian tambahan kelapa, kakao, buah dan perikanan mengembalikan sumber di luar jendela tujuh hari; belum dianggap pemeriksaan individual lengkap. Duplikasi CMS/media dan izin gambar belum selesai. Pembaruan: klaster perikanan memiliki sumber primer bertanggal 23 November; lima klaster kini memiliki temuan aktual."
 }
