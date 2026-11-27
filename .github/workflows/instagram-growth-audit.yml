@@ -1,0 +1,72 @@
+name: Instagram Growth Audit (Read Only)
+on:
+  schedule:
+    - cron: '17 1 * * *'
+  workflow_dispatch:
+  pull_request:
+    paths:
+      - 'scripts/instagram_growth.py'
+      - 'tests/test_instagram_growth.py'
+      - '.github/workflows/instagram-growth-audit.yml'
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/instagram_growth.py'
+      - 'tests/test_instagram_growth.py'
+      - '.github/workflows/instagram-growth-audit.yml'
+permissions:
+  contents: read
+concurrency:
+  group: bisabikinweb-instagram-growth-audit
+  cancel-in-progress: false
+jobs:
+  audit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Test growth analytics without credentials
+        run: python3 -m unittest discover -s tests -p test_instagram_growth.py -v
+      - name: Audit public publication state only
+        run: |
+          python3 scripts/instagram_growth.py > /tmp/growth-audit.json
+          echo '## Instagram growth: public publication audit' >> "$GITHUB_STEP_SUMMARY"
+          echo 'Not Meta Insights; experimental target is advisory only.' >> "$GITHUB_STEP_SUMMARY"
+          echo '```json' >> "$GITHUB_STEP_SUMMARY"
+          cat /tmp/growth-audit.json >> "$GITHUB_STEP_SUMMARY"
+          echo '```' >> "$GITHUB_STEP_SUMMARY"
+  private_insights:
+    if: github.ref == 'refs/heads/main' && (github.event_name == 'schedule' || github.event_name == 'workflow_dispatch')
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - name: Collect and encrypt private analytics only if report key configured
+        env:
+          IG_ACCESS_TOKEN: ${{ secrets.IG_ACCESS_TOKEN }}
+          IG_USER_ID: ${{ secrets.IG_USER_ID }}
+          IG_GRAPH_BASE: ${{ vars.IG_GRAPH_BASE || 'https://graph.facebook.com' }}
+          IG_GRAPH_VERSION: ${{ vars.IG_GRAPH_VERSION || 'v26.0' }}
+          IG_GROWTH_REPORT_KEY: ${{ secrets.IG_GROWTH_REPORT_KEY }}
+        run: |
+          set -eu
+          if [ -z "$IG_GROWTH_REPORT_KEY" ]; then
+            echo 'Private Insights skipped: encrypted report key not configured.'
+            exit 0
+          fi
+          if [ "${#IG_GROWTH_REPORT_KEY}" -lt 32 ]; then
+            echo 'Private Insights skipped: key must be at least 32 characters.'
+            exit 1
+          fi
+          work="$(mktemp -d)"
+          trap 'rm -rf "$work"' EXIT
+          python3 scripts/instagram_growth.py --live --limit 20 --output "$work/report.json"
+          openssl enc -aes-256-cbc -salt -pbkdf2 -iter 600000 -in "$work/report.json" -out "$RUNNER_TEMP/instagram-growth-report.enc" -pass env:IG_GROWTH_REPORT_KEY
+          echo 'Private Insights encrypted; no metrics in public logs.'
+      - name: Retain encrypted report only
+        uses: actions/upload-artifact@v4
+        with:
+          name: instagram-growth-encrypted
+          path: ${{ runner.temp }}/instagram-growth-report.enc
+          if-no-files-found: ignore
+          retention-days: 7
