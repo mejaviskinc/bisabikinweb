@@ -2,10 +2,10 @@
 // One canonical service URL per topic: no mass-produced keyword variants.
 export const serviceSeoById = Object.freeze({
   'landing-page': {
-    title: 'Jasa Landing Page untuk Bisnis',
+    title: 'Jasa Pembuatan Landing Page untuk Bisnis',
     description: 'Jasa pembuatan landing page untuk promosi produk dan mendapatkan calon pelanggan. Pelajari fitur, proses kerja, dan biaya, lalu konsultasikan kebutuhan.',
     heading: 'Jasa Pembuatan Landing Page',
-    introduction: 'Landing page dibuat untuk satu tujuan yang jelas, misalnya konsultasi lewat WhatsApp, permintaan penawaran, atau pendaftaran. Kami membantu menyusun pesan, bagian manfaat, dan tombol aksi agar calon pelanggan mudah mengambil langkah berikutnya.',
+    introduction: 'Landing page adalah halaman website yang berfokus pada satu tujuan, seperti konsultasi lewat WhatsApp, permintaan penawaran, atau pendaftaran. Berbeda dari company profile yang memperkenalkan perusahaan secara menyeluruh, landing page cocok untuk kampanye iklan atau promosi satu layanan. Biaya pembuatan bergantung pada kebutuhan desain, materi konten, formulir dan integrasi. Sebelum meminta penawaran, siapkan tujuan kampanye, target pelanggan, materi produk dan tindakan yang diharapkan dari pengunjung.',
     related: [{href:'/harga/',label:'Bandingkan harga landing page'}, {href:'/portfolio/',label:'Lihat contoh proyek website'}, {href:'/kontak/',label:'Diskusikan target kampanye'}]
   },
   'company-profile': {
