@@ -97,7 +97,39 @@
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-28"
+    },
+    {
+      "id": "2026-11-27-kriya-kayu-bali",
+      "category": "Furniture & Kayu",
+      "topic": "Diversifikasi kriya kayu Bali",
+      "summary": "Kemenperin melaporkan nilai ekspor kerajinan kayu Bali pada 2025 sebesar US$32,72 juta berdasarkan data BPS Bali; pelatihan diversifikasi di Gianyar pada 11–14 November 2026 diikuti 24 pelaku IKM.",
+      "event_date": "2026-11-14",
+      "source_published_at": "2026-11-24",
+      "researched_at": "2026-11-27T14:33:23+07:00",
+      "geography": "Bali, Indonesia",
+      "facts": [
+        {
+          "claim": "Kemenperin melaporkan nilai ekspor kerajinan kayu Bali pada 2025 sebesar US$32,72 juta berdasarkan data BPS Bali; pelatihan diversifikasi di Gianyar pada 11–14 November 2026 diikuti 24 pelaku IKM.",
+          "source_urls": [
+            "https://ikm.kemenperin.go.id/ekspor-kerajinan-kayu-tembus-usd-32-juta-kemenperin-poles-inovasi-ikm-kriya-bali"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://ikm.kemenperin.go.id/ekspor-kerajinan-kayu-tembus-usd-32-juta-kemenperin-poles-inovasi-ikm-kriya-bali",
+          "publisher": "Kemenperin",
+          "accessed_at": "2026-11-27T14:33:23+07:00"
+        }
+      ],
+      "practical_impact": "Perajin dapat menguji variasi fungsi, desain dan segmen pembeli sebelum memperbesar produksi.",
+      "content_angle": "Analisis diversifikasi katalog kriya berdasarkan kebutuhan pembeli, bukan proyeksi ekspor 2026.",
+      "keyword_intent": "diversifikasi produk kerajinan kayu ekspor",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-28"
     }
   ],
-  "notes": "Pencarian awal lintas klaster; 12 klaster belum memiliki pemeriksaan individual lengkap. Tidak ada publikasi. Pemeriksaan duplikasi CMS dan kanal media masih diperlukan."
+  "notes": "Empat klaster memiliki temuan aktual terverifikasi. Pencarian tambahan kelapa, kakao, buah dan perikanan mengembalikan sumber di luar jendela tujuh hari; belum dianggap pemeriksaan individual lengkap. Duplikasi CMS/media dan izin gambar belum selesai."
 }
