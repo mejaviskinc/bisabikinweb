@@ -249,7 +249,7 @@ console.log('Sitelink navigation verified: nine crawlable homepage and footer de
 const conciseTitleRoutes=['artikel','beli-website','berita','harga-website','jasa','kontak','portfolio','redaksi','refund','wilayah'];
 for(const route of conciseTitleRoutes){
  const html=await getHtml(route);
- const title=first(html,/<title>([^<]+)<\\/title>/);
+ const title=first(html,/<title>([^<]+)<\/title>/);
  assert.ok(title.length<=60,route+' title should stay within 60 characters: '+title);
 }
 
