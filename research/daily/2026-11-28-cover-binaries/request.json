@@ -1,0 +1,9 @@
+{
+  "schema": 1,
+  "date": "2026-11-28",
+  "purpose": "Trigger repository workflow to assemble the already uploaded, verified WebP cover parts.",
+  "article_id": "peluang-ekspor-ikan-haji-umrah-indonesia",
+  "expected_format": "WebP",
+  "expected_dimensions": "720x405",
+  "image_type": "AI-generated illustration, not event documentation"
+}
