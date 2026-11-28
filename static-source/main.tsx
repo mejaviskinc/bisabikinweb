@@ -1,16 +1,17 @@
-import React,{useEffect,useState} from 'react';
+import React,{useEffect,useState,lazy,Suspense} from 'react';
 import {createRoot,hydrateRoot} from 'react-dom/client';
 import Studio from './features/Studio';
-import Admin from './features/Admin';
-import AdsManager from './features/AdsManager';
-import SellerDashboard from './features/SellerDashboard';
-import Storefront from './features/Storefront';
-import SellerAdmin from './features/SellerAdmin';
-import PaymentGatewayAdmin from './features/PaymentGatewayAdmin';
-import WebsiteStoreAdmin from './features/WebsiteStoreAdmin';
-import DigitalOrdersAdmin from './features/DigitalOrdersAdmin';
+// Route-specific applications are split out of the public bundle.
+const Admin=lazy(()=>import('./features/Admin'));
+const AdsManager=lazy(()=>import('./features/AdsManager'));
+const SellerDashboard=lazy(()=>import('./features/SellerDashboard'));
+const Storefront=lazy(()=>import('./features/Storefront'));
+const SellerAdmin=lazy(()=>import('./features/SellerAdmin'));
+const PaymentGatewayAdmin=lazy(()=>import('./features/PaymentGatewayAdmin'));
+const WebsiteStoreAdmin=lazy(()=>import('./features/WebsiteStoreAdmin'));
+const DigitalOrdersAdmin=lazy(()=>import('./features/DigitalOrdersAdmin'));
 import './features/digital-admin.css';
-import WebsiteLiveDemo from './features/WebsiteLiveDemo';
+const WebsiteLiveDemo=lazy(()=>import('./features/WebsiteLiveDemo'));
 import {templateDemoForHostname} from './lib/template-subdomains.mjs';
 import {defaults} from './lib/data';
 import {mergeEditorialPosts} from './lib/editorial-posts.mjs';
@@ -168,7 +169,8 @@ function AdminWithAdsMenu(){
 }
 
 const storefrontMatch=path.match(/^\/toko\/([a-z0-9-]+)$/i);
-const app=path.startsWith('/demo/')?<WebsiteLiveDemo path={path}/>:path==='/seller'?<SellerDashboard/>:path==='/admin/digital-store'?<DigitalOrdersAdmin/>:path==='/admin/website-store'?<WebsiteStoreAdmin/>:path.startsWith('/admin/sellers')?<SellerAdmin/>:path.startsWith('/admin/iklan')?<AdsManager/>:path.startsWith('/admin/payments')?<PaymentGatewayAdmin/>:path.startsWith('/admin')?<AdminWithAdsMenu/>:storefrontMatch?<Storefront slug={storefrontMatch[1].toLowerCase()}/>:<PublicClient/>;
+const routeApp=path.startsWith('/demo/')?<WebsiteLiveDemo path={path}/>:path==='/seller'?<SellerDashboard/>:path==='/admin/digital-store'?<DigitalOrdersAdmin/>:path==='/admin/website-store'?<WebsiteStoreAdmin/>:path.startsWith('/admin/sellers')?<SellerAdmin/>:path.startsWith('/admin/iklan')?<AdsManager/>:path.startsWith('/admin/payments')?<PaymentGatewayAdmin/>:path.startsWith('/admin')?<AdminWithAdsMenu/>:storefrontMatch?<Storefront slug={storefrontMatch[1].toLowerCase()}/>:<PublicClient/>;
+const app=<Suspense fallback={<div role="status" aria-live="polite">Memuat halaman…</div>}>{routeApp}</Suspense>;
 const root=document.getElementById('root')!;
 // A non-home query param cannot hydrate the static demo homepage markup.
 const templateDeepLink=Boolean(activeTemplate&&new URLSearchParams(location.search).get('halaman'));
