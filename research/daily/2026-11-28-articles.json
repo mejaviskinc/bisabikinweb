@@ -802,7 +802,7 @@
       }
     }
   ],
-  "notes": "Pemeriksaan 15 klaster selesai pada 28 November 2026 dengan pembacaan arsip 21–27 November. Empat artikel disimpan sebagai draft CMS: I-EU CEPA, peluang perikanan haji/umrah, ekspor manufaktur/IKM, dan berita ekspor kayu manis Jambi. Tidak ada artikel yang dipublikasikan. Riset digitalisasi, furniture/kayu, kakao/cokelat, kopi, manajemen risiko, rempah, dan pengawasan perikanan diperbarui dari sumber primer 22–27 November; beberapa disimpan research-only karena tumpang tindih dengan konten CMS atau belum cukup berbeda. Foto berizin belum tersedia; keempat draft tetap tanpa cover image. Sumber Kemenko Perekonomian tentang kolaborasi platform digital ASEAN mengalami timeout, sehingga tidak digunakan sebagai dasar fakta. QA akhir, build, dan deploy publikasi ditahan sampai gambar dan verifikasi editorial selesai. Cover AI seafood dibuat 28 November 2026, disimpan sebagai WebP 720x405 di public-assets/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp, dicatat di CMS draft dan arsip riset. File belum dideploy/terverifikasi live. Cover tiga artikel lain dan QA final masih tertunda. Cover seafood dioptimalkan ulang menjadi WebP 640x360, 22.270 byte; hash SHA-256 9f403efbf0c1bbaaf0ed917fb91712643232c2b5460b39feaa5a4b89bb8c2af1. Blob sebelumnya diganti sebelum deployment. Cover seafood disimpan sebagai WebP 480x270, 10.394 byte, SHA-256 132eedf3e5136d9e16e35843e08d3dc2336868540ce04db552aa774d01061ebc. Dimensi memadai untuk thumbnail 16:9; kualitas visual penuh masih perlu diganti dengan aset resolusi lebih tinggi sebelum artikel dipublikasikan. GitHub Pages build dan deploy run 46113041000 untuk commit 3c0cdce8646948d5e17017fc6d3a54423e2757c3 berhasil; pengujian keamanan, SEO output, dan build lulus. URL live tidak dapat diverifikasi melalui fetch eksternal (internal error), sehingga status dipisahkan sebagai deployed_not_live_verified. Audit kanal media terpisah: public.articles=0 dan public.gn_articles=0; media.bisabikinweb.site tidak dapat diverifikasi lewat fetch eksternal (internal error).",
+  "notes": "Pemeriksaan 15 klaster selesai pada 28 November 2026 dengan pembacaan arsip 21–27 November. Empat artikel disimpan sebagai draft CMS: I-EU CEPA, peluang perikanan haji/umrah, ekspor manufaktur/IKM, dan berita ekspor kayu manis Jambi. Tidak ada artikel yang dipublikasikan. Riset digitalisasi, furniture/kayu, kakao/cokelat, kopi, manajemen risiko, rempah, dan pengawasan perikanan diperbarui dari sumber primer 22–27 November; beberapa disimpan research-only karena tumpang tindih dengan konten CMS atau belum cukup berbeda. Foto berizin belum tersedia; keempat draft tetap tanpa cover image. Sumber Kemenko Perekonomian tentang kolaborasi platform digital ASEAN mengalami timeout, sehingga tidak digunakan sebagai dasar fakta. QA akhir, build, dan deploy publikasi ditahan sampai gambar dan verifikasi editorial selesai. Cover AI seafood dibuat 28 November 2026, disimpan sebagai WebP 720x405 di public-assets/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp, dicatat di CMS draft dan arsip riset. File belum dideploy/terverifikasi live. Cover tiga artikel lain dan QA final masih tertunda. Cover seafood dioptimalkan ulang menjadi WebP 640x360, 22.270 byte; hash SHA-256 9f403efbf0c1bbaaf0ed917fb91712643232c2b5460b39feaa5a4b89bb8c2af1. Blob sebelumnya diganti sebelum deployment. Cover seafood disimpan sebagai WebP 480x270, 10.394 byte, SHA-256 132eedf3e5136d9e16e35843e08d3dc2336868540ce04db552aa774d01061ebc. Dimensi memadai untuk thumbnail 16:9; kualitas visual penuh masih perlu diganti dengan aset resolusi lebih tinggi sebelum artikel dipublikasikan. GitHub Pages build dan deploy run 46113041000 untuk commit 3c0cdce8646948d5e17017fc6d3a54423e2757c3 berhasil; pengujian keamanan, SEO output, dan build lulus. URL live tidak dapat diverifikasi melalui fetch eksternal (internal error), sehingga status dipisahkan sebagai deployed_not_live_verified. Audit kanal media terpisah: public.articles=0 dan public.gn_articles=0; media.bisabikinweb.site tidak dapat diverifikasi lewat fetch eksternal (internal error). Primary CMS audit on 28 November 2026 at 13:33 WIB: public.bbweb_articles contains 80 published active rows and 10 inactive drafts; four drafts were created today (the four listed in the archive). The legacy public.articles and public.gn_articles tables are empty; this does not mean the main editorial CMS is empty. The seafood AI illustration is committed at public-assets/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp and linked from its CMS draft, but the current asset is only 480x270 (10,394 bytes); retain draft status until a higher-resolution image is available. The public URL could not be independently verified because external fetch returned an internal error.",
   "daily_content_limit": 5,
   "daily_draft_count": 4,
   "daily_published_count": 0,
@@ -815,5 +815,36 @@
     "subdomain": "https://media.bisabikinweb.site/",
     "subdomain_fetch_status": "not_accessible_via_web_fetch_internal_error",
     "conclusion": "No media article rows were found in the two connected CMS tables; public subdomain visibility could not be independently verified."
+  },
+  "main_cms_audit": {
+    "audited_at": "2026-11-28T13:33:46+07:00",
+    "source_table": "public.bbweb_articles",
+    "total_rows": 90,
+    "published_active_rows": 80,
+    "draft_inactive_rows": 10,
+    "drafts_created_on_2026_11_28": 4,
+    "today_draft_ids": [
+      "ekspor-kayu-manis-jambi-rp275-miliar-2026",
+      "ekspor-manufaktur-indonesia-peluang-rantai-pasok-ikm",
+      "peluang-ekspor-ikan-haji-umrah-indonesia",
+      "persiapan-eksportir-indonesia-ieu-cepa"
+    ],
+    "legacy_tables": {
+      "public.articles": 0,
+      "public.gn_articles": 0
+    },
+    "interpretation": "The two legacy tables are empty; the primary BisaBikinWeb editorial CMS is public.bbweb_articles and contains 80 published articles plus 10 inactive drafts."
+  },
+  "editorial_asset_audit": {
+    "audited_at": "2026-11-28T13:33:46+07:00",
+    "repository_path": "public-assets/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp",
+    "repository_blob_sha": "1fa392c8967f7263dc695cc2731f0ac1d5746e41",
+    "cms_url": "https://bisabikinweb.site/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp",
+    "dimensions": "480x270",
+    "bytes": 10394,
+    "cms_caption": "Ilustrasi AI — bukan dokumentasi peristiwa.",
+    "repository_status": "committed",
+    "public_http_status": "not_independently_verified_internal_error",
+    "qa_status": "needs_higher_resolution_cover_before_publication"
   }
 }
