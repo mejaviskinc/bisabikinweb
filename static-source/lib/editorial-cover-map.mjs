@@ -24,5 +24,6 @@ export const editorialCoverMap = {
   "mengapa-umkm-butuh-website-meski-punya-instagram": "https://bisabikinweb.site/editorial-covers/pentingnya-website-untuk-bisnis.webp",
   "faktor-biaya-pembuatan-website-profesional": "https://bisabikinweb.site/editorial-covers/jasa-pembuatan-website-profesional.webp",
   "checklist-landing-page-jasa-untuk-konversi": "https://bisabikinweb.site/editorial-covers/cara-meningkatkan-konversi-website.webp",
-  "checklist-maintenance-website-bisnis-bulanan": "https://bisabikinweb.site/editorial-covers/jasa-pembuatan-website-profesional.webp"
+  "checklist-maintenance-website-bisnis-bulanan": "https://bisabikinweb.site/editorial-covers/jasa-pembuatan-website-profesional.webp",
+  "peluang-ekspor-ikan-haji-umrah-indonesia": "https://bisabikinweb.site/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp",
 };

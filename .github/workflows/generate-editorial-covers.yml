@@ -105,8 +105,8 @@ jobs:
         run: |
           npm ci
           npm test
-          npm run test:output
           npm run build
+          npm run test:output
       - name: Commit generated images
         if: steps.check_secret.outputs.available == 'true'
         run: |
