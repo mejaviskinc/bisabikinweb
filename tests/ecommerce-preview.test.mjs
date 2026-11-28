@@ -24,7 +24,10 @@ test('E-commerce reuses authentic Mejavi video preview from portfolio, with desk
 test('Portfolio video is silent, looped, inline, automatically played, with original screenshot fallback',()=>{
  assert.match(visuals,/mejavi-home-'\+mejaviMode\+'\.mp4'/);
  assert.match(visuals,/autoPlay muted loop playsInline/);
- assert.match(visuals,/poster=\{mejaviPoster\}/);
+ assert.match(visuals,/src=\{mejaviPoster\}/);
+ assert.match(visuals,/srcSet=/);
+ assert.match(visuals,/new IntersectionObserver/);
+ assert.match(visuals,/mejaviVideoActive&&<video/);
  assert.match(visuals,/onError=\{\(\)=>setMejaviVideoFailed\(true\)\}/);
  assert.match(visuals,/mejavi-home-'\+mejaviMode\+'\.png'/);
  assert.match(globalStyles,/\.portfolio-site-preview \.portfolio-live-video/);
