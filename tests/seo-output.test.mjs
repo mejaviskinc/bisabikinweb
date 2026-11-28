@@ -246,6 +246,14 @@ for(const target of sitelinkTargets){
 }
 console.log('Sitelink navigation verified: nine crawlable homepage and footer destinations with indexable pages.');
 
+const conciseTitleRoutes=['artikel','beli-website','berita','harga-website','jasa','kontak','portfolio','redaksi','refund','wilayah'];
+for(const route of conciseTitleRoutes){
+ const html=await getHtml(route);
+ const title=first(html,/<title>([^<]+)<\\/title>/);
+ assert.ok(title.length<=60,route+' title should stay within 60 characters: '+title);
+}
+
+
 
 // Commercial SEO and on-page bilingual QA.
 const jasaHtml=await getHtml('jasa');
