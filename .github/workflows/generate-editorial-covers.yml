@@ -17,6 +17,9 @@ on:
         description: "Regenerate photo covers that already exist"
         type: boolean
         default: false
+  push:
+    paths:
+      - 'research/daily/*-cover-requests.json'
 
 permissions:
   contents: write
@@ -42,17 +45,60 @@ jobs:
             echo "Missing OPENAI_API_KEY repository secret. No generated images or charges."
             exit 1
           fi
-      - name: Generate original headline-matched covers
+      - name: Generate draft-specific covers from request file
+        if: github.event_name == 'push'
+        run: |
+          set -euo pipefail
+          REQUEST_FILE="$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" | grep -E '^research/daily/[0-9]{4}-[0-9]{2}-[0-9]{2}-cover-requests\.json$' | head -n 1)"
+          if [ -z "$REQUEST_FILE" ]; then
+            echo "No dated editorial cover request file found in this push."
+            exit 1
+          fi
+          node scripts/generate-editorial-covers.mjs --draft-requests "$REQUEST_FILE" --overwrite
+      - name: Generate published article covers from manual selection
+        if: github.event_name == 'workflow_dispatch'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           EXTRA=""
           if [ "${{ inputs.overwrite }}" = "true" ]; then EXTRA="--overwrite"; fi
           node scripts/generate-editorial-covers.mjs --offset "${{ inputs.offset }}" --limit "${{ inputs.limit }}" $EXTRA
-      - name: Check editorial tests
+      - name: Normalize changed covers to 16:9 WebP
+        run: |
+          python3 -m pip install --quiet Pillow
+          python3 - <<'PY'
+          from pathlib import Path
+          from PIL import Image
+          import subprocess
+
+          changed = subprocess.check_output(["git", "status", "--porcelain"], text=True).splitlines()
+          for line in changed:
+              rel = line[3:].strip().strip('"')
+              path = Path(rel)
+              if not path.parts[:2] == ("public-assets", "editorial-covers"):
+                  continue
+              if path.suffix.lower() != ".webp" or not path.exists():
+                  continue
+              with Image.open(path) as source:
+                  image = source.convert("RGB")
+              width, height = image.size
+              target_height = round(width * 9 / 16)
+              if height > target_height:
+                  top = (height - target_height) // 2
+                  image = image.crop((0, top, width, top + target_height))
+              elif height < target_height:
+                  target_width = round(height * 16 / 9)
+                  left = (width - target_width) // 2
+                  image = image.crop((left, 0, left + target_width, height))
+              image.save(path, "WEBP", quality=82, method=6)
+              print(f"Normalized {path}: {image.width}x{image.height}")
+          PY
+      - name: Check editorial tests and production build
         run: |
           npm ci
           npm test
+          npm run test:output
+          npm run build
       - name: Commit generated images
         run: |
           git config user.name "github-actions[bot]"
