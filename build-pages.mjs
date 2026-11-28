@@ -104,7 +104,7 @@ const pages={
   '/merch':['Merchandise & Koleksi Apparel BisaBikinWeb','Jelajahi koleksi merchandise BisaBikinWeb, desain apparel, dan produk kreatif. Lihat pilihan produk, informasi stok, varian, serta cara pemesanan.'],
   '/tentang':['Tentang Studio Digital BisaBikinWeb di Yogyakarta','Kenali pendekatan dan proses kerja BisaBikinWeb dalam merancang website bisnis. Dari kebutuhan UMKM hingga solusi web khusus untuk perusahaan.'],
   '/kontak':['Konsultasi Website & Penawaran','Konsultasikan proyek website melalui WhatsApp atau email dari Indonesia maupun luar negeri. Ceritakan kebutuhan, anggaran, dan target waktu untuk penawaran.'],
-  '/artikel':['Artikel SEO & Panduan Bisnis Digital','Baca panduan praktis tentang SEO, pembuatan website, desain web, pemasaran digital, dan pengembangan bisnis dari tim editorial BisaBikinWeb.'],
+  '/artikel':['Artikel SEO & Bisnis Digital','Baca panduan praktis tentang SEO, pembuatan website, desain web, pemasaran digital, dan pengembangan bisnis dari tim editorial BisaBikinWeb.'],
   '/berita':['Berita Bisnis, Ekonomi & Teknologi','Ikuti berita terkurasi BisaBikinWeb seputar ekonomi, bisnis, politik, teknologi, dan perkembangan dalam maupun luar negeri dengan rujukan sumber.'],
   '/redaksi':['Redaksi & Kebijakan Koreksi Berita','Ketahui standar editorial BisaBikinWeb: penggunaan sumber, verifikasi fakta, koreksi berita, hak penggunaan gambar, dan informasi kontak redaksi.'],
   '/privacy':['Kebijakan Privasi & Penggunaan Data','Baca bagaimana BisaBikinWeb mengumpulkan, memproses, dan melindungi data saat konsultasi website, berlangganan konten, dan transaksi.'],
