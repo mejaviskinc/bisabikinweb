@@ -637,9 +637,9 @@
           "https://bisabikinweb.site/artikel/cara-menyiapkan-katalog-produk-perikanan-pasar-global/",
           "https://bisabikinweb.site/artikel/perbedaan-purchase-order-dan-potensi-transaksi-ekspor/"
         ],
-        "image_status": "committed_repo_and_attached_to_cms_draft_not_deployed",
+        "image_status": "deployed_not_live_verified",
         "image_caption_proposal": "Ilustrasi AI — bukan dokumentasi peristiwa.",
-        "qa_status": "image_asset_committed_and_policy_caption_aligned; remaining_three_article_covers_and_final_editorial_review_pending",
+        "qa_status": "cover_deployed_by_github_pages_workflow; live_url_not_verified; remaining_three_article_covers_and_final_editorial_review_pending",
         "image_asset": {
           "repository_path": "public-assets/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp",
           "public_url": "https://bisabikinweb.site/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp",
@@ -651,7 +651,12 @@
           "generated_at": "2026-11-28T12:25:22+07:00",
           "origin": "Original AI-generated editorial illustration; no third-party photo used",
           "caption": "Ilustrasi AI — bukan dokumentasi peristiwa.",
-          "quality": 20
+          "quality": 20,
+          "deployed_commit_sha": "3c0cdce8646948d5e17017fc6d3a54423e2757c3",
+          "deployment_workflow_run_id": 46113041000,
+          "deployment_status": "success",
+          "deployed_at": "2026-11-28T12:39:32+07:00",
+          "live_url_verification": "not_verified: web fetch returned internal error"
         },
         "image_alt": "Ilustrasi AI — bukan dokumentasi peristiwa: pekerja memeriksa fillet ikan di fasilitas pengolahan dan rantai dingin seafood.",
         "image_license": "Ilustrasi AI — bukan dokumentasi peristiwa; karya generatif orisinal, tidak memakai foto pihak ketiga."
@@ -788,7 +793,7 @@
       }
     }
   ],
-  "notes": "Pemeriksaan 15 klaster selesai pada 28 November 2026 dengan pembacaan arsip 21–27 November. Empat artikel disimpan sebagai draft CMS: I-EU CEPA, peluang perikanan haji/umrah, ekspor manufaktur/IKM, dan berita ekspor kayu manis Jambi. Tidak ada artikel yang dipublikasikan. Riset digitalisasi, furniture/kayu, kakao/cokelat, kopi, manajemen risiko, rempah, dan pengawasan perikanan diperbarui dari sumber primer 22–27 November; beberapa disimpan research-only karena tumpang tindih dengan konten CMS atau belum cukup berbeda. Foto berizin belum tersedia; keempat draft tetap tanpa cover image. Sumber Kemenko Perekonomian tentang kolaborasi platform digital ASEAN mengalami timeout, sehingga tidak digunakan sebagai dasar fakta. QA akhir, build, dan deploy publikasi ditahan sampai gambar dan verifikasi editorial selesai. Cover AI seafood dibuat 28 November 2026, disimpan sebagai WebP 720x405 di public-assets/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp, dicatat di CMS draft dan arsip riset. File belum dideploy/terverifikasi live. Cover tiga artikel lain dan QA final masih tertunda. Cover seafood dioptimalkan ulang menjadi WebP 640x360, 22.270 byte; hash SHA-256 9f403efbf0c1bbaaf0ed917fb91712643232c2b5460b39feaa5a4b89bb8c2af1. Blob sebelumnya diganti sebelum deployment. Cover seafood disimpan sebagai WebP 480x270, 10.394 byte, SHA-256 132eedf3e5136d9e16e35843e08d3dc2336868540ce04db552aa774d01061ebc. Dimensi memadai untuk thumbnail 16:9; kualitas visual penuh masih perlu diganti dengan aset resolusi lebih tinggi sebelum artikel dipublikasikan.",
+  "notes": "Pemeriksaan 15 klaster selesai pada 28 November 2026 dengan pembacaan arsip 21–27 November. Empat artikel disimpan sebagai draft CMS: I-EU CEPA, peluang perikanan haji/umrah, ekspor manufaktur/IKM, dan berita ekspor kayu manis Jambi. Tidak ada artikel yang dipublikasikan. Riset digitalisasi, furniture/kayu, kakao/cokelat, kopi, manajemen risiko, rempah, dan pengawasan perikanan diperbarui dari sumber primer 22–27 November; beberapa disimpan research-only karena tumpang tindih dengan konten CMS atau belum cukup berbeda. Foto berizin belum tersedia; keempat draft tetap tanpa cover image. Sumber Kemenko Perekonomian tentang kolaborasi platform digital ASEAN mengalami timeout, sehingga tidak digunakan sebagai dasar fakta. QA akhir, build, dan deploy publikasi ditahan sampai gambar dan verifikasi editorial selesai. Cover AI seafood dibuat 28 November 2026, disimpan sebagai WebP 720x405 di public-assets/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp, dicatat di CMS draft dan arsip riset. File belum dideploy/terverifikasi live. Cover tiga artikel lain dan QA final masih tertunda. Cover seafood dioptimalkan ulang menjadi WebP 640x360, 22.270 byte; hash SHA-256 9f403efbf0c1bbaaf0ed917fb91712643232c2b5460b39feaa5a4b89bb8c2af1. Blob sebelumnya diganti sebelum deployment. Cover seafood disimpan sebagai WebP 480x270, 10.394 byte, SHA-256 132eedf3e5136d9e16e35843e08d3dc2336868540ce04db552aa774d01061ebc. Dimensi memadai untuk thumbnail 16:9; kualitas visual penuh masih perlu diganti dengan aset resolusi lebih tinggi sebelum artikel dipublikasikan. GitHub Pages build dan deploy run 46113041000 untuk commit 3c0cdce8646948d5e17017fc6d3a54423e2757c3 berhasil; pengujian keamanan, SEO output, dan build lulus. URL live tidak dapat diverifikasi melalui fetch eksternal (internal error), sehingga status dipisahkan sebagai deployed_not_live_verified.",
   "daily_content_limit": 5,
   "daily_draft_count": 4,
   "daily_published_count": 0
