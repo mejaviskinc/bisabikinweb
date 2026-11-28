@@ -97,19 +97,19 @@ const email='bisabikinw3b@gmail.com';
 const pages={
   '/':['Jasa Pembuatan Website & Bikin Web | BisaBikinWeb Indonesia','Jasa pembuatan website untuk UMKM dan perusahaan: company profile, landing page, dan toko online. Lihat harga, portofolio, lalu konsultasikan kebutuhan.'],
   '/jasa':['Jasa Bikin Website Bisnis & UMKM','Cari jasa bikin website profesional? Pilih company profile, landing page, toko online, atau web app. Lihat layanan, harga mulai Rp1,49 juta, dan konsultasi.'],
-  '/wilayah':['Jasa Website Seluruh Indonesia & 38 Provinsi','Lihat daftar layanan jasa bikin web BisaBikinWeb untuk Jakarta, Bandung, Surabaya, Medan, Makassar, seluruh 38 provinsi dan kota/kabupaten lainnya di Indonesia.'],
+  '/wilayah':['Jasa Website di Seluruh Indonesia','Lihat daftar layanan jasa bikin web BisaBikinWeb untuk Jakarta, Bandung, Surabaya, Medan, Makassar, seluruh 38 provinsi dan kota/kabupaten lainnya di Indonesia.'],
   '/harga':['Harga Website Mulai Rp1,49 Juta','Cek harga jasa bikin website mulai Rp1,49 juta. Bandingkan paket landing page, company profile, toko online, fitur, dan biaya perawatan sebelum konsultasi.'],
-  '/portfolio':['Portofolio Website Bisnis, Skincare, Fashion & Travel','Jelajahi contoh website nyata BisaBikinWeb untuk Berbeda, Karpenter, Mejavi Skin+, GoO Ninks, dan GoJogja Travel. Lihat studi kasus dan layanan terkait.'],
+  '/portfolio':['Portofolio Website Bisnis & Brand','Jelajahi contoh website nyata BisaBikinWeb untuk Berbeda, Karpenter, Mejavi Skin+, GoO Ninks, dan GoJogja Travel. Lihat studi kasus dan layanan terkait.'],
   '/layanan-digital':['Layanan Digital: Pulsa, Data, Token & Travel','Rencana layanan digital BisaBikinWeb meliputi pulsa, paket data, token listrik, dan kebutuhan perjalanan. Fitur masih dalam tahap persiapan.'],
   '/merch':['Merchandise & Koleksi Apparel BisaBikinWeb','Jelajahi koleksi merchandise BisaBikinWeb, desain apparel, dan produk kreatif. Lihat pilihan produk, informasi stok, varian, serta cara pemesanan.'],
   '/tentang':['Tentang Studio Digital BisaBikinWeb di Yogyakarta','Kenali pendekatan dan proses kerja BisaBikinWeb dalam merancang website bisnis. Dari kebutuhan UMKM hingga solusi web khusus untuk perusahaan.'],
-  '/kontak':['Konsultasi Website Online Indonesia & Internasional','Konsultasikan proyek website melalui WhatsApp atau email dari Indonesia maupun luar negeri. Ceritakan kebutuhan, anggaran, dan target waktu untuk penawaran.'],
-  '/artikel':['Artikel SEO, Website & Strategi Bisnis Digital','Baca panduan praktis tentang SEO, pembuatan website, desain web, pemasaran digital, dan pengembangan bisnis dari tim editorial BisaBikinWeb.'],
-  '/berita':['Berita Bisnis, Ekonomi, Politik & Teknologi','Ikuti berita terkurasi BisaBikinWeb seputar ekonomi, bisnis, politik, teknologi, dan perkembangan dalam maupun luar negeri dengan rujukan sumber.'],
-  '/redaksi':['Redaksi, Sumber Berita & Kebijakan Koreksi','Ketahui standar editorial BisaBikinWeb: penggunaan sumber, verifikasi fakta, koreksi berita, hak penggunaan gambar, dan informasi kontak redaksi.'],
+  '/kontak':['Konsultasi Website & Penawaran','Konsultasikan proyek website melalui WhatsApp atau email dari Indonesia maupun luar negeri. Ceritakan kebutuhan, anggaran, dan target waktu untuk penawaran.'],
+  '/artikel':['Artikel SEO & Panduan Bisnis Digital','Baca panduan praktis tentang SEO, pembuatan website, desain web, pemasaran digital, dan pengembangan bisnis dari tim editorial BisaBikinWeb.'],
+  '/berita':['Berita Bisnis, Ekonomi & Teknologi','Ikuti berita terkurasi BisaBikinWeb seputar ekonomi, bisnis, politik, teknologi, dan perkembangan dalam maupun luar negeri dengan rujukan sumber.'],
+  '/redaksi':['Redaksi & Kebijakan Koreksi Berita','Ketahui standar editorial BisaBikinWeb: penggunaan sumber, verifikasi fakta, koreksi berita, hak penggunaan gambar, dan informasi kontak redaksi.'],
   '/privacy':['Kebijakan Privasi & Penggunaan Data','Baca bagaimana BisaBikinWeb mengumpulkan, memproses, dan melindungi data saat konsultasi website, berlangganan konten, dan transaksi.'],
   '/terms':['Syarat & Ketentuan Layanan Website','Pelajari syarat penggunaan website BisaBikinWeb, layanan digital, ketentuan pemesanan, dan tanggung jawab pengguna.'],
-  '/refund':['Ketentuan Refund & Pengembalian Pesanan','Informasi kebijakan pengembalian, pembatalan, serta penanganan permintaan refund untuk produk dan layanan BisaBikinWeb.'],
+  '/refund':['Kebijakan Refund & Pembatalan','Informasi kebijakan pengembalian, pembatalan, serta penanganan permintaan refund untuk produk dan layanan BisaBikinWeb.'],
   '/shipping':['Informasi Pengiriman Merchandise','Temukan informasi proses pengiriman merchandise BisaBikinWeb, konfirmasi alamat dan ongkir, serta pemantauan status pesanan.'],
   '/cart':['Keranjang','Tinjau wishlist dan produk Anda.'],
   '/checkout':['Checkout Merchandise','Selesaikan detail pengiriman dan lanjutkan pembayaran merchandise Bisabikinweb.'],
@@ -122,8 +122,8 @@ const pages={
   '/admin/iklan':['Ads Manager Bisabikinweb','Panel admin untuk mengatur iklan homepage Bisabikinweb.'],
   '/admin/payments':['Payment Gateway — BisaBikinWeb','Dashboard transaksi DOKU, status pembayaran, rekonsiliasi, dan monitoring checkout merchandise.']
 };
-pages['/beli-website']=['Beli Website & Katalog Desain Profesional','Jelajahi desain website untuk UMKM, company profile, ekspor, toko online, fashion, travel, restoran, dan pendidikan. Pilih desain dan minta penawaran.'];
-pages['/harga-website']=['Paket Harga Website: Starter, Business, Commerce, Custom','Lihat harga mulai dan fitur jasa pembuatan website BisaBikinWeb. Bandingkan paket sebelum memesan website online.'];
+pages['/beli-website']=['Katalog Desain Website untuk Bisnis','Jelajahi desain website untuk UMKM, company profile, ekspor, toko online, fashion, travel, restoran, dan pendidikan. Pilih desain dan minta penawaran.'];
+pages['/harga-website']=['Paket Harga Website & Fitur','Lihat harga mulai dan fitur jasa pembuatan website BisaBikinWeb. Bandingkan paket sebelum memesan website online.'];
 pages['/pesan-website']=['Formulir Pemesanan Website','Isi brief website dan pilih paket untuk menerima penawaran dari BisaBikinWeb.'];
 pages['/admin/digital-store']=['Admin Layanan Digital — BisaBikinWeb','Pantau permintaan pembelian game, pulsa, data, PLN, dan voucher di dashboard admin.'];
 pages['/admin/website-store']=['Website Store Admin','Kelola desain, paket, dan pesanan website melalui dashboard admin yang aman.'];
