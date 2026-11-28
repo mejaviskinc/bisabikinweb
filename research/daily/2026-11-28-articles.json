@@ -53,6 +53,38 @@
         "image_status": "pending",
         "qa_status": "pending_duplicate_image_and_canonical"
       }
+    },
+    {
+      "id": "2026-11-28-perikanan-pasar-haji-umrah",
+      "category": "Seafood & Perikanan",
+      "topic": "Peluang pasokan produk perikanan untuk konsumsi jemaah haji dan umrah",
+      "summary": "KKP melaporkan pada 27 November 2026 pembahasan perluasan pasar produk perikanan melalui kebutuhan konsumsi jemaah di Arab Saudi. Pembahasan berlangsung di Jakarta sehari sebelumnya; belum merupakan bukti kontrak penjualan.",
+      "event_date": "2026-11-26",
+      "source_published_at": "2026-11-27",
+      "researched_at": "2026-11-28T09:34:59+07:00",
+      "geography": "Indonesia dan Arab Saudi",
+      "facts": [
+        {
+          "claim": "KKP membahas peluang memasok kebutuhan konsumsi jemaah haji dan umrah dalam pertemuan di Jakarta pada 26 November.",
+          "source_urls": [
+            "https://kkp.go.id/news/news-detail/kkp-bidik-peluang-ekspor-produk-perikanan-untuk-konsumsi-jemaah-haji-dan-umrah-OP1g.html"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://kkp.go.id/news/news-detail/kkp-bidik-peluang-ekspor-produk-perikanan-untuk-konsumsi-jemaah-haji-dan-umrah-OP1g.html",
+          "publisher": "KKP",
+          "accessed_at": "2026-11-28T09:34:59+07:00"
+        }
+      ],
+      "practical_impact": "Pelaku usaha dapat mengevaluasi kapasitas pasokan, rantai dingin dan persyaratan pembeli tanpa mengasumsikan kontrak telah tersedia.",
+      "content_angle": "Analisis kesiapan pemasok perikanan untuk pasar katering institusional Arab Saudi",
+      "keyword_intent": "peluang ekspor ikan untuk katering haji",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-29"
     }
   ],
   "notes": "Riset awal 28 November. Pencarian energi, kakao, kelapa, kopi, buah dan walet belum menemukan pembaruan primer dalam tujuh hari; hasil lama tidak diperlakukan sebagai berita. Pemeriksaan 15 klaster dan duplikasi CMS/media belum lengkap. Draft tidak terhubung ke build."
