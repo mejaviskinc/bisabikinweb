@@ -23,7 +23,8 @@ Arsip editorial untuk menunjang riset berulang, berita aktual, dan artikel eduka
 
 ## Lokasi penyimpanan harian
 - `research/daily/YYYY-MM-DD-news.json`: temuan dan kandidat berita hasil tugas editor berita.
-- `research/daily/YYYY-MM-DD-articles.json`: data pendukung, intent pencarian, dan kandidat artikel evergreen hasil tugas artikel.
+- `research/daily/YYYY-MM-DD-articles.json`: data pendukung, intent pencarian, dan kandidat artikel hasil tugas editor artikel.
+- `research/daily/YYYY-MM-DD-cover-requests.json`: brief gambar untuk draft nonberita yang sudah memiliki ID CMS; file ini memicu workflow pembuatan cover.
 - Buat file hanya setelah riset benar-benar dijalankan; jangan membuat entri fakta fiktif.
 
 ## Skema minimum (per entri)
@@ -48,6 +49,14 @@ Arsip editorial untuk menunjang riset berulang, berita aktual, dan artikel eduka
   "recheck_after": "YYYY-MM-DD atau null"
 }
 ```
+
+## Alur cover editorial
+- Artikel analisis, edukasi, studi kasus, dan konten nonberita lain boleh memakai ilustrasi AI orisinal. Caption harus menyatakan **Ilustrasi AI**; gambar tidak boleh disajikan sebagai dokumentasi kejadian.
+- Berita aktual tidak boleh memakai gambar generatif sebagai bukti peristiwa. Gunakan foto jurnalistik dengan lisensi/izin penggunaan dan kredit yang dapat diverifikasi; jika belum ada, pertahankan draft tanpa cover.
+- Request file harus memuat `articles[]` dengan `id`, `title`, `category`, `articleType`, dan `imageBrief`. Hanya masukkan ID draft yang sudah diperiksa di CMS; jangan membuat ID artikel baru dari brief gambar.
+- Workflow `generate-editorial-covers.yml` menerima request bertanggal, membuat WebP, memotong cover ke rasio 16:9, lalu menjalankan tes dan build. Workflow membutuhkan secret repository `OPENAI_API_KEY`; jika secret tidak tersedia, generasi gambar dilewati tanpa memanggil API, tetapi QA kode tetap berjalan.
+- Jangan mengisi `cover_image_url` CMS sebelum file WebP benar-benar ter-commit dan tersedia pada deployment. Verifikasi dimensi, format, URL publik, alt text, caption, dan lisensi sebelum mengubah status artikel.
+- `scripts/generate-editorial-covers.mjs` mengecualikan berita dari generasi AI; berita harus melalui jalur foto berizin.
 
 ## Aturan kualitas
 - Gunakan sumber primer/resmi bila menyangkut regulasi, tarif, syarat sertifikasi, dan data statistik; selalu simpan tautan sumber serta tanggal.
