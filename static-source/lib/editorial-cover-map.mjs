@@ -26,4 +26,5 @@ export const editorialCoverMap = {
   "checklist-landing-page-jasa-untuk-konversi": "https://bisabikinweb.site/editorial-covers/cara-meningkatkan-konversi-website.webp",
   "checklist-maintenance-website-bisnis-bulanan": "https://bisabikinweb.site/editorial-covers/jasa-pembuatan-website-profesional.webp",
   "peluang-ekspor-ikan-haji-umrah-indonesia": "https://bisabikinweb.site/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp",
+  "logistik-ekspor-2027-biaya-keandalan-integrasi": "https://bisabikinweb.site/editorial-covers/logistik-ekspor-2027-biaya-keandalan-integrasi.webp",
 };
