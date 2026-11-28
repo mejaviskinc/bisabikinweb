@@ -944,6 +944,61 @@
         "image_caption_proposal": "Ilustrasi AI — gambaran umum persiapan ekspor, bukan dokumentasi kegiatan.",
         "qa_status": "pending_image_and_final_editorial_review"
       }
+    },
+    {
+      "id": "2026-11-28-kendali-ekspor-chip-ai-as-ke-indonesia",
+      "category": "Digitalisasi & Website",
+      "topic": "Aturan lisensi AS untuk semikonduktor komputasi canggih mencakup tujuan Indonesia",
+      "summary": "Interim Final Rule BIS yang terbit di Federal Register pada 19 November 2026 mewajibkan lisensi untuk ekspor, reekspor, atau transfer semikonduktor komputasi canggih tertentu ke atau di Indonesia, Malaysia, Singapura, Thailand, dan Brasil; permohonan untuk lima tujuan tersebut dinilai kasus per kasus. Aturan juga mengatur akses komputasi jarak jauh bagi perusahaan yang berkantor pusat di Macau atau Country Group D:5. Komdigi pada 27 November menyatakan pemerintah menyiapkan koordinasi lintas kementerian, penguatan tata kelola pelanggan dan penggunaan komputasi, serta dialog dengan AS.",
+      "event_date": "2026-11-19",
+      "source_published_at": "2026-11-27",
+      "researched_at": "2026-11-28T17:02:34+07:00",
+      "geography": "Indonesia, Amerika Serikat, dan Asia Tenggara",
+      "facts": [
+        {
+          "claim": "Federal Register 91 FR 74970 menyatakan aturan BIS berlaku 19 November 2026 dan menambahkan persyaratan lisensi bagi ekspor, reekspor, atau transfer semikonduktor canggih tertentu ke atau di Indonesia, Malaysia, Singapura, Thailand, dan Brasil; permohonan untuk lima tujuan ini ditinjau kasus per kasus.",
+          "source_urls": [
+            "https://www.govinfo.gov/content/pkg/FR-2026-11-19/html/2026-23529.htm"
+          ]
+        },
+        {
+          "claim": "Pengecualian tertentu berlaku untuk penerima akhir atau pengguna akhir yang berkantor pusat di Amerika Serikat atau memiliki perusahaan induk utama di AS, dengan syarat pelaporan yang ditentukan dipenuhi.",
+          "source_urls": [
+            "https://www.govinfo.gov/content/pkg/FR-2026-11-19/html/2026-23529.htm"
+          ]
+        },
+        {
+          "claim": "Aturan yang sama membentuk pembatasan penggunaan akhir terpisah untuk pusat data yang memberikan akses daya komputasi signifikan kepada perusahaan yang berkantor pusat di Macau atau negara Country Group D:5; ini tidak boleh disamakan dengan larangan umum atas seluruh layanan AI konsumen.",
+          "source_urls": [
+            "https://www.govinfo.gov/content/pkg/FR-2026-11-19/html/2026-23529.htm"
+          ]
+        },
+        {
+          "claim": "Komdigi pada 27 November 2026 menyampaikan tiga respons: koordinasi lintas kementerian/lembaga, penguatan tata kelola melalui prinsip Know Your Customer dan Know Your Customer's Workload, serta dialog dengan pemerintah AS untuk memperjelas penerapan aturan dan persyaratan izin.",
+          "source_urls": [
+            "https://portal.komdigi.go.id/kanal-publik/berita-kini/10753"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.govinfo.gov/content/pkg/FR-2026-11-19/html/2026-23529.htm",
+          "publisher": "U.S. Government Publishing Office / Federal Register, Vol. 91 No. 222, 19 November 2026",
+          "accessed_at": "2026-11-28T17:02:34+07:00"
+        },
+        {
+          "url": "https://portal.komdigi.go.id/kanal-publik/berita-kini/10753",
+          "publisher": "Kementerian Komunikasi dan Digital RI, 27 November 2026",
+          "accessed_at": "2026-11-28T17:02:34+07:00"
+        }
+      ],
+      "practical_impact": "Importir, operator pusat data, penyedia cloud, integrator server, dan pengembang AI di Indonesia perlu memeriksa klasifikasi barang/ECCN, penerima akhir, perusahaan induk, tujuan penggunaan, kebutuhan lisensi, serta kewajiban pelaporan sebelum transaksi. Aturan tidak boleh diringkas sebagai larangan menyeluruh atas semua chip atau layanan AI; penerapan bergantung pada ruang lingkup item dan transaksi.",
+      "content_angle": "Analisis: Apa dampak aturan lisensi chip AI AS bagi pusat data, cloud, dan pengembang AI Indonesia? Pisahkan kewajiban lisensi berbasis negara tujuan dari kontrol end-use pusat data untuk akses komputasi bagi entitas D:5/Macau.",
+      "keyword_intent": "aturan ekspor chip AI ke Indonesia; lisensi BIS semikonduktor canggih; dampak aturan AS pada data center Indonesia",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-29"
     }
   ],
   "notes": "Pemeriksaan 15 klaster selesai pada 28 November 2026 dengan pembacaan arsip 21–27 November. Empat artikel disimpan sebagai draft CMS: I-EU CEPA, peluang perikanan haji/umrah, ekspor manufaktur/IKM, dan berita ekspor kayu manis Jambi. Tidak ada artikel yang dipublikasikan. Riset digitalisasi, furniture/kayu, kakao/cokelat, kopi, manajemen risiko, rempah, dan pengawasan perikanan diperbarui dari sumber primer 22–27 November; beberapa disimpan research-only karena tumpang tindih dengan konten CMS atau belum cukup berbeda. Foto berizin belum tersedia; keempat draft tetap tanpa cover image. Sumber Kemenko Perekonomian tentang kolaborasi platform digital ASEAN mengalami timeout, sehingga tidak digunakan sebagai dasar fakta. QA akhir, build, dan deploy publikasi ditahan sampai gambar dan verifikasi editorial selesai. Cover AI seafood dibuat 28 November 2026, disimpan sebagai WebP 720x405 di public-assets/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp, dicatat di CMS draft dan arsip riset. File belum dideploy/terverifikasi live. Cover tiga artikel lain dan QA final masih tertunda. Cover seafood dioptimalkan ulang menjadi WebP 640x360, 22.270 byte; hash SHA-256 9f403efbf0c1bbaaf0ed917fb91712643232c2b5460b39feaa5a4b89bb8c2af1. Blob sebelumnya diganti sebelum deployment. Cover seafood disimpan sebagai WebP 480x270, 10.394 byte, SHA-256 132eedf3e5136d9e16e35843e08d3dc2336868540ce04db552aa774d01061ebc. Dimensi memadai untuk thumbnail 16:9; kualitas visual penuh masih perlu diganti dengan aset resolusi lebih tinggi sebelum artikel dipublikasikan. GitHub Pages build dan deploy run 46113041000 untuk commit 3c0cdce8646948d5e17017fc6d3a54423e2757c3 berhasil; pengujian keamanan, SEO output, dan build lulus. URL live tidak dapat diverifikasi melalui fetch eksternal (internal error), sehingga status dipisahkan sebagai deployed_not_live_verified. Audit kanal media terpisah: public.articles=0 dan public.gn_articles=0; media.bisabikinweb.site tidak dapat diverifikasi lewat fetch eksternal (internal error). Primary CMS audit on 28 November 2026 at 13:33 WIB: public.bbweb_articles contains 80 published active rows and 10 inactive drafts; four drafts were created today (the four listed in the archive). The legacy public.articles and public.gn_articles tables are empty; this does not mean the main editorial CMS is empty. The seafood AI illustration is committed at public-assets/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp and linked from its CMS draft, but the current asset is only 480x270 (10,394 bytes); retain draft status until a higher-resolution image is available. The public URL could not be independently verified because external fetch returned an internal error. Cover-generation workflow audit: run 46123337024 failed because test:output ran before build and site-dist did not exist; the workflow also skipped generation because OPENAI_API_KEY was unavailable. The command order has now been corrected; rerun and Pages deployment remain pending. Corrective workflow commit 4c6c2bdecf3e8c19624d2f4a41b7e1021c2f4e7b added the seafood cover map entry and moved test:output after build. Cover workflow run 46124342679 passed tests, production build, and output QA, but image generation remained skipped because OPENAI_API_KEY was unavailable. GitHub Pages deployment run 46124342685 succeeded for that commit. Direct HTTP verification of the custom domain and cover URL still failed in this runtime with DNS resolution error; the existing cover remains 480x270 and publication is still blocked pending a higher-resolution image and final visual QA.",
