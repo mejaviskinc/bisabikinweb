@@ -10,5 +10,8 @@
   "credit": "OpenAI Image Generation, dibuat khusus untuk BisaBikinWeb Indonesia pada 28 November 2026",
   "license": "Ilustrasi AI orisinal; bukan dokumentasi peristiwa; tidak menggunakan foto pihak ketiga.",
   "caption": "Ilustrasi AI — bukan dokumentasi peristiwa.",
-  "alt": "Ilustrasi AI: pekerja memeriksa fillet ikan di fasilitas pengolahan seafood dengan meja stainless steel dan peti rantai dingin."
+  "alt": "Ilustrasi AI: pekerja memeriksa fillet ikan di fasilitas pengolahan seafood dengan meja stainless steel dan peti rantai dingin.",
+  "attempt": 2,
+  "updated_at": "2026-11-28T17:28:05+07:00",
+  "trigger_reason": "Repeat decode request from the latest main head after the editorial audit commit; workflow must remain safe if the first attempt already consumed the parts."
 }
