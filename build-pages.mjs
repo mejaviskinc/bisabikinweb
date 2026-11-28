@@ -96,9 +96,9 @@ const phone='+62882003740969';
 const email='bisabikinw3b@gmail.com';
 const pages={
   '/':['Jasa Pembuatan Website & Bikin Web | BisaBikinWeb Indonesia','Jasa pembuatan website untuk UMKM dan perusahaan: company profile, landing page, dan toko online. Lihat harga, portofolio, lalu konsultasikan kebutuhan.'],
-  '/jasa':['Jasa Pembuatan Website Profesional untuk Bisnis & UMKM','Butuh jasa bikin website profesional? Pilih website company profile, landing page, toko online, aplikasi web, atau maintenance. Lihat portofolio dan konsultasikan kebutuhan bisnis Anda.'],
+  '/jasa':['Jasa Bikin Website untuk Bisnis & UMKM | BisaBikinWeb','Cari jasa bikin website profesional? Pilih company profile, landing page, toko online, atau web app. Lihat layanan, harga mulai Rp1,49 juta, dan konsultasi.'],
   '/wilayah':['Jasa Website Seluruh Indonesia & 38 Provinsi','Lihat daftar layanan jasa bikin web BisaBikinWeb untuk Jakarta, Bandung, Surabaya, Medan, Makassar, seluruh 38 provinsi dan kota/kabupaten lainnya di Indonesia.'],
-  '/harga':['Harga Pembuatan Website','Bandingkan harga pembuatan website, fitur paket, serta biaya domain, hosting, dan maintenance. Pilih layanan sesuai kebutuhan lalu minta penawaran.'],
+  '/harga':['Harga Jasa Bikin Website Mulai Rp1,49 Juta | BisaBikinWeb','Cek harga jasa bikin website mulai Rp1,49 juta. Bandingkan paket landing page, company profile, toko online, fitur, dan biaya perawatan sebelum konsultasi.'],
   '/portfolio':['Portofolio Website Bisnis, Skincare, Fashion & Travel','Jelajahi contoh website nyata BisaBikinWeb untuk Berbeda, Karpenter, Mejavi Skin+, GoO Ninks, dan GoJogja Travel. Lihat studi kasus dan layanan terkait.'],
   '/layanan-digital':['Layanan Digital: Pulsa, Data, Token & Travel','Rencana layanan digital BisaBikinWeb meliputi pulsa, paket data, token listrik, dan kebutuhan perjalanan. Fitur masih dalam tahap persiapan.'],
   '/merch':['Merchandise & Koleksi Apparel BisaBikinWeb','Jelajahi koleksi merchandise BisaBikinWeb, desain apparel, dan produk kreatif. Lihat pilihan produk, informasi stok, varian, serta cara pemesanan.'],
