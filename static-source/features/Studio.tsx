@@ -185,7 +185,7 @@ function BeforeAfter(){const [pos,setPos]=useState(50);return <div className="be
 function FinalCTA({settings}:{settings:any}){return <section className="final-cta"><span className="eyebrow">LET'S MAKE IT HAPPEN.</span><h2>Ada ide? Jangan cuma jadi<br/>tab browser yang nggak<br/>pernah dibuka lagi<span>↗</span></h2><div><p>Ceritakan project kamu. Kita bantu ubah dari ide menjadi website yang benar-benar bisa digunakan.</p><a className="btn primary" href="/kontak" onClick={()=>event('consultation_click')}>Mulai Project <ArrowUpRight size={18}/></a>{settings.whatsapp&&<a className="text-link" href={whatsapp(settings.whatsapp,'Halo Bisabikinweb, saya ingin konsultasi pembuatan website.')} onClick={()=>event('whatsapp_click')}>Chat WhatsApp ↗</a>}</div></section>}
 function AnimatedHeroShowcase(){
  return <figure className="hero-showcase hero-dummy-photo" aria-label="Foto ilustrasi workspace digital">
-  <img className="hero-dummy-photo-image" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=1200&q=85" alt="Foto ilustrasi laptop dan area kerja pengembangan website" width="1200" height="900" loading="eager" decoding="async"/>
+  <img className="hero-dummy-photo-image" src="https://images.unsplash.com/photo-1498050108023-c5249f4df085?auto=format&fit=crop&w=800&q=75" alt="Foto ilustrasi laptop dan area kerja pengembangan website" width="800" height="600" loading="eager" fetchPriority="high" decoding="async"/>
   <figcaption className="hero-dummy-photo-caption"><span className="hero-dummy-photo-indicator" aria-hidden="true"/>DARI IDE KE WEBSITE <ArrowUpRight size={16}/></figcaption>
  </figure>;
 }
