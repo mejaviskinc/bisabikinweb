@@ -1,3 +1,4 @@
+// Cover-map entries are asset references only; they never authorize publication. build-pages.mjs must continue to include CMS records only when status=published and is_active=true.
 export const editorialCoverMap = {
   "website-skincare-komposisi-legalitas-klaim-produk": "https://bisabikinweb.site/editorial-covers/website-skincare-komposisi-legalitas-klaim-produk.webp",
   "katalog-fashion-online-foto-ukuran-varian": "https://bisabikinweb.site/editorial-covers/katalog-fashion-online-foto-ukuran-varian.webp",
