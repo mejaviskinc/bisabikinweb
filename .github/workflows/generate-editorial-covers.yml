@@ -19,6 +19,7 @@ on:
         default: false
   push:
     paths:
+      - '.github/workflows/generate-editorial-covers.yml'
       - 'research/daily/*-cover-requests.json'
 
 permissions:
@@ -37,28 +38,32 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: "22"
-      - name: Check secret before spending credits
+      - name: Check image API secret without blocking QA
+        id: check_secret
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
-          if [ -z "$OPENAI_API_KEY" ]; then
-            echo "Missing OPENAI_API_KEY repository secret. No images generated or charges."
-            exit 1
+          if [ -n "$OPENAI_API_KEY" ]; then
+            echo "available=true" >> "$GITHUB_OUTPUT"
+            echo "Image API secret is configured."
+          else
+            echo "available=false" >> "$GITHUB_OUTPUT"
+            echo "::notice::OPENAI_API_KEY is not configured; image generation will be skipped without making API calls."
           fi
       - name: Generate draft-specific covers from request file
-        if: github.event_name == 'push'
+        if: github.event_name == 'push' && steps.check_secret.outputs.available == 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
           set -euo pipefail
-          REQUEST_FILE="$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" | grep -E '^research/daily/[0-9]{4}-[0-9]{2}-[0-9]{2}-cover-requests\.json$' | head -n 1)"
+          REQUEST_FILE="$(git diff --name-only "${{ github.event.before }}" "${{ github.sha }}" | grep -E '^research/daily/[0-9]{4}-[0-9]{2}-[0-9]{2}-cover-requests\.json$' | head -n 1 || true)"
           if [ -z "$REQUEST_FILE" ]; then
-            echo "No dated editorial cover request file found in this push."
-            exit 1
+            echo "No dated editorial cover request file changed; image generation skipped."
+            exit 0
           fi
           node scripts/generate-editorial-covers.mjs --draft-requests "$REQUEST_FILE" --overwrite
       - name: Generate published article covers from manual selection
-        if: github.event_name == 'workflow_dispatch'
+        if: github.event_name == 'workflow_dispatch' && steps.check_secret.outputs.available == 'true'
         env:
           OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
         run: |
@@ -66,6 +71,7 @@ jobs:
           if [ "${{ inputs.overwrite }}" = "true" ]; then EXTRA="--overwrite"; fi
           node scripts/generate-editorial-covers.mjs --offset "${{ inputs.offset }}" --limit "${{ inputs.limit }}" $EXTRA
       - name: Normalize changed covers to 16:9 WebP
+        if: steps.check_secret.outputs.available == 'true'
         run: |
           python3 -m pip install --quiet Pillow
           python3 - <<'PY'
@@ -102,6 +108,7 @@ jobs:
           npm run test:output
           npm run build
       - name: Commit generated images
+        if: steps.check_secret.outputs.available == 'true'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
