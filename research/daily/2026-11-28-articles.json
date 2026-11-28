@@ -999,6 +999,50 @@
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-29"
+    },
+    {
+      "id": "2026-11-28-kkp-global-msp-investment",
+      "category": "Seafood & Perikanan",
+      "topic": "KKP mempromosikan peluang investasi kelautan dan perikanan pada Global MSP Conference & Expo 2026",
+      "summary": "KKP pada 25 November 2026 menyampaikan bahwa Global MSP Conference & Expo di Nusa Dua, Bali, berlangsung hingga 27 November dan mempertemukan ratusan peserta termasuk investor serta pelaku usaha. Forum itu menyoroti peluang investasi pada perikanan, akuakultur, pariwisata, ekosistem karbon biru, dan industri kelautan. KKP mengaitkannya dengan enam program prioritas hingga 2029; angka program adalah sasaran kebijakan, bukan realisasi investasi.",
+      "event_date": "2026-11-25",
+      "source_published_at": "2026-11-25",
+      "researched_at": "2026-11-28T17:55:12+07:00",
+      "geography": "Nusa Dua, Bali, Indonesia",
+      "facts": [
+        {
+          "claim": "KKP menyelenggarakan Global Marine Spatial Planning Conference & Expo 2026 di Nusa Dua, Bali, dan menyebut forum berlangsung hingga 27 November 2026.",
+          "source_urls": [
+            "https://kkp.go.id/news/news-detail/indonesia-promosikan-peluang-investasi-kelautan-dan-perikanan-ke-peserta-global-msp-conference-expo-2026-LvXg.html"
+          ]
+        },
+        {
+          "claim": "Forum tersebut memberi gambaran peluang investasi pada perikanan, akuakultur, pariwisata, ekosistem karbon biru, dan pengembangan industri kelautan.",
+          "source_urls": [
+            "https://kkp.go.id/news/news-detail/indonesia-promosikan-peluang-investasi-kelautan-dan-perikanan-ke-peserta-global-msp-conference-expo-2026-LvXg.html"
+          ]
+        },
+        {
+          "claim": "KKP mengaitkan peluang tersebut dengan enam program prioritas sampai 2029, termasuk pembangunan 5.000 kampung nelayan, pengembangan budidaya udang terintegrasi 2.000 hektare, budidaya perikanan darat di 40.000 desa, modernisasi ribuan kapal, serta kawasan industri garam nasional.",
+          "source_urls": [
+            "https://kkp.go.id/news/news-detail/indonesia-promosikan-peluang-investasi-kelautan-dan-perikanan-ke-peserta-global-msp-conference-expo-2026-LvXg.html"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://kkp.go.id/news/news-detail/indonesia-promosikan-peluang-investasi-kelautan-dan-perikanan-ke-peserta-global-msp-conference-expo-2026-LvXg.html",
+          "publisher": "Kementerian Kelautan dan Perikanan RI",
+          "accessed_at": "2026-11-28T17:55:12+07:00"
+        }
+      ],
+      "practical_impact": "Investor, koperasi nelayan, pelaku budidaya, dan pemasok peralatan dapat menilai peluang berdasarkan lokasi, kesiapan lahan dan infrastruktur, izin, dampak lingkungan, akses pasar, serta skema kemitraan. Target program pemerintah tidak boleh diperlakukan sebagai proyek yang sudah berjalan atau kontrak investasi.",
+      "content_angle": "Riset lanjutan tentang peluang investasi akuakultur dan infrastruktur rantai dingin berdasarkan lokasi serta proyek yang benar-benar ditawarkan; belum dibuat artikel baru karena lima slot editorial harian sudah terisi.",
+      "keyword_intent": "peluang investasi perikanan Indonesia; investasi akuakultur Indonesia; Global MSP Conference 2026",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-12-02"
     }
   ],
   "notes": "Pemeriksaan 15 klaster selesai pada 28 November 2026 dengan pembacaan arsip 21–27 November. Empat artikel disimpan sebagai draft CMS: I-EU CEPA, peluang perikanan haji/umrah, ekspor manufaktur/IKM, dan berita ekspor kayu manis Jambi. Tidak ada artikel yang dipublikasikan. Riset digitalisasi, furniture/kayu, kakao/cokelat, kopi, manajemen risiko, rempah, dan pengawasan perikanan diperbarui dari sumber primer 22–27 November; beberapa disimpan research-only karena tumpang tindih dengan konten CMS atau belum cukup berbeda. Foto berizin belum tersedia; keempat draft tetap tanpa cover image. Sumber Kemenko Perekonomian tentang kolaborasi platform digital ASEAN mengalami timeout, sehingga tidak digunakan sebagai dasar fakta. QA akhir, build, dan deploy publikasi ditahan sampai gambar dan verifikasi editorial selesai. Cover AI seafood dibuat 28 November 2026, disimpan sebagai WebP 720x405 di public-assets/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp, dicatat di CMS draft dan arsip riset. File belum dideploy/terverifikasi live. Cover tiga artikel lain dan QA final masih tertunda. Cover seafood dioptimalkan ulang menjadi WebP 640x360, 22.270 byte; hash SHA-256 9f403efbf0c1bbaaf0ed917fb91712643232c2b5460b39feaa5a4b89bb8c2af1. Blob sebelumnya diganti sebelum deployment. Cover seafood disimpan sebagai WebP 480x270, 10.394 byte, SHA-256 132eedf3e5136d9e16e35843e08d3dc2336868540ce04db552aa774d01061ebc. Dimensi memadai untuk thumbnail 16:9; kualitas visual penuh masih perlu diganti dengan aset resolusi lebih tinggi sebelum artikel dipublikasikan. GitHub Pages build dan deploy run 46113041000 untuk commit 3c0cdce8646948d5e17017fc6d3a54423e2757c3 berhasil; pengujian keamanan, SEO output, dan build lulus. URL live tidak dapat diverifikasi melalui fetch eksternal (internal error), sehingga status dipisahkan sebagai deployed_not_live_verified. Audit kanal media terpisah: public.articles=0 dan public.gn_articles=0; media.bisabikinweb.site tidak dapat diverifikasi lewat fetch eksternal (internal error). Primary CMS audit on 28 November 2026 at 13:33 WIB: public.bbweb_articles contains 80 published active rows and 10 inactive drafts; four drafts were created today (the four listed in the archive). The legacy public.articles and public.gn_articles tables are empty; this does not mean the main editorial CMS is empty. The seafood AI illustration is committed at public-assets/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp and linked from its CMS draft, but the current asset is only 480x270 (10,394 bytes); retain draft status until a higher-resolution image is available. The public URL could not be independently verified because external fetch returned an internal error. Cover-generation workflow audit: run 46123337024 failed because test:output ran before build and site-dist did not exist; the workflow also skipped generation because OPENAI_API_KEY was unavailable. The command order has now been corrected; rerun and Pages deployment remain pending. Corrective workflow commit 4c6c2bdecf3e8c19624d2f4a41b7e1021c2f4e7b added the seafood cover map entry and moved test:output after build. Cover workflow run 46124342679 passed tests, production build, and output QA, but image generation remained skipped because OPENAI_API_KEY was unavailable. GitHub Pages deployment run 46124342685 succeeded for that commit. Direct HTTP verification of the custom domain and cover URL still failed in this runtime with DNS resolution error; the existing cover remains 480x270 and publication is still blocked pending a higher-resolution image and final visual QA. Putaran 17:28 WIB: audit ulang CMS utama menemukan 91 artikel, 80 terbit aktif, 11 draft; lima draft dibuat pada 28 November dan nol diterbitkan. Semua 15 klaster sudah tercakup dalam 22 entri arsip; riset baru tidak ditambahkan karena sumber terkini untuk chip AI dan logistik sudah tercatat, sedangkan kandidat lain berpotensi duplikatif. Lima naskah diperiksa ulang: sumber primer dan struktur artikel tersedia; seluruhnya tetap draft sampai QA gambar dan live selesai. Cover seafood WebP 1024x576 (43.918 byte) sudah dikirim ke jalur decode workflow melalui commit 80b6c430a01e3b43da57fdd5d54bd25f7f06060f; status decode dan deployment masih menunggu. Sumber primer yang dicek ulang: Kemendag 24 dan 27 November, Kemenperin 27 November, KKP 27 November, Barantin 26 November, Kemendag logistik 26 November, Komdigi 27 November, dan Federal Register 19 November 2026.",
