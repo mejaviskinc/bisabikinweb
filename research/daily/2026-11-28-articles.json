@@ -638,8 +638,8 @@
           "https://bisabikinweb.site/artikel/perbedaan-purchase-order-dan-potensi-transaksi-ekspor/"
         ],
         "image_status": "committed_repo_and_attached_to_cms_draft_not_deployed",
-        "image_caption_proposal": "Ilustrasi AI — bukan dokumentasi pertemuan KKP atau kegiatan ekspor aktual.",
-        "qa_status": "image_asset_verified_480x270_webp; other_article_covers_and_final_editorial_review_pending",
+        "image_caption_proposal": "Ilustrasi AI — bukan dokumentasi peristiwa.",
+        "qa_status": "image_asset_committed_and_policy_caption_aligned; remaining_three_article_covers_and_final_editorial_review_pending",
         "image_asset": {
           "repository_path": "public-assets/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp",
           "public_url": "https://bisabikinweb.site/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp",
@@ -650,9 +650,11 @@
           "bytes": 10394,
           "generated_at": "2026-11-28T12:25:22+07:00",
           "origin": "Original AI-generated editorial illustration; no third-party photo used",
-          "caption": "Ilustrasi AI — bukan dokumentasi pertemuan KKP atau kegiatan ekspor aktual.",
+          "caption": "Ilustrasi AI — bukan dokumentasi peristiwa.",
           "quality": 20
-        }
+        },
+        "image_alt": "Ilustrasi AI — bukan dokumentasi peristiwa: pekerja memeriksa fillet ikan di fasilitas pengolahan dan rantai dingin seafood.",
+        "image_license": "Ilustrasi AI — bukan dokumentasi peristiwa; karya generatif orisinal, tidak memakai foto pihak ketiga."
       }
     },
     {
