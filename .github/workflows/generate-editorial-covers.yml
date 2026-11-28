@@ -57,21 +57,25 @@ jobs:
         run: |
           set -euo pipefail
           shopt -s nullglob
-          files=(research/daily/*-cover-binaries/*.webp.b64)
-          if [ ${#files[@]} -eq 0 ]; then
+          shopt -s nullglob
+          parts=(research/daily/*-cover-binaries/*.webp.part*)
+          if [ ${#parts[@]} -eq 0 ]; then
             echo "decoded=false" >> "$GITHUB_OUTPUT"
-            echo "No supplied WebP binaries to decode."
+            echo "No supplied WebP parts to decode."
             exit 0
           fi
           mkdir -p public-assets/editorial-covers
-          for source in "${files[@]}"; do
-            filename="$(basename "$source" .b64)"
-            target="public-assets/editorial-covers/$filename"
-            base64 --decode "$source" > "$target"
+          targets="$(printf '%s\n' "${parts[@]}" | sed -E 's/\.part[0-9]+$//' | sort -u)"
+          while IFS= read -r source_base; do
+            [ -n "$source_base" ] || continue
+            combined="${source_base}.b64"
+            cat "${source_base}".part* > "$combined"
+            target="public-assets/editorial-covers/$(basename "$source_base")"
+            base64 --decode "$combined" > "$target"
             file "$target" | grep -qi 'Web/P image'
-            rm "$source"
+            rm "${source_base}".part* "$combined"
             echo "Decoded $target"
-          done
+          done <<< "$targets"
           echo "decoded=true" >> "$GITHUB_OUTPUT"
       - name: Generate draft-specific covers from request file
         if: github.event_name == 'push' && steps.check_secret.outputs.available == 'true'
