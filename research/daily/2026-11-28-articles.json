@@ -1001,38 +1001,40 @@
       "recheck_after": "2026-11-29"
     }
   ],
-  "notes": "Pemeriksaan 15 klaster selesai pada 28 November 2026 dengan pembacaan arsip 21–27 November. Empat artikel disimpan sebagai draft CMS: I-EU CEPA, peluang perikanan haji/umrah, ekspor manufaktur/IKM, dan berita ekspor kayu manis Jambi. Tidak ada artikel yang dipublikasikan. Riset digitalisasi, furniture/kayu, kakao/cokelat, kopi, manajemen risiko, rempah, dan pengawasan perikanan diperbarui dari sumber primer 22–27 November; beberapa disimpan research-only karena tumpang tindih dengan konten CMS atau belum cukup berbeda. Foto berizin belum tersedia; keempat draft tetap tanpa cover image. Sumber Kemenko Perekonomian tentang kolaborasi platform digital ASEAN mengalami timeout, sehingga tidak digunakan sebagai dasar fakta. QA akhir, build, dan deploy publikasi ditahan sampai gambar dan verifikasi editorial selesai. Cover AI seafood dibuat 28 November 2026, disimpan sebagai WebP 720x405 di public-assets/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp, dicatat di CMS draft dan arsip riset. File belum dideploy/terverifikasi live. Cover tiga artikel lain dan QA final masih tertunda. Cover seafood dioptimalkan ulang menjadi WebP 640x360, 22.270 byte; hash SHA-256 9f403efbf0c1bbaaf0ed917fb91712643232c2b5460b39feaa5a4b89bb8c2af1. Blob sebelumnya diganti sebelum deployment. Cover seafood disimpan sebagai WebP 480x270, 10.394 byte, SHA-256 132eedf3e5136d9e16e35843e08d3dc2336868540ce04db552aa774d01061ebc. Dimensi memadai untuk thumbnail 16:9; kualitas visual penuh masih perlu diganti dengan aset resolusi lebih tinggi sebelum artikel dipublikasikan. GitHub Pages build dan deploy run 46113041000 untuk commit 3c0cdce8646948d5e17017fc6d3a54423e2757c3 berhasil; pengujian keamanan, SEO output, dan build lulus. URL live tidak dapat diverifikasi melalui fetch eksternal (internal error), sehingga status dipisahkan sebagai deployed_not_live_verified. Audit kanal media terpisah: public.articles=0 dan public.gn_articles=0; media.bisabikinweb.site tidak dapat diverifikasi lewat fetch eksternal (internal error). Primary CMS audit on 28 November 2026 at 13:33 WIB: public.bbweb_articles contains 80 published active rows and 10 inactive drafts; four drafts were created today (the four listed in the archive). The legacy public.articles and public.gn_articles tables are empty; this does not mean the main editorial CMS is empty. The seafood AI illustration is committed at public-assets/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp and linked from its CMS draft, but the current asset is only 480x270 (10,394 bytes); retain draft status until a higher-resolution image is available. The public URL could not be independently verified because external fetch returned an internal error. Cover-generation workflow audit: run 46123337024 failed because test:output ran before build and site-dist did not exist; the workflow also skipped generation because OPENAI_API_KEY was unavailable. The command order has now been corrected; rerun and Pages deployment remain pending. Corrective workflow commit 4c6c2bdecf3e8c19624d2f4a41b7e1021c2f4e7b added the seafood cover map entry and moved test:output after build. Cover workflow run 46124342679 passed tests, production build, and output QA, but image generation remained skipped because OPENAI_API_KEY was unavailable. GitHub Pages deployment run 46124342685 succeeded for that commit. Direct HTTP verification of the custom domain and cover URL still failed in this runtime with DNS resolution error; the existing cover remains 480x270 and publication is still blocked pending a higher-resolution image and final visual QA.",
+  "notes": "Pemeriksaan 15 klaster selesai pada 28 November 2026 dengan pembacaan arsip 21–27 November. Empat artikel disimpan sebagai draft CMS: I-EU CEPA, peluang perikanan haji/umrah, ekspor manufaktur/IKM, dan berita ekspor kayu manis Jambi. Tidak ada artikel yang dipublikasikan. Riset digitalisasi, furniture/kayu, kakao/cokelat, kopi, manajemen risiko, rempah, dan pengawasan perikanan diperbarui dari sumber primer 22–27 November; beberapa disimpan research-only karena tumpang tindih dengan konten CMS atau belum cukup berbeda. Foto berizin belum tersedia; keempat draft tetap tanpa cover image. Sumber Kemenko Perekonomian tentang kolaborasi platform digital ASEAN mengalami timeout, sehingga tidak digunakan sebagai dasar fakta. QA akhir, build, dan deploy publikasi ditahan sampai gambar dan verifikasi editorial selesai. Cover AI seafood dibuat 28 November 2026, disimpan sebagai WebP 720x405 di public-assets/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp, dicatat di CMS draft dan arsip riset. File belum dideploy/terverifikasi live. Cover tiga artikel lain dan QA final masih tertunda. Cover seafood dioptimalkan ulang menjadi WebP 640x360, 22.270 byte; hash SHA-256 9f403efbf0c1bbaaf0ed917fb91712643232c2b5460b39feaa5a4b89bb8c2af1. Blob sebelumnya diganti sebelum deployment. Cover seafood disimpan sebagai WebP 480x270, 10.394 byte, SHA-256 132eedf3e5136d9e16e35843e08d3dc2336868540ce04db552aa774d01061ebc. Dimensi memadai untuk thumbnail 16:9; kualitas visual penuh masih perlu diganti dengan aset resolusi lebih tinggi sebelum artikel dipublikasikan. GitHub Pages build dan deploy run 46113041000 untuk commit 3c0cdce8646948d5e17017fc6d3a54423e2757c3 berhasil; pengujian keamanan, SEO output, dan build lulus. URL live tidak dapat diverifikasi melalui fetch eksternal (internal error), sehingga status dipisahkan sebagai deployed_not_live_verified. Audit kanal media terpisah: public.articles=0 dan public.gn_articles=0; media.bisabikinweb.site tidak dapat diverifikasi lewat fetch eksternal (internal error). Primary CMS audit on 28 November 2026 at 13:33 WIB: public.bbweb_articles contains 80 published active rows and 10 inactive drafts; four drafts were created today (the four listed in the archive). The legacy public.articles and public.gn_articles tables are empty; this does not mean the main editorial CMS is empty. The seafood AI illustration is committed at public-assets/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp and linked from its CMS draft, but the current asset is only 480x270 (10,394 bytes); retain draft status until a higher-resolution image is available. The public URL could not be independently verified because external fetch returned an internal error. Cover-generation workflow audit: run 46123337024 failed because test:output ran before build and site-dist did not exist; the workflow also skipped generation because OPENAI_API_KEY was unavailable. The command order has now been corrected; rerun and Pages deployment remain pending. Corrective workflow commit 4c6c2bdecf3e8c19624d2f4a41b7e1021c2f4e7b added the seafood cover map entry and moved test:output after build. Cover workflow run 46124342679 passed tests, production build, and output QA, but image generation remained skipped because OPENAI_API_KEY was unavailable. GitHub Pages deployment run 46124342685 succeeded for that commit. Direct HTTP verification of the custom domain and cover URL still failed in this runtime with DNS resolution error; the existing cover remains 480x270 and publication is still blocked pending a higher-resolution image and final visual QA. Putaran 17:28 WIB: audit ulang CMS utama menemukan 91 artikel, 80 terbit aktif, 11 draft; lima draft dibuat pada 28 November dan nol diterbitkan. Semua 15 klaster sudah tercakup dalam 22 entri arsip; riset baru tidak ditambahkan karena sumber terkini untuk chip AI dan logistik sudah tercatat, sedangkan kandidat lain berpotensi duplikatif. Lima naskah diperiksa ulang: sumber primer dan struktur artikel tersedia; seluruhnya tetap draft sampai QA gambar dan live selesai. Cover seafood WebP 1024x576 (43.918 byte) sudah dikirim ke jalur decode workflow melalui commit 80b6c430a01e3b43da57fdd5d54bd25f7f06060f; status decode dan deployment masih menunggu. Sumber primer yang dicek ulang: Kemendag 24 dan 27 November, Kemenperin 27 November, KKP 27 November, Barantin 26 November, Kemendag logistik 26 November, Komdigi 27 November, dan Federal Register 19 November 2026.",
   "daily_content_limit": 5,
-  "daily_draft_count": 4,
+  "daily_draft_count": 5,
   "daily_published_count": 0,
   "media_audit": {
-    "audited_at": "2026-11-28T12:40:00+07:00",
+    "audited_at": "2026-11-28T17:28:05+07:00",
     "cms_tables": {
       "public_articles": 0,
       "public_gn_articles": 0
     },
     "subdomain": "https://media.bisabikinweb.site/",
     "subdomain_fetch_status": "not_accessible_via_web_fetch_internal_error",
-    "conclusion": "No media article rows were found in the two connected CMS tables; public subdomain visibility could not be independently verified."
+    "conclusion": "No rows found in the two legacy CMS tables; the media subdomain remains unverified from this runtime."
   },
   "main_cms_audit": {
-    "audited_at": "2026-11-28T13:33:46+07:00",
+    "audited_at": "2026-11-28T17:28:05+07:00",
     "source_table": "public.bbweb_articles",
-    "total_rows": 90,
+    "total_rows": 91,
     "published_active_rows": 80,
-    "draft_inactive_rows": 10,
-    "drafts_created_on_2026_11_28": 4,
+    "draft_inactive_rows": 11,
+    "drafts_created_on_2026_11_28": 5,
+    "published_created_on_2026_11_28": 0,
     "today_draft_ids": [
-      "ekspor-kayu-manis-jambi-rp275-miliar-2026",
-      "ekspor-manufaktur-indonesia-peluang-rantai-pasok-ikm",
+      "persiapan-eksportir-indonesia-ieu-cepa",
       "peluang-ekspor-ikan-haji-umrah-indonesia",
-      "persiapan-eksportir-indonesia-ieu-cepa"
+      "ekspor-manufaktur-indonesia-peluang-rantai-pasok-ikm",
+      "ekspor-kayu-manis-jambi-rp275-miliar-2026",
+      "logistik-ekspor-2027-biaya-keandalan-integrasi"
     ],
     "legacy_tables": {
       "public.articles": 0,
       "public.gn_articles": 0
     },
-    "interpretation": "The two legacy tables are empty; the primary BisaBikinWeb editorial CMS is public.bbweb_articles and contains 80 published articles plus 10 inactive drafts."
+    "interpretation": "The main editorial CMS is public.bbweb_articles. Five drafts were created today, none published; the two legacy tables remain empty."
   },
   "editorial_asset_audit": {
     "audited_at": "2026-11-28T13:33:46+07:00",
@@ -1047,7 +1049,22 @@
     "qa_status": "needs_higher_resolution_cover_before_publication",
     "pages_deploy_run_id": 46124342685,
     "pages_deploy_commit": "4c6c2bdecf3e8c19624d2f4a41b7e1021c2f4e7b",
-    "deployment_status": "github_pages_deploy_success"
+    "deployment_status": "github_pages_deploy_success",
+    "pending_asset_submission": {
+      "submitted_at": "2026-11-28T17:28:05+07:00",
+      "article_id": "peluang-ekspor-ikan-haji-umrah-indonesia",
+      "staging_path": "research/daily/2026-11-28-cover-binaries/peluang-ekspor-ikan-haji-umrah-indonesia.webp.part1",
+      "request_path": "research/daily/2026-11-28-cover-binaries/request.json",
+      "source_file": "/mnt/data/peluang-ekspor-ikan-haji-umrah-indonesia.webp",
+      "expected_format": "WebP",
+      "expected_dimensions": "1024x576",
+      "source_bytes": 43918,
+      "upload_commit": "80b6c430a01e3b43da57fdd5d54bd25f7f06060f",
+      "decode_status": "awaiting_workflow",
+      "public_asset_committed": false,
+      "public_url_verified": false,
+      "note": "The existing 480x270 public asset remains in place until the supplied WebP is decoded, normalized, committed and deployed."
+    }
   },
   "cover_workflow_audit": {
     "audited_at": "2026-11-28T14:58:34+07:00",
@@ -1066,7 +1083,23 @@
     "pages_deploy_conclusion": "success",
     "pages_deploy_commit": "4c6c2bdecf3e8c19624d2f4a41b7e1021c2f4e7b",
     "live_verification": "not_verified",
-    "live_verification_error": "Temporary failure in name resolution for bisabikinweb.site in the current runtime."
+    "live_verification_error": "Temporary failure in name resolution for bisabikinweb.site in the current runtime.",
+    "latest_submission": {
+      "submitted_at": "2026-11-28T17:28:05+07:00",
+      "input_commit": "80b6c430a01e3b43da57fdd5d54bd25f7f06060f",
+      "workflow_path": ".github/workflows/generate-editorial-covers.yml",
+      "trigger_file": "research/daily/2026-11-28-cover-binaries/request.json",
+      "supplied_parts": 1,
+      "image_secret_required": false,
+      "status": "awaiting_run",
+      "next_steps": [
+        "decode supplied WebP",
+        "normalize 16:9 image",
+        "run editorial tests and production build",
+        "commit image",
+        "verify Pages deployment and public URL"
+      ]
+    }
   },
-  "updated_at": "2026-11-28T15:25:11+07:00"
+  "updated_at": "2026-11-28T17:28:05+07:00"
 }
