@@ -1,9 +1,14 @@
 {
   "schema": 1,
   "date": "2026-11-28",
-  "purpose": "Trigger repository workflow to assemble the already uploaded, verified WebP cover parts.",
+  "purpose": "Decode supplied, original WebP cover for an existing CMS draft; no new article slot.",
   "article_id": "peluang-ekspor-ikan-haji-umrah-indonesia",
+  "asset_filename": "peluang-ekspor-ikan-haji-umrah-indonesia.webp",
   "expected_format": "WebP",
-  "expected_dimensions": "720x405",
-  "image_type": "AI-generated illustration, not event documentation"
+  "expected_dimensions": "1024x576",
+  "image_type": "AI-generated illustration, not event documentation",
+  "credit": "OpenAI Image Generation, dibuat khusus untuk BisaBikinWeb Indonesia pada 28 November 2026",
+  "license": "Ilustrasi AI orisinal; bukan dokumentasi peristiwa; tidak menggunakan foto pihak ketiga.",
+  "caption": "Ilustrasi AI — bukan dokumentasi peristiwa.",
+  "alt": "Ilustrasi AI: pekerja memeriksa fillet ikan di fasilitas pengolahan seafood dengan meja stainless steel dan peti rantai dingin."
 }
