@@ -24,24 +24,37 @@
     {
       "id": "2026-11-28-digitalisasi-umkm-pasar-asean",
       "category": "Digitalisasi & Website",
-      "topic": "Kolaborasi platform digital dan peluang UMKM di pasar ekonomi digital ASEAN",
-      "summary": "Kemenko Perekonomian memuat siaran pers 24 November 2026 tentang kolaborasi pemerintah dan platform digital untuk memperkuat peran UMKM di pasar ekonomi digital ASEAN. Halaman sumber mengalami timeout saat dibuka; isi perlu diperiksa ulang sebelum dijadikan artikel.",
-      "event_date": "2026-11-18",
-      "source_published_at": "2026-11-24",
+      "topic": "Investasi digital perlu menghasilkan nilai ekonomi dan pekerjaan",
+      "summary": "Komdigi pada 26 November 2026 memuat arahan agar investasi digital tidak hanya mengejar efisiensi biaya, tetapi juga nilai tambah industri dan pekerjaan. Sumber Kemenko Perekonomian 24 November tentang kolaborasi platform ASEAN belum dipakai karena halaman sumber timeout.",
+      "event_date": "2026-11-25",
+      "source_published_at": "2026-11-26",
       "researched_at": "2026-11-28T11:33:26+07:00",
-      "geography": "Indonesia dan ASEAN",
-      "facts": [],
+      "geography": "Indonesia",
+      "facts": [
+        {
+          "claim": "Sekjen Komdigi Ismail menyampaikan di Rocket100 Summit, Jakarta Pusat, pada 25 November 2026 bahwa investasi digital perlu menghasilkan nilai tambah ekonomi, pertumbuhan industri, dan lapangan kerja.",
+          "source_urls": [
+            "https://portal.komdigi.go.id/kanal-publik/berita-kini/10747"
+          ]
+        },
+        {
+          "claim": "Komdigi menyebut penguatan AI mencakup infrastruktur, konektivitas, pemodelan, pengelolaan data, aplikasi, dan talenta digital.",
+          "source_urls": [
+            "https://portal.komdigi.go.id/kanal-publik/berita-kini/10747"
+          ]
+        }
+      ],
       "sources": [
         {
-          "url": "https://www.ekon.go.id/publikasi/detail/7243/perkuat-kolaborasi-dengan-platform-digital-pemerintah-dorong-umkm-jadi-pelaku-utama-ekonomi-digital-pasar-asean",
-          "publisher": "Kementerian Koordinator Bidang Perekonomian",
+          "url": "https://portal.komdigi.go.id/kanal-publik/berita-kini/10747",
+          "publisher": "Kementerian Komunikasi dan Digital",
           "accessed_at": "2026-11-28T11:33:26+07:00"
         }
       ],
-      "practical_impact": "Jika detail program dan langkah implementasi dapat diverifikasi, temuan ini dapat menjadi bahan analisis tentang kesiapan kanal digital UMKM lintas negara.",
-      "content_angle": "Pantau rincian program dan manfaat yang dapat dibuktikan; jangan membuat artikel generik transformasi digital yang mengulang konten CMS.",
-      "keyword_intent": "UMKM ekonomi digital ASEAN; platform digital pasar ASEAN",
-      "editorial_status": "needs_verification",
+      "practical_impact": "Pelaku usaha dapat menilai investasi digital melalui dampak pada penjualan, layanan, produktivitas, kompetensi, dan pekerjaan, bukan sekadar pengurangan biaya.",
+      "content_angle": "Pantau langkah konkret pemerintah dan industri; hindari artikel generik yang mengulang konten digitalisasi dan website yang sudah ada.",
+      "keyword_intent": "investasi digital UMKM nilai ekonomi; AI talenta digital Indonesia",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-29"
@@ -49,18 +62,43 @@
     {
       "id": "2026-11-28-furniture-kayu-no-update",
       "category": "Furniture & Kayu",
-      "topic": "Tidak ada pembaruan bermakna yang terverifikasi dalam jendela tujuh hari",
-      "summary": "Tidak ditemukan perkembangan primer bertanggal dalam tujuh hari yang cukup spesifik untuk artikel furniture atau kayu; data umum business matching tidak dipaksakan menjadi berita sektor.",
-      "event_date": null,
-      "source_published_at": null,
+      "topic": "Diversifikasi produk kriya kayu Bali dan nilai ekspor",
+      "summary": "Kemenperin pada 24 November 2026 melaporkan ekspor kerajinan kayu Bali tahun 2025 sebesar USD 32,72 juta dan workshop diversifikasi produk di Gianyar pada 11–14 November yang diikuti 24 pelaku IKM. Disimpan sebagai riset karena CMS sudah memiliki panduan ekspor furnitur kayu.",
+      "event_date": "2026-11-14",
+      "source_published_at": "2026-11-24",
       "researched_at": "2026-11-28T11:33:26+07:00",
-      "geography": "Indonesia dan pasar ekspor terkait",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Tidak ada rekomendasi tindakan berbasis perkembangan baru pada putaran ini.",
-      "content_angle": "Tidak dibuat artikel baru sampai tersedia sumber primer bertanggal dan bernilai.",
-      "keyword_intent": "",
-      "editorial_status": "no_meaningful_update",
+      "geography": "Bali, Indonesia",
+      "facts": [
+        {
+          "claim": "BPS Bali mencatat nilai ekspor kerajinan berbasis kayu Bali pada 2025 sebesar USD 32,72 juta.",
+          "source_urls": [
+            "https://ikm.kemenperin.go.id/ekspor-kerajinan-kayu-tembus-usd-32-juta-kemenperin-poles-inovasi-ikm-kriya-bali"
+          ]
+        },
+        {
+          "claim": "Workshop diversifikasi produk kriya di Gianyar pada 11–14 November 2026 diikuti 24 pelaku IKM, dengan kelas kriya kayu dan aksesori logam.",
+          "source_urls": [
+            "https://ikm.kemenperin.go.id/ekspor-kerajinan-kayu-tembus-usd-32-juta-kemenperin-poles-inovasi-ikm-kriya-bali"
+          ]
+        },
+        {
+          "claim": "Materi workshop mencakup value proposition design, perhitungan HPP, dan penetapan harga jual.",
+          "source_urls": [
+            "https://ikm.kemenperin.go.id/ekspor-kerajinan-kayu-tembus-usd-32-juta-kemenperin-poles-inovasi-ikm-kriya-bali"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://ikm.kemenperin.go.id/ekspor-kerajinan-kayu-tembus-usd-32-juta-kemenperin-poles-inovasi-ikm-kriya-bali",
+          "publisher": "Kementerian Perindustrian",
+          "accessed_at": "2026-11-28T11:33:26+07:00"
+        }
+      ],
+      "practical_impact": "Perajin dapat menguji diversifikasi desain, fungsi, material, HPP, dan harga berdasarkan segmen buyer; data ekspor 2025 tidak boleh dianggap sebagai hasil 2026.",
+      "content_angle": "Riset pendukung diversifikasi produk; tidak dibuat artikel baru karena ada artikel ekspor furnitur kayu yang sudah terbit.",
+      "keyword_intent": "diversifikasi produk kriya kayu Bali; ekspor kerajinan kayu",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-29"
@@ -80,6 +118,44 @@
       "content_angle": "Tidak dibuat artikel baru sampai tersedia sumber primer bertanggal dan bernilai.",
       "keyword_intent": "",
       "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-29"
+    },
+    {
+      "id": "2026-11-28-kakao-coklat-seoul-cafe-show",
+      "category": "Kakao & Coklat",
+      "topic": "Produk cokelat Indonesia dipromosikan pada Seoul International Café Show 2026",
+      "summary": "Kemendag pada 22 November 2026 melaporkan Paviliun Indonesia di Seoul International Café Show mencatat potensi transaksi USD 10,96 juta untuk 10 eksportir dengan produk termasuk cokelat chips dan bar. Angka itu potensi lintas produk, bukan transaksi khusus kakao atau penjualan terealisasi.",
+      "event_date": "2026-11-11",
+      "source_published_at": "2026-11-22",
+      "researched_at": "2026-11-28T11:33:26+07:00",
+      "geography": "Indonesia dan Korea Selatan",
+      "facts": [
+        {
+          "claim": "Paviliun Indonesia pada Seoul International Café Show 2026 yang berlangsung 11–14 November di COEX Seoul mencatat potensi transaksi USD 10,96 juta atau sekitar Rp197,22 miliar.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/perdagangan/paviliun-indonesia-di-seoul-international-cafe-show-2026-catat-potensi-transaksi-rp19722-miliar"
+          ]
+        },
+        {
+          "claim": "Produk yang ditampilkan mencakup cokelat dalam bentuk chips dan bar, kopi, teh, vanila, sirup, gula aren, dan bahan baku F&B; nilai potensi transaksi tidak dirinci khusus untuk cokelat.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/perdagangan/paviliun-indonesia-di-seoul-international-cafe-show-2026-catat-potensi-transaksi-rp19722-miliar"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/perdagangan/paviliun-indonesia-di-seoul-international-cafe-show-2026-catat-potensi-transaksi-rp19722-miliar",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-28T11:33:26+07:00"
+        }
+      ],
+      "practical_impact": "Eksportir cokelat dapat menyiapkan spesifikasi bahan, format produk, sampel, dan kapasitas untuk buyer F&B Korea; angka potensi pameran bukan jaminan order.",
+      "content_angle": "Riset pasar Korea; tidak dibuat artikel terpisah karena kemiripan format dengan liputan pameran gastronomi lain yang sudah ada.",
+      "keyword_intent": "produk cokelat Indonesia pasar Korea; Seoul International Cafe Show 2026",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-29"
@@ -123,6 +199,44 @@
       "recheck_after": "2026-11-29"
     },
     {
+      "id": "2026-11-28-kopi-seoul-cafe-show",
+      "category": "Kopi",
+      "topic": "Kopi Indonesia pada Seoul International Café Show 2026",
+      "summary": "Kemendag melaporkan pada 22 November 2026 bahwa Paviliun Indonesia di Seoul International Café Show mencatat potensi transaksi USD 10,96 juta lintas 10 eksportir dan beberapa kategori F&B, termasuk kopi. Nilai khusus kopi tidak dirinci.",
+      "event_date": "2026-11-11",
+      "source_published_at": "2026-11-22",
+      "researched_at": "2026-11-28T11:33:26+07:00",
+      "geography": "Indonesia dan Korea Selatan",
+      "facts": [
+        {
+          "claim": "Paviliun Indonesia di Seoul International Café Show berlangsung 11–14 November 2026 di COEX Seoul dan mencatat potensi transaksi total USD 10,96 juta.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/perdagangan/paviliun-indonesia-di-seoul-international-cafe-show-2026-catat-potensi-transaksi-rp19722-miliar"
+          ]
+        },
+        {
+          "claim": "Paviliun menampilkan kopi spesialti serta produk F&B lain; Kemendag tidak memisahkan nilai potensi transaksi untuk kopi saja.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/perdagangan/paviliun-indonesia-di-seoul-international-cafe-show-2026-catat-potensi-transaksi-rp19722-miliar"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/perdagangan/paviliun-indonesia-di-seoul-international-cafe-show-2026-catat-potensi-transaksi-rp19722-miliar",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-28T11:33:26+07:00"
+        }
+      ],
+      "practical_impact": "Eksportir kopi dapat memperkuat informasi origin, profil rasa, spesifikasi, kapasitas, dan sampel untuk buyer; nilai pameran tidak boleh ditulis sebagai penjualan.",
+      "content_angle": "Riset pendukung pasar Korea; tidak dibuat artikel baru karena CMS telah memuat panduan sampel kopi internasional dan berita pameran serupa.",
+      "keyword_intent": "kopi Indonesia Korea Selatan buyer; Seoul International Cafe Show",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-29"
+    },
+    {
       "id": "2026-11-28-logistik-pengiriman-no-update",
       "category": "Logistik & Pengiriman",
       "topic": "Tidak ada pembaruan bermakna yang terverifikasi dalam jendela tujuh hari",
@@ -156,6 +270,50 @@
       "content_angle": "Tidak dibuat artikel baru sampai tersedia sumber primer bertanggal dan bernilai.",
       "keyword_intent": "",
       "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-29"
+    },
+    {
+      "id": "2026-11-28-manajemen-risiko-karantina-impor",
+      "category": "Manajemen Risiko",
+      "topic": "Risiko ketidaksesuaian dokumen karantina dan biosekuriti impor",
+      "summary": "Karantina Jawa Timur pada 25 November 2026 melaporkan pemusnahan komoditas impor yang tidak memenuhi syarat, termasuk 1.242,53 kg benih jagung asal Thailand terinfeksi OPTK dan 40 palet kemasan kayu tanpa marking ISPM 15.",
+      "event_date": "2026-11-23",
+      "source_published_at": "2026-11-25",
+      "researched_at": "2026-11-28T11:33:26+07:00",
+      "geography": "Jawa Timur, Indonesia",
+      "facts": [
+        {
+          "claim": "Karantina Jatim melakukan pemusnahan di Sidoarjo pada 23 November 2026 terhadap komoditas hasil penahanan Juni–November yang tidak memenuhi persyaratan.",
+          "source_urls": [
+            "https://karantinaindonesia.go.id/uji-standar/berita/karantina-jatim-musnahkan-komoditas-tak-memenuhi-syarat-124-ton-benih-jagung-terinfeksi-optk1"
+          ]
+        },
+        {
+          "claim": "Salah satu temuan adalah 1.242,53 kilogram benih jagung asal Thailand yang terinfeksi bakteri Pantoea stewartii subsp. stewartii dan cendawan Peronosclerospora sorghii.",
+          "source_urls": [
+            "https://karantinaindonesia.go.id/uji-standar/berita/karantina-jatim-musnahkan-komoditas-tak-memenuhi-syarat-124-ton-benih-jagung-terinfeksi-optk1"
+          ]
+        },
+        {
+          "claim": "Sebanyak 40 palet kemasan kayu asal Mesir dan China dimusnahkan karena tidak memiliki tanda perlakuan atau marking yang memenuhi ISPM 15.",
+          "source_urls": [
+            "https://karantinaindonesia.go.id/uji-standar/berita/karantina-jatim-musnahkan-komoditas-tak-memenuhi-syarat-124-ton-benih-jagung-terinfeksi-optk1"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://karantinaindonesia.go.id/uji-standar/berita/karantina-jatim-musnahkan-komoditas-tak-memenuhi-syarat-124-ton-benih-jagung-terinfeksi-optk1",
+          "publisher": "Badan Karantina Indonesia",
+          "accessed_at": "2026-11-28T11:33:26+07:00"
+        }
+      ],
+      "practical_impact": "Importir dan eksportir perlu memeriksa izin, dokumen asal, analisis risiko, serta marking kemasan kayu sebelum pengiriman agar biaya penahanan dan pemusnahan dapat dihindari.",
+      "content_angle": "Riset pendukung manajemen risiko rantai pasok; tidak mengubahnya menjadi klaim bahwa semua kemasan kayu impor bermasalah.",
+      "keyword_intent": "risiko karantina impor; ISPM 15 kemasan kayu; persyaratan OPTK",
+      "editorial_status": "verified",
       "content_status": "research_only",
       "published_url": null,
       "recheck_after": "2026-11-29"
@@ -293,21 +451,61 @@
     {
       "id": "2026-11-28-rempah-minyak-atsiri-no-update",
       "category": "Rempah & Minyak Atsiri",
-      "topic": "Tidak ada pembaruan bermakna yang terverifikasi dalam jendela tujuh hari",
-      "summary": "Tidak ditemukan perkembangan primer sektoral baru dalam tujuh hari terkait rempah atau minyak atsiri yang cukup kuat untuk artikel.",
-      "event_date": null,
-      "source_published_at": null,
+      "topic": "Ekspor kayu manis Jambi mencapai Rp27,5 miliar",
+      "summary": "Barantin melaporkan 391,7 ton kayu manis Jambi senilai Rp27,5 miliar selama Januari–November 2026 melalui 204 pengiriman. Belanda menjadi tujuan berdasarkan frekuensi pengiriman (47 kali), bukan nilai tertinggi yang dibuktikan.",
+      "event_date": "2026-11-23",
+      "source_published_at": "2026-11-26",
       "researched_at": "2026-11-28T11:33:26+07:00",
-      "geography": "Indonesia dan pasar ekspor terkait",
-      "facts": [],
-      "sources": [],
-      "practical_impact": "Tidak ada rekomendasi tindakan berbasis perkembangan baru pada putaran ini.",
-      "content_angle": "Tidak dibuat artikel baru sampai tersedia sumber primer bertanggal dan bernilai.",
-      "keyword_intent": "",
-      "editorial_status": "no_meaningful_update",
-      "content_status": "research_only",
+      "geography": "Jambi, Indonesia; pasar Belanda, Amerika Serikat, dan Vietnam",
+      "facts": [
+        {
+          "claim": "Barantin mencatat 391,7 ton kayu manis Jambi senilai Rp27,5 miliar melalui 204 pengiriman selama Januari–November 2026.",
+          "source_urls": [
+            "https://karantinaindonesia.go.id/berita/ekspor-kayu-manis-jambi-tembus-275-miliar-belanda-jadi-tujuan-pengiriman-terbanyak"
+          ]
+        },
+        {
+          "claim": "Belanda menjadi tujuan dengan frekuensi pengiriman tertinggi sebanyak 47 kali, diikuti Amerika Serikat 22 kali dan Vietnam 19 kali.",
+          "source_urls": [
+            "https://karantinaindonesia.go.id/berita/ekspor-kayu-manis-jambi-tembus-275-miliar-belanda-jadi-tujuan-pengiriman-terbanyak"
+          ]
+        },
+        {
+          "claim": "Pada 18 November 2026, dua pengiriman yang diperiksa berjumlah 37,5 ton dengan nilai sekitar Rp3,29 miliar; petugas memeriksa dokumen, fisik komoditas, dan persyaratan fitosanitari.",
+          "source_urls": [
+            "https://karantinaindonesia.go.id/berita/ekspor-kayu-manis-jambi-tembus-275-miliar-belanda-jadi-tujuan-pengiriman-terbanyak"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://karantinaindonesia.go.id/berita/ekspor-kayu-manis-jambi-tembus-275-miliar-belanda-jadi-tujuan-pengiriman-terbanyak",
+          "publisher": "Badan Karantina Indonesia",
+          "accessed_at": "2026-11-28T11:33:26+07:00"
+        }
+      ],
+      "practical_impact": "Eksportir rempah perlu memeriksa persyaratan fitosanitari, dokumen, mutu, dan ketertelusuran sebelum pengiriman.",
+      "content_angle": "Berita aktual 5W1H tentang kinerja ekspor kayu manis Jambi, disertai konteks pemeriksaan karantina.",
+      "keyword_intent": "ekspor kayu manis Jambi; ekspor rempah Indonesia",
+      "editorial_status": "verified",
+      "content_status": "drafted",
       "published_url": null,
-      "recheck_after": "2026-11-29"
+      "recheck_after": "2026-11-29",
+      "draft": {
+        "title": "Ekspor Kayu Manis Jambi Capai Rp27,5 Miliar, Belanda Jadi Tujuan Terbanyak",
+        "seo_title": "Ekspor Kayu Manis Jambi Capai Rp27,5 Miliar",
+        "meta": "Barantin mencatat 391,7 ton kayu manis Jambi senilai Rp27,5 miliar pada Januari–November 2026. Belanda menjadi tujuan dengan frekuensi pengiriman tertinggi.",
+        "slug": "ekspor-kayu-manis-jambi-rp275-miliar-2026",
+        "canonical": "https://bisabikinweb.site/artikel/ekspor-kayu-manis-jambi-rp275-miliar-2026/",
+        "schema": "NewsArticle",
+        "body": [],
+        "internal_links": [
+          "https://bisabikinweb.site/artikel/ekspor-rempah-indonesia-meningkatkan-nilai-lewat-sortasi-dan-traceability/"
+        ],
+        "image_status": "pending_generation_and_commit",
+        "image_caption_proposal": "Ilustrasi AI — bukan dokumentasi pengiriman kayu manis Jambi.",
+        "qa_status": "pending_image_and_final_editorial_review"
+      }
     },
     {
       "id": "2026-11-28-sarang-burung-walet-no-update",
@@ -421,6 +619,44 @@
       }
     },
     {
+      "id": "2026-11-28-seafood-pengawasan-laut-sulawesi",
+      "category": "Seafood & Perikanan",
+      "topic": "KKP menindak 17 kapal ikan dalam operasi pengawasan Laut Sulawesi",
+      "summary": "KKP pada 23 November 2026 melaporkan lima kapal berbendera Filipina yang diduga melakukan penangkapan ilegal dan 12 kapal Indonesia yang melanggar aturan dalam operasi 11–17 November. Temuan ini menjadi konteks risiko ketertelusuran rantai pasok, bukan artikel ekspor baru.",
+      "event_date": "2026-11-11",
+      "source_published_at": "2026-11-23",
+      "researched_at": "2026-11-28T11:33:26+07:00",
+      "geography": "Laut Sulawesi, Indonesia",
+      "facts": [
+        {
+          "claim": "KKP menindak lima kapal perikanan berbendera Filipina yang diduga melakukan penangkapan ilegal dan 12 kapal Indonesia yang melanggar aturan dalam operasi 11–17 November 2026.",
+          "source_urls": [
+            "https://www.kkp.go.id/news/news-detail/kkp-tindak-17-kapal-ikan-di-laut-sulawesi-lima-di-antaranya-berbendara-filipina-4zg2.html"
+          ]
+        },
+        {
+          "claim": "Pelanggaran kapal Indonesia mencakup lokasi penangkapan yang tidak sesuai dokumen perizinan dan alih muat ikan di laut yang tidak sesuai ketentuan.",
+          "source_urls": [
+            "https://www.kkp.go.id/news/news-detail/kkp-tindak-17-kapal-ikan-di-laut-sulawesi-lima-di-antaranya-berbendara-filipina-4zg2.html"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kkp.go.id/news/news-detail/kkp-tindak-17-kapal-ikan-di-laut-sulawesi-lima-di-antaranya-berbendara-filipina-4zg2.html",
+          "publisher": "Kementerian Kelautan dan Perikanan",
+          "accessed_at": "2026-11-28T11:33:26+07:00"
+        }
+      ],
+      "practical_impact": "Pembeli dan eksportir seafood perlu memeriksa asal tangkapan, dokumen kapal, lokasi penangkapan, dan catatan alih muat sebelum menerima pasokan.",
+      "content_angle": "Riset pendukung traceability dan manajemen risiko rantai pasok seafood; tidak digabung ke artikel peluang haji/umrah.",
+      "keyword_intent": "ketertelusuran pemasok seafood; dokumen kapal ikan; risiko rantai pasok perikanan",
+      "editorial_status": "verified",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-29"
+    },
+    {
       "id": "2026-11-28-cepa-proyeksi-ekspor",
       "category": "Tren & Analisis Pasar",
       "topic": "I-EU CEPA, konsentrasi pasar ekspor Indonesia, dan kesiapan eksportir",
@@ -513,8 +749,8 @@
       }
     }
   ],
-  "notes": "Pemeriksaan 15 klaster selesai pada 28 November 2026. Tiga artikel disimpan sebagai draft CMS (I-EU CEPA, peluang perikanan haji/umrah, dan ekspor manufaktur/IKM); tidak ada yang dipublikasikan. Riset digitalisasi ASEAN berstatus needs_verification karena halaman sumber timeout. Temuan ekspor UMKM 19 November tidak dibuat ulang karena CMS telah memiliki artikel tentang perbedaan PO dan potensi transaksi. Pemeriksaan foto berizin belum selesai; ketiga draft tetap tanpa cover image. QA, build, dan deploy publikasi ditahan sampai gambar serta pemeriksaan akhir selesai.",
+  "notes": "Pemeriksaan 15 klaster selesai pada 28 November 2026 dengan pembacaan arsip 21–27 November. Empat artikel disimpan sebagai draft CMS: I-EU CEPA, peluang perikanan haji/umrah, ekspor manufaktur/IKM, dan berita ekspor kayu manis Jambi. Tidak ada artikel yang dipublikasikan. Riset digitalisasi, furniture/kayu, kakao/cokelat, kopi, manajemen risiko, rempah, dan pengawasan perikanan diperbarui dari sumber primer 22–27 November; beberapa disimpan research-only karena tumpang tindih dengan konten CMS atau belum cukup berbeda. Foto berizin belum tersedia; keempat draft tetap tanpa cover image. Sumber Kemenko Perekonomian tentang kolaborasi platform digital ASEAN mengalami timeout, sehingga tidak digunakan sebagai dasar fakta. QA akhir, build, dan deploy publikasi ditahan sampai gambar dan verifikasi editorial selesai.",
   "daily_content_limit": 5,
-  "daily_draft_count": 3,
+  "daily_draft_count": 4,
   "daily_published_count": 0
 }
