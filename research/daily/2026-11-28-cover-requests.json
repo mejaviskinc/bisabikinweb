@@ -1,0 +1,27 @@
+{
+  "date": "2026-11-28",
+  "purpose": "Cover unik untuk tiga draft analisis nonberita; berita kayu manis tidak disertakan karena wajib memakai foto jurnalistik berizin.",
+  "articles": [
+    {
+      "id": "persiapan-eksportir-indonesia-ieu-cepa",
+      "title": "I-EU CEPA: Apa yang Perlu Disiapkan Eksportir Indonesia?",
+      "category": "Tren & Analisis Pasar",
+      "articleType": "analisis kebijakan perdagangan dan kesiapan ekspor",
+      "imageBrief": "Adegan umum operasi ekspor Indonesia di pelabuhan peti kemas: profesional logistik memeriksa dokumen pengiriman di samping palet barang dan kontainer. Gambarkan kesiapan dokumentasi, klasifikasi produk, dan rantai pasok; jangan tampilkan penandatanganan perjanjian, bendera Uni Eropa, pejabat, logo perusahaan, atau peristiwa nyata."
+    },
+    {
+      "id": "ekspor-manufaktur-indonesia-peluang-rantai-pasok-ikm",
+      "title": "Ekspor Manufaktur Indonesia Capai USD 182,83 Miliar: Peluang bagi IKM",
+      "category": "Peluang Usaha",
+      "articleType": "analisis peluang usaha dan rantai pasok manufaktur",
+      "imageBrief": "Workshop manufaktur skala kecil-menengah di Indonesia: pekerja memeriksa komponen hasil produksi dengan alat ukur, mesin produksi dan rak komponen tersusun rapi di latar. Tonjolkan kontrol mutu, kesiapan pemasok, kapasitas produksi, dan pengemasan; tanpa merek, sertifikat palsu, tulisan terbaca, atau perusahaan nyata."
+    },
+    {
+      "id": "peluang-ekspor-ikan-haji-umrah-indonesia",
+      "title": "Peluang Ekspor Ikan untuk Haji dan Umrah: Kesiapan Rantai Pasok Indonesia",
+      "category": "Seafood & Perikanan",
+      "articleType": "analisis pasar dan kesiapan rantai dingin perikanan",
+      "imageBrief": "Fasilitas pengolahan seafood Indonesia yang higienis: fillet ikan beku di meja stainless steel, pekerja memakai perlengkapan sanitasi, peti rantai dingin dan area penyimpanan berpendingin. Tonjolkan keamanan pangan, ketertelusuran dan kesiapan ekspor; jangan gambarkan rapat pemerintah, jemaah, bendera atau peristiwa nyata."
+    }
+  ]
+}
