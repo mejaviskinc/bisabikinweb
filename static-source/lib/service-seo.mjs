@@ -2,7 +2,7 @@
 // One canonical service URL per topic: no mass-produced keyword variants.
 export const serviceSeoById = Object.freeze({
   'landing-page': {
-    title: 'Jasa Bikin Landing Page untuk Bisnis | BisaBikinWeb',
+    title: 'Jasa Bikin Landing Page untuk Bisnis',
     description: 'Butuh landing page untuk iklan atau promosi? Buat halaman yang fokus pada penawaran, manfaat, formulir prospek, dan konsultasi WhatsApp. Minta penawaran.',
     heading: 'Jasa Pembuatan Landing Page',
     introduction: 'Landing page adalah halaman website yang berfokus pada satu tujuan, seperti konsultasi lewat WhatsApp, permintaan penawaran, atau pendaftaran. Berbeda dari company profile yang memperkenalkan perusahaan secara menyeluruh, landing page cocok untuk kampanye iklan atau promosi satu layanan. Biaya pembuatan bergantung pada kebutuhan desain, materi konten, formulir dan integrasi. Sebelum meminta penawaran, siapkan tujuan kampanye, target pelanggan, materi produk dan tindakan yang diharapkan dari pengunjung.',
@@ -44,7 +44,7 @@ export const serviceSeoById = Object.freeze({
     related: [{href:'/jasa/',label:'Layanan digital lainnya'}, {href:'/portfolio/',label:'Lihat proyek website'}, {href:'/kontak/',label:'Minta penawaran All in One'}]
   },
   maintenance: {
-    title: 'Jasa Maintenance Website Bulanan | BisaBikinWeb',
+    title: 'Jasa Maintenance Website Bulanan',
     description: 'Rawat website bisnis dengan update konten, backup, perbaikan bug, pemeriksaan keamanan, dan optimasi performa. Pilih maintenance sesuai kebutuhan.',
     heading: 'Jasa Maintenance Website Bulanan',
     introduction: 'Jasa maintenance website adalah perawatan berkala setelah website terbit. Layanan ini cocok untuk bisnis yang memerlukan pembaruan konten, backup, pengecekan bug, atau pemantauan performa tanpa mengelola semuanya sendiri. Biaya bulanan bergantung pada teknologi website, frekuensi pembaruan, akses teknis, dan cakupan pekerjaan yang disepakati. Sebelum meminta penawaran, siapkan alamat website dan daftar kendala atau kebutuhan rutin.',
