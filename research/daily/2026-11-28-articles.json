@@ -637,9 +637,21 @@
           "https://bisabikinweb.site/artikel/cara-menyiapkan-katalog-produk-perikanan-pasar-global/",
           "https://bisabikinweb.site/artikel/perbedaan-purchase-order-dan-potensi-transaksi-ekspor/"
         ],
-        "image_status": "pending_generation_and_commit",
-        "image_caption_proposal": "Ilustrasi AI — gambaran umum rantai pasok perikanan, bukan dokumentasi pertemuan KKP.",
-        "qa_status": "pending_image_and_final_editorial_review"
+        "image_status": "committed_repo_and_attached_to_cms_draft_not_deployed",
+        "image_caption_proposal": "Ilustrasi AI — bukan dokumentasi pertemuan KKP atau kegiatan ekspor aktual.",
+        "qa_status": "image_asset_verified; other_article_covers_and_final_editorial_review_pending",
+        "image_asset": {
+          "repository_path": "public-assets/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp",
+          "public_url": "https://bisabikinweb.site/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp",
+          "sha256": "c6ec9bdc891971ff2a3548d1b48f60c020b63fe3d43100fc43ca0ea7186ac06",
+          "width": 720,
+          "height": 405,
+          "format": "WebP",
+          "bytes": 31474,
+          "generated_at": "2026-11-28T12:25:22+07:00",
+          "origin": "Original AI-generated editorial illustration; no third-party photo used",
+          "caption": "Ilustrasi AI — bukan dokumentasi pertemuan KKP atau kegiatan ekspor aktual."
+        }
       }
     },
     {
@@ -773,7 +785,7 @@
       }
     }
   ],
-  "notes": "Pemeriksaan 15 klaster selesai pada 28 November 2026 dengan pembacaan arsip 21–27 November. Empat artikel disimpan sebagai draft CMS: I-EU CEPA, peluang perikanan haji/umrah, ekspor manufaktur/IKM, dan berita ekspor kayu manis Jambi. Tidak ada artikel yang dipublikasikan. Riset digitalisasi, furniture/kayu, kakao/cokelat, kopi, manajemen risiko, rempah, dan pengawasan perikanan diperbarui dari sumber primer 22–27 November; beberapa disimpan research-only karena tumpang tindih dengan konten CMS atau belum cukup berbeda. Foto berizin belum tersedia; keempat draft tetap tanpa cover image. Sumber Kemenko Perekonomian tentang kolaborasi platform digital ASEAN mengalami timeout, sehingga tidak digunakan sebagai dasar fakta. QA akhir, build, dan deploy publikasi ditahan sampai gambar dan verifikasi editorial selesai.",
+  "notes": "Pemeriksaan 15 klaster selesai pada 28 November 2026 dengan pembacaan arsip 21–27 November. Empat artikel disimpan sebagai draft CMS: I-EU CEPA, peluang perikanan haji/umrah, ekspor manufaktur/IKM, dan berita ekspor kayu manis Jambi. Tidak ada artikel yang dipublikasikan. Riset digitalisasi, furniture/kayu, kakao/cokelat, kopi, manajemen risiko, rempah, dan pengawasan perikanan diperbarui dari sumber primer 22–27 November; beberapa disimpan research-only karena tumpang tindih dengan konten CMS atau belum cukup berbeda. Foto berizin belum tersedia; keempat draft tetap tanpa cover image. Sumber Kemenko Perekonomian tentang kolaborasi platform digital ASEAN mengalami timeout, sehingga tidak digunakan sebagai dasar fakta. QA akhir, build, dan deploy publikasi ditahan sampai gambar dan verifikasi editorial selesai. Cover AI seafood dibuat 28 November 2026, disimpan sebagai WebP 720x405 di public-assets/editorial-covers/peluang-ekspor-ikan-haji-umrah-indonesia.webp, dicatat di CMS draft dan arsip riset. File belum dideploy/terverifikasi live. Cover tiga artikel lain dan QA final masih tertunda.",
   "daily_content_limit": 5,
   "daily_draft_count": 4,
   "daily_published_count": 0
