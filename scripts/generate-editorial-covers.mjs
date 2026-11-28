@@ -10,6 +10,7 @@ const arg=(name,fallback)=>{const i=args.indexOf(name);return i<0?fallback:args[
 const offset=Number(arg('--offset','0'));
 const limit=args.includes('--all')?editorialPosts.length:Number(arg('--limit','10'));
 const overwrite=args.includes('--overwrite');
+const draftRequests=arg('--draft-requests','');
 if(!Number.isInteger(offset)||offset<0||!Number.isInteger(limit)||limit<1||limit>1000)throw new Error('Invalid offset or limit');
 const dir='public-assets/editorial-covers';
 const mapFile='static-source/lib/editorial-cover-map.mjs';
@@ -22,12 +23,17 @@ const errors=[];
 let generated=0,skipped=0;
 function promptFor(p){
  const title=String(p.title||'').replace(/[\r\n]/g,' ').slice(0,320);
+ const category=String(p.category||'Bisnis dan Ekspor').slice(0,120);
+ const articleType=String(p.articleType||p.article_type||'analisis bisnis').slice(0,80);
+ const brief=String(p.imageBrief||p.image_brief||'').replace(/[\r\n]/g,' ').slice(0,700);
  return [
- 'Generate ONE brand new photorealistic editorial cover photograph for an EVERGREEN EDUCATIONAL ARTICLE, not for a factual news story. Landscape composition, professional publication photo, daylight, natural detail, Indonesian context and realistic everyday objects.',
- 'Topic and headline: '+title,
- 'Image must illustrate the PRECISE SUBJECT of this educational headline, not generic technology stock imagery.',
- 'Show an authentic, specific real-world setting with relevant objects, digital screens, work or business activity.',
- 'No typography, captions, logos, watermarks, graphic text, AI labels or annotations in the image.'
+  'Generate ONE brand-new photorealistic editorial cover photograph for a business, industry, export or technology article.',
+  'Article type: '+articleType+'. Category: '+category+'.',
+  'Headline: '+title,
+  'Specific visual brief: '+brief,
+  'Illustrate the article context without depicting a specific real-world news event, actual government meeting, identifiable official, named company or fabricated documentary evidence.',
+  'Use an authentic Indonesian business setting, natural light, realistic materials and a professional editorial photography style.',
+  'Wide landscape composition; the image will be center-cropped to 16:9. No typography, captions, logos, watermarks, readable labels, AI labels or graphic annotations.'
  ].join('\n');
 }
 async function generate(p){
@@ -47,8 +53,6 @@ async function generate(p){
 }
 async function allPublishedPosts(){
  const byId=new Map(editorialPosts.map(p=>[p.id,p]));
- // The site's static builder uses this same public Supabase project. Include published
- // CMS items too, without using a service-role key or modifying the database.
  try{
   const src=await readFile('static-source/lib/supabase.ts','utf8');
   const url=src.match(/const SUPABASE_URL='([^']+)'/)?.[1];
@@ -70,15 +74,28 @@ async function allPublishedPosts(){
    }else console.warn('Could not enumerate live CMS covers: HTTP '+response.status);
   }
  }catch(e){console.warn('Live CMS unavailable; continuing with editorial records: '+String(e.message||e));}
- // News must use REAL, legally reusable event photography; never generate a fake event image.
  return [...byId.values()].filter(p=>!isNewsArticle(p));
 }
-const posts=await allPublishedPosts();
-console.log('Published evergreen article image candidates (news excluded): '+posts.length);
-const batch=posts.slice(offset,offset+limit);
+async function requestedDraftPosts(path){
+ const payload=JSON.parse(await readFile(path,'utf8'));
+ const rows=Array.isArray(payload)?payload:payload.articles;
+ if(!Array.isArray(rows))throw new Error('Cover request file must contain an articles array');
+ return rows.map(p=>({
+  id:String(p.id||''),
+  title:String(p.title||''),
+  category:String(p.category||'Bisnis dan Ekspor'),
+  articleType:String(p.articleType||p.article_type||'analisis bisnis'),
+  imageBrief:String(p.imageBrief||p.image_brief||'')
+ }));
+}
+const posts=draftRequests?await requestedDraftPosts(draftRequests):await allPublishedPosts();
+console.log((draftRequests?'Draft cover requests':'Published evergreen article image candidates')+': '+posts.length);
+const batch=draftRequests?posts:posts.slice(offset,offset+limit);
 for(const post of batch){
  const id=String(post.id||'');
  if(!/^[a-z0-9][a-z0-9_-]{0,159}$/.test(id)){errors.push(id+':invalid slug');continue;}
+ if(isNewsArticle(post)){errors.push(id+':news requires licensed journalistic photography; generation skipped');continue;}
+ if(!post.title){errors.push(id+':missing title');continue;}
  const name=id+'.webp',file=join(dir,name),url='https://bisabikinweb.site/editorial-covers/'+name;
  let exists=false;try{await access(file);exists=true}catch{}
  if(exists&&!overwrite){map[id]=url;skipped++;continue}
