@@ -2,8 +2,8 @@
 // One canonical service URL per topic: no mass-produced keyword variants.
 export const serviceSeoById = Object.freeze({
   'landing-page': {
-    title: 'Jasa Pembuatan Landing Page untuk Bisnis',
-    description: 'Jasa pembuatan landing page untuk promosi produk dan mendapatkan calon pelanggan. Pelajari fitur, proses kerja, dan biaya, lalu konsultasikan kebutuhan.',
+    title: 'Jasa Bikin Landing Page untuk Bisnis | BisaBikinWeb',
+    description: 'Butuh landing page untuk iklan atau promosi? Buat halaman yang fokus pada penawaran, manfaat, formulir prospek, dan konsultasi WhatsApp. Minta penawaran.',
     heading: 'Jasa Pembuatan Landing Page',
     introduction: 'Landing page adalah halaman website yang berfokus pada satu tujuan, seperti konsultasi lewat WhatsApp, permintaan penawaran, atau pendaftaran. Berbeda dari company profile yang memperkenalkan perusahaan secara menyeluruh, landing page cocok untuk kampanye iklan atau promosi satu layanan. Biaya pembuatan bergantung pada kebutuhan desain, materi konten, formulir dan integrasi. Sebelum meminta penawaran, siapkan tujuan kampanye, target pelanggan, materi produk dan tindakan yang diharapkan dari pengunjung.',
     related: [{href:'/harga/',label:'Bandingkan harga landing page'}, {href:'/portfolio/',label:'Lihat contoh proyek website'}, {href:'/kontak/',label:'Diskusikan target kampanye'}]
@@ -44,8 +44,8 @@ export const serviceSeoById = Object.freeze({
     related: [{href:'/jasa/',label:'Layanan digital lainnya'}, {href:'/portfolio/',label:'Lihat proyek website'}, {href:'/kontak/',label:'Minta penawaran All in One'}]
   },
   maintenance: {
-    title: 'Jasa Maintenance dan Perawatan Website',
-    description: 'Jasa maintenance website bulanan untuk pembaruan konten, backup, perbaikan bug, pemeriksaan keamanan dan performa sesuai ruang lingkup paket yang disepakati.',
+    title: 'Jasa Maintenance Website Bulanan | BisaBikinWeb',
+    description: 'Rawat website bisnis dengan update konten, backup, perbaikan bug, pemeriksaan keamanan, dan optimasi performa. Pilih maintenance sesuai kebutuhan.',
     heading: 'Jasa Maintenance Website Bulanan',
     introduction: 'Jasa maintenance website adalah perawatan berkala setelah website terbit. Layanan ini cocok untuk bisnis yang memerlukan pembaruan konten, backup, pengecekan bug, atau pemantauan performa tanpa mengelola semuanya sendiri. Biaya bulanan bergantung pada teknologi website, frekuensi pembaruan, akses teknis, dan cakupan pekerjaan yang disepakati. Sebelum meminta penawaran, siapkan alamat website dan daftar kendala atau kebutuhan rutin.',
     related: [{href:'/artikel/biaya-website-bisnis-domain-hosting-maintenance/',label:'Panduan biaya maintenance'}, {href:'/harga/',label:'Bandingkan paket perawatan'}, {href:'/kontak/',label:'Diskusikan kebutuhan rutin'}]
