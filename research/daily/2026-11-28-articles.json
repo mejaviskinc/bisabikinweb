@@ -1,71 +1,363 @@
 {
   "date": "2026-11-28",
-  "research_status": "partial",
+  "research_status": "complete",
   "entries": [
     {
-      "id": "2026-11-28-cepa-proyeksi-ekspor",
-      "category": "Tren & Analisis Pasar",
-      "topic": "Proyeksi ekspor Uni Eropa dan kesiapan I-EU CEPA",
-      "summary": "Kemendag pada 24 November memproyeksikan tambahan ekspor USD 3,82–5,78 miliar per tahun selama lima tahun dengan implementasi I-EU CEPA dan langkah pendukung; bukan realisasi atau konfirmasi tarif telah berlaku.",
-      "event_date": "2026-11-24",
+      "id": "2026-11-28-briket-energi-no-update",
+      "category": "Briket & Energi",
+      "topic": "Tidak ada pembaruan bermakna yang terverifikasi dalam jendela tujuh hari",
+      "summary": "Pencarian sumber primer resmi untuk briket, biomassa, dan energi dalam jendela tujuh hari tidak menemukan perkembangan baru yang cukup kuat untuk artikel.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-28T11:33:26+07:00",
+      "geography": "Indonesia dan pasar ekspor terkait",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Tidak ada rekomendasi tindakan berbasis perkembangan baru pada putaran ini.",
+      "content_angle": "Tidak dibuat artikel baru sampai tersedia sumber primer bertanggal dan bernilai.",
+      "keyword_intent": "",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-29"
+    },
+    {
+      "id": "2026-11-28-digitalisasi-umkm-pasar-asean",
+      "category": "Digitalisasi & Website",
+      "topic": "Kolaborasi platform digital dan peluang UMKM di pasar ekonomi digital ASEAN",
+      "summary": "Kemenko Perekonomian memuat siaran pers 24 November 2026 tentang kolaborasi pemerintah dan platform digital untuk memperkuat peran UMKM di pasar ekonomi digital ASEAN. Halaman sumber mengalami timeout saat dibuka; isi perlu diperiksa ulang sebelum dijadikan artikel.",
+      "event_date": "2026-11-18",
       "source_published_at": "2026-11-24",
-      "researched_at": "2026-11-28T00:33:49+07:00",
-      "geography": "Indonesia dan Uni Eropa",
+      "researched_at": "2026-11-28T11:33:26+07:00",
+      "geography": "Indonesia dan ASEAN",
+      "facts": [],
+      "sources": [
+        {
+          "url": "https://www.ekon.go.id/publikasi/detail/7243/perkuat-kolaborasi-dengan-platform-digital-pemerintah-dorong-umkm-jadi-pelaku-utama-ekonomi-digital-pasar-asean",
+          "publisher": "Kementerian Koordinator Bidang Perekonomian",
+          "accessed_at": "2026-11-28T11:33:26+07:00"
+        }
+      ],
+      "practical_impact": "Jika detail program dan langkah implementasi dapat diverifikasi, temuan ini dapat menjadi bahan analisis tentang kesiapan kanal digital UMKM lintas negara.",
+      "content_angle": "Pantau rincian program dan manfaat yang dapat dibuktikan; jangan membuat artikel generik transformasi digital yang mengulang konten CMS.",
+      "keyword_intent": "UMKM ekonomi digital ASEAN; platform digital pasar ASEAN",
+      "editorial_status": "needs_verification",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-29"
+    },
+    {
+      "id": "2026-11-28-furniture-kayu-no-update",
+      "category": "Furniture & Kayu",
+      "topic": "Tidak ada pembaruan bermakna yang terverifikasi dalam jendela tujuh hari",
+      "summary": "Tidak ditemukan perkembangan primer bertanggal dalam tujuh hari yang cukup spesifik untuk artikel furniture atau kayu; data umum business matching tidak dipaksakan menjadi berita sektor.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-28T11:33:26+07:00",
+      "geography": "Indonesia dan pasar ekspor terkait",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Tidak ada rekomendasi tindakan berbasis perkembangan baru pada putaran ini.",
+      "content_angle": "Tidak dibuat artikel baru sampai tersedia sumber primer bertanggal dan bernilai.",
+      "keyword_intent": "",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-29"
+    },
+    {
+      "id": "2026-11-28-kakao-coklat-no-update",
+      "category": "Kakao & Coklat",
+      "topic": "Tidak ada pembaruan bermakna yang terverifikasi dalam jendela tujuh hari",
+      "summary": "Sumber harga referensi kakao yang muncul bertanggal 2 November 2026, di luar jendela tujuh hari; tidak diperlakukan sebagai pembaruan baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-28T11:33:26+07:00",
+      "geography": "Indonesia dan pasar ekspor terkait",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Tidak ada rekomendasi tindakan berbasis perkembangan baru pada putaran ini.",
+      "content_angle": "Tidak dibuat artikel baru sampai tersedia sumber primer bertanggal dan bernilai.",
+      "keyword_intent": "",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-29"
+    },
+    {
+      "id": "2026-11-28-kelapa-turunan-no-update",
+      "category": "Kelapa & Turunannya",
+      "topic": "Tidak ada pembaruan bermakna yang terverifikasi dalam jendela tujuh hari",
+      "summary": "Pencarian sumber primer untuk kelapa dan produk turunannya tidak menemukan pembaruan spesifik dalam tujuh hari yang layak dijadikan artikel.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-28T11:33:26+07:00",
+      "geography": "Indonesia dan pasar ekspor terkait",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Tidak ada rekomendasi tindakan berbasis perkembangan baru pada putaran ini.",
+      "content_angle": "Tidak dibuat artikel baru sampai tersedia sumber primer bertanggal dan bernilai.",
+      "keyword_intent": "",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-29"
+    },
+    {
+      "id": "2026-11-28-kopi-no-update",
+      "category": "Kopi",
+      "topic": "Tidak ada pembaruan bermakna yang terverifikasi dalam jendela tujuh hari",
+      "summary": "Temuan kopi terbaru yang muncul bertanggal 18 November 2026, di luar jendela tujuh hari; tidak dibuat artikel baru dari data tersebut.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-28T11:33:26+07:00",
+      "geography": "Indonesia dan pasar ekspor terkait",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Tidak ada rekomendasi tindakan berbasis perkembangan baru pada putaran ini.",
+      "content_angle": "Tidak dibuat artikel baru sampai tersedia sumber primer bertanggal dan bernilai.",
+      "keyword_intent": "",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-29"
+    },
+    {
+      "id": "2026-11-28-logistik-pengiriman-no-update",
+      "category": "Logistik & Pengiriman",
+      "topic": "Tidak ada pembaruan bermakna yang terverifikasi dalam jendela tujuh hari",
+      "summary": "Pencarian sumber primer terkait pelabuhan, pengiriman, dan logistik ekspor tidak menemukan pembaruan sektoral yang cukup kuat dalam tujuh hari.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-28T11:33:26+07:00",
+      "geography": "Indonesia dan pasar ekspor terkait",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Tidak ada rekomendasi tindakan berbasis perkembangan baru pada putaran ini.",
+      "content_angle": "Tidak dibuat artikel baru sampai tersedia sumber primer bertanggal dan bernilai.",
+      "keyword_intent": "",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-29"
+    },
+    {
+      "id": "2026-11-28-manajemen-risiko-no-update",
+      "category": "Manajemen Risiko",
+      "topic": "Tidak ada pembaruan bermakna yang terverifikasi dalam jendela tujuh hari",
+      "summary": "Tidak ditemukan perkembangan primer baru dalam tujuh hari terkait risiko kurs, pembayaran, atau asuransi ekspor yang cukup kuat untuk artikel.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-28T11:33:26+07:00",
+      "geography": "Indonesia dan pasar ekspor terkait",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Tidak ada rekomendasi tindakan berbasis perkembangan baru pada putaran ini.",
+      "content_angle": "Tidak dibuat artikel baru sampai tersedia sumber primer bertanggal dan bernilai.",
+      "keyword_intent": "",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-29"
+    },
+    {
+      "id": "2026-11-28-ekspor-manufaktur-peluang-ikm",
+      "category": "Peluang Usaha",
+      "topic": "Ekspor manufaktur dan peluang IKM masuk rantai pasok industri",
+      "summary": "Kemenperin melaporkan ekspor industri pengolahan Januari–September 2026 sebesar USD 182,83 miliar, tumbuh 8,93 persen dan menyumbang 82,64 persen ekspor nasional. Analisis difokuskan pada kesiapan IKM menjadi pemasok, bukan menganggap angka ekspor sebagai order baru.",
+      "event_date": "2026-11-26",
+      "source_published_at": "2026-11-27",
+      "researched_at": "2026-11-28T11:33:26+07:00",
+      "geography": "Indonesia",
       "facts": [
         {
-          "claim": "Mendag menyampaikan proyeksi tambahan ekspor tahunan USD 3,82–5,78 miliar.",
+          "claim": "Ekspor industri pengolahan Januari–September 2026 mencapai USD 182,83 miliar, tumbuh 8,93 persen tahunan dan menyumbang 82,64 persen dari total ekspor nasional.",
           "source_urls": [
-            "https://www.kemendag.go.id/berita/siaran-pers/ekspor-ke-uni-eropa-diproyeksi-bertambah-usd-3-5-miliar-setahun"
+            "https://ikm.kemenperin.go.id/ekspor-manufaktur-sumbang-8264-persen-menperin-sarmuji-lepas-ekspor-senilai-rp11228-triliun"
+          ]
+        },
+        {
+          "claim": "Pelepasan ekspor pada 26 November melibatkan sedikitnya 219 perusahaan di lima kawasan industri dengan tujuan 110 negara; nilai yang dilaporkan dalam kegiatan tersebut USD 6,19 miliar.",
+          "source_urls": [
+            "https://ikm.kemenperin.go.id/ekspor-manufaktur-sumbang-8264-persen-menperin-sarmuji-lepas-ekspor-senilai-rp11228-triliun"
+          ]
+        },
+        {
+          "claim": "Kemenperin menyebut lima kelompok utama ekspor Januari–September: logam dasar, makanan, bahan kimia, komputer/elektronik/optik, serta kulit dan alas kaki.",
+          "source_urls": [
+            "https://ikm.kemenperin.go.id/ekspor-manufaktur-sumbang-8264-persen-menperin-sarmuji-lepas-ekspor-senilai-rp11228-triliun"
+          ]
+        },
+        {
+          "claim": "Kemenperin menyatakan salah satu strategi penguatan ekspor adalah meningkatkan keterlibatan IKM dalam rantai perdagangan global melalui fasilitasi akses pasar dan forum bisnis.",
+          "source_urls": [
+            "https://ikm.kemenperin.go.id/ekspor-manufaktur-sumbang-8264-persen-menperin-sarmuji-lepas-ekspor-senilai-rp11228-triliun"
           ]
         }
       ],
       "sources": [
         {
-          "url": "https://www.kemendag.go.id/berita/siaran-pers/ekspor-ke-uni-eropa-diproyeksi-bertambah-usd-3-5-miliar-setahun",
-          "publisher": "Kemendag",
-          "accessed_at": "2026-11-28T00:33:49+07:00"
+          "url": "https://ikm.kemenperin.go.id/ekspor-manufaktur-sumbang-8264-persen-menperin-sarmuji-lepas-ekspor-senilai-rp11228-triliun",
+          "publisher": "Kementerian Perindustrian RI",
+          "accessed_at": "2026-11-28T11:33:26+07:00"
         }
       ],
-      "practical_impact": "Eksportir perlu memisahkan proyeksi pasar dari kepastian tarif dan kesiapan dokumen.",
-      "content_angle": "Analisis kesiapan eksportir menghadapi CEPA",
-      "keyword_intent": "persiapan ekspor Uni Eropa CEPA",
+      "practical_impact": "IKM dapat menilai peluang menjadi pemasok dengan menyiapkan spesifikasi, kontrol mutu, kapasitas realistis, harga, legalitas, dan profil perusahaan.",
+      "content_angle": "Analisis praktis peluang IKM memasok rantai nilai manufaktur di tengah pertumbuhan ekspor industri pengolahan.",
+      "keyword_intent": "ekspor manufaktur Indonesia 2026; peluang IKM rantai pasok industri; cara menjadi pemasok pabrik",
       "editorial_status": "verified",
       "content_status": "drafted",
       "published_url": null,
       "recheck_after": "2026-11-29",
       "draft": {
-        "title": "I-EU CEPA: Apa yang Perlu Disiapkan Eksportir Indonesia?",
-        "meta": "Analisis proyeksi ekspor Uni Eropa dan langkah persiapan UMKM menghadapi I-EU CEPA tanpa mengasumsikan tarif preferensi sudah berlaku.",
-        "slug": "persiapan-eksportir-indonesia-ieu-cepa",
-        "schema": "Article",
+        "title": "Ekspor Manufaktur Indonesia Capai USD 182,83 Miliar: Peluang bagi IKM",
+        "seo_title": "Ekspor Manufaktur Indonesia 2026: Peluang bagi IKM",
+        "meta": "Ekspor manufaktur Indonesia mencapai USD 182,83 miliar pada Jan–Sep 2026. Pelajari cara IKM menyiapkan diri menjadi pemasok rantai pasok industri.",
+        "slug": "ekspor-manufaktur-indonesia-peluang-rantai-pasok-ikm",
+        "canonical": "https://bisabikinweb.site/artikel/ekspor-manufaktur-indonesia-peluang-rantai-pasok-ikm/",
+        "schema": "BlogPosting",
         "body": [
-          "Eksportir Indonesia dapat mempersiapkan akses pasar Uni Eropa dengan memeriksa klasifikasi produk, aturan asal barang, persyaratan pembeli dan biaya pengiriman. Jangan memasukkan penghematan tarif preferensi dalam penawaran final sebelum dasar hukum dan tanggal berlakunya dipastikan.",
-          "## Mengapa peluang ini penting?",
-          "Dalam sosialisasi di Jakarta pada 24 November 2026, Kemendag memproyeksikan tambahan ekspor tahunan sebesar USD 3,82–5,78 miliar selama lima tahun. Angka tersebut merupakan proyeksi bersyarat, bukan pesanan yang sudah diterima eksportir.",
-          "## Langkah persiapan",
-          "### Petakan produk dan biaya",
-          "Identifikasi kode HS bersama pihak kompeten, susun daftar bahan baku dan asalnya, serta hitung biaya produk sampai titik penyerahan yang disepakati. Buat dua skenario harga: tarif normal dan tarif preferensi jika kelak memenuhi syarat.",
-          "### Siapkan katalog dan bukti mutu",
-          "Cantumkan spesifikasi, kapasitas, waktu produksi, kemasan dan dokumen yang benar-benar tersedia. Jangan menjanjikan sertifikasi yang belum dimiliki. Gunakan katalog digital berbahasa Inggris untuk memudahkan pembeli menilai produk.",
+          "Ekspor industri pengolahan Indonesia mencapai USD 182,83 miliar pada Januari–September 2026, tumbuh 8,93 persen dibandingkan periode yang sama tahun sebelumnya dan menyumbang 82,64 persen dari total ekspor nasional. Bagi industri kecil dan menengah (IKM), peluang yang lebih realistis bukan sekadar mengekspor sendiri, melainkan masuk sebagai pemasok komponen, bahan, kemasan, jasa, atau produk pendukung bagi perusahaan manufaktur yang sudah memiliki akses pasar.",
+          "## Angka ekspor manufaktur terbaru",
+          "Kementerian Perindustrian memuat data tersebut dalam siaran pers bertanggal Jumat, 27 November 2026. Pada kegiatan pelepasan ekspor produk industri manufaktur yang berlangsung Kamis, 26 November 2026, pemerintah mencatat keterlibatan sedikitnya 219 perusahaan dari lima kawasan industri dengan tujuan ke 110 negara. Kegiatan berpusat di Cikarang Dry Port Jababeka, Jawa Barat, dan dilakukan serentak di Medan, JIIPE Gresik, KEK Batang, serta Indonesia Weda Bay Industrial Park di Maluku Utara.",
+          "Kemenperin menyebut nilai ekspor yang dilepas dalam kegiatan tersebut mencapai USD 6,19 miliar atau sekitar Rp112,28 triliun. Angka ini adalah nilai ekspor yang dilaporkan pada kegiatan pelepasan, bukan nilai yang boleh langsung dianggap sebagai tambahan penjualan untuk semua IKM.",
+          "Lima kelompok industri penyumbang utama ekspor manufaktur pada Januari–September 2026 adalah logam dasar sebesar USD 43,66 miliar, makanan USD 40,29 miliar, bahan kimia USD 20,44 miliar, komputer dan elektronik USD 11 miliar, serta kulit dan alas kaki USD 7,12 miliar.",
+          "## Di mana peluang bagi IKM?",
+          "Skala ekspor manufaktur menunjukkan adanya jaringan produksi dan distribusi yang luas. IKM dapat mengevaluasi kebutuhan pemasok di sekitar industri makanan, logam, kimia, elektronik, furnitur, kemasan, komponen, perawatan mesin, pergudangan, dan layanan pendukung. Peluang konkret tetap bergantung pada kebutuhan perusahaan pembeli dan standar teknis masing-masing sektor.",
+          "Kemenperin menyampaikan bahwa salah satu strategi penguatan ekspor adalah meningkatkan keterlibatan IKM dalam rantai perdagangan global melalui fasilitasi akses pasar dan forum pertemuan bisnis. Pemerintah juga menyoroti pentingnya standardisasi produk, modernisasi mesin, peningkatan kompetensi tenaga kerja, dan efisiensi produksi.",
+          "## Cara menyiapkan usaha agar layak menjadi pemasok",
+          "### 1. Pilih satu kategori produk yang benar-benar dikuasai",
+          "Hindari menawarkan terlalu banyak produk tanpa spesifikasi. Tentukan ukuran, bahan, toleransi, kapasitas, metode pemeriksaan, dan penggunaan produk. Untuk pemasok kemasan, misalnya, siapkan informasi bahan, dimensi, ketahanan, dan konsistensi cetak. Untuk komponen, siapkan gambar teknis, material, dan toleransi produksi.",
+          "### 2. Bangun bukti mutu dan ketepatan pengiriman",
+          "Catat hasil inspeksi, tingkat cacat, kapasitas produksi per minggu, waktu pemenuhan pesanan, dan prosedur penanganan keluhan. Jika belum memiliki sertifikasi yang diminta calon buyer, buat rencana pemenuhan dan jangan mengaku sudah tersertifikasi.",
+          "### 3. Hitung harga berdasarkan biaya sebenarnya",
+          "Masukkan bahan baku, tenaga kerja, energi, penyusutan mesin, kemasan, pengujian, pengiriman, biaya pembiayaan, dan risiko perubahan harga input. Siapkan batas minimum pesanan serta masa berlaku penawaran agar perubahan biaya tidak menggerus margin.",
+          "### 4. Siapkan dokumen pemasok",
+          "Profil perusahaan, legalitas usaha, katalog produk, daftar spesifikasi, foto fasilitas yang asli, daftar kapasitas, dan kontak penanggung jawab perlu disusun rapi. Buyer industri juga dapat meminta sampel, audit fasilitas, atau dokumen mutu tambahan.",
+          "### 5. Gunakan kanal digital sebagai bukti kesiapan",
+          "Website company profile dan katalog digital membantu calon mitra memeriksa produk, spesifikasi, fasilitas, dan cara menghubungi perusahaan. Pastikan informasi selalu mutakhir dan tidak memuat klaim kapasitas, klien, atau sertifikasi yang tidak dapat dibuktikan.",
+          "## Apakah pertumbuhan ekspor menjamin order untuk IKM?",
+          "Tidak. Angka ekspor nasional menggambarkan kinerja sektor, bukan jaminan bahwa setiap pemasok akan menerima kontrak. IKM tetap perlu mencari kebutuhan pembeli, mengikuti proses kualifikasi vendor, mengirim sampel jika diminta, dan membuktikan mutu serta harga yang kompetitif.",
           "## Kesimpulan",
-          "Peluang pasar tidak otomatis menjadi penjualan. Prioritaskan validasi pembeli, kepastian persyaratan dan simulasi margin sebelum meningkatkan kapasitas. Periksa ketentuan resmi terbaru sebelum transaksi."
+          "Pertumbuhan ekspor manufaktur membuka konteks peluang bagi pemasok lokal, tetapi kesiapan operasional tetap menjadi penentu. Mulailah dari produk yang dikuasai, mutu yang terukur, kapasitas yang realistis, harga yang sehat, dan profil pemasok yang mudah diverifikasi.",
+          "Baca juga: [Perbedaan Purchase Order dan Potensi Transaksi Ekspor](https://bisabikinweb.site/artikel/perbedaan-purchase-order-dan-potensi-transaksi-ekspor/) serta [Checklist Pengemasan Furniture Sebelum Pengiriman](https://bisabikinweb.site/artikel/checklist-pengemasan-furniture-sebelum-pengiriman/). Untuk company profile dan katalog digital bisnis, kunjungi https://bisabikinweb.site/.",
+          "Sumber: Kementerian Perindustrian, siaran pers 27 November 2026. Artikel ini merupakan analisis editorial atas data pemerintah, bukan jaminan pesanan atau proyeksi penjualan bagi IKM."
         ],
-        "image_status": "pending",
-        "qa_status": "pending_duplicate_image_and_canonical"
+        "internal_links": [
+          "https://bisabikinweb.site/artikel/perbedaan-purchase-order-dan-potensi-transaksi-ekspor/",
+          "https://bisabikinweb.site/artikel/checklist-pengemasan-furniture-sebelum-pengiriman/"
+        ],
+        "image_status": "pending_generation_and_commit",
+        "image_caption_proposal": "Ilustrasi AI — gambaran umum fasilitas manufaktur dan pengiriman ekspor, bukan dokumentasi kegiatan Kemenperin.",
+        "qa_status": "pending_image_and_final_editorial_review"
       }
+    },
+    {
+      "id": "2026-11-28-pertanian-buah-no-update",
+      "category": "Pertanian & Buah",
+      "topic": "Tidak ada pembaruan bermakna yang terverifikasi dalam jendela tujuh hari",
+      "summary": "Pencarian sumber primer pertanian, hortikultura, dan ekspor buah tidak menemukan pembaruan spesifik dalam tujuh hari yang cukup kuat untuk artikel.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-28T11:33:26+07:00",
+      "geography": "Indonesia dan pasar ekspor terkait",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Tidak ada rekomendasi tindakan berbasis perkembangan baru pada putaran ini.",
+      "content_angle": "Tidak dibuat artikel baru sampai tersedia sumber primer bertanggal dan bernilai.",
+      "keyword_intent": "",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-29"
+    },
+    {
+      "id": "2026-11-28-regulasi-sertifikasi-no-update",
+      "category": "Regulasi & Sertifikasi",
+      "topic": "Tidak ada pembaruan bermakna yang terverifikasi dalam jendela tujuh hari",
+      "summary": "Tidak ditemukan perubahan regulasi atau sertifikasi ekspor yang dapat diverifikasi dan diterbitkan dalam tujuh hari dari sumber primer yang ditelusuri.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-28T11:33:26+07:00",
+      "geography": "Indonesia dan pasar ekspor terkait",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Tidak ada rekomendasi tindakan berbasis perkembangan baru pada putaran ini.",
+      "content_angle": "Tidak dibuat artikel baru sampai tersedia sumber primer bertanggal dan bernilai.",
+      "keyword_intent": "",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-29"
+    },
+    {
+      "id": "2026-11-28-rempah-minyak-atsiri-no-update",
+      "category": "Rempah & Minyak Atsiri",
+      "topic": "Tidak ada pembaruan bermakna yang terverifikasi dalam jendela tujuh hari",
+      "summary": "Tidak ditemukan perkembangan primer sektoral baru dalam tujuh hari terkait rempah atau minyak atsiri yang cukup kuat untuk artikel.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-28T11:33:26+07:00",
+      "geography": "Indonesia dan pasar ekspor terkait",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Tidak ada rekomendasi tindakan berbasis perkembangan baru pada putaran ini.",
+      "content_angle": "Tidak dibuat artikel baru sampai tersedia sumber primer bertanggal dan bernilai.",
+      "keyword_intent": "",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-29"
+    },
+    {
+      "id": "2026-11-28-sarang-burung-walet-no-update",
+      "category": "Sarang Burung Walet",
+      "topic": "Tidak ada pembaruan bermakna yang terverifikasi dalam jendela tujuh hari",
+      "summary": "Temuan sarang burung walet yang muncul berasal dari April 2026, di luar jendela tujuh hari; tidak diperlakukan sebagai perkembangan baru.",
+      "event_date": null,
+      "source_published_at": null,
+      "researched_at": "2026-11-28T11:33:26+07:00",
+      "geography": "Indonesia dan pasar ekspor terkait",
+      "facts": [],
+      "sources": [],
+      "practical_impact": "Tidak ada rekomendasi tindakan berbasis perkembangan baru pada putaran ini.",
+      "content_angle": "Tidak dibuat artikel baru sampai tersedia sumber primer bertanggal dan bernilai.",
+      "keyword_intent": "",
+      "editorial_status": "no_meaningful_update",
+      "content_status": "research_only",
+      "published_url": null,
+      "recheck_after": "2026-11-29"
     },
     {
       "id": "2026-11-28-perikanan-pasar-haji-umrah",
       "category": "Seafood & Perikanan",
       "topic": "Peluang pasokan produk perikanan untuk konsumsi jemaah haji dan umrah",
-      "summary": "KKP melaporkan pada 27 November 2026 pembahasan perluasan pasar produk perikanan melalui kebutuhan konsumsi jemaah di Arab Saudi. Pembahasan berlangsung di Jakarta sehari sebelumnya; belum merupakan bukti kontrak penjualan.",
+      "summary": "KKP pada 27 November 2026 melaporkan pembahasan peluang pasokan ikan untuk kebutuhan haji dan umrah di Arab Saudi. Kebutuhan haji diperkirakan 700 ton, tetapi registrasi SFDA, standar mutu, kapasitas, dan pemetaan pembeli masih perlu diselesaikan; belum ada bukti kontrak baru.",
       "event_date": "2026-11-26",
       "source_published_at": "2026-11-27",
-      "researched_at": "2026-11-28T09:34:59+07:00",
+      "researched_at": "2026-11-28T11:33:26+07:00",
       "geography": "Indonesia dan Arab Saudi",
       "facts": [
         {
-          "claim": "KKP membahas peluang memasok kebutuhan konsumsi jemaah haji dan umrah dalam pertemuan di Jakarta pada 26 November.",
+          "claim": "KKP dan Kementerian Haji dan Umrah membahas peluang pasokan produk perikanan di Jakarta pada 26 November 2026.",
+          "source_urls": [
+            "https://kkp.go.id/news/news-detail/kkp-bidik-peluang-ekspor-produk-perikanan-untuk-konsumsi-jemaah-haji-dan-umrah-OP1g.html"
+          ]
+        },
+        {
+          "claim": "KKP memperkirakan kebutuhan ikan untuk penyelenggaraan haji sekitar 700 ton dan menyebut jumlah jemaah umrah Indonesia sekitar 2 juta per tahun.",
+          "source_urls": [
+            "https://kkp.go.id/news/news-detail/kkp-bidik-peluang-ekspor-produk-perikanan-untuk-konsumsi-jemaah-haji-dan-umrah-OP1g.html"
+          ]
+        },
+        {
+          "claim": "Indonesia pernah memasok 237 ton ikan patin ke Arab Saudi pada 2019; salah satu hambatan akses pasar saat ini adalah persyaratan registrasi produk perikanan budi daya oleh SFDA.",
+          "source_urls": [
+            "https://kkp.go.id/news/news-detail/kkp-bidik-peluang-ekspor-produk-perikanan-untuk-konsumsi-jemaah-haji-dan-umrah-OP1g.html"
+          ]
+        },
+        {
+          "claim": "KKP dan Kemenhaj akan memetakan jenis, volume, spesifikasi, harga, standar mutu dan keamanan pangan, serta memfasilitasi business matching.",
           "source_urls": [
             "https://kkp.go.id/news/news-detail/kkp-bidik-peluang-ekspor-produk-perikanan-untuk-konsumsi-jemaah-haji-dan-umrah-OP1g.html"
           ]
@@ -74,18 +366,155 @@
       "sources": [
         {
           "url": "https://kkp.go.id/news/news-detail/kkp-bidik-peluang-ekspor-produk-perikanan-untuk-konsumsi-jemaah-haji-dan-umrah-OP1g.html",
-          "publisher": "KKP",
-          "accessed_at": "2026-11-28T09:34:59+07:00"
+          "publisher": "Kementerian Kelautan dan Perikanan",
+          "accessed_at": "2026-11-28T11:33:26+07:00"
         }
       ],
-      "practical_impact": "Pelaku usaha dapat mengevaluasi kapasitas pasokan, rantai dingin dan persyaratan pembeli tanpa mengasumsikan kontrak telah tersedia.",
-      "content_angle": "Analisis kesiapan pemasok perikanan untuk pasar katering institusional Arab Saudi",
-      "keyword_intent": "peluang ekspor ikan untuk katering haji",
+      "practical_impact": "Produsen perlu memeriksa registrasi SFDA, konsistensi mutu, rantai dingin, spesifikasi katering, dan kemampuan memasok sesuai jadwal sebelum menambah kapasitas.",
+      "content_angle": "Analisis kesiapan pemasok ikan dan produk olahan untuk rantai pasok katering haji dan umrah; bedakan penjajakan dari kontrak.",
+      "keyword_intent": "peluang ekspor ikan Arab Saudi; pasokan ikan haji umrah; registrasi SFDA produk perikanan",
       "editorial_status": "verified",
-      "content_status": "research_only",
+      "content_status": "drafted",
       "published_url": null,
-      "recheck_after": "2026-11-29"
+      "recheck_after": "2026-11-29",
+      "draft": {
+        "title": "Peluang Ekspor Ikan untuk Haji dan Umrah: Kesiapan Rantai Pasok Indonesia",
+        "seo_title": "Peluang Ekspor Ikan untuk Haji dan Umrah: Syarat Pemasok",
+        "meta": "KKP membahas peluang pasokan ikan bagi jemaah haji dan umrah di Arab Saudi. Cek kesiapan registrasi SFDA, mutu, kapasitas, dan rantai dingin.",
+        "slug": "peluang-ekspor-ikan-haji-umrah-indonesia",
+        "canonical": "https://bisabikinweb.site/artikel/peluang-ekspor-ikan-haji-umrah-indonesia/",
+        "schema": "BlogPosting",
+        "body": [
+          "Peluang memasok ikan dan produk olahan perikanan untuk kebutuhan jemaah haji dan umrah di Arab Saudi sedang dijajaki pemerintah Indonesia. Bagi eksportir, peluang ini belum berarti kontrak pembelian sudah tersedia. Kesiapan registrasi produk, standar keamanan pangan, kapasitas pasokan, rantai dingin, harga, dan konsistensi pengiriman akan menentukan apakah produsen dapat masuk ke rantai pasok tersebut.",
+          "## Apa yang dibahas pemerintah?",
+          "Menurut Kementerian Kelautan dan Perikanan (KKP), pembahasan dilakukan di Jakarta pada Kamis, 26 November 2026, dalam pertemuan delegasi KKP dengan Direktorat Jenderal Pengembangan Ekosistem Ekonomi Haji dan Umrah. KKP menyampaikan perkembangan tersebut pada Jumat, 27 November 2026. Pertemuan membahas peluang memperluas pasar produk perikanan Indonesia untuk kebutuhan konsumsi jemaah di Arab Saudi.",
+          "KKP memperkirakan kebutuhan ikan untuk penyelenggaraan ibadah haji mencapai sekitar 700 ton. Jumlah jemaah umrah Indonesia disebut sekitar 2 juta orang per tahun. KKP juga menyebut pemenuhan beberapa komoditas, khususnya ikan patin, masih didominasi produk asal Vietnam.",
+          "Indonesia pernah memasok 237 ton ikan patin ke Arab Saudi pada 2019 dalam bentuk potongan dan filet dari sentra produksi Tulungagung, Jawa Timur. Ekspor tersebut terhenti akibat pandemi dan menghadapi hambatan akses pasar ketika diupayakan kembali sejak 2023. Salah satu kendala yang disebut KKP adalah persyaratan registrasi produk perikanan budi daya oleh Saudi Food and Drug Authority (SFDA).",
+          "## Mengapa peluang ini belum otomatis menjadi pesanan?",
+          "Kebutuhan pasar yang besar tidak sama dengan purchase order. Pemerintah masih akan memetakan jenis produk, volume, spesifikasi, harga, standar mutu, dan keamanan pangan. KKP juga menyatakan akan berkoordinasi untuk mendorong penyelesaian hambatan registrasi, lalu memfasilitasi diskusi dan temu bisnis dengan importir serta penyedia katering di Arab Saudi.",
+          "Artinya, pemasok perlu menunggu spesifikasi dan prosedur resmi dari calon pembeli serta otoritas tujuan. Perusahaan sebaiknya tidak menambah kapasitas produksi besar-besaran hanya berdasarkan estimasi kebutuhan sebelum ada permintaan, kesepakatan harga, dan jadwal pasokan yang jelas.",
+          "## Checklist bagi pelaku usaha perikanan",
+          "### 1. Pilih produk dan bentuk olahan yang sesuai",
+          "Evaluasi ikan patin, lele, nila, filet, potongan, ikan kaleng, abon, sambal ikan, bandeng presto, dan produk siap santap. Pilihan produk harus mengikuti kebutuhan pembeli, karakteristik penyimpanan, serta kemampuan fasilitas produksi. Jangan menganggap semua produk memiliki persyaratan yang sama.",
+          "### 2. Periksa registrasi dan keamanan pangan",
+          "Petakan persyaratan SFDA dan koordinasikan dengan otoritas Indonesia yang berwenang. Siapkan sistem ketertelusuran bahan baku, catatan produksi, hasil pengujian, pengendalian kontaminasi, dan dokumen mutu yang diminta. Klaim sertifikasi atau registrasi hanya boleh ditampilkan jika benar-benar sudah diperoleh.",
+          "### 3. Buktikan kapasitas dan konsistensi",
+          "Buyer institusional membutuhkan pasokan terjadwal, ukuran produk seragam, spesifikasi filet atau potongan yang jelas, dan kemampuan mengganti batch tanpa menurunkan mutu. Catat kapasitas produksi yang dapat dipenuhi secara rutin, bukan kapasitas teoritis.",
+          "### 4. Hitung rantai dingin dan biaya sampai tujuan",
+          "Simulasikan biaya pembekuan, penyimpanan, kemasan, pengangkutan domestik, reefer container atau moda yang sesuai, asuransi, pemeriksaan, dan distribusi di negara tujuan. Periksa suhu penyimpanan serta masa simpan produk berdasarkan spesifikasi teknis dan hasil pengujian.",
+          "### 5. Siapkan dokumen penawaran",
+          "Buat katalog yang memuat spesies, bentuk produk, ukuran, grade, kemasan, kapasitas bulanan, masa simpan, minimum order, dan dokumen yang tersedia. Formulir inquiry sebaiknya meminta volume, jadwal, pelabuhan tujuan, dan spesifikasi pembeli agar penawaran dapat dihitung secara realistis.",
+          "## Produk apa yang berpotensi dikembangkan?",
+          "Selain bahan baku untuk katering, KKP menyebut peluang produk olahan UMKM seperti abon ikan, teri kacang, sambal ikan, bandeng presto, ikan kaleng, dan makanan siap santap. Namun, produk yang cocok untuk bekal jemaah atau katering harus memenuhi spesifikasi pembeli, ketahanan produk, keamanan pangan, dan aturan impor Arab Saudi.",
+          "## Kesimpulan",
+          "Peluang pasar haji dan umrah dapat membuka jalur baru bagi produsen perikanan Indonesia, tetapi tahap saat ini masih berupa pemetaan kebutuhan dan penjajakan. Fokus pada registrasi, mutu, ketertelusuran, rantai dingin, dan kesiapan dokumen sebelum mengejar volume besar.",
+          "Baca juga: [Cara Menyiapkan Katalog Produk Perikanan untuk Pasar Global](https://bisabikinweb.site/artikel/cara-menyiapkan-katalog-produk-perikanan-pasar-global/) dan [Perbedaan Purchase Order dan Potensi Transaksi Ekspor](https://bisabikinweb.site/artikel/perbedaan-purchase-order-dan-potensi-transaksi-ekspor/). BisaBikinWeb dapat membantu menyiapkan katalog digital dan website produk ekspor di https://bisabikinweb.site/.",
+          "Sumber: Kementerian Kelautan dan Perikanan, 27 November 2026. Isi artikel merupakan analisis kesiapan pemasok, bukan pengumuman kontrak ekspor."
+        ],
+        "internal_links": [
+          "https://bisabikinweb.site/artikel/cara-menyiapkan-katalog-produk-perikanan-pasar-global/",
+          "https://bisabikinweb.site/artikel/perbedaan-purchase-order-dan-potensi-transaksi-ekspor/"
+        ],
+        "image_status": "pending_generation_and_commit",
+        "image_caption_proposal": "Ilustrasi AI — gambaran umum rantai pasok perikanan, bukan dokumentasi pertemuan KKP.",
+        "qa_status": "pending_image_and_final_editorial_review"
+      }
+    },
+    {
+      "id": "2026-11-28-cepa-proyeksi-ekspor",
+      "category": "Tren & Analisis Pasar",
+      "topic": "I-EU CEPA, konsentrasi pasar ekspor Indonesia, dan kesiapan eksportir",
+      "summary": "Kemendag memproyeksikan tambahan ekspor USD 3,82–5,78 miliar per tahun selama lima tahun; pada 27 November pemerintah juga menyebut 57% ekspor Indonesia ke UE pada 2025 terkonsentrasi di Belanda, Italia, dan Jerman. Ratifikasi dan regulasi pendukung masih diproses.",
+      "event_date": "2026-11-27",
+      "source_published_at": "2026-11-27",
+      "researched_at": "2026-11-28T11:33:26+07:00",
+      "geography": "Indonesia dan Uni Eropa",
+      "facts": [
+        {
+          "claim": "Kemendag memproyeksikan tambahan ekspor USD 3,82–5,78 miliar per tahun selama lima tahun dengan implementasi I-EU CEPA dan langkah pendukung.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/ekspor-ke-uni-eropa-diproyeksi-bertambah-usd-3-5-miliar-setahun"
+          ]
+        },
+        {
+          "claim": "Sekitar 57 persen ekspor Indonesia ke UE pada 2025 terkonsentrasi di Belanda, Italia, dan Jerman.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/ekspor-indonesia-ke-uni-eropa-masih-terkonsentrasi-ke-tiga-negara"
+          ]
+        },
+        {
+          "claim": "Kemendag menyatakan 90,42 persen pos tarif UE akan dihapus saat implementasi, sedangkan 7,92 persen dihapus bertahap selama 3–15 tahun; proses ratifikasi dan regulasi pendukung masih berjalan.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/ekspor-indonesia-ke-uni-eropa-masih-terkonsentrasi-ke-tiga-negara"
+          ]
+        },
+        {
+          "claim": "Fasilitas GSP UE bagi Indonesia dijadwalkan berakhir pada awal 2027.",
+          "source_urls": [
+            "https://www.kemendag.go.id/berita/siaran-pers/ekspor-indonesia-ke-uni-eropa-masih-terkonsentrasi-ke-tiga-negara"
+          ]
+        }
+      ],
+      "sources": [
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/ekspor-ke-uni-eropa-diproyeksi-bertambah-usd-3-5-miliar-setahun",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-28T11:33:26+07:00"
+        },
+        {
+          "url": "https://www.kemendag.go.id/berita/siaran-pers/ekspor-indonesia-ke-uni-eropa-masih-terkonsentrasi-ke-tiga-negara",
+          "publisher": "Kementerian Perdagangan RI",
+          "accessed_at": "2026-11-28T11:33:26+07:00"
+        }
+      ],
+      "practical_impact": "Eksportir perlu memetakan kode HS, aturan asal barang, skenario biaya sebelum dan sesudah implementasi, serta peluang negara UE selain tiga pasar utama.",
+      "content_angle": "Analisis kesiapan produk dan diversifikasi pasar sebelum I-EU CEPA berlaku; tidak mengulang berita penandatanganan.",
+      "keyword_intent": "persiapan eksportir Indonesia I-EU CEPA; aturan asal barang Uni Eropa; pasar ekspor Uni Eropa",
+      "editorial_status": "verified",
+      "content_status": "drafted",
+      "published_url": null,
+      "recheck_after": "2026-11-29",
+      "draft": {
+        "title": "I-EU CEPA: Apa yang Perlu Disiapkan Eksportir Indonesia?",
+        "seo_title": "I-EU CEPA: Persiapan Eksportir Indonesia ke Pasar Eropa",
+        "meta": "I-EU CEPA membuka peluang ekspor ke UE, tetapi eksportir perlu memeriksa aturan asal barang, kode HS, mutu, dokumen, dan biaya sebelum tarif preferensi berlaku.",
+        "slug": "persiapan-eksportir-indonesia-ieu-cepa",
+        "canonical": "https://bisabikinweb.site/artikel/persiapan-eksportir-indonesia-ieu-cepa/",
+        "schema": "BlogPosting",
+        "body": [
+          "I-EU CEPA dapat memperluas peluang ekspor Indonesia ke pasar Uni Eropa, tetapi eksportir tidak sebaiknya menganggap tarif preferensi sudah berlaku. Per 27 November 2026, pemerintah masih mempercepat ratifikasi dan menyiapkan regulasi pendukung. Persiapan paling penting bagi perusahaan adalah memastikan klasifikasi produk, aturan asal barang, mutu, dokumen, harga, dan kesiapan memenuhi permintaan buyer.",
+          "## Apa perkembangan terbaru I-EU CEPA?",
+          "Kementerian Perdagangan pada 24 November 2026 memproyeksikan tambahan ekspor Indonesia sekitar USD 3,82–5,78 miliar per tahun selama lima tahun apabila implementasi I-EU CEPA dan langkah pendukung berjalan. Angka tersebut merupakan proyeksi, bukan nilai pesanan atau realisasi ekspor.",
+          "Pada 27 November 2026, Kemendag menyampaikan bahwa sekitar 57 persen ekspor Indonesia ke Uni Eropa pada 2025 masih terkonsentrasi di Belanda, Italia, dan Jerman. Pemerintah berharap perjanjian tersebut membuka peluang ke 24 negara anggota lainnya. Menurut keterangan Kemendag, 90,42 persen pos tarif UE direncanakan langsung dihapus saat perjanjian diimplementasikan, sedangkan 7,92 persen akan dihapus bertahap dalam 3–15 tahun. Proses ratifikasi dan regulasi pendukung masih berlangsung, sementara fasilitas GSP UE untuk Indonesia dijadwalkan berakhir pada awal 2027.",
+          "## Checklist persiapan eksportir",
+          "### 1. Pastikan klasifikasi HS dan aturan asal barang",
+          "Identifikasi kode HS produk dengan bantuan pihak yang kompeten. Periksa aturan asal barang yang akan berlaku untuk produk tersebut, termasuk ketentuan bahan baku, proses produksi, dan dokumen pendukung. Jangan mencantumkan tarif preferensi pada penawaran final sebelum ketentuan dan tanggal implementasinya dipastikan.",
+          "### 2. Hitung dua skenario biaya",
+          "Buat simulasi harga menggunakan tarif dan biaya yang berlaku saat ini, lalu siapkan skenario terpisah apabila fasilitas preferensi sudah efektif dan produk memenuhi syarat. Masukkan biaya bahan baku, tenaga kerja, kemasan, pengujian, sertifikasi, pengangkutan, asuransi, bea masuk yang relevan, dan margin. Ini mencegah perusahaan menjual terlalu murah karena mengandalkan penghematan yang belum dapat digunakan.",
+          "### 3. Siapkan bukti mutu dan kapasitas",
+          "Buyer membutuhkan spesifikasi yang konsisten, kapasitas pasokan yang realistis, waktu produksi, toleransi mutu, pilihan kemasan, dan dokumen yang benar-benar dimiliki. Sertifikasi hanya boleh dicantumkan jika masih berlaku dan mencakup produk serta fasilitas yang ditawarkan.",
+          "### 4. Jangan hanya menargetkan tiga pasar utama",
+          "Pemetaan pasar perlu membandingkan kebutuhan produk, standar teknis, kanal distribusi, biaya logistik, bahasa bisnis, dan persaingan di negara tujuan. Belanda, Italia, dan Jerman tetap penting, tetapi eksportir dapat menilai peluang di negara UE lain berdasarkan kecocokan produk dan kemampuan melayani buyer.",
+          "### 5. Rapikan katalog dan jalur inquiry",
+          "Sediakan profil perusahaan, katalog digital, foto produk yang representatif, spesifikasi, kapasitas pasokan, serta kontak bisnis yang aktif. Website berbahasa Inggris dapat membantu buyer memeriksa informasi sebelum meminta sampel atau penawaran. Jangan menjanjikan kapasitas, pengalaman, atau sertifikasi yang tidak dapat dibuktikan.",
+          "## Apakah semua produk otomatis mendapat tarif nol?",
+          "Tidak. Penghapusan tarif bergantung pada pos tarif dan jadwal implementasi perjanjian, serta pemenuhan aturan asal barang dan persyaratan lain. Sebagian pos tarif dijadwalkan turun bertahap. Eksportir perlu memeriksa jadwal dan prosedur resmi yang berlaku pada saat transaksi, bukan hanya mengandalkan ringkasan umum.",
+          "## Kesimpulan",
+          "I-EU CEPA memberi peluang untuk memperluas pasar, tetapi peluang tersebut baru bernilai jika perusahaan siap memenuhi ketentuan, menjaga mutu, menghitung biaya, dan merespons buyer. Prioritaskan persiapan produk dan validasi pasar sambil menunggu kepastian implementasi.",
+          "Baca juga: [Strategi Menembus Pasar Eropa bagi Eksportir Indonesia](https://bisabikinweb.site/artikel/strategi-menembus-pasar-eropa-bagi-eksportir-indonesia/). Untuk memperkuat katalog dan company profile ekspor, kunjungi [BisaBikinWeb](https://bisabikinweb.site/).",
+          "Sumber: Kementerian Perdagangan RI, siaran pers 24 November 2026 dan 27 November 2026. Analisis ini membedakan proyeksi pemerintah dari realisasi transaksi."
+        ],
+        "internal_links": [
+          "https://bisabikinweb.site/artikel/strategi-menembus-pasar-eropa-bagi-eksportir-indonesia/"
+        ],
+        "image_status": "pending_generation_and_commit",
+        "image_caption_proposal": "Ilustrasi AI — gambaran umum persiapan ekspor, bukan dokumentasi kegiatan.",
+        "qa_status": "pending_image_and_final_editorial_review"
+      }
     }
   ],
-  "notes": "Riset awal 28 November. Pencarian energi, kakao, kelapa, kopi, buah dan walet belum menemukan pembaruan primer dalam tujuh hari; hasil lama tidak diperlakukan sebagai berita. Pemeriksaan 15 klaster dan duplikasi CMS/media belum lengkap. Draft tidak terhubung ke build."
+  "notes": "Pemeriksaan 15 klaster selesai pada 28 November 2026. Tiga artikel disimpan sebagai draft CMS (I-EU CEPA, peluang perikanan haji/umrah, dan ekspor manufaktur/IKM); tidak ada yang dipublikasikan. Riset digitalisasi ASEAN berstatus needs_verification karena halaman sumber timeout. Temuan ekspor UMKM 19 November tidak dibuat ulang karena CMS telah memiliki artikel tentang perbedaan PO dan potensi transaksi. Pemeriksaan foto berizin belum selesai; ketiga draft tetap tanpa cover image. QA, build, dan deploy publikasi ditahan sampai gambar serta pemeriksaan akhir selesai.",
+  "daily_content_limit": 5,
+  "daily_draft_count": 3,
+  "daily_published_count": 0
 }
